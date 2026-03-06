@@ -54,9 +54,10 @@ export function getPerson(slug: string): Person | null {
 }
 
 export function getPersonImage(slug: string): string | null {
+  const pub = path.join(process.cwd(), "public", "people");
   for (const ext of ["png", "jpg", "jpeg", "webp"]) {
-    const file = path.join(DATA_DIR, "people", `${slug}.${ext}`);
-    if (fs.existsSync(file)) return `/data/people/${slug}.${ext}`;
+    if (fs.existsSync(path.join(pub, `${slug}.${ext}`)))
+      return `/people/${slug}.${ext}`;
   }
   return null;
 }
@@ -84,9 +85,10 @@ export function getPodcast(slug: string): Podcast | null {
 }
 
 export function getPodcastLogo(slug: string): string | null {
+  const pub = path.join(process.cwd(), "public", "podcasts", slug);
   for (const ext of ["png", "jpg", "jpeg", "webp"]) {
-    const file = path.join(DATA_DIR, "podcasts", slug, `logo.${ext}`);
-    if (fs.existsSync(file)) return `/data/podcasts/${slug}/logo.${ext}`;
+    if (fs.existsSync(path.join(pub, `logo.${ext}`)))
+      return `/podcasts/${slug}/logo.${ext}`;
   }
   return null;
 }
