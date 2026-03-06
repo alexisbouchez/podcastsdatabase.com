@@ -75,6 +75,8 @@ export default async function PersonPage({
               alt={person.name}
               width={64}
               height={64}
+              sizes="64px"
+              priority
               className="rounded-full"
             />
           ) : null;

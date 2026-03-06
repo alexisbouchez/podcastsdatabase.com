@@ -55,6 +55,8 @@ export default async function PodcastPage({
               alt={podcast.title}
               width={80}
               height={80}
+              sizes="80px"
+              priority
               className="rounded shrink-0"
             />
           ) : null;
