@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path(.*)",
+      "has": [{ "type": "host", "value": "podcastsdatabase.com" }],
+      "destination": "https://www.podcastsdatabase.com/:path",
+      "permanent": true
+    }
+  ]
+}
