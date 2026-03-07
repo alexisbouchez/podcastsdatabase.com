@@ -1,0 +1,61 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Commands
+
+- `npm run dev` — start dev server (localhost:3000)
+- `npm run build` — production build
+- `npm run lint` — ESLint (flat config, Next.js core-web-vitals + typescript)
+
+## Architecture
+
+Next.js 16 App Router site deployed on Vercel. Statically generated — all pages use `generateStaticParams`. Styled with Tailwind CSS v4 and Geist Mono font. No database; all content is JSON files on disk.
+
+### Data layer
+
+`src/lib/data.ts` — all data access functions. Reads JSON from `src/data/` at build time using `fs`.
+
+- **Podcasts**: `src/data/podcasts/<slug>/info.json` (title, description, language, hosts, links)
+- **Episodes**: `src/data/podcasts/<slug>/episodes/<id>.json` (title, description, links, speakers, segments with diarized transcript)
+- **People**: `src/data/people/<slug>.json` (name, links)
+- **Images**: `public/podcasts/<slug>/logo.{png,jpg,webp}` and `public/people/<slug>.{png,jpg,webp}`
+
+Hosts and speakers reference people by slug. Episodes reference speakers by slug. The `speakers` array on episodes includes all participants (hosts appear because they're listed per-episode, not inherited from podcast).
+
+### Routes
+
+- `/` — lists all podcasts and people
+- `/podcasts/[slug]` — podcast detail with episode list
+- `/podcasts/[slug]/episodes/[id]` — episode detail with transcript viewer
+- `/people/[slug]` — person detail with all episode appearances
+
+### Components
+
+- `src/app/components/transcript.tsx` — client component ("use client") with search/filter over diarized segments
+- `src/app/components/breadcrumbs.tsx` — server component, breadcrumb nav using `~` as home
+
+### Scripts
+
+`scripts/diarize.ts` — run with `bun run scripts/diarize.ts <audio> <transcription.json>`. Uses pyannote.ai API (`PYANNOTE_API_KEY` env var) to assign speakers to transcript segments.
+
+### Path alias
+
+`@/*` maps to project root (e.g., `@/src/lib/data`).
+
+## Process: adding an episode
+
+1. Grab the episode mp3, title, description, links (YouTube, Spotify, Apple), and speaker slugs
+2. Transcribe the audio using a transcription tool (use the correct language for the podcast)
+3. Diarize with pyannote: `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>`
+4. Review the diarized output — fix misheard words, proper nouns, and speaker names. Keep filler words (um, like, you know) as-is; transcripts should sound natural
+5. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
+6. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
+7. Run `npm run build` and `npm run lint` to verify everything is clean before committing
+
+## Conventions
+
+- Vercel redirects non-www to www (`vercel.json`)
+- Light/dark theme via `prefers-color-scheme` CSS media query
+- Links use `Record<string, string>` (label → URL) throughout all data types
+- Episode IDs are numeric strings, sorted descending (newest first)
