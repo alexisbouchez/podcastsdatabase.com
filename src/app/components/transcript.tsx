@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 interface EpisodeSegment {
   start: number;
   end: number;
@@ -14,6 +14,10 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
+function segmentId(index: number): string {
+  return `seg-${index}`;
+}
+
 export function Transcript({
   segments,
   speakerMap,
@@ -24,15 +28,23 @@ export function Transcript({
   const [query, setQuery] = useState("");
   const lower = query.toLowerCase();
 
+  useEffect(() => {
+    const hash = window.location.hash.slice(1);
+    if (hash.startsWith("seg-")) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  const indexed = segments.map((seg, i) => ({ seg, originalIndex: i }));
   const filtered = lower
-    ? segments.filter(
-        (seg) =>
+    ? indexed.filter(
+        ({ seg }) =>
           seg.text.toLowerCase().includes(lower) ||
           (speakerMap[seg.speaker] ?? seg.speaker)
             .toLowerCase()
             .includes(lower),
       )
-    : segments;
+    : indexed;
 
   return (
     <details open>
@@ -60,12 +72,19 @@ export function Transcript({
       )}
 
       <ol className="mt-4 border-t border-foreground/10">
-        {filtered.map((seg, i) => (
-          <li key={i} className="py-3 border-b border-foreground/5">
+        {filtered.map(({ seg, originalIndex }) => (
+          <li
+            key={originalIndex}
+            id={segmentId(originalIndex)}
+            className="py-3 border-b border-foreground/5 scroll-mt-4 target:bg-link/10"
+          >
             <div className="flex items-baseline gap-3">
-              <time className="text-xs text-foreground/60 tabular-nums select-none shrink-0">
-                {formatTime(seg.start)}
-              </time>
+              <a
+                href={`#${segmentId(originalIndex)}`}
+                className="text-xs text-foreground/60 tabular-nums select-none shrink-0 hover:text-foreground no-underline"
+              >
+                <time>{formatTime(seg.start)}</time>
+              </a>
               <cite className="text-xs font-semibold not-italic shrink-0">
                 {speakerMap[seg.speaker] ?? seg.speaker}
               </cite>
