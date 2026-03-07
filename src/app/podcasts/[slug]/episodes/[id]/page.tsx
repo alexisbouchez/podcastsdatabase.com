@@ -70,6 +70,7 @@ export default async function EpisodePage({
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
           {podcast.title} — Episode {id}
+          {episode.date && <> — {episode.date}</>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
         {episode.description && (

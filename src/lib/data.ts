@@ -19,6 +19,7 @@ export interface EpisodeSegment {
 export interface Episode {
   id: string;
   title: string;
+  date?: string;
   description?: string;
   links: Record<string, string>;
   speakers?: string[];

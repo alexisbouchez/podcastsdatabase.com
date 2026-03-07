@@ -122,6 +122,11 @@ export default async function PodcastPage({
                 <Link href={`/podcasts/${slug}/episodes/${ep.id}`}>
                   {ep.title}
                 </Link>
+                {ep.date && (
+                  <span className="text-foreground/40 text-sm ml-2">
+                    {ep.date}
+                  </span>
+                )}
               </li>
             ))}
           </ol>
