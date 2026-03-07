@@ -32,11 +32,12 @@ export function GET() {
 
       if (ep.segments) {
         // Index transcript segments grouped per speaker turn
-        for (const seg of ep.segments) {
+        for (let i = 0; i < ep.segments.length; i++) {
+          const seg = ep.segments[i];
           entries.push({
             type: "transcript",
             title: seg.text,
-            url: `/podcasts/${p.slug}/episodes/${ep.id}`,
+            url: `/podcasts/${p.slug}/episodes/${ep.id}#seg-${i}`,
             context: `${p.title} #${ep.id}`,
           });
         }
