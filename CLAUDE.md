@@ -47,11 +47,12 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 
 1. Grab the episode mp3, title, description, links (YouTube, Spotify, Apple), and speaker slugs
 2. Transcribe the audio using a transcription tool (use the correct language for the podcast)
-3. Diarize with pyannote: `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>`
-4. Review the diarized output — fix misheard words, proper nouns, and speaker names. Keep filler words (um, like, you know) as-is; transcripts should sound natural
-5. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
-6. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
-7. Run `npm run build` and `npm run lint` to verify everything is clean before committing
+3. Diarize with pyannote: `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>` — the transcription JSON must have `{segments: [...]}` format (the script reads `data.segments`)
+4. Merge consecutive same-speaker segments into single turns (Whisper produces sentence-level fragments; the final JSON should have one segment per speaker turn, matching natural conversation flow)
+5. Review the diarized output — fix misheard words, proper nouns, and speaker names. Replace SPEAKER_XX labels with people slugs. Keep filler words (um, like, you know) as-is; transcripts should sound natural
+6. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
+7. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
+8. Clean up: remove intermediate files (raw mp3, transcription JSON, diarized output) — only the final episode JSON and any new people/image files should be committed. Run `npm run build` and `npm run lint` to verify
 
 ## Conventions
 
