@@ -37,7 +37,12 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 
 ### Scripts
 
-`scripts/diarize.ts` — run with `bun run scripts/diarize.ts <audio> <transcription.json>`. Uses pyannote.ai API (`PYANNOTE_API_KEY` env var) to assign speakers to transcript segments.
+- `scripts/diarize.ts` — run with `bun run scripts/diarize.ts <audio> <transcription.json>`. Uses pyannote.ai API (`PYANNOTE_API_KEY` env var) to assign speakers to transcript segments.
+- `scripts/download-logo.ts` — run with `bun run scripts/download-logo.ts <apple-podcasts-url> <podcast-slug>`. Downloads the podcast artwork from Apple Podcasts to `public/podcasts/<slug>/logo.jpg`.
+
+### Utilities
+
+- `src/lib/apple-podcasts.ts` — `parseAppleId()`, `lookupPodcast()`, `downloadArtwork()` functions for fetching podcast metadata and artwork from the iTunes Lookup API.
 
 ### Path alias
 

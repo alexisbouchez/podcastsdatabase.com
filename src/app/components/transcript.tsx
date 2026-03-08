@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { flushSync } from "react-dom";
 interface EpisodeSegment {
   start: number;
   end: number;
@@ -38,12 +39,8 @@ export function Transcript({
   useEffect(() => {
     if (activeIndex === null) return;
     const id = segmentId(activeIndex);
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-      history.replaceState(null, "", `#${id}`);
-    }
-  }, [activeIndex]);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const indexed = segments.map((seg, i) => ({ seg, originalIndex: i }));
   const filtered = lower
@@ -74,8 +71,16 @@ export function Transcript({
           onKeyDown={(e) => {
             if (e.key === "Enter" && filtered.length > 0) {
               e.preventDefault();
-              setActiveIndex(filtered[0].originalIndex);
-              setQuery("");
+              const idx = filtered[0].originalIndex;
+              flushSync(() => {
+                setActiveIndex(idx);
+                setQuery("");
+              });
+              const el = document.getElementById(segmentId(idx));
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+                history.replaceState(null, "", `#${segmentId(idx)}`);
+              }
             }
           }}
           className="w-full bg-background border border-foreground/10 px-3 py-2 text-sm placeholder:text-foreground/60 focus:outline-none focus:border-foreground/60"
