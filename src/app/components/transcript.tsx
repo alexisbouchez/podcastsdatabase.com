@@ -26,6 +26,13 @@ export function Transcript({
   speakerMap: Record<string, string>;
 }) {
   const [query, setQuery] = useState("");
+  const [activeIndex, setActiveIndex] = useState<number | null>(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash.slice(1);
+      if (hash.startsWith("seg-")) return parseInt(hash.replace("seg-", ""), 10);
+    }
+    return null;
+  });
   const lower = query.toLowerCase();
 
   useEffect(() => {
@@ -63,11 +70,14 @@ export function Transcript({
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && filtered.length > 0) {
-              const el = document.getElementById(
-                segmentId(filtered[0].originalIndex),
-              );
-              el?.scrollIntoView({ behavior: "smooth" });
-              if (el) history.replaceState(null, "", `#${el.id}`);
+              const idx = filtered[0].originalIndex;
+              setActiveIndex(idx);
+              setQuery("");
+              requestAnimationFrame(() => {
+                const el = document.getElementById(segmentId(idx));
+                el?.scrollIntoView({ behavior: "smooth" });
+                history.replaceState(null, "", `#${segmentId(idx)}`);
+              });
             }
           }}
           className="w-full bg-background border border-foreground/10 px-3 py-2 text-sm placeholder:text-foreground/60 focus:outline-none focus:border-foreground/60"
@@ -85,7 +95,7 @@ export function Transcript({
           <li
             key={originalIndex}
             id={segmentId(originalIndex)}
-            className="py-3 border-b border-foreground/5 scroll-mt-4 target:bg-link/10"
+            className={`py-3 border-b border-foreground/5 scroll-mt-4 target:bg-link/10${activeIndex === originalIndex ? " bg-link/10" : ""}`}
           >
             <div className="flex items-baseline gap-3">
               <a
