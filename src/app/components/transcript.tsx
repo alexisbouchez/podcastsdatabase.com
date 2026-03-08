@@ -63,11 +63,11 @@ export function Transcript({
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && filtered.length > 0) {
-              const id = segmentId(filtered[0].originalIndex);
-              window.location.hash = id;
-              document
-                .getElementById(id)
-                ?.scrollIntoView({ behavior: "smooth" });
+              const el = document.getElementById(
+                segmentId(filtered[0].originalIndex),
+              );
+              el?.scrollIntoView({ behavior: "smooth" });
+              if (el) history.replaceState(null, "", `#${el.id}`);
             }
           }}
           className="w-full bg-background border border-foreground/10 px-3 py-2 text-sm placeholder:text-foreground/60 focus:outline-none focus:border-foreground/60"

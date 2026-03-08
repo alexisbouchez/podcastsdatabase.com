@@ -50,9 +50,15 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 3. Diarize with pyannote: `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>` — the transcription JSON must have `{segments: [...]}` format (the script reads `data.segments`)
 4. Merge consecutive same-speaker segments into single turns (Whisper produces sentence-level fragments; the final JSON should have one segment per speaker turn, matching natural conversation flow)
 5. Review the diarized output — fix misheard words, proper nouns, and speaker names. Replace SPEAKER_XX labels with people slugs. Keep filler words (um, like, you know) as-is; transcripts should sound natural
-6. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
-7. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
-8. Clean up: remove intermediate files (raw mp3, transcription JSON, diarized output) — only the final episode JSON and any new people/image files should be committed. Run `npm run build` and `npm run lint` to verify
+6. Check and fix segmentation/diarization issues — check every segment boundary for text that belongs to the adjacent speaker. Common patterns:
+   - Sentence fragments split across boundaries (e.g. segment ends "hopefully people get" and next starts "the picture" — the sentence should be whole)
+   - A speaker's answer attributed to the previous speaker's segment (e.g. Gonto asks "did you understand what they do?" and Hank's reply "So I did already understand" stays in Gonto's segment)
+   - Trailing words from the previous speaker's thought landing at the start of the next segment (e.g. "storefront of your website" completing "the most important..." from the prior segment)
+   - Brief agreements/transitions ("exactly", "that's true", "for somebody to be on my team") attached to the wrong speaker
+   Move the misattributed text to the correct segment. Do not adjust timestamps (we don't have exact boundaries). Capitalize the first word of a segment when it becomes a new sentence start.
+7. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
+8. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
+9. Clean up: remove intermediate files (raw mp3, transcription JSON, diarized output) — only the final episode JSON and any new people/image files should be committed. Run `npm run build` and `npm run lint` to verify
 
 ## Conventions
 
