@@ -40,6 +40,7 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 - `scripts/diarize.ts` — run with `bun run scripts/diarize.ts <audio> <transcription.json>`. Uses pyannote.ai API (`PYANNOTE_API_KEY` env var) to assign speakers to transcript segments.
 - `scripts/download-logo.ts` — run with `bun run scripts/download-logo.ts <apple-podcasts-url> <podcast-slug>`. Downloads the podcast artwork from Apple Podcasts to `public/podcasts/<slug>/logo.jpg`.
 - `scripts/transcribe-remote.ts` — run with `bun run scripts/transcribe-remote.ts <audio_file> [-m model] [-l language] [-n num_speakers] [-o output_dir]`. Uploads audio to the VPS pipeline (`internal.podcastsdatabase.com`), polls until transcription + diarization completes, downloads the result. Requires `PIPELINE_URL` and `PIPELINE_PASSWORD` in `.env.local`.
+- `scripts/transcribe-fly.ts` — run with `bun run scripts/transcribe-fly.ts <url> [url2 ...] [-n num_speakers] [-o output_dir] [--max-concurrent 3]`. Spins up ephemeral Fly.io machines that download audio via yt-dlp, transcribe with faster-whisper, diarize with pyannote, and return merged results. Supports parallel processing. Requires `FLY_API_TOKEN` and `PYANNOTE_API_KEY` in `.env.local`. Docker image in `fly/`.
 
 ### Utilities
 
@@ -52,8 +53,9 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 ## Process: adding an episode
 
 1. Grab the episode mp3, title, description, links (YouTube, Spotify, Apple), and speaker slugs
-2. Transcribe and diarize — two options:
-   - **Remote (preferred)**: `bun run scripts/transcribe-remote.ts <audio> -n <num_speakers> -l <language>` — uploads to VPS, runs Whisper + pyannote, downloads merged result. Outputs `*_diarized.json`, `*_diarized.txt`, and `*_episode.json`.
+2. Transcribe and diarize — three options:
+   - **Fly.io (preferred for batch)**: `bun run scripts/transcribe-fly.ts <url1> [url2 ...] -n <num_speakers> --max-concurrent 3` — spins up parallel Fly machines, each downloads via yt-dlp, transcribes, diarizes, and returns results. Best for processing many episodes at once.
+   - **VPS**: `bun run scripts/transcribe-remote.ts <audio> -n <num_speakers> -l <language>` — uploads to VPS, runs Whisper + pyannote, downloads merged result. Outputs `*_diarized.json`, `*_diarized.txt`, and `*_episode.json`.
    - **Local**: Transcribe with `scripts/transcribe.py`, then diarize with `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>`
 3. Merge consecutive same-speaker segments into single turns (Whisper produces sentence-level fragments; the final JSON should have one segment per speaker turn, matching natural conversation flow)
 4. Review the diarized output — fix misheard words, proper nouns, and speaker names. Replace SPEAKER_XX labels with people slugs. Keep filler words (um, like, you know) as-is; transcripts should sound natural

@@ -1,0 +1,17 @@
+app = "pdb-transcriber"
+primary_region = "ord"
+
+[build]
+
+# No persistent services - machines are created on-demand via API
+# This config is just for building the image
+[http_service]
+  internal_port = 8080
+  force_https = false
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  size = "a10"
+  memory = "32gb"
