@@ -36,11 +36,14 @@ export function Transcript({
   const lower = query.toLowerCase();
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash.startsWith("seg-")) {
-      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    if (activeIndex === null) return;
+    const id = segmentId(activeIndex);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      history.replaceState(null, "", `#${id}`);
     }
-  }, []);
+  }, [activeIndex]);
 
   const indexed = segments.map((seg, i) => ({ seg, originalIndex: i }));
   const filtered = lower
@@ -70,14 +73,9 @@ export function Transcript({
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter" && filtered.length > 0) {
-              const idx = filtered[0].originalIndex;
-              setActiveIndex(idx);
+              e.preventDefault();
+              setActiveIndex(filtered[0].originalIndex);
               setQuery("");
-              requestAnimationFrame(() => {
-                const el = document.getElementById(segmentId(idx));
-                el?.scrollIntoView({ behavior: "smooth" });
-                history.replaceState(null, "", `#${segmentId(idx)}`);
-              });
             }
           }}
           className="w-full bg-background border border-foreground/10 px-3 py-2 text-sm placeholder:text-foreground/60 focus:outline-none focus:border-foreground/60"
