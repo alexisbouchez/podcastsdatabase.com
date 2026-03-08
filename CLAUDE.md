@@ -39,6 +39,7 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 
 - `scripts/diarize.ts` — run with `bun run scripts/diarize.ts <audio> <transcription.json>`. Uses pyannote.ai API (`PYANNOTE_API_KEY` env var) to assign speakers to transcript segments.
 - `scripts/download-logo.ts` — run with `bun run scripts/download-logo.ts <apple-podcasts-url> <podcast-slug>`. Downloads the podcast artwork from Apple Podcasts to `public/podcasts/<slug>/logo.jpg`.
+- `scripts/transcribe-remote.ts` — run with `bun run scripts/transcribe-remote.ts <audio_file> [-m model] [-l language] [-n num_speakers] [-o output_dir]`. Uploads audio to the VPS pipeline (`internal.podcastsdatabase.com`), polls until transcription + diarization completes, downloads the result. Requires `PIPELINE_URL` and `PIPELINE_PASSWORD` in `.env.local`.
 
 ### Utilities
 
@@ -51,19 +52,20 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 ## Process: adding an episode
 
 1. Grab the episode mp3, title, description, links (YouTube, Spotify, Apple), and speaker slugs
-2. Transcribe the audio using a transcription tool (use the correct language for the podcast)
-3. Diarize with pyannote: `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>` — the transcription JSON must have `{segments: [...]}` format (the script reads `data.segments`)
-4. Merge consecutive same-speaker segments into single turns (Whisper produces sentence-level fragments; the final JSON should have one segment per speaker turn, matching natural conversation flow)
-5. Review the diarized output — fix misheard words, proper nouns, and speaker names. Replace SPEAKER_XX labels with people slugs. Keep filler words (um, like, you know) as-is; transcripts should sound natural
-6. Check and fix segmentation/diarization issues — check every segment boundary for text that belongs to the adjacent speaker. Common patterns:
+2. Transcribe and diarize — two options:
+   - **Remote (preferred)**: `bun run scripts/transcribe-remote.ts <audio> -n <num_speakers> -l <language>` — uploads to VPS, runs Whisper + pyannote, downloads merged result. Outputs `*_diarized.json`, `*_diarized.txt`, and `*_episode.json`.
+   - **Local**: Transcribe with `scripts/transcribe.py`, then diarize with `bun run scripts/diarize.ts <audio> <transcription.json> -n <num_speakers>`
+3. Merge consecutive same-speaker segments into single turns (Whisper produces sentence-level fragments; the final JSON should have one segment per speaker turn, matching natural conversation flow)
+4. Review the diarized output — fix misheard words, proper nouns, and speaker names. Replace SPEAKER_XX labels with people slugs. Keep filler words (um, like, you know) as-is; transcripts should sound natural
+5. Check and fix segmentation/diarization issues — check every segment boundary for text that belongs to the adjacent speaker. Common patterns:
    - Sentence fragments split across boundaries (e.g. segment ends "hopefully people get" and next starts "the picture" — the sentence should be whole)
    - A speaker's answer attributed to the previous speaker's segment (e.g. Gonto asks "did you understand what they do?" and Hank's reply "So I did already understand" stays in Gonto's segment)
    - Trailing words from the previous speaker's thought landing at the start of the next segment (e.g. "storefront of your website" completing "the most important..." from the prior segment)
    - Brief agreements/transitions ("exactly", "that's true", "for somebody to be on my team") attached to the wrong speaker
    Move the misattributed text to the correct segment. Do not adjust timestamps (we don't have exact boundaries). Capitalize the first word of a segment when it becomes a new sentence start.
-7. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
-8. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
-9. Clean up: remove intermediate files (raw mp3, transcription JSON, diarized output) — only the final episode JSON and any new people/image files should be committed. Run `npm run build` and `npm run lint` to verify
+6. Assemble the final `src/data/podcasts/<slug>/episodes/<id>.json` with title, description, links, speakers, and segments
+7. Create any missing people entries in `src/data/people/<slug>.json` if new guests appear
+8. Clean up: remove intermediate files (raw mp3, transcription JSON, diarized output) — only the final episode JSON and any new people/image files should be committed. Run `npm run build` and `npm run lint` to verify
 
 ## Conventions
 
