@@ -1,0 +1,1149 @@
+{
+  "title": "Selling mountain bikes all over the planet",
+  "description": "Jeff Cayley, Founder of Worldwide Cyclery, joins Adam to discuss selling mountain bikes globally and creating outdoor gear, parts, and accessories.",
+  "links": {
+    "YouTube": "https://youtu.be/T8X-ifgyN7c",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jeff-cayley"
+  ],
+  "segments": [
+    {
+      "start": 15.06,
+      "end": 67.18,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, your weekly talk show about building a mountain bike retailer. A big thank you to our friends and partners at Fly.io, made for humans and robots. Learn more at Fly.io. Okay, let's talk. Well friends, it's all about faster builds. Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay, so Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 67.18,
+      "end": 139.57,
+      "speaker": "jeff-cayley",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is, if you think about a CI provider, it is, in essence, a lowest common denominator, generic VM. And then you're left to your own devices to essentially configure that VM and configure your build pipeline. Effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast. Making them fast, making them secure, making them cost effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features, a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes their builds more cost effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top level entity inside of generic CI providers."
+    },
+    {
+      "start": 139.57,
+      "end": 182.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, okay friends, save your time, get faster builds with Depo, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depo.dev. Get started with a seven day free trial, no credit card required, again, depo.dev. Okay, Jeff Caley, it has been, for me, it's been a journey. I guess it's been a journey for you too, but I've known of you and have been impressed by you for many years now, if you didn't know that already."
+    },
+    {
+      "start": 182.28,
+      "end": 183.68,
+      "speaker": "jeff-cayley",
+      "text": "Well, thank you, appreciate that."
+    },
+    {
+      "start": 183.68,
+      "end": 213.04,
+      "speaker": "adam-stacoviak",
+      "text": "I see you as a mountain biker, an entrepreneur. And to me, those are like two really awesome qualities. So you're high up on my list of people to care for in this world. And even if you didn't know, I've been really impressed with worldwide cyclery. What's crazy though is when I ask people about it and where they buy their mountain bike gear, they don't always say, from you. And that makes me sad. So I feel like you should be the most well known just as much as anybody else. And I don't know, you're not always on the top list,"
+    },
+    {
+      "start": 213.04,
+      "end": 233.41,
+      "speaker": "jeff-cayley",
+      "text": "but I love your business and I want. The retail space is challenging and competitive and it's changed a lot. And yeah, we're definitely well known and the third biggest in the US. And I think the fifth in the world when it comes to the enthusiast high-end mountain bike space but still a lot of options for people to buy things these days on the interwebs."
+    },
+    {
+      "start": 233.41,
+      "end": 263.49,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I don't usually ask people to introduce themselves. I kind of like just do it with you naturally, but I feel like you're a left of center guest in so far that this show primarily speaks to software developers. We don't usually talk about mountain biking. However, we did have a mutual friend, Adam Miller on this podcast. Years ago, I guess back when he was the original founder of Ravel, still is the original founder, but now he's buying it back. We'll probably get into some of that detail, but."
+    },
+    {
+      "start": 263.49,
+      "end": 264.77,
+      "speaker": "jeff-cayley",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 264.77,
+      "end": 281.97,
+      "speaker": "adam-stacoviak",
+      "text": "Had Adam on, I would say during some of the heyday for mountain biking. This last several years has been a unique space, but just because you're a unique guest for this show, please introduce yourself to some degree. How would you introduce yourself?"
+    },
+    {
+      "start": 281.97,
+      "end": 544.99,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, cool. I'm definitely not a software developer, although I am very much a nerd in a sense. I love technology and business and finance and all of that, but don't specifically work in that. So yeah, I grew up in Southern California and was just always into extreme sports. Mountain biking was the most prominent one for me. And I started racing a lot when I was a teenager and raced a couple of years professionally out of high school and broke plenty of bones. And I was doing Enduro and downhill racing and had always worked in the industry and the off seasons as well. And from there, I opened up a mountain bike shop that was online and in store with the idea of it being very much tailored towards the high end enthusiast portion of the market. And I wanted it to be very multi-channel retail. So e-commerce heavy, but still have a good in-store presence as well. And that was in 2011. So I opened that business when I was 21, which was quite some years ago now and just grew it and scaled it. And we did a lot of unique content marketing to sort of put ourselves on the map and have always had a lot of fun in the game of business, like trying to make sure our marketing came across as enjoyable and fun and authentic and creative and unique, and really wasn't super tactical with, it wasn't calculated in a sense, it was just more real and this is what we are. And we educated people on the things we knew about in the space and did right by our customers and worked really hard to build a good business that had repeat customers and all that and curate sort of all of the best stuff the mountain bike world had to offer. So yeah, we've done that for quite a long time. And around 2016, I had kind of started seeing some sort of cracks forming with that business model of bicycle industry retail. And so Worldwide Cyclery just for context was a retailer. So think your traditional bike shop, albeit mostly online and specifically geared towards the high end segment of the mountain bike portion and catered towards the enthusiasts. And that business was, it was just the model was changing in a sense that a lot of the brands in the industry were starting to sell consumer direct and the retail landscape was changing because of that. COVID came along and the bicycle industry went through this massive boom cycle. Everyone who was already a mountain biker just rode more frequently and got more into the sport and more intrigued with it. And people who weren't necessarily mountain bikers got into the sport. It was just a great socially distant activity to get into. And the whole industry boomed all the categories. That lasted longer than most people thought it would. Happened probably a couple of years and it went through a huge bust cycle. And needless to say, pre-COVID we had done a couple of things as we saw some faults and cracks with the business. And one of which was fire up a mountain bike hard goods brand which actually did the design and manufacturing of things like pedals, grips, bars, stems. So we saw that business called Trail One Components and it's really tailored towards giving back to the sport as well as manufacturing all the products. And then we also acquired a very small brand that we did retail called Kettle Mountain Apparel. And it was in its infancy. One of the distributors we worked with had made it as sort of a cross-functional versatile apparel brand that had some mountain bike pieces. And we actually ended up buying it from them cause we really wanted to get into the apparel space cause we just really enjoyed apparel of all kinds in the outdoor segment. And we did a lot more. When I say we it's like me and my business partners we did a lot more than just mountain biking. So that was in late 2019 that we did that. And that business now Kettle Mountain Apparel is actually a bigger business than Worldwide Cyclery. It's grown and scaled really fast. And so yeah, now I'm basically running Worldwide Cyclery still which has three retail stores still a big online business running Kettle Mountain Apparel which makes some mountain bike specific gear but mostly adventure travel apparel of all kinds all men's wear and then Trail One Components which is a mountain bike hard goods brand. So yeah, that's a long-winded way of saying just some random kid from California who was really into mountain biking and outdoor stuff and also really enjoyed the game and sport of business."
+    },
+    {
+      "start": 544.99,
+      "end": 559.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I look at the things you've done and from the outside it's easy to see the highlights, right? But I'm sure there's a lot of challenge in there. 2011, was that still Worldwide Cyclery in 2011 or was it a different brand?"
+    },
+    {
+      "start": 559.24,
+      "end": 671.42,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, so Worldwide Cyclery was the first one. The industry was in a unique spot, right? Because if you look at the bike industry, 70s, 80s, 90s and even into the aughts it was kind of a heyday for brick and mortar bike shops. Brick and mortar bike shops did really well. They were good businesses. They had decent margins. They're relatively easy to operate. They were good small businesses. That obviously got really turned up when e-commerce came into the fold and sort of that 2011 to 2022 was sort of the heyday of the e-commerce side of the cycling industry. And yeah, Worldwide Cyclery was the first one. Started at age 21 and the reason I named it that is because if you remember the US had fairly recently gone through the huge financial recession and the USD was actually pretty low against the basket of currencies and mountain biking is a super global sport and we have access to a lot of the best stuff in the United States and there was a big opportunity I saw that you could sell a lot of this stuff online internationally and that was the initial market I was really focused on which is why I named the business Worldwide Cyclery and for the first three years of Worldwide Cyclery, so 2011 to 2014, we were predominantly international in terms of where we were selling and marketing. And then that shifted. The USD just got stronger and stronger. Different countries that were big sort of mountain bike markets, their currency went downward and our business shifted much more domestic. So yeah, it's been, Worldwide Cyclery is kind of an old business now. It's funny, I hear people all the time calling their businesses a startup and it's 10 years old. I'm like, just because you're losing money doesn't mean you're a startup if you're 10 years old. Even five years old, like get out of here. You're not a startup just because you want to be cool. So no, I'll never say that about our business even when it was a startup."
+    },
+    {
+      "start": 671.42,
+      "end": 693.58,
+      "speaker": "adam-stacoviak",
+      "text": "I would say too that you're, and I don't know you personally, but I only know you from the persona you put through the internet basically. The name you attach to your businesses and then the, I think maybe your personal presence on your YouTube channel primarily for Worldwide Cyclery. I think I obviously see you in product shots for Kettle cause you know, you're like a star."
+    },
+    {
+      "start": 693.58,
+      "end": 695.58,
+      "speaker": "jeff-cayley",
+      "text": "I'm the free model so that's why."
+    },
+    {
+      "start": 695.58,
+      "end": 747.82,
+      "speaker": "adam-stacoviak",
+      "text": "You're the free model. Why not, right? Like if it works for Jif, it works for everybody else kind of thing. So I only know what you allow people to see, let's just say. Yeah. And so that's my personal perspective. So you know you, you know your own struggles, you know your own therapist, you know your own friends and you know all of your whatever you're not sharing with me. But I see you as somebody who's like really sharp with business. Not like oddly, but unexpectedly. You know, you're a racer. You've got this athleticness to you. You've grown up in this very harsh sport. You've broken bones as you've said. I don't know what kind of mental problems you have to keep doing it considering the broken bones. But I kind of get it cause I've OTB'd and crashed. I haven't broken anything as a mountain biker. So maybe I'm not really a mountain biker if I haven't."
+    },
+    {
+      "start": 747.82,
+      "end": 753.3,
+      "speaker": "jeff-cayley",
+      "text": "The collarbone's kind of the rite of passage. So consider yourself lucky so far if you haven't broken one of those."
+    },
+    {
+      "start": 753.3,
+      "end": 800.43,
+      "speaker": "adam-stacoviak",
+      "text": "You know, and I'm just old enough now to know that I'm like, you know what? I like mountain biking, but I've kind of like, I've dialed back. It's just, I know what I'm capable of and I'm only going down mountains that I can pedal up. Yeah. Or want to pedal up, which is the challenge of downhill, I would say, or any version of it. The point I'm getting to though, is that you've got this extreme sport, let's just say, background. How did you learn about business? Was it just through school hard knocks? Did you learn because you had to? Did you go to school for some of this stuff? Like how did you get sharp on the business side? Was it just, I don't mean that pejoratively, like was it just dumb luck or like how did you get sharp? Cause you seem pretty sharp."
+    },
+    {
+      "start": 800.43,
+      "end": 822.83,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, well, thank you. I appreciate the kind words. And yeah, I mean, I fielded this question a number of times cause a lot of people do see me goofing around on the internet and then also realize sort of what I built in the business side of things. And they're like, how did this guy do that? Like- How does that person equate to that person? Exactly. It is definitely, it is definitely unexpected."
+    },
+    {
+      "start": 822.83,
+      "end": 849.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And you have a very funny humor too. Like you bring- Thanks man. I wrote a genuineness to you, which is why I loved your, you know, your primary brain in the first place. It's like, I just, I was drawn to your authenticness and then even like Leem and the rest of the team being equally authentic, equally as customer caring, equally as passionate, like that's just truly unique. But that's a whole, that's your content side. That's not your business side. Like how did you get sharp in business?"
+    },
+    {
+      "start": 849.43,
+      "end": 1303.33,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, so the business side, you know, I think part of it was a little bit of just something I always enjoyed, sort of unknowingly. You know, when I was a kid, when I was about 11 years old, I, you know, that was kind of when eBay was just this awesome marketplace where anyone could sell random things. And I had sort of discovered eBay as a fifth and sixth grader and started selling random stuff I could get my hands on around the house. And, and my dad had, you know, he would get gifts at white elephant parties or whatever. He's a medical malpractice lawyer that defends doctors and super nice dude. Doesn't know anything or care much about business. He's just a really passionate guy in the medical legal field. And he would get like random gifts from parties and he would never use and they'd just sit around and I'd be like, dad, do you want this pen or whatever random thing you got? And then, oh, you can sell it. And so then I'd go through the garage and sell things. And so I started selling all this stuff on eBay as a kid and just figuring it out, just poking around, reading, figuring it out. And then I started knocking on all the neighbors' doors and telling them I could sell things for them on consignment and started doing that. And, you know, looking back on it, I didn't even think about it at the time, but looking back on it, I was like, oh, obviously there was some like natural inclination towards business and sales and just commerce, right? Cause I was doing that at a really young age. And, and then I loved BMX bikes at that age too. And so I started disassembling BMX bikes and custom painting them just with spray paint and using tape to create graphics on them and stuff. And then I was, then I would paint people's bikes for money in the neighborhood and build custom BMX bikes that I would custom paint for friends. And I was like always wheeling and dealing, doing stuff that I just thought was kind of fun and never really realizing that that was a clear, clear signs of business acumen and entrepreneurship. I never even thought of it that way. I just did that stuff cause I thought it was fun and enjoyable. I've got incredible supportive, nice kind parents that have just always let me be myself and chase my passions when I've had them. And business kind of just fell into that, right? I started working at a local bike shop when I was 14. Great local bike shops called Michael's Bicycles in Newbury Park, still in business. They've been in business for I think longer than I've been alive, like 40 years or something. And they, the owner is just, just classic charismatic, good salesman, awesome owner. And I just learned a ton hanging out around him. And he actually really cared, like he liked people. Like he was really a people person. He loved selling bikes. He loved riding bikes. He loved working on bikes. He loved running a small business. And I just watched and listened and observed and really enjoyed that. And like a lot of the business acumen that I got was from just working alongside a small business owner that was passionate and good and getting to work. I think getting to work alongside a small business owner, like owner operator is a really good educational thing as in your formative years in business and entrepreneurship. Cause you get to see their decision-making and what they think about, what they care about, how they care or don't care for customers, things like that. And you learn some stuff that you shouldn't do. He was like most small business owners at the time, a little sloppy with organization and inventory and sometimes how we would organize and prioritize people's service work or not prioritize people, just get your classic small business owner stuff. So I just learned a lot from working there as a kid. And once I got better under mountain bike racing, I was getting sponsored and getting free product. And then in the off season, I would sell it on eBay and sell it through Pinkbike forms and stuff. And yeah, I just always enjoyed all of that. I enjoyed selling things. I enjoyed the, I always had sort of an optimism towards sales in a sense. And it was, it was just easy. Cause it's like, if somebody comes in, they want to upgrade their bike or buy a new bike. To me, it was just so easy and natural to sell that because people are buying these things to have fun and smile and get an adrenaline rush and be healthy and like go outside. So I just always thought like this, this is the best thing to sell ever. You're selling fun, you're selling bikes. So I just liked that a lot. And yeah, and so, from there, I had sort of seen this opportunity to sell more and sell online and told the owner about it. And he's like, that's awesome, you should do that, but I'm not interested in doing anything more complicated in my life. And he was, quasi retired in a sense, right? Didn't really want to work much harder than he had been. So then I just did it myself, right? I was like, okay, how can I figure this out? Like, okay, how does this work? You just like basic stuff, all right? Super basic fundamental things that I just learned by doing very much so. So I was like, okay, how do I get my first small shop? What do I do? How do I get money to buy inventory? Okay, how do I list inventory that a distributor has that then I can sell and then immediately buy from there and then ship it out? And these are things that people have terms for in the e-commerce world called just-in-time inventory and little stuff like that. I just figured it out by doing and because I enjoyed it, it was really easy for me to learn everything. And business was just something that I thought was genuinely fun to do. And when something is fun, you do it a lot, you think about it a lot, you get creative with it and it's so frictionless to learn because you're enjoying the experience. So I just learned by doing and in the early years of Worldwide Cyclery, I in large part had no idea what I was doing. Like I didn't really understand a P&L or a balance sheet. I kind of figured it out and then I just read and learned and then you go to the accountant and he explains things and then you go back and you read more stuff about that and sit there on Google and study stuff. And man, it would have been nice to have ChatGPT back in those days. To just instead of sitting on Google for hours, sifting through articles covered in ads and reading things, you could just talk to an LLM. But anyways, I just learned by doing and that's it. I think that's the best way to learn, especially when your ass is on the line to some extent, like you're running a small business yourself. That's how you learn seriously and take things seriously. And yeah, and then it's like different stages of the business. In the early years, I learned the fundamentals of just finance and the basics of buying and selling inventory, stuff like that, customer service, customer support, all that. And then as the business evolved and we kind of needed to hit different, we needed different levers to pull in order to keep growing. It was then, okay, let's get more into marketing. How does marketing work? How do we get people to have desire to buy these products? How do I figure out what does customer acquisition cost and how do I understand that? And so I just learned all this stuff by doing. And because I liked it, I just dug into the information more. And I was also just, a lot of it's humility. You have to just know you don't know a lot and try things and experiment with things and fall on your face and get back up and not be afraid to ask dumb questions. And I don't know. So yeah, and I barely graduated high school. So I went to high school for two years and then I went to charter school, which I qualified for, cause I was racing mountain bikes as a junior professional athlete. I went to charter school for a year and then I just figured out you could take the California high school proficiency exam and I just took that and bounced. And five years later had a multimillion dollar business. I didn't learn anything from any formal things. It seems cool to go to business school and learn this stuff, but just doing it yourself, I think is a great way to learn. And that's how I did it."
+    },
+    {
+      "start": 1303.33,
+      "end": 1349.06,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I also think about the other incumbents in the mountain bike retail space. Now I started the show off by saying that I genuinely am surprised when I mentioned my affinity for you know, your brand, we're about cycler where I buy the majority of, I would say most of my mountain bike stuff. When I asked folks like about you, they don't know cause there's like Jensen, there's other major, major brands. How did you navigate not just learning by doing and like that aspect, but competing against some of the biggest dogs on the planet when it comes to distributing product to mountain bikers? Like that's gotta be challenging, I guess, to put it lightly."
+    },
+    {
+      "start": 1349.06,
+      "end": 1512.5,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, yeah, it is. And I think part of that is just industry knowledge. I always tell people that when they're interested in business or starting a business. And I think one of the most important things is you just really need to understand your industry. Who are the players in the industry that matter? Who are the newcomers? Who are the incumbents? How are they acquiring customers? How are they retaining customers? What's their reputation like? What's their strategy? Is their strategy getting dated? Is it still relevant? If you just think and ask a lot of those questions and the more you have clear and concise answers and understanding of all of that stuff within an industry, that's where you can begin to see really strategic places where you can fit in and compete and do well. And so that's what I did. I was in the industry so long that I knew and understood all these players and their strengths and weaknesses. And I also understood a lot of how the industry was evolving from a very granular backend side of things. Jensen had started in, I think, 1999, right? So I was a kid. I used to buy from them when I was a little kid. And they're still a great business chugging along, right? But their model, because it started so long ago, it was before a lot of the brands and distributors within the industry had good B2B e-commerce platforms. And before those e-commerce platforms they used for the B2B side had really good APIs. And then it was before a lot of these software products that came about, which was basically a more sophisticated ERP system that would allow you to take an API from a distributor and configure it and conform it and then send it to Shopify, eBay and Amazon. And so there was a lot of technology and software products popping up in the e-commerce space while simultaneously the sort of backend software side of things within the industry with these brands and distributors was getting more sophisticated. And I was so in the industry, I saw all that stuff and understood how that stuff was happening. And when you do that, you start to realize and see opportunities and you start to also notice what competitors and usually incumbents aren't as attuned to that stuff. And maybe they don't wanna integrate it because it's a challenge, because they're fine the way they're doing things, they wanna continue doing them that way because they have these legacy systems that are hard. So you just start to see all that sort of stuff. And that's how you figure out where you can compete. And yeah, that was a lot of it. It's sort of boring behind the scenes stuff, but it is important stuff. Cause when you wanna go up and fight against really good competitors out there in an industry, you have to understand the industry landscape in a very intricate way like that."
+    },
+    {
+      "start": 1512.5,
+      "end": 1579.94,
+      "speaker": "adam-stacoviak",
+      "text": "What do you think made you win? Like what was the initial win or two that really made you think, okay, this is legit. Not only is it a good business, but I can actually run this business. I love the people I'm growing up with or adding people on, cause you can't do it alone. You got a great staff that helps you on the sales and just selling mountain bike stuff is not like sales. It's just passion in a lot of ways. I feel like it, like what you said before, does kind of sell itself if you're selling it to the right person. Now, if the market has dried up in terms of customers, it's a different thing. You had a huge upswell whenever COVID happened than a big old let out, so to speak. And I'd love to hear your thoughts on how, not so much how that changed the world, but like really it seems like it's damaged the mountain bike industry in a way, but that's a different, let's table that for the moment. When it comes to like the first initial few wins, like when did you really see the light? Like, okay, I can do this. This is the future, not just as a temporary thing, or this is something I'm trying. This is what I'm actually doing. Now I'm this."
+    },
+    {
+      "start": 1579.94,
+      "end": 1979.62,
+      "speaker": "jeff-cayley",
+      "text": "It's a good question. I definitely think there's been, I think every business goes through phases. There's phases of different reasons of why you can grow. And then you kind of tap out that strategy and you have to find a little bit of a new strategy or just different methodologies to continue to succeed. In the early days, all it was focused on, I started at age 21. I was just trying to make $60,000 a year. That's all I wanted. I was like, I just kind of make $60,000 a year. Why that number? Oh, because that was like, at the time it was like, if I could make $60,000 a year, I could comfortably pay rent and travel a little and ride bikes. I don't know. Wasn't really that thought through. It was just like, oh, that's a living wage. I was making like 30 at the bike shop. If I can make 60, I'm gonna be having a great life. I don't know. That's all I thought about. Which is so funny how much my brain has evolved and how quickly it evolved just in a few years of starting the business. But that was like the initial focus, which I look back on and still laugh at. But going back to what I said about the way that these software products were coming online in the industry and the industry was figuring out API feeds and they're just data feeds and yada yada. Some of the initial ones were literally just that, like just figuring out how to use software tools and build a little tech stack that could then push distributors inventory data feed into your ERP system. And then you could modify it in a certain way and then you could advertise and sell that product. Just little weird debt backend technical things like that. That was some of the first thing that put us on the map. And that financial model was actually pretty amazing because it didn't really cost much at all in terms of upfront expense. It was very minimal cost to just sort of build this little tech stack, get the products advertised. And then you were based on a just-in-time inventory model. So you'd sell something for $100 that you didn't even own. Then you would take the $70, give it to the distributor. Then you would ship the thing out and now you've made 20 bucks, right? And then just like, just do this over and over again. Just really simple, basic, just-in-time inventory model. That was kind of the first thing, just figuring out a little strategy like that. And then that only goes so far. Then it becomes like, okay, now we need to build a website and now we need to figure out customer acquisition costs. We need to understand how sustainable is it to have an eBay brand, an Amazon brand versus your own website and have great repeat customers on your own website. So you start to understand the viability of all these different ways of selling things and the viability of how you acquire customers and retain customers. And so the second piece was, okay, now we need to figure out how to market really well. And we didn't really put like a crazy amount of tactical effort into that because you kind of can't as a retailer, because as a retailer, you're mostly confined to this about 30 points of gross margin, which is quite small. So you don't really have much room for customer acquisition costs. So you have to pretty much do it in a very, very bootstrapped way. And that came down to content marketing. And that was, so I got really interested and good at SEO and like figuring out how to take knowledge out of my head about random things, whether that was how to set up clipless cleats on your pedals, how to tune your suspension, random stuff like that, and writing it out into articles. And then we started making YouTube videos and we started just talking to the camera and rambling off random things that we thought, most of the original ideas for the YouTube videos were fueling all of these customer questions. And there's a lot of this complicated compatibility stuff in the bike industry. It's like, does this fit this? Does that fit that? What would happen if I put this fork on this bike, random stuff like that? So then we would just make questions or we'd make YouTube videos based off of those questions to just educate people. And there was still a huge gap in the marketplace on YouTube for that. Like there just wasn't those videos. So we just started making educational mountain bike videos about upgrading your bike, compatibility things, tips and tricks, random stuff like that. And that was largely free in a sense, right? It was just me talking to a camera. We do some super basic editing and talking on YouTube and people really liked it. And that had a lot of side effects that I never knew were gonna happen. Cause not only were we then educating mountain bikers and getting views and getting sort of brand awareness, but then people were going, hey, I actually like these guys. Like these guys seem cool and genuine and they helped me. And people sort of are naturally have some level of reciprocation in them. And they're like, because these guys helped me, I wanna buy this retailer. And we saw that happening and we go, oh, like this is actually building us fans, not just customers. It's people that actually genuinely appreciate that we wrote and or filmed useful educational mountain bike content that was helpful for them. And then now they like us and wanna shop with us instead of our competitors selling the exact same product at the exact same price. So you started just learning these things like, oh wow, that actually worked quite well. Let's just double down on that and make more useful videos and let's make more useful content. And so that was the next sort of big lever that helped really put worldwide cyclery on the map that made people realize who we were and just want to shop with us. That was a big one, right? And of course there's like the thousand other small things that people love to gloss over. But if any business is successful, there's a thousand other things behind the scenes that you have to do to win, right? It was like maybe the big overarching obvious strategy I can tell you was, yeah, we got quite sophisticated at content marketing and built an audience and that made people wanna buy with us. But realistically, we still needed to have a good website. We still needed to fulfill those orders on time. We still needed to have really timely responses to our phone calls and emails to help people out, to solve warranty issues, to just do the basic stuff that customers had a great customer experience with when they shopped with us. And that was a strategic advantage because a lot of these incumbents, they were terrible at answering emails or phone calls or just their customer experience was terrible. They were very transactional in an industry that shouldn't be transactional. Like this is a passion driven industry. You should be able to call and talk to somebody who actually rides bikes and they can tell you their experience with this product and if it's compatible or not, and if they like it, you shouldn't be getting some boilerplate, weird, useless answer. And people started realizing a lot of these incumbents were almost like fulfillment houses. It's just like, I could just buy something here, but it's like, that's it, it ends there. They don't know anything about the product."
+    },
+    {
+      "start": 1979.62,
+      "end": 1980.86,
+      "speaker": "adam-stacoviak",
+      "text": "They're not helping you make a decision."
+    },
+    {
+      "start": 1980.86,
+      "end": 1981.98,
+      "speaker": "jeff-cayley",
+      "text": "Totally, yeah."
+    },
+    {
+      "start": 1981.98,
+      "end": 2070.21,
+      "speaker": "adam-stacoviak",
+      "text": "Gaining affinity. Like I wouldn't, we've had some email exchange since 2022. We've been trying to get you on this podcast for a bit and it's not your fault, it's my fault too. That's how things work out. But I think I share with you, cause I was excited. I wanna concur on a lot of things you just said there because I think I watched Liam build several bikes. I think they were your bikes, now that I think about it. They were Revel bikes. And I think I learned how to do certain things. I'm not a bike mechanic, but I can build a bike from scratch today. And the reason why is because I think a large part of that is because of the passion that you talk about that came through you personally, yourself and those you've brought into your team. But like that YouTube channel for me was pivotal in my mountain bike journey. Just because I personally got more into the sport when I realized and learned how to take care of my bike. Yeah. It was just really daunting. That's awesome to hear. Yeah, like having that agency over my ability to one, control the component and then two, just control my, what's the right word to say? My trust in it because I tightened the bolt to the right mountain meter, for example. Or I know I've showed the titanium bolt over something else, for example."
+    },
+    {
+      "start": 2070.21,
+      "end": 2073.97,
+      "speaker": "jeff-cayley",
+      "text": "You know you did it right and your bike's not gonna fall apart under you and it'll be your fault."
+    },
+    {
+      "start": 2073.97,
+      "end": 2083.85,
+      "speaker": "adam-stacoviak",
+      "text": "Or I know there are new brake pads or just like, I can go down this mountain with more confidence because I built and chose the components."
+    },
+    {
+      "start": 2083.85,
+      "end": 2084.81,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 2084.81,
+      "end": 2241.62,
+      "speaker": "adam-stacoviak",
+      "text": "And that began with, I think the fidelity that you allowed through your YouTube channel. Not just the ones which was like, what's cool about SRAM or what's cool about this or why you choose SRAM over Shimano or these little tastes. Like I wish you'd let out more of that cause I would personally just consume all of your content to get to whatever you would share, like whatever nugget you would share. And it was never enough and it wasn't even your fault. But I literally watched Liam build multiple bikes for you particularly, learning how to build and how to like put a star nut into a stem, for example. Or even how to like cut a stem and not get it wrong and get pissed off cause you've spent 1200 bucks on a new Fox fork and you've cut the stem too short. It's like, that's just, don't do that. That's the worst ever. And I would wait weeks to like make that cut. I would procrastinate even like building the bike cause I'm like, it's such an expensive cut to do wrong. You know, what's the right tool even. You know, there's so much mystery in that world that I feel like you unlocked and enabled. And so I would just literally like every video you dropped, I would be first watcher, always watching. And I loved your usage of the surveys. I think you got, I would love to know your data behind the scenes, like how much of this like is truly beneficial to the business. Cause you ask a lot of really good questions that me as an enthusiast, I want to answer. And I want to give you the, cause I want to, I want to share my response, but as a collector of data, I imagine it helps you do very valuable things for the industry, selfishly, but also naturally. But I'm just curious about that too. But anyways, I loved your YouTube channel. To me, it was a treasure trove of goodness. It was where I found my community when I didn't have community. It taught me a lot about taste and how you choose tires or how you pair tires together. These are things that I just never knew. And I got excited about like bike tech. Cause I'm a technologist and I love technology generally. Just like I love data and specs and the whys and the hows and stuff like that. And so your channel really enabled me to dig deeper. And then when it became time to order anything, it was obvious, you know, every time you sent me something, you always gave me a code to get 10% off of or 15% off of next time. So you-"
+    },
+    {
+      "start": 2241.62,
+      "end": 2244.28,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, one of those little strategies for repeat business."
+    },
+    {
+      "start": 2244.28,
+      "end": 2288.1,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean like, but it wasn't like, I would say, and maybe this will be helpful to you in your own ego, I would probably say more than anything is that it never felt like you were trying to sell me. You know, it always felt like you were trying to serve me, which is a whole different thing when it comes to, I think Jensen versus what about cyclery, like what you built and what they built is dramatically different in terms of like how I buy or why I even care to buy from you versus them because I know why you're in the game. And so a little bit of a gush session there, but really just appreciated the YouTube channel. And I think one, I'll let you respond to that, but then two, I got a follow up on that. So I'll just let you respond to some of my gushing, if you don't mind."
+    },
+    {
+      "start": 2288.14,
+      "end": 2449.62,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, well, thank you. I mean, I appreciate that. And it makes me happy to know that people like you enjoy the videos, learn from the videos and just got more into the sport because of it. I actually really liked the way you said that and it doesn't feel like we're selling. It feels like we're trying to serve because that's a great way to say it. I've never thought of it that way, but that's certainly what we've all, like that's basically what we've always tried to do. One of the core values of the company is we try to impress ourselves and impress our customers. The theory behind that is we're trying to operate a really good business and part of that in our industry is to never be derogatory, which is very common in the industry. The industry is kind of notorious for being very cliquey and for it being really hard for new people to come into the sport, whether that's just casual mountain biking, serious mountain biking, road cycling, whatever. A lot of people have this experience where they walk into a local shop and they feel very belittled by the staff and talked down to, like these are so common for people for you to hear these stories. Like, yeah, that guy was just a total douche, like acted like he was a snob nose and I didn't know anything and I didn't know anything and that's why I was there, like help me. And there's a lot of that snobbery in the bike industry, which is really unfortunate because it's what keeps new people from getting into the sport and liking the sport and sticking with the sport of any type of category of cycling. So yeah, we've always talked about that and always tried to be the place where, cause there's the whole other thing too with bike shops is they carry a few brands that they sell that are bike brands and if you were to have bought a bike from another shop or direct or a consumer direct only brand and you walked into that shop to get it worked on, they're gonna be all snob nosy about the fact that you didn't buy the bike there. It's like, that's ridiculous. You got a customer coming in that just wants to spend money and it's just crazy, right? There's a lot of lack of business sense and too much uppity clickiness in the industry and we've always tried to fight against that and not behave that way. So yeah, I hope we're always maintain that, but it is tricky cause it is a complicated industry. So it's easy to get into the sport and then feel overwhelmed and go, man, it's just like, this is too confusing to figure out what bike to even buy, how and where to use it, how to upgrade it. Yeah, it's just complicated product. But if you like the stuff and you like learning about it, then it's very fun industry cause there's a lot to learn and know about the bikes themselves."
+    },
+    {
+      "start": 2449.62,
+      "end": 2508.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I feel like y'all did a great job of taste. So you seem like curators, taste makers. So it made me trust your opinion more because I knew you had a reason why you chose a certain direction. It wasn't cause this was bad and this was good. It was just more like, you know what? I kind of liked the way that SRAM brakes stop with a progressive state versus like a immediate stop, which I think is one thing I particularly said over the years. And it helped me choose SRAM over Shimano when it comes to my brakes. And to this day, why SRAM is my braking system. And not that I would never try others, but like I trust it more because of some of that back and forth. I've also had many pairs of brakes on my bikes over the years. And so I've bled enough brakes to like really hate doing it. And I procrastinate bleeding brakes every time I have to do it. It's not fun. It's not hard either, but it's just like one of those things where like, you know."
+    },
+    {
+      "start": 2508.09,
+      "end": 2509.65,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's tedious."
+    },
+    {
+      "start": 2509.65,
+      "end": 2529.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, it's kind of tedious. It's very tedious. But I use SRAM brakes for those reasons and I tried them though. So I bought them, tried them and agreed with what you agree with. And so it wasn't like, oh, Jeff said X, so Adam does Y and therefore, you know, happiness ensues and you know, no crashes."
+    },
+    {
+      "start": 2529.05,
+      "end": 2596.92,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's cool to hear cause I've always tried to communicate that there's not always just a black or white, right or wrong. Like there's a lot of personal preference. Some people like the feel of, you know, Shimano brakes for that exact reason you don't. And that's okay. Let's all admit that, you know, and that's, I don't know. A lot of people are not willing to admit that if they like what they like, they think that's right. And it's like, no, that's not how the world works. And you can communicate that better and explain that some people like this for this reason and some people like that for that reason. So I don't know, part of that's just, I think being able to communicate that stuff well. And as a retailer, you're kind of uniquely positioned to do that. Cause if one of the brands themselves makes that content, they obviously have to be obscenely biased towards their product. But as a retailer selling multiple ones, you can sort of better educate people on the difference that like the intricate differences between them and explain that. Yeah, it's just personal preference in a lot of ways and explain why they're different. And then people can think about their own preferences and try accordingly like you did with breaks. So that's cool here."
+    },
+    {
+      "start": 2596.92,
+      "end": 2654.01,
+      "speaker": "adam-stacoviak",
+      "text": "So content marketing was obviously the big push for you. Do you think that was the unlocker when you saw the worldwide of your brand truly become, I guess you were worldwide initially, but this YouTube model where you can reach and touch so many people. And I think now even I'm gonna scroll back up. Think not the subscriber counts matter, but you have almost half a million subscribers, almost 540 videos, Jeff. This is on what about Cycleria alone, not even Kettle's channel or Trail One's channel, which I know you have separate channels for each of those. Did you see a dramatic difference whenever you started to create content, like even from not so much a get customer, make money standpoint, but like people enjoy working here more, like morale. Was it more fun? Did you grow your network as a result? Like what were the amplifications and benefits of just like diving further into YouTube?"
+    },
+    {
+      "start": 2654.01,
+      "end": 2800.68,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, that's a fantastic question because it's a good point in that. Yeah, a lot of those, yes, big, big changes there. And like I kind of alluded to earlier, the YouTube videos were initially just, hey, this could be a great way to build brand awareness. And we have a lot of knowledge about bikes and all these components and our industry. Let's share that on YouTube and let's share answers to the questions that we're getting all day. So we did that and then we started realizing, oh, people really appreciate this and they reciprocate and then they're becoming fans and they're getting more into the sport because of what we're doing. So yeah, that was really fun. And it did internally change the culture too because the brand was a lot more defined, sort of why we exist and the services we provide, whether that's good content marketing, educational YouTube content that also makes people laugh at the same time and operating a good business and supporting people having fun on bikes. So all that stuff became much more clear. You can sort of write, this is why we exist. This is our mission, vision, values. You can write all that crap down, but unless it's very viscerally clear to the staff who works there and the customers who shop there, it doesn't really mean anything, right? And for us, YouTube made it clear. It made it very tangible. Like, oh yeah, this is very clear. This is exactly how we support people having fun on bikes. This is how we educate the mountain bike community on the knowledge that we have of all the stuff we sell. This is how we curate the products. It became very visible as the YouTube channel grew and as the business grew. And it was very visible to us and our team internally as well as externally. So yeah, I think that's a cool piece because a lot of businesses can, you can have a big business, but it's still very behind closed doors, how they acquire customers, how they treat their customers, how they treat their employees. But a retail business like ours, especially with a lot of content marketing and YouTube, it became very clear in any way you look at it, who we are, what we're all about, what we do, how we do it. It's very just obvious and out there in the open. So yeah, I liked that aspect because it definitely changed a lot of things in our business that made it a lot more real and tangible and just transparent to anyone and everyone, whether they're inside or outside."
+    },
+    {
+      "start": 2800.68,
+      "end": 2822.61,
+      "speaker": "adam-stacoviak",
+      "text": "Did you have anyone inside like, I wanna be on the channel now, or did you have this clawing, so to speak, of people wanting to be on camera and wanting to be involved in the process, or was it sort of standoffish? How was the reception to the rest of the staff and folks you have involved?"
+    },
+    {
+      "start": 2822.61,
+      "end": 2936.76,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's funny you ask. Most people don't claw to be on camera. It's kind of the opposite. In the early days, we were, some of the very first videos we ever did were these very super basic what's in the box. If you bought a fork, you might wonder, does it come with the axle? Does it come with the star nut? Does it come with a shock plug, right? Just like in some brands included some of those, some brands didn't, whatever, like super basic, hey, here's what's in the box, just really basic videos. And I thought those would be really helpful to do on some of our top selling products because you're about to spend $900,000 on a product and there's no video anywhere that just tells you what the heck is in the box. So I was like, let's just make these really basic ones. So I did one and I was like, okay, so here's sort of the template for it and I'd have a couple of the guys try it. And a lot of people didn't enjoy and don't enjoy having a camera pointed at them and trying to be clear and concise and articulate. And some people just struggle with that and don't really like it. And YouTube, as much as it's a all welcoming place, it doesn't really work unless you're kind of good at speaking in a sense. You have to be clear and concise and articulate and charismatic and know what you're talking about. And that has to be apparent. And it really, people can feel if you're uncomfortable or inauthentic or they'll just bounce to some other distraction if you're slow. It's just a hard place to hold people's attention even if they're looking to know exactly what you're trying to tell them. So it's tricky. It's harder to be clear and concise on camera than I think some people think. And if they try and they get that heart rush of adrenaline and they're like, yeah, no, this sucks. So no, it's actually kind of the opposite. Most people were like, yeah, yeah, go ahead, Jeff. No one here wants to be on camera. You do it."
+    },
+    {
+      "start": 2936.76,
+      "end": 2939.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, it's your company, man. Do the job."
+    },
+    {
+      "start": 2939.58,
+      "end": 2992.58,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, and I mean, I had no intentions of really doing that to begin with, to be honest. I just thought we just started doing those- You had to. Yeah, I just had to, right? I was the guy who could just do it quickly and concisely. And because the other thing too is like an efficiency thing. So if you take 10 takes, you're just wasting so much time. Whereas if you can just say it right the first time, it's over, you're done, the video's good. So yeah, it just kind of depended on who was good at that stuff. And you probably see on our channel now, Jared and Liam are on there a ton. And Jared has come, both those guys have, but Jared especially, because he's mostly on the YouTube channel talking now, he's come so far over the years at just getting way better at just being comfortable and fun and natural and explaining things on camera than he was in the early days. So it just takes time to get good at YouTube and being on camera and stuff like that."
+    },
+    {
+      "start": 2992.58,
+      "end": 2997.18,
+      "speaker": "adam-stacoviak",
+      "text": "It does take time. So Jared, remind me, is he the fellow with the mustache?"
+    },
+    {
+      "start": 2997.18,
+      "end": 3001.3,
+      "speaker": "jeff-cayley",
+      "text": "No. He often has a mustache, yeah. And then the long, long brown hair, yeah."
+    },
+    {
+      "start": 3001.3,
+      "end": 3004.3,
+      "speaker": "adam-stacoviak",
+      "text": "Sometimes a flavor saver, sometimes a mustache."
+    },
+    {
+      "start": 3004.3,
+      "end": 3005.86,
+      "speaker": "jeff-cayley",
+      "text": "Always crazy, you never know."
+    },
+    {
+      "start": 3006.86,
+      "end": 3024.78,
+      "speaker": "adam-stacoviak",
+      "text": "Some hat that, yeah, okay, I know Jared then. I know Liam more than I think I knew Jared. I knew his face, but I didn't know his name. And mainly Liam, because he seems the one who's the in-house mechanic. He can build anything, basically. He knows all the specs to the Newton meter before it's even released. He knows it all."
+    },
+    {
+      "start": 3024.78,
+      "end": 3025.62,
+      "speaker": "jeff-cayley",
+      "text": "Totally, yeah."
+    },
+    {
+      "start": 3025.62,
+      "end": 3107.49,
+      "speaker": "adam-stacoviak",
+      "text": "And he's got a way into process. He seems like a pro at being a mechanic. So I always appreciate his videos on that. And I was trying desperate. I was like, trying to find out how to build a mountain bike and what tools to use is like the weirdest puzzle in the world to ever solve. It really is. Even a park tool would do a better job, and they do do a good job, but it's kind of, some of their content is like so general bike that it's not down into mountain bike, which is way different. Sure, you have a head tube, but it's just got different things. You get different specifications, geometry, et cetera, that comes into play. And just trying to find out how to build things. I mean, I don't even know where you would go to school to learn how to build a mountain bike or become a mechanic. I don't even know if that even exists. I'm sure there's certifications out there, but I was just trying to be an enthusiast. I wasn't trying to be a pro, but I did want to do pro-like things and use the pro-like tools, because I wanted to do it right. I've done things the wrong way, let's just say. With the wrong tools, and it either broke or it didn't work right. I had to buy the thing twice, it was a mess. Okay, so no one clawing at the camera. You have to because you're a founder and you gotta do it. And I would say you got a natural knack for it, I would say."
+    },
+    {
+      "start": 3110.65,
+      "end": 3120.01,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, not bad at it, right? Like good enough that I can hold someone's attention and explain things and not have to take five takes, and that's kind of all you need to start."
+    },
+    {
+      "start": 3120.01,
+      "end": 3165.61,
+      "speaker": "adam-stacoviak",
+      "text": "I think more so than anything, it's clearly got experience and it's clear you care. And I think those are the two kind of core ingredients that you have to have to do that job for your company well enough, because it's not just showmanship or showpersonship, it's literally being able to explain how things work and why you have particular, why you prefer Maxxis tires over Continental. Maybe you don't, maybe you do, who knows? Or why you prefer this combination, which I think is the most unique conversation with a mountain biker, like what tire combo? That'll put you in the click right off the bat. I'm sure you are still rocking your DHF for life or something like that, right? Like was it DHR two on the front for you?"
+    },
+    {
+      "start": 3165.61,
+      "end": 3167.33,
+      "speaker": "jeff-cayley",
+      "text": "It depends on the bike, these days-"
+    },
+    {
+      "start": 3167.33,
+      "end": 3170.21,
+      "speaker": "adam-stacoviak",
+      "text": "Recon Dissector is your pair?"
+    },
+    {
+      "start": 3170.21,
+      "end": 3181.25,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, well actually now the new Forecaster. So the bike I ride the most often now, the Trail bike, which is a Yeti ASR at the moment. Yeah, Maxxis Forecaster in the front and Maxxis Recon in the back."
+    },
+    {
+      "start": 3181.25,
+      "end": 3183.77,
+      "speaker": "adam-stacoviak",
+      "text": "Yeti ASR, what is the Yeti ASR?"
+    },
+    {
+      "start": 3183.77,
+      "end": 3219.09,
+      "speaker": "jeff-cayley",
+      "text": "It's their new, it's really like a World Cup level cross country race bike, but with really aggressive geometry and a little bit more travel. So it's just this incredibly capable, super lightweight, fast, all around bike that I've just kind of fallen in love with since they introduced it. It's super fun to ride. Yeah, because it feels as fast and light and as efficient as a full blown XC race bike, but when you're on it, your body position and the way that the geometry is and the way it corners and stuff, it feels much more like an Enduro bike. So it's just a cool blend of the two. That's really fun to ride."
+    },
+    {
+      "start": 3219.09,
+      "end": 3272.17,
+      "speaker": "adam-stacoviak",
+      "text": "And you also have this history too, which I think is, cause just like that, you juxtapose the ASR to Enduro, but you also said cross country, which for those who don't really mountain bike and you're just listening in cause this is the podcast, those are very different. Like very different. Cross country and Enduro is like dramatically different. Similar in the fact that they're both mountain biking, but dramatically different in the downness that you go on purpose and the pedaling up, so to speak. And I know a lot of cross country does pedal up too, but I guess it depends on how hardcore cross country you're going. Really, it depends. But the majority of it is pretty pleasant. Now, if you're a World Cup level, maybe it's not so pleasant. I don't know. I'm downplaying cross country, but it's not as hard or it's just different than Enduro really."
+    },
+    {
+      "start": 3272.17,
+      "end": 3282.26,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, totally. It's a little bit more like distance running on the track versus trail running, you know, still running, but different terrain and different mentality."
+    },
+    {
+      "start": 3282.26,
+      "end": 3283.38,
+      "speaker": "adam-stacoviak",
+      "text": "And different flavors there."
+    },
+    {
+      "start": 3283.38,
+      "end": 3284.38,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 3284.38,
+      "end": 3291.86,
+      "speaker": "adam-stacoviak",
+      "text": "So we're in the weeds measure, but why Yeti over the latest Revel thing?"
+    },
+    {
+      "start": 3291.86,
+      "end": 3396.82,
+      "speaker": "jeff-cayley",
+      "text": "Well, the Revel doesn't quite have a bike that would be similar. So they have something close, which I do really like and rode for a long time, which is their Ranger. And the Ranger is similar in a sense, but it's still a bit more on the trail bike side in terms of it being heavier. The Ranger actually has just a better suspension platform. It pedals better, it descends better, but it's like almost two pounds heavier. So it's a bit of a different bike. It's just more, you know, you look at all these things that you end up splitting hairs in a big way, but you have bikes that go all the way from, you know, cross country, pushing a little into trail, a little trail bike pushing into Enduro, Enduro pushing a downhill, it's more travel, more, you know, sort of slack along geometry. So they just all change, right? And it just, I just go back and forth between what I'm riding more often than what I like to ride. And recently I've been more into adventure racing and that has a lot more cross country-esque style riding in that sport and weight is really important. So that's why I lean towards that ASR and have really enjoyed it. And I hope Revel comes out with a similar bike, but Revel is definitely more of a trail and Enduro company through and through and has never made a full fledged XC race bike. Maybe they will, I hope they do at some point because yeah, I love Revel and love supporting that brand. And I'm actually, I think I'm queuing up, I'm torn between either building up one of their new Rascals, which is a trail bike or that new Enduro bike they have. So, yeah, but I'm always changing bikes. So if you ask me in three months from now, I probably won't have that same bike."
+    },
+    {
+      "start": 3396.82,
+      "end": 3406.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, don't necessarily follow your lead because you probably have 20 bikes or more of your lifetime."
+    },
+    {
+      "start": 3406.7,
+      "end": 3447.46,
+      "speaker": "jeff-cayley",
+      "text": "I always, I'm always changing them and I always have, like I have a Banshee Titan as well as an Enduro bike right now. So I have the Banshee, I have the Yeti ASR, I have a Revel El Jefe, which is a titanium hardtail. So I kind of always had at least three bikes that I'm riding it for different reasons at different times. And then I'm always like changing those three. But that's what you're supposed to do, man. When you have a bike shop and you love bikes, you just try and all the new stuff and you used to go through phases. You're like, you go through six months where you just love riding XC bikes and then you're like, I'm over that. You just want to ride Enduro bikes all day and you do that for three months. And then you're like, I'm in bike packing now. I want to do big bike packing adventures. Like you just get bored and try different stuff. That's part of the fun."
+    },
+    {
+      "start": 3447.46,
+      "end": 3560.73,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, for sure. All right, one more thing on YouTube and then I want to take a turn towards Trail One and Kettle, the expansion, the empire, you know, the downfall of the industry, the craziness with Revel because we have some similar ties there and just where things are going. But I do want to ask you like, given the fixed gross margin in retail and you're in retail in all sectors, right? So you're apparel, but you're selling. So you got direct to consumer, even with Kettle. You got Trail One, you're creating, not just selling. So you're literally manufacturing. You found out how to do that. And then you're selling those products and you're giving back to trails and communities. And I think Brian, all I know him as BX- BKXC. BKXC, I believe. Yeah, but his name's Brian. You know Brian, he's a friend of yours. You got him involved, which I think is super cool because he's like diehard biker forever. And I think there's even like this YouTube, YouTuber, biker YouTuber kind of like trend that was there. And then it's sort of like, you know, came and gone with COVID kind of thing. But if content marketing is so strong for you, I think your latest for Trail One was like a year ago, video wise. And I don't see you putting out a ton of content for worldwide either. Like what is the bottleneck? Like where is the throttle, I suppose, for you in this industry with how crazy it is and y'all making more content and growing? Like, is there room for growth? Is it like, where's that space at considering how strong this is for you on marketing and capturing? Cause that's the whole reason we're talking is cause I found your YouTube channel at one point and got more into your brand and who you are personally. And I just don't see you posting as frequently given how important it seems to be for you."
+    },
+    {
+      "start": 3560.73,
+      "end": 3571.85,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, so I can definitely explain that. You know, in a perfect world, if you know, I was a trust fund kid, we would just make all sorts of fun videos all day. You're not a trust fund kid? Unfortunately not."
+    },
+    {
+      "start": 3571.85,
+      "end": 3573.89,
+      "speaker": "adam-stacoviak",
+      "text": "You don't have any supplies of cash?"
+    },
+    {
+      "start": 3573.89,
+      "end": 3987.63,
+      "speaker": "jeff-cayley",
+      "text": "Unfortunately not. Come on, Jeff. I wish. But so the way it's evolved is, you know, as I sort of mentioned earlier that the bike industry has gone through some crazy tumultuous boom and bust cycle with COVID and even pre-COVID, we'd recognize the industry was just evolving. The sort of heyday of the online retailer was coming to an end because all of these brands were starting to sell consumer direct and they were starting to get good at it. And that's sort of, it's just an annoyance to a retailer because you know, worldwide cyclery fundamentally is meant to take, you know, we have, so over a couple hundred different brands that we intentionally curated the best brands in the mountain bike industry and the best products in the industry and got them all in one place. And you could shop them all in one area. That is a, you know, still a relevant value proposition and very convenient when you want to buy a new Fox fork and a Maxxis tire and a pair of Shimano brake pads all at the same time in one place. It's, and it was even more necessary and useful when you couldn't really buy those from anywhere else other than other retailers. But now that you can buy directly from Fox or directly from Shimano and directly from Maxxis, it just changes things because now you're competing directly with the brand selling direct. And if people don't necessarily need to buy two or three things at once from different brands, they just want to upgrade or just want to buy one thing. They just go to the brand directly. You're never going to out-compete that brand when it comes to SEO. If someone's searching for just that brand, obviously just that brand is going to show up at the top always. And if people end up there and they can just easily buy from there, they just do. So it's, so the industry just really changed, right? All of the brands in the industry, you know, if you look at a pre-COVID, probably 10% of them sold consumer direct and the other 90% just didn't. And they just sold through retailers and that's how the industry worked. That's all changed. And now it's literally flopped. And about 90% of the brands in the industry sell consumer direct. They still of course have retailers, but they're competing directly with them in the sense of when you go to buy them, when a customer goes to buy a product. So the industry has just totally evolved. And we saw that happening. And it's just the nature of the beast. It's a bummer. Like, you know, nobody's happy when their original and good, healthy, fun business model starts deteriorating. Like that sucks, but welcome to business. Things evolve, things change. The classified ads in the newspaper got demolished by Craigslist, which then got demolished by the internet. You know, it's like, shit just changes. So Worldwide Cyclery's business model is just, it's not dead, it's not obsolete. It's just not nearly as viable. And it's not living in the heyday that it once was in that sort of 2010 to 2022 era. And because of that, you know, because of seeing that, we wanted to do, we wanted to really get into basically owning our own brands more vertically so we could kind of control everything. And Kettle Mountain Apparel was a huge one for us that we really saw a lot of potential in and wanted to grow and scale and put effort into. And that catalog now, you know, we've got 40 different styles of all sorts of stuff for outdoor and travel adventure wear. And we design it ourselves, we manufacture it, we market it, we sell it, we fulfill it, we do the whole thing very vertically and it's our brand outright. And that brand has grown substantially. And it's really the, you know, if you were to look at all three of our brands, that brand has the most, you know, longevity and sustainability in its business model. And so a lot of our focus has gone there, mine specifically, and kind of the key leaders in the business have really focused there. It's new, it's exciting, it's fun, it has longevity and sustainability to it and we have so much more control over it because we're not a retailer, we're just actually the manufacturer of everything and the retailer, it's all more vertical. So a lot of our efforts gone towards Kettle and the way we've grown Kettle thus far hasn't been the same strategies. It's been a bit more paid marketing because that's a more viable customer acquisition strategy than the content marketing side of things. And, you know, every industry, every product, like there's just different levers and different things you can do to help grow revenue. And for Kettle, that's not necessarily been content marketing just yet, little bit, we're dabbling in it, but it's been more so, you know, making a really good product and then making really good digital ads and making sure we're there in front of the right people at the right time that are looking for, you know, menswear of that sort. So we've put a lot of effort into that and we have pulled back effort on the worldwide cyclery content marketing side because the business model just kind of sucks now, if I'm being honest. Not only is worldwide cyclery competing directly with all the brands it sells now when it didn't pre-COVID, but the industry's had that, you know, that boom and bust cycle and the bust cycle has dragged on for what feels like two and a half years now and it's still in it. Industry totally over inventoried itself and that's caused a huge amount of discounting and margin deterioration, you know, all these things just really added up and on the tech side, simultaneously what's really been a huge issue for everyone who was in the e-commerce space, especially the ones that did content marketing is you don't get organic traffic from Google anymore. Like it's just basically pay to play. Like you type in a Google query for a product and you know, 95% of the page is paid pay-per-click ads everywhere. And the organic stuff is so far smashed down below the AI overview and the paid shopping results of images and the paid click, you know, text ads. It's usually your organic traffic. Like if you just look at the structure of a Google search engine results page pre-COVID versus now, it's dramatic how different it is. Like people just used to get a lot more traffic from Google for free organically and those days are just gone. Google has just kicked everyone in the nuts and that's just totally smashed e-commerce businesses that were fairly dependent on content marketing and forced them to pay to play. And if you're forced to pay to play in an industry that has terrible margins and now you're competing in the ad auction against the freaking same brand you're selling, selling it direct, it's just sucks. So it's like we- Tell it like it is Jeff, tell it like it is. So we have to be acknowledged that and pivot accordingly. And worldwide sector is still a good healthy business and it's fine, but it's the heyday's over, right? So we've moved on a little bit from it and said like we're not gonna neglect it. It's still a great, awesome business. There's still a value prop to having the curation of all the stuff there. So we've just toned down the level of content. We put out about one video a month now. We put out a couple podcasts a month and that's it. Articles here and there. It's definitely way less content than we used to."
+    },
+    {
+      "start": 3987.63,
+      "end": 3989.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it makes me sad."
+    },
+    {
+      "start": 3989.43,
+      "end": 4001.55,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, I know. Well, if you wanna call 200 brands in the industry and rejigger the entire structure of the industry, I'd love for it to go back to the way it was, but unfortunately the times have changed."
+    },
+    {
+      "start": 4011.33,
+      "end": 4140.14,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, Retool Agents is here. Yes, Retool has launched Retool Agents. We all know LMs, they're smart. They can chat, they can reason, they can help us code. They can even write the code for us. But here's the thing, LMs, they can talk, but so far they can't act. To actually execute real work in your business, they need tools. And that's exactly what Retool Agents delivers. Instead of building just one more chat bot out there, Retool rethought this. They give LMs powerful, specific, and customized tools to automate the repetitive tasks that we're all doing. Imagine this, you have to go into Stripe. You have to hunt down a chargeback. You gather the evidence from your Postgres database. You package it all up and you give it to your accountant. Now imagine an agent doing the same work, the same task in real time, and finding 50 chargebacks in those same five minutes. This is not science fiction. This is real. This is now. That's Retool Agents working with pre-built integrations in your systems and workflows. Whether you need to build an agent to handle daily project management by listening to standups and updating Jira or one that researches sales prospects and generates personalized pitch decks, or even an executive assistant that coordinates calendars across time zones. Retool Agents does all this. Here's what blows my mind. Retool customers have already automated over 100 million hours using AI. That's like having a 5,000 person company working for an entire decade. And they're just getting started. Retool Agents are available now if you're ready to move beyond chatbots and start automating real work. Check out Retool Agents today. Learn more at retool.com slash agents. Again, retool.com slash agents. Do you see a direct line of like make video about X for worldwide in particular sales happen? Do you see, do effect happens? You know, do you see that cause and effect?"
+    },
+    {
+      "start": 4140.14,
+      "end": 4270,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, not as much anymore. We used to, right? And that's, I think we will again, once the sort of bust cycle of the industry's over. So a lot of what happened when I say the bust cycle, right? So there was the boom and bust. What happened during the boom is not people overindulged in the sport and then they pulled back how often they participated in the sport. And while they were participating a lot and sort of overindulged in the sport, they bought a lot more stuff. They got really into it. They had to cancel their Disney World trip to Paris because of COVID and they instead just did a regional trip and went to Moab and rode mountain bikes with their family, right? So people really overindulged in the sport, which was great for the time being, but then it's rained back. Gyms opened up, soccer fields, baseball fields, football fields, everything just kind of went back to normal post COVID and people stopped riding bikes as often and they had bought a lot and the industry then overproduced a lot, which then caused a huge amount of discounting across the board. And people also just had, they're buying good, hard goods that last a long time. So they're not like the consumption of anything and everything in the bike industry, whether that's even consumables like tires, grips, chains, pedals, stuff like that. Even that's tapered off because the participation slowed down and because a lot of people literally bought extra grips or extra tires because there was like these weird times where there was no inventory during COVID because the supply chain disruption. So there's still this bus cycle going on. So there's so much less demand and consumption across all categories in the industry happening right now that it's not as easy to just make video about X and sell X. Whereas pre-COVID, it was, things were normal and steady and chugging along and you could introduce people to new products they hadn't heard about or an upgrade that they hadn't had and they're like, wow, that actually looks like it would be sweet. I'm just gonna buy that right now. So it was way more clear pre-COVID and then during COVID was just nuts, right? Like you could sell anything. It was crazy. The industry was nuts, right? It was so funny."
+    },
+    {
+      "start": 4270,
+      "end": 4286.88,
+      "speaker": "adam-stacoviak",
+      "text": "It was a wild time. It was a wild time. It was a wild time to be on the opposite side of that, Jeff. You guys were hammering out videos and enjoying life and clinking your champagne glasses. Here's me trying to get my tires just to go just ride."
+    },
+    {
+      "start": 4286.88,
+      "end": 4306.06,
+      "speaker": "jeff-cayley",
+      "text": "Yeah. I'm curious, what was your experience? Do you feel like you overindulged during COVID? Like your amount of riding and mountain bike content consumption and mountain bike related purchases in 2020, 2021, were those like higher than you've ever had in your life?"
+    },
+    {
+      "start": 4306.06,
+      "end": 4395.82,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah. The pinnacle of the number I would ever spend too was in those years. Yeah. It's natural, I suppose. It is. It's such a weird phenomenon to be, cause I discovered mountain biking before that, but discovered my passion for it around 2019. So the year before things blew up, I got back into the sport more so that I had, early 2019, I bought a specialized, I should know this off the top of my head, a Stumpjumper, like the most, you know, what they're most known for. I bought a 2019 Stumpjumper. It was like two grand, which I thought, oh my gosh, I would never spend two grand on a bike. Now I'm like, oh dude, I got this bike for two grand. Okay. Like this was a deal. I know, you know what I mean? Because I've seen some bikes you've built. Yeah. You know, I got this bike and I was like, I enjoyed it. And then for whatever crazy reason, I took it apart. Everything was off of it. Like it wasn't even, I couldn't even ride it anymore. It was a bike. Yeah. I replaced the rear shock. I replaced the fork. I mean, I reran brake lines, which was super painful in that kind of frame. I had to get a fishing thing from Park Tool, which was amazing. The first time I did it, I don't even know how I did it. I didn't have the right tool. And then Park Tool, thankfully has, you know, I don't know what you call it, but-"
+    },
+    {
+      "start": 4395.82,
+      "end": 4397.42,
+      "speaker": "jeff-cayley",
+      "text": "Internal cable routing kit."
+    },
+    {
+      "start": 4397.42,
+      "end": 4494.9,
+      "speaker": "adam-stacoviak",
+      "text": "There you go. You probably know it off the top of your head cause you speak their lingo. Internal cable routing kit. There you go, Jeff. Good job. Showing off your true colors here. And so I did all that. It was really wild, but I discovered this sport, I would say before COVID, but was falling in love with it. And at the time when everybody else was about to. And so my timing fall in love with the sport was just poor timing comparative. It wasn't because of COVID, but I think I leaned in even more because like, obviously I'm into it. So might as well go even further. And I live here in Texas near Austin and we have a city called Burnet here that has- Spider Mountain, right? Has Spider Mountain. Yeah, Spider Mountain's the, if it weren't for Spider Mountain, I think mountain biking would be very boring here in Texas. Like it's good. We've got lots of cool trails, but nowhere near California's trails or nowhere near Colorado's trails. Like just compared to, we don't have mountains here. We got the hills, okay? Little country as they call it. And I live in the hill country and it is amazing. And Spider Mountain TLDR for everybody who doesn't know is a lift serve. I think about 500 feet of descent total. So it's like lift serve, which means you get onto a lift like a ski. You put your bike on this hook and it goes up with you and then you come down with gravity. No pedaling required, total fun. And it's amazing. But that was my experience was I got into the sport when everybody else was starting to, and it wasn't because of COVID, but it was also because of COVID. Like it was just timing, that's how it worked out."
+    },
+    {
+      "start": 4494.9,
+      "end": 4495.74,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 4495.74,
+      "end": 4516.78,
+      "speaker": "adam-stacoviak",
+      "text": "And I, probably like anybody else, I wanted what I wanted and I wanted it now. And now I was never fast enough. And I remember everything being out of stock, everything was out of stock. It was insane. I even know how you guys kept it going with like how chaotic it must've been during that time."
+    },
+    {
+      "start": 4516.78,
+      "end": 4558.58,
+      "speaker": "jeff-cayley",
+      "text": "It was chaotic, man. It was for everyone, right? Because you had the bike industry had that participation just went through the roof, interest in the sport, purchases in the sport just went through the roof. At the same exact time, the supply chain just shut down and most of the products in the industry are made in Asia. So all of a sudden you had, you sold all your product with this insatiable demand and then you couldn't get any more of it. So then that led to this massive inventory outage for a long time. And then when the inventory came back, people overbought, they're like, well, I'm not gonna, I don't need three sets of brake pads, but I'm gonna buy them anyway, because I don't want to, they might be out next time. I could go look."
+    },
+    {
+      "start": 4558.58,
+      "end": 4560.06,
+      "speaker": "adam-stacoviak",
+      "text": "I'm pretty sure I have a pair or two of extras,"
+    },
+    {
+      "start": 4560.06,
+      "end": 4570.18,
+      "speaker": "jeff-cayley",
+      "text": "even as we speak. That has a really, really hardcore long-term side effect with this boom and bust cycle in the finances of the whole industry. That's still lingering."
+    },
+    {
+      "start": 4570.18,
+      "end": 4574.26,
+      "speaker": "adam-stacoviak",
+      "text": "I think I have two chains, Jeff. In case I break my chain, I got two more chains, I think, even as we speak."
+    },
+    {
+      "start": 4574.26,
+      "end": 4575.1,
+      "speaker": "jeff-cayley",
+      "text": "Everybody did that."
+    },
+    {
+      "start": 4575.1,
+      "end": 4578.7,
+      "speaker": "adam-stacoviak",
+      "text": "I'm good on chains for the foreseeable future."
+    },
+    {
+      "start": 4578.7,
+      "end": 4623.31,
+      "speaker": "jeff-cayley",
+      "text": "Exactly, yeah. So it's still lingering. Isn't that crazy? So yeah, I mean, that caused some serious issues for the industry and it was very hard to navigate. And a lot of the brands, as you've seen, went through just a cashflow crunch. They ended up ordering more inventory than they needed because they thought the demand was there. And then all of a sudden, when the demand slowly tapered off, they had all this inventory they couldn't sell. And then they needed cash and they didn't have cash because they had too much inventory. And then bam, bankrupt, just like that. Businesses can be very fragile in a volatile economy like that, which is why a lot of them go bankrupt and a lot of businesses fail. So it's, yeah, tough times. And yeah, speaking of Rebel, Rebel went through that craziness too, in a way."
+    },
+    {
+      "start": 4625.08,
+      "end": 4631.19,
+      "speaker": "adam-stacoviak",
+      "text": "I think you just started to promote them around 2019. And maybe it was 2020."
+    },
+    {
+      "start": 4631.19,
+      "end": 4632.03,
+      "speaker": "jeff-cayley",
+      "text": "It was 2019, yeah."
+    },
+    {
+      "start": 4632.03,
+      "end": 4774.71,
+      "speaker": "adam-stacoviak",
+      "text": "It was the year of COVID, I believe. Yeah, I really... So I guess more on your content side, I really appreciated your trip to the HQ. I love that behind the scenes stuff. I loved your perspective on boutique brands in the industry of bike in particular is unique, but it turned me on to this whole new aspect of like boutique brands in almost every industry I care about from computers to biking to you name it. You know, your personal passion towards the boutique-ness of Rebel. And it competes with Yeti. Yeti is a really well-known name brand, comparative, I would say. And I mean, you probably have a different perspective on comparativeness to it, but carbon frames, you know, amazing suspension. I think you'd call them super bikes. They're both super bikes, but they're built by very different companies. One is a big box kind of retailer kind of thing that wins World Cups and Rebel is fairly new but has similar roots, but it's got that boutique nature to it. I loved your perspective on boutique bike brands and building things around those things. What was I trying to tell you though? I liked that. I liked your boutique bike brand kind of aspect when Rebel first launched. But going to their HQ and seeing Adam and behind the scenes and like, no one was doing that kind of stuff. And like someone who cares about what they buy and why they buy it likes that kind of video. I don't know what it cost you to produce it, but it was worth its weight in my goal because like it helped me fall in love with the Rebel, fall in love with Adam, fall in love with the team there, fall in love with the reasons why they showed up to do what they do to maybe even care about Rebel in the first place. So it's like, it's this really weird, you know, phenomenon that happened, but Rebel launched right at the same time as the downturn of like COVID. And I think I got my bike. Oh, Jeff, I think I bought it. I bought the frame only. I call it the silver bullets, the T-1000, Rebel one, sorry, the Rascal one. And I bought the frame only. And I think I got it in like December, November, 2019. And I built it during COVID."
+    },
+    {
+      "start": 4774.71,
+      "end": 4775.55,
+      "speaker": "jeff-cayley",
+      "text": "Nice."
+    },
+    {
+      "start": 4775.55,
+      "end": 4814.46,
+      "speaker": "adam-stacoviak",
+      "text": "So I like, I didn't even build it right. I like bought it, took my time with it, bought components, took my time with it. And then it just took me a while to like really settle on everything I wanted to build with it. And that's how it worked out for that particular building, that bike there. But I bought it as a frame only. And I think it sat in my studio office for a bit there for like at least two months, just like, just taunting me, just taunting me, like build me now, please. And I'm like, I don't have my time. I don't have the time to do it. So I eventually did, but it wasn't until like things had shut down and things had changed that I actually had time to build it. So that's how it works out."
+    },
+    {
+      "start": 4814.46,
+      "end": 4826.86,
+      "speaker": "jeff-cayley",
+      "text": "Yeah. That's well, I'm glad you still pulled it off though. Cause you know, you could have had it sitting there for a whole year with no inventory on just one final remaining part or something. So it sounds like you pushed through it."
+    },
+    {
+      "start": 4826.86,
+      "end": 4830.66,
+      "speaker": "adam-stacoviak",
+      "text": "And something stupid, right? Like a brake pad or something like that."
+    },
+    {
+      "start": 4830.66,
+      "end": 4831.5,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 4831.5,
+      "end": 4876.69,
+      "speaker": "adam-stacoviak",
+      "text": "Or C-press collar. Yeah, exactly. Something dumb. Critical, but like seemingly non-critical in the grand scheme of things. Let's zoom out big and look at your foresight to not collapse under the weight of all of the COVID stuff. And then, you know, I think you bought Kettle before. So you sort of, a lot of precursors you sort of paid attention to, to make you make some moves that were wise prior to COVID so that you can sustain everything that happened during COVID. How did Kettle come about? How did Trail One come about? Why did you feel like it made sense to go vertical and build your own and make your own things? And is that dramatically harder than retail?"
+    },
+    {
+      "start": 4876.69,
+      "end": 5062.95,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's, I mean, the reason we did both the Kettle project and the Trail One project, you know, this was pre-COVID is cause I'd mentioned, we'd already started to see how the mountain bike industry was evolving, just the cycling industry in general with a lot of the brands going, you know, consumer direct or offering that as a channel and squeezing margins. And it's like, we saw the faults and cracks, you know, just doing a strength, weaknesses, opportunities in straight or strengths, weaknesses, opportunities, and threats like SWOT analysis as they call it in the business world. So like, we'd seen this stuff coming and we're like, yeah, this is how we need to combat it. And it also seems fun too, right? Seems awesome to be like, well, we've got this great infrastructure and team that we built with worldwide cyclery. The industry is evolving in a sort of unfortunate way, but it also seems awesome to fire up a couple of our own brands that we'll own and outright and be more vertical with. So that's why we did both those projects. And yeah, you know, I'm eternally grateful for pulling the trigger when we did, because as the bike industry went through that boom and bust, those two brands, Kettle in particular, because it's not reliant on the bike industry because it's mostly outdoor apparel, that really pulled us through in a big way in the last just two, three years, once the bike industry sort of blew up and went downward and Kettle just kept growing, which was amazing. Cause it's just operating in a much larger total addressable market and just menswear in general. So Kettle has been doing super well and just growing and growing super fast. And a lot of our attention has gone there. And Trail One is definitely still sort of, you know, in the bike industry, deep in the weeds, because it's a straight up mountain bike component company. So it's still a bit of a victim to the industry situation. And I have good optimistic sort of long-term view for it, but Trail One was also meant to be a great bit of a passion project. It wasn't really meant to be some huge, big dominant mountain bike component brand. We wanted to make really good mountain bike components that we always wanted and work with a good engineer to design them and then have a really cool and unique sort of philanthropic element to it, where every product that sold a dollar goes back to a trail network that it's named after. So we could actually build a brand that truly supported the sport of mountain biking. And part of that was just, you know, I think that's the right way to do things. And I think it helps push the industry forward when somebody comes out and says, hey, guess what? We have comparable flagship level mountain bike componentry that's at competitive prices. And it is actually really giving back to the sport in a cool way. So yeah, both of those businesses between Kettle and Trail One have been amazing and been, you know, so glad we did both of those because obviously, you know, we couldn't have predicted a giant boom and bust cycle during COVID or predicted COVID. So yeah, it was just good to have those. And yeah, now they're a core piece of the puzzle. And yeah, like I'd mentioned earlier, Kettle is actually a bigger business and worldwide cyclery now year to date."
+    },
+    {
+      "start": 5062.95,
+      "end": 5067.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, are you familiar with the state of Texas at all?"
+    },
+    {
+      "start": 5067.42,
+      "end": 5068.46,
+      "speaker": "jeff-cayley",
+      "text": "Oh yeah, definitely."
+    },
+    {
+      "start": 5068.46,
+      "end": 5069.9,
+      "speaker": "adam-stacoviak",
+      "text": "You come here frequently?"
+    },
+    {
+      "start": 5069.9,
+      "end": 5073.74,
+      "speaker": "jeff-cayley",
+      "text": "I wouldn't say frequently, but I've been to Austin many times and Dallas many times."
+    },
+    {
+      "start": 5073.74,
+      "end": 5076.8,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, do you know the brand H-E-B?"
+    },
+    {
+      "start": 5076.8,
+      "end": 5078.16,
+      "speaker": "jeff-cayley",
+      "text": "No."
+    },
+    {
+      "start": 5078.16,
+      "end": 5080.26,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so you should study H-E-B."
+    },
+    {
+      "start": 5080.26,
+      "end": 5081.1,
+      "speaker": "jeff-cayley",
+      "text": "Okay."
+    },
+    {
+      "start": 5081.1,
+      "end": 5098.98,
+      "speaker": "adam-stacoviak",
+      "text": "And I wonder if what you're doing, now I didn't piece this together until the moment you just said this, and this is why this is like off the cuff for me. So H-E-B is a really well known Texas beloved. Like if you live here in Texas, you don't really shop for groceries anywhere else other than H-E-B if you're a true Texan."
+    },
+    {
+      "start": 5098.98,
+      "end": 5100.1,
+      "speaker": "jeff-cayley",
+      "text": "Okay."
+    },
+    {
+      "start": 5100.1,
+      "end": 5214.7,
+      "speaker": "adam-stacoviak",
+      "text": "It's like that. And you know, Texas has got a lot of pride in terms of its choices, its size. Like the rain is literally bigger here. Okay, when you get hit by a raindrop here, you get knocked down. Yeah. That's how big rain is here. I'm almost not even kidding with you. It's seriously big. So H-E-B is a grocery store. You know, like a common thing, Amazon's doing this. A lot of the brands, they attract a lot of the customer base and they take Energizer batteries and replace them with Amazon basic batteries as an example. Right? And I'm not saying that Trail One is the Amazon basics. By no means am I trying to say it's lesser, but it's been a while since I've built my bike and thought about the components I use that I forget the brand that I use. Race Face, I should move this. I use a really nice, really cool bars from Race Face. It doesn't matter which one. They're like R35s, I believe, carbon bars, really fun. Probably more than I need, but I go downhill here and there, here and there. The point I'm trying to make is that H-E-B, they, the thing they've done uniquely different than I think a Kroger or an Aldi, or I'm not even an aficionado of grocery stores. I just know this because this is how H-E-B is to us Texans, is when you go into H-E-B, you will often choose the H-E-B brand, not one because it's cheaper, because it is, but two because it's got these particular roots. It's Texas farmer grown, or as local as you could possibly get while still being packaged good. Yeah, that's cool. And so H-E-B has this really good salsa you can get there called Texas Texas. Like what a better name for salsa, right? Texas, Texas. Not only one Texas, you got two Texas in there, okay? And if I could buy a stock in this company, Jeff, I would totally buy a stock. It is the best salsa you'll ever get from a can. It's amazing."
+    },
+    {
+      "start": 5214.7,
+      "end": 5215.52,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, nice."
+    },
+    {
+      "start": 5215.52,
+      "end": 5238.91,
+      "speaker": "adam-stacoviak",
+      "text": "But it is an H-E-B brand. And so they aim to come out with competing brands to what would typically be, you know, the incumbents, probably a little bit better. And because of the way H-E-B has positioned their brand, it's seen as even better, not just the cost comparative better, but like a literal product better. And I'm wondering if Kettle and Trail One might be that for you."
+    },
+    {
+      "start": 5238.91,
+      "end": 5415.26,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, yeah, they are definitely. I mean, Trail One would be more similar in that sense where Trail One has gone after the specific components that are basically fully optimized, not really going to change very much when you're thinking about grips, handlebars, pedals, stems, you can put your own unique flavor and spin on it in some different ways and preferences, but in many ways there's like the innovation plateau has been hit years ago for these categories. And if you can make a competitively priced product that is in every way, shape or form as good or even slightly better than all of the incumbents and it has a better story and a better sort of actual supporting the sport type of brand behind it, it can just be like that's a way better value prop, right? So yeah, so Trail One has been that way and Kettle's funny because apparel is such a crazy space. When you look at outdoor apparel, there's anything and everything you can buy outdoor apparel from Amazon or Costco and you can also buy Arc'teryx for $900 and feel cool. It's like there's so many options and price points and branding and fashion and aesthetic and what do you care about? Are you buying it because you want people to see your Arc'teryx logo and think you're rich or are you buying it because you actually want a small rare brand that has technical attributes that you really care about, right? Or do you just frankly want the cheapest rain jacket you can find and you got it at Costco? So it's like there's, it's a way bigger market with way more options. So Kettle for us is very different because we've positioned it in a way where we're really just making the stuff that we specifically want and we specifically wanted at this price point. So not as outrageously as expensive as Patagonia or Arc'teryx but expensive enough that it's actually really good, like really good high quality fabrics and it can come with a lifetime repair policy and it can come with really high quality zippers and buttons and trim details and fabric that lasts and actually performs well. So you gotta hit some level of higher enterprise point to make that happen but it doesn't need to be Arc'teryx level which at that point you're just paying for a fashion brand. And it doesn't, it can't really be below that towards the Amazon or Costco price point because then it just frankly falls apart and doesn't function well. So we're kind of figuring like this is a sweet spot we think is relevant and what we want and these are the designs and aesthetic that we want. So we're just really trying to make stuff that we specifically like and enjoy price point wise, functionality wise, looks wise and luckily that had so far as just resonated well, right? And we found the people who also care about those same things. So yeah, that's been fun but that's like kind of the gamble you take in a lot of business when you're creating a product is like, well, we like this, hopefully other people do."
+    },
+    {
+      "start": 5415.26,
+      "end": 5425.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, well, I see the grand scale of Kettle but I'm not seeing the grand scale at least from my perspective of Trail One."
+    },
+    {
+      "start": 5426.76,
+      "end": 5448.2,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, there will be, it's a tiny niche market, right? Like Trail One is gonna be a niche market of high end mountain bike components for enthusiast mountain bikers that care about good quality components that have a give back to the trail network. And yeah, it's a way smaller niche market and that's fine and understood."
+    },
+    {
+      "start": 5448.2,
+      "end": 5454.2,
+      "speaker": "adam-stacoviak",
+      "text": "So the products that aren't changing much because like you said, they're already kind of stabilized products anyways."
+    },
+    {
+      "start": 5454.2,
+      "end": 5532.56,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, I think we'll continue to introduce more stuff with Trail One and refine existing things and find sort of new categories to break into and we'll also do some experimental stuff that one of the ways we're gonna evolve it in the next couple of years. There's a lot of these obscenely high end, crazy, nice boutique European mountain bike component brands and I've always loved those and I think we can make some of that stuff in the US. Trick stuff is an example of that or Intend Suspension. There's some wild stuff that, the engineering and the passion that happens and a lot of it's in Germany because a lot of the manufacturing's there is insane and a lot of those crazy high end boutique rare things only exist in Europe and I think Trail One could definitely make some stuff like that in the US. And it's talking about a niche market. This is like the niche of the niche of people who wanna $300 titanium stem or something like that but that's what stuff we like and we're gonna try making it and it'll be much smaller quantities but higher price points and yeah, just a fun brand to run and something that we can be proud of because it actually is genuinely supporting trail builders and trail building efforts all over the place which I think matters for the sport."
+    },
+    {
+      "start": 5532.56,
+      "end": 5556.88,
+      "speaker": "adam-stacoviak",
+      "text": "It does matter for the sport. I think you'll laugh at the page I'm on on Trail One. I was on the titanium rotor bolts upgrade kit. You offer, if you didn't know this, you offer gold which I love. I don't have gold as a need. I have been a rainbow guy myself. That dipped like I got my chain, I think is that, I think my rear cassette is that."
+    },
+    {
+      "start": 5556.88,
+      "end": 5559.76,
+      "speaker": "jeff-cayley",
+      "text": "Sounds like you need some matching rotor bolts that are made out of titanium."
+    },
+    {
+      "start": 5559.76,
+      "end": 5566.6,
+      "speaker": "adam-stacoviak",
+      "text": "I really do. So that's why I was looking at these. I was like, you know what? I didn't know you sold bolts but now that I know that I can get some."
+    },
+    {
+      "start": 5566.6,
+      "end": 5570.28,
+      "speaker": "jeff-cayley",
+      "text": "Valve stems too if you wanna pair all and look together."
+    },
+    {
+      "start": 5570.28,
+      "end": 5603.44,
+      "speaker": "adam-stacoviak",
+      "text": "I might just have to get my bling on, my matching bling. The design of the things here is so good though. How did you? I imagine your process to build this was find the right people, hire the right people, put them in the right kind of places, let them go and do the right work or how much personal hand did you have in the design? Cause there's a lot of minimalism and a lot of similarity in the, like from the bolt to the stem to the, you name it. There's a lot of similarity to the, just the look and the feel."
+    },
+    {
+      "start": 5603.44,
+      "end": 5689.8,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, so kind of keeping that consistency with the industrial design language across the whole product line is something we've always been cognizant of. And the way we've been able to pull that off is yes, myself and Liam have had a ton of input on all of this stuff. And we've also been fortunate enough to, I have a long time industry friend who's actually one of the original founders of Raceface since left Raceface once they got acquired by Fox. And he was able to connect us to, and he's actually one of the founders of Trail One, one of the co-founders. And he was able to connect us with a incredibly talented PhD level engineer that did a short stint at Raceface on a work visa. He's an Irishman, but he did a short stint at Raceface on a work visa in Canada for a while. And now he's actually back at the University of Dublin teaching like really sophisticated engineering classes. And it's a side, so Trail One's a side project for him as a co-founder too. So we've got some really good people on the procurement side, figuring out the best factories that manufacture this stuff. And then the engineering side to actually do all the really technical CAD drawings of all the stuff. And then Liam and I having a lot of input on how things look and should be shaped and specs and all of that. So yeah, it's just piecing together a team like that that can execute on good products."
+    },
+    {
+      "start": 5689.8,
+      "end": 5701.73,
+      "speaker": "adam-stacoviak",
+      "text": "So yeah. We've done a great job. I will tell you, I don't own any Trail One products. And I think it's because I've bought all my stuff and I'm like, well, I don't need two stems."
+    },
+    {
+      "start": 5701.73,
+      "end": 5702.77,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 5702.77,
+      "end": 5719.57,
+      "speaker": "adam-stacoviak",
+      "text": "I just generally, I would like to have another one that we may not have to sell my current Raceface one to just replace it. So there's not a lot of utility in replacing it, but it had I not already, now the next time I get grips, I'm gonna get your grips. That's for sure. I think I've done the ODIs."
+    },
+    {
+      "start": 5719.57,
+      "end": 5720.65,
+      "speaker": "jeff-cayley",
+      "text": "ODIs, yeah."
+    },
+    {
+      "start": 5720.65,
+      "end": 5753.31,
+      "speaker": "adam-stacoviak",
+      "text": "The ODIs, yeah. Whatever you guys suggested, I think I eventually landed there. Like I took some of your advice on like which different grips to try out and just landed on the ODI. I think they're pros, if I recall correctly. But they're kind of like thin. They're not super thick. They got some good grip to them. They're about 20-ish bucks. They're not super expensive, maybe 30 bucks. I don't know what the number is, but fairly affordable. But I mean, how often do your grips? I mean, I think your grips probably last. My grips probably last me less than yours because you probably bike every day. I don't get the bike every day, Jeff, sadly."
+    },
+    {
+      "start": 5753.31,
+      "end": 5755.15,
+      "speaker": "jeff-cayley",
+      "text": "All depends on how much you ride."
+    },
+    {
+      "start": 5755.15,
+      "end": 5781.96,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, man, it really does. But I'm a big fan of Trail One. Just haven't personally bought any of your stuff yet. I'm looking forward to the day when I need to replace something and there you go. I got a Trail One's handlebar instead of a replacement from something else. Yeah, well, thanks, man. What about Kettle then? How do you take this to the, like this must be the juggernaut of what you've got going on. Is this the biggest thing you have going on right now?"
+    },
+    {
+      "start": 5781.96,
+      "end": 5784.16,
+      "speaker": "jeff-cayley",
+      "text": "Kettle, yeah, absolutely."
+    },
+    {
+      "start": 5784.16,
+      "end": 5789,
+      "speaker": "adam-stacoviak",
+      "text": "So like 80% of your time is going to Kettle and then 20% sprinkled elsewhere or how's it work?"
+    },
+    {
+      "start": 5789,
+      "end": 5843.12,
+      "speaker": "jeff-cayley",
+      "text": "Pretty close. It's probably 70, 30. They are all pretty intertwined though. So the three stores that we have for worldwide cyclery, which are also basically small retail store on the front, sort of customer service and admin in the middle and then warehousing and fulfillment in the back. So we have one of those in California, Nevada and Pennsylvania. And those stores also do all of the warehousing and fulfillment for Kettle and Trail One. And then it's all a bit intertwined in the back in terms of who's working on what brand and how the finances are commingled, at least on the worldwide cyclery and Kettle side, Trail One's a separate entity. But anyways, it's all a bit intertwined, especially the infrastructure and staff with all three brands. So I couldn't tell you like an exact percentage split that I have, because it's pretty intermingled."
+    },
+    {
+      "start": 5843.12,
+      "end": 5844.12,
+      "speaker": "adam-stacoviak",
+      "text": "Too hard, yeah."
+    },
+    {
+      "start": 5844.12,
+      "end": 5950.21,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, but needless to say, Kettle is a huge opportunity for us. That's growing really well. And we know it's just an important piece of the puzzle. And frankly, it's something that we're having a lot of fun with. To be honest, as you probably heard in my agitation talking about the bike industry, a little demoralized, not just with the boom and bust cycle is what it is, but more just the way that the industry has evolved in a way that's really, unfortunately, neglected good retailers, good retail infrastructure, good marketing for the sport to get more people into it. Like it's just evolved in a way that is detrimental to the growth of the sport. And that's a bit demoralizing on the mountain bike side of things. And on the apparel side of things with Kettle, it's actually been the opposite. It's actually really fun to see the enthusiasm people have for being adventurous and traveling and going outdoors and how technical fabrics have really come a long way and manufacturing methods have come a long way. And there's a lot more cool little intricate, useful details you can mix into apparel that didn't really exist years back. And for people who care about little thoughtful details like that and we're those people, we like designing that stuff and testing it and making it and finding the people who also care about those things. And for Kettle, that's just been a huge win, right? Like we've had so much fun doing that. And yeah, the kind of the reviews and testimonials we get on the product and the repeat business we get kind of speaks for itself. So that's, yeah, it's grown very fast and been definitely a huge focus of mine. And yeah, that's a lot of where I'm putting my energy these days."
+    },
+    {
+      "start": 5950.21,
+      "end": 5965.44,
+      "speaker": "adam-stacoviak",
+      "text": "This could be a big business, right? Like it could be $50 million plus kind of business. I don't know, I'm just picking a big number. I don't even know if it's a real number or not. And Kettle can be like a really, really, really big business if you play the long game right."
+    },
+    {
+      "start": 5965.44,
+      "end": 5966.28,
+      "speaker": "jeff-cayley",
+      "text": "Absolutely."
+    },
+    {
+      "start": 5966.28,
+      "end": 5968.08,
+      "speaker": "adam-stacoviak",
+      "text": "And you spend the right kind of money on marketing."
+    },
+    {
+      "start": 5968.08,
+      "end": 5984.36,
+      "speaker": "jeff-cayley",
+      "text": "Totally. Yeah, I mean there's billion dollar plus apparel brands all over the place and even just in the menswear category, Lululemon does over and Patagonia does over hundreds of millions and just men outdoor menswear only. So way bigger total addressable market."
+    },
+    {
+      "start": 5984.36,
+      "end": 5986.88,
+      "speaker": "adam-stacoviak",
+      "text": "So my number was pretty accurate then."
+    },
+    {
+      "start": 5986.88,
+      "end": 5998.56,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's actually on a small scale like a $50 million apparel brand would is not even really a nothing that's like a little brand in the scheme of things. Yeah, the big dogs are pumping out way bigger numbers than that."
+    },
+    {
+      "start": 5998.56,
+      "end": 6009.58,
+      "speaker": "adam-stacoviak",
+      "text": "And when you say outdoor, do you mean just basically anything that's has to do with like hiking, camping, biking, you name it kind of outdoor?"
+    },
+    {
+      "start": 6009.58,
+      "end": 6071.18,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's all very blurred in a sense now, especially with how a lot of people wear quote unquote outdoor apparel casually because it's so comfortable. But yeah, we specifically like is making apparel that is versatile that you can kind of wear daily and be really comfortable in traveling, but also has sort of the necessary technical attributes to get out there and perform in during hiking, trail running, mountain biking, kayaking, fishing, whatever, like you name it, just outdoor activities. Yeah, like and then just making specialized products too, like rain shells or more specific pants, like specifically fit short for mountain biking or specific pants for rock climbing, like stuff like that too. So yeah, we're continuing to just build out all the apparel that we ourselves actually use a lot. And we do a lot of mountain biking, hiking, trail running, adventure racing, rock climbing. We do all those things. So we're just making a product lineup that covers all those bases."
+    },
+    {
+      "start": 6071.18,
+      "end": 6090.12,
+      "speaker": "adam-stacoviak",
+      "text": "So you just go and do what you do and you find challenges and problems. You're like, okay, let's make this new thing to solve this problem. The Jephinator, I don't know. The, I'm just thinking of something, just cliche and stupid really, but you just do what you do and solve problems for those that are like you."
+    },
+    {
+      "start": 6090.12,
+      "end": 6151.72,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, yeah, in large part, that's right. Yeah, I mean, and it's funny. I think solving problems is kind of a funny thing in business, because it used to be imperative, like what problem are you solving? But now I think a lot of modern businesses are, did you build the mousetrap better? You didn't invent a mousetrap, but did you build it better? Yeah. A lot of us, like we live in 2025. The number of inventions that you're gonna come up with now versus what you'd come up with 50 years ago are very different. So a lot of nowadays is about refinement and refinement towards specific use cases or specific demographics, like little details like that I think are important in businesses and can't just judge your business off of like, is it solving a real problem? It's like, well, no, no, we didn't just invent a way to search the internet in the year 1997. Instead, we figured out how to make, really refine a rain shell for traveling. Whatever."
+    },
+    {
+      "start": 6152.88,
+      "end": 6176.22,
+      "speaker": "adam-stacoviak",
+      "text": "Which takes a whole different kind of subject matter expertise to do so. Yeah. You mentioned LLMs, APIs, and I think even AI initially early in the call. Does AI play a role at all in your day-to-day life as an individual? Are you using AI? Is it helping or hurting your business?"
+    },
+    {
+      "start": 6176.22,
+      "end": 6267.62,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, absolutely. I am definitely a nerd in all that stuff and love it and enjoy it. And I've been an early adopter of all of it. And yeah, I use JetGPT daily for a whole range of things. I always experiment with our businesses on Google Workspace. So I always dabble and experiment with the way that Google is integrating Gemini, which is largely terrible and not very useful. Our customer support staff and the content guys, they're using it to write articles, reply to emails. Yeah, so we're leveraging it every which way we can and every which way that's possible to, whether that's automate tedious tasks or a lot of it's just language related, like writing things and replying to emails, stuff like that, proofreading stuff. There's so many useful cases for it. I don't know, by and large, people love to say how helpful it is. And yes, we've absolutely seen some efficiency gains for it because of it and use it all the time internally for personal reasons or business matters, but it's not revolutionized anything yet. It's not like I'm not firing people because I've replaced them with AI robots, like just answering customer support queries automatically. There's still the human touch. The humans are just much more efficient so far, way more efficient, which I think is cool and useful. And I mean, you're in the space where there is probably some pretty substantial things being revolutionized with writing code and stuff like that. Everything's changing."
+    },
+    {
+      "start": 6267.62,
+      "end": 6348.39,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, things are different. Like the response from you to the response to somebody else we talked to today, we recorded a podcast this morning, for example, and it's just dramatically like night and day changing the future of software development. Yeah, yeah, that makes sense, that's cool. It's totally changing how a seasoned, senior, professional, well-trained, multi-language aware software developer writes software today is dramatically different today than it will be tomorrow. I mean, it's always been true, but specifically now we have the burgeoning effects of that truly taking place and not being this pie in the sky potential, like a literal truth coming true as we speak. It's so wild. So it's wild. Like you are using it on the implementation level where you're a word calculator, is how we describe it, right? I'd imagine you personally are probably running different business models. Maybe you're doing like different forecasting or ingesting data and doing stuff like that. Like that's how I personally am doing things. I'm not solving different problems. I'm like forecasting and scenario-based, breaking the business, so to speak, whatever we're trying to do as an example, so yeah."
+    },
+    {
+      "start": 6348.39,
+      "end": 6403.75,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it is cool. Amazing tools have come out so far and I'm always trying to find different use cases for them that I enjoy. And I also just love to research and learn anything and everything. So being able to converse with all of humanity's knowledge is pretty cool and I use that all the time to learn and study and research, which is super fun. I am curious too, just from your perspective, we pay for a lot of SaaS products and everyone in the e-commerce space does and they're usually grumpy about it. Do you think that all of these SaaS tools in the e-comm space are gonna get disrupted a bit in a way that's gonna benefit e-commerce companies? Like, am I still gonna need to pay $3,000 a month for an ERP system, which is just a piece of software or pay $500 a month for a review platform for a Shopify plugin or is that just gonna get destroyed because people are gonna be able to build those for so much less money?"
+    },
+    {
+      "start": 6403.75,
+      "end": 6559.74,
+      "speaker": "adam-stacoviak",
+      "text": "I think even if somebody rebuilt it, they would still find a way to charge you for it. So I don't think the money goes away. I think what may change potentially is if you had a software team already that was building software internal tools for your companies, which you may already have. I think that their job grows. So if you've got even one or two person, just call them a tech team, somebody who runs the websites. Could be a small team of two or three, I'm just hypothesizing. But now their job should be to start to think about how to build out your own internal tools, build out your own internal systems, because it's getting democratized more. And it's not that non-software developers are making software, it's just that people who are less entrenched in software creation have new liberations, new guides, new, like you're a lifelong learner, I would just say it's like more on-ramps to the road you may want to go on. It's kind of like that, it's not like a literal just I'm doing it for you. It's now you've got an uncanny buddy that's willing to help you provided you pay it to do the work kind of thing. And that's gonna get more and more expensive over time potentially, but you have some diminishing return when it comes to that. Some people are paying 200 bucks a month as an example to OpenAI and their higher end things. And same thing with like Clod and Anthropic, they're paying the higher end versions to get access to more unfettered or unlimited or multi-user or whatever you call it. And you're gonna have that. But I think if your tech team is making software for you, over time they could begin to make more software for you and maybe start to chip away at those extra services that you don't really need anymore because they're kind of like a database in the cloud basically. Now they have security and they have, maybe they have SOC 2 compliance or some sort of other compliance that you need to now take on internally. The problem just shifts. Your cost basis probably stays somewhat similar. Like you pay them three grand a year, you're gonna pay somebody else something per year to deal with the problem, to now have the problem. So it might just shift a little bit. I think over time you'll have more of an opportunity if you don't already have an opportunity to create more of your own business level software that's bespoke, unique, one-off kind of thing. Like you mentioned APIs and ingesting data, stuff like that, you know?"
+    },
+    {
+      "start": 6559.74,
+      "end": 6560.58,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 6560.58,
+      "end": 6574.66,
+      "speaker": "adam-stacoviak",
+      "text": "Is my guess, you know? Yeah, yeah, cool. If they're not already doing that, they should be doing more of that. And I think more internal tools is probably good, but now you gotta maintain them. And when they break, they're broken, you know? And you gotta fix them. So, you know."
+    },
+    {
+      "start": 6574.66,
+      "end": 6576.62,
+      "speaker": "jeff-cayley",
+      "text": "It's always a pros and cons of building in general."
+    },
+    {
+      "start": 6576.62,
+      "end": 6602.91,
+      "speaker": "adam-stacoviak",
+      "text": "You gotta judge your downtime. Was it worth it to take it internal? Well, maybe we gained some agency over it, but now we gained, we also gained the full-on maintenance ability of it. Like we have to maintain it when it's down is our fault, you know? And so we had to learn uptime. Now we have to learn a whole new problem set. So what was once just a WordPress website or a Shopify website has now grown into a whole different problem. So it depends on if you wanna bite that off."
+    },
+    {
+      "start": 6602.91,
+      "end": 6603.75,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 6603.75,
+      "end": 6625.27,
+      "speaker": "adam-stacoviak",
+      "text": "You know? So that's my thoughts on it, but I'm glad you're using it. I'm glad that AI is a part of what you're doing on the day-to-day. Cause I mean, if it wasn't. But you're sharp, Jeff, you're sharp. You know what you're doing. So what's the next big thing for you? So if Kettle is where things are at now, how do you, like what makes life good for you? What's the next thing for you? What makes life good for you? And these next steps you take."
+    },
+    {
+      "start": 6625.27,
+      "end": 6763.09,
+      "speaker": "jeff-cayley",
+      "text": "Yeah. So, you know, my take on business in general is I'm not trying to conquer the world. Quite the opposite. I'm trying to run a lifestyle business and do it really well. And what I mean by that is I wanna have a business that I can be really proud of in the way that it treats its customers, the products that it produces, the way that it treats its internal employees, the way that it brings things to the world, whether that's humor or creativity or content. I like a business that I can be proud of that hits all of those things in a really good way and just provides a great, awesome life for myself and the team. And that's it. We don't have revenue targets. We're not trying to be like, oh, let's hit this next year. Let's hit that next year. No, we don't have investors. We're having fun over here. Can we make a good living running a good business with employees that love working here and customers that love shopping with us? That's it, that's all. Just calm down after that. Just have a good life. So that's my outlook on it. Sounds so perfect. Well, thanks, man. It's definitely contrary to the typical hustle at all costs, build a unicorn, sell it. No, not at all. I just wanna run an awesome, fun business and have a good time doing it and make sure that along the way, we're building products that we can be proud of and the people love working here and people love shopping with us. That's it. That, to me, is important. I feel much more fulfilled and vindicated when I see positive testimonials about the service we provide, the products we make, and the happiness and cheerfulness of our internal staff and our ability to take care of them. That, to me, is what matters. I'm not going for an exit. I'm not going for an IPO. None of that. I'm just trying to enjoy myself, enjoy my life, make sure I take plenty of vacations and time off and stay fit and take care of my body and make sure the rest of the staff does that. Yeah, to me, that's what a lifestyle business is and should be, and that's what I care about. Definitely contrary to, I think, most hustle at all costs, build and scale, being a unicorn's take is, I'm kind of the opposite."
+    },
+    {
+      "start": 6763.09,
+      "end": 6783.18,
+      "speaker": "adam-stacoviak",
+      "text": "That's good. I seem to get a healthy outlook on your next steps and just generally how you operate. That's why, like I said, I gravitated towards what you've done. Even if it wasn't, you could have been doing something different. If you just had the same energy, like the thing I'm now into is golf. I don't know if you're into golf or not."
+    },
+    {
+      "start": 6784,
+      "end": 6787.66,
+      "speaker": "jeff-cayley",
+      "text": "Are you into golf by any chance? I like golf. I'm not super into it, but I definitely enjoy it, yeah."
+    },
+    {
+      "start": 6787.66,
+      "end": 6812.61,
+      "speaker": "adam-stacoviak",
+      "text": "So when I saw Kettle, I was thinking, gosh, the next obvious maneuver there would be potentially golf. I don't know how well. It's almost outdoorsy. It's definitely athletic and charges high dollars, potentially, for your average polo costs. A low cost is like 50 bucks. A decent cost is like 100 or so dollars for a decent polo."
+    },
+    {
+      "start": 6812.77,
+      "end": 6814.39,
+      "speaker": "jeff-cayley",
+      "text": "I don't know."
+    },
+    {
+      "start": 6814.39,
+      "end": 6873.71,
+      "speaker": "adam-stacoviak",
+      "text": "There's room in that space too for, I think, a lot more, it's probably crowded, but there's room for fun. So the same reasons why you're in the business you're in currently is I think there's the same kind of fun nature and there's a whole new playful nature coming to golf that hasn't quite been there in the last, I'd say for most of its time, in like the last five years, it's changed. I think it's ready for a younger audience, which means new people coming in, which means a whole new different psychology of buyer, where the older psychology of the buyer may have been this, I don't know, clicky uppity golfer, where I think now the landscape of who golfs, I'm just so surprised by who golfs. I'm like, you golf, like for real? I'm not like, it's like, I wouldn't take you as somebody who cares about your score or like what you're trying to break or what club you're trying to like. You don't seem like the kind of person, not you, but like this fictitious person I'm suggesting, I'm so surprised by who's involved in golf."
+    },
+    {
+      "start": 6873.71,
+      "end": 6991.65,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, it's a cool sport and it's great to see how well it's done post COVID. It's actually one of the poster trials of business that funny enough, it gets compared to cycling for all the wrong reasons. So golf had quite a big boom as well during COVID and it's hung on to the customer base. A lot of people got into golf and have still stuck with golf post COVID, it didn't really bust. Whereas a lot of these other sports, cycling in particular went boom and bust. And people said, well, a lot of the reason golf did so well was it was a little bit more, I don't think inclusive is the correct word, but it was a little bit more appealing long-term to different people and they actually enjoyed it. Like they went and got into golfing during COVID, they never really golfed before and it became habitual to be like once a month or even every Sunday, they go out and play with their boys and some people take it really seriously. Some people go out there and do a beer whole, but the golf courses and the people who were on the courses and the staff at the courses and the experience of golfing wasn't ever really derogatory or exclusionary. And so more people got into it and just kept doing it and they liked it. And it's like hung on to a lot of these newcomers to the sport in a really good way. In the exact opposite way that the cycling industry got all these newcomers and then just lost all of them. So it is cool to look at how well the industry's done and actually just in the apparel space too, have gotten familiar with some of those new golf brands that are much more off the cuff and unique and bad birdie is one of the ones that I follow and admire. And it is cool, there's like new golf apparel that's a little more technical, but a little more flavorful and edgy. Yeah, and you're right, I think as the baby boomers phase out off the course, there's gonna be a lot more millennials taking over the golf course scene and the flavor is gonna change and it is cool to see the industry change and evolve like that."
+    },
+    {
+      "start": 6991.65,
+      "end": 6994.69,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think you're right about bad birdie. They got a really cool brand."
+    },
+    {
+      "start": 6994.69,
+      "end": 6995.67,
+      "speaker": "jeff-cayley",
+      "text": "Yeah."
+    },
+    {
+      "start": 6995.67,
+      "end": 7015.94,
+      "speaker": "adam-stacoviak",
+      "text": "I like a lot of their stuff. I mean, you look at everybody and all their, every photo it's somebody that's 30 or younger. So I have no idea what your age is, but people who listen to my show know my age. So I'm 35. I'm not 30, almost a year. I'm 11 years older than you, Jeff. It feels weird to say that."
+    },
+    {
+      "start": 7016.94,
+      "end": 7019.58,
+      "speaker": "jeff-cayley",
+      "text": "We're all aging slowly but surely, man."
+    },
+    {
+      "start": 7019.58,
+      "end": 7027.8,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you know, one day at a time, right? One second at a time. Well, I look forward to you. So are you hinting at the fact that Kettle might get into golf?"
+    },
+    {
+      "start": 7027.8,
+      "end": 7030.98,
+      "speaker": "jeff-cayley",
+      "text": "Oh, I don't know. It kind of depends on-"
+    },
+    {
+      "start": 7030.98,
+      "end": 7034.69,
+      "speaker": "adam-stacoviak",
+      "text": "Any thoughts at all about that or a whole separate brand?"
+    },
+    {
+      "start": 7034.69,
+      "end": 7132.37,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, I don't think we do separate brand. Most people are asking us when we're gonna make women's apparel and it's just like, I'm not trying, like I explained my business philosophy earlier, I'm not trying to boil the ocean. I'm not trying, you know, if I were to just all of a sudden make golf wear or women's wear, it would be for the wrong reasons. Like, I'm not trying to make products to sell them for making money. Like, that's not what I'm trying to do here. So I wanna make stuff that I like and I'm into. And, you know, if the handful of us who are kind of calling the shots on what products we make next and what sort of, you know, categories we get into, for whatever reason, we all start golfing more, we'll probably just make golf apparel. If for whatever reason we all start, you know, surfing more, maybe we'll make more surf apparel. So I literally can't predict what we'll make in the next five years, because it just depends on what we happen to get into more. You know, recently we've gotten, a lot of us have gotten more into backcountry skiing, mountaineering and adventure racing and trail running. So we're just making more stuff those categories because we like that. And we're definitely interested in making bags too, cause we travel a lot and there's so many different bags out there and like little things about bags that you can do there. Totally, yeah. And everyone's got different preferences. And so, and footwear, I have no idea. It just all depends on what we end up, just like the few of us here, what we really get into. But I would bet at some point, you know, it might be a few more years, we'll go through a phase where we're into golf and we'll start making golf apparel just cause of that reason. So we're just making shit that we want to use and like and what we're into at the moment. So who knows what it'll be next."
+    },
+    {
+      "start": 7132.37,
+      "end": 7165.85,
+      "speaker": "adam-stacoviak",
+      "text": "That's a really good thing. Well, I was hoping you were getting into golf or into golf because I figured that at some point you start to offer my next passion sport, which is golf, some content or some insights, you know, I mean, all that good stuff. I think the space around golf is so really unique. Really it is. I've been enjoying it personally. I've been enjoying playing with friends. I like it for business. I like it for networking. I like it for just getting outdoors. One thing I think that golf has over mountain biking is the collarbone scenario."
+    },
+    {
+      "start": 7165.85,
+      "end": 7166.87,
+      "speaker": "jeff-cayley",
+      "text": "Much safer."
+    },
+    {
+      "start": 7166.87,
+      "end": 7198.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, it's, you know, it's a lot easier to be mobile with my body, not broken. Cause I crashed going over some really chunky stuff, which I find super fun. I mean like the adventure in me, the, like I'm 46 and so I'm not young, I'm not old either. I'm at that age where if I break something, it hurts more than it did 10 years ago. So I'm a bit more cautious of a rider, but at the same time, like I get out there and I just, I'm shredding hardcore, but I'm definitely more mindful of my shred."
+    },
+    {
+      "start": 7198.35,
+      "end": 7199.19,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, same."
+    },
+    {
+      "start": 7199.19,
+      "end": 7213.65,
+      "speaker": "adam-stacoviak",
+      "text": "Whereas like two or three years ago, I was a little less concerned about it. Now I'm more concerned about it. And so golf is seeming like a better hobby slash sport because it's got different benefits, let's just say. Just different benefits, you know?"
+    },
+    {
+      "start": 7214.17,
+      "end": 7241.45,
+      "speaker": "jeff-cayley",
+      "text": "I admire any sport that has like a good way for you to get outside with friends and converse, chat, get exercise, have fun in the sun. Like, I don't care what it is. I like all those things. And I really appreciate how golf has evolved into such a social sport where it just becomes a great way to get away with your boys and go hang out for eight hours, playing golf and shooting the shit and laughing."
+    },
+    {
+      "start": 7241.49,
+      "end": 7276.73,
+      "speaker": "adam-stacoviak",
+      "text": "You got good days then. I can't do eight hours. I'm not allowed, okay? I got four or five, Jeff. If I'm gone five hours to golf, that is the full day of golf. Yeah, I'm in trouble at that point. I got different things that time me and bind me, so to speak. But yeah, I'm glad to hear you're engulfed. That's interesting. What else, what's left unsaid, Jeff? I know we've gone for quite a bit, probably more than you probably thought you would, but what's left unsaid to this audience that is just curious about your next steps or any further insight you can offer?"
+    },
+    {
+      "start": 7276.73,
+      "end": 7392.85,
+      "speaker": "jeff-cayley",
+      "text": "Yeah, you know, I think we covered a lot. And yeah, I appreciate you having me on the show. I know I'm definitely a different guest than you normally have, so I appreciate that. And yeah, man, fun chat and all this stuff with you. I mean, one of the things that, you know, if I were to be an advocate for anything, I'm definitely an advocate to live a good life and just be thoughtful about the way your career is shaped, whether that's your own business or how well your career kind of feeds your lifestyle. I definitely am an advocate for lifestyle businesses, like I explained, like try and find a business you can run that is fun and enjoyable and you can be proud of and or try and be in a career or a space, a job that you really enjoy the lifestyle of it and you love your work and you love the industry that it's in. I'm just an advocate for that because I've seen so many people come to our businesses from these corporate jobs. They're just like, I couldn't do it. Like I love bikes my whole life, or I loved outdoors my whole life. And I've been an engineer at Gore-Tex and I just can't stand it anymore. And then they like take a huge pay demotion and come work in a much more fun industry. And they're like, I should have done this forever. And so I'm definitely an advocate to like really be, to tell people just be thoughtful about how you spend your eight hours a day working. And ideally it's in an industry that you're passionate about and can really feed your lifestyle and your hobbies in a good way. So yeah, that's the only thing I'm a true advocate about. And I want people to think about and consider because I think the days of us having to grind away to just make a paycheck at a job we hate, just to survive, like those days are kind of gone. We've got so much more opportunity in how big and complex this economy is now that take advantage of that and actually love what you do in your work."
+    },
+    {
+      "start": 7392.85,
+      "end": 7408.31,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, and I will say that the show's taken a bit to get coordinated because every time I've reached out to you've been busy, you've been traveling the world. So you really do speak what you're saying because that's the reason why, it's like you've been busy. Yeah, I'm all over the place."
+    },
+    {
+      "start": 7408.31,
+      "end": 7410.51,
+      "speaker": "jeff-cayley",
+      "text": "My calendar's booked out a long ways."
+    },
+    {
+      "start": 7410.51,
+      "end": 7444.66,
+      "speaker": "adam-stacoviak",
+      "text": "I think we're going like to Australia or something like that. You're like, I'm leaving Australia for this bike trip or something like that. I'm like, well, dang it. I want to go and that'd be kind of cool. But that's your life. You get to sell bikes and make gear and make components and influence folks. But at the same time you get to go and just see the world and enjoy the sport and enjoy the people you're doing it with. Totally, man. Yeah. It's just so cool, man. I'm so proud of you. So just proud of what you've done. Stoked for all the stuff you've done for you and the team, for sure."
+    },
+    {
+      "start": 7444.66,
+      "end": 7463.96,
+      "speaker": "jeff-cayley",
+      "text": "Well, thank you. And I appreciate all the kind words and it's just awesome to chat with you and hear that you had a great experience getting into mountain biking and learning from our channels and getting more into the sport from that. Like that's awesome. Like that's literally why we do it. So people can learn and enjoy and get more into the sport and have fun doing it. Like that's the whole reason. So always good to talk to someone."
+    },
+    {
+      "start": 7463.96,
+      "end": 7491.98,
+      "speaker": "adam-stacoviak",
+      "text": "You made it more fun, that's for sure. Really, I think the work y'all did with your YouTube channel and just the way you, all the things you talked about with your company, the way you design it from being thoughtful. One thing I'll leave you with is I was choosing between a hardtail and a full squish at the time. And at the time I thought it had to be either or. I didn't know you could buy two bikes, Jeff. I didn't know you can have two bikes, okay?"
+    },
+    {
+      "start": 7491.98,
+      "end": 7494.1,
+      "speaker": "jeff-cayley",
+      "text": "Just like you got two computers, you got two bikes."
+    },
+    {
+      "start": 7494.1,
+      "end": 7575.57,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I was like, I can have this hardtail and I can have my full squish and I can have two bikes. I didn't know that at the time. So I was really like, okay, I could, I gotta get one of these things. And I was looking at a hardtail frame and I was trying to choose the fork and it was a really helpful process and enjoyable process to email your support folks and then not just tell me like what options were good to consider, but to dream the bike with me, you know? I think that was the coolest thing ever was it wasn't just customer support. It wasn't just let me get a question answered about this product or here's the link on the web, go find out yourself, dude. It was like, okay, no, I see what you're thinking like 130 in the front for this bike and while that makes sense, maybe you wanna go 140 cause you'll be a little bit more aggressive. This is all insider speak for how many millimeters your fork travel will be, you know? And so just without having that community, without having other buddies to like really, I mean, I have other friends, but like they were tired of talking about things with me, you know? And so to like just have friends by association through Worldwide Cyclery was pretty cool. I definitely had, if you go into your support systems you'll see a few emails from me kind of stupid asking questions about forks and travel and what to choose and choices. That's how it starts, man."
+    },
+    {
+      "start": 7575.57,
+      "end": 7578.93,
+      "speaker": "jeff-cayley",
+      "text": "Everyone's gotta start somewhere. It's complicated products."
+    },
+    {
+      "start": 7578.93,
+      "end": 7622.11,
+      "speaker": "adam-stacoviak",
+      "text": "It is and I always appreciated the fact that just the DNA of your business was let's serve this person versus sell this person. Let's serve them their quest for more knowledge and their quest for more enjoyment and a friend, you know? And that to me was really, really cool. And it spoke dividends comparative to your competition and design. So I appreciated that. But Jeff, again, thank you so much for being the awesome entrepreneur and you know, just curious person, the athlete that you've been to explore these sports and not just exploring and keep all the goods for yourself but find a way to share it with others and build a team and build a business. And like really what you built is just tremendous. And I'm so, so thankful and so proud of you. So I appreciate it."
+    },
+    {
+      "start": 7622.11,
+      "end": 7630.03,
+      "speaker": "jeff-cayley",
+      "text": "Well, thank you. Can't say thank you enough for the kind words."
+    },
+    {
+      "start": 7630.03,
+      "end": 7678.71,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, achievement unlocked for me. Talk to one more hero of mine. Yes, Jeff Kaley is one of those people. I've been following, as you've heard in this podcast, Jeff and his companies for many, many years. I'm a customer. I'm now a friend. You know, all those things, but it's so cool. I'm a big fan of Jeff. If you haven't been to worldwidecyclery.com or any of his adjacent brands, Kettle or Trail One, check them out. Jeff and his team are amazing. Been a customer for years and now a friend. Okay, we're in Denver soon. changelog.com slash live. You should be there. $15 ticket. What? Yeah, that's for you. We want you to be there. Okay, that's it. This show's done. We'll see you next week."
+    }
+  ]
+}

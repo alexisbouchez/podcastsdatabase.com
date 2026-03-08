@@ -1,0 +1,1365 @@
+{
+  "title": "Inside Oxide",
+  "description": "Bryan Cantrill and Steve Tuck, co-founders of Oxide, discuss building an exceptional team through transparent hiring practices and strong company culture.",
+  "links": {
+    "YouTube": "https://youtu.be/smsV2bqhE0w",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "bryan-cantrill"
+  ],
+  "segments": [
+    {
+      "start": 9.2,
+      "end": 90.83,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, your weekly talk show about going inside Oxide. We're on location at Oxide's HQ this week. Big thanks to our friends at Fly. Learn more at fly.io. Okay, let's talk. Well friends, the news is out. Our friends over at CodeRabbit, CodeRabbit.ai, they've raised a massive Series B and they've launched their CLI reviews tool. It is now out there. I've been playing with it. It's cool. The bottleneck is not code. The bottleneck is code review. With so much code happening, so many people coding now, so much code being generated and so many things competing for developers time and attention to maximize, code review still remains a bottleneck, but not anymore. CodeRabbit, CLI code reviews, code reviews in your pull requests, code reviews in your VS code and more. Teams now have a true answer to what it means to code review at scale. Code review at the speed of AI and CodeRabbit is right there for you. You can learn more at CodeRabbit.ai. We'll link up their latest blog announcing their Series B and their announcement of their CLI review tool. Again, CodeRabbit.ai."
+    },
+    {
+      "start": 98.59,
+      "end": 98.99,
+      "speaker": "bryan-cantrill",
+      "text": "We're here."
+    },
+    {
+      "start": 100.03,
+      "end": 101.71,
+      "speaker": "jerod-santo",
+      "text": "Imagine a little warm fire."
+    },
+    {
+      "start": 101.71,
+      "end": 104.83,
+      "speaker": "bryan-cantrill",
+      "text": "I can almost feel the heat coming off. Yeah, exactly."
+    },
+    {
+      "start": 104.83,
+      "end": 105.87,
+      "speaker": "jerod-santo",
+      "text": "Who's got the spores?"
+    },
+    {
+      "start": 105.87,
+      "end": 106.37,
+      "speaker": "bryan-cantrill",
+      "text": "That's right."
+    },
+    {
+      "start": 106.91,
+      "end": 116.99,
+      "speaker": "jerod-santo",
+      "text": "This is a moment. I am so proud of you guys. The team you built, where you're at. I told you on the call, I'm like, we got to milk this. And here we are. We're trying to milk it."
+    },
+    {
+      "start": 116.99,
+      "end": 117.95,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah, we're trying to milk it."
+    },
+    {
+      "start": 117.95,
+      "end": 120.83,
+      "speaker": "jerod-santo",
+      "text": "We're trying to spend as much time as we can with everyone here."
+    },
+    {
+      "start": 120.83,
+      "end": 132.51,
+      "speaker": "bryan-cantrill",
+      "text": "Well, so I got to say, I'm really, because when we talked and I said that, you know, you were talking about how terrific it was with the milestones we had. And I'm like, you need to meet the actual team. Yes, I did."
+    },
+    {
+      "start": 132.51,
+      "end": 135.71,
+      "speaker": "jerod-santo",
+      "text": "Like, I mean, I've met teams before. You met teams."
+    },
+    {
+      "start": 135.71,
+      "end": 136.21,
+      "speaker": "bryan-cantrill",
+      "text": "I know."
+    },
+    {
+      "start": 137.44,
+      "end": 138.16,
+      "speaker": "jerod-santo",
+      "text": "You were right."
+    },
+    {
+      "start": 138.16,
+      "end": 147.28,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah, you were right. The recording's on, right? Exactly. That's right. And also you were right with, no, actually you were right."
+    },
+    {
+      "start": 148.24,
+      "end": 149.92,
+      "speaker": "jerod-santo",
+      "text": "You know, you were right."
+    },
+    {
+      "start": 150.64,
+      "end": 151.36,
+      "speaker": "bryan-cantrill",
+      "text": "It's not that hard."
+    },
+    {
+      "start": 151.36,
+      "end": 152.32,
+      "speaker": "jerod-santo",
+      "text": "It's not that I was wrong."
+    },
+    {
+      "start": 153.2,
+      "end": 181.68,
+      "speaker": "bryan-cantrill",
+      "text": "Exactly. You weren't wrong in that. I mean, I think it's like everybody understands that a team is important. No one would disagree with that. No one would disagree. Of course a team is important. But then you look at what companies do and the way they act. And it's like, they don't act consistently with the idea that the team is actually everything. And I mean, that is part of what always united Steve and me. Many shared values, but real strong belief in teamwork."
+    },
+    {
+      "start": 181.68,
+      "end": 182.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 182.16,
+      "end": 190.24,
+      "speaker": "bryan-cantrill",
+      "text": "And the highlights of my career have always been working on an exceptional team. And we've got, we are blessed with a truly exceptional team."
+    },
+    {
+      "start": 190.24,
+      "end": 192.4,
+      "speaker": "jerod-santo",
+      "text": "We spent the last day and a half meeting your team."
+    },
+    {
+      "start": 192.4,
+      "end": 192.8,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 192.8,
+      "end": 202.32,
+      "speaker": "jerod-santo",
+      "text": "Talking, hanging out. Undercover boss style. Undercover boss style. We got some really good feedback from you all. You'll see it. Yeah."
+    },
+    {
+      "start": 202.32,
+      "end": 202.64,
+      "speaker": "bryan-cantrill",
+      "text": "Right."
+    },
+    {
+      "start": 202.64,
+      "end": 204.48,
+      "speaker": "jerod-santo",
+      "text": "And you all will see it on eventually."
+    },
+    {
+      "start": 204.48,
+      "end": 215.44,
+      "speaker": "bryan-cantrill",
+      "text": "But we got to a one, they're kind, they're smart, they're caring. They accepted us right in there. Some are shy, some are not like all the typical things of humans. Yeah."
+    },
+    {
+      "start": 215.44,
+      "end": 223.92,
+      "speaker": "jerod-santo",
+      "text": "But just very impressive like 201. So I guess the honest or the obvious question would be like, how did you do that? How did you do that?"
+    },
+    {
+      "start": 224.32,
+      "end": 318.52,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. And you know, it's actually not that complicated, which is kind of frustrating that more companies don't do it this way. But we, from the start, believed we could attract an extraordinary team if we built transparently and really put a beacon out there in terms of what our mission was. One of the things that we believe was that companies were wrong to be deep stealth. Deep stealth made no sense to me because you're much better off explaining what you're building and why, and how do we attract people who are drawn to the same mission? So everything we did from the beginning, like we did a podcast, right? And that, on the one hand, I like definitely wanted to do a podcast. It was fun to do, but there was a method to the madness and it was super cheap. And we, a couple of podcasting microphones and getting these pioneers of computing in, into a garage, talking about their experiences and why were we doing that? So they could act as a beacon and people would listen to that podcast and be like, Hey, I want to, I want to work with people who've got that same disposition. And so from that was very important to kind of put that beacon out there. And then once the beacon is out there, then you also have to have a way of like, okay, so then how do we down select? Yeah. And that's where, you know, we got lucky by our previous mistakes, mistakes at previous stuff. And Steve and I were not, you know, we were not 20 something. So we started this company, right? You know, we were, what? I was 45. You were 41. Why were we 42? Yeah."
+    },
+    {
+      "start": 320.02,
+      "end": 415.6,
+      "speaker": "jerod-santo",
+      "text": "That was, I mean, one, one big part of it was we were deep enough in our careers to know what we wanted to do, what we didn't want to do. And then it makes it easier when you're talking to prospective employees and they're asking, like, what do you hope to achieve? And a lot of companies are hoping to achieve like a fast start and get acquired, or they want, you know, a quick run. And then they're not talking about or planning for a long standing company that they want to go build. And if that's, if it's the former, there's a lot of like short term decisions that are actually better for the short term that do not serve a long term that you don't intend to go build towards. And I think, you know, what we wanted to do is we wanted to be doing this for like 40 or 50 years, like the rest of our careers anyway. And when you have that disposition, other people that are attracted by the beacon of a big mission, an idea to go do something, and then can hear honestly and earnestly that we're trying to build a good company first and a long standing company first. It allows for folks that are like deciding whether to leave where they've been for a period of time and actually jump in and jump in for the long term. And I'm sure you've gotten this from some of the stories of folks. You know, they got here and they're seeing like minded folks all over the room that want to go build something, build something for a long time. So it is, it was helpful to have a shared disposition towards building for, you know, as long as we can versus a quick short term company."
+    },
+    {
+      "start": 415.6,
+      "end": 421.44,
+      "speaker": "bryan-cantrill",
+      "text": "That makes a lot of sense. And then the down select, we call it down selecting, the narrowing down of the candidates. Yeah."
+    },
+    {
+      "start": 421.44,
+      "end": 425.52,
+      "speaker": "jerod-santo",
+      "text": "You have this rigorous written process. Everybody talks about the material."
+    },
+    {
+      "start": 425.52,
+      "end": 435.12,
+      "speaker": "bryan-cantrill",
+      "text": "The RFD. Yeah. Yeah. We've got an RFD that describes the hiring process. And that really came from hiring mistakes at previous times."
+    },
+    {
+      "start": 435.12,
+      "end": 435.68,
+      "speaker": "jerod-santo",
+      "text": "What do you mean?"
+    },
+    {
+      "start": 436.48,
+      "end": 440.88,
+      "speaker": "bryan-cantrill",
+      "text": "I mean, I made the worst hire of all time. You made the worst hire? I made the worst hire of all time. And which is..."
+    },
+    {
+      "start": 440.88,
+      "end": 441.76,
+      "speaker": "jerod-santo",
+      "text": "Steve didn't do that."
+    },
+    {
+      "start": 441.76,
+      "end": 481.44,
+      "speaker": "bryan-cantrill",
+      "text": "No, no, no, no. Steve didn't do that. I mean... He's in the room. Yeah. I mean, it was also like, you know, Steve, as like when someone else in the room has made the worst hire of all time, like it doesn't matter if you made the second worst hire of all time. It doesn't matter. You're covered over. Yeah. And it was very helpful to have done that. And you know, in Silicon Valley, people are often like, well, I think I've made the worst hire of all time. And I'm like, look, I will hand you the crown right now. I'm like, I'm happy to get rid of this thing. You should know that the guy that I hired presented himself under an assumed name. Served time in state prison for violent felonies. And it's not what made him a bad employee. So..."
+    },
+    {
+      "start": 482.32,
+      "end": 482.8,
+      "speaker": "jerod-santo",
+      "text": "That's bad."
+    },
+    {
+      "start": 482.8,
+      "end": 530.4,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah, it's bad. And that... We took hiring down to the studs after that. And again, this is the benefit of having done this at kind of a previous stop of realizing that interviewing people... You mentioned this when you were talking to folks and getting different personalities. Some are shy, some are... And so often when we do an oral exam as the way we determine whether someone joins a team, you are selecting for one aspect of a person. You're selecting for like their charisma. You're selecting for their comfort with someone that they've never met before. And there are so many terrific technologists that are nervous when they're talking to someone for the first time. And that you will interview and you may like, I don't know, but you read their written work. This person's extraordinary."
+    },
+    {
+      "start": 530.4,
+      "end": 530.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 530.88,
+      "end": 586.7,
+      "speaker": "bryan-cantrill",
+      "text": "And so we just... We believe strongly that the best way to evaluate people is them speaking from the heart in writing. And it's just very revealing in terms of what's important to people. Because ultimately what we want is we want a company that is... That we've got a shared mission, but bonded by shared values. And there are so many challenges in running a company that kind of go away. You know, if everyone is like really high-performing and kind and communicative and collaborative, there's a bunch of problems. Not to say that there aren't problems to go tackle, but the problems that you do need to go tackle are much easier to go tackle. One of the things that I've been... I mean, there's a degree to which frankly we don't... I'm a little disappointed how little interpersonal conflict we have at Oxide, because I've got like a lot of... We've got flights. We've got a flight right here. We're looking for more. Wait, don't you run over there."
+    },
+    {
+      "start": 586.7,
+      "end": 587.58,
+      "speaker": "jerod-santo",
+      "text": "We've got a pair of some drama."
+    },
+    {
+      "start": 587.58,
+      "end": 676.1,
+      "speaker": "bryan-cantrill",
+      "text": "And maybe, because I've got to like... No, because of some of the ways we've built things. I mean, so for example, one of the things that we've always talked about is we record every meeting. If you had something where like a meeting went really sideways and people came out of a meeting really upset, the ability for everybody to go back and re-watch themselves re-watch the person they're arguing with. Hey, can you see how like... So this person you think threw the wrong inference and became upset. But now you can see like watching yourself, how they might have drawn that wrong inference. I mean, speaking for myself, I learned a lot about myself listening to past meetings that I was in. And I would go back to re-listen to them or re-watch them just because I thought I'd missed some content. And one of the things that I realized about myself that I guess it seemed obvious, but I really had to re-watch myself to appreciate. When you're in a meeting and you have something you want to contribute. So now your brain is keeping your little... Like I got my little morsel. Waiting for my turn. I got waiting for my turn. I'm like not an asshole. So I'm like waiting for my turn and I'm keeping my little morsel warm. It is really hard to listen when you're in that mode. And so what I would do is I would re-listen to myself and someone else would make a really important point. And then I would say something that wouldn't be necessarily obvious to anyone else, but it was obvious to me. Like, no you dumb... You just missed something. You thought you were listening. And I would have been like..."
+    },
+    {
+      "start": 676.1,
+      "end": 677.14,
+      "speaker": "jerod-santo",
+      "text": "Self-awareness, really."
+    },
+    {
+      "start": 677.14,
+      "end": 678.98,
+      "speaker": "bryan-cantrill",
+      "text": "Hand on heart. What forces that kind of self-awareness?"
+    },
+    {
+      "start": 678.98,
+      "end": 681.3,
+      "speaker": "jerod-santo",
+      "text": "There's so many people who are not really that self-aware."
+    },
+    {
+      "start": 681.3,
+      "end": 696.42,
+      "speaker": "bryan-cantrill",
+      "text": "Well, it's hard in the moment. When you go back... It's hard in the moment, but when you go back to it, you're like, oh. And it's like when you built a company around that kind of introspection and self-awareness. When you do have these kinds of conflicts arise, you have new tools at your disposal to go resolve them."
+    },
+    {
+      "start": 696.42,
+      "end": 699.94,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Coping, right? I mean, you're teaching basic human skills here."
+    },
+    {
+      "start": 700.66,
+      "end": 701.78,
+      "speaker": "bryan-cantrill",
+      "text": "Self-awareness."
+    },
+    {
+      "start": 701.78,
+      "end": 702.5,
+      "speaker": "jerod-santo",
+      "text": "How to cope."
+    },
+    {
+      "start": 702.5,
+      "end": 718.54,
+      "speaker": "bryan-cantrill",
+      "text": "Well, so I think are we teaching it or are we selecting for it? Because I think you're creating a culture that helps people do that naturally. Yeah. The recorded meetings, self-awareness. How did I respond? Coping. Right."
+    },
+    {
+      "start": 718.54,
+      "end": 789.2,
+      "speaker": "jerod-santo",
+      "text": "Well, self-awareness starts with the materials because you're having to write both, like, examples of your prior work and what you've done, what you're proud of. And then some open-ended questionnaire questions, which basically are asking, like, when were you happiest in your career and why? When were you unhappiest in your career and why? And the answers to that take people to places they didn't expect. When they were like, oh, I'm just going to throw my hat in the ring for a particular job. And they'll tell us. They get into it and they're like, Jesus Christ, I had to put my pencil down. And I'm just like sitting here. Therapy. Just like I'm back in that moment where I was, you know, I had, you know, my boss was telling me to let go of this person so I could promote the other person. And all these things that were just in tension with each other. And what's really, really helpful is then when we do have conflict, you can take two people that are pitted against each other on a particular issue and you can say, hey, what each of you to go back and read the materials of the other person. When you were like, holy shit, we have to hire this person. And you were like, God, that is someone I really want to go work with and talk about like a way to resolve that tension and get someone thinking about again, like, all right, hold on. Why are we here?"
+    },
+    {
+      "start": 789.2,
+      "end": 800.64,
+      "speaker": "bryan-cantrill",
+      "text": "Well, because you remind yourself of like, we actually agree on a lot. You may be disagreeing on this issue, but I go back and read your materials like, oh, right. Right. We actually are trying to do the same thing. We are actually, we've got a lot in common."
+    },
+    {
+      "start": 800.64,
+      "end": 824.82,
+      "speaker": "jerod-santo",
+      "text": "When you all mention materials, what I've been thinking about and if I'm wrong, but I feel like you expose a lot, but you also take a lot away that became bias. There's a removal process by the way that you expose this. Who is it? What do they care about versus their human attributes? How they look, the color of their skin, maybe even like where they're from."
+    },
+    {
+      "start": 824.82,
+      "end": 825.46,
+      "speaker": "bryan-cantrill",
+      "text": "For sure."
+    },
+    {
+      "start": 825.46,
+      "end": 831.46,
+      "speaker": "jerod-santo",
+      "text": "What is removed from that process that's usually distractions that helps you focus on the good stuff that you should focus on?"
+    },
+    {
+      "start": 831.46,
+      "end": 863.22,
+      "speaker": "bryan-cantrill",
+      "text": "I think so. I mean, I think it is interesting because I mean, I think that one of the hiring is always going to be a challenging process, right? And we are always going to have, and what one of the questions people have is like, should I put a review in on someone that I've worked with? Because I like, I've worked with them. So I'm like, I'm biased because I've worked with them. It's like, you should definitely put a review in on them because you know them well. And, and we've seen it go all ways. And one of the things that we see that we, where you, you've worked with someone, you thought they were really great and they apply the materials are not good."
+    },
+    {
+      "start": 864.37,
+      "end": 866.21,
+      "speaker": "jerod-santo",
+      "text": "And that's the tough, that hurts."
+    },
+    {
+      "start": 866.29,
+      "end": 893.63,
+      "speaker": "bryan-cantrill",
+      "text": "It hurts. And it's happened to us all. And you're like, Oh man, I, you know, I wanted to work. I wanted it to work out, but, but people like, but I know that like, because we're so direct about, here's what you need to go do. And like, read the RFD, listen to the podcast episode where we tell people like, don't put it all in the materials. Like, don't we get people are like, well, I'll tell you more in the interview. It's like, right. I'm going to be an interval."
+    },
+    {
+      "start": 893.63,
+      "end": 893.79,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 894.99,
+      "end": 990.26,
+      "speaker": "bryan-cantrill",
+      "text": "And you got to put it out there. But in people aren't able to do that, that that's telling you something. And it's telling you something important that like, this is not necessarily the right fit for you. And we know also, I think the other thing is like, you don't want to be too sanctimonious about it. We're not making absolutist judgments about like, we're not hiring the best. We are hiring people that are, that we think are the best fit for the roles that we're hiring for. And you know, one of the things that we definitely have actually, it's been, one of these has been fun about the company as we've been around for long enough. We've had people apply for the company and you read their materials. You're like, this is, I like a lot here, but this is off for this role. And then two years later, there's a role that opens up. That's a better fit for them. Sometimes we've communicated to those folks that like, hey, I loved your materials, but here's why it wasn't a fit. Sometimes we haven't. And then they come in on our own like, oh, this is like, now the time is right. So it's like, I think that like, it's, you want to be careful about, about kind of, this is not the kind of ordering. This is finding people that we think are the most likely to succeed at Oxide. And honestly, one of the things that's been really challenging is we've got a lot of people that apply for the company that desperately want to work for the company. And it's really hard to turn someone like that away. They could work out. It could work out. And it's like, the problem is like, we are, we don't have, we don't have an infinite amount of resources and we do have to make decisions."
+    },
+    {
+      "start": 991.14,
+      "end": 1011.25,
+      "speaker": "jerod-santo",
+      "text": "What you described is something I would call a velvet rope, right? When you go to a certain club or a certain place, there's a, there's a line that says, if you pass this bar or if you meet these guidelines or you are a fit, come on in. But if you don't politely, yeah, not now, not now. Right."
+    },
+    {
+      "start": 1011.25,
+      "end": 1011.57,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 1011.57,
+      "end": 1014.05,
+      "speaker": "jerod-santo",
+      "text": "That velvet rope is a very powerful thing in your business."
+    },
+    {
+      "start": 1014.77,
+      "end": 1021.81,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. And I think it, and I, I don't like that. I don't like the exclusivity of it, but that's just the reality of what we need to go do."
+    },
+    {
+      "start": 1022.53,
+      "end": 1024.53,
+      "speaker": "jerod-santo",
+      "text": "You have a, you have a responsibility."
+    },
+    {
+      "start": 1024.53,
+      "end": 1025.09,
+      "speaker": "bryan-cantrill",
+      "text": "That's right."
+    },
+    {
+      "start": 1025.09,
+      "end": 1027.01,
+      "speaker": "jerod-santo",
+      "text": "Right. To these folks here."
+    },
+    {
+      "start": 1027.01,
+      "end": 1032.77,
+      "speaker": "bryan-cantrill",
+      "text": "A hundred percent. To do your jobs and be selective. That's right."
+    },
+    {
+      "start": 1033.89,
+      "end": 1039.81,
+      "speaker": "jerod-santo",
+      "text": "I think we, we, we, we have the good fortune of now being very, very oversubscribed."
+    },
+    {
+      "start": 1039.81,
+      "end": 1040.21,
+      "speaker": "bryan-cantrill",
+      "text": "Right."
+    },
+    {
+      "start": 1040.21,
+      "end": 1064.99,
+      "speaker": "jerod-santo",
+      "text": "In almost every role. So it is tough because there will be like a great candidate and then an even better candidate that is just a better fit. And I think, you know, we are, we're obviously growing, we're expanding. We got more recs out there than we've ever had by a factor of two. Um, so that helps, but it's still, we're still massively oversubscribed."
+    },
+    {
+      "start": 1064.99,
+      "end": 1078.67,
+      "speaker": "bryan-cantrill",
+      "text": "When I think actually one of the important thing on the job descriptions that we have out, when we put a lot of effort into the job descriptions, we want to make sure the job descriptions describe the job. Describe the job. Good job. We're going to do something radical. We're going to describe the job, not make up a bunch of bullshit requirements. Yes."
+    },
+    {
+      "start": 1078.67,
+      "end": 1079.15,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1079.15,
+      "end": 1080.75,
+      "speaker": "bryan-cantrill",
+      "text": "Um, and no AI slop."
+    },
+    {
+      "start": 1080.75,
+      "end": 1086.75,
+      "speaker": "jerod-santo",
+      "text": "No AI slop. Really? This is human generated. Materials. Yeah."
+    },
+    {
+      "start": 1086.75,
+      "end": 1118.74,
+      "speaker": "bryan-cantrill",
+      "text": "Oh yeah. Oh yeah. Yeah. Well, so you also have people that you just want to like give them the feedback. Next time, let an AI write this. Like this would have been much better with like grammar check and stuff. Oh, we've gotten some, some real stinkers in that regard. Right. Um, but you, and actually this is talking to an old friend of mine and we're talking to his boss, he's like, won't work in the post AI age. And like, well, let me describe the questions we're asking. It's like, when have you been happiest and why? Hard to AI slop that one into existence. And it was true. And when people do, it's such a personal question. It's a personal question."
+    },
+    {
+      "start": 1118.74,
+      "end": 1121.22,
+      "speaker": "jerod-santo",
+      "text": "It requires introspection, journey."
+    },
+    {
+      "start": 1121.22,
+      "end": 1121.72,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 1122.67,
+      "end": 1124.59,
+      "speaker": "jerod-santo",
+      "text": "Hard to just generate that one. Yeah."
+    },
+    {
+      "start": 1124.59,
+      "end": 1198.53,
+      "speaker": "bryan-cantrill",
+      "text": "It is hard to generate that one. I would say one modification we made to the materials is we asked, the last question we asked is why do you want to work for Oxide? And unfortunately, I mean, it's an unfortunate kind of indictment of the age we live in where people are like, I want to work for Oxide because it's a principled company that like, you hold your side, you know, honesty and integrity and decency. And that's great. We view that as a constraint on like operation. We think that any company should have that like that. I think that that is great that that resonates with you. That is nowhere near enough. That is nowhere near enough. Like I need to know. We need to know that the mission speaks to you, that the role speaks to you. We need to know that like, and one of the things we've done is we've put more and more in our job descriptions and given people more opportunities to explore the degree of their effect. We want you, we're very transparent. We want you listening to podcast episodes in the RFDs, in the repos, and the more you can do that because you need to try it on to see if like, if this is actually earnestly going to be a fit for me. And so one of the things we've added is not just why do you want to work for Oxide, but why this role at Oxide. And that's been really, really important."
+    },
+    {
+      "start": 1199.57,
+      "end": 1210.78,
+      "speaker": "jerod-santo",
+      "text": "So I described some of the character of the characters that we've met here. Adam described some of their lifestyles all around the world. One thing that I think it seems to be missing is youngsters."
+    },
+    {
+      "start": 1210.78,
+      "end": 1211.9,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 1211.9,
+      "end": 1215.18,
+      "speaker": "jerod-santo",
+      "text": "Everybody's generally thirties. I would define youngsters."
+    },
+    {
+      "start": 1215.18,
+      "end": 1220.62,
+      "speaker": "bryan-cantrill",
+      "text": "First of all, we, we, I mean, we need a mash reference. We made a mash reference that literally half the company didn't get."
+    },
+    {
+      "start": 1220.62,
+      "end": 1225.26,
+      "speaker": "jerod-santo",
+      "text": "I saw the hands. It was a lot of hands. Got it. I would say 70% it seemed."
+    },
+    {
+      "start": 1225.82,
+      "end": 1229.5,
+      "speaker": "bryan-cantrill",
+      "text": "Got it. It was around 70%. No, no, no, no, no, no."
+    },
+    {
+      "start": 1229.5,
+      "end": 1231.9,
+      "speaker": "jerod-santo",
+      "text": "I saw a lot of hands. No, no, no, no. There were a lot of hands."
+    },
+    {
+      "start": 1232.54,
+      "end": 1233.1,
+      "speaker": "bryan-cantrill",
+      "text": "Less than 50%."
+    },
+    {
+      "start": 1233.98,
+      "end": 1236.46,
+      "speaker": "jerod-santo",
+      "text": "So you're overly subscribed. You got tons of people that want to work here."
+    },
+    {
+      "start": 1236.46,
+      "end": 1236.7,
+      "speaker": "bryan-cantrill",
+      "text": "Right."
+    },
+    {
+      "start": 1236.7,
+      "end": 1249.42,
+      "speaker": "jerod-santo",
+      "text": "And so you have a gluttony of riches and choice, right? Yeah. At a certain point, there's a demographic that seems to be missing. It's like someone who's fresh out of college, fresh out of high school. Maybe has a different perspective. Maybe is wondering."
+    },
+    {
+      "start": 1250.38,
+      "end": 1344.61,
+      "speaker": "bryan-cantrill",
+      "text": "That's a challenge. And I think it's because we, I mean, I obviously had a job straight out of college. It's straight out of school. I went to sun. The, it is important that we are in an environment. I want us to be able to be in an environment for that. And we do have people apply straight out of school. And whenever I look at someone straight out of school, I am, I'm like, okay, this is like unlikely, but let's see. And I always go into the materials with an open mind. The materials are weak. I mean, the materials are weak. And, and I think that like, and look, I mean, I, I kind of, you know, I say, I hate the exclusivity, which may make me a hypocrite from about to say, but like, this is an elite team and like, Hey, I want to play major league baseball. I'm a good high school baseball player. It's like, all right, you want to go play major league baseball? That's great. You're going to go, you're going to go play D one and then you're going to go play. Maybe you're going to play indie ball. You're going to be on the bus. You're going to be in the minors and you'll be playing major league baseball when, you know, when you're 25, maybe if you're Bryce Harper and if the Bryce Harper of software engineering or the Bryce Harper of sales applies, I think that like the materials will show it, but it's like, we are not going to be. So I, you know, I, I think that in the abstract, I've wanted to be able to be somewhere for a stop, but as a practical matter, when you're building an elite team, isn't really practical. I mean, it's like, we need like a minor league oxide, you know, we need like a, you know, Oh, Hey, come on now. Exactly. Hey, now I think there's a farm team is a decent metaphor because don't you guys want that eventually? I know you're in a different phase now, but maybe eventually we will eventually."
+    },
+    {
+      "start": 1344.61,
+      "end": 1362.91,
+      "speaker": "jerod-santo",
+      "text": "And I think the, uh, and we, we, we have folks that, you know, just several years out of school and they work here and I think it is just easier to know yourself and know what you want to do and be able to express that in your materials. Yeah. It's just a few miles on the tires."
+    },
+    {
+      "start": 1362.91,
+      "end": 1367.39,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. This is a very important one. That few miles on the, what? A few miles on the tires. Okay."
+    },
+    {
+      "start": 1367.39,
+      "end": 1391.23,
+      "speaker": "jerod-santo",
+      "text": "There was a big difference that allows you to understand a little bit more of what you want so that this is not like trying on work, but this is like where you want to go really apply yourself. And I think part of it is like, you know, we have fewer submissions from folks that are earlier in their career than later in their career. And I think it's, you get into the materials and you're like, this is not a trivial. Here you use them all. He's shaking his head."
+    },
+    {
+      "start": 1391.23,
+      "end": 1392.11,
+      "speaker": "bryan-cantrill",
+      "text": "It's not true."
+    },
+    {
+      "start": 1392.11,
+      "end": 1396.11,
+      "speaker": "jerod-santo",
+      "text": "Because fewer materials that I see. There we go."
+    },
+    {
+      "start": 1396.11,
+      "end": 1404.35,
+      "speaker": "bryan-cantrill",
+      "text": "Then what? Are you the first round and he's the second round? Yeah. He's the primary filter, right? You said that earlier while at least off camera. Don't make it through the first round. That's right."
+    },
+    {
+      "start": 1405.31,
+      "end": 1422.43,
+      "speaker": "jerod-santo",
+      "text": "Okay. There are many fewer quality materials that even like moderate quality materials of folks that are very, very, very, very earlier in their career because it is hard to describe robust experiences that you haven't had."
+    },
+    {
+      "start": 1422.43,
+      "end": 1440.03,
+      "speaker": "bryan-cantrill",
+      "text": "There's also, just as Steve said, there's a really big difference between a 22 year old and a 25 year old. And a 25 year old and 28 year old. That prefrontal cortex is like, is still developed right now. And the, and so we get, you actually, we do have actually plenty of people, there are people here that are younger than you might think."
+    },
+    {
+      "start": 1440.03,
+      "end": 1440.27,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1440.83,
+      "end": 1466.78,
+      "speaker": "bryan-cantrill",
+      "text": "And there are the, I mean, certainly we got plenty of people here that are much closer to our kids' age than they are to our age. Definitely. And the, but they didn't come straight out of school. They had two years experience, three years experience, four years experience. And like you look at those folks that are exceptional, the experience they had was exceptional. You know, they were in a real thing and they were, they learned a lot in a very short period of time. They're wise beyond their years."
+    },
+    {
+      "start": 1466.78,
+      "end": 1484.7,
+      "speaker": "jerod-santo",
+      "text": "One of the things that a lot of people have said when we asked why you work for Oxide, why you like Oxide, and this reflects in your management style, what you said is trust. Your management style is trust. Is they say, well, they treat us like grownups. They can treat me like a grownup. And I think that's an awesome way of describing it. That being said, here's a grownup."
+    },
+    {
+      "start": 1485.26,
+      "end": 1489.02,
+      "speaker": "bryan-cantrill",
+      "text": "People were saying that we treat them like a grownup, but they are grownups though."
+    },
+    {
+      "start": 1489.98,
+      "end": 1491.1,
+      "speaker": "jerod-santo",
+      "text": "It's just nice to be recognized."
+    },
+    {
+      "start": 1495.1,
+      "end": 1500.46,
+      "speaker": "bryan-cantrill",
+      "text": "That's the bar? That's the bar? Is that a bunch of grownups getting treated? I mean, I know, I know. I'm sorry."
+    },
+    {
+      "start": 1501.02,
+      "end": 1506.86,
+      "speaker": "jerod-santo",
+      "text": "Well, I mean, it just speaks to the experience level of people, right? Like there's self starters, they're motivated. Right."
+    },
+    {
+      "start": 1506.86,
+      "end": 1516.14,
+      "speaker": "bryan-cantrill",
+      "text": "And, and of course this goes now to where I always end up, which is like, how long can you keep doing that in terms of as you scale for as long as you can."
+    },
+    {
+      "start": 1517.1,
+      "end": 1567.98,
+      "speaker": "jerod-santo",
+      "text": "Look, if people are coming in, people are coming in, drawn to the mission and especially excited about working with this exceptional team. There's a responsibility to the team around you. We've seen this all the time where folks are trying to do their best work because they feel an onus to these people around them that are doing their best work. You can't take your foot off the gas and you don't want it because you want to like, you want to show up and help your peers and help your customers and that's infectious. And so it's like, I think as you have that in the collective, it's very hard for the next five people to come in and disrupt that. You come in and you are trying to live up to that. And so that ends up being this gravitational pole to where you can keep growing with everyone with that same disposition. And it, I don't know, like it's hard to imagine, like the bigger that gets, the harder it is for the next group to tear away at that."
+    },
+    {
+      "start": 1567.98,
+      "end": 1631.17,
+      "speaker": "bryan-cantrill",
+      "text": "I mean, I will say this, that like, if you talk to founders where companies have lost their way and indeed like the Brian Chesky piece that inspired Paul Graham's founders mode, they will say that culturally we lost our way. I didn't spend enough time on the culture. And I think we would say, well, you didn't write the culture down early enough and you didn't use the culture as a lens for hiring so that the company lost its foundation. You say like, how far can, ask the good question, like how far can scale? No company has ever been at our size with what we have in terms of, of the strength of culture that we've got. I mean, there are very few other, there are very few other companies that use written materials as the primary rubric for hiring, but they're not you. And so like, we don't know, like that has been so important to us to scale out. It's like, it would be foolish for us to say what we can or can't do because we just don't know."
+    },
+    {
+      "start": 1631.17,
+      "end": 1648.61,
+      "speaker": "jerod-santo",
+      "text": "Like we're concretely, like when we started hiring sales, a bunch of people outside the company were like, you've got to stop the materials process. You cannot hire salespeople. Even the salespeople like move, move very quickly. There's recruiters involved. Like you take that long, they'll be gone. They'll be off the market."
+    },
+    {
+      "start": 1648.61,
+      "end": 1649.17,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 1649.17,
+      "end": 1701.33,
+      "speaker": "jerod-santo",
+      "text": "And we're like, well, no, like that's a, it's a hard constraint. Like we actually are going to require someone to spend like a couple, several hours writing down their thoughts. If we're going to consider them to be one of the foundational members of the sales team or the next five or the next five. And it turned out exceptional salespeople loved the process. They loved describing themselves, like the curious attributes of their character and how they do research on a company before they show up to the first meeting, which is a sign of respect and allows you to get into a deeper conversation more quickly, rather than how can I hook them on some quick little, like why this company does this? So they, they really enjoyed the process. And now they bring that into the sales culture for the next round of sales hiring. And I just have different questions than you ask engineers."
+    },
+    {
+      "start": 1701.33,
+      "end": 1729.65,
+      "speaker": "bryan-cantrill",
+      "text": "We ask a, yeah, we, so what we've done is we've changed the portfolio questions. So the questionnaire is the same because we found that the questionnaire, happiest and why unhappy is why is universal. The, the portfolio questions change. And one of the things that we do is we find if we're, especially if we're hiring for a new role, we've never hired before. We want to go find the person that we would love to hire. That's working in that role. Unhireable because they're happy. Help us figure out what the materials should look like for this person."
+    },
+    {
+      "start": 1729.65,
+      "end": 1745.79,
+      "speaker": "jerod-santo",
+      "text": "What are the questions we should ask if we're trying to get at curiosity and responsibility in, in a sales context and low and behold, as they start being like, okay, here's, here's how I put the materials together. And then like six months later, they're like, Hey, you have an opening over there?"
+    },
+    {
+      "start": 1745.79,
+      "end": 1837.33,
+      "speaker": "bryan-cantrill",
+      "text": "I might be interested. It's like, I thought you weren't interested. I thought you were happy. Like, well, you know, I just might be interested. And I think that the, uh, so we do change that up and it's, it's interesting to look at, cause I think that those changes are really important. So we are asking, you know, for, for, especially for roles that our customers are facing. We want to see evidence of real customer curiosity and depth because you know, when we, it's great. We obviously wanted to build a company that employees would be proud to work for. It's great. We also want to build a company. It is equally, if not more important that customers love to buy from. We, we, we, it is, was very important to us from the outset that we build a company that we can talk about trust as a management philosophy. Trust is also a customer market engagement philosophy. We, because you know, I was at sun during some very, very dark years and we had a non-competitive microprocessor and one customer told me, it's like, you know, I got to tell you, like the products you make are not competitive right now. I, there are a bunch of things about sun that I, that, that are really trouble. I've been really difficult for me to deal with, but I really want you guys to make it. And the reason I keep you in here is because you guys never lie to me. The only ones that never lie to me come in here. If your products are not the right products, like you'll help me find something better. Right. You, you, you, you, you always want me to succeed. And I got to tell you, that also seems like a low bar. Like, look, you guys don't lie to me."
+    },
+    {
+      "start": 1837.33,
+      "end": 1901.65,
+      "speaker": "jerod-santo",
+      "text": "Oh, I know, but that's typically transactional. And what you want is you want, I mean, yes, like sales is about transactions, but it cannot be transactional where someone is thinking about their quarterly number there. I mean, yes, you absolutely want them hitting their goals, but thinking the long game with these customer relationships and you find that those that have played that long game and have built trust with customers have these longstanding relationships with customers. Even if they went to two companies, three companies. And so how do you understand how they think about being not just the representative, but the steward of the company with those relationships and the materials are a great place for that to take shape. And then we've gotten great feedback from candidates. They've done the materials. They're like, Hey, you know what else would be great to talk about in here? And just again, we feel very fortunate that the founding sales team here are big believers in the process and want to carry that forward."
+    },
+    {
+      "start": 1901.65,
+      "end": 1948.16,
+      "speaker": "bryan-cantrill",
+      "text": "I got to say, like when we were first trying to hire for sales, my own conviction was kind of wavering. I'm like, Steve, is the materials process the right process for sales? And so, yes, it seems like emphatically, yes. We just haven't found the right people yet. And we just need to like be patient and the process. Well, and also you got to do more than that. Like, because for some roles, yes, we are very oversubscribed. For other roles, like, like we got to go out and like really shake the tree and you got to be willing to go find the people and have the pre-conversations with them. I mean, Steve and I have had many conversations with candidates. Like, I don't know about Oxide. Like, look, let me hop on the phone with you. And what I want to close you on is digging further into the company to get you to the point where you're submitting materials. So we are happy to get engaged."
+    },
+    {
+      "start": 1948.16,
+      "end": 2009.95,
+      "speaker": "jerod-santo",
+      "text": "But I will say when we got early in the process with sales candidates, one of the things we kept seeing was these materials that were not great because it was salespeople just pounding their chest. And if you think about like what they are predisposed for conditions to be able to talk about, it is how I crushed my number, how I, you know, I was the first person to close this size deal and like, great. I mean, a lot of people are involved in closing big deals. What we want is story time. We want to hear about like when things didn't go great. Did you run towards it or run away from it? Did you, you know, how did you deal with, how do you treat your peers? When you're working on a large complex customer engagement. And it's, it's funny because we've had candidates that have submitted materials that were just all about the headlines of success metrics, which is how folks have been trained. We had to get better at how do we ask the right questions to get them? Just like, just the stories you tell around a campfire."
+    },
+    {
+      "start": 2009.95,
+      "end": 2010.51,
+      "speaker": "bryan-cantrill",
+      "text": "Right."
+    },
+    {
+      "start": 2010.51,
+      "end": 2014.51,
+      "speaker": "jerod-santo",
+      "text": "About like the scar tissue that you have with telephone stories."
+    },
+    {
+      "start": 2014.51,
+      "end": 2023.95,
+      "speaker": "bryan-cantrill",
+      "text": "So where did that conviction come from? He was wavering. Why did you believe so much that that was still the right path for sales when it was a struggle at first to find the right people?"
+    },
+    {
+      "start": 2023.95,
+      "end": 2080.51,
+      "speaker": "jerod-santo",
+      "text": "Oh, because it's not about sales. I mean, it's, it's, it's, it has nothing to do with a particular role, whether it's solutions, engineering, support, sales, finance. We're, you know, I think again, back to like folks that have shared passion, shared values and, and, and a shared disposition about building something meaningfully with people they love working with for a long time and doing it the right way. Like that's, that's what you're looking for. And then when you find that it doesn't matter what particular team or role or anything. I mean, I think you all have started to feel that across the company and that's where the flywheel starts to take shape. You've just got like, you know, it's, it's not about these siloed organizations where you have to do things differently because that's a certain type of animal. And, and, and then, you know, thankfully we started to see like, holy shit, that's an incredible salesperson that loved the process."
+    },
+    {
+      "start": 2080.51,
+      "end": 2130.27,
+      "speaker": "bryan-cantrill",
+      "text": "And like, just go read the materials. And that is whenever you're doing something, it kind of takes conviction. That's contrary. You need those early omens that like, okay, I'm not totally on the wrong path and to reinforce it. And it's like, I mean, when I say like my conviction was wavering, I mean, I don't think I needed much in the way of convincing, but it was fair. But it actually was extremely helpful that Steve was so emphatic because I think that we, we've all, I mean, for us, the proxy, especially in sales, how much of your sales is like understanding what a customer needs and, and then sculpting what you've got for that customer. It's like, well, we're being very explicit with you about what we need. And it's like, this is a very good proxy for a customer relationship. And it's like, like, if you're not reading the RFP thoroughly and you're kind of shooting your mouth off, it's like, well, then you're not going to work."
+    },
+    {
+      "start": 2130.27,
+      "end": 2143.07,
+      "speaker": "jerod-santo",
+      "text": "Then, then how rigorous are you going to be on that, on, on the thing that you're submitting to that CIO? And you're going to be like, oh, well, I brushed through it because, you know, I was on a plane. It's like, no, what? So it gives you."
+    },
+    {
+      "start": 2143.07,
+      "end": 2161.07,
+      "speaker": "bryan-cantrill",
+      "text": "And I will say that the other thing about this company is that like, we, this is where you get to that trust. Like we, this company sticks out. Like we know that if someone is out there representing Oxide in any capacity, sales, finance, operations, engineering, we know that, that they themselves are going to hold themselves to a high standard of execution."
+    },
+    {
+      "start": 2161.07,
+      "end": 2216.51,
+      "speaker": "jerod-santo",
+      "text": "But I would say like the reason that it's reasonable to ask, like, how do you, how could this scale? It is easy to see how these things don't scale. Meaning like there was real investor pressure early, especially around sales, sales hiring, where it's like, why I want, I want you hiring faster. Why aren't you hiring faster? It's probably this materials process, you know? And so you can, you can totally imagine scenarios in which you're like, okay, there's just like too many, like too much external pressures. Yeah. You've got to like relax these constraints. Right. And that's not to say that you don't need to adjust and modify things as the company gets bigger and you are, but the foundation is so, so, so important and, you know, sticking it out just a little longer, you get these, these omens and you're like, okay, all right, no, like stay the course. And then you get the, like down the road, it's like, oh man, what a, what a great model."
+    },
+    {
+      "start": 2216.51,
+      "end": 2245.47,
+      "speaker": "bryan-cantrill",
+      "text": "And this happens because I do, I mean, I ended up reviewing a lot of materials and you just get like numb as you're reviewing materials because you're, and then you can have a, like a candidate that's just like a bit better than the others. Like, oh, this person's great. No, no, no, no. I'm just like, I'm numb from these others. And then you begin to like, God, maybe this is unreasonable. Like, especially when it's a new role, like, God, is this a, like, and then you get that superlative candidate and you're just like, oh, thank God. Thank God. All right. Yes. Yeah. It still works. There's still hope. There's still hope."
+    },
+    {
+      "start": 2245.47,
+      "end": 2251.47,
+      "speaker": "jerod-santo",
+      "text": "So on that vein, fast forward 20 years, you guys are retiring from Oxide. All right. So it's funny."
+    },
+    {
+      "start": 2251.47,
+      "end": 2251.71,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 2253.07,
+      "end": 2255.31,
+      "speaker": "jerod-santo",
+      "text": "You forget to like, we're youngsters still."
+    },
+    {
+      "start": 2255.31,
+      "end": 2255.63,
+      "speaker": "bryan-cantrill",
+      "text": "Okay."
+    },
+    {
+      "start": 2255.63,
+      "end": 2257.79,
+      "speaker": "jerod-santo",
+      "text": "Fast forward 40 years. 40 years."
+    },
+    {
+      "start": 2257.79,
+      "end": 2259.31,
+      "speaker": "bryan-cantrill",
+      "text": "Okay, fine. 40 years."
+    },
+    {
+      "start": 2259.31,
+      "end": 2269.6,
+      "speaker": "jerod-santo",
+      "text": "You've built a generation computer company, right? Next generation is running it. You guys are ready to hang them up. Well, you still, does Oxide still do uniform compensation? Predict it."
+    },
+    {
+      "start": 2269.6,
+      "end": 2302.05,
+      "speaker": "bryan-cantrill",
+      "text": "Oh boy. Hard enough. I genuinely, hand on heart, don't know because I just don't know. I think that we, it's easy to, I can easily go either way. I can easily be like, no, no, of course not. Because like that generational company has to have like 10,000 employees and like, oh God, that would never work. And then I can go the other side of like, yeah, that generational, that generational company only had 500 employees, only had 600 employees. And I just don't know. What do you think Steve?"
+    },
+    {
+      "start": 2302.05,
+      "end": 2302.93,
+      "speaker": "jerod-santo",
+      "text": "Brian doesn't know."
+    },
+    {
+      "start": 2302.93,
+      "end": 2303.57,
+      "speaker": "bryan-cantrill",
+      "text": "I don't know."
+    },
+    {
+      "start": 2306.08,
+      "end": 2314.93,
+      "speaker": "jerod-santo",
+      "text": "I think the kind of like the foundation behind uniform compensation still remains. Which is what?"
+    },
+    {
+      "start": 2315.97,
+      "end": 2325.73,
+      "speaker": "bryan-cantrill",
+      "text": "Transparency for sure. Transparency is that there'd be tiers, maybe still uniform, but like tiered uniform, like uniformity, does that make it non-uniform?"
+    },
+    {
+      "start": 2325.73,
+      "end": 2380.53,
+      "speaker": "jerod-santo",
+      "text": "Well, look, I'll give you an example. So like we, we, we do not have uniform construction of compensation at Oxent. Right. We have, we have salespeople that are putting something in the middle where if they do not achieve their target, they make less than everyone else at the company. And if they overachieve their target, they make more than everyone else at the company. And we have definitely had open conversations about whether others are interested in putting something in the middle. You know, and it gets a little interesting when you're like, okay, well then what's my like pull requests? Right. Or how to solder it. But again, like if we're, if we're thinking about everyone having an equally important role in the company, I think that's foundational as well. Where a lot of people are just like, oh, you can't possibly pay the same for a support engineer, right?"
+    },
+    {
+      "start": 2380.53,
+      "end": 2390.13,
+      "speaker": "bryan-cantrill",
+      "text": "Always support engineer. Support always get respect. They always get, it's like, I got to kick one of these. So support, get over here. You know, I drill, I'm going to kick you."
+    },
+    {
+      "start": 2391.09,
+      "end": 2403.01,
+      "speaker": "jerod-santo",
+      "text": "And, and, and so look, I mean, is there, is there a future where we want to be building folks that are earlier in their career? And I was thinking about the farm team."
+    },
+    {
+      "start": 2403.01,
+      "end": 2403.33,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 2403.33,
+      "end": 2461.25,
+      "speaker": "jerod-santo",
+      "text": "Look, I don't know. Don't know. But I think the things that start to that eventually you're asking questions around are, I mean, we already hit this first, like, is it rigid in all regards or is it the foundation of transparency and kind of an equal weighting of value of job, which is kind of like the first two important pieces. And then sales was the first time that we broke, you know, it being completely rigid uniform across everything, but, but landed on transparency and kind of equal weighting. Uh, and so, yeah, the things that will open the question is, uh, you know, how will we address, uh, folks that are earlier in their career as we get further along? Um, and international, I mean, I don't know. I would like to believe that the, we're going to be able to hold true to the foundation of this thing, regardless of international and some of the other things that, that will"
+    },
+    {
+      "start": 2461.97,
+      "end": 2537.01,
+      "speaker": "bryan-cantrill",
+      "text": "and I think that we, we've been told so frequently, like, oh, this doesn't scale. This doesn't scale. It's like, it's just kind of a waste of time to think about it. Yeah. Cause it's like, actually, the only thing I care about is like, does it scale to like the next 10 hires? And the answer to that is yes. So that we kind of figured out. And I think that the, and the other thing that the, you know, the esprit de corps that we have here is so sacred that we, and, and I, I, it's not unrelated, right? Because people don't, when you, whenever you tie compensation to people's individual actions, then people will adjust their individual actions accordingly. And what you will, it's like, well, if I, if I'm doing this, like, is this what I'm on? This has been my OKR, my MBO. Is it yes or no? And like, we want people to make the right decision and we want them to do that when we trust them to do that in the moment. And so we don't want to lose any of that. So anything we would do that we want to be very careful about anything we would do, because we don't want to lose any of what we've got because what we've got is lightning in a bottle. I mean, I think you'd be hard pressed to find a team this large with this kind of breadth and this kind of depth that has this kind of esprit de corps."
+    },
+    {
+      "start": 2537.01,
+      "end": 2592.96,
+      "speaker": "jerod-santo",
+      "text": "And by the way, throughout, we've been wide open to the questions. Any, we would never do anything where it was, you are unable to serve your customers appropriately without X. You are going to hurt the company or put a limiter in front of where the company can go because of Y. And we've had the good fortune of like, when it comes to this topic, we have never had to compromise or make sacrifices around our customers and the growth of the business around that. And I hope that'll be the case for a long time to come. One of the things that you said in our conversation initially, Brian, with even doing this, even being here, was you wanted to capture this special thing you have, papers, materials, the whole process, and expose it. You want to kind of, I think you said the word infect or something like that to other companies out there that you hope that you can be a leader in that front."
+    },
+    {
+      "start": 2592.96,
+      "end": 2593.52,
+      "speaker": "bryan-cantrill",
+      "text": "Yes."
+    },
+    {
+      "start": 2593.52,
+      "end": 2598.64,
+      "speaker": "jerod-santo",
+      "text": "We're going to put something out. We're going to share the inside of something. That's right. You'll approve it, of course."
+    },
+    {
+      "start": 2598.64,
+      "end": 2598.96,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah."
+    },
+    {
+      "start": 2598.96,
+      "end": 2613.04,
+      "speaker": "jerod-santo",
+      "text": "But it's to be a version that you can showcase what's happened here. What do you hope happens? What do you hope people do? The changes, maybe the Goliaths, the Googles, the whomever's. You'd think though, they probably will change, but maybe the next version of."
+    },
+    {
+      "start": 2613.04,
+      "end": 2684.16,
+      "speaker": "bryan-cantrill",
+      "text": "The fangs will be reformed one funeral at a time. Sure. To paraphrase Thomas Kuhn. There's no salvation, I think, for those companies. I think that the, you know, Jared Diamond's collapse is very instructive in this regard. And you companies, when the culture is wrong, fixing a culture is such a gargantuan amount of work that you would have in so thankless in so many regards. And there are so few people that are capable of true cultural change. You'd have to ask yourself, why would someone do that? Why would someone sign up for that job? And this is like, look no further than Intel. Intel has had an acute cultural problem for decades. And the end, they've got, I mean, really the first person in, they've got their first outside CEO in their history in Le Putin. And not coincidentally, it's the first person who's trying to fix the culture problem. It is far too late. And far too late for that company. I mean, good luck to them, but it's like the kinds of things you need to do."
+    },
+    {
+      "start": 2685.12,
+      "end": 2686,
+      "speaker": "jerod-santo",
+      "text": "Got a big new investor?"
+    },
+    {
+      "start": 2688.4,
+      "end": 2692.88,
+      "speaker": "bryan-cantrill",
+      "text": "That's what that is. Oh God. Yeah. You and me."
+    },
+    {
+      "start": 2693.68,
+      "end": 2693.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2694.48,
+      "end": 2696.16,
+      "speaker": "bryan-cantrill",
+      "text": "When's the board meeting? Do we get to go?"
+    },
+    {
+      "start": 2696.88,
+      "end": 2699.76,
+      "speaker": "jerod-santo",
+      "text": "Like I didn't get a choice on this one. No, no. I guess I invested."
+    },
+    {
+      "start": 2699.76,
+      "end": 2768.5,
+      "speaker": "bryan-cantrill",
+      "text": "Oh, I guess we invested. So I think that I think you kind of have to give up on. I think you can have, what I think is possible is around new company formation and inspiring a rising generation. And one of the things that is, you know, I've got a lot more, I've got a lot of faith in the rising generation. I think that the, you know, maybe just from my own kids and their friends and the kind of the perps that they take. I think that young people have, yes, they got flooded with a lot of disinformation, but they've also got the ability to go find like really information that is a real source of truth for them in a positive way. And I think that we can be an inspiration for that new company formation. I think we can tell people there's a different way to do things. And because people, and I think to a fault, have mimicked some of the bad behavior in Silicon Valley. And that bad behavior has kind of reinforced itself kind of TV show. So if I have a TV show or Silicon Valley, like the place, right, you've seen that the behavior around here is degraded."
+    },
+    {
+      "start": 2769.46,
+      "end": 2803.54,
+      "speaker": "jerod-santo",
+      "text": "And there is, well, and I think people are just by nature moving fast, looking to copy things that are around them, pick up stuff that like probably worked or sort of is the way you do things. So I think part of getting it out there is giving like another little blueprint that one could follow. And even if they're not rigorously evaluating it, they're like, that seems plausible. We had also the ecosystem around new company formation. So a recruiter that we used was one of the parties that was just like this materials thing is bonkers."
+    },
+    {
+      "start": 2803.7,
+      "end": 2805.7,
+      "speaker": "bryan-cantrill",
+      "text": "You can't, I can't work with this."
+    },
+    {
+      "start": 2806.82,
+      "end": 2839.76,
+      "speaker": "jerod-santo",
+      "text": "I can't work with this. You understand? I'm working with like, you know, 50, 60 companies. I'm talking to hundreds and hundreds of candidates across these companies who will never hire someone this way. You'll never hire someone this way. This is not how it works. And it took some time and some like to get them around the bend to agree to work with us on this and kind of like, kind of like work together to help them with how we operate through this process. And they had some good feedback for us just in terms of, or let's say we landed on a good process."
+    },
+    {
+      "start": 2839.76,
+      "end": 2840.48,
+      "speaker": "bryan-cantrill",
+      "text": "Here we go. There we go."
+    },
+    {
+      "start": 2840.48,
+      "end": 2850.16,
+      "speaker": "jerod-santo",
+      "text": "And by the end of it, we had a candidate come aboard that they had worked with."
+    },
+    {
+      "start": 2851.6,
+      "end": 2915.3,
+      "speaker": "bryan-cantrill",
+      "text": "One, I would say very key moment in that path. They would have a candidate that they're very hot on. We would talk to them. Seems possible. Yeah, this is good. We have a good conversation. They submit materials. Materials are terrible, terrible materials. And I mean, it'd be interesting to talk to these folks, but like we would send the recruiter the materials and the recruiter is a smart person. Yeah. I mean, and so like on the one hand, like had yes, had the conviction of their own beliefs, but is it is an intelligent individual and they would read the materials and be like, Ooh, those are bad. Well, and I think it also like maybe like challenging some of your priors, like actually maybe I thought that guy was really good and you guys talked to the guy and you guys also thought he was really good. And now all of us can agree that based on the materials, it's terrible. Maybe I've been like, maybe I'm not gauging this correctly. Is that like talking versus walking though?"
+    },
+    {
+      "start": 2915.3,
+      "end": 2922.18,
+      "speaker": "jerod-santo",
+      "text": "Talking versus walking though. Cause like papers, the materials, I keep saying papers. The materials are kind of like walking."
+    },
+    {
+      "start": 2923.22,
+      "end": 2930.66,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah, your papers, some of your papers, you know, you can talk a lot, but can you walk the materials?"
+    },
+    {
+      "start": 2931.86,
+      "end": 2975.54,
+      "speaker": "jerod-santo",
+      "text": "Yes. But in the case of this recruiter, by the end of the process, they said they, and we've seen this across investors, recruiters, where they are now like taking that process and begin to implement. So this particular recruiter is like, if you don't mind, I want to start kind of like educating some of our clients on this process because I'm now seeing value in being able to get higher quality candidates further along with these engagements. So there's an example of like, we'd love that it'd be amazing. And anywhere we can help where this helps others begin to do hiring, you know, add, add elements to their hiring process that helps them get better people aboard."
+    },
+    {
+      "start": 2975.54,
+      "end": 2984.26,
+      "speaker": "bryan-cantrill",
+      "text": "I almost wonder too, if it's not a, a byproduct of how we force hiring. Like I know people looking for jobs, like I submit it everywhere. Oh, right. Yeah."
+    },
+    {
+      "start": 2985.54,
+      "end": 3012.29,
+      "speaker": "jerod-santo",
+      "text": "You kind of have to gunshot your opportunity because one, you're between things. You're desperate. Maybe it can be that situation where you got laid off and your position is not of your own doing necessarily. You may have been upset about where you were at. Maybe you would have changed and you love Oxide or whatever, but it's almost like the hiring scenario is forced to go gunshot. Let me put my, let me put who I am everywhere versus go super deep on where I truly can't apply."
+    },
+    {
+      "start": 3012.29,
+      "end": 3013.49,
+      "speaker": "bryan-cantrill",
+      "text": "And what you see."
+    },
+    {
+      "start": 3013.49,
+      "end": 3019.17,
+      "speaker": "jerod-santo",
+      "text": "It's gotta be both sides though. The company has to do what you all do and the candidate has to be willing to do what you ask them to do."
+    },
+    {
+      "start": 3019.17,
+      "end": 3218.18,
+      "speaker": "bryan-cantrill",
+      "text": "And in particular, what you have is a lot of companies, and I think it's a mistake. Companies are thinking like, well, you know, this is a lot of like tedious resume review. This is a great task for LOMs. Let's put LOMs in charge of this. And let's relieve the human of having, because they only do resume review. They don't look at them. They don't have any other materials to look at. So they're, so the cynicism that you see from dropout, it's like, look, these guys just use the AI anyway. Yeah. So what you need to do is play the game, play the game, play the game. And it's like, it's basically random. Whether you get a, the kind of the conviction from the candidate is it's random whether you get a call or not. And I don't know that they're wrong for a lot of companies. So it's like, if it's random, AI swap your resume up such that an LOM can actually identify at some point, like the LMS are going to like, start writing. It's going to be like my resumes. This is not even like, this is like in, in, in alien rooms. It's like, yeah, but the other LOM can read it. And it's like, for whatever reason, it's like the art. It's like the white space has like, uh, but the, um, and then you scatter shot your way out there and then you get that call and like, because it's random. And I never seen that or I said like, that is the wrong way to get a job. And I do feel that like, look, yes, we're exos. Okay. We've seen shitty job markets. We've seen job markets way shittier than this one, way shittier than this one. And it's, and the like, yeah, like what do you need to do to find a job in a job market? It's hard. I mean, I, I've got total sympathy, especially people that are suddenly laid off and are scrambling, but you need to figure out what you need to do next. And why don't you just get a job? Okay. Okay. Take a half a step back because you've got to find what's, what is going to be, if you truly need to like pay the bills, you should like get literally any job that you can use while you're actually formulating your proper job search. I used to listen to Bruce Williams as a kid, you know, like Bruce Williams was on talknet. It's like am talk radio. Okay. I'm dating myself. Even Steven. You are on your own pal. The, no, it's like sound Jesse Raphael. This is before. So before she had a daytime talk shows, they were taking a very weird turn before she had a daytime talk show. She was a, a, an am radio call-in, uh, kind of advice shop. And I used to listen to this as a kid and Bruce Williams gave us really good advice since people would call in and he would call in with their financial problems. And he's like, look, if you need to find a job, the first thing, what you need to go do is work the overnight shift at a convenience store and like get a paycheck and the, and then use your days to go interview and find the right job. And it's like, and this was in like 1982, the recession of 1982 was super, super deep. And the, and like what you need to go do if your job searching is like, you actually need to figure out what you need to go do, what you want to go do. And you've got to then find the company, whatever it is that is like that. I want to work there. And then you've got to be like, okay, I'm going to focus my efforts on wanting to work there. And it's like, yeah, maybe that's oxide and we can't take you. But hopefully that process has sharpened in terms of like, now these are, and you should not be spraying, praying, spraying, praying."
+    },
+    {
+      "start": 3218.18,
+      "end": 3219.22,
+      "speaker": "jerod-santo",
+      "text": "That is what everybody's doing."
+    },
+    {
+      "start": 3219.22,
+      "end": 3220.02,
+      "speaker": "bryan-cantrill",
+      "text": "It's what everyone's doing."
+    },
+    {
+      "start": 3220.02,
+      "end": 3250.45,
+      "speaker": "jerod-santo",
+      "text": "I know. Cause we've talked to people recently, like people literally who are listeners of our show that we've recently met. We had a live show in Denver, by the way. I don't know if you knew that. We did a live show on stage kind of like this and we invited people out. They bought tickets, they're fans, they listen to the show. It was cool. And a few of those folks did not have employment at the time and they shared how challenging it is to get, to be, to be so skilled, to have such intention, to be great people and have this challenge."
+    },
+    {
+      "start": 3250.45,
+      "end": 3262.38,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. And I mean, again, heart goes out to them because it's really hard. Your own self worth being chipped away at. And it's really hard when you've got someone who's saying that person has set their whole being on being at oxide."
+    },
+    {
+      "start": 3262.38,
+      "end": 3262.78,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3262.78,
+      "end": 3272.85,
+      "speaker": "bryan-cantrill",
+      "text": "And then, you know, I'm the one that's got to be like, no. But spray and pray is not going to, that's not, that's not the right way."
+    },
+    {
+      "start": 3273.6,
+      "end": 3290.96,
+      "speaker": "jerod-santo",
+      "text": "I would love to keep going deep on this subject and I'm sure we can cause we're passionate about it. It's the defining, one of the many defining factors about your business, but we haven't mentioned at all where you're at. This is a skill moment. I know there's some things we can say and can't say. You share what you want."
+    },
+    {
+      "start": 3290.96,
+      "end": 3300.91,
+      "speaker": "bryan-cantrill",
+      "text": "Yeah. But can you speak to your personal feelings to being at the moment where you have to do a heck of a lot more in a month than you've done previously?"
+    },
+    {
+      "start": 3300.91,
+      "end": 3361.18,
+      "speaker": "jerod-santo",
+      "text": "I mean, it's definitely exciting to be in the situation that we had been building for and hoped for, which was struggling to catch up to fulfill demand. Uh, you know, figuring out how we can stay in front of customer opportunities. They're going to push us really, really hard. Um, being able to not prepare ourselves to scale, but actually to go scale and supply chain and manufacturing and, uh, and delivery and logistics and field service and all that stuff, um, different kinds of fears and, and stressors. Um, but yeah, I mean, it's, it's exciting. It's exciting because I think we, you know, last year we were excited to get the products, you know, first year fully in commercial market into customers' hands and be able to prove out that we could ship reliably, build reliably, ship software updates, you know, every eight weeks."
+    },
+    {
+      "start": 3362.86,
+      "end": 3386.66,
+      "speaker": "bryan-cantrill",
+      "text": "And last year, a year ago, we had to raise, we were very upfront about that with the team. I mean, we're not trying to like get anyone to throw up in their mouth, but like, Hey folks, we weren't out of cash in May, June or July, depending on your, on which model you look at. So just FYI. And so we have to hit the milestones that we need to go raise. And that's not where we are this year."
+    },
+    {
+      "start": 3386.66,
+      "end": 3387.3,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3387.3,
+      "end": 3389.78,
+      "speaker": "bryan-cantrill",
+      "text": "We're all different, whole different ballgame, whole different ballgame."
+    },
+    {
+      "start": 3389.78,
+      "end": 3397.86,
+      "speaker": "jerod-santo",
+      "text": "It just shifts. Yeah. Shifts from what are the milestones to raise to? What are the milestones to stay ahead of these large customers that are growing?"
+    },
+    {
+      "start": 3398.66,
+      "end": 3404.35,
+      "speaker": "bryan-cantrill",
+      "text": "To deliver, to deliver, to delight our customers and to not lose track of who we are. Right."
+    },
+    {
+      "start": 3404.35,
+      "end": 3406.27,
+      "speaker": "jerod-santo",
+      "text": "And you guys are a hardware company. You know that."
+    },
+    {
+      "start": 3407.31,
+      "end": 3408.35,
+      "speaker": "bryan-cantrill",
+      "text": "Systems company."
+    },
+    {
+      "start": 3408.99,
+      "end": 3412.59,
+      "speaker": "jerod-santo",
+      "text": "Hardware and software. I like that. Systems company. Yeah, sure."
+    },
+    {
+      "start": 3414.11,
+      "end": 3416.59,
+      "speaker": "bryan-cantrill",
+      "text": "That's the answer you are, but sure, maybe we all know that."
+    },
+    {
+      "start": 3416.59,
+      "end": 3443.22,
+      "speaker": "jerod-santo",
+      "text": "I'll just say that as a contrast to a peer software company, because you are not in control of every aspect of your business. Supply chain, I'm thinking of specifically. Oh, sure. As a software, as a peer software company, you could just write the software and deliver it, but like there are so many more moving parts, literally moving around the world. Yup, undoubtedly. How much is your ability to deliver on the demand that you found outside of your control?"
+    },
+    {
+      "start": 3443.22,
+      "end": 3456.18,
+      "speaker": "bryan-cantrill",
+      "text": "Oh, I think it's, I mean, there are things that are outside of our control for sure. And things that happen, one thing that this team gives us the confidence in, we've had so many of those things already happen."
+    },
+    {
+      "start": 3456.18,
+      "end": 3456.74,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3456.74,
+      "end": 3492.51,
+      "speaker": "bryan-cantrill",
+      "text": "And, you know, Steve and I were talking about the things that like are biggest single sources of stress in the history of the company. And for Steve, rightfully, it was the SDV failure, right? SDV failure, we had to wire payroll on Tuesday morning. It's Thursday and there's a run on the bank. On the crisis moment. It's Friday and the bank is famous. Right. It's like, we had to wire payroll on Tuesday morning. My view was, you know what? It'll be fine. It'll be fine because Janet Yellen cares about this problem. We were not the only ones that had the SDV problem. Everybody had the SDV problem."
+    },
+    {
+      "start": 3492.51,
+      "end": 3492.99,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3492.99,
+      "end": 3517.15,
+      "speaker": "bryan-cantrill",
+      "text": "And it's like, it will be, it will be disruptive in the short, versus some of these other issues, you can die alone. So my biggest sources of strain were stress, were in the development, especially of our first product where it's like, yeah, the CPE will come out and reset. We don't know why. Janet Yellen does not give a shit about that problem. Like nobody cares about that problem. You are out here in the wilderness and you can die."
+    },
+    {
+      "start": 3518.03,
+      "end": 3519.47,
+      "speaker": "jerod-santo",
+      "text": "Alone really, because you're inventing it."
+    },
+    {
+      "start": 3519.47,
+      "end": 3533.47,
+      "speaker": "bryan-cantrill",
+      "text": "A hundred percent. So on the one hand, that is scary. On the other hand, we have now hit so many of those and we have found our way around them that of course, like, I'm like, I'm like tempting the gods with like,"
+    },
+    {
+      "start": 3533.47,
+      "end": 3536.11,
+      "speaker": "jerod-santo",
+      "text": "You are, you're not the one."
+    },
+    {
+      "start": 3536.11,
+      "end": 3546,
+      "speaker": "bryan-cantrill",
+      "text": "But the, um, you know, I think that there are things that are out of your control, but when you have those things, you're like, okay, who do we know at this laminate? Right."
+    },
+    {
+      "start": 3546.3,
+      "end": 3624.62,
+      "speaker": "jerod-santo",
+      "text": "But also, by the way, I mean, when you say a hardware company, then like most hardware companies would have a bunch of third-party hardware in their system that they are reliant upon. So they would be like, what if we have an issue with our third-party switch or software? What if we have a firmware issue in this component? How do we go solve for that? So there you end up having 10 X the surface area of the supply chain problems. And because of the way that we've designed the system and taken a lot more of it first party, we've shrunk that surface area. And then with the key suppliers, being able to go deep with them and demonstrate to them that we're not treating them as a vendor that we're just like, you know, one of four that we're going to partner with. There has been so many, so much time that we've been able to punch above our weight where yes, there was like a shock to the system and yet they were like Oxide, we got you. And so I think, you know, we've done this in manufacturing, manufacturing software, taking control of the build process, like a bunch of the stuff that we now, which took years, making sure we had control over yes, you're down to like inventory tariffs, you know, stuff like that. But those are problems that can be solved by, you know, banking relationships and capital and manufacturing partners. And so it's, it's, it is good to be in the place of, we have spent a lot of time doing"
+    },
+    {
+      "start": 3624.62,
+      "end": 3755.26,
+      "speaker": "bryan-cantrill",
+      "text": "those relationships. So one of the things that we, very strong disposition that we had, so we were at Samsung together, Samsung bought joint and we thought, Oh, this would be great. Like, you know, we were a little tiny joint and we've got these relationships with these various folks, but like Samsung must have these great relationships. We've learned is like, everyone kind of hates Samsung's guts because Samsung wants a dual source, absolutely everything and cares about one metric price. That's it. And what we discovered is, and we had like folks confide in us, like, look, we would like you guys. So we're going to like continue talking to you. You should know that like my boss doesn't want me to spend any time. Because we always put Samsung at the back of the line. I'm like, that's, it's kind of eye opening because you would think like, Oh, dual sourcing that makes sense for everything. And it's like, when you do that, you're sending a message that like, I actually don't value our relationship at all. And there are things where we have a true like vendor relationship. It is not a partnership relationship at all. Right. And like, you know, FedEx versus UPS and FedEx reminds us of this whenever they toss one of our packages in the bushes and you know, it's like, they're like, Oh, we actually don't have like, there's no partnership with FedEx. Yeah, exactly. But for the component choices we've made, we really sought true partnerships. How do we find, instead of like trying to dual source lowest common denominator every day, how do we pick the right partner and then go deep with that partner? And you know, we're talking to our fan provider, Sanyo Denki, and they're like, Sanyo Denki, we had to make a very important modification to our fans to lower at 0% PWM, lower the RPM from 5,000 RPM to 2000 RPM, because it would consume much less power, which they did. And they did in part because they're like, we've never encountered someone for whom like this relationship, I'm used to just getting beat up on price. That's it. And it's like, then when you build that relationship, by the way, when you need to have a pricing conversation, it's a much easier pricing conversation. They want to help you. They want to help you. And they were like, and like, all right, look, hey, let me be transparent with you. And like, here's what we're, you know, and we want to make sure that folks have the margin that they need, but we need to have the margin that we need. We need our customers to need the price that they need. But you can have those conversations that are easier to have those conversations when you actually have a solid foundation of real partnership."
+    },
+    {
+      "start": 3755.26,
+      "end": 3761.42,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And these are risks. I mean, yesterday was the sixth anniversary of Oxide, so we got to celebrate with the team."
+    },
+    {
+      "start": 3761.42,
+      "end": 3762.38,
+      "speaker": "bryan-cantrill",
+      "text": "Happy birthday."
+    },
+    {
+      "start": 3762.38,
+      "end": 3849.82,
+      "speaker": "jerod-santo",
+      "text": "Thank you. And it was fun because we got to go back and think about like what was going on six years ago when we had like a couple slides, Google slides, I think it was PowerPoint slides, and we were trying to raise money for the company. And we had been in that mode just to your question of like, how does it feel now at this point looking forward, we've been in the mode of thinking about like the four big risks that investors are always thinking about for companies and like their evolution. And there's team risk. And like, I think, you know, we, we feel pretty good that we've knocked down team risk. Check. There's technology risk. And that was ever present over the last, you know, certainly, I mean, there are still elements present, but we have de-risked a whole bunch of the technology risk. There is then market risk. And we now have kind of crossed into where we are getting pulled by the market versus where you are trying to push yourself to the market to get pulled in place. And then the fourth is capital risk. And this latest fundraise was to make sure we secured our capital future combined with things that we will do with lines of credit and everything else to, for a hardware company that you have that balance, which does leave you in the privileged position. There's still plenty of risk, but it's execution risk. So now, you know, we get to go focus on doing the thing in front of us that is dead-ass clear. And I think that's, what's exciting for the team and why, you know, we are entering this kind of next chapter for the next six years."
+    },
+    {
+      "start": 3850.9,
+      "end": 3855.22,
+      "speaker": "bryan-cantrill",
+      "text": "Can you do that with the side of the team you have now? I guess it kind of comes back to the hiring process."
+    },
+    {
+      "start": 3855.22,
+      "end": 3856.18,
+      "speaker": "jerod-santo",
+      "text": "We're growing."
+    },
+    {
+      "start": 3856.18,
+      "end": 3856.9,
+      "speaker": "bryan-cantrill",
+      "text": "So you are growing."
+    },
+    {
+      "start": 3856.9,
+      "end": 3857.54,
+      "speaker": "jerod-santo",
+      "text": "You are growing."
+    },
+    {
+      "start": 3857.54,
+      "end": 3861.46,
+      "speaker": "bryan-cantrill",
+      "text": "Are you actively non-AI generating new job roles?"
+    },
+    {
+      "start": 3862.26,
+      "end": 3880.9,
+      "speaker": "jerod-santo",
+      "text": "You know, you should have seen that the show of hands of people that weren't at the last one of these, people that joined in the last three months, that we've got a bunch of folks that are in conversation that just couldn't quite get, we weren't quite there that would join us here. So yeah, no, we're adding folks as fast as we can find terrific folks."
+    },
+    {
+      "start": 3880.9,
+      "end": 3883.94,
+      "speaker": "bryan-cantrill",
+      "text": "So yeah, we've got whatever, 13 open roles right now. Multiple hires."
+    },
+    {
+      "start": 3883.94,
+      "end": 3891.94,
+      "speaker": "jerod-santo",
+      "text": "Where do you go to get that? Is there a URL? Is it Oxide, the obvious URL?"
+    },
+    {
+      "start": 3891.94,
+      "end": 3968.82,
+      "speaker": "bryan-cantrill",
+      "text": "And, and you wouldn't, uh, again, we write those job descriptions carefully. We are, you know, one of the things that we're, we've got a lot of vigilance is like, we are not hiring recklessly. We are hiring, we are not just selecting carefully, but we're also very careful. One of the things we've, we've just already learned when we open a new job description, there are so many people that just want to work for Oxide. If we don't write that job description carefully, we can get a flood of folks and it can be really hard to actually want to be very crisp about what we're hiring for. And we want to make sure that you feel like, I really want to work for Oxide. And then they kind of look at the roles. They're like, Oh, okay. Like, this is like, you know, do you have any of anything else? Like this is not, this stuff all seems like really hard. It's like, well, yeah, yeah, we actually have, it's really hard to stop. So yes, we, we, and we need to be very, very careful about how we expand the team. But a part of that also is when we open up a job description, we would like to hire someone there. If we can't find someone that is worthy of this team, we will not hire someone there. We are, it's not like we're doing well. We got to find like the best of whoever applied by Wednesday. It's like, Nope. If we don't find someone that like conversely, if we find two, three people that way,"
+    },
+    {
+      "start": 3969.78,
+      "end": 3971.7,
+      "speaker": "jerod-santo",
+      "text": "we'll hire more than hire more."
+    },
+    {
+      "start": 3972.26,
+      "end": 3974.42,
+      "speaker": "bryan-cantrill",
+      "text": "And like, boy, one thing that we've done, right?"
+    },
+    {
+      "start": 3974.42,
+      "end": 3974.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3975.78,
+      "end": 3996.58,
+      "speaker": "bryan-cantrill",
+      "text": "That, I mean, not that we would, we were ever really second guessing ourselves, but I remember a couple of times we would have a JD open and we get two really superlative people. I got, how do we define, decide between these two supporters? Like let's hire both of them and we would hire both. Absolutely. And we have, those are some of the best, some of the best decisions."
+    },
+    {
+      "start": 3996.58,
+      "end": 4004.42,
+      "speaker": "jerod-santo",
+      "text": "All right. Well, my favorite is why not both? Why not both? Why not both? Why not both? Let's, let's close here. Cause I know we're getting close on our time. We got food to eat."
+    },
+    {
+      "start": 4005.38,
+      "end": 4007.38,
+      "speaker": "bryan-cantrill",
+      "text": "I think the computer history museum buses are taking off."
+    },
+    {
+      "start": 4008.58,
+      "end": 4029.92,
+      "speaker": "jerod-santo",
+      "text": "Let's, let's do it in one second then give me one minute of this. We're here. You got this next phase. We've been privy to some information. I'm not sharing it. You all share it. Give us a glimpse. What can, what version of a glimpse can you give our audience? It's going out what? Not this Friday, next Friday. So not this week, next week. What glimpse can you give?"
+    },
+    {
+      "start": 4029.92,
+      "end": 4031.2,
+      "speaker": "bryan-cantrill",
+      "text": "In terms of where we're going? Yeah."
+    },
+    {
+      "start": 4031.2,
+      "end": 4034.08,
+      "speaker": "jerod-santo",
+      "text": "The horizon, the unknown horizons you all know. Yeah."
+    },
+    {
+      "start": 4034.08,
+      "end": 4076.7,
+      "speaker": "bryan-cantrill",
+      "text": "I mean, I would say that like that for a, for a long time, as Steve mentioned, certainly prospective investors thought there was a lot of market risk. We believed in our heart that there was not that market risk because of what we knew, but ultimately like that market, you only de-risk that market risk when you have like signed POs. That's what you were set market risk. And what I would say is where we are now, we can say with absolute confidence that that market risk has been de-risked and it is interesting to watch the doubters become believers. And we now absolutely know that market risk is off the table. It is just execution."
+    },
+    {
+      "start": 4079.04,
+      "end": 4207.66,
+      "speaker": "jerod-santo",
+      "text": "So going on location to Oxide is an adventure. Seeing everybody behind this awesome company is just breathtaking. Honestly, a lot of great people, a lot of great culture, a lot of great thoughts. And I swear an elite team is so hard to beat when it's Oxide's team. It's just amazing what they're doing. They are truly crossing the chasm as we speak, a massive PO sign, a massive check for a series B. And clearly it's just about execution at this point. So when I say that we're fans, we're fans, fans of Oxide. And I want to say a big thank you to my good friend, Brian Cantrell, and obviously Steve Tuck as well. But the initial call with Brian and the initial vision was what set off this thing we're doing. We're peeling back the layers of Oxide going inside Oxide. These podcasts are one part of this inside Oxide peak. And it's kind of cool. So we got to sit down with them. Obviously, you heard the pod, but we also got to take a film crew with us and shoot a lot of footage of OxCon and this three-day event, the Computer History Museum, the baseball game, the Ballers, Oakland Ballers, and just so much fun stuff. We're producing a 10-minute documentary about this moment in Oxide's history. We got some interviews coming up that are on their YouTube channel. A teaser coming out very soon. And I can't wait for you to see what we've done. It is so cool. But a big thank you to Brian and a big thank you to Steve for trusting us to come out there and listen, capture, and ultimately share this story. So I hope you enjoyed the show today. A look inside Oxide. A look inside their culture, what makes them tick. It was good stuff. I enjoyed it. I hope you enjoyed it too. Thank you to our awesome beat freaking residents, Breakmaster Cylinder. Those beats are always banging. Thank you to my good friend Brian Toro and also Austin Myers for coming along with us out there to Oakland, California. I can't wait for y'all to see this. It's going to be epic. All right. This is it. We're done. We'll see you next week."
+    }
+  ]
+}

@@ -1,0 +1,2673 @@
+{
+  "title": "State of the \"log\" 2025",
+  "description": "Our 8th annual year-end wrap-up is here! We're featuring 8 listener voicemails, dope Breakmaster Cylinder remixes & our favorite episodes of the year. Thanks for listening!",
+  "links": {
+    "YouTube": "https://youtu.be/GxZh7t9SGpU",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 0.27,
+      "end": 65.81,
+      "speaker": "jerod-santo",
+      "text": "It's late December once again. That classic changelog theme song is bumpin' and it's time for our 8th annual State of the Log episode. If this is your first time with us, welcome to the changelog, the software world's best weekly news brief, deep technical interviews, and weekend talk show that feels like you're hanging out with your friends in the hallway track of your favorite conference on repeat. Big thanks to our partners at Fly.io for helping us bring you awesome developer pods all year long. You know we love Fly, the public cloud built for developers who ship. Give it a try at Fly.io. All right, State of the Log 2025. Let's do it."
+    },
+    {
+      "start": 65.81,
+      "end": 92.47,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I'm here with a good friend of mine again, Kyle Galbraith, co-founder and CEO of Depot.dev. Kyle, we are in an era of disruption, right? I want to also describe it as rethinking what we thought was true. And I guess that's kind of the definition of disruption. But from your perspective, how are teams, reliability teams, CI, CD, pipeline teams, how are they all rethinking things and where does Depot fit into that?"
+    },
+    {
+      "start": 92.47,
+      "end": 196.27,
+      "speaker": "jerod-santo",
+      "text": "In the conversations that I have with customers, a lot of DevOps teams, platform teams, site reliability teams, they're really looking at this new era of software engineering that we're all living in. And they're starting to question the bottleneck is no longer the act of writing code. The bottleneck is shifting. The most time consuming part is integrating the code. It's everything that comes after. It's the build, it's the pull request review, it's the deployment, it's the getting it into production. Once it's in productions, it's scaling up support teams to support it. It's adding documentation, all of these downstream problems. And so through the lens of Depot, what we're really starting to think about is there's a very realistic possibility that within the next two to three years, maybe even sooner, that we're going to enter a world where an engineering team of three people could theoretically have the velocity of an engineering team of 300 people. And what's the consequences of that? What's the consequences of the code velocity spiking up to that level with such a small team? Three engineers are going to be able to code review all of the code that's being created. If there's three engineers and 297 agents also creating features and fixing bugs. So that's just like from a pull request perspective. But then you think about it through a build lens too of if your builds take 20 minutes with three humans and now you're going to have three humans and 297 agents also running. Well, you definitely don't want your builds taking 20 minutes because now the entire pinch point is the build pipeline. And so we're starting to think a lot about how do we eliminate the bottlenecks that come downstream and what can we do with Depot that streamlines that?"
+    },
+    {
+      "start": 196.27,
+      "end": 232.2,
+      "speaker": "adam-stacoviak",
+      "text": "So obviously, friends, we are in an era of disruption. Things are changing. You know it. I know it. That's how it is. And the thing with production and what Kyle's talking about here is how in the world do you get your bills to be faster, how you get them to be more reliable, faster, more observability around those deployments. You need it. And Depot is there to help you. So a good first step is to go to depo.dev, get faster, try their trial, it's too easy. Again, depo.dev is where to go. It all begins at depo.dev."
+    },
+    {
+      "start": 232.2,
+      "end": 239.62,
+      "speaker": "jerod-santo",
+      "text": "Here we are, the eighth annual state of the law. Can you believe eight times this has happened?"
+    },
+    {
+      "start": 239.62,
+      "end": 240.62,
+      "speaker": "adam-stacoviak",
+      "text": "Eight times a charm?"
+    },
+    {
+      "start": 240.62,
+      "end": 241.84,
+      "speaker": "jerod-santo",
+      "text": "Hopefully."
+    },
+    {
+      "start": 241.84,
+      "end": 244.41,
+      "speaker": "adam-stacoviak",
+      "text": "Seven times was a charm."
+    },
+    {
+      "start": 244.41,
+      "end": 246.19,
+      "speaker": "jerod-santo",
+      "text": "This eighth one is going to be a charm too."
+    },
+    {
+      "start": 246.19,
+      "end": 249.75,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. I didn't say the word charm, Jared."
+    },
+    {
+      "start": 249.75,
+      "end": 250.75,
+      "speaker": "jerod-santo",
+      "text": "Oh my goodness."
+    },
+    {
+      "start": 250.75,
+      "end": 253.75,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. Hey, you know what I'm saying, right?"
+    },
+    {
+      "start": 253.75,
+      "end": 261.83,
+      "speaker": "jerod-santo",
+      "text": "Y'all out there. Welcome. Welcome, everyone. Welcome back, hopefully. Or welcome for the first time. If this is your first time listening, this is not how it normally goes."
+    },
+    {
+      "start": 261.83,
+      "end": 263.55,
+      "speaker": "adam-stacoviak",
+      "text": "It normally goes like this once a year."
+    },
+    {
+      "start": 263.55,
+      "end": 265.75,
+      "speaker": "jerod-santo",
+      "text": "This is how it always goes eight times."
+    },
+    {
+      "start": 265.75,
+      "end": 266.75,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 266.75,
+      "end": 274.91,
+      "speaker": "jerod-santo",
+      "text": "And we have eight voicemails to listen to from some of our long-time listeners and some newer listeners, so that is cool."
+    },
+    {
+      "start": 274.91,
+      "end": 279.07,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe a little recap on what this is. What do you think? A little recap on what this is."
+    },
+    {
+      "start": 279.07,
+      "end": 280.07,
+      "speaker": "jerod-santo",
+      "text": "Go ahead."
+    },
+    {
+      "start": 280.07,
+      "end": 342.55,
+      "speaker": "adam-stacoviak",
+      "text": "Recap it. I was just thinking about that because you mentioned the new listener potentially, and I was thinking a tiny little recap. So state of the log, we're called the change log. So this is state of the log. And all year, we worked tirelessly, Jared, to log, I would say, the developer journey. From the new project, to the sale of a company, to a new side project, to an acquisition. You name it. The latest platform that might be out there. The newest framework in the JavaScript world, which is like on the daily. BUN acquisitions, just named specifically, you know. And as we talk to these humans, not just these machines, these humans in this world, we get to podcast and share and all that good stuff. And this is a sort of an examination of that. But first, we invite our listenership, those folks that are listening to the show, to submit a voicemail. And then we hand that voicemail. Am I stealing some of your thunder here? I know you do a good job of like doing this. Am I stealing some of this?"
+    },
+    {
+      "start": 342.55,
+      "end": 343.55,
+      "speaker": "jerod-santo",
+      "text": "No, man."
+    },
+    {
+      "start": 343.55,
+      "end": 397.38,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, cool. Breakmaster Cylinder, behind the scenes, produces our music. I won't share the real name because he's still anonymous, but Breakmaster Cylinder is beloved by us, produces all of our music. We love that. And you know, Jared collects these voicemails. I stay out of it because I want to be surprised in this moment. I've listened to none of these yet. And so each year we do this state of the law. We kind of go back through. We invite folks to send voicemails, what they love about the show, what they don't love about the show. And then Breakmaster makes these cool remixes, which are super cool. And we have fun listening to those and just kind of like diving in. And for those who may be new and don't know me, I don't like watching movie trailers. Okay. And so these are like movie trailers. These are like little voicemail movie trailers that I can't watch because it ruins the movie. And so I've heard none of these. This is fresh for me. I'll hand it back to you, Jared. Hopefully I did a pretty decent job of describing state of law."
+    },
+    {
+      "start": 397.38,
+      "end": 450.66,
+      "speaker": "jerod-santo",
+      "text": "That's right. So this is the movie and we're about to watch it together or listen to it as is the case with voicemail. So thank you to all of you who wrote in and to everybody who listened throughout the year. We put out a lot of pods, almost 150. If you count news, if you take news out, that's almost 100 as each of our three legs of our table did about 50 episodes as we tend to do per year. And so that's a lot. It is tough to pick faves, but we've done the work and our listeners have done the work. And let's kick off with our first voicemail. Now I know what you're thinking. In what order do these voicemails come? Do we do it chronologically by reception? No. Do we do it alphabetically by last name? No. Do we do it alphabetically by first name? Yes. How do we do it?"
+    },
+    {
+      "start": 450.66,
+      "end": 452.66,
+      "speaker": "adam-stacoviak",
+      "text": "How do we do it?"
+    },
+    {
+      "start": 452.7,
+      "end": 466.52,
+      "speaker": "jerod-santo",
+      "text": "We do it alphabetically by first name because that's the way finder arranged them. Okay. The files came in and they're just put your first name first. And so I guess Andrew Patton with first name Andrew gets to go first. So let's listen to Andrew's voicemail."
+    },
+    {
+      "start": 466.52,
+      "end": 588.39,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, changelog family. First time leaving a voicemail, which is very exciting. Though I've been listening for many years. I checked and changelog takes home the gold for my most listened to podcast in 2025 at 105 hours, which would have been 111 and a half hours at one X because I only use smart speed. So that's not to ruin those banging beats. This year I really enjoyed Friends 75 with Matt Reyer as a pianist, it was a joy hearing him switch from guitar to piano for that episode. And the weird and wonderful Matt world episode, which was episode 90 was also great. The entire pipe dream saga in the Kaizen episodes this year was very fun, including that dramatic on stage live launch in the changelog interview 635 about tiger beetle was fascinating. changelog friends 96 with Steve Yeaggy, he's always entertaining and certainly interesting. The interview 664 with Adam Jacob was another really interesting and enlightening episode. All the changelog beats releases and everything that break master cylinder provides. I really missed JS party this year was open for a few more dysfunctional developer episodes, but I love the multiple three way conversations between Jared, Adam and Nick Nissi, including Friends 89, 102 and most recent, they are always very funny. They're always very relevant to the issues of the day. And I find it somewhat mind blowing when I get a peek into the habits and methods of Nick Nissi. Thank you all for all you do and looking forward to a great 2026. Hmm. The habits and methods."
+    },
+    {
+      "start": 588.39,
+      "end": 591.07,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's a good show title."
+    },
+    {
+      "start": 591.07,
+      "end": 592.07,
+      "speaker": "adam-stacoviak",
+      "text": "That's cool."
+    },
+    {
+      "start": 592.07,
+      "end": 596.71,
+      "speaker": "jerod-santo",
+      "text": "That's cool, man. Next time next time we should have one called the habits and methods of Nick Nissi."
+    },
+    {
+      "start": 596.71,
+      "end": 620.11,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, man, I do enjoy Nick as well. I concur with everything. What was his name again? I'm sorry, Andrew. Andrew. Well, everything Andrew said I was too busy listening to catch the first name. I'm sorry, Andrew. But yeah, I concur. Adam Jacob, Nick Nissi, Matt Reyer, piano to guitar, like, I mean, that's just podcast gold there."
+    },
+    {
+      "start": 620.11,
+      "end": 703.97,
+      "speaker": "jerod-santo",
+      "text": "So I have collated the list up with that in the show notes, we'll have all these favorite episodes listed Andrew listed 11. So that's a lot not the most there is somebody who's going to list more than 11. It's probably going to be you, Adam. But in addition to Adam, there's somebody else to set up a teaser, they're not a spoiler but a teaser. I'm just going to outdo Andrew, but still, that's a good list. And for our list, we try not to overlap listener lists. And so you and I have both created our own list. But however, we're kind of crossing off the ones that they mentioned as they go so that we don't have too much overlap because that's just repetition and we all want to keep it dry around here. He took a lot of my favorites though, I'm not gonna lie, a lot of his favorites were my favorites. And speaking of JS Party and Nick Nissi and Amel Hussain, who was on the show last year but didn't quite hit the three timer pace that Nick hit and that Matt Reyer hit, she's coming back on the show in January. So Amel actually did reach out recently and say, hey, how come Nick's on the show more than I am? And I just said, I can't get rid of this guy, he's always hanging around and whereas you disappear for a while and then come back. So you're always welcome Amel and she's coming soon. So a little more JS Party sprinkled in upcoming episodes. All right, you want the Andrew Patton remix? Hit it. Here we go."
+    },
+    {
+      "start": 703.97,
+      "end": 750.65,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, Changelog family. I've been the pianist for many years, which is very exciting. I was hoping for a few more banging piano beats from Breakmaster Cylinder. They are always very dramatic and certainly interesting. Looking forward to a weird and wonderful 2026. There you go. Those are special moments right there, man. Listen to those banging beats, a sweet voicemail remix like that, and a nice little crazy outro. If you knew Breakmaster, like we know Breakmaster, very fitting, it's a very fitting outro to the banging beats."
+    },
+    {
+      "start": 750.65,
+      "end": 761.91,
+      "speaker": "jerod-santo",
+      "text": "100%. All right, up next, because hey, his name starts with a B, it's our old friend and I think every year call her in her. Come on now. It's Brett Cannon."
+    },
+    {
+      "start": 761.91,
+      "end": 762.91,
+      "speaker": "adam-stacoviak",
+      "text": "Brett Cannon."
+    },
+    {
+      "start": 762.91,
+      "end": 763.91,
+      "speaker": "jerod-santo",
+      "text": "Here we go."
+    },
+    {
+      "start": 763.91,
+      "end": 843.53,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, Adam and Jared. It's Brett Cannon calling for that annual tradition to see whether I can read dates appropriately while I tell you about my favorite episodes that I got to listen to this year. So I want to start off with The Power of the Button, which you actually recorded in 2024, but didn't publish till 2025, so I'm safe. I found that episode kind of fun just to have that twist on it of talking about the physicality of the world and just how that kind of ties into technology and just kind of the different approach of just seeing how things tie in both sides of both the physical and the software for all of us. The next episode I liked a lot was the 1,000 times faster financial database with Joran from Tiger Beetle. I just thought that was a really cool chat to show that sometimes you don't have to take the journal solution. Sometimes it's okay to actually build something from scratch if it leads to a simple solution that really gets you what you're after. I also really enjoyed the chat with Bert Hubert, Build Software That Lasts. Just a lot of good advice that I think a lot of us could stand to listen to consistently. And then finally, the wsl.exe dash dash cat hello dot cs episode I liked a lot for two reasons. One, Adam's total infatuation with WSL was rather infectious and great to hear. And also I wanted to give a letter of recommendation for Mads, he is an awesome person. And with that, to give Breakmaster Cylinder something to work with, Andrea did not listen to any of these episodes, so she loves them all equally, as does our kiddo. Thanks."
+    },
+    {
+      "start": 844.96,
+      "end": 872.79,
+      "speaker": "jerod-santo",
+      "text": "So to bring everybody else in on that reference of Andrea at the end, go back to previous states of the log, in which BMC created a hilarious remix of Brett's previous message where the whole thing is centered around his wife, Andrea, which was one of my favorites from previous years. I'm not gonna lie, BMC's remix of this one, also one of my favorites, but first, do you want to address Brett's actual content of what he had to say, or should we?"
+    },
+    {
+      "start": 872.79,
+      "end": 873.79,
+      "speaker": "adam-stacoviak",
+      "text": "Let's see."
+    },
+    {
+      "start": 874.23,
+      "end": 875.23,
+      "speaker": "jerod-santo",
+      "text": "Power of the Button."
+    },
+    {
+      "start": 875.23,
+      "end": 924.94,
+      "speaker": "adam-stacoviak",
+      "text": "Power of the Button was definitely powerful, you know, and that was a, I think I mentioned the Good for Nothing Button book in that show, and that just brings, like, the titling of our shows, which I think we may introduce a new category, which is best title. That was a fun title for me, obviously, for the content, but then also the Good for Nothing Button book that I've read with my kids. You know, I don't know where the infectious feelings I had towards WSL went, but I think they went with windows out the door to some degree. I'm such a wishy-washy operating system person. I can't help it. I'm a literal operator, I would say an OS hopper, not even a distro hopper."
+    },
+    {
+      "start": 924.94,
+      "end": 927.06,
+      "speaker": "jerod-santo",
+      "text": "You want to call it a sampler, but it's more of a hopper, I think."
+    },
+    {
+      "start": 927.06,
+      "end": 969.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it kind of is, honestly. You know, I just want to love Windows, and I just wish that we could get it together. You know, there's so much good stuff in there, and just too much AI getting slapped around. Anyways, WSL is really cool, though, for Windows. I think if you are, for some reason, you've got to be in that world where you have no choice because that's where your platform is, your applications are, your company's at, then, you know, it is what it is, and that's what you've got to do. I think WSL is the next best thing, and super cool for that to be, like, embedded in Windows, so I mean, that, to me, is a technological feat that I love, so if I had to be in Windows, I could only be there happily because of WSL."
+    },
+    {
+      "start": 969.36,
+      "end": 979.19,
+      "speaker": "jerod-santo",
+      "text": "Right, which didn't exist back when I switched away, and I think it's very cool that it does exist, but I just don't have that problem anymore."
+    },
+    {
+      "start": 979.19,
+      "end": 986.95,
+      "speaker": "adam-stacoviak",
+      "text": "Can we address this title, though? WSL.exe dash dash cat hello dot cs. That was your title, Jared."
+    },
+    {
+      "start": 986.95,
+      "end": 987.95,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 988.31,
+      "end": 993.19,
+      "speaker": "adam-stacoviak",
+      "text": "All on your own. And when you said it to me, I was like, ship it, man. Just ship it."
+    },
+    {
+      "start": 993.19,
+      "end": 1023.24,
+      "speaker": "jerod-santo",
+      "text": "Just ship it. I had a hard time naming that one because it was two interviews, and so it was the one about WSL and then the other one with Mads, is it Torgerson, I can't remember his last name, the current lead design on C Sharp, and it's like, well, it's two different things, and I don't know, you know, this and that, and kind of what do you do, and then I was like, I don't even know where I came up with that, but I just thought, let's just send the command out there and say hello to C Sharp, you know, let's just have WSL tell us hello."
+    },
+    {
+      "start": 1023.24,
+      "end": 1033.65,
+      "speaker": "adam-stacoviak",
+      "text": "It's also been too long since we've talked to Brett, and I feel like we've done ourselves a disservice with change-looking friends, missing that friend."
+    },
+    {
+      "start": 1033.65,
+      "end": 1043.25,
+      "speaker": "jerod-santo",
+      "text": "Well said. Come back, Brett. Any time. We will invite you personally soon, unless you email us first, and then we'll say, sure, come on."
+    },
+    {
+      "start": 1043.25,
+      "end": 1044.61,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, let's do it."
+    },
+    {
+      "start": 1044.61,
+      "end": 1063.81,
+      "speaker": "jerod-santo",
+      "text": "We did some Python coverage this year, but we were talking with other folks, you know, we were just kind of mixing it up a little bit, and not that we have to talk to Brett about Python, but of course, and he moved on from the steering committee, but there's lots to say there, and I haven't watched John Wick 4, so maybe I've been avoiding them, just like ashamed of myself for not having done that."
+    },
+    {
+      "start": 1063.81,
+      "end": 1071.57,
+      "speaker": "adam-stacoviak",
+      "text": "We talked about Dune 2 and John Wick 4. Those are the things we were supposed to do to get back together, and I did not watch"
+    },
+    {
+      "start": 1071.57,
+      "end": 1073.57,
+      "speaker": "jerod-santo",
+      "text": "Dune 2 because I'm still kind of mad at Dune 1."
+    },
+    {
+      "start": 1073.57,
+      "end": 1083.05,
+      "speaker": "adam-stacoviak",
+      "text": "Dune 2 is so good, man. It was so good. It is so good. It's a rewatch for me. Like, I have a hard time going and watching 1 again because it was sort of a slow burn to the storyline."
+    },
+    {
+      "start": 1083.05,
+      "end": 1085.05,
+      "speaker": "jerod-santo",
+      "text": "It was a slow burn. It never ended 2."
+    },
+    {
+      "start": 1085.05,
+      "end": 1091.53,
+      "speaker": "adam-stacoviak",
+      "text": "But Dune 2 takes all that to the next level, and it's worth it. I mean, it's good. It's good."
+    },
+    {
+      "start": 1091.53,
+      "end": 1098.21,
+      "speaker": "jerod-santo",
+      "text": "Now, I know I told you this, but I'm not sure if I said this on the show. When I went and saw Dune 1, they didn't call it Dune 1."
+    },
+    {
+      "start": 1098.21,
+      "end": 1099.21,
+      "speaker": "adam-stacoviak",
+      "text": "No, they didn't."
+    },
+    {
+      "start": 1099.21,
+      "end": 1102.61,
+      "speaker": "jerod-santo",
+      "text": "And I didn't do trailers or anything because I'm like, it's Dune. I want to watch it."
+    },
+    {
+      "start": 1102.61,
+      "end": 1103.61,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 1103.65,
+      "end": 1119.37,
+      "speaker": "jerod-santo",
+      "text": "I don't get out to movies very often, and so I got out to a movie, and I went to Dune 1, and I was enjoying the heck out of it even though it was a slow burn. I'm patient. I like slow movies. And then I realized it's only half of a movie, and I just got very angry because they didn't say Dune 1. At least then I would have known what I was getting myself into."
+    },
+    {
+      "start": 1119.37,
+      "end": 1120.37,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1120.37,
+      "end": 1132,
+      "speaker": "jerod-santo",
+      "text": "But I remember being like two hours in thinking, how are they going to get through all this? There's so much more that happens. And then I'm like, oh, they aren't. And then it was what, three years later for Dune 2? I was just too mad. I'm like, I'm not going to see it."
+    },
+    {
+      "start": 1132,
+      "end": 1133,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1133,
+      "end": 1145.06,
+      "speaker": "jerod-santo",
+      "text": "Well. Now it's been long enough that maybe I can just change that attitude, my bad attitude, but that was my stance prior. And that's why I haven't seen Dune 2 yet, even though I hear it's pretty good."
+    },
+    {
+      "start": 1145.06,
+      "end": 1148.46,
+      "speaker": "adam-stacoviak",
+      "text": "It's pretty good. Yeah, I would recommend it."
+    },
+    {
+      "start": 1148.46,
+      "end": 1151.9,
+      "speaker": "jerod-santo",
+      "text": "Speaking of pretty good, you want to hear this BMC remix of Brett Cannon?"
+    },
+    {
+      "start": 1151.9,
+      "end": 1152.9,
+      "speaker": "adam-stacoviak",
+      "text": "I cannot wait."
+    },
+    {
+      "start": 1152.9,
+      "end": 1156.46,
+      "speaker": "jerod-santo",
+      "text": "Oh, there's the power. If you think there's power in the button, just wait for this one."
+    },
+    {
+      "start": 1156.46,
+      "end": 1204.52,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, Adam and Jared. It's Brett Cannon calling for that annual tradition to tell you about my favorite episodes. So I'm going to start off with the power of the button, talking about the physicality of the button and just how that kind of ties into technology. The next episode I liked a lot was the 1000 button factions. I just thought that was a really cool chat to show that sometimes, you know, you don't have to take the journal solution. Sometimes it's okay to actually scratch your butt if it really gets you what you're after. And then finally, the kind of fun cat butt episode. Just a lot of good cat butt advice that I think a lot of us could stand to listen to consistently. Andrea did not love any of these episodes, but you know what? It's okay. She still is an awesome person. I hope you like that, Brett."
+    },
+    {
+      "start": 1204.52,
+      "end": 1206.32,
+      "speaker": "jerod-santo",
+      "text": "Oh, man."
+    },
+    {
+      "start": 1206.32,
+      "end": 1210.55,
+      "speaker": "adam-stacoviak",
+      "text": "That's edgy. That's edgy. Do we have to bleep that one at all? Is there any bleeps there?"
+    },
+    {
+      "start": 1210.55,
+      "end": 1214.23,
+      "speaker": "jerod-santo",
+      "text": "I just think I think butt is pretty pedestrian at this point."
+    },
+    {
+      "start": 1214.23,
+      "end": 1220.64,
+      "speaker": "adam-stacoviak",
+      "text": "It was good. That was good. Oh, my gosh. The cat. Oh, gosh."
+    },
+    {
+      "start": 1220.64,
+      "end": 1225.11,
+      "speaker": "jerod-santo",
+      "text": "The cat. I'm still 12 years old at heart. The butt joke just still hits me."
+    },
+    {
+      "start": 1225.11,
+      "end": 1232.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I'm just past a chest cold, and that made me want to cough some stuff up, let's just"
+    },
+    {
+      "start": 1232.42,
+      "end": 1233.42,
+      "speaker": "jerod-santo",
+      "text": "say."
+    },
+    {
+      "start": 1233.42,
+      "end": 1238.83,
+      "speaker": "adam-stacoviak",
+      "text": "Brought it out of you. Yeah. It's kind of like, it's percolating. It's percolating."
+    },
+    {
+      "start": 1238.83,
+      "end": 1246.21,
+      "speaker": "jerod-santo",
+      "text": "All right. Next up, another longtime listener and first time guest this year, it's Don McKinnon."
+    },
+    {
+      "start": 1246.21,
+      "end": 1275.49,
+      "speaker": "adam-stacoviak",
+      "text": "Greetings, friends. My favorite episode of 2025 was an early one. Terso is rewriting SQLite in Rust. One reason is I'm a sucker for people building in Rust, big surprise, but more importantly, I enjoyed it because I got to learn about the concept of deterministic simulation testing, which I found to be pretty fascinating. I always love the episodes where I get to learn about a concept that I haven't run up against before. Anywho, thank you guys for the podcast, and looking forward to what you have lined up in 2026."
+    },
+    {
+      "start": 1275.49,
+      "end": 1309.52,
+      "speaker": "jerod-santo",
+      "text": "Pretty cool stuff. Of course, we talk about that as well on the Tiger Beetle episode, but Glauber, Costa from Terso certainly introduced it to both of us, and apparently a lot of other people on that episode. Yeah, that's part of what we do here, is just kind of uncover techniques that other people are doing that you may not have heard of, and maybe they'll help you on your path. Maybe they won't, but just being more well-rounded, while not having to work too hard, just listen to a couple of doofs ask silly questions, and you learn a thing or two."
+    },
+    {
+      "start": 1309.52,
+      "end": 1311.52,
+      "speaker": "adam-stacoviak",
+      "text": "That's a good way to summarize it. I like that."
+    },
+    {
+      "start": 1311.52,
+      "end": 1312.52,
+      "speaker": "jerod-santo",
+      "text": "Hmm."
+    },
+    {
+      "start": 1312.52,
+      "end": 1313.52,
+      "speaker": "adam-stacoviak",
+      "text": "Doofs."
+    },
+    {
+      "start": 1313.52,
+      "end": 1318.52,
+      "speaker": "jerod-santo",
+      "text": "A couple of doofs. I don't know. I never did any deterministic simulation testing of you."
+    },
+    {
+      "start": 1318.52,
+      "end": 1346.23,
+      "speaker": "adam-stacoviak",
+      "text": "No, that was actually really, really revealing because I had never heard of that concept, and it seemed to be trying to recall exactly how they were leveraging it. It was like being able to have confidence in the future because it tested it, and it went kind of like an AI might even do, to figure things out that you wouldn't normally figure out, like non-written tests that get tested. It's kind of the unknown unknowns kind of thing, you know?"
+    },
+    {
+      "start": 1346.23,
+      "end": 1370.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's like a fuzzer, sort of a certain extent. It's like a fuzzer for tests, but it was deterministic, and so it could be completely reproducible, whereas fuzzers generally will produce pseudo-random stuff. That's reproducible, and therefore you get regression type of assurances as well. Obviously, I don't know exactly how it works. That's why we invite the experts on to tell us."
+    },
+    {
+      "start": 1370.2,
+      "end": 1412.5,
+      "speaker": "adam-stacoviak",
+      "text": "You know, that's a ... I should look into this more now that this is brought up because as you may know, I'm working on this thing called DNS hole, and one thing I actually introduced was this thing called DNS chaos, DNS hole chaos, and it was essentially like throwing chaos at this DNS server to attack it and make it push its boundaries, and so pushing different RFCs, different things around it that it is supposed to support and should support, and it's kind of like deterministic testing, or this DST is like that, is like how can you push a system in a certain way and test its boundaries? That's kind of wild stuff. I should look more into DSTs."
+    },
+    {
+      "start": 1412.5,
+      "end": 1415.5,
+      "speaker": "jerod-santo",
+      "text": "You should. DNS hole. Do we have to bleep that?"
+    },
+    {
+      "start": 1415.5,
+      "end": 1417.5,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know. Oof."
+    },
+    {
+      "start": 1417.5,
+      "end": 1420.5,
+      "speaker": "jerod-santo",
+      "text": "I don't think so. All right. Here's Don McKinnon's remix."
+    },
+    {
+      "start": 1420.5,
+      "end": 1457.46,
+      "speaker": "adam-stacoviak",
+      "text": "Greetings, friends. I always love the episodes where I get to learn about a concept that I haven't run up against before. My favorite episode, I enjoyed it because I got to learn I'm in a simulation, which I found to be pretty fascinating, and my friends and the people have always been in the simulation. But anywho, thank you guys for the podcast. Into the Matrix."
+    },
+    {
+      "start": 1457.46,
+      "end": 1459.46,
+      "speaker": "jerod-santo",
+      "text": "Great Matrix sound at the end there."
+    },
+    {
+      "start": 1459.46,
+      "end": 1461.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1461.52,
+      "end": 1463.52,
+      "speaker": "jerod-santo",
+      "text": "And then the... It's still going."
+    },
+    {
+      "start": 1463.52,
+      "end": 1464.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 1464.52,
+      "end": 1468.22,
+      "speaker": "jerod-santo",
+      "text": "Just the... Little trail off. Trail off in the crowd noise there."
+    },
+    {
+      "start": 1468.22,
+      "end": 1473.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I was thinking, was that crowd noise crowdsourced from the meetup in Denver?"
+    },
+    {
+      "start": 1473.18,
+      "end": 1474.18,
+      "speaker": "jerod-santo",
+      "text": "Oh, wow."
+    },
+    {
+      "start": 1474.18,
+      "end": 1481.74,
+      "speaker": "adam-stacoviak",
+      "text": "Because that's where BMC was with us, and I wonder if you maybe pulled out this phone and captured some sound and reused it later on for us."
+    },
+    {
+      "start": 1481.74,
+      "end": 1484.86,
+      "speaker": "jerod-santo",
+      "text": "We should go ask. That would be a deep cut if that was the case."
+    },
+    {
+      "start": 1484.86,
+      "end": 1488.82,
+      "speaker": "adam-stacoviak",
+      "text": "That would be a deep cut. Like a well-planned deep cut, like, I'm going to need this one day."
+    },
+    {
+      "start": 1488.82,
+      "end": 1509.98,
+      "speaker": "jerod-santo",
+      "text": "Some day I'm going to mix this into something they asked me for. That would be really cool. And it turned out to be Don McKinnon's simulation crowd. All right. Next up, we have Fernando, and his last name is tough because he's from Brazil. Bevelacqua. Bevelacqua. I don't know. He'll say it, so he'll get it right. Here we go."
+    },
+    {
+      "start": 1509.98,
+      "end": 1519.46,
+      "speaker": "adam-stacoviak",
+      "text": "Hey, Adam and Jared. This is Fernando Bevelacqua speaking all the way from Brazil. I've been a long-time listener of the pod since 2015."
+    },
+    {
+      "start": 1519.46,
+      "end": 1606.92,
+      "speaker": "jerod-santo",
+      "text": "My favorite episodes of this year were flowing with agents, episode 658, and reaching industrial economies of scale, episode 632, both with Byung Liu. They were very insightful about the usage of agents in the everyday activities we have with software development. And I think they give us a glimpse into the future of how software development and how the technology in the field will evolve. Last but not least, episode solving the AI energy crisis 652 with Greg Ozuri. That was a very interesting talk about politics, about infrastructure, about how to grow AI in a more practical way, not about just technology, but how to build the real world, the physical things we need to sustain this kind of advancement. And I just want to say that it took me 10 years, but 2026 will not only be the year of the Linux desktop, but it will be the year that I will become a changelog plus plus subscriber. Hard earned money will be shared with you guys. I've been following you and really admire your work and I want to support the creators, especially in this sea of AI slop. I really want to see people with critical thinking and making the good questions and intriguing thoughts and making us reflect on the path that we have to follow. That's it guys. Keep on rocking and thanks for all the parts."
+    },
+    {
+      "start": 1606.92,
+      "end": 1611.46,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know about you, Jeremy, but that's why we do it, man. Right there."
+    },
+    {
+      "start": 1611.46,
+      "end": 1612.59,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 1612.59,
+      "end": 1622.54,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, who could have said it better, like in an age of AI slop, we are the critical thinkers. I mean, maybe not me and you necessarily, but by proxy, of course."
+    },
+    {
+      "start": 1622.54,
+      "end": 1624.18,
+      "speaker": "jerod-santo",
+      "text": "We talk to the critical thinkers."
+    },
+    {
+      "start": 1624.18,
+      "end": 1638.29,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. That's cool, man. All the way from Brazil too. I mean, like that just shows you how big the world is and how big the reach is for an MP3 on the internet, dude. Like that's. Yeah."
+    },
+    {
+      "start": 1638.29,
+      "end": 1744.83,
+      "speaker": "jerod-santo",
+      "text": "That's wild. Yep. Super, super cool. Thank you, Fernando, for writing in. Digging the beyond Lulu episodes, of course, there's one of your critical thinkers there. He's worth talking to be on about what he thinks, where the world is going and some of what he's, where he's making the world go by what they're doing there at source graph and AMP. And of course solving the AI energy crisis. That was, I think one of our more controversial episodes of the year, probably created one of the longest threads in our Zulu channel because people began to debate and discuss the merits of AI and energy and politics and it got, it gets a little bit drawn down some political lines because of people's approaches to these things. But I liked Greg's episode because he cracked me up a couple of times, like when he put on the glasses and I'm like, that was funny. He's doing some really cool, weird stuff at this house he's building, just very interesting human with interesting takes. And decentralized AI training and inference, I don't know. Now they're trying to talk about space-based stuff too. Not they, Greg, but they, the AI hyperscalers are both Google and XAI and I believe Bezos has to be talking about it because he's into space as well. We're talking about training models in space and I don't know, that's beyond my pay grade. To me, it doesn't seem like a very smart idea, but they seem to think it's going to be better. Maybe you're closer to the sun, so you get better solar power or something. But anyways, we can talk about that some other time, but I got some ideas there. You want to talk about them?"
+    },
+    {
+      "start": 1744.83,
+      "end": 1750.37,
+      "speaker": "adam-stacoviak",
+      "text": "You want to? I just briefly, I mean, it would, it would make total sense, right? One, it's cold. It's a vacuum."
+    },
+    {
+      "start": 1750.37,
+      "end": 1758.12,
+      "speaker": "jerod-santo",
+      "text": "You don't have any air movement. So getting the heat away from the source would be difficult. I would think."
+    },
+    {
+      "start": 1758.12,
+      "end": 1767.52,
+      "speaker": "adam-stacoviak",
+      "text": "I guess you have some sort of out and into space. I don't know that part, but definitely unfettered access to the number one energy source nearest"
+    },
+    {
+      "start": 1767.52,
+      "end": 1771.48,
+      "speaker": "jerod-santo",
+      "text": "to us. Yeah. Closer to the sun makes sense, but you have to move the data up and down as well."
+    },
+    {
+      "start": 1771.48,
+      "end": 1772.8,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that's true."
+    },
+    {
+      "start": 1772.8,
+      "end": 1777.28,
+      "speaker": "jerod-santo",
+      "text": "Well, maybe you can like a tough, like you get a bad GPU and it's like, dang, we got"
+    },
+    {
+      "start": 1777.28,
+      "end": 1796.04,
+      "speaker": "adam-stacoviak",
+      "text": "to send another rocket up anyways, robots, I bet robots and automated hard drive delivery or data delivery from up and down. There's no pipe. I bet. That's going to be like taking the data literally from something and down to the earth or just chucking it out. Right. It'll make it."
+    },
+    {
+      "start": 1796.04,
+      "end": 1798.04,
+      "speaker": "jerod-santo",
+      "text": "Right. It'll make it."
+    },
+    {
+      "start": 1798.04,
+      "end": 1799.04,
+      "speaker": "adam-stacoviak",
+      "text": "It's going to make it."
+    },
+    {
+      "start": 1799.04,
+      "end": 1836.77,
+      "speaker": "jerod-santo",
+      "text": "There's your, there's your DNS request there. Right. UDP. It'll make it. If not, who cares? Somebody else will catch it. Yeah. Yeah. I don't know. Smarter people than me say it's smart, but I'm a bit skeptical because it seems like a whole lot of work to get the stuff up there and doing stuff and then a whole lot of work to get it back down. And then you have, you have latency, I guess you could do training, but maybe not inference because I mean, what's the latency even from star link. It's not great. It's better than anything else there's been. But anyways, maybe a topic we can dig into in 2026 is like what a caching problem Jared"
+    },
+    {
+      "start": 1836.77,
+      "end": 1840.37,
+      "speaker": "adam-stacoviak",
+      "text": "to varnish. It is varnish to solve this too."
+    },
+    {
+      "start": 1840.37,
+      "end": 1882.88,
+      "speaker": "jerod-santo",
+      "text": "That's right. Varnish in space. Now we're talking. All right. Let's go to Fernando remixed. Hey, Adam and Jared. This is Fernando. People are quite speaking. It took me years, but 2026 will be the year that will become a secret agent in the field. I really want to see the world and I really admire that man. I want to see every day in politics, fades, justice, and so real rises in my world of intrigue. That's it guys. All rocking and thanks for all the thoughts."
+    },
+    {
+      "start": 1882.88,
+      "end": 1891.29,
+      "speaker": "adam-stacoviak",
+      "text": "That's a proper remix right there. I thought it was like a Darth Vader entering for a bit there, you know, then it got like"
+    },
+    {
+      "start": 1891.29,
+      "end": 1897.75,
+      "speaker": "jerod-santo",
+      "text": "heroic secret agent, Fernando, Batman, devil aqua."
+    },
+    {
+      "start": 1897.75,
+      "end": 1898.75,
+      "speaker": "adam-stacoviak",
+      "text": "That's what I'm talking about."
+    },
+    {
+      "start": 1898.75,
+      "end": 1899.75,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1899.75,
+      "end": 1903.11,
+      "speaker": "adam-stacoviak",
+      "text": "That's what I'm talking about. That's a nickname for you."
+    },
+    {
+      "start": 1903.11,
+      "end": 1904.11,
+      "speaker": "jerod-santo",
+      "text": "The dark night."
+    },
+    {
+      "start": 1904.11,
+      "end": 1910.03,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Oh yes. From the South, the deep, deep South."
+    },
+    {
+      "start": 1910.03,
+      "end": 1912.11,
+      "speaker": "jerod-santo",
+      "text": "That's right. Deeper than the South."
+    },
+    {
+      "start": 1912.11,
+      "end": 1916.15,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. That's cool. I liked that one. That was, that was epic."
+    },
+    {
+      "start": 1916.15,
+      "end": 1917.15,
+      "speaker": "jerod-santo",
+      "text": "That was epic."
+    },
+    {
+      "start": 1917.15,
+      "end": 1947.31,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I'm here with my good friend, Chris Kelly over at augment code. Chris, I'm a fan. I use Augie on the daily. It's one of my daily drivers. I use Claude code. I use augment Augie and I also use amp code and others, but Augie, I keep going back to it. And here's where I'm at. A lot of our audience knows about augment code, not enough about Augie, the CLI. It's amazing. I love it."
+    },
+    {
+      "start": 1947.31,
+      "end": 1972.27,
+      "speaker": "jerod-santo",
+      "text": "What can you share? Yeah. We often say augment is the best coding assistant you've never heard of. And that's both frustrating as someone that works there and it's like very proud of the work we've done, but also like inspiring, like we want to go and sort of punch above our weight. We just like, we aren't anthropic and we aren't open AI. And so the quality of the product itself, you know, with our context engine, once you do touch it, people are like just blown away by that. And so like that keeps me going every day."
+    },
+    {
+      "start": 1972.27,
+      "end": 2000.71,
+      "speaker": "adam-stacoviak",
+      "text": "So not to bear the lead here, but this is a paid spot. You are sponsoring this show to get this awareness. Now at the same time, we're selective and I love to use your tool, but there is in the world. So a lot of developers look at the space and they say, okay, well, how long can this work? How long is this sustainable in the case of cursor or wind surf, or you pick the name and you think discounted tokens helped me shape a lens for our audience."
+    },
+    {
+      "start": 2000.71,
+      "end": 2010.26,
+      "speaker": "jerod-santo",
+      "text": "I think it's a lot of awareness, right? Like cursor got a lot of publicity early on for like fast revenue growth, which well deserved."
+    },
+    {
+      "start": 2010.26,
+      "end": 2028.88,
+      "speaker": "adam-stacoviak",
+      "text": "I think, you know, frankly, some of the media got the, gets the story wrong. And that like, if I gave you a dollar 50 for every dollar you sent me, I'd be the fastest growing startup in the, in the Valley. And so when you're selling discounted tokens, yes, of course you're going to grow very fast, but all that money plus more goes to the model providers."
+    },
+    {
+      "start": 2028.88,
+      "end": 2040.56,
+      "speaker": "jerod-santo",
+      "text": "So I think the real story is the story of anthropic and you know, being an API provider, I think the market has just moved so fast and there's so many pieces of competition out there that it's just hard to get noticed."
+    },
+    {
+      "start": 2040.56,
+      "end": 2096.73,
+      "speaker": "adam-stacoviak",
+      "text": "So friends, I love augment code and I love using Augie and I highly recommend you use it. I love using Augie. Augie a well-defined specification, a well-defined pep as I call them in my world, an agent flow and it executes flawlessly. So the cool thing about Augie that I love most really is that context engine and I can hand it a task and I can just churn away on my well-defined plan and just never bother me and accomplish the mission. It is so cool leveraging the latest models, the context engine and all the fun things behind the scenes in that awesome CLI. So yes, go try it out. Augment code.com right in the top there is a CLI icon, a terminal icon, click that, install it and change your world. It's going to be awesome. Augment code.com."
+    },
+    {
+      "start": 2096.73,
+      "end": 2110.26,
+      "speaker": "jerod-santo",
+      "text": "Up next we have the, my previous tease was somebody will outnumber Andrew Patton and that's Jamie Tana. Jamie, safe to say Jamie likes the pod. Let's hear from Jamie."
+    },
+    {
+      "start": 2110.3,
+      "end": 2260.8,
+      "speaker": "adam-stacoviak",
+      "text": "Hey Adam and Gerald, happy to stay at the log again. It's Jamie Tana, I think this may be one of the most on-time voicemails I've sent you. Yeah, thanks again for another great year. Around the numbers and this year I've listened to a whopping 74 episodes, which is about five days of listening time and I've managed to whittle down an amazing year to a short lifter of around 15 episodes, but I'll try and keep it even shorter than that. With the strife and the open source ecosystem this year, there were some really good discussions about some of the drama and some of the threats. Some of the really good episodes around this were for us in changing on the friends one on one, Mike McQuaid and Justin Sells in changing on the friends one on three and a related discussion with Andrew Nesbitt, the excellent work he is doing with ecosystems in Interviews 665. I've also really enjoyed what feels like an increase in levity this year and especially some of the conversations with your friends like Amal in Friends 86, Dan Moore in Friends 78, Matt Araya in 75 and 90 and a whole lot of other Friends episodes. As ever, things like Hash Divine and Friendly Feud game shows have been really, really great. And I've really enjoyed them, especially even like being in my own this year and participating myself was really cool. I also really enjoyed some of the deep dives you'll have done into things like different folks blog posts. So for instance, Friends 81 and the interview you had with Sean in Interview 666. As a little bit of an AI skeptic, it has been really interesting digging into some of the interesting cases of AI without a lot of the hype. So in particular things like the interview with David Crawshaw in Interview 629, Nick Nese in Friends 88, 102 and 120 and Adam Jacob in Interview 664 and Steve Yege in Friends 96 and also Torsten Ball in Interviews 648. Finally, I want to again repeat that it's been really nice just having a few episodes of just the two of you just chatting about stuff. Not necessarily even about the tech, just about life and movies and stuff. It has been really interesting and yeah, a really nice balance between different things."
+    },
+    {
+      "start": 2260.8,
+      "end": 2267.08,
+      "speaker": "jerod-santo",
+      "text": "So thanks for a great year and here's to another. Thanks."
+    },
+    {
+      "start": 2267.08,
+      "end": 2268.08,
+      "speaker": "adam-stacoviak",
+      "text": "Cheers, Jamie."
+    },
+    {
+      "start": 2268.08,
+      "end": 2269.08,
+      "speaker": "jerod-santo",
+      "text": "That was awesome."
+    },
+    {
+      "start": 2269.08,
+      "end": 2288.83,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Thanks, Jamie. That's very touching. I mean, just to think about that, like he's not only a listener to that level, five days of listening, but he took the time to go through to retrospect what mattered and made a comprehensive, well-articulated list and then shared it via voice to us and then it's going to get remixed."
+    },
+    {
+      "start": 2288.83,
+      "end": 2289.83,
+      "speaker": "jerod-santo",
+      "text": "I mean like that's –"
+    },
+    {
+      "start": 2289.83,
+      "end": 2290.83,
+      "speaker": "adam-stacoviak",
+      "text": "That's spectacular."
+    },
+    {
+      "start": 2290.83,
+      "end": 2352.71,
+      "speaker": "jerod-santo",
+      "text": "That's spectacular. Yeah. I mean honestly, Jamie's list pretty much could have just been my list. Like he hit on a lot of the ones that I would have done and he hit on – we were talking about doing 8 to 10. He got – I think he got 15 or 16 in there. But to add a little bit, because he was just going through like friends 111, interviews 665, to add a little bit of color to those. So he talked about the ones where we do blog posts. So Interviews 666, that was Do Repeat Yourself with Sean Gatticke. That was recently in which we had him on. And then there's another one, Friends 81, that he mentioned called Change My Mind. And this is where he used Chris Keel's post about development topics that he's changed his mind on over the last 10 years as a bit of a launching pad into a discussion that you and I had. Yeah. And about things we have and have not changed our minds on over the years. And so that's a little bit of what Jamie was talking about. Of course, there's many other references there. But what are your thoughts, Adam?"
+    },
+    {
+      "start": 2352.71,
+      "end": 2377.93,
+      "speaker": "adam-stacoviak",
+      "text": "Man, I could probably go on. But I agree. I think even that show in particular, Change My Mind, I recall coming to the episode thinking, did I prepare well enough for this? I felt underprepared because I was thinking like, how much have I changed my mind on? I think, did we have something happened before that show that kind of made it a little uniquely recorded? I thought something happened."
+    },
+    {
+      "start": 2377.93,
+      "end": 2380.65,
+      "speaker": "jerod-santo",
+      "text": "Probably a cancellation of a guest, I guess."
+    },
+    {
+      "start": 2380.65,
+      "end": 2398.56,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe something I don't recall exactly in the moment, but that was a fun one to record. I agree. I like some of the poems we get to do. Like one of the ones on my list, I guess I can just briefly share it. And no one said it yet was, turn him into a walrus. That's on my phase list."
+    },
+    {
+      "start": 2398.56,
+      "end": 2399.56,
+      "speaker": "jerod-santo",
+      "text": "That was fun."
+    },
+    {
+      "start": 2399.56,
+      "end": 2411.8,
+      "speaker": "adam-stacoviak",
+      "text": "But those are those are like the fun episodes where you just like, just get together and just get in a groove on whatever it is. I think Chino Mind, that was a really fun, really fun pod."
+    },
+    {
+      "start": 2411.8,
+      "end": 2417.08,
+      "speaker": "jerod-santo",
+      "text": "Probably the best pod that we recorded all year was the Dev Knoll one that we didn't get a ship. We were on fire, man."
+    },
+    {
+      "start": 2417.08,
+      "end": 2422.39,
+      "speaker": "adam-stacoviak",
+      "text": "Remember that? Oh, that was, that was pure gold, honestly."
+    },
+    {
+      "start": 2422.39,
+      "end": 2430.75,
+      "speaker": "jerod-santo",
+      "text": "It might have been like the best 45 minutes we've ever done together. That's why we were so mad afterwards because the show that actually went out, I listened back to it. I was like, you know, it's fine."
+    },
+    {
+      "start": 2430.75,
+      "end": 2431.75,
+      "speaker": "adam-stacoviak",
+      "text": "It was good."
+    },
+    {
+      "start": 2431.75,
+      "end": 2439.27,
+      "speaker": "jerod-santo",
+      "text": "Yeah. You know, we covered a lot of topics and we had fun and stuff and we did. But man, that's 45 minutes was pure gold."
+    },
+    {
+      "start": 2439.27,
+      "end": 2440.27,
+      "speaker": "adam-stacoviak",
+      "text": "It was."
+    },
+    {
+      "start": 2440.27,
+      "end": 2441.27,
+      "speaker": "jerod-santo",
+      "text": "At least we get to say that."
+    },
+    {
+      "start": 2441.27,
+      "end": 2455.75,
+      "speaker": "adam-stacoviak",
+      "text": "And no one can, no one can challenge the fact or the opinion, more of a fact than an opinion. A lot of good episodes here though, like 629, I think it was in this list, 666. David Croshaw."
+    },
+    {
+      "start": 2455.75,
+      "end": 2478.66,
+      "speaker": "jerod-santo",
+      "text": "So we had, yes, we had Sean Gedige, of course, Agentic, Infra Changes Everything, the most recent Adam Jacob episode, which was really good. And then of course the Steve Yegge episode, I think probably the most referenced as we go through our list here. I mean, Steve Yegge. Adventures in Babysitting Coding Agents. That one was very interesting to a lot of people."
+    },
+    {
+      "start": 2478.66,
+      "end": 2480.78,
+      "speaker": "adam-stacoviak",
+      "text": "Another stellar title. Look at that title."
+    },
+    {
+      "start": 2480.78,
+      "end": 2483.38,
+      "speaker": "jerod-santo",
+      "text": "That was one of my, that's on my list of best titles for sure."
+    },
+    {
+      "start": 2483.38,
+      "end": 2484.38,
+      "speaker": "adam-stacoviak",
+      "text": "Oh man."
+    },
+    {
+      "start": 2484.38,
+      "end": 2489.94,
+      "speaker": "jerod-santo",
+      "text": "That's a good one. Anytime you get an 80s movie reference into a title, come on. And it's on point. It's like, come on."
+    },
+    {
+      "start": 2489.94,
+      "end": 2491.94,
+      "speaker": "adam-stacoviak",
+      "text": "It couldn't be a better title. There's no other way to title that."
+    },
+    {
+      "start": 2491.94,
+      "end": 2503.78,
+      "speaker": "jerod-santo",
+      "text": "It's like taking candy from a baby, you know? Yeah. Which is a really weird figure of speech, which I would never do. Okay. Um, Jamie Tanner remix. Let's do it."
+    },
+    {
+      "start": 2503.78,
+      "end": 2532.89,
+      "speaker": "adam-stacoviak",
+      "text": "Hey, Adam and Jerome. Happy state of the law again. It's Jamie Tanner. Um, it's been really nice just having a few episodes of just the two of you, just chat about stuff. Um, not necessarily even about the tech, just about life, movies, friends, game shows, pipe,"
+    },
+    {
+      "start": 2532.89,
+      "end": 2534.89,
+      "speaker": "jerod-santo",
+      "text": "deep dive. Oh my gosh."
+    },
+    {
+      "start": 2537.27,
+      "end": 2558.79,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. You give break master a reason to go just to lose his mind a little. Oh gosh. That's a throwback. I love that. That's cool."
+    },
+    {
+      "start": 2558.79,
+      "end": 2563.79,
+      "speaker": "jerod-santo",
+      "text": "Up next, another long time listener and community member it's Jarvis Yang."
+    },
+    {
+      "start": 2563.79,
+      "end": 2567.79,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, Changelog and friends. This is Jarvis checking in once more."
+    },
+    {
+      "start": 2567.79,
+      "end": 2623.79,
+      "speaker": "jerod-santo",
+      "text": "Great to see the changelog.news website has finally landed in the right hands. 2025 has been quite the year and I was happy to help keep an eye on that vanity domain and inform Jared of its availability. And I really appreciate you Jared, keeping me updated on all the major news. Thanks. Get hectic, but always make sure to carve out time for a listen. And he looked through the newsletter. My final shout out is for many bar 20. That's the 20th unconference for the mini star organization here in Minnesota. For those who don't know, many bar is the nation's largest and longest running technology unconference. First held in 2006. It's a user generated participant led event. Meaning there are no keynotes and all the sessions are run by the local tech and business communities. Best of all, it's free. Mark your calendars. Many bar 20 is on Saturday, May 2nd, 2026."
+    },
+    {
+      "start": 2623.79,
+      "end": 2633.79,
+      "speaker": "adam-stacoviak",
+      "text": "Also a very happy early birthday to Jared's daughter, whose birthday conveniently aligns with the event weekend. See you all next year."
+    },
+    {
+      "start": 2633.79,
+      "end": 2665.94,
+      "speaker": "jerod-santo",
+      "text": "Conveniently aligns. Do you hear a little bit of a troll in there? We were invited to many bar. He thought it'd be a good place for our next live show. And I told him that we have a conflict that week. And so that's what he's referring to. Okay. But for those who don't know Jarvis, he calls in every year and he gives us shout outs. And then he always gives something else a shout out. Most of the time some Minnesota based organization. Such as Minute Bar, which looks like a really cool event actually. 20 years to throw an unconference. That's pretty impressive."
+    },
+    {
+      "start": 2665.94,
+      "end": 2666.94,
+      "speaker": "adam-stacoviak",
+      "text": "Is it called Minute Bar?"
+    },
+    {
+      "start": 2666.94,
+      "end": 2674,
+      "speaker": "jerod-santo",
+      "text": "Minute Bar, like M-I-N-N-E bar. Like Minnesota, I think. Oh yeah, that makes sense."
+    },
+    {
+      "start": 2674,
+      "end": 2679.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Okay. Minnesota Bar. Minute Bar."
+    },
+    {
+      "start": 2679.35,
+      "end": 2681.64,
+      "speaker": "jerod-santo",
+      "text": "Minute Bar. May 2nd."
+    },
+    {
+      "start": 2681.64,
+      "end": 2687.01,
+      "speaker": "adam-stacoviak",
+      "text": "Bar camps are still a thing? Is this really? They must be."
+    },
+    {
+      "start": 2687.01,
+      "end": 2705.46,
+      "speaker": "jerod-santo",
+      "text": "At least in Minnesota. Now I know that in Nebraska, the Omaha Bar Camp I think has gone by the wayside. I think someone tried to bring it back. We had it going for 5, 6, 7 years. Maybe 10 years. And then eventually it stopped and then someone tried to bring it back. I'm not sure if it's still going. But I don't hear much about bar camps anymore."
+    },
+    {
+      "start": 2705.46,
+      "end": 2708.46,
+      "speaker": "adam-stacoviak",
+      "text": "Missed that idea. You know?"
+    },
+    {
+      "start": 2708.46,
+      "end": 2709.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's cool."
+    },
+    {
+      "start": 2709.46,
+      "end": 2721.61,
+      "speaker": "adam-stacoviak",
+      "text": "I wonder what makes them... I guess just getting people together is hard. You know? It really is. It's a lot of work. Expensive, hard. Yeah, it is a lot of work. It takes some dedication."
+    },
+    {
+      "start": 2721.61,
+      "end": 2740.61,
+      "speaker": "jerod-santo",
+      "text": "There's risk involved that is oftentimes undue. You know? Like you're like, why am I risking this in my personal life to put on an event? Usually with regards to insurance or etc. Or fronting a bunch of money to rent a space out that maybe no one's going to show up to. And you're like, eventually you're like, why am I doing this? You know?"
+    },
+    {
+      "start": 2740.61,
+      "end": 2745.61,
+      "speaker": "adam-stacoviak",
+      "text": "You almost need like a nonprofit established for it. Which is a whole other problem, right?"
+    },
+    {
+      "start": 2745.61,
+      "end": 2747.61,
+      "speaker": "jerod-santo",
+      "text": "Yeah, now you're like basically taking on a second job."
+    },
+    {
+      "start": 2747.61,
+      "end": 2750.61,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. Not easy."
+    },
+    {
+      "start": 2750.61,
+      "end": 2770.05,
+      "speaker": "jerod-santo",
+      "text": "Not easy. So thank an organizer out there, y'all, when you go to your events. Yeah, for sure. Definitely thank an organizer because no one's getting rich off these things. So they're doing it for the love lots of times. They have ulterior motives, but they're usually straightforward. And it's still worth thanking them as long as they're doing it on the up and up."
+    },
+    {
+      "start": 2770.05,
+      "end": 2785.69,
+      "speaker": "adam-stacoviak",
+      "text": "Just as maybe a slight mention to that, I was in the GopherCon channel and the Gopher Slack. And I guess there was some concern around timing, you know? Because like people want it at a certain time of year and it's kind of hard to do that."
+    },
+    {
+      "start": 2785.69,
+      "end": 2789.69,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I know it's moved. It's like August now or it used to be in the winter."
+    },
+    {
+      "start": 2789.69,
+      "end": 2837.75,
+      "speaker": "adam-stacoviak",
+      "text": "Right. They've had to move it to different locations and move it to different timing. I just saw like just a drive-by look. Heather Sullivan, who runs that conference along with, I believe, Brian and Eric. I don't know what the exact structure is anymore, but she was saying it loses money. Like it lost 200 grand last year. So even a conference that's well established like that, if that, I don't doubt it's not a true statement, but like how true is the detail of that that I'm not aware of? You know, like what's what's left under the covers I haven't mentioned here. But I saw her mention in there and GopherCon Slack and the channel there and the Gopher Slack that lost money. So like even if you run a well-done conference like that with great organization, every year great production. Yeah."
+    },
+    {
+      "start": 2837.75,
+      "end": 2840.75,
+      "speaker": "jerod-santo",
+      "text": "I mean, that's like 12 years running, maybe like a long time."
+    },
+    {
+      "start": 2840.75,
+      "end": 2848.97,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. So you're not immune to the risk, even if you've been in a groove for years."
+    },
+    {
+      "start": 2848.97,
+      "end": 2905.06,
+      "speaker": "jerod-santo",
+      "text": "Well, even when the who runs strange loop, I can't remember his name now. But at the last strange loop, one of the last talks was the organizer whose name I'm forgetting, forgive me, who put it on thanklessly, except for the small group of people that thanked him for years, six, seven years. And he shared all the financials for strange loop, which was a very successful conference, small regional, not huge like a KubeCon, but certainly well respected and well run. Yeah. And the financials just didn't make any sense. Like you could just tell by the end of it, he was only doing it because he loved doing it. There was no reason why anybody in their right mind would do it otherwise. Yeah. And that's for like a well-regarded successful conference. So I mean, that's why unconferences do make some sense because there's less to do. Right. Like your job is to get people to show up and hopefully there's some catering or whatever, but it's just less. And then you're also less guaranteed that you're going to have quality talks, et cetera."
+    },
+    {
+      "start": 2906.06,
+      "end": 2914.06,
+      "speaker": "adam-stacoviak",
+      "text": "I'm feverishly trying to get the name of our dear friend who I'm sad I've forgotten the name as well. Same. Alex, Alex Miller."
+    },
+    {
+      "start": 2914.06,
+      "end": 2915.06,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 2915.06,
+      "end": 2923.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. I mean, and we were there, thankfully. It was their first and last. It was the last Strange Loop. It was our first."
+    },
+    {
+      "start": 2923.38,
+      "end": 2925.41,
+      "speaker": "jerod-santo",
+      "text": "2023 in St. Louis."
+    },
+    {
+      "start": 2925.41,
+      "end": 2980.18,
+      "speaker": "adam-stacoviak",
+      "text": "And we met that call in there. That was kind of cool. Longtime listener, Slack and Zulu participant, and then met in the flesh, fellow Pennsylvanian. That's where I'm originally from, is Pittsburgh area. But man, that's a great conference. And then Alex, you know, obviously was emotional delivering his final rollout finale of the conference. And if you listen to the episode we delivered from there, I was smart enough to not only be there in the moment, but also capture a voice memo and put that on the pot. So at the tail end, the closer of that episode includes some of those final moments from that conference. If you didn't make it or you did make it and you want to kind of go back with nostalgia, we tried to capture some of that for you. That was a good conference."
+    },
+    {
+      "start": 2980.18,
+      "end": 3002.18,
+      "speaker": "jerod-santo",
+      "text": "And if you're wondering about that episode, it's called Vibes from Strange Loop. And it also featured the moment we met Taylor Troesh, who we haven't forgotten ever since. Take my small hand. That's episode 559. So change log dot FM slash 559. If you want to go back and hear what Adam is talking about. Lots of that was a grab bag, an anthology of conversations."
+    },
+    {
+      "start": 3002.18,
+      "end": 3004.18,
+      "speaker": "adam-stacoviak",
+      "text": "One of the best. Yeah, man, that was awesome."
+    },
+    {
+      "start": 3004.18,
+      "end": 3005.18,
+      "speaker": "jerod-santo",
+      "text": "One of the best."
+    },
+    {
+      "start": 3005.18,
+      "end": 3008.18,
+      "speaker": "adam-stacoviak",
+      "text": "Remix it. Let's remix it."
+    },
+    {
+      "start": 3009.18,
+      "end": 3015.4,
+      "speaker": "jerod-santo",
+      "text": "Hello, friends. Jarvis has finally landed. Check, check, checking in once more."
+    },
+    {
+      "start": 3015.4,
+      "end": 3016.4,
+      "speaker": "adam-stacoviak",
+      "text": "Check, check, check."
+    },
+    {
+      "start": 3016.4,
+      "end": 3040.6,
+      "speaker": "jerod-santo",
+      "text": "Friends, things get hectic. Always make sure to carve out time for Minibar 20, the nation's largest technology unconference. It's free. Best of all, there is a Minibar. And I really appreciate you, Jared, informing me of the Minibar's availability. I'm happy to help keep an eye on it. See you all next year. Jarvis out."
+    },
+    {
+      "start": 3043.68,
+      "end": 3054.66,
+      "speaker": "adam-stacoviak",
+      "text": "Jarvis out. Yeah, that's good stuff. Celebrate the Minibar. Yeah, that's the solid remix, break mass cylinder. Solid remix."
+    },
+    {
+      "start": 3054.66,
+      "end": 3057.66,
+      "speaker": "jerod-santo",
+      "text": "So far, so good on these remixes. I don't think there's been a miss yet."
+    },
+    {
+      "start": 3057.66,
+      "end": 3058.66,
+      "speaker": "adam-stacoviak",
+      "text": "No."
+    },
+    {
+      "start": 3058.66,
+      "end": 3069.66,
+      "speaker": "jerod-santo",
+      "text": "All right. Now, speaking of longtime friends, here's our very old friend from way back. Probably at the beginning of the show, Justin Dorfman. How long were you known Justin?"
+    },
+    {
+      "start": 3069.66,
+      "end": 3075.62,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, my gosh. Forever. Over a decade."
+    },
+    {
+      "start": 3075.62,
+      "end": 3100.07,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Hey, Jared Adam. Justin Dorfman here. Longtime listener, 10 plus years, and I'm really looking forward to 2026 and the guest that you will be having on and maybe even see you in North Carolina. Maybe. Anyway, have a great one and thanks for always entertaining, at least me. Yeah, take care."
+    },
+    {
+      "start": 3100.07,
+      "end": 3129.07,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm a big fan of Justin Max CDN days. Oh, yeah. Really involved in the community, always trying to love on people. That's what I love about Justin and I'm loving the work he's doing for Sourcegraph. And I think by proxy, maybe AMP too. I'm not sure because of the divide now, but I'm loving his role and what he's doing for them and just kind of keeping people informed with what Sourcegraph is doing, what AMP is doing. And he's, yeah, super awesome, dude."
+    },
+    {
+      "start": 3130.07,
+      "end": 3138.06,
+      "speaker": "jerod-santo",
+      "text": "I always love to hear from you, Justin. Don't be a stranger. Hopefully we'll see you in North Carolina. Here's your remix."
+    },
+    {
+      "start": 3138.06,
+      "end": 3143.36,
+      "speaker": "adam-stacoviak",
+      "text": "Hey, Jared Adam. Justin Dorfman here."
+    },
+    {
+      "start": 3143.36,
+      "end": 3169.16,
+      "speaker": "jerod-santo",
+      "text": "Longtime listener, 10 plus years, and I'm really looking forward to 2026 and the guest that you will be having on and maybe even see you in North Carolina. Maybe. Anyway, have a great one and thanks for always entertaining me. Yeah. All right. Wow. Very musical. Rhythmic even. Very rappy."
+    },
+    {
+      "start": 3169.16,
+      "end": 3171.16,
+      "speaker": "adam-stacoviak",
+      "text": "That was like a little rap."
+    },
+    {
+      "start": 3171.16,
+      "end": 3174.16,
+      "speaker": "jerod-santo",
+      "text": "Justin Dorfman here. Yep."
+    },
+    {
+      "start": 3174.16,
+      "end": 3182.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, very, very rap-like. Took me back to the 80s, man. That's like late 80s, early 90s rap. That was."
+    },
+    {
+      "start": 3182.79,
+      "end": 3186.79,
+      "speaker": "jerod-santo",
+      "text": "That was very much like Funkmaster Flex and stuff like that."
+    },
+    {
+      "start": 3186.79,
+      "end": 3187.79,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm."
+    },
+    {
+      "start": 3187.79,
+      "end": 3191.82,
+      "speaker": "jerod-santo",
+      "text": "All right. Our final caller, Nabil Suleiman."
+    },
+    {
+      "start": 3191.82,
+      "end": 3237.72,
+      "speaker": "adam-stacoviak",
+      "text": "Hello, Adam and Jared. What a year it's been. This has definitely been the year of AI, and I do appreciate and count on your content to keep up to date with all of that. However, my favorite episodes personally are the ones around Home Lab, Kaizen, and Oxide. Those have all been great. But definitely without a doubt, peak changelog for me was the meetup in Denver. It was great meeting you all and making several new friends along the way. And I mean, who would have imagined that we'd all go adventuring in the wilderness together with the mysterious Breakmaster cylinder and battle a whole bunch of rattlesnakes. It was definitely a trip to remember. Anyways, kudos to you all for another great year of great content. Take care. Merry Christmas. Happy New Year's. Cheers. And I'll see you on the other side of the year. Cheers to you, Nabil. That was awesome."
+    },
+    {
+      "start": 3237.72,
+      "end": 3241.73,
+      "speaker": "jerod-santo",
+      "text": "Yeah, cheers, man. Battle of the rattlesnakes."
+    },
+    {
+      "start": 3241.73,
+      "end": 3247.37,
+      "speaker": "adam-stacoviak",
+      "text": "Not. Not. It's one rattlesnake. Well, he floralized it, so."
+    },
+    {
+      "start": 3247.37,
+      "end": 3248.37,
+      "speaker": "jerod-santo",
+      "text": "I like that."
+    },
+    {
+      "start": 3248.37,
+      "end": 3249.37,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3249.37,
+      "end": 3251.37,
+      "speaker": "jerod-santo",
+      "text": "That's how stories go. They get better and better."
+    },
+    {
+      "start": 3251.37,
+      "end": 3255.37,
+      "speaker": "adam-stacoviak",
+      "text": "You gotta embellish a little bit. Yeah. They get better as you get further away. A little seasoning won't hurt anybody."
+    },
+    {
+      "start": 3255.37,
+      "end": 3258.37,
+      "speaker": "jerod-santo",
+      "text": "Remember that den of rattlesnakes we had stumbled upon?"
+    },
+    {
+      "start": 3258.37,
+      "end": 3261.37,
+      "speaker": "adam-stacoviak",
+      "text": "Gosh, so many. Just one almost got us."
+    },
+    {
+      "start": 3261.37,
+      "end": 3263.37,
+      "speaker": "jerod-santo",
+      "text": "Why'd it have to be snakes?"
+    },
+    {
+      "start": 3263.37,
+      "end": 3277.11,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Man, Home Lab for sure. You know Home Lab's near and dear to my heart. Proxmox for life. ZFS for life. And Windows for life."
+    },
+    {
+      "start": 3277.11,
+      "end": 3278.11,
+      "speaker": "jerod-santo",
+      "text": "Oh, wait."
+    },
+    {
+      "start": 3278.11,
+      "end": 3280.04,
+      "speaker": "adam-stacoviak",
+      "text": "Well."
+    },
+    {
+      "start": 3280.04,
+      "end": 3282.04,
+      "speaker": "jerod-santo",
+      "text": "Windows for a minute."
+    },
+    {
+      "start": 3282.04,
+      "end": 3291.07,
+      "speaker": "adam-stacoviak",
+      "text": "Well, not quite. I did get support on getting my Windows license from Nabil, so that was very kind of him. Oh, nice."
+    },
+    {
+      "start": 3291.07,
+      "end": 3293.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Thanks, Nabil."
+    },
+    {
+      "start": 3293.45,
+      "end": 3299.45,
+      "speaker": "adam-stacoviak",
+      "text": "He lent me his support to get it for slightly less, which is very kind. Very kind."
+    },
+    {
+      "start": 3299.45,
+      "end": 3436.2,
+      "speaker": "jerod-santo",
+      "text": "Well, I do want to mention Nabil's mention of our AI coverage, and I think it was Andrew as well or somebody else earlier on. Maybe it was Jamie who said he's kind of a skeptic, but he appreciates our AI coverage because it's not completely saturated in the hype that you can get out there because we've also been accused of that. Especially, yeah, it seems like people on Spotify in particular comment on our shows and they're very upset that we're talking about AI and one guy says it's all we talk about now and blah, blah, blah. And you can't keep everybody happy. I want to bring it up because it is something that we think about and something that we want to both talk about and recognize and use and ponder, but we also understand that it is oversold and that it is over-discussed and that we tend to lean into it at times when I think we have less interesting things on the docket. We're like, well, it's always fodder for an interesting conversation because of all the questions, because we don't have the answers. And so we're doing our best to both talk about it but not gush too much. But then when we're excited, just go ahead and be excited. I think you probably, as you guys have been listening over the years, have gotten a taste of both our excitement and then our skepticism and then our disappointments and then our realizations of what it can do and how exciting that is and what it can't do and how frustrating that is. And so, yeah, we're trying. And it's not easy because if we wanted to just chase audience, we would just lean hard into it like so many people have. And I've never wanted The Changelog to become yet another AI show. And so I appreciate that you all appreciate the non-AI topics. And when we hear the criticism, we take it very seriously. And then I look back at our most recent episodes. I go through our playlists, and I'm like, maybe we are just doing too much of this. And I look at it, and I'm like, you know what? Nope. There's plenty of stuff in there that's not. It's just confirmation bias, I guess, when people say it's all we talk about."
+    },
+    {
+      "start": 3436.2,
+      "end": 3447.76,
+      "speaker": "adam-stacoviak",
+      "text": "I think it definitely is a recurring topic. Oh, yeah. But it's not the isolated primary topic, obviously."
+    },
+    {
+      "start": 3447.76,
+      "end": 3450.99,
+      "speaker": "jerod-santo",
+      "text": "Of the show. Yeah, I mean, it's our episodes it is."
+    },
+    {
+      "start": 3450.99,
+      "end": 3479.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think even the show I did recently with Alex Kuchmar was that we were talking about the Linux rabbit hole, essentially, because I didn't even plan that, really. We just started talking about the fun stuff. And that was kind of fun. And I think we were about 50 minutes in, and he mentioned something he had done, vibe coding. And we talked about it on the podcast as well. I didn't even plan to mention it, really."
+    },
+    {
+      "start": 3479.79,
+      "end": 3480.79,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3480.79,
+      "end": 3485.79,
+      "speaker": "adam-stacoviak",
+      "text": "So it wasn't like a topic on my mind. But obviously, he lived on Spades, so we played Spades."
+    },
+    {
+      "start": 3485.79,
+      "end": 3541.1,
+      "speaker": "jerod-santo",
+      "text": "Well, just wanted to mention that we do think about it, and we hope to bring somewhat level-headed, and yet also keeping to the edge of what things are going on and not ignoring it just because it's AI, because I feel like that's also foolhardy. And of course, news talks about it all the time, because it's so much in the news. And so if you want to keep up with it without having to actually follow the news yourself, of course. I feel like we've tried to be a good resource for that. But opinions vary, and mileage varies as well. Even my own mileage with the same tool I was using yesterday varies today. It's like, oh, I was so excited yesterday, and then I hit a roadblock today, and now I'm mad again. It's like doing two all over again. Because we're emotional beings, well, let's get to Nabil's and our final Breakmaster cylinder remix."
+    },
+    {
+      "start": 3541.1,
+      "end": 3591.32,
+      "speaker": "adam-stacoviak",
+      "text": "Peak changelog for me is venturing in the wilderness, together with the mysterious Breakmaster cylinder, and battle a whole bunch of rattlesnakes. There's a little trail off there. I love the footsteps."
+    },
+    {
+      "start": 3591.32,
+      "end": 3598.51,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I hope that ending means that we survived, you know? After whatever happened there happened, the climactic."
+    },
+    {
+      "start": 3598.51,
+      "end": 3600.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3600.24,
+      "end": 3603.6,
+      "speaker": "jerod-santo",
+      "text": "There was lasers. There was, like, a lot's going on there."
+    },
+    {
+      "start": 3603.6,
+      "end": 3604.6,
+      "speaker": "adam-stacoviak",
+      "text": "Somebody got carried away."
+    },
+    {
+      "start": 3604.6,
+      "end": 3605.6,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3605.6,
+      "end": 3621.97,
+      "speaker": "adam-stacoviak",
+      "text": "Like, carried away with their talent, then carried away with their unfortunate event, maybe. There was no speaking at the end of the walkway, so I mean, we don't know for sure. Could've been a park ranger getting us out of there, and we're down and out."
+    },
+    {
+      "start": 3621.97,
+      "end": 3648.44,
+      "speaker": "jerod-santo",
+      "text": "All right, we're done with BMC now. Thank you, BMC. Not forever, but just for this particular state of the log. Yes. And thank you to everybody who took the time out of your day. I know y'all are busy. I know it's asking a lot to record a voicemail and upload it through a form. None of that's easy, you know? If we were SaaS entrepreneurs, we'd be failing, right? There's too much friction. Our conversion rates would be low."
+    },
+    {
+      "start": 3648.44,
+      "end": 3650.44,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. PLG is PLG."
+    },
+    {
+      "start": 3650.44,
+      "end": 3668.02,
+      "speaker": "jerod-santo",
+      "text": "All that to say, we thank you for going through that for us, because it makes us feel good, and hopefully makes y'all feel good, too. Should we talk about our own faves now? Let's get to our faves. I mean, come on, enough of these people's faves. They don't know the real faves."
+    },
+    {
+      "start": 3668.02,
+      "end": 3773.4,
+      "speaker": "adam-stacoviak",
+      "text": "So our friends at Framer are fans of this podcast, and they're a sponsor. You know, most design tools, they lock you behind a paywall. Well, Framer flips that script. It is a free, full-featured design tool that does something that most site builders cannot. It's actually designed for designers. And Framer already built the fastest way to publish beautiful, production-ready websites. But with the design pages, they've redefined what it means to design for the web. This is not a Webflow clone or a WordPress competitor. It is a true design platform, vectors, 3D transforms, gradients, wireframes, all the tools you actually use, and they're all free. Unlimited projects, unlimited pages, unlimited collaborators, and here is the kicker. You design, you iterate, and you publish all in one place. There's no Figma handoff, there's no messy HTML imports, there's no tool switching. And for designers and developers who are tired of the tool switching, this whole dance you gotta do to create social media assets, to create campaign visuals, icons, entire sites, you can do all this now without leaving Framer. This is where ideas go to live, start to finish. So if you're ready to design and publish in one tool, start creating for free today at framer.com slash design and use our promo code CHANGELOG for a free month of Framer Pro. Again, framer.com slash design, use the code CHANGELOG for a free month of Framer Pro. Rules and restrictions may apply. The final chapter, you know, the final segment. It's like if it was a story arc, this is the final act of the pod. That's right."
+    },
+    {
+      "start": 3773.4,
+      "end": 3780.16,
+      "speaker": "jerod-santo",
+      "text": "How do you want to do it? You want to go first? You want me to go first? You want to go tit for tat?"
+    },
+    {
+      "start": 3780.16,
+      "end": 3783.16,
+      "speaker": "adam-stacoviak",
+      "text": "Let's go at the exact same time and talk over each other."
+    },
+    {
+      "start": 3783.16,
+      "end": 3786.16,
+      "speaker": "jerod-santo",
+      "text": "We've been known to do that. I mean, Jason will tell you."
+    },
+    {
+      "start": 3786.16,
+      "end": 3791.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. You know, I don't know. I don't have a prescription. I'll take your lead. All right."
+    },
+    {
+      "start": 3791.55,
+      "end": 3873.38,
+      "speaker": "jerod-santo",
+      "text": "Well, I have a list that was longer than I was expecting. Ten. My list is ten deep. And these are all ten that have not been mentioned at all yet, which means I had a bunch of other ones that other people mentioned. And I'm just going to ten that were not mentioned. And I'll start with the oldest. And that would be Interview 625, open source, from open source to acquired with Ashley Jeffs. This was back in January in which Ash told us all about Benthos and his journey to finding an acquirer for Benthos in Red Panda. And an open source success story in many ways. And also just a guy who cracked me up with the way he was. I mean, his mannerisms, the way he talks, his random contradictions of himself. Like he would say left and then right and he would stare at you. You know, like he's just a funny person. I really enjoyed him. I tried to get him back onto a pound to find because I'm like, you're just funny and fun to be around. Please come play games with us. And he respectfully declined. But to my chagrin, I really just enjoy that guy. And so that is my first fave is from open source to acquired with Ashley Jeffs."
+    },
+    {
+      "start": 3873.38,
+      "end": 3892.08,
+      "speaker": "adam-stacoviak",
+      "text": "That was a fun episode. Daddy Pig. That was a good one. Should I go now? Should I comment a little bit? I like that one a lot. That was a good story, too. That was a fun story from acquired, too. And he's having fun doing what he's doing, too. He's taking care of his family."
+    },
+    {
+      "start": 3892.08,
+      "end": 3893.08,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3893.08,
+      "end": 3897.08,
+      "speaker": "adam-stacoviak",
+      "text": "Enjoying what he's doing. He's clearly pretty happy. Balanced, it seems."
+    },
+    {
+      "start": 3897.08,
+      "end": 3903.08,
+      "speaker": "jerod-santo",
+      "text": "Remember how he sat on that chair? He had that chair set up and he's like, this makes me more powerful than you guys. And I was like, it's totally working."
+    },
+    {
+      "start": 3903.08,
+      "end": 3904.08,
+      "speaker": "adam-stacoviak",
+      "text": "It is working."
+    },
+    {
+      "start": 3904.08,
+      "end": 3905.08,
+      "speaker": "jerod-santo",
+      "text": "The funny guy."
+    },
+    {
+      "start": 3905.08,
+      "end": 3911.33,
+      "speaker": "adam-stacoviak",
+      "text": "OK, well, I mentioned one during the pod, so I kind of went first technically. Right."
+    },
+    {
+      "start": 3911.33,
+      "end": 3912.33,
+      "speaker": "jerod-santo",
+      "text": "Which was which one?"
+    },
+    {
+      "start": 3912.33,
+      "end": 3916.33,
+      "speaker": "adam-stacoviak",
+      "text": "Turn him into a walrus. Oh, yes. Eighty seven."
+    },
+    {
+      "start": 3916.33,
+      "end": 3922.4,
+      "speaker": "jerod-santo",
+      "text": "Did you know when Chachi BT just got good at like Dolly 2 or something happened?"
+    },
+    {
+      "start": 3922.4,
+      "end": 3945.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Studio Ghibli was that. Right. And then it's actually so that's permeate. Like, I loved the short or the clip. I'm not sure which one it was out there on the socials. I had to share that with my brother. You know, I was like, this is this is cool stuff. And then because wasn't it turned me and him into a walrus, right? We went golfing."
+    },
+    {
+      "start": 3945.52,
+      "end": 3947.52,
+      "speaker": "jerod-santo",
+      "text": "It was just you. You were exiting a golf."
+    },
+    {
+      "start": 3947.52,
+      "end": 3948.52,
+      "speaker": "adam-stacoviak",
+      "text": "It was just me."
+    },
+    {
+      "start": 3948.52,
+      "end": 3951.52,
+      "speaker": "jerod-santo",
+      "text": "You had golfed with your brother, but he wasn't in the shot."
+    },
+    {
+      "start": 3951.52,
+      "end": 3962.52,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly. So in my mind, behind the scenes, I've got two pictures, one that's a selfie of me, my brother, and then one that was just me. And that one was just me. I share with you on the pod and then you turn me into a walrus."
+    },
+    {
+      "start": 3962.52,
+      "end": 3963.52,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3963.52,
+      "end": 4000.1,
+      "speaker": "adam-stacoviak",
+      "text": "And then I share that with him because he was there and he would have thought it was really cool. And he's not in tech at all. And then so then he came back a few months later. We golfed again. Same place. Took the same. Oh, yeah. Same selfie. But this time it was me, him and my son. And so behind the scenes in our household, I had to make me a walrus again or us a walrus. And it's just it's cool. Yeah. So that one's like a heartstring for me, not just a good show and a good title, but it was a really good show, too. I thought that was like one of those ones where it's like I think I said on there, like, this is what the Internet was made for. Like, that's the sauce, man. That's the sauce."
+    },
+    {
+      "start": 4000.1,
+      "end": 4041.96,
+      "speaker": "jerod-santo",
+      "text": "Yes. And this was around the time that I began saying I to this day, I think we should continue to make use software to make things that bring joy to people. Yeah. And like, that's the good stuff. Now, we can talk about all the downsides of AI generated images. And I'm aware of all these things that I have all the feelings everybody else does. But like, that's the joy of software is like, take this person and turn them into a walrus. It's just fun. It's funny. Everybody wants to see what themselves look like. Oh, that looks like me. Oh, it doesn't look like me. Yeah. Yeah. I was just going to mention it and then move on. But we dug in deep. So, I just I roll with it. But the one I wanted to mention first, and it's because I haven't talked to him in so"
+    },
+    {
+      "start": 4041.96,
+      "end": 4111.16,
+      "speaker": "adam-stacoviak",
+      "text": "long. I couldn't believe how long it was I talked to him. Drew Wilson. So, we had Drew Wilson on the pod, episode 639 of the interview show, chasing that next big thing with Drew Wilson. So, we had Drew Wilson on the pod, episode 639 of the interview show, chasing that next big thing with Drew Wilson. And you know, I'm not a big fan of the With, you know, titled shows, but that's what that was. Because Drew is always chasing something. He launched Plasso, I believe, which was a banking platform, sold it to GoDaddy or I don't know what he'd say. He's done some crazy stuff. And the guy is always, he's always on the fringe, like on where it should be, wherever the puck is going, he's kind of already there and he's kind of examined it already. And you're kind of coming to the puck and he's already been there. And that's Drew. So, I really appreciated getting back on the pod with him. And we produced a podcast together a long time ago. And so, it was just wild getting to hang with him again and talk about what he's up to and just it was cool. It was like a reunion."
+    },
+    {
+      "start": 4111.16,
+      "end": 4170.64,
+      "speaker": "jerod-santo",
+      "text": "It was a reunion after many years. Next up for me would be Discovering Discovery Coding with Jimmy Miller, episode 80 of Friends. And this is Jimmy Miller's return to the show after an excellent episode last year, I think was in both of our lists, was the best works code base. We had him back on this year talking about his new blog post about discovery coding. And I just love that even this summary here, fire up a REPL, grab your favorite Stephen King novel and hold on to the seat of your pants. Jimmy Miller returns to reveal why, at least for some of us, discovery coding is where it's at. And I'm just like, you know what? I hear that description. I'm like, I want to go. I want to go to there. I want to listen to that. And that was a fun conversation about his process of discovery coding, which I think honestly is probably different than both what you and I were thinking about and talking about and relating to because his was kind of very specific, but fascinating, that guy and the way he writes about what he does."
+    },
+    {
+      "start": 4170.64,
+      "end": 4175.52,
+      "speaker": "adam-stacoviak",
+      "text": "I wonder if there's a mirror of that happening in the vibe code world, like if it's a version"
+    },
+    {
+      "start": 4175.52,
+      "end": 4180.45,
+      "speaker": "jerod-santo",
+      "text": "of that, but not really like we're all doing discovery coding all the time."
+    },
+    {
+      "start": 4180.45,
+      "end": 4240.91,
+      "speaker": "adam-stacoviak",
+      "text": "Well, like I think that, yeah, cause like there's, there's a, like when I putter, I call it puttering. Okay. I don't have a target. I guess, you know, it is discovery coding. I don't even know what I'm going to pick up. I'm just gonna play with something like today, for example, like the end of our meeting, I'm like, I wonder if Safari has an API where you can easily pull back all the tabs, the URLs, and I'm in the page titles and turn that into a markdown list. And moments later we had that script written and like that was a version of like almost discovery coding where it's like, I wonder what, yeah, I have no purpose here to like write code. Obviously I didn't write the code either, but the idea is like, can I, can I automate what would be a 10 minute task to take all the tabs that opened up, but it was like 50 tabs of these shows and probably about 30 and make a list. Why would I do that? You know, like, can I just query the Safari API and get that list? Yeah. Oh, it's like, it's like discovery coding in a way."
+    },
+    {
+      "start": 4240.91,
+      "end": 4241.91,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4241.91,
+      "end": 4242.91,
+      "speaker": "adam-stacoviak",
+      "text": "To a certain extent."
+    },
+    {
+      "start": 4242.91,
+      "end": 4264.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I'm certainly doing way more than that, way more of that than I ever have because I don't have to, I don't have to go through the toil of finding the answer. I can go do the emails or whatever I'm up to and let the computer do the toiling as I do the discovering. And I think that's really fun and probably a lot of what both of us are doing with these things."
+    },
+    {
+      "start": 4264.46,
+      "end": 4266.23,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4266.23,
+      "end": 4268.23,
+      "speaker": "jerod-santo",
+      "text": "All right. What's next on your list?"
+    },
+    {
+      "start": 4268.23,
+      "end": 4391.19,
+      "speaker": "adam-stacoviak",
+      "text": "Let's see here. I have a long list. Let me see. One, two, three, four, five, six, seven in my faves. And one, two, three, four, five, six in my must listen list. Two distinct lists. Those are the same kind of all favorites, but you know. I'm just cheating here cause I, cause I want to, you know, honestly, I want to say, I won't say them all. I'll spare everybody my, my verbosity, but I would say line number 14 here in this markdown file is inside Oxide with Brian Cantrell and Steve Tuck. Very special moment to be on stage with them recording in the IRL as part of Oxcon 25 2025, which is their internal conference. It's not really promoted or published much. If you are in the know with Oxide and what they're doing, then you probably know about Oxcon. It's their once per year annual internal conference. And this year they had some big news this year internally. We can't share that news cause we're on our NDA, but if you were there, wow. I mean, there's some cool stuff happening there. And we've said crossing the chasm, you know, I'd say it's probably safe to say they crossed the chasm, honestly. They're not crossing, they've crossed it. Just to be there with, you know, I would say internet legends, you know, like, wow, dude, I mean, such a fan of, of Brian and Steve, but then also to be in their headquarters office on their stage podcasting about how they do materials, which is a crucial, like, it is the, the beginning of the DNA of their DNA for Oxide. It's how they hire. It's how they choose who to let in. And this process is so critical to their culture. And we got to just jam with them on their stage. And that was, that was dope. As about as dope as you can get, man."
+    },
+    {
+      "start": 4391.19,
+      "end": 4475.64,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Well, that one's on my list as well. So we, uh, we teamed up on that one and I agree with you. That was awesome. I thought it turned out really well and it was quite an honor, you know, it's like, yeah, we were their special guests and it's like, why I don't, I'm not sure why, but here we are anyways, let's act like we belong here, you know, imposter syndrome, go, go, go. And it was lots of fun. Speaking of live on stage, let me bring up the other live show that we did. Now we did have Nabil mentioning Kaizen, Pipely is live. That was Friends 105. And of course we did that one live on stage. We also had Andrew mentioning that as well. The one that wasn't mentioned was the interview show that we did. So I wanted to give a shout out to that one live from Denver, live from Denver with Nora Jones interviews, 653, you and I, Nora Jones on stage is the best interview we've ever done in our lives. Probably not, you know, uh, could, could it have gone better? Yeah, sure. Of course it could have. Was it still a cool thing that I'm glad happened and that all in all turned out pretty well and super thankful that Nora showed up for us in big ways. Yes. And so it definitely a highlight for me was that particular episode, which is the other half of the show, which has already been previously mentioned as people's favorites."
+    },
+    {
+      "start": 4475.64,
+      "end": 4554.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Well, that's on my list too, man. Nice. Nora Jones episode. I mean, like it's a, yeah, I mean the IRL stuff is, is fun obviously. I mean, I love humans and I'm, I'm a non-transactional person. If you know me in the reels, which I think you kind of proverbially, you all listening, know me through the airwaves and the video waves to some degree, uh, you get a pretty good snapshot of who I am and you know, who I am here is who I am in person. Like I'm not a different person. This isn't an act. I can't act that good. You know, it's just, it's just who I am, you know, I'm a lover, not a fighter. I'll walk away from a fight before I stand there and fight around. And I just love to go deep with people and I love to serve people and I love just to just to really relate and have relationship, not transaction and by Sia. So being able to be there with Nora and she accepted and she was from Denver and could easily do it. And it was just like, yeah, that was cool. And to do it on stage in front of a listening audience was, was cool. We got the, the stage lighting set really well. Some orange and teal. I think it was, it all worked out well. And that was a, I agree with you. It wasn't our best interview. Uh, what could have made it better though? I think what could have made it better was just like better monitoring. Like for me, it was terrible."
+    },
+    {
+      "start": 4554.35,
+      "end": 4555.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4555.91,
+      "end": 4562.11,
+      "speaker": "adam-stacoviak",
+      "text": "It wasn't the actual content. It was the execution of the right, the process that a lot of my little jabs that I do throughout"
+    },
+    {
+      "start": 4562.11,
+      "end": 4588.71,
+      "speaker": "jerod-santo",
+      "text": "the interviews, you know, just like random one-off comments that are there to go have a moment of levity and, and, and whatever. She just couldn't hear him. And so like the crowd even kind of laughed a little bit, you and I chuckled and then she's like, what? And I'm like, uh, it doesn't even, it's not worth, it's not worth even saying it again. Like I'm going to feel like an idiot having to say this back. I shouldn't have said it the first time, you know, right. Like those little things could have been better, but you know, whatever, whatever."
+    },
+    {
+      "start": 4588.71,
+      "end": 4593.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. A lot of good stuff there, man. Is it me again?"
+    },
+    {
+      "start": 4593.26,
+      "end": 4594.26,
+      "speaker": "jerod-santo",
+      "text": "Yes, it is."
+    },
+    {
+      "start": 4594.26,
+      "end": 4672.98,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Let me look at my list here and see which ones of the ones I've selected that I will share. I'm going to say two more and, uh, I'm going to save the best for last, I think. And I'd say Charlie Marsh, Astral, UV, what they're doing for Python with Rust is super, super cool. I've been looking at the design even of the UV library in terms of like the organization of all the, the workspaces inside of the way that Rust composes itself in a, in a directory structure. So cool. I mean, just really, I mean, they have different teams doing different crates and just like the autonomy in each one of them, just such a really very verbose design. I think even commented on that, but just, uh, what they've done for Python on the speed front, I'm a UV user. So whenever I install or mess with Python, which isn't too frequently, I'm reaching for UV over PIP for those reasons. It's just fast. A lot of things to learn and they're actually making a business around it. Like it's not just dev tooling for dev tooling sake, they've built a business around it. They got a registry, uh, they're doing even more stuff. It's, it's really cool."
+    },
+    {
+      "start": 4673.94,
+      "end": 4747.13,
+      "speaker": "jerod-santo",
+      "text": "Heck yeah, man. I'm a fan as well. And I do think that was a good one. I'm going to give a specific shout out to a specific pound to find game. Now we play a lot of these games that our listeners mentioned them as a group, but if we were just to name one from this year, there's been three pound of fines this year, one back in May and then July. And then most recently, of course, we had our tournament of champions in November, but if I had to pick one that just cracked me up and had a blast, I would say it was the one back in May pound to fine. I'm going pants with Angelica Hill, Matthew Sanabria, John Henry Moeller, you and I of course, and the mysterious break master cylinder himself for a hilarious and crazy game of a pound to fine that had me laughing out loud as I listened back later. And so if you haven't listened to our game shows and you're wondering, you know, how do I dip my toe in those waters? I would suggest change over to friends 93 pound to fine I'm going pants because that is a good one."
+    },
+    {
+      "start": 4747.13,
+      "end": 4751.7,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, what would that come from? What did the pants reference come from? Remind me."
+    },
+    {
+      "start": 4751.7,
+      "end": 4772.22,
+      "speaker": "jerod-santo",
+      "text": "It was, I think it was either BMC or John who would select pants as the, was it the auto-complete? I don't know. It was an answer to a question. And I was like trying to get him to lock in and they're like, they're like pants. I think it was BMC. Cause that's just how he talks. He's like pants. And I'm like, are you sure? He's like, I'm going pants."
+    },
+    {
+      "start": 4772.22,
+      "end": 4775.22,
+      "speaker": "adam-stacoviak",
+      "text": "It was that. Yeah. Yeah."
+    },
+    {
+      "start": 4775.22,
+      "end": 4777.22,
+      "speaker": "jerod-santo",
+      "text": "I'm in the transcript as an answer. Okay, cool."
+    },
+    {
+      "start": 4777.22,
+      "end": 4784.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. It was, it was actually one of the references. I think you said number three, comfortable pants for remote working, I guess it was an option to select."
+    },
+    {
+      "start": 4784.42,
+      "end": 4785.42,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 4785.42,
+      "end": 4786.82,
+      "speaker": "adam-stacoviak",
+      "text": "And he was like, I'm going pants."
+    },
+    {
+      "start": 4786.82,
+      "end": 4825.34,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. And then I laughed and I said, I love your conviction. He's going pants. All right. And then I came to show title. Those are hard ones to, to name because how do you name a game show without being boring? And so I just named the game and I just picked some sort of sentence that somebody said. Of course, props to astronomer was also a good addition. That was with changelog plus plus members. And of course the last one went crazy. Sheer resistance, probably the most conservatively played game of pound of fine, lot of piling on. We're gonna have to change the rules a little bit. We're gonna have to stop the pylons all the time. You guys all picking the same answers, man."
+    },
+    {
+      "start": 4825.34,
+      "end": 4828.34,
+      "speaker": "adam-stacoviak",
+      "text": "That's the easy button. You know, when in doubt, pile on."
+    },
+    {
+      "start": 4828.34,
+      "end": 4829.34,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 4829.34,
+      "end": 4831.82,
+      "speaker": "adam-stacoviak",
+      "text": "That's the closest I got to winning too."
+    },
+    {
+      "start": 4831.82,
+      "end": 4833.82,
+      "speaker": "jerod-santo",
+      "text": "Didn't I? That's true."
+    },
+    {
+      "start": 4833.82,
+      "end": 4838.23,
+      "speaker": "adam-stacoviak",
+      "text": "Didn't I win in the, I won in plus plus somewhere too. One of these, I think. That's right."
+    },
+    {
+      "start": 4838.23,
+      "end": 4840.23,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I still haven't won yet."
+    },
+    {
+      "start": 4840.23,
+      "end": 4851.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you did. You won in the, in the after show. And I didn't even play my trump card here on this one either. I had the access to an LLM and I forgot to, I forgot to do it. The game ended before I can like, I was like, when can I play my, my triple word score?"
+    },
+    {
+      "start": 4851.55,
+      "end": 4863.74,
+      "speaker": "jerod-santo",
+      "text": "Come on. Right. That's when they like have the coach come in and pitch for you, you know, and then you just stare at, you just stare down a strike and he strikes you out and you get struck out by the coach. That's what that is."
+    },
+    {
+      "start": 4863.74,
+      "end": 4892.16,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, yeah. And I, I missed my, I missed my spot there on that one. Yeah, I agree. Those are, those are fun, unique styled shows. Not your typical podcast. We had an idea for a while then we always like coding shows or coding dev game shows. It was dev game shows. Like a long time ago it was like code games, I believe was the original kind of idea. And I think it was in Slack. We did something in Slack and I think you did it for a little bit and it just like didn't really catch on."
+    },
+    {
+      "start": 4892.16,
+      "end": 4893.16,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4893.16,
+      "end": 4898.8,
+      "speaker": "adam-stacoviak",
+      "text": "So like there's been iterations to maybe where we're at from just the idea of like playing games together."
+    },
+    {
+      "start": 4898.8,
+      "end": 4899.8,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4899.8,
+      "end": 4902.28,
+      "speaker": "adam-stacoviak",
+      "text": "So that's cool. Yeah."
+    },
+    {
+      "start": 4902.28,
+      "end": 4905.14,
+      "speaker": "jerod-santo",
+      "text": "All right. Your turn."
+    },
+    {
+      "start": 4905.14,
+      "end": 4912.58,
+      "speaker": "adam-stacoviak",
+      "text": "Is this, uh, how many more should I do? Like how much more time should we spend doing this? I can probably throw one more out there. Two more at least."
+    },
+    {
+      "start": 4912.58,
+      "end": 4915.58,
+      "speaker": "jerod-santo",
+      "text": "Let's go one. Let's go one more each. You can do two."
+    },
+    {
+      "start": 4915.58,
+      "end": 4926.56,
+      "speaker": "adam-stacoviak",
+      "text": "I'll do one. I would say, well, I wanted to make this one the last one, but I'm not going to do it. Werner, man, talking to the CTO of Amazon, Werner Vogels on the pod. That's recent. It's recency bias."
+    },
+    {
+      "start": 4926.56,
+      "end": 4927.62,
+      "speaker": "jerod-santo",
+      "text": "That is recent."
+    },
+    {
+      "start": 4927.62,
+      "end": 4989.06,
+      "speaker": "adam-stacoviak",
+      "text": "Just really interesting to talk to a legend like that on a podcast and to go through predictions and to just talk about things that isn't like, so how does Amazon work? You know, or how does ABS work? I mean, that'd be kind of cool too, but at the same time, like you get to zoom out and get theory. Like I'd rather get theory from that level of a thinker than prescription. You know, like here's what you go to do. A plus B gets C. You know, I feel like theory, big picture, how he thinks, you know, I got a snapshot of this, this legend. And I don't want to call him an old guy necessarily, but he's obviously, I'm old too, but he's older than I am. I just mean it like you get to sit down with like a internet legend and kind of a grandpa to software developers and to platform makers, a visionary, a thinker, a discoverer. Like he built it on his laptop. Like to me, that's like, wow, you get to talk to somebody who's made a dent in the world that big. That's cool, man. I'm like, I kind of like got goosebumps now just thinking about it, you know, it's cool."
+    },
+    {
+      "start": 4989.06,
+      "end": 5048.7,
+      "speaker": "jerod-santo",
+      "text": "I agree. And I'm also going to go recent because I had so much fun learning about Zipline, man. I felt like cool guest, cool company, cool combo of questions from us. There's a good balance to that show. I feel like we all hit it off. And I honestly just think that it's a seriously cool technology that is right on the, you know, it's before it changes the world and in good ways, but I think it's going to. And yeah, there'll be, you know, unintended consequences as there are with all new tech, but I just think it's, I still just can't wait for Zipline to be in Omaha because I want to order a Chipotle burrito and have it delivered to my house while it's still too hot. It's going to burn my mouth. Like I want to just come down out of the sky. I think that's just a magical thing. And I think it's going to just be a cool, a cool piece of our lives here in the future. And I like to be able to learn about it before it's out there."
+    },
+    {
+      "start": 5048.7,
+      "end": 5054.41,
+      "speaker": "adam-stacoviak",
+      "text": "Much bigger and smaller than I expected. Hundreds of drones."
+    },
+    {
+      "start": 5054.41,
+      "end": 5057.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, which was less than I thought he was going to say."
+    },
+    {
+      "start": 5057.25,
+      "end": 5071.41,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I thought it was going to be like a serious fleet, still a serious fleet. But yeah, here in Texas from I can tell Dallas Fort Worth area makes sense. Texas is big. Dallas is one of the top cities in Texas."
+    },
+    {
+      "start": 5071.41,
+      "end": 5076.41,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it makes total sense. And the weather is amenable to it. I think it is."
+    },
+    {
+      "start": 5076.41,
+      "end": 5091.77,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. It does get colder there than it does. I guess I used to live in Houston and I live in Austin and so I guess it gets a little colder here than it does in Houston. But like I had been in Texas for a decade and I'm like, it gets cold here. It gets like briefly cold in Houston."
+    },
+    {
+      "start": 5091.77,
+      "end": 5094.49,
+      "speaker": "jerod-santo",
+      "text": "But not like cold is going to take your drone out of the sky cold."
+    },
+    {
+      "start": 5094.49,
+      "end": 5127.68,
+      "speaker": "adam-stacoviak",
+      "text": "Right. Right. So I just, you know, like Dallas still gets enough chill that you can actually maybe get the the inclement weather testing ability, but you also get the extreme heat. So you kind of get a little bit of both really get some a brief moment of extreme cold, maybe brief there's like a month, maybe a couple of weeks. It's cold still yet, but not like super, super cold. And then obviously, Texas, gosh, do not come here in July or August, please. If you got somewhere else to be, go, go there. Don't come here. No doubt. Yeah. What a shame."
+    },
+    {
+      "start": 5127.68,
+      "end": 5128.68,
+      "speaker": "jerod-santo",
+      "text": "Anyways."
+    },
+    {
+      "start": 5128.68,
+      "end": 5212.31,
+      "speaker": "adam-stacoviak",
+      "text": "All right. Back to you. That's Texas for you. OK. Less ceremonious, but still quite fun. Bringing it back to home lab state of the home lab tech 2025 techno Tim techno Tim. That was the only part I did within this year. Kind of bummed about that. I like to just circle back with him. I think instead I opted for Alex, not necessarily as a either or, but just more just timing kind of thing. And I'm a fan of Tim. I love his channel. I love his exploration. He's always got something cool to share. He's a big thinker. He's a cool dude. He's a he's a fun friend. And I just get energized around him because he's he's always got something, you know, he's got something to say about something and he's got some opinion about something. He's he's really into the community. You know, he's he's doing a lot of cool stuff. And he's a software developer still on the daily. I think he kind of does a little bit of both where he's not a full time content creator. He's got a side job or a day job. And then also his his his platform he's built out techno Tim. I think he's more in that than he is in his day job, though, but I like his his perspective on things. So Tim, I had fun talking to him earlier this year. And maybe we'll do that sometime in January. Get that beginning of the year. Like what's going to happen to home lab this year? That'd be cool."
+    },
+    {
+      "start": 5212.31,
+      "end": 5217.85,
+      "speaker": "jerod-santo",
+      "text": "There you go. All right. Do we do best titles? Do we wrap with best titles?"
+    },
+    {
+      "start": 5217.85,
+      "end": 5221.97,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, let's let's wrap titles."
+    },
+    {
+      "start": 5221.97,
+      "end": 5225.49,
+      "speaker": "jerod-santo",
+      "text": "So we already mentioned adventures and babysitting coding agents."
+    },
+    {
+      "start": 5225.49,
+      "end": 5226.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 5226.52,
+      "end": 5278.3,
+      "speaker": "jerod-santo",
+      "text": "Both love that one. Yeah. Oh, we both liked wsl.exe dash dash cat hello dot cs. Um, I really liked over the top auth strategies, mostly because it directly it was hard one to name. And then we had the reference, we actually talked with Dan more about all these different OAuth stuff and to FA and blah, blah, blah, and pass guys. And then we couldn't name the shows like there was all these terrible names. And then it's like, wait a second, we talked about over the top, which is the awesome, Celeste Stallone arm wrestling movie that I don't think Dan had seen or he wasn't aware of it. And we actually, I can't remember why, but we, I don't even know why related to the conversation, but we got it in there on point. And then, um, over the top auth strats, I want to go over the top auth strats, but you know, I think it was probably too obscure anyways. I thought that was a good one."
+    },
+    {
+      "start": 5278.3,
+      "end": 5279.78,
+      "speaker": "adam-stacoviak",
+      "text": "And what was the actual title again?"
+    },
+    {
+      "start": 5279.78,
+      "end": 5286.18,
+      "speaker": "jerod-santo",
+      "text": "Over the top auth strategies, which is kind of a little bit less cool, but more approachable. Like people know we're talking about."
+    },
+    {
+      "start": 5286.18,
+      "end": 5289.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I don't know. I would have gone either."
+    },
+    {
+      "start": 5289.18,
+      "end": 5290.18,
+      "speaker": "jerod-santo",
+      "text": "We're on that one now that I know that."
+    },
+    {
+      "start": 5290.18,
+      "end": 5303.28,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. And maybe one notch above current title, we can go back and rename it to stop us. It's our show. That's right. There's no slug that says that too. So that's right. Make it into the URLs."
+    },
+    {
+      "start": 5303.28,
+      "end": 5305.28,
+      "speaker": "jerod-santo",
+      "text": "That's right. Just episode 78."
+    },
+    {
+      "start": 5305.28,
+      "end": 5307.28,
+      "speaker": "adam-stacoviak",
+      "text": "So there you go. Yeah."
+    },
+    {
+      "start": 5307.28,
+      "end": 5308.28,
+      "speaker": "jerod-santo",
+      "text": "ID only man."
+    },
+    {
+      "start": 5308.28,
+      "end": 5321.86,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, what else do you like title wise, man? It's a tough one there. That's a tough one. Let me see if I've prepared well enough for this. I mean, it's gotta be a good title, right?"
+    },
+    {
+      "start": 5321.86,
+      "end": 5327.78,
+      "speaker": "jerod-santo",
+      "text": "And so it's gotta be a good, isn't that what we're doing? Good titles. Yeah. Good ones."
+    },
+    {
+      "start": 5327.78,
+      "end": 5332.66,
+      "speaker": "adam-stacoviak",
+      "text": "I thought you had a list of these. My bad. I got a list of a lot of them. I'm just trying to like figure out which one is the best title of them."
+    },
+    {
+      "start": 5332.66,
+      "end": 5336.39,
+      "speaker": "jerod-santo",
+      "text": "Oh, well you don't have to pick the best. Just pick one you like and we'll do a couple of them."
+    },
+    {
+      "start": 5336.39,
+      "end": 5337.39,
+      "speaker": "adam-stacoviak",
+      "text": "That's so hard."
+    },
+    {
+      "start": 5337.39,
+      "end": 5339.47,
+      "speaker": "jerod-santo",
+      "text": "How about try harder?"
+    },
+    {
+      "start": 5339.47,
+      "end": 5356.35,
+      "speaker": "adam-stacoviak",
+      "text": "Ultra thing. That was good. That was a good one. That was a good, I mean, there's a lot of good titles in here, man. It's a fun process to, to name these shows. Let me see if I can, I don't know. I kind of liked, you know, honestly I liked flowing with agents with beyond. That was a fun one."
+    },
+    {
+      "start": 5356.35,
+      "end": 5358.35,
+      "speaker": "jerod-santo",
+      "text": "The name. Cause it's your code flow."
+    },
+    {
+      "start": 5358.35,
+      "end": 5360.35,
+      "speaker": "adam-stacoviak",
+      "text": "Agent flow. Agent flow."
+    },
+    {
+      "start": 5360.35,
+      "end": 5361.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5361.35,
+      "end": 5369.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. But that's not the one I'll choose. Okay. Oh gosh. Here we go. Here we go. Do you ready for this one? You sitting down?"
+    },
+    {
+      "start": 5369.45,
+      "end": 5371.54,
+      "speaker": "jerod-santo",
+      "text": "No, you're standing up. Aren't you standing up?"
+    },
+    {
+      "start": 5371.54,
+      "end": 5375.54,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Line 44 from my markdown file refactored in prison."
+    },
+    {
+      "start": 5375.54,
+      "end": 5376.54,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 5376.54,
+      "end": 5397.83,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I mean like good show. It didn't make my list. I, you know, just, it was a good show. It was a really good show, but the title that's a good title, man. Like reformed in prison, refactored in prison, like, and then taught to talk to somebody in prison."
+    },
+    {
+      "start": 5397.83,
+      "end": 5399.79,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5399.79,
+      "end": 5410.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Good show. I could probably come up with better ones. I probably, it's more of like a sad, let down best title from Adam, but so many to choose from. I can be here all day telling you. Oh, for sure."
+    },
+    {
+      "start": 5410.79,
+      "end": 5482.3,
+      "speaker": "jerod-santo",
+      "text": "You know this. My final pick because it's another movie reference was the episode with Justin Searles and Mike McQuade. I had a hard time naming that one. It's about Ruby and drama and it's open source is not a career, but I already knew that that was kind of Justin's title. He was going with, cause this was a crossover episode on both podcasts and I couldn't think of anything. I think I sent you like seven different things. I can't even remember. And then finally I was just like, Oh, actually, you know what? I was talking with Justin about it. It wasn't you. It was Justin because he asked me what I was going to call the episode night. I had sent him some stuff and I just wasn't happy with any of the titles. And then I thought, you know what? This is one there where Mike at the beginning said like, I gotta be able to cuss on the episode. And I said, you can't cuss. I mean, you can cuss on our episodes fine, but you're going to get bleeped. And that's why he's like, well, let's put an unbreaking change. It'll be unbleeped over there. It'd be bleeped on the change log. And so the title, there will be bleeps. I thought was a great, there will be blood, of course, movie reference also tantalizing like, okay. I'm not sure what they're talking about, but it's going to get spicy. I thought that was a pretty good title. It saved me from an otherwise terrible title. I had it like six bad ones before, and then I thought, you know what, let's go a different direction."
+    },
+    {
+      "start": 5482.3,
+      "end": 5492.27,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Sometimes you have to be a little out there in your thinking, but spot on just as well. What a good movie though."
+    },
+    {
+      "start": 5492.27,
+      "end": 5494.27,
+      "speaker": "jerod-santo",
+      "text": "There will be blood. Oh man."
+    },
+    {
+      "start": 5494.27,
+      "end": 5497.83,
+      "speaker": "adam-stacoviak",
+      "text": "Dana Day-Lewis man, the method actor of method actors."
+    },
+    {
+      "start": 5497.83,
+      "end": 5500.07,
+      "speaker": "jerod-santo",
+      "text": "He is so good."
+    },
+    {
+      "start": 5500.07,
+      "end": 5502.19,
+      "speaker": "adam-stacoviak",
+      "text": "His co-star in there was really good too."
+    },
+    {
+      "start": 5502.19,
+      "end": 5503.19,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 5503.19,
+      "end": 5513.97,
+      "speaker": "adam-stacoviak",
+      "text": "The kid in the end, he's not a kid anymore, but at the time he was younger. Dana something or I don't know his name off the top of my head, but fantastic actor. Just a phenomenal movie."
+    },
+    {
+      "start": 5513.97,
+      "end": 5533.38,
+      "speaker": "jerod-santo",
+      "text": "And I think I heard that he got swapped in like two weeks before filming started onto that off of somebody else. Fact check me or somebody else can afterwards. But I heard that, which would be an amazing to know that he actually swapped in late because his performance is top-notch spot on yet."
+    },
+    {
+      "start": 5533.38,
+      "end": 5535.7,
+      "speaker": "adam-stacoviak",
+      "text": "His name is Paul Danos. You're pretty close."
+    },
+    {
+      "start": 5535.7,
+      "end": 5538.7,
+      "speaker": "jerod-santo",
+      "text": "Dan. Oh yeah. I was like, Dan, what'd I say?"
+    },
+    {
+      "start": 5538.7,
+      "end": 5539.7,
+      "speaker": "adam-stacoviak",
+      "text": "Dave, Dan."
+    },
+    {
+      "start": 5539.7,
+      "end": 5543.7,
+      "speaker": "jerod-santo",
+      "text": "Dan is something. Yeah. Dana. Yeah."
+    },
+    {
+      "start": 5543.7,
+      "end": 5549.66,
+      "speaker": "adam-stacoviak",
+      "text": "Paul Dano. Yeah. 2007. This movie came out, so not recent."
+    },
+    {
+      "start": 5549.66,
+      "end": 5552.69,
+      "speaker": "jerod-santo",
+      "text": "Takes place right there in Texas. Doesn't it? I mean, it's all about oil."
+    },
+    {
+      "start": 5552.69,
+      "end": 5556.33,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I don't know if it's in Texas. I don't know. It might be."
+    },
+    {
+      "start": 5556.33,
+      "end": 5557.33,
+      "speaker": "jerod-santo",
+      "text": "I assume it is, but it might not be."
+    },
+    {
+      "start": 5557.33,
+      "end": 5566.45,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know if it's clear what the setting is. If it's in Texas, it probably is in Texas. I mean, it's where else would it be when it comes to oil?"
+    },
+    {
+      "start": 5566.45,
+      "end": 5570.03,
+      "speaker": "jerod-santo",
+      "text": "You know, it's like the Wild West oil trade. It's got to be Texas."
+    },
+    {
+      "start": 5570.03,
+      "end": 5574.6,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. What a ruthless silver miner turned oil prospector."
+    },
+    {
+      "start": 5574.6,
+      "end": 5575.6,
+      "speaker": "jerod-santo",
+      "text": "Exactly."
+    },
+    {
+      "start": 5575.6,
+      "end": 5589.02,
+      "speaker": "adam-stacoviak",
+      "text": "That's the way to open a movie right there, man. Go watch it. It's in 4K. If you got a theater or if you got yourself a Plex box, go buy it on Amazon or steal it. If that's what you do. I don't think you should do it, but you know, that's."
+    },
+    {
+      "start": 5589.02,
+      "end": 5590.02,
+      "speaker": "jerod-santo",
+      "text": "That's your advice."
+    },
+    {
+      "start": 5590.02,
+      "end": 5634.24,
+      "speaker": "adam-stacoviak",
+      "text": "No, I just heard that a lot of people are bypassing oil or it kind of goes to the fact that you can't get physical media anymore, you know? And so if you can't get access to the physical media, I mean, what are you going to do? Yeah. I mean, I guess the only option would be to steal it, I guess. Steal it. You know, I'm not suggesting you do that, though. My, my, my recommendation is go and buy it. Make yourself and get yourself make MKV, pop that in there and then rip it to your Plex and then keep it forever. And that's what I shall do, because that is a, I think I actually own that movie. I don't own it in 4K though. I think it's an HD. Yeah."
+    },
+    {
+      "start": 5634.24,
+      "end": 5638.02,
+      "speaker": "jerod-santo",
+      "text": "Take that out there in the bird pile, you know, HD good for nothing."
+    },
+    {
+      "start": 5638.02,
+      "end": 5716.47,
+      "speaker": "adam-stacoviak",
+      "text": "You know, honestly, though, if you watch HD versus 4K HDR back to back, side by side, you'll know what I'm talking about. The sound is different. The visuals are different. And in fact, one of the things I use as a, as a way to gauge if I'll buy the 4K Blu-ray or not is I go to blue blu-ray.com and they do phenomenal reviews for when a film makes it to 4K HDR and they'll talk about the picture and the sound and it scores it. They pull out stills and frames from it. It's really well done, really great sight. And it's what I attract to know, like new releases too, because like being as old as we are, there's films back in our day, basically that are now coming to 4K. And one of the ones I just watched recently was Terminator 1. I mean, like take a film that was never, I guess, never intended for 4K. I can't say that really, but like who knew the future would exist in the past. This is how it works. But this film is, is funnily CGI, like so bad, so bad. And it's, it just screams through CGI even more when it's crystal clear in 4K."
+    },
+    {
+      "start": 5716.47,
+      "end": 5719.87,
+      "speaker": "jerod-santo",
+      "text": "Like what stuff is CGI when he gets like his skin blown off and you can see the metal underneath"
+    },
+    {
+      "start": 5719.87,
+      "end": 5732.87,
+      "speaker": "adam-stacoviak",
+      "text": "and stuff? Oh yeah. Like it's, you can tell it's a puppet. It's so nasty. Like when he's looking at himself in the mirror, like on one shot, it's clearly an animatronic. I mean, just like the whole thing is animatronic."
+    },
+    {
+      "start": 5732.87,
+      "end": 5735.71,
+      "speaker": "jerod-santo",
+      "text": "So it was almost better in low res, you know, I can't see."
+    },
+    {
+      "start": 5735.71,
+      "end": 5747.88,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it kind of ruins it. It really does. I mean, if I'm being honest, if you don't like going to an open casting funeral or something like that, man, that's kind of what it is. Okay. That ruins the movie in a way for you. Right."
+    },
+    {
+      "start": 5747.88,
+      "end": 5750.88,
+      "speaker": "jerod-santo",
+      "text": "Don't do that. You know? Don't do it."
+    },
+    {
+      "start": 5750.88,
+      "end": 5752.88,
+      "speaker": "adam-stacoviak",
+      "text": "Get the 1080p, you know? Yeah."
+    },
+    {
+      "start": 5752.88,
+      "end": 5755.88,
+      "speaker": "jerod-santo",
+      "text": "I mean, I guess in that regard. Get the 720p. Go back on DVD and just stretch that sucker."
+    },
+    {
+      "start": 5755.88,
+      "end": 5763.96,
+      "speaker": "adam-stacoviak",
+      "text": "You'll never know. But you know what I thought about doing the Jared was this, man. So I was like, I'm going to go buy, I'll reveal, I'll reveal the deep cut here."
+    },
+    {
+      "start": 5763.96,
+      "end": 5764.96,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 5764.96,
+      "end": 5793.33,
+      "speaker": "adam-stacoviak",
+      "text": "I was going to go on to our favorite place called eBay and purchase a VHS player and RCA that to my receiver, not, not optics, not nothing like the no HDMI RCA, the red, the yellow. And I think the white, I think brings the audio, mono, auto, audio. And the film I wanted to get, what was provoking me to do this was cutting edge."
+    },
+    {
+      "start": 5793.33,
+      "end": 5797.39,
+      "speaker": "jerod-santo",
+      "text": "Was that like a skiing movie?"
+    },
+    {
+      "start": 5797.39,
+      "end": 5799.19,
+      "speaker": "adam-stacoviak",
+      "text": "It was a very close."
+    },
+    {
+      "start": 5799.19,
+      "end": 5800.19,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 5800.19,
+      "end": 5803.19,
+      "speaker": "adam-stacoviak",
+      "text": "Snowboarding, maybe. Very, very close. It was ice skating."
+    },
+    {
+      "start": 5803.19,
+      "end": 5811.11,
+      "speaker": "jerod-santo",
+      "text": "Okay. That makes sense. With DB Sweeney. That almost sounds like a Will Ferrell comedy."
+    },
+    {
+      "start": 5811.11,
+      "end": 5813.11,
+      "speaker": "adam-stacoviak",
+      "text": "You know what? I think it inspired."
+    },
+    {
+      "start": 5813.11,
+      "end": 5814.59,
+      "speaker": "jerod-santo",
+      "text": "I think it probably did."
+    },
+    {
+      "start": 5814.59,
+      "end": 5820.95,
+      "speaker": "adam-stacoviak",
+      "text": "Blades of glory. I've never heard of that. What?"
+    },
+    {
+      "start": 5820.95,
+      "end": 5823.39,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5823.39,
+      "end": 5839.27,
+      "speaker": "adam-stacoviak",
+      "text": "Why? Because my wife and I both love this film before we knew each other. It was a release in 92. And so this is one of those, one of those movies that as you learn more and more about your wife over the years, like it took probably 10 years for her to tell me that this was one of her favorite movies."
+    },
+    {
+      "start": 5839.27,
+      "end": 5845.91,
+      "speaker": "jerod-santo",
+      "text": "Oh, this is a rom-com. I was expecting it to be more of like a eighties, but sports and romance dude. Wow."
+    },
+    {
+      "start": 5845.91,
+      "end": 5846.91,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, you know, it's."
+    },
+    {
+      "start": 5847.31,
+      "end": 5858.01,
+      "speaker": "jerod-santo",
+      "text": "Double-edged. You can consider figure siding sports. Oh, sorry. Just offended some people there. Of course the guy has a hockey stick, so like he plays hockey and she's a figure skater. Is that the story?"
+    },
+    {
+      "start": 5858.01,
+      "end": 5890.32,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Former Olympic hockey player, Doug Dorsey, played by DB Sweeney, pairs up with stuck up figure skater, Kate Mosley. Moriah Kelly is her name. Okay. And like the way they come together, it's a good love story. You know, I'm a romantic at heart. And but this is the one that was provoking me. I was like, I haven't done it yet. So now that I'm seeing this again, I kind of want to do it. And it's mainly brought on by the letdown that was 4K Terminator. I kind of wish I didn't do that."
+    },
+    {
+      "start": 5890.32,
+      "end": 5893.32,
+      "speaker": "jerod-santo",
+      "text": "You don't want to be let down by 4K. Yeah. On the edge."
+    },
+    {
+      "start": 5893.32,
+      "end": 5909.28,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I was telling her that I'm like, babe, it'd be so cool to have a theater like we have, 120 inch screen, a laser 4K projector, super awesome sound system, and then put a VHS player in there and watch old films from our back in the day."
+    },
+    {
+      "start": 5909.28,
+      "end": 5919.16,
+      "speaker": "jerod-santo",
+      "text": "Old films from 1992. I'm messing with the film. What's the, now it is, you're right. What's the worst that could happen though? It's not like, you know, the kiss scene they cut to like a mannequin or something like there's no CGI in this."
+    },
+    {
+      "start": 5919.16,
+      "end": 5927.76,
+      "speaker": "adam-stacoviak",
+      "text": "Not in that one. Yeah. That one, there's, that one, there's gonna be fun. Like I thought for the nostalgia, cause I know when I watched it originally was probably VHS."
+    },
+    {
+      "start": 5927.76,
+      "end": 5928.76,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 5928.76,
+      "end": 5932.72,
+      "speaker": "adam-stacoviak",
+      "text": "So go back to the roots, you know, it wasn't on DVD."
+    },
+    {
+      "start": 5932.72,
+      "end": 5941.6,
+      "speaker": "jerod-santo",
+      "text": "And you should also go one step further and get one of those auto rewinders so you can rewind all your VHS's, you know, put it in there, just be kind, rewind, be kind of rewind"
+    },
+    {
+      "start": 5941.6,
+      "end": 5942.6,
+      "speaker": "adam-stacoviak",
+      "text": "man."
+    },
+    {
+      "start": 5942.6,
+      "end": 5943.6,
+      "speaker": "jerod-santo",
+      "text": "Be kind of rewind."
+    },
+    {
+      "start": 5943.6,
+      "end": 5954.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So there you go. Yeah. I'd probably skip Terminator in 4K unless you just have to have the nostalgia. It was laughable though, man. So I'm going to watch Terminator 2 and I'm hoping it's not a ruin."
+    },
+    {
+      "start": 5954.64,
+      "end": 5955.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5955.96,
+      "end": 5966.88,
+      "speaker": "adam-stacoviak",
+      "text": "I think that one, some films though are just amazing. Like Alien, the Alien series, Alien, Aliens, those are two distinct movies. Aliens was second. Alien was first."
+    },
+    {
+      "start": 5966.88,
+      "end": 5971.7,
+      "speaker": "jerod-santo",
+      "text": "Right. A rare example of a sequel being better than the original perhaps."
+    },
+    {
+      "start": 5971.7,
+      "end": 5982.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, for sure. And like Aliens, there's a lot of chocolate, don't go and watch it because it's so crystal clear now. It's so good. Like it almost ruins the original grunginess of it."
+    },
+    {
+      "start": 5982.58,
+      "end": 5983.58,
+      "speaker": "jerod-santo",
+      "text": "Weird."
+    },
+    {
+      "start": 5983.58,
+      "end": 5999.18,
+      "speaker": "adam-stacoviak",
+      "text": "But they kind of introduced it in the process. So it's clear, but it's also grungy. I think it's good. You know, personally, that one didn't have a lot of ruin for me, but Terminator was kind of funny, man. It was kind of funny. That's what you get. Grab it at the end, y'all."
+    },
+    {
+      "start": 5999.18,
+      "end": 6015.66,
+      "speaker": "jerod-santo",
+      "text": "There you have a little bit of movie, movie hour there at the end. Awesome. Well, there you have our list. Check the show notes if you want to click through to any particular episodes. Otherwise have a great holiday and New Year's and end of your year and we'll see you all on the other side."
+    },
+    {
+      "start": 6015.66,
+      "end": 6051.6,
+      "speaker": "adam-stacoviak",
+      "text": "You know what? Actually one more, I'll throw one more thing at the end. I think you'll like this. There was a mention in Zulip to talk about the longest running Zulip thread from an episode. And I think we should have the folks listen to this. Like if you didn't get a voicemail in, you can still get your word in edgewise. Go to Zulip. Change.com slash community. Hang out with us there. Comment on this episode. Some of your favorites. Share a conversation. If you've got some downtime during this holiday, maybe throw some notes in there and hop in on this episode in Zulip and comment on your favorite episodes if you want to chime in."
+    },
+    {
+      "start": 6051.6,
+      "end": 6054.9,
+      "speaker": "jerod-santo",
+      "text": "Or your favorite 90s era rom-coms."
+    },
+    {
+      "start": 6054.9,
+      "end": 6056.9,
+      "speaker": "adam-stacoviak",
+      "text": "Or your cutting edge. Whatever your cutting edge is."
+    },
+    {
+      "start": 6056.9,
+      "end": 6062.18,
+      "speaker": "jerod-santo",
+      "text": "And share it. Yeah, what's the cutting edge to you? That's a great question. All right. Bye friends."
+    },
+    {
+      "start": 6062.18,
+      "end": 6065.71,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends."
+    },
+    {
+      "start": 6065.71,
+      "end": 6122.7,
+      "speaker": "jerod-santo",
+      "text": "All right. That's it. 2025 is in the bag. Can you believe it? If you have ideas, requests, or anything at all you'd like to say, hop in our Zulip and sound off on the discussion thread for this episode. We love hearing from you. Thank you one last time for listening to our shows this year. We literally wouldn't be able to keep putting out new stuff if y'all weren't listening. So thank you. And a huge thanks to everyone on our team and in the changelog community for everything you do. You know who you are, but I will name a few names. Breakmaster Cylinder, of course, our editor, Jason, Alexander on transcripts, Gerhard Lazu, of course, and our friends and family who support everything we do. Y'all are awesome. Thank you to our partners at fly.io and to our sponsors of this episode, check them out at depot.dev, augmentcode.com and framer.com slash design. That's all for now, but let's get back together and talk a lot more next year."
+    }
+  ]
+}

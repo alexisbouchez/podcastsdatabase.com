@@ -1,0 +1,933 @@
+{
+  "title": "Retreat to attack",
+  "description": "An extended director's cut episode covering this week's Changelog News in depth. Jerod and Adam discuss the alive internet theory, Meshtastic mesh networks, Zstandard compression, the FDE job explosion, React's dominance, and more.",
+  "links": {
+    "YouTube": "https://youtu.be/4FtTLxHLk9g",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 15.15,
+      "end": 34.51,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and friends, a weekly talk show about ZSTD. Thanks as always to our partners at Fly.io, the public cloud built for developers who ship. We love Fly. You might too. Learn more at Fly.io. Okay, let's talk."
+    },
+    {
+      "start": 42.4,
+      "end": 174.06,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, agentic Postgres is here. It's from our friends over at Tiger Data. This is the very first database built for agents and it's built to let you build faster. You know, a fun side note is 80% of Claude was built with AI. Over a year ago, 25% of Google's code was AI generated. It's safe to say that now it's probably close to 100%. Most people I talk to, most developers I talk to right now, almost all their code is being generated. That's a different world. Here's the deal. Agents are the new developers. They don't click, they don't scroll, they call, they retrieve, they parallelize, they plug in your infrastructure to places you need to perform. But your database is probably still thinking about humans only because that's kind of where Postgres is at. Tiger Data's philosophy is that when your agents need to spin up sandboxes, run migrations, query huge volumes, a vector and text data, well, normal Postgres, it might choke. And so they fix that. Here's where we're at right now. Agentic Postgres delivers these three big leaps, native search and retrieval, instant zero copy forks and MCP server plus your CLI plus a cool free tier. Now, if this is intriguing at all, head over to tigeredata.com, install the CLI, just three commands, spin up an Agentic Postgres service and let your agents work at the speed they expect, not the speed of the old way. The new way, Agentic Postgres, it's built for agents, is designed to elevate your developer experience and build the next big thing. Again, go to tigeredata.com to learn more. So we are supposed to be in San Francisco, but we're not in San Francisco. No, we're not. What a sadness, you know? Well, happy I'm not stuck in an airport or trying to get to someplace, but for those who don't know, our government is shut down and therefore the FAA and TSA and all the acronyms A are not showing up A and so we would have a bad flight to A. Show up, A. You know what I'm trying to say? Let's get to San Francisco,"
+    },
+    {
+      "start": 174.06,
+      "end": 197.34,
+      "speaker": "jerod-santo",
+      "text": "A. Therefore, we cancel our friends. You know, we told them, hey, don't come record with us this week. We're going to be in San Francisco. However, we are not in San Francisco. So we are here in our home studios, ready to friends. And we're going to do kind of a, you know, a grab bag, a director's cut, change log news, director's cut. Deep behind the scene. I would"
+    },
+    {
+      "start": 197.34,
+      "end": 202.22,
+      "speaker": "adam-stacoviak",
+      "text": "say extended cut. Yeah. You know, extended director's cut, you know, take the 10 minutes,"
+    },
+    {
+      "start": 202.22,
+      "end": 218.34,
+      "speaker": "jerod-santo",
+      "text": "make it, you know, 90, 60, 90 steelbook edition. You get the, do you watch those? Do you watch those director's cuts when you're going to, you know, go deep and, you know, he's gonna, he's whispering, here's where I should have done this, or I was trying to capture why."
+    },
+    {
+      "start": 218.34,
+      "end": 221.54,
+      "speaker": "adam-stacoviak",
+      "text": "I would say on certain movies, you know, certain movies, I do want to go deep,"
+    },
+    {
+      "start": 222.62,
+      "end": 236.08,
+      "speaker": "jerod-santo",
+      "text": "but generally no, it's just not my thing. I used to do it back when I had ODS free time and was much more of a movie fan than I am now. And I liked them, although they do get pretty boring."
+    },
+    {
+      "start": 236.08,
+      "end": 239.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I mean, it's not as good as the movie, right? Right. It's like, well, I'm watching,"
+    },
+    {
+      "start": 239.52,
+      "end": 241.92,
+      "speaker": "jerod-santo",
+      "text": "I'm looking at the movie, but I'm listening to a guy talk about the movie. So"
+    },
+    {
+      "start": 242.48,
+      "end": 255.12,
+      "speaker": "adam-stacoviak",
+      "text": "yeah, sometimes you get nice extras, I would say about the plot or the twist or the storyline that you don't get in the movie. So in those cases, I do enjoy it, but that's not always the case."
+    },
+    {
+      "start": 255.12,
+      "end": 295.18,
+      "speaker": "jerod-santo",
+      "text": "Okay. So after this show, let us know, do you like the director's cut of Changeling News or, or would you prefer just the 10 minute, give me the quotes and get out of here, man, get out of here. So there's some good stuff in this week's news. I thought I looked at the list and I was like, dang, dude, not that I did well, but like, there's lots of good stuff out there. My favorite of which I put right in the top, which is the alive internet theory. As you know, I've had, I don't know if you call it an obsession or I've had a frequent references to the dead internet theory. I've, I feel like I've been experiencing the dead internet of late. Do you feel it, Adam? Do you feel the dead internet or is it just a"
+    },
+    {
+      "start": 295.18,
+      "end": 301.57,
+      "speaker": "adam-stacoviak",
+      "text": "theory to you? You know what dead internet is essentially like bots commenting and like bot"
+    },
+    {
+      "start": 301.57,
+      "end": 310.19,
+      "speaker": "jerod-santo",
+      "text": "content. Bots commenting, bots creating, bot blog posts, AI slop, just everywhere."
+    },
+    {
+      "start": 310.19,
+      "end": 343.71,
+      "speaker": "adam-stacoviak",
+      "text": "I think I would experience that more sadly in the TikTok world. I feel like it's on repeat. I feel like it's all about product placement. I feel it's all about like selling stuff in the TikTok shop. I feel like there's creators who just literally go into the shop and get incentivized to shill things in there. They may like them, but I feel like it's just like the only reason you're making content is because you can get some version of that product sent to you for free. And then you can schlep it and make some money. There's not a real relationship there. So that's"
+    },
+    {
+      "start": 343.71,
+      "end": 580.74,
+      "speaker": "jerod-santo",
+      "text": "not a bot really. It's more like it's on the internet. It's like a person, but they're driven so much by the algorithm that they're like the undead. That's right. Yeah, that's true. I would say not really, not really. Now, I do think that the AI slop is coming to the world of video and audio. I think it's behind where it is in pros because of course the text models were the first ones to get good enough to trick us a little bit, but you know, with Sora too and that whole deal, I'm not sure if you were, I didn't join the social network for Sora, but I saw all of the crossposts elsewhere of what people are making with it. And that one's actually okay. I'm not the hugest fan of open AI as an org, but that was at least an attempt to be like transparent about like, this is a social network for AI slop and that's what it is. And so you want to get sloppy, let's go get sloppy together, but let's not act as if we are real. Let's just go ahead and embrace the fact. And there's some, I mean, there's funny, interesting, cool stuff that you can do. And so I'm not against the content necessarily, especially because you know what you're getting. You're like, oh, here it is. But when they're on the YouTubes and they're on the TikToks and the Instagrams trying to act as if they're humans, that's where I get a little bit offended. So I definitely have been feeling it of late, but I was uplifted by Spencer Chang and I did reach out to Spencer, asked him to come on the show. He hasn't, I haven't heard back yet. And this was just yesterday. So hopefully they'll come on and talk to us cause he's doing all kinds of cool stuff. And he created the alive internet theory, of course, a, an answer, a counter narrative and a very cool website to the dead internet theory, which basically states his premise, which I did quote in news that, you know, the internet will always be filled with real people looking for each other, answering calls for help and sharing laughs, even the midst of the arguing. Now there's lots of arguing for sure. And the cool thing about this website is, is basically has went down through the ages, like a scroll, the timeline from 2004 and updates kind of the style of websites based on where you are in that timeline, all the way up through present. And you can click a time period and then start the experience. And it's going to now load up with audio, which probably doesn't translate, but it's a little load up. Oh, it's too loud. Actually. I'm blasting myself. I had to close it. I did that. I had to close it too. I had to, I tried to refresh, but it wouldn't work. It loads audio very loud of like a digital scrapbook of randomness that humans, you know, and all of our analog, jagged, weird ways have put onto the internet during that timeframe. And they're all pulled from internet archive, of course, the way back machine and just super rad and made me happy. I was like, you know what kind of reminded me of the nostalgic feeling we had going back to the Winamp skins. Yeah. Remember that show we did last year looking so much fun. Yeah. Winamp is the best. So thanks Spencer for restoring a little bit of my hope in the internet and the fact that yes, over 50% of new articles, according to a recent study, maybe it's right at 50% of all blog posts and articles are now written by AI, but, and that's always going to increase from here. The humans are there, man. We're there and we can find each other and we can talk to each other and we can care. Yeah. I don't know"
+    },
+    {
+      "start": 580.74,
+      "end": 640.29,
+      "speaker": "adam-stacoviak",
+      "text": "what the, how to make of this because written by AI is, is somewhat potentially a misnomer in the fact that sure written by AI, but thought up and desire by a human, you know, orchestrated, directed by, I'm not really sure where I sit with that still yet. Cause it's, it's really a conundrum that, that I use a lot of AI to do things. And it writes a lot of documentation for like little things I'm doing. And if it wasn't for that, geez, I would never even show up and do it because there's just too much time. I don't have the time for that. And so I'm kind of, I'm a little torn with that. So where do you sit with that? And the fact that just the blanket statement of written by AI, but maybe not the sub context of directed by and influenced by and ideated by human. The only reason it's there is because a human was like, Hey, this is cool. Yeah, I write it. Boom. There it is. I am totally okay with what I could just call"
+    },
+    {
+      "start": 640.29,
+      "end": 735.81,
+      "speaker": "jerod-santo",
+      "text": "perhaps utilitarian uses of AI generated words, such as documentation, such as explanation. And especially when directed by humans who desire that content in order to better understand something. I'm also okay with it in the context of information such as Wikipedia and now the, the the competing Grokopedia, which seems to be so far not as good as Wikipedia, but I don't disagree with the premise of Grokopedia, which is like, if let's, let's remove as much as we can human bias. Now we're also, also the models are biased. So that's why I say as much as we can, but let's let information be written by an unbiased as much as we can source because we want just the information sometimes. And that's fine. And so I have no problem with it in the context of those things. I don't know. I don't even necessarily call that slop unless it's actually sloppy, similar to the way that I instruct a coding agent to write code for me. And I direct it to write code as long as I'm involved in that process. And I approve of the code. It, it provides a use and a value. Where it really feels sloppy to me and bad is when it's creative, to entertain, to persuade these things and it's, or to SEO. I mean, I'm trying to think of the reasons why they do that when it's just content farms."
+    },
+    {
+      "start": 737.49,
+      "end": 817.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Powered by AI. I see that actually a lot on the, on YouTube where you'll search for something in particular around a product. I do some product exploration, you know, like an appliance or something like that. And if we're buying a, an example is if we're buying a new air fryer, let's say for Christmas, if you're doing this, you know, whatever, listen up, you go on YouTube, you know, you find maybe the Ninja version of it and you got this other version of it, you know, maybe from Cuisinart or whomever, and you start versusing them, you know, Cuisinart versus Ninja. Well, you're going to find some good people out there and I have no idea how they make this their living to like compare air fryers. And then you will eventually find, well, probably pretty quickly find some AI generated or certainly not a human. It's, it's doesn't even sound very human when it's speaking to it. It sounds like a computer voice and it's clearly just an infomercial for the views and it ranks high. And maybe it does get some views and some of those views perpetuate more views in the algorithm. I don't know, but those things drive me crazy. Or just straight up, like you can tell no human was involved in this or there was, and it was just, just for the views. Yeah. Not for the"
+    },
+    {
+      "start": 817.17,
+      "end": 835.31,
+      "speaker": "jerod-santo",
+      "text": "engagement or the true enjoyment. And I'm honestly only really offended when I can tell, right? Because it's kind of like that comparison, like a toupee or a boob job, like that's the two things. It's like, gosh, you only know that a person has one when it's a bad"
+    },
+    {
+      "start": 835.31,
+      "end": 842.69,
+      "speaker": "adam-stacoviak",
+      "text": "one, you know? Yeah. If it's good, then you can't tell anyways, like you don't even know that guy"
+    },
+    {
+      "start": 842.69,
+      "end": 846.37,
+      "speaker": "jerod-santo",
+      "text": "has a toupee. It's just, you think it's his hair. It's when it's bad that you're like,"
+    },
+    {
+      "start": 847.09,
+      "end": 852.45,
+      "speaker": "adam-stacoviak",
+      "text": "dude, we're in a toupee. It's kind of offensive. It's silly. Sometimes you never know, but when"
+    },
+    {
+      "start": 852.45,
+      "end": 869.89,
+      "speaker": "jerod-santo",
+      "text": "you don't know, you're fine with it. When you do know now it's bad. That's the way I feel about, I guess, these things where it's like, if you fooled me, then like good on you, I guess like it was good enough that I thought a person did it. But when I find out it's acting like it's a person and then I realized that it's not a person. That's when I get mad. How about this?"
+    },
+    {
+      "start": 869.89,
+      "end": 893.7,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe a civic, a Honda civic wrapped in a Ferrari shell. Okay. That's that. That would upset me. Would that upset you in the engine? You opened the hood on that sucker. What is this four cylinder DH, whatever thing, you know, I don't even know what the engines are in civics anymore, but it was something like that overhead cams, you know, OHC or the real tall person. And then,"
+    },
+    {
+      "start": 893.7,
+      "end": 919.86,
+      "speaker": "jerod-santo",
+      "text": "you know, in the trench coat and then you realize it's like three short people standing on your shoulders. Yeah, that's going on a lot, but you know, when they, when it tricks you, you don't, you're none the wiser. So, you know, I think once we get beyond the uncanny valley, where we can no longer detect and I'm not sure if and when that takes place, then perhaps the dead internet theory will be just an undead thing that we don't, we don't even know."
+    },
+    {
+      "start": 920.5,
+      "end": 1036.86,
+      "speaker": "adam-stacoviak",
+      "text": "To pull, to pull an exact pull quote from, I guess them, the person who wrote this, what was his name again? Spencer. Spencer. Thank you, Spencer. And then I guess by, by proxy, you quoted his quotes. I'm quoting you quoting him. Okay. This is a Michael Scott moment. That's right. You know, we're going deep here. You said the internet will always be filled with real people looking for each other, answering calls for help and sharing laughs, even in the midst of arguing. And I think that's when the internet will always be what we consider since the nineties or whenever's when you and I began to do dial up or it was cool to email a friend kind of thing, you know, cause that's when the internet is still the internet because I want to show up to a place that is globally connected and informational, shareable forever. So long as it's shareable with other human beings that have empathy, have care, have grace, you know, mercy, what all those things that the things, you know, embody that's when that's true, while that's true, I will enjoy the internet. When that becomes less true or not as true, I'll probably, you know, go on a walkabout or move to the cabin in the woods that I got reserved, you know? Well friends, I'm here with a good friend of mine again, Kyle Galbraith co-founder and CEO of depo.dev. Kyle, we are in an era of disruption, right? I would also describe it as rethinking what we thought was true. And I guess that's kind of the definition of disruption, but from your perspective, how our teams, reliability teams, CICD, pipeline teams, how are they all rethinking things and where does depo fit into that? In the conversations that I have with customers,"
+    },
+    {
+      "start": 1036.86,
+      "end": 1135.9,
+      "speaker": "jerod-santo",
+      "text": "a lot of DevOps teams, platform teams, site reliability teams, they're really looking at this new era of software engineering that we're all living in. And they're starting to question like the bottleneck is no longer the act of writing code. The bottleneck is shifting. The most time consuming part is integrating the code. It's everything that comes after. It's the build, it's the pull request review, it's the deployment, it's the getting it into production. Once it's in productions, it's scaling up support teams to support it. It's adding documentation, all of these downstream problems. And so through the lens of depo, what we're really starting to think about is there's a very realistic possibility that within the next two to three years, maybe even sooner, that we're going to enter a world where an engineering team of three people could theoretically have the velocity of an engineering team of 300 people. And what's the consequences of that? What's the consequences of the code velocity spiking up to that level with such a small team? There's no way three engineers are going to be able to code review all of the code that's being created if there's three engineers and 297 agents also creating features and fixing bugs. So that's just like from a pull request perspective. But then you think about it through a build lens too of if your builds take 20 minutes with three humans, and now you're going to have three humans and 297 agents also running. Well, you definitely don't want your builds taking 20 minutes because now the entire pinch point is the build pipeline. And so we're starting to think a lot about how do we eliminate the bottlenecks that come downstream and what can"
+    },
+    {
+      "start": 1135.9,
+      "end": 1170.3,
+      "speaker": "adam-stacoviak",
+      "text": "we do with depo that streamlines that. So obviously friends, we are in an era of disruption. Things are changing. You know it. I know it. That's how it is. And the thing with production and what Kyle is talking about here is how in the world do you get your bills to be faster? How do you get them to be more reliable, faster, more observability around those deployments? You need it. It's required and depo is there to help you. So a good first step is to go to depo.dev, get faster, try their trial. It's too easy. Again, depo.dev is where to go. It all begins at depo.dev."
+    },
+    {
+      "start": 1170.7,
+      "end": 1261.31,
+      "speaker": "jerod-santo",
+      "text": "Well, let me share this with you then, which is a bit of a curve ball because we didn't discuss discussing it, but it is in news. It was in the lower three, which get the newsletter and they get mentions, but they don't get actually coverage, which is mesh-tastic. And it's in the same vein now of like, what if there wasn't necessarily, or there still was this global connected internet that maybe only robots use to talk to each other, maybe at our behest, maybe not. And there's no people there. I mean, because honestly, if it continues to ramp up and the uncanny valley stays, meaning it's just AI slop and I know it, I'm not ignorant of it. I'm like, I might check out, you know, I might, I might be like, yeah, no longer surfing the web, just doing other stuff. Okay. So that might happen. And there's some social networks that they say has already happened. Like a lot of people claim that X is now mostly robots, which if it's true and I'm not, I don't know. That's hilarious because it's one of the reasons Elon Musk bought it was to get rid of the robots anyways, mesh-tastic. So this is cool and open source off grid, decentralized mesh network that's built to run on affordable, low power devices. So these, this uses inexpensive LoRa radios, which I don't know what LoRa means. Do you know what LoRa means?"
+    },
+    {
+      "start": 1261.87,
+      "end": 1264.59,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, I'm just hearing you for the first time. I think so."
+    },
+    {
+      "start": 1264.59,
+      "end": 1276.67,
+      "speaker": "jerod-santo",
+      "text": "L O R A. So let's, uh, find out in real time, long range. So LoRa just means long range. I already knew it was long range. I just didn't know that it was LoRa means long range."
+    },
+    {
+      "start": 1277.6,
+      "end": 1280.16,
+      "speaker": "adam-stacoviak",
+      "text": "The low range off grid. Is that what that stands for?"
+    },
+    {
+      "start": 1280.16,
+      "end": 1302.48,
+      "speaker": "jerod-santo",
+      "text": "No, LoRa just stands it's from long range, uh, a physical proprietary radio. Oh, it's an actual, it's a proper noun. Okay. So that is different. A proprietary radio communication technique based on spread spectrum modulation. So it's not just an acronym or a shortening. It's actually like, uh, a technology that these things use."
+    },
+    {
+      "start": 1303.12,
+      "end": 1317.92,
+      "speaker": "adam-stacoviak",
+      "text": "What I'm seeing says, uh, LoRa L O R A is a software technique that adapts large language model by training only a small set of new weights. Is that what you're, you're tracking?"
+    },
+    {
+      "start": 1317.92,
+      "end": 1322,
+      "speaker": "jerod-santo",
+      "text": "I think these are probably namespace conflicts because this is all about communications."
+    },
+    {
+      "start": 1322.9,
+      "end": 1330.18,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it does say two different technologies. Here I am way off. Okay. A wireless communication protocol or the thing I just injected, which is the wrong thing."
+    },
+    {
+      "start": 1331.14,
+      "end": 1382.16,
+      "speaker": "jerod-santo",
+      "text": "That's definitely on topic for most of our conversations. I'm just glad this isn't that. So this is long range radios and this meshtastic software. I think you flash it onto specific devices. They have a list of devices that you can put it on. Um, and it sets up like basically a mesh network that is not just at your house. I mean, most mesh networks that I think of is like Bluetooth, you know, air drop, airplay kind of things. Uh, but this is like, you connect all of these inexpensive radios and it can go long range and they're not kidding. They say long range, 331 kilometers long. That's the record at least. Wow. Using meshtastic."
+    },
+    {
+      "start": 1383.57,
+      "end": 1387.41,
+      "speaker": "adam-stacoviak",
+      "text": "This is meant to be by, used by humans to send messages."
+    },
+    {
+      "start": 1387.97,
+      "end": 1461.41,
+      "speaker": "jerod-santo",
+      "text": "Yeah. You know, it's like the old, it's like the old carrier pigeons, man, you know, send a message, you're going to send it over meshtastic. So this would be like, if you and I, I could probably do this with like Nick Nisi, for instance, he lives across town from me, probably 30 miles, which is going to fit inside this 331 kilometers. And he could get one of these radios set up at his house, a Ronnie meshtastic, and I could get one at my house. In fact, maybe we should do this, be fun as a test, as an experiment. And he would get one set up at his house and I had one at my house and then we connect our devices to the radios as if they're wifi networks, basically. And so we are now meshed. We have a, basically a LAN by way of meshtastic. And so it's an off-grid meaning like no one else can connect to that. It's decentralized. We could probably set up, you know, radios all around and they all would connect to each other and it creates a mesh network that you can, you know, run your apps, run your comms, run, run whatever you want, all encrypted, excellent battery life, optional GPS features. I mean,"
+    },
+    {
+      "start": 1461.41,
+      "end": 1478.4,
+      "speaker": "adam-stacoviak",
+      "text": "this is a cool project. This is meant to be radio based, not a device. I mean, cause they're mentioning raspberry pies. Are they thinking the Pico? I think in particular, is it only meant to be radio based, not like, you know, literally IP based through the internet?"
+    },
+    {
+      "start": 1479.44,
+      "end": 1578.83,
+      "speaker": "jerod-santo",
+      "text": "I think that these things can talk to each other via this LoRa technology, which I assume is a protocol. And then they act as simply like routers. I see. Yeah. That your local network then connects. So these are like bridging local networks via this hardware and software. So I'm sure it can run on all kinds of software, but the hardware is a set list of my specific supported devices, such as the seed card tracker, the hell tech mesh node, the nano G2 ultra, et cetera, et cetera, a bunch of specific devices. They have antennas, so you can go for long, long range. I assume the three on 31 kilometers has some pretty stinking big antennas on them to get that far. And the question is like, I see stuff like this and I think that's cool. I'm really impressed. And, and like, would I go through all that? Like if I, if I was sick of the internet, but I still wanted to communicate with people. And I assume that you could probably get like a regional network set up. It's not just like me and Nick Niecy's houses, but you could probably have an entire mesh network. That's like a city, maybe even multiple cities, 331 kilometers of long way. And then you could just have your own little network. That's just like, yeah, I can run my iMessage against now I can talk to those people over there in Lincoln on their iMessage. Now iMessage might have to get out beyond your network and talk to Apple's iCloud servers. I don't know."
+    },
+    {
+      "start": 1579.47,
+      "end": 1637.68,
+      "speaker": "adam-stacoviak",
+      "text": "That's something. And now like, okay, the network is one thing, but then what can you do on the network? Like what kind of protocols does it support? Is it only messaging? Is it kind of an API layer in a way where, you know, the, the network gets created and then there's an API that you can send messages. Is there a length of message? Is there a certain amount of bytes you can send or that kind of thing? I think that's what would describe to me, like it's utility. Cause I'm thinking there's unique businesses that might want a reliable communication pattern whenever the internet is not always available. You might be in spotty areas. Like I was just on a retreat and I got T-Mobile and while there I basically had SOS. Like I didn't have, I came in and out of like one bar or half a bar. And so I wasn't really trying to use my phone anyways. It was a retreat. That's the reason you retreat to attack. But nonetheless, I still kind of wanted to have my tether to the world, you know, like don't take my phone. Did you just say"
+    },
+    {
+      "start": 1637.68,
+      "end": 1643.76,
+      "speaker": "jerod-santo",
+      "text": "you retreat to attack? Yeah. Retreat to attack. What's that mean in this context? Well, I believe,"
+    },
+    {
+      "start": 1643.76,
+      "end": 1680.99,
+      "speaker": "adam-stacoviak",
+      "text": "okay, great. Let's go there. Okay. I believe to truly attack like we have to as men. I'm a man, like I'm called to for my family and my life and who I am. I believe to attack, you know, in the most kindest way in the world. My problems, whatever. Yeah, sure. If I'm going to have the energy to do what I got to do, then I cannot just do it by just constantly attacking. I've got to retreat, to recharge, to collect, to reaffirm, to examine so that I can better attack. So I believe you have to retreat to properly attack the world. Gotcha. And that, I mean, in a positive way,"
+    },
+    {
+      "start": 1680.99,
+      "end": 1688.03,
+      "speaker": "jerod-santo",
+      "text": "of course. Yeah, I get you. So when you're retreating, you don't necessarily want your phone, but you still want to be, you know, connected just in case. That's right. Yeah."
+    },
+    {
+      "start": 1688.03,
+      "end": 1693.55,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, like, I mean, something could happen, you know, right. I need my, I need my fix."
+    },
+    {
+      "start": 1694.43,
+      "end": 1698.35,
+      "speaker": "jerod-santo",
+      "text": "Okay. How long, what's the longest you've gone without your, without your phone recently?"
+    },
+    {
+      "start": 1698.35,
+      "end": 1744.48,
+      "speaker": "adam-stacoviak",
+      "text": "Honestly, while I was at the retreat, I left my phone in the cabin all the important times. I literally left it there. Hours at a time. Oh, like 12 days. Yeah. Like the whole day. Nice. And I did it as a force function, but it was a little strange at first. I kept tapping my pocket. Cause like habits I have as a, an individual who doesn't want to lose this expensive device. My apologize to make sure it's there. Yeah. So I will occasionally, you know, let's say once every five and a half minutes, just kidding. Once at some sort of intermittent measure, I'm tapping my leg or I'm touching my right pocket, which is where I keep my phone. So big pocketers. Now, you know, you know, really easy. Most people that's right. You know,"
+    },
+    {
+      "start": 1744.48,
+      "end": 1748,
+      "speaker": "jerod-santo",
+      "text": "most people are right-handed it's going to be in your right pocket. Me. You don't know where it's"
+    },
+    {
+      "start": 1748,
+      "end": 1801.46,
+      "speaker": "adam-stacoviak",
+      "text": "going to be. So you still know back pocket, front pocket, no pocket in the shirt and nose, right? Could be in your armpit. That's sneaky. People put in their armpit, man. Okay. Like with a little case, like I left it back to the man and I felt good. I felt good. I was proud of myself, honestly, for doing that. Cause I think it's so sad to say this, but I think in today's world for a normal first world person who has access to the things we have access to the privilege, we have access to the things we have access to, to leave this connected device that we pretty much rely upon to navigate. Like if I got in my truck, I know where most things are at, but if I'm going into Austin, to a particular building, I'm probably going to map it. Yeah, because why not? Yeah. That's what I was there for, man. You know, Especially if you got ways, you got ways. I got ways, man. I got all the ways. You"
+    },
+    {
+      "start": 1801.46,
+      "end": 1904.21,
+      "speaker": "jerod-santo",
+      "text": "taught me about ways. Yeah. You taught me about ways. Ways all day. The thing about, it's nice about Omaha, small town living. We're a small, big town is you don't really need ways because the traffic's just fine. Like pretty much everywhere you go, there's times, but most of, for the most part, you're not going to get a major reroute because of traffic. That being said, they're so useful and yet disconnecting from them is so freeing. I had the same experience with my watch, my Apple watch, which finally died. This was a, I haven't bought one since, which kind of tells the story. Cause I was like addicted to like the notifications and the rings and the things, you know, on your wrist. And when it died, I was like, I don't know, 300 bucks. I'm going to go a week or so without it and just see. And it was like, you get a little bit withdrawals, you know, it's not like quitting tobacco, which I've also done. That was way harder, but you definitely get withdrawals. Like, Oh, you know, where is it? You look at your, you ever look at your wrist and there's nothing on it. Like it's just weird. Like, why do I keep looking at it? There's nothing there. And then beyond that, it was, it's just been pure freedom ever since. Like I could just, I just feel like that was a little prison that I erected for myself and I lived in it. And then I just happened to escape and I don't need it. And it doesn't actually make my life enough better to be worth all of the baggage, but the phone itself is way more useful than the watches. And so that one of I'm much more connected to and addicted to, but I have been leaving it on the charger, you know, that's my, that's my recent move. I call it a return to analog, which is like, let's just focus on the analog. Let's get away from the digital when we're away from the digital, let's actually get away from the digital and leave the phone on the charger. And, um, this elongates this conversation"
+    },
+    {
+      "start": 1904.21,
+      "end": 1980.45,
+      "speaker": "adam-stacoviak",
+      "text": "a bit with like, there's this resurgence for a lot of folks to be against the norms. Like drinking has been a norm for a lot of folks. There's a lot of people like I'm, I'm now sober. I haven't drank all year. I quit drinking in January, January one, I quit drinking. I haven't had a drink since. And so I'm free of alcohol in my life. I never plan to go back and I've never felt better my whole entire life. And I've got so many friends that are either sober curious or going there. And it's become a trend for young folks, younger folks who are just like basically anti anything that is not health conscious. It's like my routine is to get up at 5 45 every day, journal for 30 minutes, work out for an hour and a half and then go slay work and then spend time with friends. Like, that's the dream of a lot of young folks these days. And that was not the case for me when I was young. It was like, you better get your butt out there and work. Okay. You better find your career and make some money. You better build a family and have, you know, those things. But a lot of things are like this return to analog, this return to soberness, this return to just putting pure things into your body and less toxins, less poisons that really"
+    },
+    {
+      "start": 1981.01,
+      "end": 2070.3,
+      "speaker": "jerod-santo",
+      "text": "shape a lot of Americans lives. Yeah. Yeah. I saw a trend recently amongst teens where they will sit for 15 minutes or whatever the time period is. And they'll set their phone up and they'll start recording, which is to keep themselves, you know, it's a task basically because they're going to publish it. So there's still like a digital component to this and I'm sure it's a trend. So they want to get all the kudos from their friends and stuff. I put it up on the internet, but they just sit there. So they put their phone. It's almost, it's not meditation, but it's just like, I'm not gonna listen to music. I'm not going to have my phone. I'm not going to do anything. I'm just going to sit here for 15 minutes and think, and they find out it's really hard, but it's like a challenge and they're treating it like a challenge. Like, can you do this? And they all started doing it. So yeah, these things are anytime there's a move in a certain direction, you know, eventually there's a counter move in the other direction. And we're starting to see some of that, but back to meshtastic, you mentioned you might use it out there and you know, no man's land and that's actually the primary use case, I think for this, which is like in the boondocks, it says right there it's for areas without existing or reliable communications infrastructure. So I'm sure there's pot, there's lots of really good uses for this in areas where they don't have, you know, fiber runs go into their house. So really cool project. I wonder if we should dig deeper and maybe get some meshtastic folks on the show and hear about some of their cool use cases. Cause I guarantee you people"
+    },
+    {
+      "start": 2070.3,
+      "end": 2086.06,
+      "speaker": "adam-stacoviak",
+      "text": "are using this. I would love to explore how to like, I don't have a big enough brain, I guess, to explore how to potentially use this unique ways besides the ones we've talked about. Like, what are some really, really interesting uses of it? That's what I would love to explore."
+    },
+    {
+      "start": 2087.68,
+      "end": 2098.64,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Really, really interesting uses probably out in the boondocks where there's needs that we just don't even know about, you know? Well, like even, I wonder if you can connect,"
+    },
+    {
+      "start": 2099.52,
+      "end": 2134.77,
+      "speaker": "adam-stacoviak",
+      "text": "imagine you're a 10 location boutique retreat or hotel, right? Most of your places are in the boons, but you're literally all over the nation. Is there a way to strategically place nodes to enable this mesh network so that no matter what the connected case is for everyone else, you've got some version of your own private network built on top of this meshtastic. I mean, that's what you just said, but it's a bit more expanded, you know? Right. In the case of like multiple"
+    },
+    {
+      "start": 2134.77,
+      "end": 2189.57,
+      "speaker": "jerod-santo",
+      "text": "states, maybe you'd probably have some sort of a VPN connecting the two networks and have, and then the mesh would be like an extender into the boondocks. And so you could probably accomplish that, but I bet you would use the actual internet in certain ways to actually bridge anything beyond. I mean, I'm sure that the 331 kilometers record is probably not the best packet delivery and everything. Latency, dropping packets. Yeah, like that's the record, but you want to be closer than that. So I assume if you're like, we want one big network across multiple states. And then when we're, you know, at each location, we reach out two miles to this cabin or whatever it is, then your meshtastic would be meshing from your cabin back to whatever you have at the headquarters there in that place, which is just on your local network. And then that would bridge via VPN or some other solution to your other headquarters, which happens to be"
+    },
+    {
+      "start": 2189.57,
+      "end": 2206.45,
+      "speaker": "adam-stacoviak",
+      "text": "in Tennessee or whatever. Yeah. You know, I found myself exploring more of his specifications. I never thought I'd be such a dang specification nerd, either creating them or exploring. You want to create specifications? Heck yeah, man. I mean, not myself with my little AI buddies,"
+    },
+    {
+      "start": 2206.45,
+      "end": 2210.93,
+      "speaker": "jerod-santo",
+      "text": "of course. I got you. So you're slopping us with some, with some specs. I mean, you can call it"
+    },
+    {
+      "start": 2210.93,
+      "end": 2215.25,
+      "speaker": "adam-stacoviak",
+      "text": "that. You can call it that, but I don't think I don't call it that. I call it an explorer. One"
+    },
+    {
+      "start": 2215.25,
+      "end": 2219.33,
+      "speaker": "jerod-santo",
+      "text": "man's slop is another man's treasure. So that's true. What kind of specs you writing, man?"
+    },
+    {
+      "start": 2220.94,
+      "end": 2537.01,
+      "speaker": "adam-stacoviak",
+      "text": "The most recent one was a way to version a GoCLI. Cause I'd gotten a couple now and I'm like, they're all versioned weird. And I'm not really writing all the code. I'm reviewing it. I see the patterns, but I was like, can we just kind of create one unified way to version GoCLIs that are in this, in this realm of what I'm doing? And so I created a specification for how I want to utilize versioning inside of a GoCLI. And so now I just point the next thing I'm making to that specification and say it here to it. And it does, and life goes on. It's, it's amazing. The other one most recently was I swapped out 7Z cause it's actually not that good. It's good. It's good, but it has some flaws that I was not personally aware of. And so now I've become exposed to Z standard, which was created by meta. It's a compression algorithm. And so now my new thing is I'm combining tar, which is has stood the test of time, right? The tar archive protocol with Z standard, which is actually Z as TD. And so now I'm looking at these specifications thinking, okay, great. If I'm going to implement the archiving tool that, that bridges the gap, what I'm calling Z standard for mere mortals is what Zarch is about. Z standard for mere morals. That's right. Z standard, which is the compression algorithm that meta made. And now it's just the compression algorithm. It's not an implementation. It's a compression algorithm. And so to archive with tar and use Z standard, well, you can use that pretty easy with the command line, but there's nothing. There's no API. There's no sparse behind it. There's no CLI. And so I'm building a CLI cause I archive a lot of stuff as you may know, and I want to do it in the best possible way. So my most recent thing was going. I haven't really enjoyed this as a nerd too. Like I'm, I haven't, I'm going deep. I'm not that deep yet, but I'm trying to go deep into the tar format. When did it begin? Where does it get utilized? Cause what happened was is I had this really great tool, but I was using it on, on arch Linux, by the way. And, and it just wasn't working. I kept having CRC errors when I was trying to like compress something and test it. I'm like, what in the world is going on here? Is it Dropbox? Is it the way I've used our clone? Is it, is it because I never really tested the memory? Cause I got 128 gigs of memory. Is it cause I never really tested the memory properly? Like what is the root cause of 7z not working properly on arch? Well, it turns out that 7z has some flaws that I was not aware of. And I didn't experience those flaws on Mac OS. They're non-existent there. So on Mac OS tool works great on Linux does not. And so I'm like, well, I can't spend my time building this because it's, that's lame. I want the good stuff, man. If I'm going to pour myself a glass of compression, I want the whole glass. You know what I'm saying? And so I went back to the board and I'm like, what's going on here. And so obviously tar and I learned about Z standard. And so to round about back to the specification I have I'm working on. And I think it's kind of there. It's version 1.1 or, you know, 1.0.1 or something like that. I'm severing Jared. Okay. I'm botching this a little bit, but I've got the specification for how to implement tar in an archiving tool. And so there's a lot of stuff about the way you'd manifest a JSON file first and in what order you would actually create the archive to properly support packs or POSIX and things like that in a tar format so that you don't have jacked up archives. And then you can press them on top of that with Z standard. And so I've become like this little specification nerd. I just like love creating specs because I can point at them when I'm working with agents and say, that's the best version. I like that version. That's a version that represents the software I want to make. And so I feel like these specs, one, I'm learning and two, I'm defining what I think is the right way so that when I repeat myself, I can repeat it against that standard. Gotcha. Long story short. So you're doing specter of development. Oh, absolutely. All day long. Yeah. I mean, not literally all day long, but like literally like when I'm doing it. Yes. That's the way I'm, it's a lot of planning, a lot of thinking, which I find is the, the weirdest state of play. I never thought I would find myself in. When I first heard about vibe coding, I was like, ah, those guys are stupid. What are they doing here? Like, gosh, just, can you just learn to code already? And now I'm like, why, why would you go through such depths when you can have your rust and your go, and you can eat it too. Like, let's do it. Right. And I can just work with the AI and within these realms, I'm reading a ton of code. I'm loving it, enjoying it. I'm not personally writing it, but I'm the one who's visioning different things. And so the, this move from seven Z arch to Z arch"
+    },
+    {
+      "start": 2537.01,
+      "end": 2549.01,
+      "speaker": "jerod-santo",
+      "text": "is, uh, has been fun. Well, your code cup run it over here all this time. I thought ZSTD was what German folks get when they're too promiscuous, you know? That's right."
+    },
+    {
+      "start": 2549.65,
+      "end": 2556.93,
+      "speaker": "adam-stacoviak",
+      "text": "Me too. I have ZSTD. But instead it's Z standard and thank you Metta for making that. How is it"
+    },
+    {
+      "start": 2556.93,
+      "end": 2561.17,
+      "speaker": "jerod-santo",
+      "text": "better? You say it's better. Is it compresses better? It's faster. What's in what ways do"
+    },
+    {
+      "start": 2561.17,
+      "end": 2708.5,
+      "speaker": "adam-stacoviak",
+      "text": "you measure better? I don't have the facts fully in front of me, but so let me go there. Their, uh, their website and see if I can get it. Okay. So compressor name, you got ZSTD, right? No, it's not the German version of it. You got Zlib, uh, you got quick, uh, quick LZ. You've got LZ4, you got snappy and various other ones that they, uh, compare against. And so when ZSTD, which is short for Z standard compresses, it can compress at a, at a ratio of 2.896. I'm reading this, this chart here versus let's say LZ4, which is 2.101. So those are very similar. It's actually compressing at a better ratio. Uh, LZ4 will compress at 675 megabits per second. Whereas the compression speed of Z standard is 510 megabits per second. So it's pretty fast and it decompresses just as fast. So it has a similar compression ratio, but it's faster on the way in and way out. And one of the biggest issues I've had with the thing I built was like, my gosh, it takes so long to compress and it takes so long to uncompress, like unbearably too long. So long that I was like, why am I even doing this? And so, but I like that cause I've now learned so much more making all those mistakes. And I'm like, man, I, I was kind of upset going down the wrong road and really happily going down the wrong road. Like this is awesome. It's so cool. It's useful and it is useful. Uh, and so all I've done now is basically swap out the tool I made with a different compression algorithm. And then now I'm like re-implementing against this tar spec, how to best implement a tar archive. And so I didn't lose a lot of runway in terms of what I built in time. I just swapped out the format and re-implemented the way it does tar and we're done the wiser. So now we're back to square one, but I've learned a lot going down the wrong roads. And I, and I now have a brand new version of empathy I'd never had for what I would call developers, right? Software developers. I would also consider myself a pseudo software developer. You know, this I've been an imposter for many years. If you didn't know this now, you know, I'm like, wow, this is what it feels like to go down the wrong road and not be pissed and still be kind of happy because you learn so much along"
+    },
+    {
+      "start": 2708.5,
+      "end": 2718.24,
+      "speaker": "jerod-santo",
+      "text": "the way. Yeah. That's kind of cool. And then later on people will come by and say, well, why didn't you just use Z standard? And you're like, well, because I didn't know it existed."
+    },
+    {
+      "start": 2718.24,
+      "end": 2757.1,
+      "speaker": "adam-stacoviak",
+      "text": "I didn't know it existed. I had to make those mistakes. I had to try it on, on, uh, on arch Linux, see that and, and be like, why is this thing not working? Only to go back to root cause, which is a great principle, right? Go to back to root cause analysis. Where's this problem at what's causing it. And then, you know what helped me believe it or not stack overflow. Yeah. It was like comments on StackOverflow, comments on Reddit about issues with 7z on arch. And if I didn't find those, I'd have been like 7z works everywhere. It's amazing. It's awesome. Which is what I thought. And it is kind of awesome, but it has some flaws that I just can't live with."
+    },
+    {
+      "start": 2758.06,
+      "end": 2768.93,
+      "speaker": "jerod-santo",
+      "text": "Well, that's how progress works. Yeah. Um, so in the real world now, so we're looking at a compression speed versus ratio image that compares is Z lib."
+    },
+    {
+      "start": 2768.93,
+      "end": 2838.86,
+      "speaker": "adam-stacoviak",
+      "text": "Is that behind 7z or is that a different thing? That is a different thing. I think, uh, 7z uses, um, I think it's LZMA4. No, what is it? Gosh, you're testing my memory here, man. Hold on a second. I'll get you some information. Yeah. I was close. LZMA. I was right. LZMA2. And so there's LZMA, the original, uh, compression. And then the fellow who wrote this, um, this software, his name is all over the actual stuff. Let me see what his name is. If I can get to it quickly. 7z, the archive format was created by, so it's both a format, uh, in an archive tool in one. So it's not only the compression algorithm, the format, it's also the tool that does the job. And so it's made by a fellow named Igor Pavlov. And so he, I think he rewrote LZMA if I understand the history correctly and LZMA2 is his compression version of it that 7z uses. It's great. It does a great job. It's just notoriously"
+    },
+    {
+      "start": 2838.86,
+      "end": 2847.92,
+      "speaker": "jerod-santo",
+      "text": "slow. Do you like slow Jared? Oh, slow music, slow jams, slow compression algorithms. No,"
+    },
+    {
+      "start": 2847.92,
+      "end": 2858.88,
+      "speaker": "adam-stacoviak",
+      "text": "I hate it. Slow internet. No, it's the worst. Right? Slow's the worst. Yeah. So that's a slow jam. Those are good. Several things were getting me. I was like, why does it take so long? What's"
+    },
+    {
+      "start": 2858.88,
+      "end": 2869.12,
+      "speaker": "jerod-santo",
+      "text": "the real world win for you? So they'll say you're compressing one of our episodes and it's like 10 gigabytes. Like, do you know the time win for you? Like it used to be 20 minutes. Now it's seven"
+    },
+    {
+      "start": 2869.12,
+      "end": 2966.8,
+      "speaker": "adam-stacoviak",
+      "text": "minutes. Yeah. So it used to seriously tap my CPU. Like I use this application called, I think it's clean my Mac Z or X, clean my Mac X. Yeah, I use the same one. And it hangs out in your system tray, right? It's up there. And if you go and tap it, you will see CPU and it will tell you the temperature of your CPU. And so whenever I was compressing with 7Z or 7Z arch, like it was always as high as possible. And it's like, hey, listen, if you don't stop doing what you're doing, your computer's going to blow up. Basically. I mean, I was being very kind about it and I was like, ah, it's an Apple, it's an M1. It's got it. So I just never worried about it. So it would really, you know, really hurt the CPU for quite a bit. And it would take, I mean, now that we have like 20 gig, 30 gig projects, easily 20 minutes, if not more to the point where I'm like, I'd forget about it, you know? And it just became this, as you know, you know about our Dropbox issues, it became like, I can't keep up because this tool's jacked up and I'm trying to compress in archive in a way that gives me a little compression, but gives me an assurance of a single file that I can get back later. So I want to, a good in and a good out. And I thought 7Z was that. And it just turned out that it was great for Mac. So it's great. If you're only on Mac, at least in my experience, and I could be wrong, if you know more about 7Z and I'm way off, please call me up. But that's, that's been my experience."
+    },
+    {
+      "start": 2967.44,
+      "end": 2996.03,
+      "speaker": "jerod-santo",
+      "text": "Well, one thing I know about 7Z is it's been around forever. I think when I very first started using Linux, it was there. And so it's old technology and there are reasons why progress, you know, makes steady, sometimes slow, sometimes a little back stepping, but eventually forward motion and improvement. So what is that same 30 gigabytes? Are you on the Z standard now? Like you've completely replaced and you're running your new thing. Are you still working on it?"
+    },
+    {
+      "start": 2996.03,
+      "end": 3172.38,
+      "speaker": "adam-stacoviak",
+      "text": "This is super, super early days. So I can only give you like my latest, greatest, but time-wise so much faster. Like I was like, what you're done already? There's no way. And I would check it from 20 minutes to five. Yeah. Like ungodly. It's like so fast, like three minutes, five minutes, maybe 10 minutes on like a, so we had a couple archives that were like in the 50 gig range and that was about eight minutes. So I'll be in like the three minute range for most of our stuff and we can, and if I can do it right, if I like, if I do this this TAR specification well enough, then we'll have a really good manifest.json at the very top of the archive, like inside the archive container, the, you know, the thing that makes up the TAR archive. And it will have all the cool stuff. It will have one of the other things about archives I've learned is they're attack vectors. And I'm not a, I'm not a pen tester. I'm not trying to like hack things, but I obviously pay attention like you do, but I never consider that, wow, I should probably do a better job with this because if I don't do it right, then I mean, I don't think our archives are at jeopardy, but if I open source this, when I open source this and others use it and they started getting jacked up because they're attack vectors, well, I got to do a better job of security. And so when I started to craft that specification, it really exposed me to like a couple of different points around what was important. And one of the more important points was being secure. And I never thought about that. So there's like certain things you could do with following file paths and when to cap it, when not to do it. And again, I'm not super steeped in it, but it's, it's quite tantalizing. Once you have this, I would say AI is like this guide that can learn or knows a lot about most of the things you want to know about. And if it doesn't know it, it can find a way to learn with you and help you learn too. And so I find that, that thing, that ability in today's age is, is just so tantalizing. The fact that like, if I have a curiosity, sure, it may hallucinate, it may go down the wrong road for a little bit, but for the most part, I can explore some territories I almost would never have before. Not because I didn't have the ability, but because the guide didn't, wasn't resilient to my path. Like if I hit a blocker, AI finds a way around it through new information or a different path or an alternative. Whereas a human might be like, okay, I've hit the end of this book. The appendix isn't helping me. And Amazon's down for the day because the latest AWS outage happened, you know, I don't know, whatever it might be like, I can no longer explore over this hurdle, but AI finds a way to help you through all these things. And I just think that's such a, such a wild thing to have, to be able to talk to our code base in ways we've never been able to literally ever in humanity. That's, that"
+    },
+    {
+      "start": 3172.38,
+      "end": 3190.21,
+      "speaker": "jerod-santo",
+      "text": "to me is what gets me excited about software today. Yeah. It's a entirely new experience and one that is quite interesting at the lowest and exciting at the highest depends on the day and the, and the concept and how well it's performing. I mean, I wanted to punch the"
+    },
+    {
+      "start": 3190.21,
+      "end": 3225.95,
+      "speaker": "adam-stacoviak",
+      "text": "screen today. My AI was not supporting me. I'm like, listen, listen, I gave you clear instructions. I know you're smart. You're going way over there. Can you please stay here right here? This is where you're safe at. Don't go over there. Don't do that. Don't touch that. Stop changing that file. I'm just, I'm being facetious when I say it's a version of that. It's like, yeah. Listen to me, please. We have a mission. Stick to the mission over there. Looking at squirrels. Get out of here. You know? So, I mean, sometimes it listens well and sometimes like, listen, I'm just gonna do whatever I want to do. And you can't stop me because you don't have any"
+    },
+    {
+      "start": 3225.95,
+      "end": 3339.02,
+      "speaker": "jerod-santo",
+      "text": "control of me. I do what I want. Yeah. Yeah. One thing that I've been doing recently, which has given me some success, it requires a little bit of patience in one direction, but it helps me avoid a lot of the tailspins is just like, you know, basically rebooting the AI and just like keeping my conversations short and the context windows fresh, you know, and like all the backlog of things that already knows about the project. Like, yeah, just make it go read the files again. So I will do like a couple of features and it's the first time I see it be like, you can almost notice like, oh, it's building up a hallucination path or something. I don't know what it is, but you can kind of just feel it. And I'm like, I just control see that sucker and just start fresh and just tell it what I want it to do without any of the, sometimes you're like, dang, it already knows this part and already knows we're working on this. And other times I'm like, nah, who cares? I can go figure it out again. That's the, that's the patient's part. It's like, I'll check your files and see what you've been up to, you know? And you're like, well, you just knew that until I control see you and now you don't know what I'm up to, but I feel like it's, this is Claude code specifically, which is the tool I probably been using solely for coding for the last two weeks. I haven't been using anything else. It's so much better on its first feature than it is on its sixth. It's just better. And I'm not sure why, maybe because it's just like, it doesn't have any baggage. That's, that's the way I kind of mentalize that. And so I just control see that thing. I'm like, let's just have, it's like, it's like a brain wipe. That's like, I'm going to get a new Claude code. It doesn't know my code base anymore. And it'll figure it out and it'll do the feature and it's going to be better than if I have the one that knows the code base, but also has like, I don't know, uh, needs to be de-fragged or something. Have you ever tried that or have you had experience with starting fresh? I know you don't like to touch the code and you do the, okay. Yeah. I have a process where I keep a"
+    },
+    {
+      "start": 3339.02,
+      "end": 3415.34,
+      "speaker": "adam-stacoviak",
+      "text": "context file, like a context dot MD file. And I, uh, keep a context dash guide dot MD, which is how I want this context file to be structured if it, if it needs to be structured. So if it needs to be deep, so it's like multiple agents, multiple features, kind of keeping a lot of things in check. And so if I'm like, Hey, you're misbehaving, just dump your context to this file. And I'm going to, I'm going to clear your context. It's like a threat. And it was, it's a very kind, I'm being kind of just joking around. I say that, but it's like, you're going too far. You're not operating well. Just dump whatever context you have and what you think is next to this file. And I'm going to clear your context. And I do that happily. And I have a command, like an unfurl command that says, bring yourself back online, read this file and measure it against this guide. So this is how you should read it. And, you know, uh, report back when you're ready kind of thing or confirm when you're ready. Okay. And that's what it does. It goes and reads that it dumps this context. I clear it. It comes back. I say, bring yourself online. It's like I'm in West world or something like that, which is where I got that line at. It's bring yourself back online. Dolores, uh, is, is from West world. And so they do that and it checks it. I was like, okay, great. I see you're working on this. I'm looking at that feature. We want to do next. I'm like, sweet. Now you're smart again. Let's go."
+    },
+    {
+      "start": 3416.78,
+      "end": 3467.26,
+      "speaker": "jerod-santo",
+      "text": "Gotcha. Slightly different things. I don't let it remember anything. I just tell it like, I don't want to have any of that context at all. I just want it to be like a new human. And so it's more like the men in black thing, you know, where are we at here? Yeah, exactly. What are we doing here? I'm just wiping memory. I'm just like, no context, no nothing. You're done. I'm going to open up a new cloud code on the same directory. I'm going to give it what I'm going to tell it what I want it to do. It could be the, it could be copy paste when I told the last cloud code, but this is a brand new cloud code. Doesn't know my project. Doesn't know anything. It has a cloud.md. So it has some rules that can follow there and that's about it. It's going to figure it out from square one. And so that to me is like a full reboot versus maybe you're just doing like a go to sleep and wake back up thing. Neuralyzer. That's the word I couldn't think of men in black. Neuralyzer. I will review that"
+    },
+    {
+      "start": 3467.26,
+      "end": 3517.02,
+      "speaker": "adam-stacoviak",
+      "text": "context file. So I don't like blindly just let it do that. It's a way for me to know what it's thinking too, or what it thinks is next. And so if I look at that, whatever it dumps and it's way off, then I will, I won't tell it to, to, you know, bring itself back online about reviewing the context. I'll just either delete it or skip it, but it's a way for me also to like have a, an awareness of what it thought was going on and how far off it was from the truth. And there's times I'm like, wow, that was not true. That's, that's a hallucination there. We're not working on that feature or that's not what's happening here. And and I won't do that, but it's a way to save myself from having to type as my keystrokes or do something to like retell its context or even give it indirection. I can just say review this if I agree with it, of course. And then go"
+    },
+    {
+      "start": 3517.02,
+      "end": 3523.66,
+      "speaker": "jerod-santo",
+      "text": "from there. Okay, friends, augment code. I love it. This is one of my daily driver AI agents to"
+    },
+    {
+      "start": 3523.66,
+      "end": 3700.53,
+      "speaker": "adam-stacoviak",
+      "text": "use. Super awesome. CLI, VS code, jet brains, anywhere you want to be. Augment code can bring better context, better agent, and of course, better code. To me, augment code is by far one of the most powerful AI software development platforms to use out there. It's backed by the industry leading context engines. The way they do things is so cool. You get your agent, you get your chat, you get your next edit, in completions, it's in Slack, it's in your CLI. They literally have everything you want to drive the agent, to drive better context, to drive better code for your next big thing, for your big thing you're already working on, or whatever you have in your brain you want to dream up. So here's a prescription. This is what I want you to do. I want you to go to augmentcode.com. Right in the center, you'll see install now and just go right to the command line. There is a terminal CLI icon there. Click that and it's going to take you to this page that says install via NPM. Copy that, pop into your terminal, install augment code. It's called Augie, instantiate it wherever you want to, type in AUGGIE and let loose. You now have all the power of augment in your terminal. Deep context, custom slash commands, MCP servers, multi-modals, prompt enhancers, user and repo rules, task lists, native tools, everything you want right at your fingertips. Again, augmentcode.com is one of my favorites. You should check it out. Well friends, this episode is also brought to you by our friends over at Nordlayer. And you know what's scarier than Black Friday chaos? Yeah, you guessed it. Leaving your business network wide open to ransomware, phishing, and whoever's bored enough to poke around your systems. And that's a lot of people. That's exactly where Nordlayer comes in. It is a toggle-ready network security platform built for modern businesses, combines VPN, access control, and threat protection. And it's all in one easy to use setup. There's no hardware, no complex configuration, just secure connection and full control in less than 10 minutes. The cool thing is it is designed around zero trust, meaning only the right people who have access can access the right things. Here's the best part, 28% off. Yeah, 28% off for the yearly plan. And the next step is to go to nordlayer.com slash the changelog. Yes, nordlayer.com slash the changelog. Use our code changelog hyphen 28. Yes, the hyphen is important. Again, changelog hyphen 28. Use that code before December 10th, 2025 for that awesome 28% discount. And the beauty is you also try it risk-free with their 14-day money-back guarantee. Keep your team secure, your network clean, and your mind at ease. Once again, that's Nordlayer, your toggle-ready shield for modern internet. Go to nordlayer.com slash the changelog and use our code changelog hyphen 28."
+    },
+    {
+      "start": 3700.53,
+      "end": 3833.73,
+      "speaker": "jerod-santo",
+      "text": "Enjoy. Well, let's turn now to a new AI role that's exploding. We've been discussing our AI roles. That's right. But we are not officially employed by anybody. Well, I guess we were officially employed by our own company, but we aren't certainly passing our resume around. But if we were, we wouldn't want to be have the acronym FDE on our resume. Yes. Because that's the new hotness according to interviewquery.com. Reporting on a report as the internet does gladly, and I'm actually reporting on the report of the report. So if you're listening to this and then you go tell your friends about FDEs, you are four layers of inception. A financial times report talks about monthly job postings and this new role, FDE, forward deployed engineers are looking to get hired. There's been new job postings to the tune of 800%, which of course tells you it was really low before. Now it's not as low. It could be a bubble. Yeah. I mean, it could also be from like nothing to some, and the 800% is much easier when you have small numbers, but nonetheless it's moving and it's a new position led by the forerunners as they call it in the AI race, anthropic, open AI, et cetera. People who are out there building these, the models, but also the software around the models and trying to nab up as many customers as they possibly can before their money runs dry to have a new kind of engineer, which is somewhat novel, I would say. I call it AI led because, well, you're kind of leading the AI, but the AI is leading you. I don't know who does wag the dog or the tail wag the dog. How do you say that?"
+    },
+    {
+      "start": 3834.77,
+      "end": 3837.17,
+      "speaker": "adam-stacoviak",
+      "text": "Who's holding a leash? Is it the humans or the dog?"
+    },
+    {
+      "start": 3837.17,
+      "end": 3892.21,
+      "speaker": "jerod-santo",
+      "text": "That's right. Does the dog wag the tail or does the tail wag the dog? There, I got it. The question is that, and the answer is we're not sure, but if you want to be an FDE, you're going to have to wag the AI because their whole point is to be deployed with customers. This is kind of how they're different than like a typical software engineer. They're like one-on-one with customers and they're tailoring AI models, whether that means rag, whether that means fine tuning, whether that means literally just setting up the right model to use and providing it context. I'm not sure if that matters so much. That's probably up to the FDE to decide what is tailoring in the context of the customer and working directly with the end users in order to give them what they need. Your thoughts on this new thing that is new?"
+    },
+    {
+      "start": 3892.85,
+      "end": 3947.2,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I have news, Jared. I have met, talked to, and experienced an FDE before, recently. We're working with Redis on an engagement, so they're one of our sponsors. Love Redis. I'm actually quite excited that Redis won't sponsor us because they've never... That is cool. You know, it's so cool, right? And they obviously have a lot of stuff around their vector search. You know, Redis is really this, you know, in-memory cache that's utilized in so many places, but they're really solving some cool problems around the AI vector search and embeddings. And like, just, I don't even get it. Like, I don't even play in that world very well, so I don't really understand the full spectrum of it. But I sat down, I talked to Tyler Hutcherson from Redis, and he is a forward deployed engineer."
+    },
+    {
+      "start": 3947.2,
+      "end": 3948,
+      "speaker": "jerod-santo",
+      "text": "Oh, yes."
+    },
+    {
+      "start": 3948,
+      "end": 4001.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And his entire job is to obviously talk to people like me in some context, but his other part of his job, like the 99.9 other percent of his job, which is not talking to me, is being at a customer, like literally being there for sometimes multiple weeks or a month. And so he'll kind of come in and come out. And his whole entire job at Redis is to not really at all sell Redis by any means. It's not his job. His job is super about what are they doing? How are they leveraging Redis and how is it working for them and how can they make Redis better for them? So kind of like that, they'll kind of like either do integrations, they'll do migrations, they'll do like they work there, like they work for that company, but all they are to Redis is a customer. They're not paying Tyler any extra, to my knowledge. And Tyler actually works with a"
+    },
+    {
+      "start": 4001.55,
+      "end": 4009.71,
+      "speaker": "jerod-santo",
+      "text": "team of these folks. That's the point of the forward deployed is like, you are not just with the customer, you're like kind of working for them."
+    },
+    {
+      "start": 4009.71,
+      "end": 4121.04,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And I mean, you've got to be fully embedded to have the empathy factor. And like, you're deep in the water with them, you're waiting with them to kind of figure out, you know, where's the next drop off or, you know, where's the land? I don't know. What's the point of waiting in the water? I guess you're swimming. Maybe who knows? You're knee deep in something, right? It's sometimes you're not knee deep in what it is. Sometimes it's water. That's right. Whole job is about figuring out how Redis is being utilized, implementing features, taking that stuff back to product, product iterating it out. Now it becomes in the next version of it. And so it's just like the rinse and repeat cycle. I think that's, it's smart. It really is smart because you know, you got that boots on the ground mentality. You've got an engineer doing an engineer's job and their whole entire job is the success metric around it is just make the customer enjoy using it more and solve their problems. And then hopefully, if that is a product feature we should support, bring that back to product. Let's make it a true feature. And you've got as best as you can truth, which is customer usage. How do they fall down with it? How do they triumph with it? How did it work out in the, in different deployments or on different architectures? And you take that back to product and you make it real. And now they're better and other customers who had their problems better. And obviously if it fits into the Redis, man, this is not a Redis ad, but this is the only context I have. I'm sorry. Good for you, Redis. You got this one for free. You contacted him. If you, what was I saying now? If it fits into the Redis way of product, that's great. I mean, like, yeah, that's, that's really that'd be a fun job. I think that does sound cool."
+    },
+    {
+      "start": 4121.04,
+      "end": 4210.64,
+      "speaker": "jerod-santo",
+      "text": "Let me bring this back to a company like Anthropic here out of Redis. Cause that's, that makes total sense in the context of Redis where I think it's going with these AI model situations is you have a company like Anthropic who wants other companies to hire Claude, right? To use Claude as much as they possibly can and to get the most value out of club that they can. Well, as we've seen lately, there has been a difficult path towards successful adoption of AI in the enterprise. Would you breathe? What do you, whether you believe the 95% numbers or not, our recent show is Sean get a key. He does not believe those numbers. You can go read his blog post. Why, but certainly there's plenty of projects that have failed to adopt AI inside the enterprise. Like the promise is there. You get excited, you go out and you just like, well, let's just slap it on something and see if it's just all unicorns and rainbows and it's not. And so these FTEs, these forward deployed engineers that work for Anthropic, like they would perhaps go in and be deployed into a fortune 500 or whoever it is that could eventually, or maybe is a small Claude customer, but could be using it 10 X, a hundred X more if they were having success. And so they are there to help them wield that model in a way that they get a huge value out of it. And I think that does sound like a fun job. I mean, that'd be fun."
+    },
+    {
+      "start": 4210.64,
+      "end": 4222.48,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think so too. I mean, yeah. Wow. I mean, what a time to be an FTE, right? That's right. So if you're not in brand new title, what a time to be that if you're not an FTE and you want to"
+    },
+    {
+      "start": 4222.48,
+      "end": 4296.75,
+      "speaker": "jerod-santo",
+      "text": "become an FTE, how do you get there? Well, according to this article, that's a summary of another article that I'm summarizing for you. They say this is a clear signal of a shift from research to real, to real world results. And there's a clear message that AI fluency isn't enough. So if you're fluent with AI tools, not enough customer facing AI skills are the real edge. It says the most in demand tech workers in 2026 are not just coders, but also communicators, problem solvers, and translators between AI systems and human needs. So there's a short list of skills to be acquired. If you have those skills, you know, throw FTE on your resume. If you don't acquire away. And I think that while this might not be the end all be all title, cause you know, every couple of years we need a new title. This is like the new data science according to this, maybe it's a flash in the pan, but if it does, if it does have staying power, then those are the skills you're going to need. It's not just the ability to direct your agents in a successful way. You have to actually help other people direct their agents"
+    },
+    {
+      "start": 4296.75,
+      "end": 4407.12,
+      "speaker": "adam-stacoviak",
+      "text": "in a successful way. Yeah. That's interesting. Even the way it phrases this, it says I'm going to re say it again. Cause it's like you said it good, but I'm gonna say it good to say it better. Uh, maybe I'll suck at it. Who knows? Let me try. Okay. The most in demand I'm going to, you're doing bad. I'm just laughing for the fun of it. Like it's, I don't even want to try. I just want to read it. The most in demand. This is, this is profound. That's why I want to read it again. The most in demand tech workers in 2026. That's not this year. It's 2025 are not just coders developers, but also communicators, problem solvers and translators between AI systems and human needs. And that is such a wild thing because there are so many folks out there like that. So when we talk about, you know, disruption and job replacement, how many folks were in product teams or the solution makers and problem solvers spaces where they were sort of move around specs and they would say, well, what do you do here? Right? Why I go get the spec from the customers and bring it to the engineers. Right. That's what they do around here. Right. And they're like, well, gosh, everybody's taking my job. All these people are taking my job now. Well, not anymore because you can now go into this role because so many of those people, they may be displaced because of change or disruption. I think that's a, that's like a snapshot of a lot of those folks. Go do that. Go do that. And if it's going to be in demand next year, and this episode is true, this is November 11th, 2025 when it ships, it's, you know, plus four days, do the math. I can't, I'm stupid. Go and do this job. Be an FDE for Anthropic or the Anthropic likes. Yeah. All right. Let's do one more. Let's do one more."
+    },
+    {
+      "start": 4407.12,
+      "end": 4412.32,
+      "speaker": "jerod-santo",
+      "text": "One more. And we'll call it a day. Dead frameworks theory. You know, I like these theories,"
+    },
+    {
+      "start": 4412.32,
+      "end": 4421.52,
+      "speaker": "adam-stacoviak",
+      "text": "you know, so many theories today, man, don't confuse with the alive internet theory. Okay. This is right. This is we're back to the dead. This is different. Yeah. This is the frameworks"
+    },
+    {
+      "start": 4421.52,
+      "end": 4525.34,
+      "speaker": "jerod-santo",
+      "text": "is the opposite of alive. This is dead. This was written by Paul Kinlan. And he actually wrote a piece last year, which I included in change dog. And it was called will developers care about frameworks in the future. And he is thinking he was kind of wrong about that, but he was wrong in a kind of a weird way or a timing way, what he's found and what was news to me, which is why I definitely had to include this is basically now that more and more people are building with AI agents. It has, it has pushed react into like this foundational layer of web development, which he thinks is unassailable at this point, not only do the models know a lot about react because they've been trained on vast amounts of react docs and examples and open source code, but it's also in the best interest of the tool creators. If they want their customers like cursor, for instance, or V zero or bolt, these tools, these vibe coding tools or whatever you want to call them, they want their customer, right? The developer end user to have the best chance at success. And so they're just picking react for that reason. So it's like, it's not the winner of the game. Like it is the game now and so far, so much so that they're hard coding it into their system prompts. So like, if you're like, Hey, make me a web app, like in the system prompts, like make it a react app basically. And so that's why the dead framework theory is like, maybe frameworks are over, not for the reasons that Paul was thinking last year, but now he's thinking because"
+    },
+    {
+      "start": 4526.22,
+      "end": 4598.56,
+      "speaker": "adam-stacoviak",
+      "text": "basically react is it's substrate fully seated. Yeah. You know what I find interesting about this is is just that, is that like, if you're going to code something else, let me rewind and like, think about the one I'm trying to say here is maybe a layer above that is that what if future engineers 2026 engineers maybe even, right? What if that, cause that's so close, that is the future obviously, but it's so close. That's not truly the future, but it is the future. But what if in 2026 engineers jobs shift from innovating and handing it to humans, but they're innovating it to hand it to a LLM. So the LLM can then be using a well-defined standard. Now in this case, react has had 20, well, not 20 years. How many years? 14 ish years, 12 years. What year is it coming out? I can't remember 20, 14, maybe. Yeah. So a lot, you know, 11 years. Call it a decade at least. Oh yeah. A decade. It's been seated for a decade."
+    },
+    {
+      "start": 4598.56,
+      "end": 4602.08,
+      "speaker": "jerod-santo",
+      "text": "Let's get the number. Let's get the number. Yeah. 12 years ago I drilled it. 12 years."
+    },
+    {
+      "start": 4602.08,
+      "end": 4727.06,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Smart man over there. Good. Good for you today. I guess. Good. So 12 years. All right. That's there. But what if future engineers, like I almost, I almost want this as a developer. I would rather have a super good engineer who's way better than me, who really knows the things. Teach the LLM that really good thing, make the framework, make the standard, define the specs even so that whenever I utilize the AI and those kinds of things, it's just kind of there. It is the substrate. Like React has become in this case, in your example here, like what if, what if the LLM already knows how to write the language? So I don't have to learn how to write the language. I can learn through using it, but it already knows because it was taught by an engineer. It's almost the same concept. It's like, it was taught to use and deploy really good, well-formed, some may not like React, but really good, well-formed React application because it is a substrate. It is the winner. And so why debate it and just hard code it into everything because that's the way. It is the, the standard format. It's got the most battle tested tests against it. It's been utilized in all these places and sure it's got its blemishes and its flaws, but it's the standard. So why fight it? Kind of the same thing, but the opposite way, which is like not the React way where it was born 12 years ago and has become that through usage, but the opposite way where it kind of comes in from the top. It's like, it's teaching the LLM at the top and it's coming down to the LLM through my desire to build out new things. And in this case, I'm like, Go and Rust are pretty staples. Like I'm trying my best to never touch Rust again. Cause I'm just not that good. Okay. I'm just not that good. Go, I can hang out there. Nothing against Go. It's just easier. It's easier to read. It's easier to work with. It's kind of more fun for me at least. And I feel like Rust is so cool, but I'm just not that cool to touch it. Okay. It is, it is no doubt super cool. I'm just not worthy."
+    },
+    {
+      "start": 4727.62,
+      "end": 4811.17,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I'm tracking what you're saying. I'm wondering there's like a gap between here and there, obviously like the world that you're painting in the world that we live in. And ironically, perhaps the reason why at least Paul says that these tool creators and model creators are front-loading React is because developers need to maintain the apps that are being created and developers know React. And so you're giving them the best chance of actually maintaining the produced code because of this deep-seated knowledge across the industry of the last 12 years of how to, how to build React based websites. Right. And if you're going to top load something else that we don't have to look at, then I couldn't imagine React being the technology of choice. There would be no reason to choose React because their browser already is a platform and the agents could speak directly to the browser via the Dom and wouldn't need something that's maintainable because they're the ones maintaining it and they already speak the browser. You know what I'm saying? So it's like, there's, because the humans are still in the loop, we are getting React apps, but if we took them out of the loop, we wouldn't need to have React apps anymore, but we aren't out of the loop. And then will we be anytime soon?"
+    },
+    {
+      "start": 4811.17,
+      "end": 4876.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I don't know if it will be either. Let me clarify as you were describing that it, it, it came to me more points of clarity. Okay. So what if a really good Go developers were really interested in, or even employed to make sure that Clod code knew exactly how to structure a Go CLI. So whenever I spin up a new CLI, I'm not having to start from scratch with context lost or what is the problem I'm solving or, Oh, because it has these, these specifics. Like what if it came from top down? Like I don't have to think about structure. I don't have to think about where the commands go, where the internals go, where the security goes, and like all these different things. It just, it just is because someone who's really good with all the Go idioms is teaching the LLM so that I can start off with all these sort of like, not, I would even call them training wheels, right? This is a dang tank. You know, I don't have to even get a bike. I can go right to the fighter jet, you know, which is totally different when you got two wheels and two wings and massive engines and really high speeds, right? Tom cruise,"
+    },
+    {
+      "start": 4876.7,
+      "end": 4881.18,
+      "speaker": "jerod-santo",
+      "text": "all that good stuff. Now you know how your retreats to attack right there, man. Let's go."
+    },
+    {
+      "start": 4881.9,
+      "end": 4943.57,
+      "speaker": "adam-stacoviak",
+      "text": "And even so far as like versioning, like I had fun doing that versioning and Go CLI. What if somebody already knew that and taught the LLM so that it was always, it just, yeah, it was just an implementation detail. I didn't have to do that. That's, I don't know how that flexes out over time, but that to me is cool. Like why should I have to learn all these things when the LLM can be taught it from a human and even learn from the AI and this weird cycle goes on and on, but it kind of comes down from the top. Why do I have to sort of start out from scratch telling my LLM like, Hey, no, you totally botched this structure. And now we have to spend, you know, a day or two hours refactoring like a day in AI time is like one hour, right? Another one is like, we got two weeks to do this. I'm like, dude, you're going to be done with this in like a minute. I'm not even worried about these weeks. Right. Yeah. So like, that's, that to me is kind of a weird thing and it's kind of a wild thing to think about."
+    },
+    {
+      "start": 4944.29,
+      "end": 4970.85,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I see what you're saying. I think a slight trepidation from any sort of top-down design. And the reason why it can be bad is when it doesn't fit your circumstance, but you're stuck with it because that's what the agent knows. And so you now have to use, you have to build a go CLI the way the agent says to build it. Cause that's how it builds it. You're not actually part of that conversation at all. And if you tell it to change it,"
+    },
+    {
+      "start": 4970.85,
+      "end": 4975.57,
+      "speaker": "adam-stacoviak",
+      "text": "it's like, sorry, I can't do that. Adam. Yeah. My ways are not those ways. You have to go that"
+    },
+    {
+      "start": 4975.57,
+      "end": 4984.69,
+      "speaker": "jerod-santo",
+      "text": "way. Everybody has their own opinions and their own taste and you and your taste clashes with the top down. Well, the tops of the top and you're at the bottom. So, you know,"
+    },
+    {
+      "start": 4985.65,
+      "end": 5006.61,
+      "speaker": "adam-stacoviak",
+      "text": "Or even things in rust, like memory safety, like, Hey, don't ever do it that way. That's the wrong way. That's always the wrong way. I don't care if you're writing a rust CLI or a rust backend or low level tooling that taps into EBPF, whatever. Like, don't, it's never wrong. It's never right. Never do it that way. There aren't so many absolutes in software"
+    },
+    {
+      "start": 5006.61,
+      "end": 5012.77,
+      "speaker": "jerod-santo",
+      "text": "development though. Well, why do you think it depends is one of our most true. Okay, fine."
+    },
+    {
+      "start": 5012.85,
+      "end": 5020.61,
+      "speaker": "adam-stacoviak",
+      "text": "It depends. I can see, I can see once I still have once it was a fun ride. Yeah. Well,"
+    },
+    {
+      "start": 5020.61,
+      "end": 5029.26,
+      "speaker": "jerod-santo",
+      "text": "now you're a treaty and I'm waiting for the attack. I'm waiting for him to attack. He just retreated a little bit. Okay. So good thoughts. Interesting. I can, I can appreciate"
+    },
+    {
+      "start": 5029.26,
+      "end": 5046.38,
+      "speaker": "adam-stacoviak",
+      "text": "the, it depends. Cause I've heard about one, about 1 million times in my life on this podcast and throughout my, my career. So I can empathize with that. I think my, my dream is that helped me think a little less so I can be, so I can think about vision, product and user experience. Oh, I think"
+    },
+    {
+      "start": 5046.38,
+      "end": 5135.97,
+      "speaker": "jerod-santo",
+      "text": "that we could possibly get there without the top down approach. I think that the more that we codify and continuously improve on best practices and then, you know, feed them back into the systems, then the systems will get better at working at increasingly higher levels. I don't think if we take us out of the nitty-gritty that we want our agents creating React apps any, any longer. I don't, I don't see the purpose of that, but in the meantime, I get it. I also think it's kind of sad because you just have this like accident of history, not that React is an accident of history, but you have like this timing and this talk about codification, a, a, a freezing in time. All of a sudden, look at this chart, you look on this chart. So on his website, he has, it's crazy. So this is according to builtwith.com. He says there were 13 million plus sites outside of the top 1 million deployed with React in the last 12 months. And so there's like a straight up chart. If we look at React usage over time, starting in, I mean, it got, it started gaining in like 2018 up through 2022, but in 2023, AKA coding agents starting their coding, LLM's telling you how to write code. Now they're aging, agenting for us agenticking. I don't know what the verb there is, but it goes straight up. I mean, it's just insane how many new React sites are coming out today."
+    },
+    {
+      "start": 5135.97,
+      "end": 5161.5,
+      "speaker": "adam-stacoviak",
+      "text": "You could do the same comparison to WordPress in a different era, right? Like at one point, by and large, anybody developing a blog or building out a basic website for, you know, SMBs, medium-sized companies, even some larger ones. Oh, for sure. WordPress, right? Same curve, no LLM. Yeah. I mean, when you are the de facto, that's what happens. Yeah. So no,"
+    },
+    {
+      "start": 5161.5,
+      "end": 5203.31,
+      "speaker": "jerod-santo",
+      "text": "nothing against that, but I think that's, no, I'm not sure to blame React or anything. I think that I think it's different because there was human choice involved and there is human choice. It's just like two degrees of separation away. It's like this self redirecting feedback loop, or it's just like React's popular because React's popular because React's popular because React's popular. And we're not anywhere, like, when do we step in and say, yeah, but we don't have any, we had a chance to say, yeah, WordPress is cool, but what about, what else do people build websites with? What about Ghost? Rails? What about Ghost? I suppose Ghost. Yeah, sure."
+    },
+    {
+      "start": 5204.19,
+      "end": 5208.11,
+      "speaker": "adam-stacoviak",
+      "text": "They started having more choice, like Ruby on Rails and different things like that. Yeah."
+    },
+    {
+      "start": 5208.83,
+      "end": 5227.6,
+      "speaker": "jerod-santo",
+      "text": "Build your own. That's what you're doing. WordPress. Yeah. We can still build our own things. I think that what we need to do in the future is just build everything ourselves, you know, just like who needs libraries. That's what I'm, that's where I'm headed. If the agents get us there, if they get us there. Yeah. Explore that a bit more. How do you mean?"
+    },
+    {
+      "start": 5227.6,
+      "end": 5241.84,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, cause I think testing frameworks are still important protocols and known processes that work. That are battle-tested, fast, readable, you know, digestible. I'm not against protocol. I'm just"
+    },
+    {
+      "start": 5241.84,
+      "end": 5361.23,
+      "speaker": "jerod-santo",
+      "text": "talking about libraries and frameworks. Right. Certainly protocols and common, you know, bits that glue everything together. Here's a quote. So I've been working on a little blog post that I'm not ready to say much about, but I will say. Okay. I'll say this much. Our friend Louis Vio was writing on his newsletter that I read and he's been a agent at coding now for about a month, like in earnest, like having fun building stuff, just like you are. And he wrote down some of his observations after a month of doing this. Yeah. And he says, eat, here's one of his observations. Each of my new tools relies heavily on FOSS libraries, free and open source. Yeah. But I suspect many fewer than would have been the case in pre LLM code. Hard to say if this makes existing core libraries even more important and valuable or what. So he's finding what I'm finding, which is like there, you still got your react. Okay. But all of the other stuff that you used to pull in all those other ancillary libraries, those utilities, those helpers, especially the smaller ones, it's like, it's a burden. So just tell your thing to write a thing that does exactly what you need. It doesn't need to be generic. It doesn't need to be abstract. It can be exactly what you need and nothing more. And you have way less dependencies over time. And I think that we're at a point now where we can start to trim our dependencies around the edges and re-implement their limited functionality just for our own use case and remove that. And then over time, bill with less and less dependencies. I think that, I think that that in certain ways is unfortunate, but in other ways it's kind of a good thing. Like left pad, for example,"
+    },
+    {
+      "start": 5361.23,
+      "end": 5384.91,
+      "speaker": "adam-stacoviak",
+      "text": "no one's in this future left pad will be less. I'm probably never being a dependency again, or specifically, but you know, the, the idea of left pad being a dependency like that in this new world, an LLM can easily replace that thing. And it would, it would never pull it in this dependency is like, Oh, I need to move. I forget what, what did the left pad even do like patting around or something like that? Like something stupid. It had a string on the"
+    },
+    {
+      "start": 5384.91,
+      "end": 5389.71,
+      "speaker": "jerod-santo",
+      "text": "left side, you know, it had blank spaces to a string. Right. The way you want to use it. Yeah."
+    },
+    {
+      "start": 5389.71,
+      "end": 5395.01,
+      "speaker": "adam-stacoviak",
+      "text": "So they'll let them be like, yo, I just did that. No left pad required."
+    },
+    {
+      "start": 5395.01,
+      "end": 5410.05,
+      "speaker": "jerod-santo",
+      "text": "Almost every, almost every developer in human history would also have done that one. That's why that one's hilarious. Only in the JavaScript community would we just, you know, pull in a package for that. But yes, exactly that. Let me go slightly more, um, complicated. What about"
+    },
+    {
+      "start": 5410.05,
+      "end": 5416.3,
+      "speaker": "adam-stacoviak",
+      "text": "a Markdown parser for instance? Ooh. Okay. Now you're getting me excited. Well, because I mean,"
+    },
+    {
+      "start": 5416.3,
+      "end": 5470.29,
+      "speaker": "jerod-santo",
+      "text": "Markdown parsing is a known quantity. Like this is not rocket science. This is, there's a Markdown parser in every language. People will all have written them, et cetera. Well, what if I need a feature where it's like, I want to be able to add Markdown links to this text blob, you know, so you can put your square brackets around your text and then you can put your parentheses and put your link in there. And we're going to take that. And we're going to know that that's a thing and we're going to either translate it into HTML or maybe into an iCal thing or wherever we can output it. Okay. Well, in the past, perhaps you would pull in a Markdown parser. I got to get the Markdown library of the day, or I write a really gnarly regex, right? In the future, why don't you just write your own little Markdown parser? Cause it's going to take seven minutes for Claude to do that for you or 40 seconds. And it might not be a full Markdown parser that supports, it doesn't have to support all of that. You don't need all that surface area. You're not worried"
+    },
+    {
+      "start": 5470.29,
+      "end": 5474.85,
+      "speaker": "adam-stacoviak",
+      "text": "about bold and italics and stuff like that. You're just, all you need is a link. Right. And like,"
+    },
+    {
+      "start": 5474.85,
+      "end": 5509.71,
+      "speaker": "jerod-santo",
+      "text": "there's a place where it's like, yeah, regular expression could do that. But also you're like, well now I want the links, but I also, maybe I do want the bold and italics. Okay. My Markdown parser just does bolds, italics and links. And it's 500 lines of code versus the official Markdown parser for Ruby, which is like, I'm just making this up. I have no idea what it is. It's 17,000 lines. You have to compile and see extension, blah, blah, blah, blah, blah, blah. Dang. It's true. You know? So like stuff like that. Yeah. Yeah. Those things that you start to eat in from the, from the fringe and you start to like eat your way into your dependencies until they're"
+    },
+    {
+      "start": 5509.71,
+      "end": 5526.99,
+      "speaker": "adam-stacoviak",
+      "text": "all gone. Yeah. I think that's the kind of open source we won't truly miss. I think the open source we would miss, like if, like if you no longer need a Ruby on rails, like that level of replacement, that might be a different world to live in. I think those are the last things to go."
+    },
+    {
+      "start": 5526.99,
+      "end": 5531.52,
+      "speaker": "jerod-santo",
+      "text": "I think they're, they stick around the longest because they're the biggest, most valuable. I"
+    },
+    {
+      "start": 5531.52,
+      "end": 5610.96,
+      "speaker": "adam-stacoviak",
+      "text": "mean, React sticks around the longest. Yeah. And I think as long as humans desire and need to read the code or desire to have visibility into the code and it's never, cause I mean, there could be a world. I mean, I'm living in a world now where I still tell people, I tell people I'm a, a technologist and a software developer and a podcast and all the things I do. And then I tell them like, I'm doing things with AI. I never thought I would do. I'm literally, it's science fiction to me still yet. I still can't believe what we can do. It may be a couple more years where that may be true. Like I could just invent a framework and it's so good at doing what it needs to do that we, that we stopped checking it because it's just so good. It's always been good. And that might be five years or a few years on the road, but it might get to a point where enough of the human race who's doing this kind of work and pushing this kind of boundaries, like, you know, every time the thing does the thing, it's good. So I don't really care about the code really ever anymore. I, I used to, but now I don't. I'm not saying I want that world necessarily, but what if that's the next evolution is like, it's just become so good that it could talk to the Dom. And in fact, it just reinvented the browser, you know, Dom's gone too. The things you thought were never going to be replaced are replaced, you know?"
+    },
+    {
+      "start": 5612.08,
+      "end": 5649.39,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Who knows? Yeah, we'll see. I'm still the opinion, even though I've gone away from my AI winter stances, I'm on plateauing because I've been wrong about the plateau on a couple of occasions. So, you know, I don't like to be wrong. I'd rather be right. Yeah. I'm not going to be calling plateaus anytime soon because I've been wrong enough, but I don't think we get from where we are today with transformers to that. Like that's, I think we need some other and some other thing most likely will come around. So I'm not saying it's not going to happen. I just think that we need another step change to get to that level. I think we can get very far where we are."
+    },
+    {
+      "start": 5649.39,
+      "end": 5652.51,
+      "speaker": "adam-stacoviak",
+      "text": "Let's try to hypothesize what that might be then. Can we do that?"
+    },
+    {
+      "start": 5653.07,
+      "end": 5656.91,
+      "speaker": "jerod-santo",
+      "text": "Oh my goodness, man. I'm not a computer scientist. I'm a podcaster."
+    },
+    {
+      "start": 5658.18,
+      "end": 5762.58,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I hope so. I'm a podcaster too. I don't know if this is true, but I wonder, I mean, because we are moving at such a pace now where the hard things got easier and I would love, maybe this is where we should go either this year if we have one more opening for, which I think we don't. Maybe it's a first year kind of thing because I tried to do it last year is dive into quantum computing. I think that that's becoming the new fertile ground because we've got such advancements in artificial intelligence, LLMs supporting, you know, large swaths of generating code that we're moving at a faster pace on the things that were hard. So it's obvious like something that that will be next. We've talked a little bit about biocomputing recently, which I thought was kind of wild. And even that was in the research phase. It was cool to have that conversation and, you know, no harm, no foul to the person that we interviewed. She was amazing, but it was still research. So it still wasn't quite here. It was in the works. They've had some issues. They've had some stability issues. They've got some clear windows of where they can go. But I wonder if that next invention layer, like you say, is not here with Transformers is solved or is because you've got Microsoft doing like some cool stuff that I've heard about where they've got like a computer in like negative 500 degree temperatures doing something. And I'm not in that world. I know of all that stuff, but I saw a video about it doing something, you know, like this quantum stuff. So I wonder if this quantum computer, this this thing that I'm not even that familiar with is the next big thing that comes sooner because we're here now so quickly in building software at such a clip that"
+    },
+    {
+      "start": 5762.58,
+      "end": 5810.74,
+      "speaker": "jerod-santo",
+      "text": "we never had before. Yeah, I can't answer that question. Like if you made me stake my life one way or the other, I don't think I would say I don't think quantum computing takes us to a GI, for instance. I think it's like a different kind of thing, but I could totally be wrong about that. And I think there is other things that are coming beyond Transformers. I just don't know what they are and when they're coming and how far Transformers can take us. But even guys like Yann LeCun, which is like, you know, he is a computer scientist like capital C, capital S, and one of the the smartest ones that I can, you know, fathom in the industry. He says that we're not getting to a GI with Transformers. And so I would just take his word for that. I don't know what the next thing would be. And I'm not the guy to invent it. Somebody else will invent it. And"
+    },
+    {
+      "start": 5810.74,
+      "end": 5818.66,
+      "speaker": "adam-stacoviak",
+      "text": "then, you know, I'll complain about it. You think AGI is required to reinvent the DOM or the"
+    },
+    {
+      "start": 5818.66,
+      "end": 5840.82,
+      "speaker": "jerod-santo",
+      "text": "browser or to make rails obsolete? I think it'd be pretty good. Like AGI, AGI, probably not, but something way with way more conscientiousness. I don't know. Like it has to have actual smarts, not just instant recall of the world's information, you know?"
+    },
+    {
+      "start": 5840.82,
+      "end": 5842.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 5842.26,
+      "end": 5852.91,
+      "speaker": "jerod-santo",
+      "text": "That's my take, but love to hear other people's take on that because I've been wrong before. I think it was 2017, back in 2017, I was wrong. And yeah, that was the last time."
+    },
+    {
+      "start": 5852.91,
+      "end": 5865.47,
+      "speaker": "adam-stacoviak",
+      "text": "So were you, were you wrong about that? I was following you until I realized you were joshing me there. I'm like, it was a long time ago, Jared. Since then, are you pulling? Yes,"
+    },
+    {
+      "start": 5865.47,
+      "end": 5870.19,
+      "speaker": "jerod-santo",
+      "text": "you're pulling my leg. Yes, I got you. Yeah. All right. For a bit there."
+    },
+    {
+      "start": 5870.75,
+      "end": 5919.97,
+      "speaker": "adam-stacoviak",
+      "text": "Great conversation. This was fun. Yeah. Oh, did you push record? Oh, shoot. You did it. I gotcha. I gotcha. Oh, that's just a throwback. Y'all are last friends episode. We did together. We were sad. If you, if the first few minutes of that episode, go back and check it out. Just like, we seem a little gloom because we are, we forgot to push record. We talked for like 45 minutes, total gold. And you missed it because that's, it was, it was going to dev null. And that's not cool. Let's leave the folks with this. Go write an agent, right? Yes. Go write an agent, listen to change log news, go write an agent, changelog.news. If you're going there this week, well, that's going to be there for you. If it's next week, well then go back a week, but either way. Thomas, how do you say his last name?"
+    },
+    {
+      "start": 5919.97,
+      "end": 5925.47,
+      "speaker": "jerod-santo",
+      "text": "Well, I think it's pronounced Tacek because it's Polish, I believe, but it's spelled Patecek."
+    },
+    {
+      "start": 5925.47,
+      "end": 5969.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Thomas Tacek. There you go. Co-founder of Fly. We love Fly. We're hosted on Fly. Thank you, Fly. Did he co-found? He's one of the co-founders. Yeah. Okay, cool. I think he's, is he CTO? I don't know. I don't know what he is. I don't know. He's been around a long time. What are you? I know he's a co-founder though. Over at Fly, we love Fly. We use Fly. Amazing. But he wrote this really awesome read. It's 13 minutes long. You should write an agent. And I read it. I agree. I don't have time to write an agent, but I think I'd like to. It'd be a fun exercise because then you got the, you get the full empathy factor of what it takes to make one of these things. And maybe you can make your own little Archie or Alf or pick a name that's fun to you. And maybe it's Susie. I don't know. Pick it. Make yourself a little agent. Who knows? There you go."
+    },
+    {
+      "start": 5971.1,
+      "end": 5976.14,
+      "speaker": "jerod-santo",
+      "text": "And then tell us what you named it. That's right. I try to name something Archie recently,"
+    },
+    {
+      "start": 5976.14,
+      "end": 6018.75,
+      "speaker": "adam-stacoviak",
+      "text": "man. That's why I said that because I was bummed because I think yeah, I wanted to call it Archie. And so I think it's yeah, Archie Core. Just spell it wrong on purpose. That's what everybody else does. Maybe so, but I think it's Archie. What was it? Something that was like that. There's an Archie out there and I found it and I was like, okay, I can't, I can't do that because this is like AI native cloud infrastructure. Is that the most buzzword ever? But that's what they do. And that's, they, that's, they are Archie labs, Archie Core. Don't know who they are really, but I found them and I'm like, I can't call this thing Archie. So I called it Z Arch. Nowhere near as good. I mean, I think Z Arch is cool."
+    },
+    {
+      "start": 6019.55,
+      "end": 6023.79,
+      "speaker": "jerod-santo",
+      "text": "Why? It's an archway that's in somewhere over there in Germany."
+    },
+    {
+      "start": 6024.51,
+      "end": 6042.06,
+      "speaker": "adam-stacoviak",
+      "text": "It's it's archiving. It's totally focused on Z standard, not other formats. This is, this is Z standard for mere morals, man. Z Arch, not Archie. I think Archie would have been cooler. I'm just trying to make myself feel better. Okay. Right. It was like when you don't hit record and"
+    },
+    {
+      "start": 6042.06,
+      "end": 6051.36,
+      "speaker": "jerod-santo",
+      "text": "then you still record a show after that and you try to make yourself feel better. Archie would have been cooler. Yeah. Well, you know, just spell it wrong on purpose, man. Just spell it wrong on"
+    },
+    {
+      "start": 6051.36,
+      "end": 6074.35,
+      "speaker": "adam-stacoviak",
+      "text": "purpose. It's all yours. I guess you could say A-R-C-H-Y. I could try that. Bam. I mean, it's not done. I didn't release it. So I mean, it's, this is a skunkworks project at this point. It's my fun name. Z Arch sounds cool. We'll see. Bye y'all. Bye friends. Go code an agent, have fun, listen to news, changelog.news, and we'll see you when we see you. Bye. Bye friends."
+    },
+    {
+      "start": 6077.44,
+      "end": 6148.8,
+      "speaker": "jerod-santo",
+      "text": "So I mentioned inviting Spencer Chang, creator of the live internet theory website on the show to discuss good news. He got back to me and he sat down with me yesterday to talk all about it and a bunch of interesting art pieces he's building that entangle with our everyday lives and each other. It was a fascinating conversation. We'll bring it to you next Wednesday. Oh, and let us know if you enjoy these extended news discussions with Adam and myself, maybe we'll do more of them. Maybe we'll do less, but we can't divine whether or not you dig them. So you'll have to tell us. And if you want to discuss with us, what we discussed with each other, that happens in our communities, Zulip chat, which is free and joinable at changelog.com slash community. Thanks again to fly.io, to depot.dev, to augmentcode.com, to Nordlayer.com slash the changelog, to break master cylinder, and to you for hanging with us. Let's do this again next week. Speaking of next week, next week on the pod news on Monday, Spencer Chang on Wednesday, and Chris Benson talking drones and robotic swarms at the edge on Friday. Have yourself a great weekend. The hand of the diligent makes rich and let's talk again real soon."
+    }
+  ]
+}

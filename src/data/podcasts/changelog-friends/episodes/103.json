@@ -1,0 +1,2577 @@
+{
+  "title": "#define: props to astronomer",
+  "description": "A special episode of the #define game show featuring three Changelog++ members as contestants alongside hosts Jerod Santo and Adam Stacoviak.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "unknown"
+  ],
+  "segments": [
+    {
+      "start": 15.12,
+      "end": 42.72,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about oversharing shower habits. Thanks to our partners at Fly.io, the public cloud built for developers who ship. We love Fly. You might too learn more at Fly.io. Okay, let's play."
+    },
+    {
+      "start": 42.72,
+      "end": 44.68,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, it's all about faster builds."
+    },
+    {
+      "start": 44.68,
+      "end": 67.88,
+      "speaker": "jerod-santo",
+      "text": "Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay, so Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 67.88,
+      "end": 140.28,
+      "speaker": "adam-stacoviak",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is, if you think about a CI provider, it is, in essence, a lowest common denominator, generic VM. And then you're left to your own devices to essentially configure that VM and configure your build pipeline, effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast. Making them fast, making them secure, making them cost-effective, all pushed down to you. The problem with modern-day CI providers is there's still a set of features and a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes their builds more cost-effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top-level entity inside of generic CI providers."
+    },
+    {
+      "start": 140.28,
+      "end": 162.68,
+      "speaker": "jerod-santo",
+      "text": "Yes, okay, friends. Save your time, get faster builds with Depo, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo, and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one-line code change. Learn more at depo.dev. Get started with a seven-day free trial."
+    },
+    {
+      "start": 162.68,
+      "end": 172.2,
+      "speaker": "adam-stacoviak",
+      "text": "No credit card required. Again, depo.dev."
+    },
+    {
+      "start": 172.2,
+      "end": 197.13,
+      "speaker": "jerod-santo",
+      "text": "Welcome to another awesome episode of Pound Define, our game of obscure jargon, fake definitions, and expert tomfoolery. Our contestants checked their imposter syndrome at the door because they either know what these words mean or they're gonna fake it till they make their peers think they do. Adam, you've played this game a lot."
+    },
+    {
+      "start": 197.13,
+      "end": 198.79,
+      "speaker": "adam-stacoviak",
+      "text": "Feel like- I've lost every time, Jerry."
+    },
+    {
+      "start": 198.79,
+      "end": 199.63,
+      "speaker": "jerod-santo",
+      "text": "You're gonna win today?"
+    },
+    {
+      "start": 199.63,
+      "end": 209.62,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my. Feel good? I'm not on video, so at least maybe in the clip, but my face is sad because I have not won yet, but maybe today, maybe."
+    },
+    {
+      "start": 209.62,
+      "end": 217.72,
+      "speaker": "jerod-santo",
+      "text": "You did have a nice accolade. I think our last time we played, one particular listener said, your answers were always his favorite."
+    },
+    {
+      "start": 217.72,
+      "end": 218.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, well, you know."
+    },
+    {
+      "start": 218.82,
+      "end": 219.9,
+      "speaker": "jerod-santo",
+      "text": "So that's kind of a win."
+    },
+    {
+      "start": 219.9,
+      "end": 223.46,
+      "speaker": "adam-stacoviak",
+      "text": "You gotta win somewhere, right? As good as winning everything, yeah."
+    },
+    {
+      "start": 223.46,
+      "end": 254.56,
+      "speaker": "jerod-santo",
+      "text": "Yeah, put that on a dagger. Okay, so for this particular game, we decided let's get some of our changelog++ supporters, some of our diehard fans and our listeners to hop on the mic and play with us. So I put out a call and asked if anybody had a good setup, if they were free this afternoon. And I can't remember what else I said. Likes playing silly games. And we got three respondents. They are all here today. So one of them you may know, because he's been on the pod before, it's Jamie Tana. Jamie, what's up, man?"
+    },
+    {
+      "start": 254.56,
+      "end": 256.82,
+      "speaker": "adam-stacoviak",
+      "text": "Hey, great to be back. Been a while."
+    },
+    {
+      "start": 256.82,
+      "end": 264.09,
+      "speaker": "jerod-santo",
+      "text": "There you are. You're here now. Are you good at making up fake definitions for real words? We're gonna find out."
+    },
+    {
+      "start": 264.09,
+      "end": 264.91,
+      "speaker": "unknown",
+      "text": "No, I'm not."
+    },
+    {
+      "start": 264.91,
+      "end": 269.63,
+      "speaker": "adam-stacoviak",
+      "text": "I was gonna say that's perfect, like real time. No."
+    },
+    {
+      "start": 269.63,
+      "end": 285.45,
+      "speaker": "jerod-santo",
+      "text": "Okay, audio listeners only out there. He was like not sure what to say. He's like, gosh, do I go for it or not? Cause I'm gonna be found out. Should I boast or what? We're also joined by Spencer Lyon from Orlando. Welcome Spencer."
+    },
+    {
+      "start": 285.45,
+      "end": 295.31,
+      "speaker": "adam-stacoviak",
+      "text": "Thanks, happy to be here. Hopefully I'm rooting to maybe extend Adam's losing streak. I don't know. We'll see if Jamie, David and I can make it happen."
+    },
+    {
+      "start": 295.31,
+      "end": 297.95,
+      "speaker": "jerod-santo",
+      "text": "I think the odds are in your favor."
+    },
+    {
+      "start": 297.95,
+      "end": 301.09,
+      "speaker": "adam-stacoviak",
+      "text": "Three to one. If you're just playing blind."
+    },
+    {
+      "start": 301.09,
+      "end": 311.95,
+      "speaker": "jerod-santo",
+      "text": "That's true. It's true. There's also the spread because I do get to participate in kind of a strange way, but we should introduce David E. David Aja. Welcome David."
+    },
+    {
+      "start": 311.95,
+      "end": 314.67,
+      "speaker": "adam-stacoviak",
+      "text": "Thank you. Happy to be here. First time, long time."
+    },
+    {
+      "start": 314.67,
+      "end": 405.21,
+      "speaker": "jerod-santo",
+      "text": "Happy to have you as well. So how this game works is we have 10 rounds if we need them all, but we also have a goal of 15 points, which you can score in multiple ways. So I will provide for each round a word with a couple of rounds that aren't quite standard, but a standard round is a word which comes from the broad ranging world of STEM. I've been extending it beyond STEM. There's some music, there's some video games. There's anything you might imagine a nerd would love in the mix. And these words are obscure and sometimes old and quite jargony. If you know the words definition, you submit to me that. If you submit that correctly right away, you get three points and you get to sit that round out because you know the definition. If you don't know the definition, you make one up, you submit that. And then I gather them all together and I read them along with the actual definition and you all take your turns trying to identify which one is the correct definition for each person who guesses it correctly. At that point, you get two points and for each person you trick into selecting your definition, you get one point. If nobody after the end of the round actually lands on the correct definition, I, your humble moderator, get four points. First one to 15 points wins. Any questions?"
+    },
+    {
+      "start": 405.21,
+      "end": 406.05,
+      "speaker": "adam-stacoviak",
+      "text": "Let's rock."
+    },
+    {
+      "start": 406.05,
+      "end": 443.08,
+      "speaker": "jerod-santo",
+      "text": "I guess I just explained that so well. There's no questions. Okay, let's start then. Hopping right in to round one where the word for round one is myoclonus. Myoclonus, that's M-Y-O-C-L-O-N-U-S. Please submit to me your definitions for the word myoclonus now."
+    },
+    {
+      "start": 443.14,
+      "end": 447.54,
+      "speaker": "adam-stacoviak",
+      "text": "Do we get points for making Jared laugh while reading? That's the question."
+    },
+    {
+      "start": 447.54,
+      "end": 455.93,
+      "speaker": "jerod-santo",
+      "text": "In here, yeah, it would give you a pat on the back. Get some cred, some street cred. No real official points, but yes. You get docked points by making my job harder."
+    },
+    {
+      "start": 455.93,
+      "end": 464.41,
+      "speaker": "adam-stacoviak",
+      "text": "I was gonna say, and then you also have to watch people's faces as they're being read out to see if someone's like, oh yeah, that was mine. That was a good one."
+    },
+    {
+      "start": 464.41,
+      "end": 474.59,
+      "speaker": "jerod-santo",
+      "text": "That was funny. There are some social cues, yeah, that you can look out for. Unless you're me and I do nothing, I have a stone case, a stone face here. There's no giveaways. This is poker to me."
+    },
+    {
+      "start": 474.59,
+      "end": 483.44,
+      "speaker": "adam-stacoviak",
+      "text": "This is poker to me. Definitely is a giveaway in one of the rounds and I'm looking forward to taking advantage of that."
+    },
+    {
+      "start": 483.44,
+      "end": 489.02,
+      "speaker": "jerod-santo",
+      "text": "I have Spencer's, David's, and Jamie's, which means we're just waiting on Adam."
+    },
+    {
+      "start": 489.02,
+      "end": 494.58,
+      "speaker": "adam-stacoviak",
+      "text": "Chucky. Yeah, I know, I'm sorry. I don't know how to describe it. I'm working on it."
+    },
+    {
+      "start": 494.58,
+      "end": 536.17,
+      "speaker": "jerod-santo",
+      "text": "So one suggestion that we've had is to post all the definitions to you all and then read them once. And that cuts down on the people asking to repeat. Now I think the asking to repeat is kind of funny, but it does get old. That's kind of the funny part. My fear with, the reason I haven't done it is because there's a certain amount of tells, even in the text, whether it's misspellings or the way that I present things that can sometimes lead to you knowing whether or not it's real. So I'm curious, as we are here in the first round, what you all think about."
+    },
+    {
+      "start": 536.17,
+      "end": 548.61,
+      "speaker": "adam-stacoviak",
+      "text": "If you had some kind of tokenizer that stripped all the punctuation and things, that might be a way to quickly homogenize things a little bit. The misspellings thing is probably harder to catch."
+    },
+    {
+      "start": 549.93,
+      "end": 555.51,
+      "speaker": "jerod-santo",
+      "text": "Kind of like the spontaneity. It's funny to hear as a listener people's reactions."
+    },
+    {
+      "start": 557.48,
+      "end": 562.66,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe it's not the best for game integrity, but maybe for entertainment value, it's a good choice."
+    },
+    {
+      "start": 562.66,
+      "end": 585.58,
+      "speaker": "jerod-santo",
+      "text": "The reason why I would lean toward leaving alone is because as a listener, you don't get the advantage of being able to look at the sentences. And so having them be repeated for you is actually helpful because you're like, I don't remember what that one was either. And so there's a camaraderie to that, you know? But I fully admit that it's not efficient at all. Cause you're like, can you say that one again? And it gets to be like, dude, I've said it six times. Adam, come on, stop."
+    },
+    {
+      "start": 586.58,
+      "end": 587.74,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, my name's in there?"
+    },
+    {
+      "start": 587.74,
+      "end": 596.64,
+      "speaker": "jerod-santo",
+      "text": "Well, you might be the most requester of them all. I played the most, I played the most. Right."
+    },
+    {
+      "start": 596.64,
+      "end": 600.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think no definitions in the chat makes sense."
+    },
+    {
+      "start": 600.16,
+      "end": 648.03,
+      "speaker": "jerod-santo",
+      "text": "Okay. There's been a few people that have said that something, not like a major complaint or anything. All right. I have all five definitions for myoclonus. That's your four, as well as the correct definition. They are number one, a term that defines the family of different forms of life that undergo mitosis. Number two, an eye disorder that results in double vision. Number three, a pre, it's been a while since I've done this. Okay. Number three, a precursor to the monocle, an ancient Mayan scene aid used to magnify small objects. Number four, known as the sibling of restless leg syndrome. Sorry."
+    },
+    {
+      "start": 650.49,
+      "end": 653.37,
+      "speaker": "adam-stacoviak",
+      "text": "Restless leg syndrome is serious."
+    },
+    {
+      "start": 653.37,
+      "end": 671.13,
+      "speaker": "jerod-santo",
+      "text": "I know it is. And I'm offending somebody. Known as the sibling of restless leg syndrome is when your muscles twitch and have sudden movements. Number five, the brief involuntary twitching of a muscle or group of muscles. There you have five definitions, read perfectly, each one."
+    },
+    {
+      "start": 671.13,
+      "end": 675.61,
+      "speaker": "adam-stacoviak",
+      "text": "Nailed it, that isn't in post. First try, first try."
+    },
+    {
+      "start": 675.61,
+      "end": 683.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I'm warming up still, I'm still warming up. And we are gonna see if we can identify which one's real. We'll start with Jamie."
+    },
+    {
+      "start": 683.11,
+      "end": 684.27,
+      "speaker": "adam-stacoviak",
+      "text": "What was the second one again?"
+    },
+    {
+      "start": 684.27,
+      "end": 688.01,
+      "speaker": "jerod-santo",
+      "text": "Second one was an eye disorder that results in double vision."
+    },
+    {
+      "start": 688.01,
+      "end": 689.23,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm gonna go with that one."
+    },
+    {
+      "start": 689.23,
+      "end": 694.47,
+      "speaker": "jerod-santo",
+      "text": "Okay, Jamie takes double vision. We go now to David."
+    },
+    {
+      "start": 694.47,
+      "end": 696.39,
+      "speaker": "adam-stacoviak",
+      "text": "The fifth one, the muscle one."
+    },
+    {
+      "start": 696.39,
+      "end": 701.71,
+      "speaker": "jerod-santo",
+      "text": "The muscle one, okay. David takes the muscle one. We go to Spencer."
+    },
+    {
+      "start": 701.71,
+      "end": 708.81,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna stick with David here. I'm thinking twitchy muscles, but not necessarily restricted to the legs."
+    },
+    {
+      "start": 708.81,
+      "end": 722.76,
+      "speaker": "jerod-santo",
+      "text": "Okay, it goes beyond legs. Spencer takes number five, that's the muscle one. And now we go to Adam. Are you gonna pile on? Are you gonna spread it out? Are you gonna?"
+    },
+    {
+      "start": 722.76,
+      "end": 727.08,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know, I guess I don't know what to do. I don't know."
+    },
+    {
+      "start": 727.08,
+      "end": 729.68,
+      "speaker": "jerod-santo",
+      "text": "Well, do you need me to repeat any of them for you?"
+    },
+    {
+      "start": 729.68,
+      "end": 733.76,
+      "speaker": "adam-stacoviak",
+      "text": "That, was it four or five that made you laugh? Which one made you laugh?"
+    },
+    {
+      "start": 733.78,
+      "end": 741.3,
+      "speaker": "jerod-santo",
+      "text": "The sibling of restless leg syndrome. I'm kind of liking that one. Not because it's unbelievable, just because I think it's-"
+    },
+    {
+      "start": 741.3,
+      "end": 743.42,
+      "speaker": "adam-stacoviak",
+      "text": "I'll pile on, I'll pile on. Okay."
+    },
+    {
+      "start": 743.42,
+      "end": 745.08,
+      "speaker": "jerod-santo",
+      "text": "I'll pile on. So you have a pile on."
+    },
+    {
+      "start": 745.08,
+      "end": 746.46,
+      "speaker": "adam-stacoviak",
+      "text": "That's early for a pile on."
+    },
+    {
+      "start": 746.46,
+      "end": 767.36,
+      "speaker": "jerod-santo",
+      "text": "Nobody thought it was the sibling of restless leg syndrome, probably because I didn't read it very well. I apologize, Adam, you had that one and that was yours. You also misspelled known. So I was trying to overcome that. I had to add the N in my head as I tried to read it. And so you really stumbled me right at the front. And then I thought, why does restless leg syndrome have a sibling?"
+    },
+    {
+      "start": 769.44,
+      "end": 771.02,
+      "speaker": "adam-stacoviak",
+      "text": "For the arms?"
+    },
+    {
+      "start": 771.02,
+      "end": 810.57,
+      "speaker": "jerod-santo",
+      "text": "Yeah, they have like restless arm syndrome or what? So you just got me to that one. And you got nobody else probably because of that. However, Spencer also didn't trick anybody with his precursor to the monocle. Nobody picked that one, that was Spencer's. And Jamie didn't get anyone with a term that defines the family of different forms of life that undergo mitosis. So it's not looking very good for me because those are three fake ones. The other fake one that was selected was an eye disorder that results in double vision. Jamie guessed that, that was David. So one point to David for the eye disorder. I thought that was a good one, double vision, mono."
+    },
+    {
+      "start": 810.57,
+      "end": 812.89,
+      "speaker": "adam-stacoviak",
+      "text": "Myo for like myopic, yeah."
+    },
+    {
+      "start": 812.89,
+      "end": 813.73,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 813.73,
+      "end": 814.57,
+      "speaker": "adam-stacoviak",
+      "text": "There you go."
+    },
+    {
+      "start": 814.57,
+      "end": 864.84,
+      "speaker": "jerod-santo",
+      "text": "So well played. However, once I read the actual definition, it seems like you guys knew what it was. The brief involuntary twitching of a muscle or group of muscles that is myoclonous. So David, Spencer, and Adam all get two points each. So after round one, David's in the lead with three, Spencer and Adam tied with two, and Jamie and I not quite yet on the board. But there's lots of poundifying left to play. We move now to round two, where your word for round two is eigengrau. That's E-I-G-E-N-G-R-A-U, eigengrau. Submit to me your definitions just as soon as you have them. Is restless leg syndrome a thing?"
+    },
+    {
+      "start": 864.84,
+      "end": 871.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. I guess while we're here in the break, I thought I was on the money with that one because that's, I learned about that just for a bit there. I thought I had it."
+    },
+    {
+      "start": 871.64,
+      "end": 899.76,
+      "speaker": "jerod-santo",
+      "text": "And that's when I learned about myoclonus like this or whatever, however it's pronounced. It's twitchy stuff. So I thought I had on the money, but maybe I was off a little because that's how I learned about it. Because for a bit there I had this thing where I thought I had, like I just had twitchies for a bit. It was when my thigh was a little off and it was kind of caused from that because there's like a, when you have like a thyroid issue, you can also have like versions of arthritis, but it's not like full on arthritis."
+    },
+    {
+      "start": 899.76,
+      "end": 910.95,
+      "speaker": "adam-stacoviak",
+      "text": "It's kind of like arthritic things. And that's kind of a sibling to restless leg syndrome. Cause I thought I had that. So they described several things and that was in my memory from that. And that's why I described it that way."
+    },
+    {
+      "start": 910.95,
+      "end": 914.75,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it wasn't bad. I had never heard of reckless leg syndrome."
+    },
+    {
+      "start": 914.75,
+      "end": 915.75,
+      "speaker": "adam-stacoviak",
+      "text": "It's pretty bad."
+    },
+    {
+      "start": 915.77,
+      "end": 918.61,
+      "speaker": "jerod-santo",
+      "text": "But yeah, it's just basically like your leg twitches uncontrollably."
+    },
+    {
+      "start": 918.61,
+      "end": 933.39,
+      "speaker": "adam-stacoviak",
+      "text": "You can't stop moving it. Yeah, it's like it just moves without you wanting it to. And it's usually during sleep when you're trying to sleep. And so obviously your sleep sucks. I can see how that reads funny though. Especially since it says no, not versus known."
+    },
+    {
+      "start": 933.39,
+      "end": 939.81,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's what got me first. Then I started thinking like siblings."
+    },
+    {
+      "start": 939.81,
+      "end": 943.49,
+      "speaker": "adam-stacoviak",
+      "text": "Well that win y'all. Since somebody asked, who was it that asked? Was it David?"
+    },
+    {
+      "start": 943.49,
+      "end": 945.77,
+      "speaker": "jerod-santo",
+      "text": "Was there extra points for making Jared laugh?"
+    },
+    {
+      "start": 945.77,
+      "end": 949.79,
+      "speaker": "adam-stacoviak",
+      "text": "That was my question. So far you're in the lead. You're in the lead."
+    },
+    {
+      "start": 949.79,
+      "end": 951.91,
+      "speaker": "jerod-santo",
+      "text": "I got in the last round one."
+    },
+    {
+      "start": 951.91,
+      "end": 961.39,
+      "speaker": "adam-stacoviak",
+      "text": "So you've got a fun speaker lined up for the weekend in Denver and then other activities. What else has happened in the live show?"
+    },
+    {
+      "start": 961.39,
+      "end": 1027.75,
+      "speaker": "jerod-santo",
+      "text": "Well, we're going to do our Kaizen episode with Gerhard and we're going to be launching cutting over pipe lead and go live. So that'll be interesting. That's basically it. It's a two parter. So an interview and then a Kaizen. And what else? Whatever else we make up on stage. We have all the definitions for Eigen grout. Number one, the dark gray color that people perceive in complete darkness rather than seeing pure black. Number two, when naming the beer, Zeigenbach. Dude, you can't laugh, I'm going to have to mute you. When naming the beer, Zeigenbach, his name was also in the running. It describes a patent pending process for mixing beer. So they considered it for the name of the beer. Number three, the deeply primal feeling of fear driven by a heightened increase of cortisol as if hearing the blood curdling cry of a beast while on the hunt."
+    },
+    {
+      "start": 1027.75,
+      "end": 1029.55,
+      "speaker": "adam-stacoviak",
+      "text": "It's amazing definitions."
+    },
+    {
+      "start": 1029.55,
+      "end": 1046.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah, these are good. The imaginary counterpart to the Eigen space of a matrix for complex valued matrices. And number five from the German for singularly gray. There you have five definitions of Eigen grout. David, we start with you."
+    },
+    {
+      "start": 1046.43,
+      "end": 1049.03,
+      "speaker": "adam-stacoviak",
+      "text": "Sorry, could you remind me of the first one?"
+    },
+    {
+      "start": 1049.03,
+      "end": 1055.64,
+      "speaker": "jerod-santo",
+      "text": "Number one was the dark gray color that people perceive in complete darkness rather than seeing pure black."
+    },
+    {
+      "start": 1055.64,
+      "end": 1059.2,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I think as appealing as Adam's beer definition."
+    },
+    {
+      "start": 1061.2,
+      "end": 1063.66,
+      "speaker": "jerod-santo",
+      "text": "Hey, you can't out him like that."
+    },
+    {
+      "start": 1063.66,
+      "end": 1071.96,
+      "speaker": "adam-stacoviak",
+      "text": "I don't think I did. I think that was all it. I'm gonna go for that first one."
+    },
+    {
+      "start": 1071.96,
+      "end": 1075.06,
+      "speaker": "jerod-santo",
+      "text": "Okay, the first one. Spencer, what are you thinking?"
+    },
+    {
+      "start": 1075.06,
+      "end": 1080.92,
+      "speaker": "adam-stacoviak",
+      "text": "I'm thinking number five, the German word for singularly gray."
+    },
+    {
+      "start": 1080.92,
+      "end": 1099.22,
+      "speaker": "jerod-santo",
+      "text": "Okay, so far we've got gray and gray. Adam? I gotta say those two definitions make me think something's in a shade of gray here. So I'm thinking number five as well, the German version of gray. Piling on gray, the German gray. Jamie, you're gonna pile on?"
+    },
+    {
+      "start": 1099.22,
+      "end": 1100.88,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna go for the other gray."
+    },
+    {
+      "start": 1102.24,
+      "end": 1106.16,
+      "speaker": "jerod-santo",
+      "text": "Okay, so we're piling on gray. We're gonna pile on the other gray."
+    },
+    {
+      "start": 1106.16,
+      "end": 1107,
+      "speaker": "adam-stacoviak",
+      "text": "So I'll go for one."
+    },
+    {
+      "start": 1107,
+      "end": 1159.28,
+      "speaker": "jerod-santo",
+      "text": "Okay, so number one, we have David and Jamie on one and we have Spencer and Adam on five. Both definitions about gray. One of them is correct, one of them is incorrect. I'll tell you that much. And the definition that is incorrect is literally true though from the German for singularly gray. So that's just knowing the compound word I suppose and not the definition. The definition actually is the dark gray color that people perceive in complete darkness rather than seeing pure black. So that one was the actual definition. And David and Jamie both picked that. So David gets two, Jamie gets two. However, David was so close because he also knew from the German for singularly gray that was his, so he also tricked two people. And so he scores four."
+    },
+    {
+      "start": 1159.28,
+      "end": 1160.58,
+      "speaker": "adam-stacoviak",
+      "text": "That's a big round."
+    },
+    {
+      "start": 1160.58,
+      "end": 1162.92,
+      "speaker": "jerod-santo",
+      "text": "Congrats, David, you must feel good about yourself."
+    },
+    {
+      "start": 1162.92,
+      "end": 1170.24,
+      "speaker": "adam-stacoviak",
+      "text": "I do, I lived in Berlin for like half a year. And so in that time, I'm just like, yeah, that's enough."
+    },
+    {
+      "start": 1170.24,
+      "end": 1175.08,
+      "speaker": "jerod-santo",
+      "text": "That's enough to put that word together. Eigen, does eigen mean singular?"
+    },
+    {
+      "start": 1175.08,
+      "end": 1181.06,
+      "speaker": "adam-stacoviak",
+      "text": "That actually, I just kind of went with the mathy like eigenvector value or whatever, yeah."
+    },
+    {
+      "start": 1181.06,
+      "end": 1209.96,
+      "speaker": "jerod-santo",
+      "text": "According to Wikipedia, eigen growls the German from intrinsic gray. And so maybe eigen means intrinsic. Also called eigenlich, eigenlich. I can't speak German. Dark light or brain gray. It's the uniform dark gray background color that many people report seen in the absence of light. The term eigenlicht dates back to the 19th century and has rarely been used in recent scientific publications. So there you go."
+    },
+    {
+      "start": 1209.96,
+      "end": 1216.76,
+      "speaker": "adam-stacoviak",
+      "text": "How would they all be reporting it as gray? Like there's no, I'm sorry, that's a philosophy."
+    },
+    {
+      "start": 1216.76,
+      "end": 1224.32,
+      "speaker": "jerod-santo",
+      "text": "Yeah, they think they're seeing black, but they're not basically. Cause it's just like, well, it's dark. So it's black, it's actually not black."
+    },
+    {
+      "start": 1224.32,
+      "end": 1225.52,
+      "speaker": "adam-stacoviak",
+      "text": "It's the absence of light."
+    },
+    {
+      "start": 1225.52,
+      "end": 1226.66,
+      "speaker": "jerod-santo",
+      "text": "It's eigen growl."
+    },
+    {
+      "start": 1226.66,
+      "end": 1237.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's interesting. We have a cave here in Texas that you can go to like as a tourist and go to the pitch black part of it. So they'll take you deep enough that you're not in danger."
+    },
+    {
+      "start": 1237.24,
+      "end": 1245.58,
+      "speaker": "jerod-santo",
+      "text": "They'll turn the lights off and it literally is pitch black or what they call pitch black. And so maybe I should go back there and test this eigen growl."
+    },
+    {
+      "start": 1245.58,
+      "end": 1248.94,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Did you know this is actually eigen growl?"
+    },
+    {
+      "start": 1248.94,
+      "end": 1253.63,
+      "speaker": "jerod-santo",
+      "text": "That's right, this is not pitch black. I'll correct them, the tour guide."
+    },
+    {
+      "start": 1253.63,
+      "end": 1256.13,
+      "speaker": "adam-stacoviak",
+      "text": "You should, you just yelled, das ist eigen growl."
+    },
+    {
+      "start": 1256.13,
+      "end": 1314.12,
+      "speaker": "jerod-santo",
+      "text": "Das ist eigen growl and be really angry. Yes. All right, well, you should be really angry cause you're getting whooped by David at this point as is all of us because he has seven points after two rounds. Wow. The rest of you all are tied with two. There's plenty of pound to find left to play. I'm still in the eigen growl with zero. Let's move now to round three where your word for round three is klystron. That's K L Y S T R O N. Please submit to me your definitions for the word klystron. So I was debating in my head whether I should just give David the three points for being correct cause he was so close. I decided to let him play cause he wasn't exactly right. But man, you actually scored way more points cause I let you play than you would have if I'd just given you the points."
+    },
+    {
+      "start": 1314.12,
+      "end": 1316.48,
+      "speaker": "adam-stacoviak",
+      "text": "You came out on top. I'm not mad about it."
+    },
+    {
+      "start": 1316.48,
+      "end": 1328.74,
+      "speaker": "jerod-santo",
+      "text": "That definitely paid off for you, so good job. I do like the sound of that."
+    },
+    {
+      "start": 1328.74,
+      "end": 1330.1,
+      "speaker": "adam-stacoviak",
+      "text": "Look at it clackety."
+    },
+    {
+      "start": 1330.1,
+      "end": 1330.94,
+      "speaker": "jerod-santo",
+      "text": "It sure is."
+    },
+    {
+      "start": 1330.94,
+      "end": 1332.54,
+      "speaker": "adam-stacoviak",
+      "text": "It's really emphatic."
+    },
+    {
+      "start": 1332.54,
+      "end": 1335.82,
+      "speaker": "jerod-santo",
+      "text": "I pressed enter and you all knew I pressed enter."
+    },
+    {
+      "start": 1335.82,
+      "end": 1370.78,
+      "speaker": "adam-stacoviak",
+      "text": "During COVID my partner and I, so we were living at her house and we're sharing an office which was like, so it's a two bed Victorian house. And so office bedroom that we were sharing was not very big and we both had mechanical keyboards. And it was the sort of time that like at lunch, we'd talk a little bit about work and I wouldn't even need to tell my partner what was going on that morning. Cause she would know if I'd been like arguing with people on Slack, because it was very, very clear. In that small room."
+    },
+    {
+      "start": 1370.78,
+      "end": 1379.3,
+      "speaker": "jerod-santo",
+      "text": "You're just emphatically typing. But how does she know? You could have just been like in the flow state coding like a madman, you know, just really going after it."
+    },
+    {
+      "start": 1379.3,
+      "end": 1389.54,
+      "speaker": "adam-stacoviak",
+      "text": "I think she learned pretty quickly, yeah. Different. Yeah, many more pauses when you're coding. To like think of the next thing. Whereas I was like."
+    },
+    {
+      "start": 1389.54,
+      "end": 1391.46,
+      "speaker": "jerod-santo",
+      "text": "When you're ranting, you're just raving."
+    },
+    {
+      "start": 1391.46,
+      "end": 1396.58,
+      "speaker": "adam-stacoviak",
+      "text": "Was she like, who are you arguing with? Are you winning?"
+    },
+    {
+      "start": 1396.62,
+      "end": 1453.88,
+      "speaker": "jerod-santo",
+      "text": "Okay, we're there. Five definitions for the word klystron. Number one, a device that converts the kinetic energy of an electron beam into radio frequency power. Number two, the process of moving swiftly through water. Number three, the nickname for a grouping of subatomic particles, including the gluon and muon. Number four, a lesser used term in scientific vernacular to denote a grouping of potassium heavy entities. And number five, a subatomic particle with negative charge and spin. These are all believable to this layman over here. Let's see what y'all think, starting with Spencer. I'm gonna have to hear those first two again, Jared. Sure thing, number one, a device that converts the kinetic energy of an electron beam into radio frequency power. And number two, the process of moving swiftly through water."
+    },
+    {
+      "start": 1454.78,
+      "end": 1471.06,
+      "speaker": "adam-stacoviak",
+      "text": "I think I'm gonna, I'm gonna go, there were two subatomic particles. So I'm drawn to one of those ones. And the question is which one? I think I'm gonna go negative charge and spin, number five."
+    },
+    {
+      "start": 1471.06,
+      "end": 1477.82,
+      "speaker": "jerod-santo",
+      "text": "Number five, a subatomic particle with negative charge and spin. Locky in right there, Adam, to you."
+    },
+    {
+      "start": 1477.82,
+      "end": 1479.82,
+      "speaker": "adam-stacoviak",
+      "text": "You know, five sounds pretty awesome."
+    },
+    {
+      "start": 1479.86,
+      "end": 1486.31,
+      "speaker": "jerod-santo",
+      "text": "But, but, but. Not quite awesome enough."
+    },
+    {
+      "start": 1486.31,
+      "end": 1489.99,
+      "speaker": "adam-stacoviak",
+      "text": "I really feel like there's something to number two."
+    },
+    {
+      "start": 1489.99,
+      "end": 1490.99,
+      "speaker": "jerod-santo",
+      "text": "I don't know."
+    },
+    {
+      "start": 1490.99,
+      "end": 1496.71,
+      "speaker": "adam-stacoviak",
+      "text": "But there's a lot of people talking about protons and mixing and stuff like that and the potassiums."
+    },
+    {
+      "start": 1496.71,
+      "end": 1497.71,
+      "speaker": "jerod-santo",
+      "text": "Right, charges."
+    },
+    {
+      "start": 1497.71,
+      "end": 1503.03,
+      "speaker": "adam-stacoviak",
+      "text": "Can you read number four for me again, just so I can have clear, that one was similar to five."
+    },
+    {
+      "start": 1503.03,
+      "end": 1510.83,
+      "speaker": "jerod-santo",
+      "text": "Close. It's a lesser used term in scientific vernacular to denote a grouping of potassium heavy entities."
+    },
+    {
+      "start": 1510.83,
+      "end": 1511.79,
+      "speaker": "adam-stacoviak",
+      "text": "Let's go with five."
+    },
+    {
+      "start": 1511.79,
+      "end": 1514.07,
+      "speaker": "jerod-santo",
+      "text": "Five. The one that Spencer went with."
+    },
+    {
+      "start": 1514.07,
+      "end": 1514.91,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 1514.91,
+      "end": 1515.97,
+      "speaker": "jerod-santo",
+      "text": "He's got the points."
+    },
+    {
+      "start": 1515.97,
+      "end": 1516.87,
+      "speaker": "adam-stacoviak",
+      "text": "I'm following him."
+    },
+    {
+      "start": 1517.87,
+      "end": 1525.95,
+      "speaker": "jerod-santo",
+      "text": "Not been a winning strategy yet. Adam and I are sticking together. You're gonna have the same score. All right, now to Jamie."
+    },
+    {
+      "start": 1525.95,
+      "end": 1528.47,
+      "speaker": "adam-stacoviak",
+      "text": "I was hoping David would go first."
+    },
+    {
+      "start": 1528.47,
+      "end": 1530.05,
+      "speaker": "jerod-santo",
+      "text": "He went first last time."
+    },
+    {
+      "start": 1530.05,
+      "end": 1532.99,
+      "speaker": "adam-stacoviak",
+      "text": "What was number three? That was the other subatomic particle one."
+    },
+    {
+      "start": 1532.99,
+      "end": 1537.79,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the nickname for a grouping of subatomic particles, including the gluon and muon."
+    },
+    {
+      "start": 1537.79,
+      "end": 1545.62,
+      "speaker": "adam-stacoviak",
+      "text": "I'm not sure about the water one. As it came out, I was like, hmm, I don't know. But I also don't know any of these words."
+    },
+    {
+      "start": 1545.62,
+      "end": 1551.58,
+      "speaker": "jerod-santo",
+      "text": "I think it's clear that none of us know what this definition is. So it's a guessing game at this point."
+    },
+    {
+      "start": 1553.38,
+      "end": 1559.66,
+      "speaker": "adam-stacoviak",
+      "text": "I think I'm gonna, again, try and split the vote and go for number three, the other subatomic particle."
+    },
+    {
+      "start": 1559.66,
+      "end": 1568.34,
+      "speaker": "jerod-santo",
+      "text": "Okay, so you're liking subatomic, but you're gonna go for the other subatomic. All right, David, you are last to guess this round."
+    },
+    {
+      "start": 1569.14,
+      "end": 1578.22,
+      "speaker": "adam-stacoviak",
+      "text": "I feel it's like the subatomic particle thing seems so obvious that it feels like a trap."
+    },
+    {
+      "start": 1580.82,
+      "end": 1581.98,
+      "speaker": "jerod-santo",
+      "text": "Cue Admiral Ackbar."
+    },
+    {
+      "start": 1584.04,
+      "end": 1596.27,
+      "speaker": "adam-stacoviak",
+      "text": "Whereas, I don't know if there's no klystron for water. It doesn't sound right. The potassium thing is like Kaley. No, that doesn't work either. I don't know. What was the first one?"
+    },
+    {
+      "start": 1596.27,
+      "end": 1602.91,
+      "speaker": "jerod-santo",
+      "text": "That was the device that converts the kinetic energy of an electron beam into radio frequency power."
+    },
+    {
+      "start": 1602.91,
+      "end": 1605.83,
+      "speaker": "adam-stacoviak",
+      "text": "The kinetic energy of an electron beam."
+    },
+    {
+      "start": 1605.83,
+      "end": 1606.71,
+      "speaker": "jerod-santo",
+      "text": "Correct."
+    },
+    {
+      "start": 1606.71,
+      "end": 1616.46,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I don't, you know what, I'm gonna go for the vote. I was like, I mean, yeah."
+    },
+    {
+      "start": 1616.46,
+      "end": 1622.06,
+      "speaker": "jerod-santo",
+      "text": "This is that scenario when you're sold something and you just want the salesperson to sell it to you. Can you just tell me which one to pick, Terry?"
+    },
+    {
+      "start": 1622.06,
+      "end": 1628.1,
+      "speaker": "adam-stacoviak",
+      "text": "Tell me which one to pick. Yeah, I'll just, you know, all I have is money. Somebody's gonna be a problem."
+    },
+    {
+      "start": 1628.1,
+      "end": 1629.58,
+      "speaker": "jerod-santo",
+      "text": "Just tell me what I should buy."
+    },
+    {
+      "start": 1629.58,
+      "end": 1639.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm gonna go for the water one. The water one? Yeah, I don't know, I don't feel strongly about it, but yeah, that's what we're doing."
+    },
+    {
+      "start": 1639.7,
+      "end": 1667.18,
+      "speaker": "jerod-santo",
+      "text": "But if you had to pick one, you're gonna pick the water one. The process of moving swiftly through water. Adam did say there was something to that one. There's something special about that one. Wasn't there, Adam? Pretty special. Tell him what he won. He won one point for Adam. Because that was something special about that one. For a second there, Adam, I thought you were gonna do the people are talking about thing. It's not like people are talking about it. Everybody said, this boat,"
+    },
+    {
+      "start": 1667.18,
+      "end": 1670.58,
+      "speaker": "adam-stacoviak",
+      "text": "it moves through the water with the klystron. You don't even know. You're not really."
+    },
+    {
+      "start": 1670.58,
+      "end": 1687.94,
+      "speaker": "jerod-santo",
+      "text": "People are talking about that water one. It's like, no, you're the first person to go. No one's not, okay. So yeah, Adam gets a point there. The pile on was to the subatomic particle with negative charge and spin. Two points, because Spencer and Adam both selected. That one goes back to David. So he's still scoring."
+    },
+    {
+      "start": 1687.94,
+      "end": 1689.5,
+      "speaker": "adam-stacoviak",
+      "text": "That's why I didn't believe it."
+    },
+    {
+      "start": 1690.72,
+      "end": 1704.22,
+      "speaker": "jerod-santo",
+      "text": "It was cool. I liked it. It was a good one. I liked the gluon and the muon the most. Jamie liked that one as well. And that was Spencer's. So the subatomic particles was too good to be true. Neither of those was the right answer."
+    },
+    {
+      "start": 1704.22,
+      "end": 1705.78,
+      "speaker": "adam-stacoviak",
+      "text": "Is Jerry on the board now?"
+    },
+    {
+      "start": 1705.78,
+      "end": 1745.14,
+      "speaker": "jerod-santo",
+      "text": "Which means I score four points because a klystron is a device that converts the kinetic energy of an electron beam into a radio frequency power, often called a klystron tube, if you're gonna look up the actual thing. And there you go. Surprised you guys didn't know that. I didn't know that either, but I knew it before you guys did, because I looked it up this morning. Vended 1937, it's been around. Yeah, it's been out there. There's lots of YouTube videos. I watched them because I wanted to figure out how to pronounce it. And I'm not sure if I pronounced it right, because I did see both klystron and klystron."
+    },
+    {
+      "start": 1745.78,
+      "end": 1752.74,
+      "speaker": "adam-stacoviak",
+      "text": "Is it related at all to vacuum tubes or is that just like a completely separate technology? No, it's not. I don't know."
+    },
+    {
+      "start": 1752.74,
+      "end": 1755.06,
+      "speaker": "jerod-santo",
+      "text": "It's a tube, I don't know. I'm not a physicist."
+    },
+    {
+      "start": 1755.06,
+      "end": 1758.34,
+      "speaker": "adam-stacoviak",
+      "text": "I was attracted to that one too. I almost picked that one. It was close."
+    },
+    {
+      "start": 1758.34,
+      "end": 1798.78,
+      "speaker": "jerod-santo",
+      "text": "People were talking about that water one. Something special to it. There's something about it. There's something about that water one. All right, so we've all scored now. We're all feeling good. Jamie didn't score that round, but you are on the board. So after three rounds, David's still in the lead with nine. I guess I move into second place with four. Wow, that's the closest I've ever been to winning. Adam and Spencer tied, of course, because they select the same one every time with three and Jamie with two. So David's still out to a resounding lead, but I think we can catch him. We moved out to round four. This is a special round. We call it Give It A Goog. Give it a goog."
+    },
+    {
+      "start": 1798.78,
+      "end": 1807.62,
+      "speaker": "adam-stacoviak",
+      "text": "Give it a goog. Well friends, I'm here with a new friend of mine, Harjot Gill, co-founder and CEO of CodeRabbit, where they're cutting code review time in half"
+    },
+    {
+      "start": 1807.62,
+      "end": 1826.42,
+      "speaker": "jerod-santo",
+      "text": "with their AI code review platform. So Harjot, in this new world of AI generated code, we are at the perils of code review, getting good code into our code bases, reviewed and getting it into production. Help me understand the state of code review in this new AI era."
+    },
+    {
+      "start": 1826.42,
+      "end": 1906.94,
+      "speaker": "adam-stacoviak",
+      "text": "The success of AI in code generation has been just mind blowing, like how fast some of the companies like Cursor and GitHub Go pilot itself have grown. The developers are picking up these tools and running with it, pretty much. I mean, there's a lot more code being written. And in that world, the bottleneck shift to code review becomes even more important than it was in the past. Even in the past, companies cared about code quality, had all this pull request model for code reviews and a lot of checks. But post Gen AI, now we are looking at, first of all, a lot more code being written. And interestingly, a lot of this code being written is not perfect, right? So the bottleneck and the importance of code review is even more so than it was in the past. You have to really understand this code in order to ship it. You can't just wipe code and ship. You have to first understand what the AI did. That's where CodeRabbit comes in. It's kind of like, think of it as a second order effect where the first order effect has been Gen AI and code generation, rapid success there now. As a second order effect, there's a massive need in the market for tools like CodeRabbit to exist and solve that bottleneck. And a lot of the companies we know have been struggling to run, especially the newer AI agents. If you look at the code generation AI, the first generation of the tools were just tab completion, which you can review in real time. And if you don't like it, don't accept it. If you like it, just press tab, right? But those systems have now evolved into more agentic workflows,"
+    },
+    {
+      "start": 1906.94,
+      "end": 1921.38,
+      "speaker": "jerod-santo",
+      "text": "where now you're starting with a prompt and you get changes performed on multiple files and multiple questions in the code. And that's where the bottleneck has now become code review bottleneck. Every developer is now evolving into a code reviewer. A lot of the code being written by AI."
+    },
+    {
+      "start": 1921.38,
+      "end": 1933.58,
+      "speaker": "adam-stacoviak",
+      "text": "That's where the need for CodeRabbit started. And that's being seen in the market. Like CodeRabbit has been non-linearly growing. I would say it's a relatively young company, but it's being trusted by 100,000 plus developers around the world."
+    },
+    {
+      "start": 1933.58,
+      "end": 1954.06,
+      "speaker": "jerod-santo",
+      "text": "Okay, friends, well, good. Next step is to go to CodeRabbit.ai. That's C-O-D-E-R-A-B-B-I-T.ai. Use the most advanced AI platform for code reviews to cut code review time in half, bugs in half, all that stuff instantly. You got a 14 day free trial, too easy in the credit card required,"
+    },
+    {
+      "start": 1954.06,
+      "end": 1963.3,
+      "speaker": "adam-stacoviak",
+      "text": "and they are free for open source. Learn more at CodeRabbit.ai."
+    },
+    {
+      "start": 1963.3,
+      "end": 2004.52,
+      "speaker": "jerod-santo",
+      "text": "I went out to Google.com in an incognito browser. I did not use a VPN. So yes, you can probably triangulate some stuff because I was too lazy, even though I knew that might happen and I Googled how does, just those two words, how does, and then I hit space to make sure it knows that does is over and I stopped and Google suggested some auto-completes. I have jotted down the number one auto-complete and your job in this round is either to guess what Google auto-completed for me, or of course come up with what you think it might auto-complete for most humans around the world. Please submit to be your auto-completes now."
+    },
+    {
+      "start": 2004.52,
+      "end": 2007,
+      "speaker": "adam-stacoviak",
+      "text": "And this is, you Googled this like today?"
+    },
+    {
+      "start": 2007,
+      "end": 2008.36,
+      "speaker": "jerod-santo",
+      "text": "Correct."
+    },
+    {
+      "start": 2008.36,
+      "end": 2012.24,
+      "speaker": "adam-stacoviak",
+      "text": "And to confirm you're in, is that Omaha, Nebraska?"
+    },
+    {
+      "start": 2012.24,
+      "end": 2019.96,
+      "speaker": "jerod-santo",
+      "text": "Correct. Well, you can stereotype me and then you can guess some stuff. Feel free, fine."
+    },
+    {
+      "start": 2020.9,
+      "end": 2022.02,
+      "speaker": "adam-stacoviak",
+      "text": "I was gonna say, yep."
+    },
+    {
+      "start": 2022.02,
+      "end": 2041.03,
+      "speaker": "jerod-santo",
+      "text": "You have all of your false ideas about what we're like. How does this corn grow? No, see, we already know that. We're not gonna be asking Google that. You have to think of what we're ignorant of. Adam, are you thinking or what are you doing over there? I'm thinking. Okay, it looks like you're just staring at the camera, just like deeply breathing."
+    },
+    {
+      "start": 2041.03,
+      "end": 2048.4,
+      "speaker": "adam-stacoviak",
+      "text": "Well, oh, sorry. Am I breathing deeply? Maybe I'm excited."
+    },
+    {
+      "start": 2048.4,
+      "end": 2055.76,
+      "speaker": "jerod-santo",
+      "text": "Oh man, I think I'm excited. Now I'm self-conscious about my breathing. Who wants a little TMI? You want some TMI?"
+    },
+    {
+      "start": 2059.31,
+      "end": 2061.23,
+      "speaker": "adam-stacoviak",
+      "text": "That's not normally how that works."
+    },
+    {
+      "start": 2062.23,
+      "end": 2071.14,
+      "speaker": "jerod-santo",
+      "text": "I don't know how to answer that. I know exactly how to answer that. No, the answer is no. But I'm gonna hear it anyways, I'm sure."
+    },
+    {
+      "start": 2071.14,
+      "end": 2072.4,
+      "speaker": "adam-stacoviak",
+      "text": "No, I will not tell."
+    },
+    {
+      "start": 2072.4,
+      "end": 2075.3,
+      "speaker": "jerod-santo",
+      "text": "Okay, I'm keeping it. Wow, it worked."
+    },
+    {
+      "start": 2075.3,
+      "end": 2077.4,
+      "speaker": "adam-stacoviak",
+      "text": "It worked. Can it be like a plus plus special?"
+    },
+    {
+      "start": 2077.4,
+      "end": 2084.58,
+      "speaker": "jerod-santo",
+      "text": "Yeah, just bleep it for the regular people and we'll unbleep it for plus plussers. Okay. I mean, this is a plus plus special right here, okay."
+    },
+    {
+      "start": 2084.58,
+      "end": 2091.99,
+      "speaker": "adam-stacoviak",
+      "text": "Change log plus plus, it's better."
+    },
+    {
+      "start": 2091.99,
+      "end": 2125,
+      "speaker": "jerod-santo",
+      "text": "Well, we gave it a goog and we tried to guess how people were Googling how does stuff. That's not even a good sentence. I'm gonna roll with it. And here's what we came up with. Five potential auto-completes for how does. Number one, how does a bill become a law? Number two, how does farming work? Number three, how does astronomer make money? Number four, how does Ozempic work? And number five, how does the world end? How does the world end?"
+    },
+    {
+      "start": 2125,
+      "end": 2130.4,
+      "speaker": "adam-stacoviak",
+      "text": "Five, four, three, four. We just took a dark turn there."
+    },
+    {
+      "start": 2130.4,
+      "end": 2136.94,
+      "speaker": "jerod-santo",
+      "text": "Dramatic countdown. All right, Adam, you are first this round, my friend."
+    },
+    {
+      "start": 2136.94,
+      "end": 2139.46,
+      "speaker": "adam-stacoviak",
+      "text": "Gosh, man, there's like two in there that were really good."
+    },
+    {
+      "start": 2139.46,
+      "end": 2141.34,
+      "speaker": "jerod-santo",
+      "text": "Oh, which ones were they?"
+    },
+    {
+      "start": 2141.34,
+      "end": 2145.38,
+      "speaker": "adam-stacoviak",
+      "text": "I really have to ask you to read four of them again. Or three of them."
+    },
+    {
+      "start": 2145.38,
+      "end": 2149.54,
+      "speaker": "jerod-santo",
+      "text": "These are the shortest ones ever. How do you not remember them? Okay, I'll read them."
+    },
+    {
+      "start": 2149.54,
+      "end": 2153.88,
+      "speaker": "adam-stacoviak",
+      "text": "The middle three were the ones that stood out most to me. So like two, three, and four. Can you read those please?"
+    },
+    {
+      "start": 2153.88,
+      "end": 2156.42,
+      "speaker": "jerod-santo",
+      "text": "Two, three, and four. Okay, number two is how does farming work?"
+    },
+    {
+      "start": 2156.42,
+      "end": 2157.34,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, that was not the one."
+    },
+    {
+      "start": 2157.34,
+      "end": 2161.04,
+      "speaker": "jerod-santo",
+      "text": "Number three, how does astronomer make money?"
+    },
+    {
+      "start": 2161.08,
+      "end": 2162.16,
+      "speaker": "adam-stacoviak",
+      "text": "That was awesome."
+    },
+    {
+      "start": 2162.16,
+      "end": 2165.2,
+      "speaker": "jerod-santo",
+      "text": "Okay, number four, how does Ozempic work?"
+    },
+    {
+      "start": 2165.2,
+      "end": 2176.16,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, listen, I think it's number four, but I'm gonna give it to number three because damn, that's a good answer, okay? That is spot on. Whoever that is, if it's not real, they're awesome."
+    },
+    {
+      "start": 2176.16,
+      "end": 2178.36,
+      "speaker": "jerod-santo",
+      "text": "Okay, so Adam goes with number-"
+    },
+    {
+      "start": 2178.36,
+      "end": 2182.56,
+      "speaker": "adam-stacoviak",
+      "text": "The date of recording might be relevant for that particular answer."
+    },
+    {
+      "start": 2182.56,
+      "end": 2192.26,
+      "speaker": "jerod-santo",
+      "text": "Right? Astronomer, yeah. Inquiring minds want to know how does astronomer make money? Okay, next up is gonna be Jamie."
+    },
+    {
+      "start": 2192.26,
+      "end": 2194.66,
+      "speaker": "adam-stacoviak",
+      "text": "So I was gonna say, we've heard the middle three."
+    },
+    {
+      "start": 2194.66,
+      "end": 2198.34,
+      "speaker": "jerod-santo",
+      "text": "Yeah. How about number one and five?"
+    },
+    {
+      "start": 2198.34,
+      "end": 2201.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, one of them was how does a bill become-"
+    },
+    {
+      "start": 2201.14,
+      "end": 2203.68,
+      "speaker": "jerod-santo",
+      "text": "How does a bill become a law? That was the first one."
+    },
+    {
+      "start": 2203.68,
+      "end": 2204.52,
+      "speaker": "adam-stacoviak",
+      "text": "And then what was the other one?"
+    },
+    {
+      "start": 2204.52,
+      "end": 2215.22,
+      "speaker": "jerod-santo",
+      "text": "And the last one was how does the world end? So there's your five. So you got farming in order. You got a bill, you got farming, then you got astronomer, then you have Ozempic, then you have the world."
+    },
+    {
+      "start": 2215.22,
+      "end": 2223.8,
+      "speaker": "adam-stacoviak",
+      "text": "I think Ozempic. I mean, astronomer is like written perfectly how someone would search for it. But yeah, I think Ozempic."
+    },
+    {
+      "start": 2223.8,
+      "end": 2227.24,
+      "speaker": "jerod-santo",
+      "text": "All right, Jamie picks Ozempic. David, do you?"
+    },
+    {
+      "start": 2227.24,
+      "end": 2234.4,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna go with Ozempic. I think that, yeah, that seems right."
+    },
+    {
+      "start": 2234.4,
+      "end": 2235.84,
+      "speaker": "jerod-santo",
+      "text": "What are you guys trying to say?"
+    },
+    {
+      "start": 2235.84,
+      "end": 2244.2,
+      "speaker": "adam-stacoviak",
+      "text": "That, uh, it's, I mean, it's- It's, it's, it's very popular. People want to know how it works. That's right, that's true."
+    },
+    {
+      "start": 2244.2,
+      "end": 2246.92,
+      "speaker": "jerod-santo",
+      "text": "That's fair. Okay, Spencer."
+    },
+    {
+      "start": 2247.48,
+      "end": 2266.96,
+      "speaker": "adam-stacoviak",
+      "text": "I'm torn. I feel like Adam and I have hitched our wagons together and I got to give props to astronomer. I mean, the reason I'm a plus plus subscriber, I like to support things that bring me happiness and I like it. And that answer brought me a bit of happiness. So I'm going to go for astronomer."
+    },
+    {
+      "start": 2266.96,
+      "end": 2273.54,
+      "speaker": "jerod-santo",
+      "text": "Well played, okay. So Spencer and Adam hitched again and-"
+    },
+    {
+      "start": 2273.54,
+      "end": 2276.22,
+      "speaker": "adam-stacoviak",
+      "text": "Ride or die, brother. Right to the bottom."
+    },
+    {
+      "start": 2276.86,
+      "end": 2298.08,
+      "speaker": "jerod-santo",
+      "text": "Some people want to know how astronomer makes money. I want to know how David makes money because he is scoring left and right. That was his. Good job, David. And there's a funny backstory on that one because without the capitalized A, I thought he was trying to say how do astronomers make money? Also, I'm curious. How do they? And I'm like, do you want me to pluralize for that? And he's like, no, man. I was like, oh, I get it. I didn't get it."
+    },
+    {
+      "start": 2298.08,
+      "end": 2302.76,
+      "speaker": "adam-stacoviak",
+      "text": "No, man. Oh, I love that context. I did get it at first. No, man."
+    },
+    {
+      "start": 2302.76,
+      "end": 2318.22,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I was like, astronomers? Yeah, how do they make money? I don't know. So two points for him. And then how does farming work? Well, Jamie already made a joke about that. So that was his. How does a bill become a law? Nobody cares, Spencer. I mean, come on. Nobody wants to know."
+    },
+    {
+      "start": 2318.22,
+      "end": 2321.08,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, you had to have seen the video"
+    },
+    {
+      "start": 2321.08,
+      "end": 2325.46,
+      "speaker": "jerod-santo",
+      "text": "when you were in grade school now. How does a bill become a law? For sure."
+    },
+    {
+      "start": 2325.46,
+      "end": 2327.44,
+      "speaker": "adam-stacoviak",
+      "text": "Not my favorite schoolhouse rock though, honestly."
+    },
+    {
+      "start": 2327.44,
+      "end": 2334.3,
+      "speaker": "jerod-santo",
+      "text": "That is a good one. Conjunction Junction. I always thought Conjunction Junction. There it is. Fan. What's your function, you know? Hooking up words and-"
+    },
+    {
+      "start": 2334.3,
+      "end": 2335.14,
+      "speaker": "adam-stacoviak",
+      "text": "Phrases and clauses."
+    },
+    {
+      "start": 2335.14,
+      "end": 2349.44,
+      "speaker": "jerod-santo",
+      "text": "Phrases and clauses. All right. Meanwhile, Adam, the world-ending one, didn't you do that similar last time around at something about the end of the world? I don't know what else to say, okay? I don't know. He's got limited vocabulary. He's got one thing on his mind."
+    },
+    {
+      "start": 2349.44,
+      "end": 2353.6,
+      "speaker": "adam-stacoviak",
+      "text": "Does Adam have a doomsday device somewhere? Should we be worried?"
+    },
+    {
+      "start": 2354.8,
+      "end": 2361,
+      "speaker": "jerod-santo",
+      "text": "I just don't have a good brain like you, David, because that was an awesome answer. And I guess I'm just bland."
+    },
+    {
+      "start": 2361,
+      "end": 2365.6,
+      "speaker": "adam-stacoviak",
+      "text": "I could be more sparkling. I'm just a little bland, unfortunately."
+    },
+    {
+      "start": 2366.12,
+      "end": 2414.8,
+      "speaker": "jerod-santo",
+      "text": "Well, the correct autocomplete, at least for my incognito tab on this side of the earth, is how does Ozempic work? And Jamie and David both picked that. So two points each. That's two for Jamie on the round. Four for David on the round. Other autocompletes that didn't quite make it as high, but we're still on the list. Number two was how does a HELOC work? A HELOC. That is confusing. Home equity line of credit. Very complicated, but sometimes useful. Investing vehicle. How does plan B work? How does Zelle work? You know that thing where you can send money between banks? I don't know. I don't know how it works. And how does hail form? That's straight out of Nebraska right there. Cause you know, we get hailed on."
+    },
+    {
+      "start": 2414.8,
+      "end": 2415.64,
+      "speaker": "adam-stacoviak",
+      "text": "And Texas, bro."
+    },
+    {
+      "start": 2415.64,
+      "end": 2417.68,
+      "speaker": "jerod-santo",
+      "text": "So much. Oh my gosh, yeah."
+    },
+    {
+      "start": 2417.68,
+      "end": 2431.22,
+      "speaker": "adam-stacoviak",
+      "text": "I got a particularly Orlando response in my how does. So number one, also Ozempic. Okay. How does lightening lane work? The Disney world fast pass system."
+    },
+    {
+      "start": 2431.22,
+      "end": 2437.26,
+      "speaker": "jerod-santo",
+      "text": "Oh, no, it's like magic. No one knows it's dark magic."
+    },
+    {
+      "start": 2437.26,
+      "end": 2439.56,
+      "speaker": "adam-stacoviak",
+      "text": "It's like magic you pay for. And then you don't know."
+    },
+    {
+      "start": 2439.56,
+      "end": 2465.59,
+      "speaker": "jerod-santo",
+      "text": "Yeah. That's magic for them. Hilarious. All right. Well, after just four rounds, we have like a world record pace here. David with 13 points. He's in striking distance of a win after four rounds. Wonder why I created 10 rounds. And tied for second is me and Jamie with four. That's how far back we are. And tied in last is these two hitched together with three, Spencer and Adam."
+    },
+    {
+      "start": 2465.59,
+      "end": 2469.07,
+      "speaker": "adam-stacoviak",
+      "text": "Can we go for a rule change and just like pull our points together?"
+    },
+    {
+      "start": 2469.07,
+      "end": 2526.67,
+      "speaker": "jerod-santo",
+      "text": "I'll just team up on him. Wow. I make the rules so I could make up whatever I wanted to technically. I mean, it's our podcast, but he might not come back and maybe that's what we want. I don't know. I see how it is. We move now to round five. This is a new style round. Even newer than the Google style round. This is called weird flicks, but okay. I've scoured the internet for one of the oldest, most obscure, weird movies. And I've grabbed the title. The year is released and the synopsis. A brief one sentence synopsis of what the movie's about. Your job is to write your own brief one sentence synopsis and try to trick your friends into thinking yours is real. And of course, I guess if you know the actual movie and you tell me what it's about, you'll still get your three points. I think if I were you guys, I'd start teaming up against David. Just saying, just saying."
+    },
+    {
+      "start": 2526.67,
+      "end": 2531.77,
+      "speaker": "adam-stacoviak",
+      "text": "So just like the oldest possible movie is what we're going for?"
+    },
+    {
+      "start": 2531.77,
+      "end": 2560.58,
+      "speaker": "jerod-santo",
+      "text": "They're pretty old. So this first one, I have two of these rounds. The first one, this is a 1945. So it's an old movie. And the title of the movie is The Reckless Moment. The Reckless Moment. And your job is to come up with, or to know by having seen it, the synopsis of what that movie is about. So there you go. The Reckless Moment from 1945."
+    },
+    {
+      "start": 2560.58,
+      "end": 2564.42,
+      "speaker": "adam-stacoviak",
+      "text": "And to confirm, is this the official one line synopsis?"
+    },
+    {
+      "start": 2564.42,
+      "end": 2575.86,
+      "speaker": "jerod-santo",
+      "text": "This would be the one liner that is on the IMDb page. So it's not like a tagline. It's a synopsis, but IMDb people wrote it. Not the movie creators, I don't think."
+    },
+    {
+      "start": 2575.86,
+      "end": 2578.9,
+      "speaker": "adam-stacoviak",
+      "text": "What does Adam have in his, what's he watching behind us?"
+    },
+    {
+      "start": 2578.9,
+      "end": 2580.14,
+      "speaker": "jerod-santo",
+      "text": "Silicon Valley."
+    },
+    {
+      "start": 2580.14,
+      "end": 2583.22,
+      "speaker": "adam-stacoviak",
+      "text": "Silicon Valley. Is it always on, always?"
+    },
+    {
+      "start": 2583.22,
+      "end": 2589.3,
+      "speaker": "jerod-santo",
+      "text": "Well, whenever we're recording, I think he might turn it off in between, but let's just lose different scenes. Yeah, he's just trolling."
+    },
+    {
+      "start": 2589.3,
+      "end": 2595.06,
+      "speaker": "adam-stacoviak",
+      "text": "I was trying to work it out from earlier. I thought it was community, but now I can see, yeah."
+    },
+    {
+      "start": 2595.06,
+      "end": 2606.92,
+      "speaker": "jerod-santo",
+      "text": "I thought it would be cool if he would like do some different things, different episodes. Like it could be Star Wars, it could be Silicon Valley, it could be Predator, you know, and he's just like, no. Only Silicon Valley all the time."
+    },
+    {
+      "start": 2606.92,
+      "end": 2610.48,
+      "speaker": "adam-stacoviak",
+      "text": "Let me change the show for you. You know, I want to watch something different."
+    },
+    {
+      "start": 2610.48,
+      "end": 2615.04,
+      "speaker": "jerod-santo",
+      "text": "No, we were just, we were very excited when you left because we could actually catch up on a episode we missed."
+    },
+    {
+      "start": 2615.04,
+      "end": 2621.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. This is a, that doesn't generate like a copyright problem from HBO. They're not like-"
+    },
+    {
+      "start": 2621.84,
+      "end": 2628.09,
+      "speaker": "jerod-santo",
+      "text": "No, it's obscure enough. Yeah, in the background enough, we don't ever get a takedown request, thankfully."
+    },
+    {
+      "start": 2628.09,
+      "end": 2635.25,
+      "speaker": "adam-stacoviak",
+      "text": "Do I remember we talked about there maybe being like a change log watch along the Silicon Valley? Do like an episode a week?"
+    },
+    {
+      "start": 2635.25,
+      "end": 2638.37,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that'd be cool. I'd never execute on that"
+    },
+    {
+      "start": 2638.37,
+      "end": 2641.49,
+      "speaker": "adam-stacoviak",
+      "text": "because I didn't want to rewatch it, I guess. Or be forced to."
+    },
+    {
+      "start": 2641.49,
+      "end": 2648.37,
+      "speaker": "jerod-santo",
+      "text": "We also almost did a, so the last time we played this game, what was the, He Who Gets Slapped? Was that the name of the movie, Adam?"
+    },
+    {
+      "start": 2648.37,
+      "end": 2649.49,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, yes."
+    },
+    {
+      "start": 2649.49,
+      "end": 2667.69,
+      "speaker": "jerod-santo",
+      "text": "We actually were going to watch that in Denver as like a group activity because it'd be hilarious. But the joke is funnier than the reality, so we're not going to do it, but. Because it's public domain, John Henry found out it's in the public domain because it's like 1928. And so like, man, we can like put it on a projector and watch it outside or something, but too lazy."
+    },
+    {
+      "start": 2667.69,
+      "end": 2676.37,
+      "speaker": "adam-stacoviak",
+      "text": "I see David's guitar's in the back. He may even need to start thinking of a victory jingle you can play for us. We're closing in."
+    },
+    {
+      "start": 2676.37,
+      "end": 2678.93,
+      "speaker": "jerod-santo",
+      "text": "Can you improv musically?"
+    },
+    {
+      "start": 2678.93,
+      "end": 2680.41,
+      "speaker": "adam-stacoviak",
+      "text": "Not well, no."
+    },
+    {
+      "start": 2680.41,
+      "end": 2684.5,
+      "speaker": "jerod-santo",
+      "text": "Not well. But you're definitely closing in on a win here."
+    },
+    {
+      "start": 2684.5,
+      "end": 2689.46,
+      "speaker": "adam-stacoviak",
+      "text": "Has any, it feels, the hubris of asking, has anyone ever won in five?"
+    },
+    {
+      "start": 2689.46,
+      "end": 2690.3,
+      "speaker": "unknown",
+      "text": "No."
+    },
+    {
+      "start": 2690.3,
+      "end": 2791.44,
+      "speaker": "jerod-santo",
+      "text": "No, there's a reason it feels hubris. Not that I can imagine, if I remember. I can imagine it, I can't remember it. This is our sixth time playing, isn't it? I think this is round six, and I think there may have been a win in five, but that was back when we played less points. I think we were going to 12 for a while, and we extended it to 15. So you would have already won in four or 12. No, I think you're definitely on pace for the fastest W of all time, or the greatest collapse. Or the greatest choke. Yeah, it's true. The greatest collapse in the history of Pound of Fine. All right, we now have everybody's entry for a plot synopsis of 1945's The Reckless Moment. Are you guys ready to hear what everybody had to say? All right, number one, well-to-do Howard Douglas makes a careless decision to leave his bowler hat at home. Number two, the untold untrue story of what Emperor Hirohito really told President Truman upon the Japanese surrender in World War II. Number three, the harrowing story of how the invasion at Normandy almost had to be called off. Number four, after discovering the dead body of her teenage daughter's lover, a housewife takes desperate measures to protect her family from scandal. Number five, with the keys to his new Plymouth, Ben takes a drive to the lookout with his friends, where he met Betty. Hold on, I'm right or wrong. Where he met Betty, this knockout that sits next to him. Sorry, how is this funny, Jim?"
+    },
+    {
+      "start": 2794.72,
+      "end": 2800.32,
+      "speaker": "adam-stacoviak",
+      "text": "Try reading it in a transatlantic accent, that might have a good flow a little bit more naturally."
+    },
+    {
+      "start": 2800.32,
+      "end": 2814.04,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly, if I could. Ben takes a drive to the lookout with his friends, where he met Betty, this knockout that sits next to him in chem class. They hit it off well, but when this mysterious woman shows up, everything changes."
+    },
+    {
+      "start": 2814.04,
+      "end": 2815.92,
+      "speaker": "adam-stacoviak",
+      "text": "Was that all one sentence?"
+    },
+    {
+      "start": 2815.92,
+      "end": 2831.1,
+      "speaker": "jerod-santo",
+      "text": "Ah, there's one break in there, after chem class, there was a period. Okay, five potential synopses for the reckless moment, starting with Jamie, which one do you think is real?"
+    },
+    {
+      "start": 2831.1,
+      "end": 2862.97,
+      "speaker": "adam-stacoviak",
+      "text": "So I'm wondering, Emperor Hirohito and Normandy sound like they may be of the time period, but also could be quite near to like already get a film out about like Normandy, so I'm not sure. The very long one sentence makes me wonder if it's either like not real or is maybe. The other two, I'm not sure, sound, yeah, I think a little bit too far-fetched."
+    },
+    {
+      "start": 2862.97,
+      "end": 2864.07,
+      "speaker": "jerod-santo",
+      "text": "Which ones are far-fetched?"
+    },
+    {
+      "start": 2864.07,
+      "end": 2880.86,
+      "speaker": "adam-stacoviak",
+      "text": "The one about the bowler hat and the housewife scandal. The bowler hat one just sounds a little bit out there. My housewife scandal sounds like it could be like more contemporary. Right. I can't imagine that sort of thing happening."
+    },
+    {
+      "start": 2880.86,
+      "end": 2881.88,
+      "speaker": "jerod-santo",
+      "text": "In the forties."
+    },
+    {
+      "start": 2881.88,
+      "end": 2882.72,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2882.72,
+      "end": 2887.78,
+      "speaker": "jerod-santo",
+      "text": "So you've eliminated all five. Yeah, I think that's all five. One of which you wrote."
+    },
+    {
+      "start": 2890.84,
+      "end": 2891.96,
+      "speaker": "adam-stacoviak",
+      "text": "Which one?"
+    },
+    {
+      "start": 2891.96,
+      "end": 2895.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I don't know. That's his strategy. I'm not gonna say. He's just trying to make sure he doesn't pick David's."
+    },
+    {
+      "start": 2895.8,
+      "end": 2897.56,
+      "speaker": "adam-stacoviak",
+      "text": "That's his fault. Casting doubt widely."
+    },
+    {
+      "start": 2897.56,
+      "end": 2902.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah. So having said all that, what are you gonna do?"
+    },
+    {
+      "start": 2902.43,
+      "end": 2905.79,
+      "speaker": "adam-stacoviak",
+      "text": "I think I'm gonna go for Normandy."
+    },
+    {
+      "start": 2905.79,
+      "end": 2906.63,
+      "speaker": "jerod-santo",
+      "text": "I think."
+    },
+    {
+      "start": 2906.63,
+      "end": 2907.45,
+      "speaker": "adam-stacoviak",
+      "text": "Normandy."
+    },
+    {
+      "start": 2907.45,
+      "end": 2913.19,
+      "speaker": "jerod-santo",
+      "text": "Yeah. All right, that's number three, by the way. Jamie goes for Normandy. David."
+    },
+    {
+      "start": 2913.19,
+      "end": 2915.83,
+      "speaker": "adam-stacoviak",
+      "text": "You said the movie came out in 45."
+    },
+    {
+      "start": 2915.83,
+      "end": 2917.22,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm."
+    },
+    {
+      "start": 2917.22,
+      "end": 2922.09,
+      "speaker": "adam-stacoviak",
+      "text": "I think, sorry, what was, so it was bowler hats."
+    },
+    {
+      "start": 2922.09,
+      "end": 2924.97,
+      "speaker": "jerod-santo",
+      "text": "Yes, number two was President Truman."
+    },
+    {
+      "start": 2924.97,
+      "end": 2926.99,
+      "speaker": "adam-stacoviak",
+      "text": "Sorry, President Truman did what?"
+    },
+    {
+      "start": 2927.03,
+      "end": 2934.75,
+      "speaker": "jerod-santo",
+      "text": "The untold, untrue story of what Emperor Hirohito really told President Truman upon the Japanese surrender in World War II."
+    },
+    {
+      "start": 2934.75,
+      "end": 2936.55,
+      "speaker": "adam-stacoviak",
+      "text": "It's untrue and untold."
+    },
+    {
+      "start": 2936.55,
+      "end": 2938.39,
+      "speaker": "jerod-santo",
+      "text": "It's untold and untrue."
+    },
+    {
+      "start": 2938.39,
+      "end": 2940.35,
+      "speaker": "adam-stacoviak",
+      "text": "Now it's turned up. In 45?"
+    },
+    {
+      "start": 2940.35,
+      "end": 2946.71,
+      "speaker": "jerod-santo",
+      "text": "Yes. All right. And then number three is the Normandy, which Jamie just picked."
+    },
+    {
+      "start": 2946.71,
+      "end": 2949.51,
+      "speaker": "adam-stacoviak",
+      "text": "And number four. This is my way of backing into asking you to repeat all of them."
+    },
+    {
+      "start": 2949.51,
+      "end": 2954.79,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and number four, do you want the full sentences or just the summaries? My summary of the summary?"
+    },
+    {
+      "start": 2954.79,
+      "end": 2956.51,
+      "speaker": "adam-stacoviak",
+      "text": "The full sentence. Okay."
+    },
+    {
+      "start": 2956.51,
+      "end": 2957.33,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 2957.33,
+      "end": 2958.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, we're doing it, sorry."
+    },
+    {
+      "start": 2958.55,
+      "end": 2959.91,
+      "speaker": "jerod-santo",
+      "text": "All of them?"
+    },
+    {
+      "start": 2959.91,
+      "end": 2961.63,
+      "speaker": "adam-stacoviak",
+      "text": "No, just the last, sorry, the last two."
+    },
+    {
+      "start": 2961.63,
+      "end": 2984.63,
+      "speaker": "jerod-santo",
+      "text": "The last two. Okay, number four was after discovering the dead body of her teenage daughter's lover. A housewife takes desperate measures to protect her family from scandal. And number five is with the keys to his new Plymouth. Ben takes a drive to the lookout with his friends where he met Betty, this knockout that sits next to him in chem class. They hit it off well, but when this mysterious woman shows up, everything changes."
+    },
+    {
+      "start": 2984.63,
+      "end": 2986.77,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, I think I'm going bowler hat."
+    },
+    {
+      "start": 2986.77,
+      "end": 2990.55,
+      "speaker": "jerod-santo",
+      "text": "He's going bowler hat. Okay. Spencer."
+    },
+    {
+      "start": 2990.55,
+      "end": 2996.87,
+      "speaker": "adam-stacoviak",
+      "text": "Adam, it's up to you, but I'm switching. I'm going with David. Bowler hat. Bowler hat it is."
+    },
+    {
+      "start": 2996.87,
+      "end": 2999.23,
+      "speaker": "jerod-santo",
+      "text": "It's going with the bowler hat."
+    },
+    {
+      "start": 2999.23,
+      "end": 3001.75,
+      "speaker": "adam-stacoviak",
+      "text": "No, I'm going with David. Let me clarify. I'm going with David."
+    },
+    {
+      "start": 3001.75,
+      "end": 3008.71,
+      "speaker": "jerod-santo",
+      "text": "Are you apologizing? What's happening here? Are we breaking up? Yeah, he switched off Adam and onto David is what he's saying here."
+    },
+    {
+      "start": 3008.71,
+      "end": 3012.83,
+      "speaker": "adam-stacoviak",
+      "text": "Well, no, it's Adam's choice. He can choose to follow me on David's bandwagon or not,"
+    },
+    {
+      "start": 3012.83,
+      "end": 3016.79,
+      "speaker": "jerod-santo",
+      "text": "but that's up to Adam. I got you. So it's up to you if you want to pile on."
+    },
+    {
+      "start": 3016.79,
+      "end": 3021.55,
+      "speaker": "adam-stacoviak",
+      "text": "Well, David wouldn't choose his own. So, but he only needs two points to win."
+    },
+    {
+      "start": 3021.55,
+      "end": 3022.39,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 3022.39,
+      "end": 3024.41,
+      "speaker": "adam-stacoviak",
+      "text": "And if he gets the right one, he gets one, right?"
+    },
+    {
+      "start": 3024.41,
+      "end": 3029.31,
+      "speaker": "jerod-santo",
+      "text": "If he gets it correct, he gets two. If he gets, if he tricks you, he gets one more."
+    },
+    {
+      "start": 3029.31,
+      "end": 3031.63,
+      "speaker": "adam-stacoviak",
+      "text": "David could be choosing his own. You know that, right?"
+    },
+    {
+      "start": 3031.63,
+      "end": 3034.79,
+      "speaker": "jerod-santo",
+      "text": "He could be presupposing a pile on."
+    },
+    {
+      "start": 3034.79,
+      "end": 3037.79,
+      "speaker": "adam-stacoviak",
+      "text": "Both of us are suckers to follow him for those two points,"
+    },
+    {
+      "start": 3037.79,
+      "end": 3040.11,
+      "speaker": "unknown",
+      "text": "but maybe we are, we're in the back."
+    },
+    {
+      "start": 3040.11,
+      "end": 3045.97,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know. And he's also going first though. So he's, he's kind of creating the current to follow."
+    },
+    {
+      "start": 3045.97,
+      "end": 3057.37,
+      "speaker": "jerod-santo",
+      "text": "I mean, he's creating the pile on and you've, you've fought for his trick. Jamie did go first, technically. Oh, sorry, Jamie went first. But David would want you to know that. David went first-ish. And I just counted all of them."
+    },
+    {
+      "start": 3057.37,
+      "end": 3064.37,
+      "speaker": "adam-stacoviak",
+      "text": "If I fall into this trap that David laid, he's playing checkers and we're playing chess here so he can win."
+    },
+    {
+      "start": 3064.37,
+      "end": 3077.21,
+      "speaker": "jerod-santo",
+      "text": "Oh man. Other way around. Yeah, I think he'd be playing chess. That's why we're going to lose right there. That's how confused he is, Spencer. I don't know, Jeremy. I feel like that last one needs one more read."
+    },
+    {
+      "start": 3077.21,
+      "end": 3078.17,
+      "speaker": "adam-stacoviak",
+      "text": "What do you think?"
+    },
+    {
+      "start": 3078.17,
+      "end": 3080.21,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3080.21,
+      "end": 3083.69,
+      "speaker": "adam-stacoviak",
+      "text": "You're just trying to make sure we use the full two hours."
+    },
+    {
+      "start": 3083.69,
+      "end": 3093.65,
+      "speaker": "jerod-santo",
+      "text": "That's right. With the keys to his new Plymouth, Ben takes a drive to the lookout with his friends where he meets Betty, this absolute knockout that sits next to him in chem class."
+    },
+    {
+      "start": 3093.65,
+      "end": 3095.49,
+      "speaker": "adam-stacoviak",
+      "text": "Was absolute there before?"
+    },
+    {
+      "start": 3095.49,
+      "end": 3103.77,
+      "speaker": "jerod-santo",
+      "text": "No, I had that. I just figured it needed to be there. They hit it off well, but when this mysterious woman shows up, everything changes."
+    },
+    {
+      "start": 3103.77,
+      "end": 3105.01,
+      "speaker": "adam-stacoviak",
+      "text": "I'm going with that one."
+    },
+    {
+      "start": 3106.64,
+      "end": 3110.7,
+      "speaker": "jerod-santo",
+      "text": "All right. So Adam picks his own. We'll just stop right there."
+    },
+    {
+      "start": 3110.7,
+      "end": 3114.86,
+      "speaker": "adam-stacoviak",
+      "text": "I'm safe. I'm giving no points away."
+    },
+    {
+      "start": 3114.86,
+      "end": 3122.22,
+      "speaker": "jerod-santo",
+      "text": "That's right. David and Spencer, well, I should say Spencer piled on with David onto the bowler hat. That was Jamie's bowler hat."
+    },
+    {
+      "start": 3122.22,
+      "end": 3127.22,
+      "speaker": "adam-stacoviak",
+      "text": "Damn it. I was like the guy from England. He's not going to do a bowler hat thing."
+    },
+    {
+      "start": 3127.22,
+      "end": 3128.86,
+      "speaker": "jerod-santo",
+      "text": "I thought it was on the nose, but."
+    },
+    {
+      "start": 3128.9,
+      "end": 3129.74,
+      "speaker": "adam-stacoviak",
+      "text": "All right."
+    },
+    {
+      "start": 3129.74,
+      "end": 3135.6,
+      "speaker": "jerod-santo",
+      "text": "He sure did. And then he acted like he couldn't possibly be right, which made you want to pick it as well. It was like that."
+    },
+    {
+      "start": 3135.6,
+      "end": 3136.52,
+      "speaker": "adam-stacoviak",
+      "text": "He's a good actor."
+    },
+    {
+      "start": 3136.52,
+      "end": 3164.62,
+      "speaker": "jerod-santo",
+      "text": "He is. And then Jamie went with the harrowing story of Normandy and that was David's giving David one point, but not a victory. He approaches the precipice. Meanwhile, Jared scores four points. Thank you very much, everybody. Because the correct synopsis of the reckless moment is after discovering the dead body of her teenage daughter's lover, a housewife takes desperate measures to protect her family from scandal."
+    },
+    {
+      "start": 3164.62,
+      "end": 3168.78,
+      "speaker": "adam-stacoviak",
+      "text": "That sounded really spicy for 45. That's what I was thinking."
+    },
+    {
+      "start": 3168.78,
+      "end": 3169.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3169.62,
+      "end": 3172.5,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that's why I didn't go with it. 1949."
+    },
+    {
+      "start": 3172.5,
+      "end": 3182.34,
+      "speaker": "jerod-santo",
+      "text": "Oh, did I do it wrong? 1949, I'm sorry. That might have ruined some World War II ones. Did I miss World War II? I must have wrote that down wrong."
+    },
+    {
+      "start": 3182.34,
+      "end": 3187.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I wrote down 45 as well. Where would I write down? Let me see whatever down here. Yeah, 45."
+    },
+    {
+      "start": 3188.91,
+      "end": 3194.67,
+      "speaker": "jerod-santo",
+      "text": "My bad, y'all. I award everybody except for David one point for my mistake."
+    },
+    {
+      "start": 3194.67,
+      "end": 3198.03,
+      "speaker": "adam-stacoviak",
+      "text": "Which is exactly why I made up a story about a car named Plymouth."
+    },
+    {
+      "start": 3198.03,
+      "end": 3198.87,
+      "speaker": "jerod-santo",
+      "text": "So Jamie gets one."
+    },
+    {
+      "start": 3198.87,
+      "end": 3200.51,
+      "speaker": "adam-stacoviak",
+      "text": "Because the Plymouth came out in 4142."
+    },
+    {
+      "start": 3200.51,
+      "end": 3218.51,
+      "speaker": "jerod-santo",
+      "text": "So with bonuses applied, he still has more than twice as much as anybody who's actually playing. David has 14 points. I have eight, still not really playing. Jamie has seven. Adam and Spencer, even though Spencer broke off that hitch, they're still tied with four points each."
+    },
+    {
+      "start": 3218.51,
+      "end": 3220.39,
+      "speaker": "adam-stacoviak",
+      "text": "Four. It's fun here at the bottom."
+    },
+    {
+      "start": 3220.39,
+      "end": 3221.23,
+      "speaker": "jerod-santo",
+      "text": "Woof."
+    },
+    {
+      "start": 3224.09,
+      "end": 3225.29,
+      "speaker": "adam-stacoviak",
+      "text": "Ride or die."
+    },
+    {
+      "start": 3225.29,
+      "end": 3270.97,
+      "speaker": "jerod-santo",
+      "text": "Yeah. All right, we moved to round six. We get to play around six. I wasn't sure if there would be one. And this is back to a pretty normal round. It's another word. However, this word's an acronym. So it's slightly different because it's not just any old word. It's an acronym. So you have to come up with what the acronym stands for and then that thing described or defined, okay? So the acronym is WIMP. W-I-M-P. That's the acronym. So you'll come up with what it stands for and then a definition of it. All right, so I looked it up. I remember Carol Lee, PhD, being quite dominant at this game as well. And it turns out she won after six rounds."
+    },
+    {
+      "start": 3272.07,
+      "end": 3274.83,
+      "speaker": "adam-stacoviak",
+      "text": "You missed it. Pressure's on."
+    },
+    {
+      "start": 3274.83,
+      "end": 3311.6,
+      "speaker": "jerod-santo",
+      "text": "Well, this is round six right here. Oh gosh. He had a chance and I have to go back and listen to the transcript or read the transcript and see if that went to 12 points or 15. Oh yeah, it's 15 points. So it's apples to apples. I have Jamie's and David's definitions, which leads us with one person, one heavy breather. Are you trying to intimidate us? Just giving good audio for the edit. Are you trying to give us a mid nineties R&B?"
+    },
+    {
+      "start": 3311.6,
+      "end": 3312.44,
+      "speaker": "adam-stacoviak",
+      "text": "I'm just..."
+    },
+    {
+      "start": 3313,
+      "end": 3316.48,
+      "speaker": "jerod-santo",
+      "text": "You would just call him back. Loop that, Jason, loop that."
+    },
+    {
+      "start": 3316.48,
+      "end": 3320.2,
+      "speaker": "adam-stacoviak",
+      "text": "Either pull out a light saber or... Right."
+    },
+    {
+      "start": 3321.39,
+      "end": 3327.79,
+      "speaker": "jerod-santo",
+      "text": "Of course. Seduce us. What are you thinking? Like Tony Braxton or like..."
+    },
+    {
+      "start": 3327.79,
+      "end": 3341.31,
+      "speaker": "adam-stacoviak",
+      "text": "The specific thing that was playing when I said that was Wait A Minute by Ray J, which is very, like it's very in the chorus. There's like a lot of, but also like some stuff by 112 I think features that."
+    },
+    {
+      "start": 3341.31,
+      "end": 3346.85,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah, go to room 112 where the players dwell. I remember them. Or at least I remember..."
+    },
+    {
+      "start": 3346.85,
+      "end": 3348.57,
+      "speaker": "adam-stacoviak",
+      "text": "I'm zero informed by that."
+    },
+    {
+      "start": 3348.57,
+      "end": 3362.23,
+      "speaker": "jerod-santo",
+      "text": "Vickie Smalls rapping about that. I'm not sure if I remember them specifically. Okay, everybody's in. Five, what do you call them? What do you call the fulfillment of an acronym?"
+    },
+    {
+      "start": 3362.23,
+      "end": 3363.07,
+      "speaker": "adam-stacoviak",
+      "text": "Five."
+    },
+    {
+      "start": 3363.07,
+      "end": 3430.16,
+      "speaker": "jerod-santo",
+      "text": "Expansion. Five acronym expansions, thank you. With definitions for the acronym WIMP. WIMP. Number one. WIMP, worker initialized multi-processing. A distributed computing execution strategy. Number two, weekly interacting massive particle. A hypothetical particle proposed as a candidate for dark matter. Number three. Rot iron manifold plateau. The culmination of the process for creating low carbon iron alloys in which the maximum efficacy of the process is achieved. Number four. Windows internet management platform. The Windows internet management platform is a suite of tools used to manage the network's internet access at the enterprise level. And number five. Windows image management package. The closed source proprietary answer to the popular open source image manipulation library, GIMP. So it's like GIMP, but for Windows, if I had to put it in my own words."
+    },
+    {
+      "start": 3430.16,
+      "end": 3435.56,
+      "speaker": "adam-stacoviak",
+      "text": "Don't you smile like that, David. No, sir. No, sir."
+    },
+    {
+      "start": 3435.56,
+      "end": 3441.24,
+      "speaker": "jerod-santo",
+      "text": "OK, audio listeners, you didn't see that smile, OK? I saw that smile. That smile was, that's mine."
+    },
+    {
+      "start": 3441.24,
+      "end": 3450.56,
+      "speaker": "adam-stacoviak",
+      "text": "Stay away. I'm sure David was thinking, but the GNU image management program is cross-platform."
+    },
+    {
+      "start": 3450.56,
+      "end": 3452.2,
+      "speaker": "jerod-santo",
+      "text": "I'm sure he was thinking."
+    },
+    {
+      "start": 3452.2,
+      "end": 3461.52,
+      "speaker": "adam-stacoviak",
+      "text": "I hate that you are correct that that is what I was thinking. I have definitely run GIMP."
+    },
+    {
+      "start": 3461.52,
+      "end": 3463.76,
+      "speaker": "jerod-santo",
+      "text": "Didn't we interview the guy who built GIMP one time?"
+    },
+    {
+      "start": 3463.76,
+      "end": 3467.32,
+      "speaker": "adam-stacoviak",
+      "text": "We sure did. He also made CockroachDB."
+    },
+    {
+      "start": 3467.32,
+      "end": 3469.88,
+      "speaker": "jerod-santo",
+      "text": "Oh, that's right. Talented fella."
+    },
+    {
+      "start": 3469.88,
+      "end": 3475.67,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. He talked a lot about GIMP, too, because I didn't have a clue until I interviewed him."
+    },
+    {
+      "start": 3475.67,
+      "end": 3477.43,
+      "speaker": "jerod-santo",
+      "text": "You didn't have a clue?"
+    },
+    {
+      "start": 3477.43,
+      "end": 3488.99,
+      "speaker": "adam-stacoviak",
+      "text": "No, I think I did up until like the day before. Like in my research, I didn't know it until then. It was a surprise to me. So like the plan for the call, and then the call was different because of it."
+    },
+    {
+      "start": 3488.99,
+      "end": 3507.79,
+      "speaker": "jerod-santo",
+      "text": "All right, here we go. This is not GIMP. This is WIMP, OK? Five definitions of WIMP. I've read them all, and I won't read them again unless you ask me to. And David gets to go first. So David, you're right here, man. The game is in your hands. All you have to do is identify the actual WIMP."
+    },
+    {
+      "start": 3507.79,
+      "end": 3516.83,
+      "speaker": "adam-stacoviak",
+      "text": "So Windows, there's GIMP for Windows. Yeah, I'm going to ask you to repeat. Just like the, you don't have to go to the definitions. Just the things that go there, yeah."
+    },
+    {
+      "start": 3516.83,
+      "end": 3548.96,
+      "speaker": "jerod-santo",
+      "text": "The summaries, I will summarize. So number one is the worker initialized multi-processing. That's a distributed computing execution strategy. Number two is the weekly interactive massive particle, a hypothetical particle for dark matter. Number three was wrought iron manifold plateau. And number four was the Windows Internet Management Platform, whereas number five was the Windows Image Management Package. That's your WIMP, five WIMPs."
+    },
+    {
+      "start": 3548.96,
+      "end": 3561.88,
+      "speaker": "adam-stacoviak",
+      "text": "Wrought iron manifold plateau. I wish I knew more about iron working. I think I'm going to go for two, so weekly interacting massive particle, yeah."
+    },
+    {
+      "start": 3561.88,
+      "end": 3567.04,
+      "speaker": "jerod-santo",
+      "text": "Okay, David goes for number two. And now we move to Spencer."
+    },
+    {
+      "start": 3567.04,
+      "end": 3578.24,
+      "speaker": "adam-stacoviak",
+      "text": "That also is going to be my choice. I know what it looks like, guys. I had it circled on my notepad. I was going to go for number two."
+    },
+    {
+      "start": 3579.24,
+      "end": 3581.88,
+      "speaker": "jerod-santo",
+      "text": "That just says David's name. You just circled David's name."
+    },
+    {
+      "start": 3581.88,
+      "end": 3583.04,
+      "speaker": "adam-stacoviak",
+      "text": "David's."
+    },
+    {
+      "start": 3583.04,
+      "end": 3586.6,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 3586.6,
+      "end": 3592.36,
+      "speaker": "adam-stacoviak",
+      "text": "But it does make me feel better about my choice, knowing that David had already picked it. So thank you, David."
+    },
+    {
+      "start": 3592.36,
+      "end": 3596.36,
+      "speaker": "jerod-santo",
+      "text": "There you go. All right, Jamie, did you write anything down?"
+    },
+    {
+      "start": 3596.36,
+      "end": 3608.88,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, much as number five is really selling it to me. I think I'm going to go for the multi-processing, the worker-initiated multi-processing."
+    },
+    {
+      "start": 3608.88,
+      "end": 3626.67,
+      "speaker": "jerod-santo",
+      "text": "Okay, number one, worker. Just go for something different. Okay, there you go. And Adam. On my virtual notebook here, I have also circled number two as a very plausible answer."
+    },
+    {
+      "start": 3628.56,
+      "end": 3629.4,
+      "speaker": "adam-stacoviak",
+      "text": "Independently."
+    },
+    {
+      "start": 3629.4,
+      "end": 3633.26,
+      "speaker": "jerod-santo",
+      "text": "Is that what you chose, Spencer? That's what David chose. It's what I chose."
+    },
+    {
+      "start": 3633.26,
+      "end": 3638.3,
+      "speaker": "adam-stacoviak",
+      "text": "More importantly, it's what David chose. Yeah, that's right. Getting the band back together."
+    },
+    {
+      "start": 3638.3,
+      "end": 3645.26,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you might as well pile on. I mean, if you realize we're all wrong, I do win though. Oh no, I don't. I only have 12."
+    },
+    {
+      "start": 3645.26,
+      "end": 3649.93,
+      "speaker": "adam-stacoviak",
+      "text": "I'm feeling like number four. I'm feeling like number four is good."
+    },
+    {
+      "start": 3649.93,
+      "end": 3655.09,
+      "speaker": "jerod-santo",
+      "text": "What's that one, Jared? Windows Internet Management Platform. That's right."
+    },
+    {
+      "start": 3655.09,
+      "end": 3655.93,
+      "speaker": "adam-stacoviak",
+      "text": "It's missing."
+    },
+    {
+      "start": 3657.29,
+      "end": 3674.73,
+      "speaker": "jerod-santo",
+      "text": "You're not going to guess that one, are you? Of course, it's a safe play. I don't know. I don't understand you sometimes. All right, Adam, Adam picked his own again. So you get zero points for picking his own?"
+    },
+    {
+      "start": 3674.73,
+      "end": 3684.65,
+      "speaker": "adam-stacoviak",
+      "text": "I'm too scared of David. I don't want to, though. I don't want to pick that one. It's a cop out. I should have more fun. Number two, we'll go with number two."
+    },
+    {
+      "start": 3684.65,
+      "end": 3685.49,
+      "speaker": "jerod-santo",
+      "text": "Which one are you doing?"
+    },
+    {
+      "start": 3685.49,
+      "end": 3690.81,
+      "speaker": "adam-stacoviak",
+      "text": "We'll go with number two. Yeah, let's have more fun. If whoever earned that answer gets it, whatever it is."
+    },
+    {
+      "start": 3690.81,
+      "end": 3691.65,
+      "speaker": "jerod-santo",
+      "text": "Fair."
+    },
+    {
+      "start": 3691.65,
+      "end": 3695.89,
+      "speaker": "adam-stacoviak",
+      "text": "It's a pile on. That's the best answer. Dark matter, come on, dark matter."
+    },
+    {
+      "start": 3695.89,
+      "end": 3738.84,
+      "speaker": "jerod-santo",
+      "text": "All right, well, David, Spencer, and Adam all piled on. They follow David to the weekly interacting massive particles. He's so excited. Look at David. Massive particles. He's bummed. He knows. He's like, yeah. And that is the correct definition for WIMP. It's a weekly interacting massive particle. So David scores two. Spencer gets two. Adam gets two. Jamie picked worker initialized multiprocessing. That's David's, ugh, this guy. He just can't do wrong. He can't do wrong. So above and beyond, he gets three points. Didn't even need that many. Gosh. And he wins with 17 points. Oh my gosh. Congrats, David."
+    },
+    {
+      "start": 3738.84,
+      "end": 3742.12,
+      "speaker": "adam-stacoviak",
+      "text": "Thank you. Thank you. That's so good."
+    },
+    {
+      "start": 3742.12,
+      "end": 3764.64,
+      "speaker": "jerod-santo",
+      "text": "Tied for the fastest win in Pound Define history, perhaps the largest margin of victory, when second place was me with eight. I'm not even playing, guys. Yeah. Actual second place was Jamie with seven, a full 10 points behind David, and then Spencer and Adam with six."
+    },
+    {
+      "start": 3764.64,
+      "end": 3766.72,
+      "speaker": "adam-stacoviak",
+      "text": "And one of those points was Gibby's."
+    },
+    {
+      "start": 3766.72,
+      "end": 3775.96,
+      "speaker": "jerod-santo",
+      "text": "That's right. So David, as is our new tradition that I'm just making up right now, you must improvise us a song. No, I'm just kidding. Oh, hell no."
+    },
+    {
+      "start": 3775.96,
+      "end": 3776.8,
+      "speaker": "unknown",
+      "text": "Oh, hell no."
+    },
+    {
+      "start": 3776.8,
+      "end": 3790.36,
+      "speaker": "jerod-santo",
+      "text": "I just mistook you from Matt Ryer for a moment there. No, we will not have you to do that. However you can say anything you like, you could promote anything you like, you have a moment to just say whatever you want, man. Go for it."
+    },
+    {
+      "start": 3790.36,
+      "end": 3825.72,
+      "speaker": "adam-stacoviak",
+      "text": "Sure. I guess I'll plug some stuff from the open source stuff from the company I work for. So the company I work for is Posit.co. We make software for data scientists and scientific computing. A couple of things that might be interesting to check out, there's a project called Quarto, which is a sort of literate programming environment that lets you render R and Python code into websites, all kinds of documents. And we're also building an editor for data scientists called Positron. So check that out at positron.posit.co."
+    },
+    {
+      "start": 3825.72,
+      "end": 3868.48,
+      "speaker": "jerod-santo",
+      "text": "Very cool. We will link up all those things, posit.co, quarto.org, and positron.posit.co. There you go. We'll link those up in the show notes so you don't have to read them out loud and type them into your browser if you're driving or something like that. That's it. That's pound a fine. This has been a fun one. I wouldn't say it's been a competitive one, but it's had a lot of laughs. And of course these are our changelog plus plus people. So I think we have 11 minutes. Is that fair, Jamie? You got 11 minutes to the top of the hour. All right. So if you are one of us, if you are a plus plus member, stick around for a bonus round right after we say goodbye. Adam, any final words before we hit our bonus round just for the plus plus people?"
+    },
+    {
+      "start": 3868.88,
+      "end": 3874,
+      "speaker": "adam-stacoviak",
+      "text": "If you're a plus plus subscriber, it's better. It's been better for years. That's it."
+    },
+    {
+      "start": 3874,
+      "end": 3875.04,
+      "speaker": "jerod-santo",
+      "text": "All right, bye friends."
+    },
+    {
+      "start": 3875.04,
+      "end": 3879.4,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends. Bye friends."
+    },
+    {
+      "start": 3879.4,
+      "end": 3955.7,
+      "speaker": "jerod-santo",
+      "text": "Okay, so the guys did stick around and we played a pretty epic bonus round. The winner, I don't want to spoil anything, but I will tell you it's the person you are least likely to guess. If you're not a changelog plus plus member, join us, why don't you? Make the ads disappear, get closer to the metal with cool bonuses like this one, get some free stickers, plus that warm fuzzy feeling you get from directly supporting something you enjoy. Learn more at changelog.com slash plus plus. If you're hearing this right after it drops, then I'm road tripping to Denver for our big live show and pipely launch. If you can't make it, no big deal. We are recording everything and we'll start shipping those episodes next week. Have yourself a great weekend. Send the changelog to a friend or three who might dig it. And let's talk again real soon. All right, you have entered bonus round. The scores are wiped out at zero to zero to zero to zero."
+    },
+    {
+      "start": 3955.7,
+      "end": 3957.66,
+      "speaker": "adam-stacoviak",
+      "text": "Take that, David. Jubilee."
+    },
+    {
+      "start": 3957.66,
+      "end": 3958.54,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 3958.54,
+      "end": 3961.02,
+      "speaker": "adam-stacoviak",
+      "text": "We've all got a chance. Anyone's game, anyone's game."
+    },
+    {
+      "start": 3961.02,
+      "end": 3966.72,
+      "speaker": "jerod-santo",
+      "text": "Anybody's got a chance. And this is the most free form round we have. It's called, how do you do fellow humans?"
+    }
+  ]
+}

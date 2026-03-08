@@ -156,7 +156,7 @@ async function createMachine(audioUrl: string): Promise<MachineJob> {
     throw new Error(`Failed to create machine: ${resp.status} ${text}`);
   }
 
-  const data = (await resp.json()) as any;
+  const data = (await resp.json()) as Record<string, string>;
   return {
     url: audioUrl,
     machineId: data.id,
@@ -171,7 +171,6 @@ async function getMachineStatus(
 ): Promise<{ step: string; message: string; percent: number; done: boolean; error: string } | null> {
   try {
     // Use Fly proxy to reach the machine's HTTP service
-    const url = `https://${job.machineId}.vm.${FLY_APP}.internal:8080/status`;
     // Can't reach internal IPs from outside — use the app's public domain with machine ID header
     const resp = await fetch(
       `https://${FLY_APP}.fly.dev/status`,
@@ -182,7 +181,7 @@ async function getMachineStatus(
       },
     );
     if (!resp.ok) return null;
-    return (await resp.json()) as any;
+    return (await resp.json()) as { step: string; message: string; percent: number; done: boolean; error: string };
   } catch {
     return null;
   }
@@ -190,7 +189,7 @@ async function getMachineStatus(
 
 async function getResult(
   job: MachineJob,
-): Promise<any | null> {
+): Promise<{ segments: { start: number; end: number; speaker: string; text: string }[]; title: string; speakers: string[] } | null> {
   try {
     const resp = await fetch(
       `https://${FLY_APP}.fly.dev/result`,
@@ -261,8 +260,8 @@ async function processAll() {
         const job = await createMachine(url);
         console.log(`[${label}] Machine ${job.machineId} created`);
         active.push(job);
-      } catch (err: any) {
-        console.error(`[${label}] Failed to create: ${err.message}`);
+      } catch (err: unknown) {
+        console.error(`[${label}] Failed to create: ${err instanceof Error ? err.message : err}`);
         failed.push(url);
       }
     }
@@ -315,7 +314,7 @@ async function processAll() {
           const txtPath = resolve(outputDir, `${stem}_diarized.txt`);
           const txt = result.segments
             .map(
-              (s: any) =>
+              (s: { start: number; end: number; speaker: string; text: string }) =>
                 `[${s.start.toFixed(2)} -> ${s.end.toFixed(2)}] ${s.speaker}: ${s.text}`,
             )
             .join("\n");
