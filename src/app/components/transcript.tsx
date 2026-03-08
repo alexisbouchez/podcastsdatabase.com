@@ -61,6 +61,15 @@ export function Transcript({
           placeholder="Search transcript..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && filtered.length > 0) {
+              const id = segmentId(filtered[0].originalIndex);
+              window.location.hash = id;
+              document
+                .getElementById(id)
+                ?.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
           className="w-full bg-background border border-foreground/10 px-3 py-2 text-sm placeholder:text-foreground/60 focus:outline-none focus:border-foreground/60"
         />
       </search>
