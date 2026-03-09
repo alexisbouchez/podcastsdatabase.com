@@ -1,0 +1,3039 @@
+{
+  "title": "Kaizen! Pipely goes BAM with Gerhard Lazu",
+  "description": "Kaizen 18 covers a Fly.io outage affecting Changelog, new features like clickable chapter timestamps in Zulip, the shift to video-first podcast production, and an in-depth exploration of Pipely with guests Matt Johnson and Nabeel Sulieman.",
+  "links": {
+    "YouTube": "https://youtu.be/_Q52OCj90C8",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "gerhard-lazu"
+  ],
+  "segments": [
+    {
+      "start": 15.15,
+      "end": 69.19,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog, and friends, a weekly talk show about birthday presents. Thanks as always to our partners at Fly.io, the public cloud built for developers who ship. Learn all about it at Fly.io. Okay, let's Kaizen. Well, friends, before the show, I'm here with my good friend, David Hsu, over at Retool. Now, David, I've known about Retool for a very long time. You've been working with us for many, many years. And speaking of many, many years, Brex is one of your oldest customers. You've been in business almost seven years. I think they've been a customer of yours for almost all those seven years, to my knowledge. But share the story. What do you do for Brex? How does Brex leverage Retool? And why have they stayed with you all these years?"
+    },
+    {
+      "start": 69.19,
+      "end": 78.39,
+      "speaker": "gerhard-lazu",
+      "text": "So what's really interesting about Brex is that they are an extremely operational, heavy company. And so for them, the quality of the internal tool is so important"
+    },
+    {
+      "start": 78.39,
+      "end": 164.05,
+      "speaker": "adam-stacoviak",
+      "text": "because you can imagine they have to deal with fraud, they have to deal with underwriting, they have to deal with so many problems, basically. They have a giant team internally, basically just using internal tools day in and day out. And so they have a very high bar for internal tools. And when they first started, we were in the same YC batch, actually. We were both at winter 17 and they were, yeah, I think maybe customer number five or something like that for us. I think DoorDash was a little bit before them, but they were pretty early. And the problem they had was they had so many internal tools they needed to go and build, but not enough time or engineers to go build all of them. And even if they did have the time or engineers, they wanted their engineers focused on building external phasing software, because that is what would drive the business forward. Brex mobile app, for example, is awesome. The Brex website, for example, is awesome. The Brex expense flow, all really great external phasing software. So they wanted their engineers focused on that, as opposed to building internal CRUD UIs. And so that's why they came to us. And it was honestly a wonderful partnership. It has been for seven, eight years now. Today, I think Brex has probably around a thousand retool apps they use in production, I want to say every week, which is awesome. And their whole business effectively runs now on retool. And we are so, so privileged to be a part of their journey. And to me, I think what's really cool about all this is that we've managed to allow them to move so fast. So whether it's launching new product lines, whether it's responding to customers faster, whatever it is, if they need an app for that,"
+    },
+    {
+      "start": 164.05,
+      "end": 174.79,
+      "speaker": "gerhard-lazu",
+      "text": "they can get an app for it in a day, which is a lot better than, you know, in six months or a year, for example, having to schlep through spreadsheets, et cetera. So I'm really, really proud of our partnership with Brex."
+    },
+    {
+      "start": 174.79,
+      "end": 209.13,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, retool is the best way to build, maintain, and deploy internal software, seamlessly connect to databases, build with elegant components, and customize with code, accelerate mundane tasks, and free up time for the work that really matters for you and your team. Learn more at retool.com. Start for free, book a demo. Again, retool.com. We are here to Kaizen, which means Gerhard Lazu is also here. What's up, man?"
+    },
+    {
+      "start": 209.13,
+      "end": 214.83,
+      "speaker": "gerhard-lazu",
+      "text": "In the house. Gerhard Lazu in the house, yes. Welcome to the house. Everything's up, everything's up. Everything's up. That's right."
+    },
+    {
+      "start": 214.83,
+      "end": 219.43,
+      "speaker": "adam-stacoviak",
+      "text": "That's the DevOps response, isn't it? Or the sysadmin, I don't know what you call yourself these days."
+    },
+    {
+      "start": 219.43,
+      "end": 222.83,
+      "speaker": "gerhard-lazu",
+      "text": "Well, it's just, I know titles, right? They're always hard."
+    },
+    {
+      "start": 222.83,
+      "end": 225.43,
+      "speaker": "adam-stacoviak",
+      "text": "InfraEngineer, I mean, what is your title, Gerhard?"
+    },
+    {
+      "start": 225.43,
+      "end": 227.95,
+      "speaker": "gerhard-lazu",
+      "text": "Officially head of infrastructure for Dagger."
+    },
+    {
+      "start": 227.95,
+      "end": 229.39,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, cool."
+    },
+    {
+      "start": 229.39,
+      "end": 230.23,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 230.23,
+      "end": 231.62,
+      "speaker": "adam-stacoviak",
+      "text": "It's a big role."
+    },
+    {
+      "start": 231.62,
+      "end": 235.1,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it is. I'm enjoying it. I've grown into it."
+    },
+    {
+      "start": 235.1,
+      "end": 236.66,
+      "speaker": "adam-stacoviak",
+      "text": "Are you on PagerDuty?"
+    },
+    {
+      "start": 236.66,
+      "end": 247.06,
+      "speaker": "gerhard-lazu",
+      "text": "Always. I'm responsible for everyone that's on PagerDuty. And I'm responsible that PagerDuty is set up correctly. That we are alerted when the right things go down. So yeah."
+    },
+    {
+      "start": 247.06,
+      "end": 248.96,
+      "speaker": "adam-stacoviak",
+      "text": "So you literally use PagerDuty?"
+    },
+    {
+      "start": 248.96,
+      "end": 249.8,
+      "speaker": "gerhard-lazu",
+      "text": "No."
+    },
+    {
+      "start": 249.8,
+      "end": 250.94,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, no."
+    },
+    {
+      "start": 250.94,
+      "end": 255.3,
+      "speaker": "gerhard-lazu",
+      "text": "It's the placeholder for the phone call."
+    },
+    {
+      "start": 255.3,
+      "end": 259.05,
+      "speaker": "adam-stacoviak",
+      "text": "Was that a burn or was it just a fact?"
+    },
+    {
+      "start": 259.05,
+      "end": 260.09,
+      "speaker": "gerhard-lazu",
+      "text": "It's a fact, yeah."
+    },
+    {
+      "start": 260.09,
+      "end": 263.41,
+      "speaker": "adam-stacoviak",
+      "text": "It's a fact. I know it's a fact, but was it a burn as well?"
+    },
+    {
+      "start": 263.41,
+      "end": 264.97,
+      "speaker": "gerhard-lazu",
+      "text": "A burn?"
+    },
+    {
+      "start": 264.97,
+      "end": 268.41,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know about that. A PagerDuty burn?"
+    },
+    {
+      "start": 268.41,
+      "end": 269.81,
+      "speaker": "gerhard-lazu",
+      "text": "I don't know, maybe."
+    },
+    {
+      "start": 269.81,
+      "end": 270.65,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, maybe."
+    },
+    {
+      "start": 270.65,
+      "end": 279.41,
+      "speaker": "gerhard-lazu",
+      "text": "I never really loved PagerDuty, I have to say. And it's not what's behind it. It's like the whole setup. It's just too complex, I think."
+    },
+    {
+      "start": 279.41,
+      "end": 283.61,
+      "speaker": "adam-stacoviak",
+      "text": "I will say this about it, because this is all I know about it. Great name. It's got a great name."
+    },
+    {
+      "start": 283.61,
+      "end": 284.45,
+      "speaker": "gerhard-lazu",
+      "text": "Right."
+    },
+    {
+      "start": 284.45,
+      "end": 285.53,
+      "speaker": "adam-stacoviak",
+      "text": "That's all I can say about it."
+    },
+    {
+      "start": 285.53,
+      "end": 290.09,
+      "speaker": "gerhard-lazu",
+      "text": "I prefer Incident. Incident.io, I think that's even a better name. When there's an incident."
+    },
+    {
+      "start": 290.09,
+      "end": 293.03,
+      "speaker": "adam-stacoviak",
+      "text": "Really? Why, because we don't have pagers anymore?"
+    },
+    {
+      "start": 293.03,
+      "end": 295.03,
+      "speaker": "gerhard-lazu",
+      "text": "Pretty much, yeah. Who has pagers?"
+    },
+    {
+      "start": 295.03,
+      "end": 306.23,
+      "speaker": "adam-stacoviak",
+      "text": "And it's true, I guess it's a terrible name, but. Well, now it's just a page that person, which means call that person or email that person or slack that person or Zulu to just get ahold of them however means possible."
+    },
+    {
+      "start": 306.23,
+      "end": 320.93,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, exactly. So, and if anything, if you only use a pager, it means you don't have a backup. And if something goes down, you definitely want your whatever's monitoring to have multiple layers of redundancy, right?"
+    },
+    {
+      "start": 321.53,
+      "end": 325.57,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you can just wear two pagers, you know, they slide onto your belt. So you can just clip a second one next to it."
+    },
+    {
+      "start": 325.57,
+      "end": 333.17,
+      "speaker": "gerhard-lazu",
+      "text": "But it's using a single network. So you need to redundancy, you need cell phones, you need like, you know, emails, the whole thing."
+    },
+    {
+      "start": 333.17,
+      "end": 346.71,
+      "speaker": "adam-stacoviak",
+      "text": "Well, two of everything, I guess. Can't silence it. That's my biggest issue. I forget I silenced my phone. And then I'm like, why did I not get that text? Oh, cause my phone is on silent. Do you normally not have it on silent? My phone's been on silent for 12 years."
+    },
+    {
+      "start": 346.71,
+      "end": 347.97,
+      "speaker": "gerhard-lazu",
+      "text": "Same here."
+    },
+    {
+      "start": 347.97,
+      "end": 351.33,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I don't know, man. I don't know."
+    },
+    {
+      "start": 351.33,
+      "end": 355.73,
+      "speaker": "gerhard-lazu",
+      "text": "That's what I got to watch, right? The watch will alert. Yes."
+    },
+    {
+      "start": 355.73,
+      "end": 373.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly. I feel like the phone is such a hard thing, man. I'm just like, when to make it, you know, alertable, let's just say, or like something where it can bother me. Cause I miss critical texts or emails or not so much emails, more like texts or phone calls, you know?"
+    },
+    {
+      "start": 373.17,
+      "end": 382.01,
+      "speaker": "gerhard-lazu",
+      "text": "I wore the watch for a couple of years and thought that I needed it in my life. And then the watch broke. And that made me ask the question, do I really need the watch?"
+    },
+    {
+      "start": 382.01,
+      "end": 398.13,
+      "speaker": "adam-stacoviak",
+      "text": "And I just decided 300 bucks or whatever. I'm going to go without it for a couple of weeks and just see. I never felt more freedom than after my watch broke. Oh, I haven't bought one since. I've hadn't had a watch for over a year now. And I don't think I'm going to go back. What kind of watch you got, Gerhard?"
+    },
+    {
+      "start": 398.13,
+      "end": 402.17,
+      "speaker": "gerhard-lazu",
+      "text": "It's the Apple watch. So, which one? Which one?"
+    },
+    {
+      "start": 402.17,
+      "end": 405.69,
+      "speaker": "adam-stacoviak",
+      "text": "The ultra 2 or the ultra 1? I bet it's the biggest, most expensive one."
+    },
+    {
+      "start": 405.69,
+      "end": 438.45,
+      "speaker": "gerhard-lazu",
+      "text": "Well, it is the ultra. I was waiting for that. I love the extra GPSs and everything. So it has like a couple of things in it. Ultra 2, that would be the new one and this would be the backup. That's what we're working towards. But I do like, especially when I drive, I love Apple maps. That integration is really, really good. Not sure if you've tried it, but when you have to take an exit or you have to take a turn, it just vibrates. It's very, very helpful."
+    },
+    {
+      "start": 438.45,
+      "end": 452.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you know, I'm with you there, but I'm not with you there. I feel like I like the Apple maps and I go there, but I use CarPlay instead rather than the watch. Let the car be the alert."
+    },
+    {
+      "start": 452.43,
+      "end": 454.79,
+      "speaker": "gerhard-lazu",
+      "text": "And she'll just talk to you. She'll just be like, take your next ride."
+    },
+    {
+      "start": 454.79,
+      "end": 456.33,
+      "speaker": "adam-stacoviak",
+      "text": "Or just pay attention to the map."
+    },
+    {
+      "start": 456.33,
+      "end": 462.75,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, we got to pay attention to the road, Adam. Also, you got the game on your handheld. You got to watch the game while you're driving."
+    },
+    {
+      "start": 462.75,
+      "end": 469.83,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. I'm playing PlayStation 2 while driving and I'd say Fast and Furious throwback, Jared."
+    },
+    {
+      "start": 469.83,
+      "end": 471.91,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, I thought maybe it was a Silicon Valley reference."
+    },
+    {
+      "start": 471.91,
+      "end": 475.39,
+      "speaker": "adam-stacoviak",
+      "text": "No, man. You know, I got more in me, though."
+    },
+    {
+      "start": 475.39,
+      "end": 478.67,
+      "speaker": "gerhard-lazu",
+      "text": "You're not a single trick pony? This guy has more than me."
+    },
+    {
+      "start": 478.67,
+      "end": 483.31,
+      "speaker": "adam-stacoviak",
+      "text": "You remember Fast and Furious, the very first episode or the very first, I guess, movie?"
+    },
+    {
+      "start": 483.31,
+      "end": 484.83,
+      "speaker": "gerhard-lazu",
+      "text": "That's the one that I remember, yeah."
+    },
+    {
+      "start": 484.83,
+      "end": 508.47,
+      "speaker": "adam-stacoviak",
+      "text": "Before the race, the kid was playing PlayStation. It was actually PlayStation 1. In his car, in the console prior to the race. And it was like a flex, you know? It was like, oh my gosh, I've got to trick out my car. I have to have a PlayStation console in my dashboard."
+    },
+    {
+      "start": 508.47,
+      "end": 513.67,
+      "speaker": "gerhard-lazu",
+      "text": "That's not realistic because that sucker did not have, what was it called? When the CDs would just..."
+    },
+    {
+      "start": 513.67,
+      "end": 520.99,
+      "speaker": "adam-stacoviak",
+      "text": "Anti-vibration? Yeah, like the old Walkman that took an actual CD and you walked around with it. It was skip constantly, skip protection."
+    },
+    {
+      "start": 520.99,
+      "end": 521.83,
+      "speaker": "gerhard-lazu",
+      "text": "Totally, yeah."
+    },
+    {
+      "start": 521.83,
+      "end": 535.96,
+      "speaker": "adam-stacoviak",
+      "text": "I'm pretty sure PlayStation 1 had the same problem. If you're driving a car and playing it, you're probably skipping all over the place. Gerhard, get us on track here. We heard a Kaizen. We'll talk about movie references, the entire show. Kaizen 18."
+    },
+    {
+      "start": 535.96,
+      "end": 545.8,
+      "speaker": "gerhard-lazu",
+      "text": "So I realized that this was, or will be, when it will come out, my one, one, one episode on the changelog."
+    },
+    {
+      "start": 545.8,
+      "end": 551.66,
+      "speaker": "adam-stacoviak",
+      "text": "Oh wow, you like that number. It's not round, but it's symmetrical. I don't know what it is. It's all ones."
+    },
+    {
+      "start": 551.66,
+      "end": 564.3,
+      "speaker": "gerhard-lazu",
+      "text": "It's three ones. I mean, that happens rarely. Like the next time, like twos. I think it's going to be such a long time, right? If we only do the Kaizens, I think that will last me to the end of life, honestly."
+    },
+    {
+      "start": 564.3,
+      "end": 565.34,
+      "speaker": "adam-stacoviak",
+      "text": "That might."
+    },
+    {
+      "start": 565.34,
+      "end": 571.18,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I mean, two and a half months, like one, one, one divided by two and a half months. That's a lot of years, I think."
+    },
+    {
+      "start": 571.18,
+      "end": 574.86,
+      "speaker": "adam-stacoviak",
+      "text": "How many Kaizens do you think we're going to make it to before one of us, you know, kicks the can?"
+    },
+    {
+      "start": 574.86,
+      "end": 579.78,
+      "speaker": "gerhard-lazu",
+      "text": "Well, hopefully we'll get to a hundred. That's what I would like to see. We'll get to a hundred, at least."
+    },
+    {
+      "start": 579.78,
+      "end": 580.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it'll be awesome."
+    },
+    {
+      "start": 580.78,
+      "end": 585.7,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I mean, you know, we won't stop like ship it at 90. This one has to go to a hundred."
+    },
+    {
+      "start": 585.7,
+      "end": 587.14,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 587.14,
+      "end": 587.98,
+      "speaker": "gerhard-lazu",
+      "text": "That's what I'm thinking."
+    },
+    {
+      "start": 587.98,
+      "end": 592.51,
+      "speaker": "adam-stacoviak",
+      "text": "Wow. So we got 75 more episodes to go."
+    },
+    {
+      "start": 592.51,
+      "end": 596.47,
+      "speaker": "gerhard-lazu",
+      "text": "And that's, I think, what is it? 40 years? No."
+    },
+    {
+      "start": 597.63,
+      "end": 600.35,
+      "speaker": "adam-stacoviak",
+      "text": "Let's just acknowledge it and move on. Yeah."
+    },
+    {
+      "start": 600.35,
+      "end": 607.15,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it's a lot of years. That's a lot. What about yours? Do you know like what episode appearance this will be for you?"
+    },
+    {
+      "start": 607.15,
+      "end": 613.11,
+      "speaker": "adam-stacoviak",
+      "text": "Mostly all of them. Well, we can look it up easily because it's on the person page. Yeah. It is, yes."
+    },
+    {
+      "start": 613.11,
+      "end": 636.51,
+      "speaker": "gerhard-lazu",
+      "text": "I love that page. I don't know if anyone is aware of that, but if you've been as a guest to the changelog, or even if, I think if you replied, I'm not sure about that part, but it will show all your interactions or all your references exactly on the changelog. So I use that quite a lot. So changelog.com/, and what is it for the person?"
+    },
+    {
+      "start": 636.51,
+      "end": 638.67,
+      "speaker": "adam-stacoviak",
+      "text": "Person slash slug."
+    },
+    {
+      "start": 638.67,
+      "end": 645.74,
+      "speaker": "gerhard-lazu",
+      "text": "Person. All right, Gerhard, cool. So there you go. One, one, one, one, zero episodes."
+    },
+    {
+      "start": 645.74,
+      "end": 648.14,
+      "speaker": "adam-stacoviak",
+      "text": "So I've been on 909 episodes."
+    },
+    {
+      "start": 648.14,
+      "end": 653.06,
+      "speaker": "gerhard-lazu",
+      "text": "909? Wow. Yeah. Wow, that's a lot. Yeah, 909."
+    },
+    {
+      "start": 653.06,
+      "end": 660.82,
+      "speaker": "adam-stacoviak",
+      "text": "Crazy. So this will be 910 for me, or maybe 911 by the time it comes out. I don't know because Wednesday shows Adam by himself. So this will be 910 for me."
+    },
+    {
+      "start": 660.82,
+      "end": 665.82,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. Do you think this is the year that you'll crack a thousand? Is this it?"
+    },
+    {
+      "start": 665.82,
+      "end": 667.48,
+      "speaker": "adam-stacoviak",
+      "text": "Good question. Three a week."
+    },
+    {
+      "start": 667.48,
+      "end": 669.19,
+      "speaker": "gerhard-lazu",
+      "text": "No. Three a week?"
+    },
+    {
+      "start": 669.19,
+      "end": 674.29,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, no. Three a week times 50. Yeah, it will. Yeah. We'll get there. It's February already."
+    },
+    {
+      "start": 674.29,
+      "end": 675.11,
+      "speaker": "gerhard-lazu",
+      "text": "That's true."
+    },
+    {
+      "start": 675.47,
+      "end": 685.23,
+      "speaker": "adam-stacoviak",
+      "text": "Keep thinking it's the start of the year. It's March, actually. Time is compressed. Yeah. Maybe. Yeah, so it's possible. Maybe our final episode of the year will be the 1,000th."
+    },
+    {
+      "start": 685.23,
+      "end": 692.07,
+      "speaker": "gerhard-lazu",
+      "text": "Wow. Okay, an eight or two. What happened there? How come do you have more episodes than Adam? What's this all news?"
+    },
+    {
+      "start": 692.07,
+      "end": 696.77,
+      "speaker": "adam-stacoviak",
+      "text": "He's gonna hack. I was on JS Party for a while. JS Party and news, yeah."
+    },
+    {
+      "start": 697.65,
+      "end": 698.49,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, okay."
+    },
+    {
+      "start": 698.49,
+      "end": 700.42,
+      "speaker": "adam-stacoviak",
+      "text": "All right, so I'm winning."
+    },
+    {
+      "start": 700.42,
+      "end": 702.3,
+      "speaker": "gerhard-lazu",
+      "text": "All right, so far. Yeah, let's see if I can catch up."
+    },
+    {
+      "start": 702.3,
+      "end": 718.64,
+      "speaker": "adam-stacoviak",
+      "text": "Or losing, depending on how you think about it. I guess I couldn't catch you, could I? It would probably be pretty hard to do that. You could take over news if you want. It's like it's not worth it. I mean. Funny news, funny news, maybe. You know, scaling is a people thing."
+    },
+    {
+      "start": 718.64,
+      "end": 728.42,
+      "speaker": "gerhard-lazu",
+      "text": "So, let's talk about something that happened. Let's start with alone. Well, changelog was down for four hours."
+    },
+    {
+      "start": 728.42,
+      "end": 730.72,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, let's not talk about it."
+    },
+    {
+      "start": 730.72,
+      "end": 737.42,
+      "speaker": "gerhard-lazu",
+      "text": "Did anyone notice? Well, I'm really wondering, like, did you notice that changelog was down? You did, okay. How did it happen for you?"
+    },
+    {
+      "start": 737.42,
+      "end": 739.38,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I went to the website and it wasn't there."
+    },
+    {
+      "start": 739.38,
+      "end": 741.42,
+      "speaker": "gerhard-lazu",
+      "text": "Right, okay, okay, cool."
+    },
+    {
+      "start": 741.42,
+      "end": 772.53,
+      "speaker": "adam-stacoviak",
+      "text": "The classic way. All right. I assume it was signed in people only, because I didn't actually check, but I'm always signed in, and so, we will cache with fast, yeah, we'll cache with Fastly if you're not signed in, but if you have a signing cookie, we pass it through to the app every time, and the app was down, and so. I noticed, because I went to go share something and wanted to look at something, and I don't know, it was down. Although I think I already knew that, because maybe you posted it, I don't know. But I definitely just went to the website, and it 503'd or whatever."
+    },
+    {
+      "start": 772.53,
+      "end": 817.65,
+      "speaker": "gerhard-lazu",
+      "text": "So, for anyone, if you're wondering if changelog is down, go to status.changelog.com, and you will see what is down, when it is down, so in this particular case, we had a previous incident. There's a bit of a red right there, and this is the origin, so the origin was down, and if you click on that, it takes you to the status, and you can see the whole history, so this is something that I do update whenever there's an issue like this, especially when it's a big one. We had a few small ones, just like a few minutes, but those don't show up, but this one was significant, and February 16th, 10 a.m., actually it was before 10 a.m., so that was a Saturday, Saturday or Sunday? No, I think it was a Sunday, February 16th."
+    },
+    {
+      "start": 817.65,
+      "end": 818.71,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I know it was on Sunday."
+    },
+    {
+      "start": 818.71,
+      "end": 904.06,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it was a Sunday, so that was half the Sunday looking at this, so what happened? Well, if you go to the discussion, 538, that's where all the links are, but basically, as it happened, it was a fly issue, and the fly.io issue, it wasn't fly.io itself, fly.io, and I'm going to scroll down to that particular message, has providers, so in this case, one of the upstream networks, so let's see, let's see, where is it? I'm looking for, there. It was a far upstream issue, and I'm now looking at a post from Kurt, the CEO of Fly, and he was saying that the failure was far upstream from us and a single point of network failure, so one of their vendors let them down, basically, and there's not much that they could do about it, so this is what happens when, you know, because we all depend on other systems and other systems, there's always upstream systems, you have internet, the internet provider, I'm sure, you know, has transit links and peering links and all of that, some of those can be down if you don't run to everything, everything. In this case, they didn't have to have two of everything. The switch went down, and it took four hours for someone to fix it, and it was, I think, Sunday, very early morning on the East Coast,"
+    },
+    {
+      "start": 904.06,
+      "end": 913.38,
+      "speaker": "adam-stacoviak",
+      "text": "which just made it a bad Sunday. Well, lots of us did, but one person in particular, probably, yeah. So. Their virtual pager went off."
+    },
+    {
+      "start": 913.38,
+      "end": 989.11,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so that was not great, but I think one of the key takeaways for us is that in terms of how many requests didn't go through, so final impact, I posted again on the Fly community, so for the whole outage, actually, our SLI for successful HTTP requests, and that was like the last 24 hours, dropped to 97.40%, so and well below three nines, even four nines, but it's still 97% of the requests were served. Most of them, they go to our object storage, right, all the MP3s, all the static assets, all of that. The website itself, I mean, some of the pages, the most visited ones, they're being cached, and they were served from the CDN, fastly in this case, so if you were not signed in, most likely you will not have noticed this, and I think for many people that consume the content through their podcast players or from YouTube, wherever you get the changeable content from, I don't think you'll have noticed this. This was very specific to the app, and if you have, let us know."
+    },
+    {
+      "start": 989.11,
+      "end": 992.89,
+      "speaker": "adam-stacoviak",
+      "text": "MP3s continue to serve, right? Yeah. So, yeah."
+    },
+    {
+      "start": 992.89,
+      "end": 993.73,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 994.55,
+      "end": 997.05,
+      "speaker": "adam-stacoviak",
+      "text": "It's unlikely that people really noticed, except for the people who noticed."
+    },
+    {
+      "start": 997.05,
+      "end": 1009.42,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, well, I mean, there were some, for sure, because we can see that a bunch of requests failed, but in the big scheme of things, it wasn't that much. Now, did we run two changelog application instances?"
+    },
+    {
+      "start": 1010.26,
+      "end": 1011.3,
+      "speaker": "adam-stacoviak",
+      "text": "We did not."
+    },
+    {
+      "start": 1011.3,
+      "end": 1027.28,
+      "speaker": "gerhard-lazu",
+      "text": "We did not. Actually, well, we did, but they were all in the same region, so this was a regional failure. All of Ashburn, Virginia, in this case, Flies, Ashburn, Virginia, IAD, that's the one that went down, and unfortunately-"
+    },
+    {
+      "start": 1027.28,
+      "end": 1028.28,
+      "speaker": "adam-stacoviak",
+      "text": "The major one."
+    },
+    {
+      "start": 1028.28,
+      "end": 1088.7,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, that's actually the primary one. What made this worse is that Fly itself, the control plane for the machines, was running in that single region, which meant that no one could scale their apps. So if you happened to have a single or multiple app instances running only in that region, everything would have been down. If you could have scaled it while this was ongoing, you could just basically spin up another application in a different region, but that was not possible. So again, there were a couple of things that failed in surprising ways, and for me, what was surprising is that, well, we did have two application instances, but they were both in the same region, and the region went down. So now we have another one running in EWR, I think is New Jersey, somewhere in New Jersey. So yeah, we're good."
+    },
+    {
+      "start": 1088.7,
+      "end": 1090,
+      "speaker": "adam-stacoviak",
+      "text": "So we're good to go."
+    },
+    {
+      "start": 1090,
+      "end": 1091.06,
+      "speaker": "gerhard-lazu",
+      "text": "We're good to go."
+    },
+    {
+      "start": 1091.06,
+      "end": 1094.42,
+      "speaker": "adam-stacoviak",
+      "text": "Why don't you put that one on somewhere closer to yourself, Gerhard?"
+    },
+    {
+      "start": 1094.42,
+      "end": 1116.13,
+      "speaker": "gerhard-lazu",
+      "text": "Well, if I did, it would still need to go to NEON. That's where the database is. So that would introduce a lot of latency. Now, if you could distribute the database, and we could have a couple of free replicas, which it's something that I'm thinking about, this would make more sense. Do we want to do that?"
+    },
+    {
+      "start": 1116.13,
+      "end": 1118.77,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, I don't know. Do you have other stuff to work on?"
+    },
+    {
+      "start": 1118.77,
+      "end": 1121.33,
+      "speaker": "gerhard-lazu",
+      "text": "I do, but yeah."
+    },
+    {
+      "start": 1121.33,
+      "end": 1128.08,
+      "speaker": "adam-stacoviak",
+      "text": "I don't think we need to do that. Chasing the nines is fun. Cool, what's next?"
+    },
+    {
+      "start": 1128.08,
+      "end": 1146.16,
+      "speaker": "gerhard-lazu",
+      "text": "All right, so there's a thread. Linkify chapters in Zulip, new episode messages. I remember we talked about that in the last episode, and I think it was like a day before, two days before, just landed. How amazing was that?"
+    },
+    {
+      "start": 1146.16,
+      "end": 1151.32,
+      "speaker": "adam-stacoviak",
+      "text": "So amazing. Probably the coolest thing that happened in this whole, guys, just kidding."
+    },
+    {
+      "start": 1151.32,
+      "end": 1153.12,
+      "speaker": "gerhard-lazu",
+      "text": "So far, so far, hang on, hang on."
+    },
+    {
+      "start": 1153.12,
+      "end": 1155.68,
+      "speaker": "adam-stacoviak",
+      "text": "So far, we had an outage and a feature."
+    },
+    {
+      "start": 1155.68,
+      "end": 1158.72,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so what was it like to implement it?"
+    },
+    {
+      "start": 1158.72,
+      "end": 1252.34,
+      "speaker": "adam-stacoviak",
+      "text": "It was not very hard, I don't remember. 51 additions and 18 subtractions, so that's a small feature. Just a little bit of code to go ahead and linkify those suckers. So for those who don't know what we're talking about, when a new episode is published, our system automatically notifies various social things, one of which is our awesome Zulip community. If you're not in there, what's wrong with you? Change.com slash community, get yourself a Zulip. It's fully free. And you'll be able to chat about the shows. After they come out. And so every time a show comes out, it posts in there, hey, new episode. It has the summary, the title, and the link to listen to it. And we've also now embedded the chapters as markdown tables. And that was already there. That's not this feature. What I didn't do prior was I didn't linkify the actual chapter timestamps. So you could click on timestamp and immediately start listening to it. And so that's what I added, was I made those timestamp links. So you can click and listen from that spot, which was requested by the both of you on The Last Kaizen. And so since we have a three day turnaround between recording and shipping each episode, I actually shipped the feature out, I think prior to that episode dropping. That's like I said, it was half an hour of coding. But it's useful. Those are the best features, right? Little bit of work, lots of value."
+    },
+    {
+      "start": 1252.38,
+      "end": 1258.94,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. I'm wondering if anyone else is using it or if they noticed it. And what do you think? Useful?"
+    },
+    {
+      "start": 1258.94,
+      "end": 1264.52,
+      "speaker": "adam-stacoviak",
+      "text": "Good question. Let us know in the Zulu comments. Useful? Useless?"
+    },
+    {
+      "start": 1264.52,
+      "end": 1268.96,
+      "speaker": "gerhard-lazu",
+      "text": "Or do we revert it? Do we revert it a bit? Not going to happen, though."
+    },
+    {
+      "start": 1268.96,
+      "end": 1275.91,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I just don't see any reason why you'd take the links away. If one person likes it, we know Gerhard likes it, then why not?"
+    },
+    {
+      "start": 1275.91,
+      "end": 1279.79,
+      "speaker": "gerhard-lazu",
+      "text": "That's really cool. Did you click one of those links, Adam, since the feature landed?"
+    },
+    {
+      "start": 1279.79,
+      "end": 1286.7,
+      "speaker": "adam-stacoviak",
+      "text": "I would say no. You said you would. You said you were going to click on them. Did I say that?"
+    },
+    {
+      "start": 1286.7,
+      "end": 1287.5,
+      "speaker": "gerhard-lazu",
+      "text": "Something like that."
+    },
+    {
+      "start": 1287.5,
+      "end": 1295.44,
+      "speaker": "adam-stacoviak",
+      "text": "Go back and quote me. I want to hear. Jason, pull up a quote. If I said that, I want to know I said it. I'll eat some, what do you call that, eat crow? You say eat crow?"
+    },
+    {
+      "start": 1295.44,
+      "end": 1296.89,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, eat crow."
+    },
+    {
+      "start": 1296.89,
+      "end": 1340.46,
+      "speaker": "adam-stacoviak",
+      "text": "I don't want to eat some crow, man. I want to eat some chicken. Eat more chicken, OK? I do like the feature being there. I think that I'm just a go there and do it kind of person, not the stay here and click around kind of person. Although I do like, what I like about Zulip and what I like about what this offers, I believe, is that we tend to have thick conversations, much thicker than we had in Slack. And so one of my biggest excitements, I would say, if that's even a word, happiness levels, pick your 8.34 in the morning word. This is an earlier recording time, as you can probably tell. I'm going to do a network talk, drink a coffee."
+    },
+    {
+      "start": 1340.46,
+      "end": 1342.86,
+      "speaker": "gerhard-lazu",
+      "text": "Are you apologizing for your lack of sharpness or what?"
+    },
+    {
+      "start": 1342.86,
+      "end": 1347.34,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Yes, I am. I am not very sharp in this."
+    },
+    {
+      "start": 1347.34,
+      "end": 1351.26,
+      "speaker": "gerhard-lazu",
+      "text": "The conversation must be boring. Jared, that's what it is. We're not good hosts."
+    },
+    {
+      "start": 1351.26,
+      "end": 1354.78,
+      "speaker": "adam-stacoviak",
+      "text": "Adam's boring himself over there. Jeez, no, I was drinking the coffee."
+    },
+    {
+      "start": 1354.78,
+      "end": 1356.82,
+      "speaker": "gerhard-lazu",
+      "text": "All right, well, did you bring some crow?"
+    },
+    {
+      "start": 1356.82,
+      "end": 1369.46,
+      "speaker": "adam-stacoviak",
+      "text": "No, I got more to say. I got more to say. I got more to say. What I enjoy, if I couldn't tell, I'm getting there, is that how thick these comments are in Zulip. So back to what Jared said, you are missing out. Change.com slash community."
+    },
+    {
+      "start": 1369.46,
+      "end": 1371.66,
+      "speaker": "gerhard-lazu",
+      "text": "The quality, when you say thick, you're talking about the quality."
+    },
+    {
+      "start": 1371.66,
+      "end": 1376.18,
+      "speaker": "adam-stacoviak",
+      "text": "Thick, good, yes, sorry. Is that not clear enough, thick comments?"
+    },
+    {
+      "start": 1376.18,
+      "end": 1381.7,
+      "speaker": "gerhard-lazu",
+      "text": "I'm just making it clear. Thick comments actually means they're not very good. People are really thick."
+    },
+    {
+      "start": 1381.7,
+      "end": 1399,
+      "speaker": "adam-stacoviak",
+      "text": "Well, it depends, if you like thick or not. I think thick is always better than thin. I mean, you go choose yourself a Reese's cup or whatever, right? Go Reese's, you go a Reese's, you pick your nomenclature for your Reese's cups, man. I like the big cups, okay? Did you say a Reese's cup?"
+    },
+    {
+      "start": 1400.54,
+      "end": 1407.94,
+      "speaker": "gerhard-lazu",
+      "text": "What is a Reese's cup? Can you show us, Adam? Can you show the viewers what that means?"
+    },
+    {
+      "start": 1407.94,
+      "end": 1420.66,
+      "speaker": "adam-stacoviak",
+      "text": "It's this, okay? That's what it is. It's big. It's big. Is it? They have a big cup. Okay, we'll call them Reese's. My wife makes fun of me too. I say, I used to say Nike. Had no idea it was Nike my whole life, okay?"
+    },
+    {
+      "start": 1420.66,
+      "end": 1421.66,
+      "speaker": "gerhard-lazu",
+      "text": "You said Nike?"
+    },
+    {
+      "start": 1421.66,
+      "end": 1426.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, like a fool, like a fool. I've never heard anybody say Nike."
+    },
+    {
+      "start": 1426.66,
+      "end": 1428.66,
+      "speaker": "gerhard-lazu",
+      "text": "This is amazing. How many years?"
+    },
+    {
+      "start": 1429.93,
+      "end": 1440.19,
+      "speaker": "adam-stacoviak",
+      "text": "How many years did you say that? 35. 35 years of Nike. That's amazing."
+    },
+    {
+      "start": 1440.19,
+      "end": 1443.11,
+      "speaker": "gerhard-lazu",
+      "text": "You never realized it till you were 35?"
+    },
+    {
+      "start": 1443.11,
+      "end": 1444.99,
+      "speaker": "adam-stacoviak",
+      "text": "I just thought it was two ways to say it."
+    },
+    {
+      "start": 1447.81,
+      "end": 1449.25,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, that's a blast."
+    },
+    {
+      "start": 1449.25,
+      "end": 1482.21,
+      "speaker": "adam-stacoviak",
+      "text": "You got me totally blushed way too early in the morning. Okay, anyways. All right, sorry. The comments are vast, lots. They are plentiful. They are thoughtful. And there's lots of commentary in our Zolip. So I think what these comments, back to the links, gosh. What they provide is if you are there and you're in conversation and you're using that table as a reference point, well, then you're obviously gonna be able to go and click directly from there, which I think is super cool because you have the useful tool where the conversation is happening."
+    },
+    {
+      "start": 1482.21,
+      "end": 1484.85,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, well, I found a quote from our previous episode."
+    },
+    {
+      "start": 1484.85,
+      "end": 1485.69,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, boy."
+    },
+    {
+      "start": 1485.69,
+      "end": 1488.74,
+      "speaker": "gerhard-lazu",
+      "text": "Did you bring your crow? Because you might have to eat a little bit of it."
+    },
+    {
+      "start": 1488.74,
+      "end": 1490.1,
+      "speaker": "adam-stacoviak",
+      "text": "What did I say?"
+    },
+    {
+      "start": 1490.1,
+      "end": 1497.18,
+      "speaker": "gerhard-lazu",
+      "text": "Ike said, I could make those links clickable and maybe I'll do that. And then Gerhard Lazu said, I would love that."
+    },
+    {
+      "start": 1497.18,
+      "end": 1519.66,
+      "speaker": "adam-stacoviak",
+      "text": "And then Adam Sakowiak said, I would concur and plus one that because that would make me click a chapter start time easily because it would be clickable for one. And I want to now. It's just obvious. So you said it would make you click it because it'd be clickable and you want to now. Yeah, and I have, but I'm not like a, I'm not a daily clicker. I'm not in there."
+    },
+    {
+      "start": 1519.66,
+      "end": 1520.82,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, I thought you just said you hadn't."
+    },
+    {
+      "start": 1520.82,
+      "end": 1521.98,
+      "speaker": "adam-stacoviak",
+      "text": "I clicked at least one."
+    },
+    {
+      "start": 1521.98,
+      "end": 1523.18,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, all right."
+    },
+    {
+      "start": 1523.18,
+      "end": 1528.18,
+      "speaker": "adam-stacoviak",
+      "text": "Well, controversy solved. My gosh, this bus is heavy. I'm under here."
+    },
+    {
+      "start": 1528.18,
+      "end": 1532.84,
+      "speaker": "gerhard-lazu",
+      "text": "All right, so I just got, I just wanted to close that loop and then we can move on."
+    },
+    {
+      "start": 1532.84,
+      "end": 1539.9,
+      "speaker": "adam-stacoviak",
+      "text": "So I love this feature. Great job, Jeremy. He uses it all the time. I use it daily. I'm a daily active user of this feature."
+    },
+    {
+      "start": 1539.9,
+      "end": 1545.23,
+      "speaker": "gerhard-lazu",
+      "text": "Awesome."
+    },
+    {
+      "start": 1545.23,
+      "end": 1559.15,
+      "speaker": "adam-stacoviak",
+      "text": "Well, before the show, I'm here with Jasmine Casas from Sentry. Jasmine, I know that session replay is one of those features that just once you use it, it becomes the way. How widely adopted is session replay for Sentry?"
+    },
+    {
+      "start": 1559.15,
+      "end": 1583.55,
+      "speaker": "gerhard-lazu",
+      "text": "I can't share specific numbers, but it is highly adopted in terms of, if you look at the whole feature set of Sentry, replay is highly adopted. I think what's really important to us is Sentry supports over 100 languages and frameworks. That also means mobile. So I think it's important for us to cater to all sorts of developers. We can do that by opening up replay from not just web, but going to mobile. I think that's the most important needle to move."
+    },
+    {
+      "start": 1583.55,
+      "end": 1598.51,
+      "speaker": "adam-stacoviak",
+      "text": "So I know one of the things that developers waste so much time on is reproducing some sort of user interface error or some sort of user flow error. And now there is session replay. To me, it really does seem like the killer feature for Sentry."
+    },
+    {
+      "start": 1598.51,
+      "end": 1630.17,
+      "speaker": "gerhard-lazu",
+      "text": "Absolutely, that's a sentiment shared by a lot of our customers. And we've even doubled down on that workflow because today, if you just get a link to an issue alert in Sentry, an issue alert, for example, in Slack or whatever integration that you use, as soon as you open that issue alert, we've embedded the replay video at the time of the error. So then it just becomes part of the troubleshooting process. It's no longer an add-on. It's just one of the steps that you do. Just like you would review a stack trace, our users would just also review the replay video. It's embedded right there on the issues page."
+    },
+    {
+      "start": 1630.17,
+      "end": 1665.11,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, Sentry is always shipping, always helping developers ship with confidence. That's what they do. Check out their launch week details in the link in the show notes. And of course, check out session replay's new edition, mobile replay, in the link in the show notes as well. And here's the best part. If you want to try Sentry, you can do so today with $100 off. The team plan, totally free for you to try out for you and your team. Use the code CHANGELOG, go to sentry.io, again, sentry.io."
+    },
+    {
+      "start": 1665.11,
+      "end": 1679.77,
+      "speaker": "gerhard-lazu",
+      "text": "So yeah, so that was a good one. I enjoyed that it landed. We will talk about the YouTube videos for sure, and that's going to come up. We can talk about it now, by the way, because really that's, for me, that just like took the highlight in terms of features."
+    },
+    {
+      "start": 1679.77,
+      "end": 1680.61,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 1680.61,
+      "end": 1692.59,
+      "speaker": "gerhard-lazu",
+      "text": "So once the video podcast landed, that was just so amazing. So I am still watching Adam's podcast, Adam's video with Techno Tim."
+    },
+    {
+      "start": 1692.59,
+      "end": 1693.43,
+      "speaker": "adam-stacoviak",
+      "text": "Ah."
+    },
+    {
+      "start": 1693.43,
+      "end": 1696.17,
+      "speaker": "gerhard-lazu",
+      "text": "I'm almost at the end. That was such a great conversation."
+    },
+    {
+      "start": 1696.17,
+      "end": 1697.09,
+      "speaker": "adam-stacoviak",
+      "text": "Thank you, man."
+    },
+    {
+      "start": 1697.09,
+      "end": 1715.73,
+      "speaker": "gerhard-lazu",
+      "text": "Had it not been for the video part, I would have missed, for example, Tim's background, the little like mini rag that he was building, like the little, you know, like body language. It was just so good. I'm enjoying that a lot more than if it was just audio only because there's so much more detail in that content."
+    },
+    {
+      "start": 1715.73,
+      "end": 1718.12,
+      "speaker": "adam-stacoviak",
+      "text": "Cool. Well, that makes me happy."
+    },
+    {
+      "start": 1718.12,
+      "end": 1727.52,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. So that's the one that again, and it doesn't often happen that I listen to a CHANGELOG episode from start to finish. I usually have parts, which is where the links were coming in very handy."
+    },
+    {
+      "start": 1727.52,
+      "end": 1728.68,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, chapters."
+    },
+    {
+      "start": 1728.68,
+      "end": 1736.5,
+      "speaker": "gerhard-lazu",
+      "text": "But this, exactly like the chapters, but this one episode, I'm like near the end and I just cannot wait to see how it ends."
+    },
+    {
+      "start": 1736.5,
+      "end": 1742,
+      "speaker": "adam-stacoviak",
+      "text": "Let me ask you a question. If Tim and I did that more frequently, do you think that'd be a good thing?"
+    },
+    {
+      "start": 1742,
+      "end": 1753.57,
+      "speaker": "gerhard-lazu",
+      "text": "Yes. But I think that you need to up your game and start delivering on some of the ideas, or like start like implementing some of your ideas to see how they work in practice."
+    },
+    {
+      "start": 1753.57,
+      "end": 1754.67,
+      "speaker": "adam-stacoviak",
+      "text": "Such as?"
+    },
+    {
+      "start": 1754.67,
+      "end": 1762.52,
+      "speaker": "gerhard-lazu",
+      "text": "Such as. So you're saying about building a new PC. So I'm curious, what did you do about that? Did you buy-"
+    },
+    {
+      "start": 1762.52,
+      "end": 1763.84,
+      "speaker": "adam-stacoviak",
+      "text": "I built a thing."
+    },
+    {
+      "start": 1763.84,
+      "end": 1766.5,
+      "speaker": "gerhard-lazu",
+      "text": "Did you build a thing? Oh wow, okay."
+    },
+    {
+      "start": 1766.5,
+      "end": 1769.62,
+      "speaker": "adam-stacoviak",
+      "text": "I got a beefy at home lab right now."
+    },
+    {
+      "start": 1769.62,
+      "end": 1771.3,
+      "speaker": "gerhard-lazu",
+      "text": "Very nice, so what are you running?"
+    },
+    {
+      "start": 1771.3,
+      "end": 1776.88,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, you want the words here, okay. Fine, I will tell you, I will tell you the words. Let me see if I can-"
+    },
+    {
+      "start": 1776.88,
+      "end": 1780.85,
+      "speaker": "gerhard-lazu",
+      "text": "Like, what's the case? Did you go for fractal? Another big fan."
+    },
+    {
+      "start": 1780.85,
+      "end": 1782.21,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I did go fractal."
+    },
+    {
+      "start": 1782.21,
+      "end": 1793.39,
+      "speaker": "gerhard-lazu",
+      "text": "I feel like, it feels like we need some pictures. I mean, if this will be in the B-roll for Jason, I would love to see that. What GP did you go for? I'm very curious about that. Like, that was something-"
+    },
+    {
+      "start": 1793.79,
+      "end": 1852.66,
+      "speaker": "adam-stacoviak",
+      "text": "So I repurposed. As you do anything, you start with what you have. So rather than go out and spend the five grand that I would really love to spend on something, all I did was just go pick up a 3090 and add it to the existing machine I already had. So I had just built this beefy machine for my Plex machine, which was like just overkill. I just wanted to build something. So my motherboard is an ASUS workstation level motherboard. It's a 680 ACE, and it's got four DIMMs of DR5 RAM available, up to 128 gigabytes of RAM. So I've got that. I've got the 13900K. So it's an older generation CPU, but it's still very, very capable. Couple that with the RTX TUF Gaming 3090 and the maxed out RAM and an NVMe SSD, well, you've got yourself a really fast machine. And that's my stack right there, basically."
+    },
+    {
+      "start": 1852.66,
+      "end": 1855.06,
+      "speaker": "gerhard-lazu",
+      "text": "That's very nice. Network?"
+    },
+    {
+      "start": 1855.06,
+      "end": 1856.74,
+      "speaker": "adam-stacoviak",
+      "text": "It's 2.5 by default."
+    },
+    {
+      "start": 1856.74,
+      "end": 1861.02,
+      "speaker": "gerhard-lazu",
+      "text": "2.5, okay, okay, okay. Are you thinking of going higher on the network?"
+    },
+    {
+      "start": 1861.02,
+      "end": 1871.46,
+      "speaker": "adam-stacoviak",
+      "text": "So the motherboard doesn't offer it by default, but I can add a card. I don't know if I'm maxed out on my PCIe lanes though, with my 16 lane requirement for the GPU."
+    },
+    {
+      "start": 1871.46,
+      "end": 1876.78,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, well, if you have NVMes, it means that you have only one or two. You can't have more than two."
+    },
+    {
+      "start": 1876.78,
+      "end": 1881.3,
+      "speaker": "adam-stacoviak",
+      "text": "There's three slots on the board. I'm only running one. I only have a need for one."
+    },
+    {
+      "start": 1881.3,
+      "end": 1895.98,
+      "speaker": "gerhard-lazu",
+      "text": "Right, so the reason why I ask that is because as soon as you, I think as soon as you fill the second lane, it will, you'll lose it. You'll half the lanes for your GPU. It will go from 16 to eight. And I don't wanna do that. Those lanes are shared with the NVMe drives."
+    },
+    {
+      "start": 1895.98,
+      "end": 1896.8,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 1896.8,
+      "end": 1920.48,
+      "speaker": "gerhard-lazu",
+      "text": "Actually, in practice, it's not as bad as you would think. I did the same, so I maxed out the NVMes on another machine. And because I maxed them out, I have like four or five. And because of that, my GPU, which is a 4080, dropped to eight, eight lanes. But that's enough. Like, the drop in performance is so little because I don't game on it heavily."
+    },
+    {
+      "start": 1920.48,
+      "end": 1941.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it's so fast already. What you really want is the storage, right? You want the VRAM, not so much the speed necessarily. Unless you really are pushing the speed, like, and you're doing AI stuff and you got a serious parameter, you know, LOM sitting there or whatever, then maybe you want those tokens to be as fast as possible because that's the whole point."
+    },
+    {
+      "start": 1941.28,
+      "end": 1945.8,
+      "speaker": "gerhard-lazu",
+      "text": "The actual difference is more like a few percent. So if you go from 16 to eight, it's just a few percent."
+    },
+    {
+      "start": 1945.8,
+      "end": 1954.48,
+      "speaker": "adam-stacoviak",
+      "text": "This is where I would love to geek out at. Like, this is what I love about these conversations with Tim. It's just they're so infrequent. That's once per year, so we're more catching up versus digging deep."
+    },
+    {
+      "start": 1954.48,
+      "end": 1985.26,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. I would love you to have these more often, and especially, like, you know, you had that conversation. You said about some of your plans and a lot of the things that you mentioned now, I remember you mentioning when you were talking to Tim, and so how did you follow through on that? Like, did you stick to what you said or did you change your mind as you were building it? It sounds to me that you haven't. I remember Tim mentioning the 3090, so I'm very curious, like, did you buy it off eBay because you're mentioning about your good experience with eBay."
+    },
+    {
+      "start": 1985.26,
+      "end": 1995.52,
+      "speaker": "adam-stacoviak",
+      "text": "I got it, yeah, I got it on eBay. Really good experience on eBay. I think I got it for, like, 800 bucks. Right. You know, it's not the worst price ever, US dollars."
+    },
+    {
+      "start": 1995.52,
+      "end": 1996.44,
+      "speaker": "gerhard-lazu",
+      "text": "Yep."
+    },
+    {
+      "start": 1996.96,
+      "end": 2133.18,
+      "speaker": "adam-stacoviak",
+      "text": "It's basically brand new, it's super clean. You know, I tested it the moment I got it. Like, I just did it, I did, like, all these parameter tests. Initially, I spun up an Ubuntu installation, ran into issues with Docker and GPUs, so I went to the dark side. I installed Windows 11 Pro, and so my AI home lab right now is being powered by Windows 11 Pro. I know Jared is backslash his trash over there on me, which I'm cool with, but man, you've got to explore. I love the idea, I've never played with Windows in, like, I told my son this, I'm like, it's been 20 years since I've played with Windows. That long. And I feel like there's a lot of cool stuff there, but man, they got some really terrible warts over there. You know, like, just so bad. It's like, it's developer hostile now, not just user hostile, like, there's ways to clean it up. Chris Titus has a script that you can run via terminal, the administrator level terminal, and remove a bunch of stuff and sort of like make some things nicer, which I think is super cool, makes it a little easier as a non-Windows user to like easily get to a certain state. But yeah, I played with it at first, I did some benchmark testing against it. I really pushed it as hard as I could to just confirm it was a good buy, and it was a good buy. But I started with where I was at versus like, okay, let me get a brand new motherboard, a brand new stick, you know, sticks of RAM, and I would love that. That's the fun side of building PCs is like, I really wish there was a better operating system that wasn't, gosh, will I get punched in the face for seeing this, that wasn't Linux? I will say though, this is the first time I've played with Ubuntu desktop in a long time. And that has actually come a very, very long way. Ubuntu desktop, I think is probably the closest contender to a non-Mac OS operating system that's fun to play with GUI. Now, albeit I have not explored like Pop!OS and others, I just haven't had a, you only test things that you're curious about. I just haven't been curious about desktop level Linux stuff yet. Mainly because it's been the year of the desktop Linux forever, and it's never come, truly. I'm hopeful though that one day, I think it's probably the closest it's been in a very long time."
+    },
+    {
+      "start": 2133.18,
+      "end": 2140.06,
+      "speaker": "gerhard-lazu",
+      "text": "So when I started with like my adventure in GPUs, I needed it to do like the video editing properly."
+    },
+    {
+      "start": 2140.06,
+      "end": 2140.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2141.38,
+      "end": 2183.3,
+      "speaker": "gerhard-lazu",
+      "text": "I went Linux first. I was saying, you know what? I'm not going to go to Windows. What is the best Linux distribution that has good support for GPUs, like out of the box? It just has the drivers pre-installed and everything just works. And the tiling manager works as well, because that can be sometimes a pain. Pop!OS was the one that kept coming up very high, and I said, let's just try it. So I did, and I think I've been running it for two years, coming to two years. Coming to two years, I've been running it and before I had the NixOS. So this was a machine that went from NixOS to Pop!OS, and I'm enjoying Pop!OS more. It just feels like more like a natural way of using it."
+    },
+    {
+      "start": 2183.3,
+      "end": 2185.04,
+      "speaker": "adam-stacoviak",
+      "text": "What's it based off?"
+    },
+    {
+      "start": 2185.04,
+      "end": 2186.12,
+      "speaker": "gerhard-lazu",
+      "text": "Ubuntu."
+    },
+    {
+      "start": 2186.12,
+      "end": 2186.96,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, yeah."
+    },
+    {
+      "start": 2186.96,
+      "end": 2227.53,
+      "speaker": "gerhard-lazu",
+      "text": "So it's Ubuntu based. But a lot of like the little things that in Ubuntu maybe they don't work, they seem to have a better, they seem to be a bit more polished off in Pop!OS. Specifically the NVIDIA integration and the tiling manager. Things are just a bit more, I don't know, cohesive. It's a bit more cohesive. So this machine I'm using for a bunch of things, and while I started editing the videos on it with DaVinci Resolve, DaVinci Resolve itself, Pop!OS is not a supported operating system. And then I was forced to go to Windows. So when Tim said that you have to try them all, like in that interview, I realized yes, I actually went through the same journey."
+    },
+    {
+      "start": 2227.53,
+      "end": 2229.33,
+      "speaker": "adam-stacoviak",
+      "text": "That's what compelled me too. He's like, Adam, you gotta try them all, man."
+    },
+    {
+      "start": 2229.33,
+      "end": 2250.45,
+      "speaker": "gerhard-lazu",
+      "text": "So I use Linux for something, I use Mac for something else, and I use Windows for editing, because apparently the editing software works, has like the best support, like codecs and things like that. They work really well on Windows. The operating system itself, oh wow, I don't know what words to use. That would be politically correct, but also accurate."
+    },
+    {
+      "start": 2250.45,
+      "end": 2379.12,
+      "speaker": "adam-stacoviak",
+      "text": "They make it so hard to do everything. Manage your own user. Like even manage your own user. You gotta, there's like control panel and there's user accounts there. And you've obviously got system settings or just settings, which you have those things there. It's like, there's like three places to do pretty much anything. And you gotta do three things to change one thing. And they're all different places. And some of them are legacy looking applications. Good luck even finding it in the sea of things you can find. I just think that somebody there is not empowered to fix it or somebody doesn't care. I'm not sure which one it is, but they really could have a, because of the reason you're seeing this, you know, this out of the box support. I had such trouble getting my GPU to play well with the operating system and then being able to pass it through to Docker. I had to like go and add some things. And like, I had to go to documentation was like seemingly foreign. I just felt a little lost on Ubuntu Linux to try to get the initial state I wanted to be at. And that's my default. So I didn't try to go to Pop!OS or explore. I could have, but because I had that conversation with Tim, he's like, you should try them all. So I was like, well, you know, I tried, you know, Windows 11 and not the worst, but man, like even I felt successful just SSHing into it. I had to post this video to our general channel. And then Jared had to go in there and backslash me. Cool. Love that song. Just because it's such success to SSH into the machine. You had to go and install the OpenSSH server. The client was there by default, but the server was not. And then I think my original username had a space in it. So like when I was SSHing into it, like I was, it wasn't Adam, it was just something else. I don't know. Trying to find my slug for my username even. I don't even know if I found it. I think I luckily found something to like swap it out and restart SSH server and I was in."
+    },
+    {
+      "start": 2379.12,
+      "end": 2402.52,
+      "speaker": "gerhard-lazu",
+      "text": "Well, if you have multiple NVMe drives, you could always do a boot and you could try, you know, another Linux distribution. I can recommend Pop!OS. They have a new graphical manager, I think Cosmic. That's new. It's not as stable, but I hear very good things about it. So they rewrote it, everything in Rust. Apparently it's amazing. I haven't tried it yet. I'm still like on the old one."
+    },
+    {
+      "start": 2402.52,
+      "end": 2435.91,
+      "speaker": "adam-stacoviak",
+      "text": "What are your thoughts on WSL 2 and how it integrates? Like that's, I haven't explored that deeply, but I have a lot of hope that there's cool integration. Like one thing I know I can do is I can SSH from one machine to another, our sync files from that via Ubuntu in WSL 2 on Windows. And I can like run Linux-y things, or if I have an operating system or, you know, whatever installed to WSL, a distro, I should say. What's your experience there with that?"
+    },
+    {
+      "start": 2435.91,
+      "end": 2543.07,
+      "speaker": "gerhard-lazu",
+      "text": "I tried it. It's okay. I mean, it gives you a close enough Linux experience. It's much better than it used to be before. PowerShell, I just can't get along with it. I just wouldn't use it. Command prompt, seriously. That was like 20 years ago. The thing is still around. So yeah, legacy, but I think good legacy. So WSL 2, I think it's a good feature, but Windows itself as an operating system, as a package, like the outer package, just feels wrong to me. And I use it only for specific reasons. Yeah, so DaVinci Resolve, I have a decent experience with that. If I had to do this all over again, I would get a Mac, like an Ultra 2, an M2 Ultra, or an M4 Ultra when they come out, like a really powerful CPU and a GPU. But the RTX, like a 4080 or 3090, that is a level of like hacking that you just don't have in the Mac world. So I just wanted to try it out. It was okay. I mean, the Windows workstation, for example, that has a 1490, it's a very loud system. Like really, I don't think people realize how quiet the Macs are, whether it's a laptop, whether it's a studio, whether it's a mini, you know, they're like whisper quiet. And this first Linux workstation, which I built, it's a fanless one. The PSU has no fans, like there's no fan in the system, and I love that for it. I love it for that. For example, the NVMe, that has no spinning disks, which, you know, it's just like a great, yeah. Exactly, so it's a great feature. In comparison, the Windows machine is just the opposite. It's just loud, it's just like, it's just hot, very hot. It's a 1390 KS. It's like the top of the range 13 series."
+    },
+    {
+      "start": 2543.07,
+      "end": 2545.99,
+      "speaker": "adam-stacoviak",
+      "text": "The KS is clock, overclockable, I believe. Exactly, yeah."
+    },
+    {
+      "start": 2546.03,
+      "end": 2547.79,
+      "speaker": "gerhard-lazu",
+      "text": "It goes all the way to six, six and something like that."
+    },
+    {
+      "start": 2547.79,
+      "end": 2549.03,
+      "speaker": "adam-stacoviak",
+      "text": "So it's the same CPU then?"
+    },
+    {
+      "start": 2549.03,
+      "end": 2550.15,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 2550.15,
+      "end": 2552.31,
+      "speaker": "adam-stacoviak",
+      "text": "Except for you got the overclockable version of it."
+    },
+    {
+      "start": 2552.31,
+      "end": 2584.43,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it has also like 192 gigs of RAM, so it's like fully maxed out. NVMe, like the whole, it's like a fully maxed out, or it used to be a fully maxed out PC, maybe about a year ago. So yeah, it's okay, but like trying that world, it is my editing machine. And I love when Tim said that, right? You need to have roles for your machines, and that's what it is. And if it was to break down, that's okay, there's like another machine to use to replace it. So."
+    },
+    {
+      "start": 2584.43,
+      "end": 2662.67,
+      "speaker": "adam-stacoviak",
+      "text": "Your comparison though, the fans and the noise level, I think, so the exploration for me is not, okay, let me, and I think for now I'm like, yes, let's make this a greater PC of some sort. Let's explore this world. I don't know if I'll stay there forever, but I'm enjoying the exploration. I'm not enjoying it because it's Windows necessarily, it's enjoyable because it's new territory. It's new, found, how does this work? Does this fit for me? If it does, where does it fit? I will 100% concur and agree that, wow, this machine's fans just spin up opening applications. It doesn't need to, it's got this beefy CPU. So for whatever reason, the front three fans spin up for 10 seconds, just enough to hear it. And it goes back down and it kind of cools off. Or if you ask a big question in Olam or whatever, it's obviously gonna spin up for the duration of that question. So it's gonna, it's by design doing that. Will the Mac world supersede this in a smaller, easier package that's silent and power, less power hungry? That's cool. You know, what they're doing there is super cool. But you can't build it yourself and it's so sad."
+    },
+    {
+      "start": 2662.67,
+      "end": 2663.85,
+      "speaker": "gerhard-lazu",
+      "text": "I know, I know."
+    },
+    {
+      "start": 2663.85,
+      "end": 2673.01,
+      "speaker": "adam-stacoviak",
+      "text": "Anyways, we can probably move on, but I think that's what I love about building PCs, just the exploration of the hardware. How does it work? What works together?"
+    },
+    {
+      "start": 2673.01,
+      "end": 2705.07,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, me too, me too. And I think we're at a stage where it does make sense to have a few lying around. Have a Windows machine, right? If you have to do testing or anything like that, use the Linux machine. I think it's a very eye-opening experience as to what is possible. And then if Mac is your default, or if not, if you have the opportunity to get maybe a Mac Mini, do that as well. And then you will find the one that you love and the one that's your daily driver, and you have a couple as backups when something goes wrong. Because it does, it does happen."
+    },
+    {
+      "start": 2705.07,
+      "end": 2706.39,
+      "speaker": "adam-stacoviak",
+      "text": "Cool."
+    },
+    {
+      "start": 2706.39,
+      "end": 2744.11,
+      "speaker": "gerhard-lazu",
+      "text": "Well, talking about podcasts and video podcasts, because that's how we started, I don't think we finished. There's so many new features around YouTube and around content on YouTube. I think the reactions have been mostly positive. There was a whole Zulip discuss about it, which I don't contribute to many, but this one I did contribute to. And February 1st, I even got some love hearts from a few of you, Nabeel and Marsh. So thank you very much for that. But what do you think about launching video podcasts? How was that transition? How was that new chapter?"
+    },
+    {
+      "start": 2744.11,
+      "end": 2890.38,
+      "speaker": "adam-stacoviak",
+      "text": "I think it's going pretty well. I guess I don't consider it to be over with. Maybe it is because I guess a lot of what we think about is production workflow and we're constantly trying to improve that and make it better. I would say that we successfully went video first now and we have systems in place that we can do that reliably, how to build a few things. And we had to figure out a lot with regards to chapters and timestamps and how we handle the videos on YouTube versus the podcast episodes and audio. And all the nuts and bolts I think were fine. We just kind of figured it all out and did it. Nothing really was too difficult there. The response has been positive. I think a lot of our audio listeners have a little trepidation because they think, is it going to become a YouTube show? And they never want to listen to it on YouTube, which I don't either, honestly. We're doing this for people who like that kind of thing, like Gerhard, I guess, and others. And I acknowledge that you all are out there and we appreciate that you are. And we want you to watch it on YouTube, which is why we came there. But our existing audience, very few of them find much value in the videos, I think, or the ones who at least are vocal don't. And I get that. And of course trepidation is like, well, will the audio suffer? And will we start to pull a thing up on the screen and have reactions to it without explaining what we're looking at? I don't ever want to get there. Hopefully we can be self-aware and always remember that we have a listener, not just a viewer, and explain what we're looking at if we are looking at something. So for them, I understand, because if you love something and it's changing, you just hope that it doesn't change for you for the worse. And so hopefully we haven't done that. I think we've had most people who had trepidation, at least so far, have been fine with the change. They haven't noticed much of a difference. For those who love video podcasts or watching conversations on YouTube, because is it a podcast actually? I guess YouTube thinks it is. We're there now, and people are watching. We get 500 to 1,000 watches on a video. We hope to grow that. And no real complaints there, I don't think, besides your random YouTube troll, which we've had trolls our entire career,"
+    },
+    {
+      "start": 2890.38,
+      "end": 2896.54,
+      "speaker": "gerhard-lazu",
+      "text": "so we don't feed them or care about them very much. That's my initial thoughts. Adam, anything to add or subtract?"
+    },
+    {
+      "start": 2897.34,
+      "end": 2972.58,
+      "speaker": "adam-stacoviak",
+      "text": "I ran into, because I was actually talking to my son last night. I was like, dude, because my son's nine, and I'm about to give him an Ubuntu desktop machine to play with. I'm gonna start teaching Linux. And I was excited, because I had just, like literally maybe earlier that day, SSH into this Windows machine. I was like, success, you know? And I was referencing embedded systems and why it's so cool, how Linux is so cool. And I'm like, you wanna see something cool? And I went to YouTube, and I searched embedded changelog. And I just searched those two things, and it came up with the embedded podcast we did, Jerry, that you're aware of. And I go there, and there's this comment that's like 500 words deep. And I'm like, I had no idea, one, that this comment was here, and two, that is like, you know, I was re-revelationed, I suppose, in terms of like how cool this move is, that we've got this new commentary level. And the person's like, I like this podcast, I'd love to hear more. And they kinda go into all this stuff. Now, the person doesn't have a username, they don't have an avatar, so that's kinda sad, but you know, I'm still hopeful that there's more like that, that are thicker, geez, y'all don't like that word."
+    },
+    {
+      "start": 2972.58,
+      "end": 2973.62,
+      "speaker": "gerhard-lazu",
+      "text": "I don't dislike it."
+    },
+    {
+      "start": 2974.9,
+      "end": 3095.63,
+      "speaker": "adam-stacoviak",
+      "text": "I think thick is a good thing. Anyways, I wanna go back there. It's a exhaustive, you know, thoughtful comment that I haven't even read the whole thing yet, but I was like, wow, there's this super huge comment that somebody's like actually talking about relevant things and not how we suck, so that was cool, and I love that. I like the, you know, I was pushing for this because I was like, this is something, this is what we need to do. There's a whole audience there that we can tap into that we're not, and clips are great, but they're not the full-length podcast. I'm now sad that there's, that when I share with people, we're on YouTube, that they're like, hey, did you just start producing this podcast? I'm like, nah, man, it's been like forever, basically, and so we have this huge backlog that's not there, and that kinda makes me sad because there's a lot of visuals and a lot of just like seeing the reactions, like Garrett mentioned with Tim, just being able to see his pause or his thinking, you know, or my thinking whenever I'm talking, or him pointing to his mini stacks behind him. I think that's, it's not for everybody, but I think there's a large majority of people who are gravitating more and more towards that who do listen on YouTube, pay attention when they want to, but when they want to, they can go and look at the screen, you know, and that's been my use case for it personally, and so I wanted that for us for so long, and I just felt not so much bored, but there was a missing necessary humanistic component that was visual that wasn't there, and so when you're audio only, I feel like you're stuck in this box, and I feel like we're now, like we're like the genie out, you know, we're the cat's out of the box, so to speak. We're able to explore the bigger world of YouTube and capture not so much more of an audience, but like I think there's a lot of people there waiting, wanting what we produce, and now we're there in full form."
+    },
+    {
+      "start": 3095.63,
+      "end": 3116.69,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so YouTube, here to stay, a new way to interact for sure, and more and more integrations in the websites. I quite like that, for example, like the watch button, that was something which was one of the new things to drop on an episode. It's getting a bit crowded, maybe this one, but it's there, you can click on it."
+    },
+    {
+      "start": 3116.69,
+      "end": 3120.07,
+      "speaker": "adam-stacoviak",
+      "text": "There it is. You can click on that and it'll pop in there and just start."
+    },
+    {
+      "start": 3120.07,
+      "end": 3122.57,
+      "speaker": "gerhard-lazu",
+      "text": "Look at that. Yeah. How amazing is that?"
+    },
+    {
+      "start": 3122.57,
+      "end": 3124.72,
+      "speaker": "adam-stacoviak",
+      "text": "Cool. Yeah, it's cool, right?"
+    },
+    {
+      "start": 3124.72,
+      "end": 3125.9,
+      "speaker": "gerhard-lazu",
+      "text": "That's the good stuff right there."
+    },
+    {
+      "start": 3125.9,
+      "end": 3140.2,
+      "speaker": "adam-stacoviak",
+      "text": "And on the play bar, if you go to an episode's page, the play bar got a little wider and it has a watch button, which will do the same thing. It'll pop, it'll embed it underneath it. Once you click on it, we don't auto embed, because, you know, only when you want it, on demand."
+    },
+    {
+      "start": 3140.2,
+      "end": 3142.68,
+      "speaker": "gerhard-lazu",
+      "text": "Should they say listen? This is watch."
+    },
+    {
+      "start": 3142.68,
+      "end": 3143.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, maybe."
+    },
+    {
+      "start": 3144.64,
+      "end": 3146.36,
+      "speaker": "gerhard-lazu",
+      "text": "Listen is watch, maybe, yeah."
+    },
+    {
+      "start": 3146.36,
+      "end": 3149.92,
+      "speaker": "adam-stacoviak",
+      "text": "Play and watch, maybe listen and watch, yeah. That'd be a good improvement."
+    },
+    {
+      "start": 3149.92,
+      "end": 3164.82,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, but these are nice. Like you can watch it right here and they just get automatically expanded. I like that we are a commit-driven company, by the way. A lot of the features that get dropped, I just find them through commits. This is so amazing."
+    },
+    {
+      "start": 3164.82,
+      "end": 3168.14,
+      "speaker": "adam-stacoviak",
+      "text": "No common circumstance, you know. No blog posts, nothing."
+    },
+    {
+      "start": 3168.14,
+      "end": 3174.5,
+      "speaker": "gerhard-lazu",
+      "text": "We are commit-driven companies. If you want to know what is happening at Changelog, follow the repository and just like look at the commits."
+    },
+    {
+      "start": 3174.5,
+      "end": 3192.82,
+      "speaker": "adam-stacoviak",
+      "text": "That's right, we're very committed. Well friends, I'm here with Samar Abbas, co-founder and CEO of Temporal. Temporal is the platform developers use to build invincible applications, but what exactly is Temporal? Samar, how do you describe what Temporal does?"
+    },
+    {
+      "start": 3192.82,
+      "end": 3208.84,
+      "speaker": "gerhard-lazu",
+      "text": "I would say to explain Temporal is one of the hardest challenges of my life. It's a developer platform and it's a paradigm shift. I've been doing this technology for almost like 15 years. The way I typically describe it, imagine like all of us when we were writing documents"
+    },
+    {
+      "start": 3208.84,
+      "end": 3263.46,
+      "speaker": "adam-stacoviak",
+      "text": "in the 90s, I used to use Microsoft Word. I love the entire experience of everything, but still the thing that I hated the most is how many documents or how many edits I have lost because I forgot to save or like something bad happened and I lost my document. You get in the habit when you are writing up a document back in the 90s to do control S, literally every sentence you write. But in the 2000s, Google Doc doesn't even have a save button. So I believe software developers are still living in the 90s era where majority of the code they are writing is they have some state which needs to live beyond multiple request response. Majority of the development is load that state, apply an event and then take some actions and store it back. 80% of the software development is this constant load and save. So that's exactly what Temporal does. What it gives you a platform where you write a function and during the execution of a function of failure happens,"
+    },
+    {
+      "start": 3263.46,
+      "end": 3272.3,
+      "speaker": "gerhard-lazu",
+      "text": "we will resurrect that function on a different host and continue executing where you left off. Without you as a developer writing a single line of code for it."
+    },
+    {
+      "start": 3272.3,
+      "end": 3308.62,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, if you're ready to leave the 90s and build like it's 2025 and you're ready to learn why companies like Netflix, DoorDash and Stripe trust Temporal as their secure, scalable way to build invincible applications, go to Temporal.io. Once again, Temporal.io. You can try their cloud for free or get started with open source. It all starts at Temporal.io. Now that we've got video first going on, it's time to get CPU officially launched, turn that frown upside down into a smile and an index, you know, something that's cool."
+    },
+    {
+      "start": 3308.62,
+      "end": 3315.98,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, very nice, okay. Any infrastructure that we need to think about, talk about for CPU FM?"
+    },
+    {
+      "start": 3315.98,
+      "end": 3325.86,
+      "speaker": "adam-stacoviak",
+      "text": "You could share with him, Jir, what your thoughts are on the application. The plan is just to have a bog standard web app with RSS feeds, right?"
+    },
+    {
+      "start": 3325.86,
+      "end": 3328.82,
+      "speaker": "gerhard-lazu",
+      "text": "Nightly style, like that is a bog standard app."
+    },
+    {
+      "start": 3329.14,
+      "end": 3331.86,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, in terms of the actual software?"
+    },
+    {
+      "start": 3331.86,
+      "end": 3334.86,
+      "speaker": "gerhard-lazu",
+      "text": "Do you have a database? Do you need a CDN? What will that look like?"
+    },
+    {
+      "start": 3334.86,
+      "end": 3351.94,
+      "speaker": "adam-stacoviak",
+      "text": "It'll be a database. A CDN will probably be smart, but maybe we just drop it on R2. Probably similar to what we're running now for us, only it's gonna be simpler and it's gonna be a separate software stack. So probably gonna go back and give Ruby on Rails another kick down the road and see."
+    },
+    {
+      "start": 3351.94,
+      "end": 3352.78,
+      "speaker": "gerhard-lazu",
+      "text": "Interesting."
+    },
+    {
+      "start": 3352.78,
+      "end": 3381.34,
+      "speaker": "adam-stacoviak",
+      "text": "Just because it's been a long time and I've been in Elixir land for almost 10 years now and every time I write a little bit of Ruby code, I'm like, you know what, this is my first love. And so probably gonna be a Rails app, deploy it on fly, it'll be pretty simple, have a backend, write out HTML pages and RSS feeds. That's the plan so far. I haven't written a lick of code yet, so these things may change, but that's the plan. Nice, keep it simple."
+    },
+    {
+      "start": 3381.34,
+      "end": 3386.53,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, yeah. Neon for the database, I'm imagining?"
+    },
+    {
+      "start": 3386.85,
+      "end": 3389.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I would probably just reuse all the stuff that we've been using over here."
+    },
+    {
+      "start": 3389.89,
+      "end": 3397.26,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. Yeah. Public repo, private repo. Good question."
+    },
+    {
+      "start": 3397.26,
+      "end": 3447.77,
+      "speaker": "adam-stacoviak",
+      "text": "Good question, probably public, I don't see why not. Yeah, okay. I'm not gonna promise that, but I can't think of a reason why it wouldn't be public. It's mostly the admin's gonna be for just managing the podcasts that are part of it and then the code, the actual logic of it is gonna just be in building basically a super feed for people and maybe custom feeds too, so you can get your CPU pods that you like and maybe if you don't like one, uncheck it or something. I built that already for us, so rebuilding it over there would be straightforward. Okay. Which will require user accounts, of course, but, or would it, maybe not. I don't know, I'll figure that out, but that's the plan, pretty straightforward. Not much code. I don't see why we wouldn't open source it, unless I'm really bad at Ruby now. You know, it's been a long time and I'm embarrassed."
+    },
+    {
+      "start": 3448.25,
+      "end": 3452.79,
+      "speaker": "gerhard-lazu",
+      "text": "I think that's more of a reason to open source it. You can ask for help. Contributions welcome."
+    },
+    {
+      "start": 3452.79,
+      "end": 3460.41,
+      "speaker": "adam-stacoviak",
+      "text": "I haven't typed Rails new since probably 2015, so I'm kind of excited to just type Rails new and see what happens."
+    },
+    {
+      "start": 3461.85,
+      "end": 3465.41,
+      "speaker": "gerhard-lazu",
+      "text": "Well, make sure you record that. I think many people will be interested in your reaction."
+    },
+    {
+      "start": 3465.41,
+      "end": 3473.77,
+      "speaker": "adam-stacoviak",
+      "text": "I will. See, Gerhard's thinking, he's thinking about the content. That's what he's trying to ask you about, Jair. I know. He's like, how can we promote all these cool things?"
+    },
+    {
+      "start": 3473.77,
+      "end": 3475.29,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, that's what I'm thinking."
+    },
+    {
+      "start": 3475.29,
+      "end": 3497.94,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, maybe record it, I don't know. I guess if you want that kind of content from me as I build out this new web app, which honestly is not a super exciting web app, but it's still, maybe I'll use Cursor the whole way, you know, and then I'll just curse my way along and then just rewrite it myself. If you want that, let us know in Zulip. Let us know in Zulip."
+    },
+    {
+      "start": 3497.94,
+      "end": 3531.14,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it's a new world and I think seeing how you would approach that with your Rails knowledge, things that have genuinely improved from how you remember it, what is better, what is worse, because you have a unique perspective, which is the Elixir one running in the Elixir application for so many years. How does that compare to Ruby and Rails? I don't think many people did a switch back. I keep hearing about people going from Ruby and Rails to Elixir, but going back, I'm not aware of anyone doing that. It didn't make the hacker news. It didn't appear on the changelog. This would be news."
+    },
+    {
+      "start": 3531.14,
+      "end": 3545.38,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I wouldn't be ditching Elixir because we'd still keep changelog.com over there. So I would be going back for a new app, but living in both worlds from then on, which I'm happy to do. Yeah, that could be interesting. Old man fumbles around in the dark with Rails."
+    },
+    {
+      "start": 3545.38,
+      "end": 3550.1,
+      "speaker": "gerhard-lazu",
+      "text": "He yells at Rails and then yells some more. Okay, yeah, that sounds interesting. Cool."
+    },
+    {
+      "start": 3550.1,
+      "end": 3550.94,
+      "speaker": "adam-stacoviak",
+      "text": "Cool."
+    },
+    {
+      "start": 3550.94,
+      "end": 3601.75,
+      "speaker": "gerhard-lazu",
+      "text": "So, pipely. Let's see how long this is gonna take. And by the way, this is where the screen sharing will get into its own. So that was a question that we had from team Tim Pucken. Not sure if I'm pronouncing that right. U-C-K-U-N. Why do you need a CDN if you have Fly.io? And I replied to Zulip. That's like the sort of conversation that happened there. And I went through all the various things. So the reasons why we need a CDN, even though we have Fly. So you can read it either in this GitHub discussion or in Zulip, it's all there. So you can go and check it out. But a thing which I would like to talk about is that we are starting to have contributions to pipely. And you may be wondering, pipely? What pipely?"
+    },
+    {
+      "start": 3601.75,
+      "end": 3602.57,
+      "speaker": "adam-stacoviak",
+      "text": "Well."
+    },
+    {
+      "start": 3602.57,
+      "end": 3672.06,
+      "speaker": "gerhard-lazu",
+      "text": "What is pipely? We renamed from pipedream to pipely. Why? Because pipedream is taken. We can't get pipedream.com. We've already established that. That's a big company, very successful. I think VC funded. So yeah. So pipely.tech I think is here to stay. And pipely is the name of the repo. Whichever you go to, it will just redirect you. So the changelog pipely or the changelog pipedream, there's a redirect. And now we're having, we had two contributions. If you go to the roadmap, the first one was make it easy to develop locally. Pull request 7 from Matt Johnson that took a while to write some Docker files, explain how all the pieces fit together. There's a read me. So if I go to pipely, we have docs, which we didn't have before, local dev. So all of this explains what we're testing, how we're testing, quite a few things there. So if you wanted to try pipely, running it locally, there is a doc that explains all of it. So thank you, Matt, for this contribution. This one's great. And I'm sure that we will build on top of it."
+    },
+    {
+      "start": 3672.06,
+      "end": 3679.22,
+      "speaker": "adam-stacoviak",
+      "text": "So Matt, did he do this himself and just document as he went? Or did he, like, do you know how he went about this?"
+    },
+    {
+      "start": 3679.22,
+      "end": 3751.94,
+      "speaker": "gerhard-lazu",
+      "text": "So I think there were moments when we got together. So we had, OK, let's go pipely.tech. pipely.tech has the whole story. There's no more three mages or three wise men. It's just the world, so the image has changed. But we had, let's build a CDN part 2 with Matt and James. So they're there. And we'll link to the video, so you can go and watch it. And make it easy to develop locally. So this was kind of like a follow up to that. So Matt did a bunch of things. If you go to pipely.tech, you can read the whole story. Right now, it's the second article, Let's Build a CDN Part 2. And this one, Make It Easy to Develop Locally, is the first one. So in preparation for that, Matt had to do a bunch of work to understand how the pieces work, what they are, try running it locally. And he cleaned all of those notes up. And he contributed them to the repo. So if anyone else wants to try this, now they can. Now that's there. So let us know what you think. So that was one. The second contribution, which was completely unexpected, is resolving the Varnish TLS issue."
+    },
+    {
+      "start": 3751.94,
+      "end": 3753.82,
+      "speaker": "adam-stacoviak",
+      "text": "So this was a big issue."
+    },
+    {
+      "start": 3753.82,
+      "end": 3852.12,
+      "speaker": "gerhard-lazu",
+      "text": "This was a big issue. And we went deep. So Nabil Suleiman, he's someone that you may remember from a Ship It episode. We talked about the K-cert. It was a simpler alternative to cert-manager that Nabil wrote, because cert-manager was too complex. And I forget which episode exactly it was, but you can go and look it up. So he heard us talk about the issues that we had when it comes to Varnish connecting to TLS backends or TLS origins. And he wrote something that solves the problem. It's called TLS Exterminator. And now, PyPly is using TLS Exterminator to connect to origins that require TLS termination. How does it work in a nutshell? We now spin two processes. We now spin Varnish and TLS Exterminator. Varnish connects to TLS Exterminator, which then that proxies requests to HTTPS backends. And that does the TLS termination and all of that. So with that, we can now, if I go back to, actually, I was here. With that, we can now add feedback ends. Now, these URLs, they have HTTPS. We could disable it. We can go via HTTP as well. And this is something to discuss if we want to disable it. I think we should keep HTTPS on. And if we want to keep HTTPS on, we need a component that terminates TLS between Varnish and the origin. So keep TLS on?"
+    },
+    {
+      "start": 3852.12,
+      "end": 3852.96,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3852.96,
+      "end": 4013.32,
+      "speaker": "gerhard-lazu",
+      "text": "All right, so we're keeping TLS on. Great, because again, HTTP currently is available, but I think we should disable that. So it's HTTPS only. We learned quite a bit with Nabil about why Varnish doesn't have support for TLS. So if we go to Varnish cache, why no SSL? There is a page on Varnish that talks about why SSL was not implemented. And you may be thinking, who wrote this? Poul Henning. If anyone doesn't know who Poul Henning is, let's look him up. This was 2011, by the way. TLDR, before we move on, it's open SSL is too complex. And when it comes to the implementation, if this was implemented in Varnish, which would have complicated the code significantly, the SSL proxying would have required a separate process, which is basically what TLS Exterminator is, it's a separate process. The difference is that not only would have Varnish been more complicated, it would have been slower. So the whole code it does with SSL would have slowed down Varnish, and that makes a lot of sense. So who is Poul Henning? Poul Henning Camp, he's a Danish computer developer, and he's known for work on previous projects such as FreeBSD and Varnish. So he's the guy that you can thank for FreeBSD. He had a significant contribution, and he is the top contributor on Varnish. Some would say Varnish is his idea. But what's really surprising, so let's go to Poul Henning again. And he has not a FreeBSD, there's that. Okay, so we'll go through GitHub, PHK.freebsd.dk. So freebsd.dk apparently is his TLD, and he just has a subdomain. I think that's really cool. So apparently Varnish has a more license. I had no idea about that. And he's very transparent about the accounting. He runs a lot of the software behind the Varnish docs and a couple of other things. And he's very transparent about how he spends his time and how much he charges for it. I was fascinated as an open source project how transparent it is and who contributes the most and things like that. So popping the stack and just keeping, going through who he is. So freebsd apparently. MD5Crypt, jails, nano kernels, time counters, and the bike shed."
+    },
+    {
+      "start": 4013.32,
+      "end": 4014.96,
+      "speaker": "adam-stacoviak",
+      "text": "We invented the bike shed concept?"
+    },
+    {
+      "start": 4014.96,
+      "end": 4026.72,
+      "speaker": "gerhard-lazu",
+      "text": "Yep. He's nice. He's the guy behind the so. And look at this. When you refresh it, the color changes. Changes colors. So bike shed.org. Bike shed.org is what we're looking at."
+    },
+    {
+      "start": 4026.76,
+      "end": 4031.08,
+      "speaker": "adam-stacoviak",
+      "text": "Pool heading camp has to come on and change a lot. Oh my gosh, yes. I think it does."
+    },
+    {
+      "start": 4031.08,
+      "end": 4035.84,
+      "speaker": "gerhard-lazu",
+      "text": "I think it does. And the pipe leak connection is just too strong to ignore."
+    },
+    {
+      "start": 4035.84,
+      "end": 4037.2,
+      "speaker": "adam-stacoviak",
+      "text": "It's so strong."
+    },
+    {
+      "start": 4037.2,
+      "end": 4218.34,
+      "speaker": "gerhard-lazu",
+      "text": "All right. So that explains why Varnish doesn't have SSL and Varnish Enterprise does, right? So there's like the whole commercial aspect, but Varnish open source does not have SSL and there's a couple of ways to solve it. And we may have talked about this on the recording that's not public yet. With Nabil, so we will wait for that to land. But what does this mean in practice? And this is where I go to the terminal. So we're looking at the pipe leak. Everything has been merged and anyone can follow along and we'll do the same here. Okay? So let's do this. Alias J is for just, right? So just is something that I love and I think I mentioned about it. Just do it, right? It was like one of the kaisens. Kaizen 16, I think, not the last one. The one before last. So there's a bunch of recipes that people can run and just debug is the one that we'll look at now. This is in the context of pipe leak. So pipe leak, as you download it right now today, this is what it has. So what it does behind the scenes, it's using Dagger. And the reason why it's using Dagger is because it needs to create a specific environment with different tools and it has to wire everything together. So we can use, in this case, we're using Dagger to publish, package the container and publish the container, even deploy the container. So deploy is our thing now, we have deploys wired up. So any commit to pipe leak will go out and it will deploy a pipe leak application. And we'll see that in a minute. But now I just want to look at debug. So what debug does, it adds some extra tools on top of the application container. So what are the tools? Let's just open it up and just have a quick look at what debug does. So debug, actually, I forget it's not here, it's in Dagger, main.go. So debug, so for example, we get curl on top of the application container, which has just varnish, tmux, htop, neovim, httpstat, sasquatch, which is an interesting utility, let's like watch with some extra features, go top and oha, and oha you will remember. And then just obviously. So it's just a way to interactively debug the container and try a few things out without polluting your system. I think that's the key takeaway there. So let's just run that, let's run debug. And the terminal function, it's what puts us in that container. So I ran the command and right now I am in a container and I have a bunch of toolings available to me. So what are the toolings? If I do just, again, just is there, I have a couple of commands to run. I could run these things locally, but really I just want all that to be wrapped because typos and a couple of other things. So what would you like me to run first?"
+    },
+    {
+      "start": 4218.34,
+      "end": 4219.86,
+      "speaker": "adam-stacoviak",
+      "text": "Just backends."
+    },
+    {
+      "start": 4219.86,
+      "end": 4317.22,
+      "speaker": "gerhard-lazu",
+      "text": "Just backends, the first command. So let's see what just backends does. So it just wraps varnish adm backend.list. Because varnish isn't running, there's no backends to list. What would be a backend? Backend would be, for example, the changelog origin, the changelog application. A backend would be the feeds origin or the assets origin. So this is where backends get plugged into varnish and varnish provides caching for those backends. Cool. So how do we start varnish? Let's see if, Jared, look at that. See, that's why we have something like this. So just up, boom, there it is. It's tmux, it's the terminal in the terminal, so there's quite a few things there. So just backends, there's nothing there. And if I do just check, that's the one. It does the first request, it fails. And the second one, we can see we got a 200. Run it again, it's really fast. And again, this is messed up. All right, it'll have to be horizontally. I'm sorry, it will have to be horizontally. So just check, it won't fit a lot, but there you go. There it is, we can see HTTP 200 okay. And we can see that the request came from, we got a hit, it's a second hit from local. So this came from varnish, cool. And if I do just backends, we see the two backends which are healthy, cool. What other commands should we run? Let's do bench CDN. I think that's where, actually bench origin. So bench origin, and you will recognize this. This is going to OHA and we are benchmarking."
+    },
+    {
+      "start": 4317.22,
+      "end": 4318.62,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that's beautiful."
+    },
+    {
+      "start": 4318.62,
+      "end": 4327.1,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it's not as good as it runs locally. There's a bit more detail, but it's pretty decent I have to say. So we have just benchmarked the change log application."
+    },
+    {
+      "start": 4327.1,
+      "end": 4328.34,
+      "speaker": "adam-stacoviak",
+      "text": "This is in the cloud, this is what we're doing here?"
+    },
+    {
+      "start": 4328.34,
+      "end": 4335.22,
+      "speaker": "gerhard-lazu",
+      "text": "So this runs locally, the benchmark runs locally, but we are benchmarking the change log origin application, which is production right now."
+    },
+    {
+      "start": 4335.22,
+      "end": 4336.46,
+      "speaker": "adam-stacoviak",
+      "text": "This is production, okay."
+    },
+    {
+      "start": 4336.46,
+      "end": 4340.34,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so we're benchmarking production. How many requests per second?"
+    },
+    {
+      "start": 4340.34,
+      "end": 4341.58,
+      "speaker": "adam-stacoviak",
+      "text": "93.7."
+    },
+    {
+      "start": 4341.58,
+      "end": 4466.65,
+      "speaker": "gerhard-lazu",
+      "text": "93, so about 90 requests per second. Now, I'm in London. This is actually split between New Jersey and Ashburn, Virginia. So there's two data centers. It can go to either one. It goes through the edge and then eventually connects there, which then it has to connect to, I think, the database. It hits the database. So 90 requests per second, not great, but only the CDN goes to the application directly. So let's bench the CDN. And we are sending 100,000 requests per second. Sorry, 100,000 requests. 100 per second, 100,000 requests. And let's see how long it takes. So that took just under 10 seconds and we completed 10,000 requests per second. 10,000 requests per second. So the CDN, we can see it's doing its job. I'm connecting to it locally. The latency is low and this is our change.com CDN. All right. So now let's benchmark. Let's go to CDN two. CDN two is pipely deployed on fly that now proxies to the origin. So this is the new pipely that we're setting up. And I think we already had this, but how does it behave with the TLS proxying with all of that? Right now we have all those things in place and we're almost complete. Remember we had about, I think 10,000, 11,000, something like that. This one has 4,000 only. So it's slightly slower. It's going to CDN two dot change.com. Now the application itself has a shared CPU only two, five, six gigs of RAM. So it's like the smallest, lowest, cheapest CDN instance. Sorry. It's a cheapest flat at IO instance applications that we can run. So we could make it quicker. We could make it bigger, but that's not what I would like to show. What I would like to show is if we benchmark varnish directly."
+    },
+    {
+      "start": 4466.65,
+      "end": 4467.97,
+      "speaker": "adam-stacoviak",
+      "text": "73,000."
+    },
+    {
+      "start": 4467.97,
+      "end": 4511.4,
+      "speaker": "gerhard-lazu",
+      "text": "73,000 requests per second. And actually it's quicker. It's 132,000. The problem is the benchmark, we're only sending a thousand requests. So let's just make it a little bit more. Let's just send a bit more. Let's send varnish. Let's send to it. Let's go via HTTP one, one. Just need to add a couple of things and let's go a million. So let's just go a bit more. So let's just benchmark varnish. I messed something up. Let's see what did I mess up. Bench. That is one, one. There we go. I just made a typo. All right, let's benchmark varnish. So we are sending it a million requests per second. Where is this running? Everything is running locally. It's running inside of Dagger."
+    },
+    {
+      "start": 4511.4,
+      "end": 4513.08,
+      "speaker": "adam-stacoviak",
+      "text": "Main request total."
+    },
+    {
+      "start": 4513.08,
+      "end": 4514.04,
+      "speaker": "gerhard-lazu",
+      "text": "How many requests total?"
+    },
+    {
+      "start": 4514.04,
+      "end": 4516.88,
+      "speaker": "adam-stacoviak",
+      "text": "I think. A million requests total you said, right? Is that a million requests total?"
+    },
+    {
+      "start": 4516.88,
+      "end": 4559.78,
+      "speaker": "gerhard-lazu",
+      "text": "We're sending a million. Oh, I made a typo. Actually 10 million. We're sending 10 million requests to it. So let's see how does it behave. Oops, we'll be sending 10 million requests and we are more than halfway there. So if I do, if I go to this instance, remember the same Pop!OS instance. And if I run Btop, I can see how this instance, like what's happening here. You can see the CPU's. There's a lot of red. So this is now CPU bound actually. And everything is local. So there's no network because it happens in the same container, in the same name space, same everything. Which means that this is really as fast as you get it. And there's our result. That's how many requests per second Varnish can serve."
+    },
+    {
+      "start": 4559.78,
+      "end": 4561.14,
+      "speaker": "adam-stacoviak",
+      "text": "211,000."
+    },
+    {
+      "start": 4561.14,
+      "end": 4596.59,
+      "speaker": "gerhard-lazu",
+      "text": "211,000 local. So Varnish isn't slow. It's caching well. We can look at the distribution and because we're right there where Varnish is, there is TLS Exterminator that needs to talk to, which terminates TLS, right? So that's an external process, which that connects to the origin and it can connect to multiple origins. So right now we have only changelog configured, but we'll have feeds. We'll have a couple more. This will run next to Varnish. And I think the pieces are starting to come together. Any thoughts?"
+    },
+    {
+      "start": 4596.59,
+      "end": 4599.37,
+      "speaker": "adam-stacoviak",
+      "text": "This is cool. Man."
+    },
+    {
+      "start": 4599.37,
+      "end": 4608.12,
+      "speaker": "gerhard-lazu",
+      "text": "Would we like, and here's a question, would you like to scale those instances up to see how much faster they will go if we provide bigger instances?"
+    },
+    {
+      "start": 4608.12,
+      "end": 4612.68,
+      "speaker": "adam-stacoviak",
+      "text": "Well, what are we getting right now against our current setup?"
+    },
+    {
+      "start": 4612.68,
+      "end": 4619.08,
+      "speaker": "gerhard-lazu",
+      "text": "So our current setup, which uses Fastly, we're getting between 10 and 11,000 requests per second."
+    },
+    {
+      "start": 4619.08,
+      "end": 4620.36,
+      "speaker": "adam-stacoviak",
+      "text": "So we're about halfway there."
+    },
+    {
+      "start": 4620.36,
+      "end": 4626.23,
+      "speaker": "gerhard-lazu",
+      "text": "We're about halfway there, yes. With the cheapest, smallest instance, we're about 4,000 there."
+    },
+    {
+      "start": 4626.23,
+      "end": 4630.95,
+      "speaker": "adam-stacoviak",
+      "text": "You're saying that's all fast can do is 10 to, how many thousand, 10,000?"
+    },
+    {
+      "start": 4630.95,
+      "end": 4660.92,
+      "speaker": "gerhard-lazu",
+      "text": "It was about 10 to 11,000. So there's a couple of things at play. This is like the pop, which is closest to me. I have seen it go faster. So I've done a couple of other benchmarks. Sometimes it goes to 16,000, 17,000. So it can go faster. I think it just depends on network conditions, load on their system. But we are sharing network with everybody. But if I can push 11,000 requests per second, that's a lot of requests per second, by the way, I think."
+    },
+    {
+      "start": 4660.92,
+      "end": 4663.4,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it doesn't matter. Like, it's 4,000 just good enough."
+    },
+    {
+      "start": 4663.4,
+      "end": 4730.76,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so how fast is it? If we were to do here, you can see that right now, I'm downloading 1.27 gigabits per second. And my network connection goes more. My network connection goes all the way to 2 gigabits. So right now, I'm about 10,000, 11,000. So basically, Fastly is limiting my one connection. I mean, I say one connection, one IP, to about 1 point something gigabits per second. And maybe we could benchmark it elsewhere. But the point is, you don't want one user to use all your available bandwidth. So you need to apply some throttling. So let me show you something interesting. If I, for example, let's just do bench. So I do just bench. And if I do bench, let's do, remember Bonnie? We have bonnichangelog.com. Remember that? The other CDN. This is how the other CDN behaves, 1,700. So let's go two. And I would like to go, let's go 100,000 requests per second. Let's see how that behaves."
+    },
+    {
+      "start": 4730.76,
+      "end": 4732.8,
+      "speaker": "adam-stacoviak",
+      "text": "100,000 requests total."
+    },
+    {
+      "start": 4732.8,
+      "end": 4734.48,
+      "speaker": "gerhard-lazu",
+      "text": "10,000 request totals."
+    },
+    {
+      "start": 4734.48,
+      "end": 4738.96,
+      "speaker": "adam-stacoviak",
+      "text": "You keep saying per second. You do. That's what Adam was trying to fix earlier, too."
+    },
+    {
+      "start": 4738.96,
+      "end": 4774.67,
+      "speaker": "gerhard-lazu",
+      "text": "Sorry, 100,000 requests. We're sending 100,000 requests. And we want to see how many can it serve per second. And what we see here is that it stopped at just about 3,000 requests. Exactly. They throttle. And this was a surprise. This was a surprise. So they have some sort of protection. Because I could be DDoSing them. Imagine if it would be like 100 of us doing the same thing. I mean, we'd be sending hundreds of gigabytes. And they would just, sorry, hundreds of gigabits."
+    },
+    {
+      "start": 4774.67,
+      "end": 4778.67,
+      "speaker": "adam-stacoviak",
+      "text": "They have to consume that bandwidth, too, as an infrastructure."
+    },
+    {
+      "start": 4778.67,
+      "end": 4797.69,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. So as you can see, I mean, I'm not liking this behavior. I mean, I can't benchmark it. So from a benchmarking, now it's resumed, see? So there must be. And then it stopped again. And then it stopped exactly. So it was just about 100 requests it let through. So it's just blocking me and then letting more requests."
+    },
+    {
+      "start": 4797.69,
+      "end": 4801.69,
+      "speaker": "adam-stacoviak",
+      "text": "Are you doing this via an API key? How do you authenticate this? Is this just a?"
+    },
+    {
+      "start": 4801.69,
+      "end": 4803.97,
+      "speaker": "gerhard-lazu",
+      "text": "I'm not. I'm just hitting it as public, like anyone."
+    },
+    {
+      "start": 4803.97,
+      "end": 4811.39,
+      "speaker": "adam-stacoviak",
+      "text": "OK. I was going to say, if you can do this via an authenticated way, then you can always just pass a benchmark flag or something like that to get past this."
+    },
+    {
+      "start": 4811.39,
+      "end": 4813.39,
+      "speaker": "gerhard-lazu",
+      "text": "Maybe. But so for us to fall."
+    },
+    {
+      "start": 4813.39,
+      "end": 4821.55,
+      "speaker": "adam-stacoviak",
+      "text": "I'm just hypothesizing how I would build it if I was building it. I would allow somebody to benchmark my system, because there's going to be times you want to benchmark your system."
+    },
+    {
+      "start": 4821.55,
+      "end": 4828.75,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. I would definitely look into that. But I didn't have to do any such thing for Fastly or for Fly. I could just send all the traffic."
+    },
+    {
+      "start": 4828.75,
+      "end": 4835.84,
+      "speaker": "adam-stacoviak",
+      "text": "Is that a good thing, though? I wonder if that's a good thing, because it's just letting anybody just benchmark them. You just sent 10 million requests to them."
+    },
+    {
+      "start": 4835.84,
+      "end": 4838.08,
+      "speaker": "gerhard-lazu",
+      "text": "If they can handle it. If they can handle it, yeah."
+    },
+    {
+      "start": 4838.08,
+      "end": 4840.24,
+      "speaker": "adam-stacoviak",
+      "text": "I did. Yeah, I did."
+    },
+    {
+      "start": 4840.24,
+      "end": 4841.6,
+      "speaker": "gerhard-lazu",
+      "text": "They didn't just break a sweat."
+    },
+    {
+      "start": 4841.6,
+      "end": 4843.2,
+      "speaker": "adam-stacoviak",
+      "text": "He almost sent 10 million per second."
+    },
+    {
+      "start": 4843.68,
+      "end": 4848.72,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, no, no. That's too much. I need more computers. I need my Windows machine for that."
+    },
+    {
+      "start": 4848.72,
+      "end": 4857.12,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Two of everything is not enough in that case. So my question, brass tacks, is Pipely fast enough? That's the question."
+    },
+    {
+      "start": 4857.12,
+      "end": 4858.72,
+      "speaker": "gerhard-lazu",
+      "text": "Correct. So let's scale it up."
+    },
+    {
+      "start": 4858.72,
+      "end": 4874.24,
+      "speaker": "adam-stacoviak",
+      "text": "And I feel like 4,000 requests a second versus the 10,000 to 11,000 you get on Fastly. Is that going to noticeably impact anybody? And I would assume the answer is no. He's scaling that machine right now to test it out. I know he is."
+    },
+    {
+      "start": 4874.24,
+      "end": 4875.36,
+      "speaker": "gerhard-lazu",
+      "text": "I'm doing it."
+    },
+    {
+      "start": 4875.36,
+      "end": 4904.92,
+      "speaker": "adam-stacoviak",
+      "text": "He's always scaling stuff. Let's pause for one second. Remember earlier in the show when we were talking about Fly and being down and stuff like that? That wasn't hate. That was just facts. What he's doing right now is in the moment of having a conversation is essentially upgrading that machine to be more performant. Taking it from a cheap box to a slightly more expensive box. And this is all via the Fly command line. So cool. It is the coolest tech, man. They really are doing some cool stuff there. I love it."
+    },
+    {
+      "start": 4904.92,
+      "end": 4922.28,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I'm just wondering if we were to replace Fastly with Pipely, how well would we get the same thing? And how does it compare? But for that, I promise one more thing. So I'm going to deliver on one more thing, right? Did you notice anything different about my setup?"
+    },
+    {
+      "start": 4922.28,
+      "end": 4923.88,
+      "speaker": "adam-stacoviak",
+      "text": "Like in here in the terminal?"
+    },
+    {
+      "start": 4923.88,
+      "end": 4926.88,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, no. Looking at my camera, did you notice anything different?"
+    },
+    {
+      "start": 4926.88,
+      "end": 4929.92,
+      "speaker": "adam-stacoviak",
+      "text": "It's super black behind you. Are you in a whole different space?"
+    },
+    {
+      "start": 4929.92,
+      "end": 4931.24,
+      "speaker": "gerhard-lazu",
+      "text": "Well, it was black before."
+    },
+    {
+      "start": 4931.24,
+      "end": 4934.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it was always black. Better camera?"
+    },
+    {
+      "start": 4934.14,
+      "end": 4943.21,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, well, there was the black, it had some more detail. Right, so before, the black wasn't quite as dark."
+    },
+    {
+      "start": 4943.21,
+      "end": 4948.15,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Whoa. You just green screen yourself?"
+    },
+    {
+      "start": 4948.15,
+      "end": 4953.38,
+      "speaker": "gerhard-lazu",
+      "text": "Not quite. So."
+    },
+    {
+      "start": 4955.18,
+      "end": 4963.02,
+      "speaker": "adam-stacoviak",
+      "text": "What's going on right now? So something just went behind your head and it looks like... Grafana. Yes. Some sort of dashboard. Grafana's behind your head, Gerhard."
+    },
+    {
+      "start": 4963.02,
+      "end": 4968.14,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so that's one of the early birthday presents, which I couldn't wait to open."
+    },
+    {
+      "start": 4969.98,
+      "end": 4971.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, your birthday's coming right up, isn't it?"
+    },
+    {
+      "start": 4971.42,
+      "end": 4976.42,
+      "speaker": "gerhard-lazu",
+      "text": "It is, yeah, it is. I think by the time this will be out, it'll be out. All right."
+    },
+    {
+      "start": 4976.42,
+      "end": 4979.14,
+      "speaker": "adam-stacoviak",
+      "text": "If you're listening to this, find Gerhard, tell him happy birthday."
+    },
+    {
+      "start": 4979.14,
+      "end": 4986.54,
+      "speaker": "gerhard-lazu",
+      "text": "Thank you, I appreciate that. So I always wanted to have a big-ass monitor, like really, really big, so big."
+    },
+    {
+      "start": 4986.54,
+      "end": 4987.82,
+      "speaker": "adam-stacoviak",
+      "text": "A BAM, as they call it."
+    },
+    {
+      "start": 4987.82,
+      "end": 4990.42,
+      "speaker": "gerhard-lazu",
+      "text": "A BAM, there we go. I always wanted to have a BAM."
+    },
+    {
+      "start": 4990.42,
+      "end": 4993.42,
+      "speaker": "adam-stacoviak",
+      "text": "BAM. BAM, it's got one."
+    },
+    {
+      "start": 4993.42,
+      "end": 5001.02,
+      "speaker": "gerhard-lazu",
+      "text": "And that's what happened behind me, like the whole screen, like the whole background is actually now a one giant screen."
+    },
+    {
+      "start": 5001.02,
+      "end": 5002.62,
+      "speaker": "adam-stacoviak",
+      "text": "This is a real screen back there?"
+    },
+    {
+      "start": 5002.62,
+      "end": 5003.46,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 5003.46,
+      "end": 5006.62,
+      "speaker": "adam-stacoviak",
+      "text": "Is it a TV screen or is it a... It is a TV screen. It's a BAM."
+    },
+    {
+      "start": 5006.62,
+      "end": 5007.46,
+      "speaker": "gerhard-lazu",
+      "text": "It's a..."
+    },
+    {
+      "start": 5007.46,
+      "end": 5011.6,
+      "speaker": "adam-stacoviak",
+      "text": "Tell us more about this big-ass monitor. Yeah, I've heard of this."
+    },
+    {
+      "start": 5011.6,
+      "end": 5016.22,
+      "speaker": "gerhard-lazu",
+      "text": "So it's a Samsung S95D."
+    },
+    {
+      "start": 5016.22,
+      "end": 5017.06,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 5017.06,
+      "end": 5037.9,
+      "speaker": "gerhard-lazu",
+      "text": "And it's a 65-inch TV. So it's big. And what it means is that I can talk to anyone and I can see exactly what's happening across every infrastructure. Right now, I have the changelog infrastructure running there. And do you see those spikes right there? Do you know what that spike is?"
+    },
+    {
+      "start": 5037.9,
+      "end": 5038.94,
+      "speaker": "adam-stacoviak",
+      "text": "You, just now."
+    },
+    {
+      "start": 5038.94,
+      "end": 5043.54,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, exactly. That's me just now. I did that. I created a spike."
+    },
+    {
+      "start": 5043.54,
+      "end": 5048.78,
+      "speaker": "adam-stacoviak",
+      "text": "I did that. That spike is me. He's so proud of himself. I did that spike. Yeah. Yeah, you did."
+    },
+    {
+      "start": 5048.78,
+      "end": 5088.1,
+      "speaker": "gerhard-lazu",
+      "text": "So that spike right there is the benchmark that went directly to Fly. Now, on the left-hand side, as you look at it, that's all the metrics coming from the Fly application, our Fly changelog application. On the right, it's all Honeycomb. And because it's a bit blurry, you can't see the details, which is exactly what we would want, right? We don't want to advertise all the details. But really, what's interesting is the shape of it. So Honeycomb, I can't figure out how to automatically refresh. Grafana in Fly has that capability. So I just need to manually refresh it. I have to click the refresh. So let me do that."
+    },
+    {
+      "start": 5089.09,
+      "end": 5091.61,
+      "speaker": "adam-stacoviak",
+      "text": "There you go. He's looking refresh. He's leaning over."
+    },
+    {
+      "start": 5091.61,
+      "end": 5097.53,
+      "speaker": "gerhard-lazu",
+      "text": "Leaning over, I'm hitting refresh, and then you should see that other half refresh, right? Like half of the background refreshed."
+    },
+    {
+      "start": 5097.53,
+      "end": 5098.37,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 5098.37,
+      "end": 5106.65,
+      "speaker": "gerhard-lazu",
+      "text": "And actually, it's the same timestamp, so I need to go to the last 24 hours. There you go. Now we're looking at the last 24 hours. So do you see those spikes there?"
+    },
+    {
+      "start": 5106.65,
+      "end": 5107.49,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 5107.49,
+      "end": 5133.09,
+      "speaker": "gerhard-lazu",
+      "text": "Spikes is the benchmark, which I did against Fastly, against our CDN. So you can see that we never hit those levels under normal operating conditions, right? That's like 100x what we normally operate. So maybe being able to serve 10,000 requests per second doesn't make that much difference, since really, we never hit those levels."
+    },
+    {
+      "start": 5133.09,
+      "end": 5156.74,
+      "speaker": "adam-stacoviak",
+      "text": "I feel like we've gone to Target, the three of us. Y'all took me to the toy department, and you said, pick a toy. I chose my toy. We went to the checkout. We, Target is a popular store. Here, by the way, Gerhard, if you didn't know Target. We checked out, we successfully paid. We've left, we've gone home, and you've not given me my toy."
+    },
+    {
+      "start": 5156.74,
+      "end": 5157.8,
+      "speaker": "gerhard-lazu",
+      "text": "Right."
+    },
+    {
+      "start": 5157.8,
+      "end": 5159.64,
+      "speaker": "adam-stacoviak",
+      "text": "Where is my toy?"
+    },
+    {
+      "start": 5159.64,
+      "end": 5163.12,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I can't get the monitor for you. You need to get it for yourself."
+    },
+    {
+      "start": 5163.96,
+      "end": 5167.6,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, Pipely, Pipely, Pipely is the toy."
+    },
+    {
+      "start": 5167.6,
+      "end": 5221.46,
+      "speaker": "gerhard-lazu",
+      "text": "So Pipely, if you go to cdntoo.change.com, it runs. It now uses a component that terminates TLS to origins, and now we need to add more origins. While it's half as fast as the current CDN is, we know that it can sustain all the load that we need to replace our CDN. So the toy is, the toy will work. In terms of what comes next, we need to configure more origins. We need to get, for example, the feeds one, the assets one, and we need to scale the instances in such a way so they can handle the traffic. Right now, we only serve, or we only save the assets, or we only save the responses in the actual memory. So we need to configure disk. There's a couple more things, a couple more knobs to configure, but this is getting closer and closer and closer."
+    },
+    {
+      "start": 5221.46,
+      "end": 5240,
+      "speaker": "adam-stacoviak",
+      "text": "I feel like the real toy is the Samsung S95D 65-inch OLED HDR Pro glare-free with motion accelerator. Gerhard, that sucker is expensive, man. Well, eBay, half price."
+    },
+    {
+      "start": 5240,
+      "end": 5247.56,
+      "speaker": "gerhard-lazu",
+      "text": "That's what I say, brand new. So you just need to shop around. Do what Adam does, you know? Okay. Do what Adam does, basically."
+    },
+    {
+      "start": 5247.56,
+      "end": 5256.4,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I was just gonna let you know, my birthday is July 12th. Just in case you're wondering. Cool. Mine's sooner, March 17th."
+    },
+    {
+      "start": 5256.4,
+      "end": 5257.24,
+      "speaker": "gerhard-lazu",
+      "text": "March 17th."
+    },
+    {
+      "start": 5257.24,
+      "end": 5270.56,
+      "speaker": "adam-stacoviak",
+      "text": "I wasn't really jealous of all your computers you were talking about earlier. But now you are. That screen is amazing. Holy cow. Yeah, that is on the screen. All right, so you scaled up our pipely to the Performance X1, Performance 1X."
+    },
+    {
+      "start": 5270.56,
+      "end": 5276.6,
+      "speaker": "gerhard-lazu",
+      "text": "It didn't work. Ah, fail. Yeah, it failed. So maybe we're trying to scale too much."
+    },
+    {
+      "start": 5276.6,
+      "end": 5279.64,
+      "speaker": "adam-stacoviak",
+      "text": "Let us down. Oh, dang, man. It was cool until-"
+    },
+    {
+      "start": 5279.76,
+      "end": 5325.3,
+      "speaker": "gerhard-lazu",
+      "text": "I didn't know. I didn't know what would happen. Maybe we- Yeah, let's see. If you do flyctl- Let me just do that. Let me go flyctl machines list. And let's see what's going on. Live debugging. Why not? So we see Performance 1, 2. Only two, really. But the rest could not be scaled. And I don't know exactly why. So let's just do that again. Let's do VM scale. Updating machine. See, this other one just couldn't update it. And I'm not sure why exactly. That's the one in Heathrow. Waiting for machine to be happy. Sorry, to be healthy. To become happy. I mean, a healthy machine. A happy machine is a healthy machine indeed."
+    },
+    {
+      "start": 5325.3,
+      "end": 5326.42,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 5326.42,
+      "end": 5331.04,
+      "speaker": "gerhard-lazu",
+      "text": "So that's still waiting for machine. Okay, so now it's moving to the next one. So just for-"
+    },
+    {
+      "start": 5331.04,
+      "end": 5333.06,
+      "speaker": "adam-stacoviak",
+      "text": "How many pipely instances are we running right now?"
+    },
+    {
+      "start": 5333.06,
+      "end": 5337.18,
+      "speaker": "gerhard-lazu",
+      "text": "One, two, three, four, five, six, seven, eight, nine, 10."
+    },
+    {
+      "start": 5337.18,
+      "end": 5346.62,
+      "speaker": "adam-stacoviak",
+      "text": "So there's 10 of them in different regions around the world. And we've got two of the 10 upgraded to Performance 1X. The other ones are on shared CPU 1X."
+    },
+    {
+      "start": 5346.62,
+      "end": 5347.46,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 5347.46,
+      "end": 5359.09,
+      "speaker": "adam-stacoviak",
+      "text": "Which has also 10X the RAM, it looks like. So the shared CPU is at 256 megabytes, whereas the Performance 1X is at 2,048 gigs."
+    },
+    {
+      "start": 5359.09,
+      "end": 5360.15,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 5360.15,
+      "end": 5362.09,
+      "speaker": "adam-stacoviak",
+      "text": "So that's quite a scale."
+    },
+    {
+      "start": 5362.09,
+      "end": 5368.35,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it's about 10X. And I'm wondering, if we do that 10X, how will it behave?"
+    },
+    {
+      "start": 5368.35,
+      "end": 5378.32,
+      "speaker": "adam-stacoviak",
+      "text": "And what would that affect the bottom line of running pipely? Because near now, 10Xed our costs, probably. Because you upgraded every instance around the world."
+    },
+    {
+      "start": 5378.32,
+      "end": 5397.98,
+      "speaker": "gerhard-lazu",
+      "text": "I'm not sure how much it changes the cost. I mean, we can check it exactly to see how much that would cost. And maybe we don't need 10. Maybe we need just one per continent. Maybe that will be enough. Or one per East Coast, West Coast. This is, like, you remember, the old one. So there's a couple of optimizations which we can change there. So what was the question? How much will it cost?"
+    },
+    {
+      "start": 5397.98,
+      "end": 5401.42,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I was just wondering how much extra it is. We don't need to get the exact answer."
+    },
+    {
+      "start": 5401.42,
+      "end": 5401.86,
+      "speaker": "gerhard-lazu",
+      "text": "OK."
+    },
+    {
+      "start": 5401.86,
+      "end": 5417.59,
+      "speaker": "adam-stacoviak",
+      "text": "These are just concerns that I have as we move forward. And then is 10 even the right number is a question. I mean, maybe it's smarter to leave it at the shared CPU 1X, but have 30 of them versus 10 at the Performance 1X, for instance."
+    },
+    {
+      "start": 5417.59,
+      "end": 5507.81,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I think, so we can see that we went with the cheapest one, smallest one. So shared CPU 1X, I think you get a bandwidth which depends on how big the instance is, right? You get, like, a fair share of the bandwidth. So these instances, they were costing, like, about $2 per month just in compute costs. We went to Performance 1X, which is 31. So that is more than a 10X jump. Maybe if we went to a 4X, sorry, shared CPU 4X, which is about 8, that would have been a 4X. Yeah, a 4X and also, like, a more realistic upgrade. But I wanted to make sure that we get the higher tier ones. Performance 1X is, like, the lowest high tier one, which means that you get a full core. It's not getting throttled. And my assumption is you'll also get more bandwidth. And that's what we're testing here. If we go to, like, the next tier of instance, which is, like, compute optimized in a way, it's like a huge jump. But does that translate to bandwidth performance? So we're still going through that. I mean, we can try benchmarking it again to see how it behaves. And the reason why you could benchmark it again is because the pop, the one in Heathrow, has already scaled. So let's see how this one compares. We are pushing 480, 470, 480. OK, so I think we'll get a similar result, I think."
+    },
+    {
+      "start": 5507.81,
+      "end": 5508.97,
+      "speaker": "adam-stacoviak",
+      "text": "You did 10 million again."
+    },
+    {
+      "start": 5508.97,
+      "end": 5527,
+      "speaker": "gerhard-lazu",
+      "text": "480, I did, I think, 100,000 requests in total. 100,000 requests in total, yeah. Just to throw some load its way and see how that behaves. And we're 4,000. So apparently, scaling up the instance did not increase the bandwidth."
+    },
+    {
+      "start": 5527,
+      "end": 5528.99,
+      "speaker": "adam-stacoviak",
+      "text": "Interesting."
+    },
+    {
+      "start": 5528.99,
+      "end": 5536.07,
+      "speaker": "gerhard-lazu",
+      "text": "So the question would be, is this as much as we can get? And should we, could we go higher? I don't know."
+    },
+    {
+      "start": 5536.07,
+      "end": 5544.83,
+      "speaker": "adam-stacoviak",
+      "text": "Is the limitation the network? Is that what we just resolved to them? Because CPU and other things didn't really influence it. RAM didn't influence it."
+    },
+    {
+      "start": 5544.83,
+      "end": 5556.15,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so I would ask, for example, Fly. Like, how do they allocate network bandwidth based on instance size? Like, how do those limits work?"
+    },
+    {
+      "start": 5556.15,
+      "end": 5557.51,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's not clear."
+    },
+    {
+      "start": 5557.51,
+      "end": 5605.07,
+      "speaker": "gerhard-lazu",
+      "text": "And so that was the one question. And what I'm wondering, is 4,000 enough? Because we're looking at the graph, we're seeing the spikes. And apparently, we never even hit 4,000 requests per second on our existing CDN. It means that the ceiling is lower. But since we're never hitting that ceiling, maybe that's OK. Not to mention that we've seen Bunny, for example. This is a perspective which I haven't seen in Bunny before, where we can see the throttling kicking in. We can't even benchmark it properly, because it throttles you much earlier. And I looked through the config. I went through the settings, like CDNs. Apparently, they're not all configured the same. Which is why I was looking at Varnish to see what can Varnish do. Like, where exactly is this bottleneck coming from? And are we OK with the ceiling?"
+    },
+    {
+      "start": 5605.07,
+      "end": 5610.4,
+      "speaker": "adam-stacoviak",
+      "text": "Is it necessary to have this throttling in place?"
+    },
+    {
+      "start": 5610.4,
+      "end": 5611.28,
+      "speaker": "gerhard-lazu",
+      "text": "For who?"
+    },
+    {
+      "start": 5611.28,
+      "end": 5614.16,
+      "speaker": "adam-stacoviak",
+      "text": "For, I guess, just the system, the uptime of the system."
+    },
+    {
+      "start": 5614.16,
+      "end": 5617.2,
+      "speaker": "gerhard-lazu",
+      "text": "The vendors. Yeah, it would make sense for them to."
+    },
+    {
+      "start": 5617.2,
+      "end": 5639.98,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, we would be at least temporarily not a, Pipely would not have a lot of users, I would say. We would deploy Pipely on-prem, basically. Like, it would not be a service we're consuming. Pipely would be software we deploy for us to use. And so do we really need throttling if we're our own user and we control our systems?"
+    },
+    {
+      "start": 5639.98,
+      "end": 5640.82,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, I see what you mean."
+    },
+    {
+      "start": 5640.82,
+      "end": 5656.87,
+      "speaker": "adam-stacoviak",
+      "text": "You see what I'm saying? Like, because Bunny has it probably as a safeguard, because they're public. Whereas Pipely would be deployed for us in our use case, right? So we don't need throttling. No, it's deployed for us, but it'd be hit by randos around the world. True. So we can get Dost."
+    },
+    {
+      "start": 5656.87,
+      "end": 5660.42,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, we could. That is a real possibility."
+    },
+    {
+      "start": 5660.42,
+      "end": 5664.18,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, you send us 5,000 requests a second, we're Dost. To one pop, at least."
+    },
+    {
+      "start": 5664.18,
+      "end": 5665.54,
+      "speaker": "gerhard-lazu",
+      "text": "To one, yeah."
+    },
+    {
+      "start": 5665.54,
+      "end": 5685.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly. So I think some form of rudimentary throttling makes a lot of sense. I don't think it would add very much in terms of software on our side to say, you know, you could make it very rudimentary. This IP can only have so many requests a second, done. I think. Then you're at least avoiding that low-hanging fruit."
+    },
+    {
+      "start": 5685.51,
+      "end": 5784.32,
+      "speaker": "gerhard-lazu",
+      "text": "I haven't looked into that, but having this discussion is valuable. I mean, this is why, you know, like I don't think we can have the toy because we're still debating what the toy should be and how it should behave. But it's exactly, we're building our toy. And I think this just makes it more real because these are the steps that we would go through before we take this toy into production. And I think this is the perspective which is valuable to have, right? Like the level of care and attention and detail that we go through to make sure that what we put out there will behave correctly. And the comparison that we have right now is Fastly, which, you know, from some perspectives, it behaves really well. I mean, we're seeing performance is amazing. Caching, not so good, but again, it makes sense why they don't keep content in memory as, for example, we would, because we would optimize for that. Which means that because we optimize for that, we want to store as much of it in memory as possible, memory that we pay for. Or disks that we pay for, wherever they may be. And then I think this will also, we'll have questions about like, how should we size those instances? We just heard that maybe the Performance 1X, maybe it's a bit too expensive because we need to run a bunch of them. And how many, remember the first time we were running 16? Maybe that's a bit too many. Maybe 10 is a better number. But even that might be too much. Now, if we're looking at the cost, right, we're paying $30 per instance. And if we have 10 of those, we would be paying $300 per month for the compute. I think that's okay. I think that's not crazy in terms of cost."
+    },
+    {
+      "start": 5784.32,
+      "end": 5806.88,
+      "speaker": "adam-stacoviak",
+      "text": "Let me ask you a question. Maybe this is a stupid question, but let's ask it anyways. We want to store, are we designing the system to be memory heavy where we have terabytes of memory available to the system? So we can store all of our data in memory? I don't think so. Or just on disk? Yeah. And have lots of memory available if we need it?"
+    },
+    {
+      "start": 5806.88,
+      "end": 5819.5,
+      "speaker": "gerhard-lazu",
+      "text": "So I think that we need both. I think that the data which is hot should reside in memory. And think about how ZFS works, the file system, and when you have an arc. So this would be exactly that."
+    },
+    {
+      "start": 5819.5,
+      "end": 5820.34,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 5820.34,
+      "end": 5907.29,
+      "speaker": "gerhard-lazu",
+      "text": "We would want to store the most often accessed data in memory and the one which is least accessed on disk. So I think we need both because the memory, we can scale it. I mean, if we go back to two gigabytes of memory, right, for $10, let's say we go, we keep the one X, we can get eight gigabytes of memory. That doesn't seem a lot of memory. For example, I wouldn't know, and this is like where the cash statistics would come in handy, how much data do we frequently serve? And I know that we have the peaks, right? When we release something, there's like a bulk of content that we serve often. How much is the bulk, or how much is the hot content? I don't have an answer to that. But all these things are getting us closer to those concerns, shall I say, that the system will need to take care of. Honestly, I don't think that we should give it more than, for example, 16 gigs per instance, and even that might be a bit big. And I'm wondering whether all regions should have the same configuration. And I'm thinking no, because maybe in South America, and I know this for a fact, there's less traffic than, for example, in North America. And maybe Oceania, I'm sorry, Asia, let's go with Asia. Again, it's less traffic than we have in North America and even Europe. So then I think the same configuration across all regions doesn't make sense. But knowing how much data is hot, I think that's something important."
+    },
+    {
+      "start": 5907.29,
+      "end": 5911.35,
+      "speaker": "adam-stacoviak",
+      "text": "How would we know that? Just based on stats to the direct asset itself?"
+    },
+    {
+      "start": 5911.35,
+      "end": 5985.7,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, stats from the cash to see how much of those, like how much cash is being used. And are there any configurations, and I haven't even looked into this, are there any configurations in terms of evictions? Like how frequently should we automatically drop content? I think this is where our cash hit ratio will come into play, right? So if you don't store enough of it in memory, you will have a lower cash hit ratio. While if you store too much, maybe you're being wasteful. I mean, having a high cash ratio, cash hit ratio, while a lot of that data is infrequently used, you're paying for memory that you don't need. The other thing, the other question which I have is, are the NVMe disks fast enough? And if we think about Netflix, Netflix does the same thing, right? They put those big servers in ISPs, they cache the content on those big servers so that they can deliver them really quickly to customers wherever they may be. We're not going to go there, so this is not that. But that's one pattern that they apply because they realize the importance of having lots of content close to users. Memory's not big enough, you need disks. Again, we're not there, we don't have that problem."
+    },
+    {
+      "start": 5985.7,
+      "end": 6017.35,
+      "speaker": "adam-stacoviak",
+      "text": "Well, we're getting there. I think we have some decisions to make as we go. I think, roughly speaking, the dog hunts, I think 4,000 requests per second, well-managed, we'll be fine. And I think we'll find out otherwise and be able to scale one way or the other around such issues. What else is left in Pipely's roadmap as we look towards the future now? Because let's do next steps."
+    },
+    {
+      "start": 6017.35,
+      "end": 6222.62,
+      "speaker": "gerhard-lazu",
+      "text": "So I think that now we are finding the place where we can add feeds backend. Feeds backend, and we also need the static assets one. So I would add both. When we add them, we need to figure out, do we store all that in memory? And I think the answer is no, because especially static assets, they'll use a lot of memory, but maybe disk. And I think we should look into that. Can we configure different backends? Like, how does that work? We're basically getting to the hard part of configuring Varnish for our various backends, and each backend needs to have a different behavior, I think. So that's something to look into. Logs, sending logs to Honeycomb. I think that is a much easier problem to solve because we would be using vector. And now we have the building blocks, which we have the first sidecar process, if you want to think about that, if you want to think about it like that, which means that we have, there's Varnish, and there's a couple of other smaller processes that support it. We have TLS Exterminator that terminates TLS to origins, to backends. The second one would be this, in my mind, it will be vector.dev, which is what we'd use for these logs. So vector.dev would get the logs from Varnish and send them to Honeycomb. So it's an integration which I've used before, I know how it works, it's very performant, it's very easy to configure, and then we'd have another helping process that would work in combination with Varnish to accomplish a certain task. And Honeycomb and S3, like all those, it supports multiple sinks. So collecting the logs on one side and just sending them in multiple sinks, that is very straightforward because it just handles all of that itself. And then really the last hard bit is purge across all application instances. And I think that one is maybe a step too far to think about it now. But I think the way we, so first of all, now we are automatically, so we have an image to publish, we are deploying the application automatically through CI, that's like some plumbing that you want to have in place. We have support for TLS backends and that was an important one, especially when it comes to other origins, right? Because let's say if we are running in fly, we can connect, we can use the private network to connect to the changelog instance. But for external origins like feeds, you would need to go to HTTP because we didn't have HTTPS, now we have HTTPS. I think that's also an important building block. And now we're hitting this benchmarking, I wouldn't say we got sidetracked by it, but I think it's like something worth considering because you may end up building something that won't work. We won't be able to use this to replace our current CDN. And the goal is to be able to say with confidence that pipely is able to do the work that currently our CDN is doing. And what does that mean from a configuration perspective, from resources perspective? I think everything adds up and it feels like, it feels like we're more than halfway there, for real. I don't mean like, will this work? No, no, we're more than halfway there to replace fastly with pipely for us."
+    },
+    {
+      "start": 6222.62,
+      "end": 6226.34,
+      "speaker": "adam-stacoviak",
+      "text": "All right, take us to the promised land. Give us that toy."
+    },
+    {
+      "start": 6226.34,
+      "end": 6230.7,
+      "speaker": "gerhard-lazu",
+      "text": "It won't be Christmas. It will be before Christmas, Adam. When is your birthday?"
+    },
+    {
+      "start": 6230.7,
+      "end": 6231.66,
+      "speaker": "adam-stacoviak",
+      "text": "March."
+    },
+    {
+      "start": 6231.66,
+      "end": 6233.54,
+      "speaker": "gerhard-lazu",
+      "text": "March, okay."
+    },
+    {
+      "start": 6233.54,
+      "end": 6234.38,
+      "speaker": "adam-stacoviak",
+      "text": "That's too soon."
+    },
+    {
+      "start": 6234.38,
+      "end": 6236.5,
+      "speaker": "gerhard-lazu",
+      "text": "That's too soon. Jared, yours is July, okay."
+    },
+    {
+      "start": 6236.5,
+      "end": 6243.3,
+      "speaker": "adam-stacoviak",
+      "text": "All I want for my birthday is pipely and a Samsung S95D."
+    },
+    {
+      "start": 6243.3,
+      "end": 6263.04,
+      "speaker": "gerhard-lazu",
+      "text": "All right. Well, I behaved very well, I think. And my wife must love me very much because it was, yeah, it was a present from her to me, so. Nice, very nice. So she loves the nerd in me. She has to, she has no choice. They come as a package."
+    },
+    {
+      "start": 6263.04,
+      "end": 6265.32,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I was gonna say, if she doesn't love the nerd, I mean, what's left?"
+    },
+    {
+      "start": 6266.54,
+      "end": 6273.1,
+      "speaker": "gerhard-lazu",
+      "text": "Well, that's what you see, Jared, but this is on the show for that."
+    },
+    {
+      "start": 6273.1,
+      "end": 6342.51,
+      "speaker": "adam-stacoviak",
+      "text": "Don't answer that. Well, that's cool. I love this exploration. I like that there's possibility to run your own thing like this, you know, to configure it to the way we want to. I mean, to zoom out, we, the challenge has been that it's been hard to configure fastly, not as a CDN, but as a CDN we need. Our particular use case is not that fastly is not good as a CDN, it's just that it has not been highly configurable by us, it's been challenging over the years, mainly just because they're, I think, designed for different customer types. We're a different customer type and we've been holding it, not so much wrong, but it's just been a square peg round hole kind of thing where it's not perfect for our particular CDN needs. I think we've had lots of cash misses over the years. Like, why is our stuff not cashed? Yeah. It seems like it should be, you know, we're not prioritized as a, you know, as a thing to serve because the way the system works, you know, and that's just it. And we're designing something that serves that kind of system, where it serves the data, holds more memory, has more available to it, is not a miss."
+    },
+    {
+      "start": 6342.51,
+      "end": 6343.84,
+      "speaker": "gerhard-lazu",
+      "text": "That's right."
+    },
+    {
+      "start": 6343.84,
+      "end": 6353.79,
+      "speaker": "adam-stacoviak",
+      "text": "Which I think is cool, very cool. Man, this tooling you build is so cool, man. I can't believe how cool this stuff is that you built, man. That's really awesome. Thank you."
+    },
+    {
+      "start": 6353.79,
+      "end": 6355.75,
+      "speaker": "gerhard-lazu",
+      "text": "Thank you, it's coming together, it's-"
+    },
+    {
+      "start": 6355.79,
+      "end": 6357.07,
+      "speaker": "adam-stacoviak",
+      "text": "And I love the TV too."
+    },
+    {
+      "start": 6357.07,
+      "end": 6410.05,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it is like a well-rounded experience, right? So the idea is to be able to have the TV on. Now it's a bit bright and it's running a little bit hot. I can feel it. It's not winter yet. I don't need heating in the office. Well, it's the end of the winter, but I'm able to see a lot of metrics. I think that's something that I always loved to be able to see how things behave and when they misbehave, to be able to see and understand at a glance what is wrong. Are we getting DDoS'd? Am I running out of memory? Which instance is problematic? And I think this is just a starting point. I literally threw the two dashboards that we have over there, but I haven't optimized them in any way. And I think having something like this just makes it a more breathing living system."
+    },
+    {
+      "start": 6410.05,
+      "end": 6418.17,
+      "speaker": "adam-stacoviak",
+      "text": "Well, yeah, you can see in real time what's happening. The metrics is the life. It's each organ, so to speak. It's like your own knock."
+    },
+    {
+      "start": 6418.17,
+      "end": 6418.99,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 6420.86,
+      "end": 6426.46,
+      "speaker": "adam-stacoviak",
+      "text": "It is super cool. I am jealous and I want one."
+    },
+    {
+      "start": 6426.46,
+      "end": 6465.46,
+      "speaker": "gerhard-lazu",
+      "text": "I inspired you. The Christmas is far away, right? People can save. I know that we did. And it's been in the making for a long time. So before I could get this, I had to get a system that is able to power it. That's what Pop!OS does, one of the things which it does. It has a GPU, which is powerful enough to be able to power it. I have another monitor here which does like screen mirroring so I can change things here and set things up. A system that's able to be on and that it's not too loud. That was like another consideration. A black wall so it blends nicely. It was like so many things, like years in the making. As pipely as years in the making. That's right. And it'll be just as beautiful as that."
+    },
+    {
+      "start": 6465.46,
+      "end": 6472.12,
+      "speaker": "adam-stacoviak",
+      "text": "I would love a tour, a home lab tour. I would love that. Coming soon to..."
+    },
+    {
+      "start": 6472.12,
+      "end": 6544,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I'm working towards that. But I can show you one more thing which was not planned. I know we're a bit over time, but if you want to see one more thing, I'll show you my M25. Every year, I basically take one of these machines online. And I have like a 24, 25. So this year, this is the machine that came online. It's running TrueNAS. As you can see, it's an i9-990K. It has 128 gigs of RAM. So it's like fully maxed out, basically. And this is how... I'll just move that screen a little bit. This is, you can see all the storage has two pools. It has an SSD pool and an HDD pool. So spinning disks and some slower SSDs. They're the EVO, I think, 870. And it's something that you need to have in place to be able to have decent storage between Linux and Windows and Mac and everything to just work. So that was one of the projects and I didn't have time to talk about it. Maybe next time. I know that you are a TrueNAS user, Adam. ZFS and like all that stuff, so."
+    },
+    {
+      "start": 6544,
+      "end": 6555,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, several pools, several things similar to this. Slightly beefier machine. It's a Xeon processor and it's a 4210, I want to say, silver."
+    },
+    {
+      "start": 6556,
+      "end": 6556.84,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 6556.84,
+      "end": 6561.96,
+      "speaker": "adam-stacoviak",
+      "text": "I think there's 100 and some gigs of RAM. I want to say 192 maybe, 128."
+    },
+    {
+      "start": 6561.96,
+      "end": 6562.84,
+      "speaker": "gerhard-lazu",
+      "text": "Okay."
+    },
+    {
+      "start": 6562.84,
+      "end": 6582.36,
+      "speaker": "adam-stacoviak",
+      "text": "It's something like that. It's not 256, I know that for sure. Right. I just don't have a need for it. I mean, it's nice. It's a tinkerer's dream to have lots of RAM in the ZFS system, but I just don't need it. And it's just, you know, I caught myself just wanting to have it just to have it. And I'm like, that doesn't make any sense. You know, like you spend all that money on the RAM just spending the disks instead."
+    },
+    {
+      "start": 6582.36,
+      "end": 6583.2,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 6583.2,
+      "end": 6584.86,
+      "speaker": "adam-stacoviak",
+      "text": "You know, cause disks are expensive."
+    },
+    {
+      "start": 6585.7,
+      "end": 6596.66,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, for video storage, you know, something that you would need, be sure to do editing. And especially if you edit it from multiple machines, you need like a 10 fast network, a couple of other things."
+    },
+    {
+      "start": 6596.66,
+      "end": 6628.72,
+      "speaker": "adam-stacoviak",
+      "text": "But yeah, my home lab's suffering right now. I don't have 10 gigabit everywhere. I do have it in the network. I just don't have it everywhere. So I'm in the process of fixing that. There's some slight life updates for me that will make it more important, I should just say. I had a flood in the studio and I don't think I can stay here anymore. Let's just say, I got to go home. So I'm turning my home office into a true home lab and work lab and that's in the making. So it's a bummer."
+    },
+    {
+      "start": 6628.72,
+      "end": 6630.26,
+      "speaker": "gerhard-lazu",
+      "text": "You need more Techno Tim?"
+    },
+    {
+      "start": 6630.26,
+      "end": 6651.6,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you know, I mean, I'll be close to the things I play with more frequently. I feel like I've always been like two location and it's been challenging because like right now I can't access TrueNAS, it's at home. I can't access that Windows PC, it's at home. It's in the home lab, you know? And I've just sort of like stripped away more and more here to the point that it's like, it doesn't make sense to stay here any longer."
+    },
+    {
+      "start": 6651.6,
+      "end": 6654.44,
+      "speaker": "gerhard-lazu",
+      "text": "Well, your background will change. It's a pretty cool background that you have."
+    },
+    {
+      "start": 6654.44,
+      "end": 6660.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's the thing. I got to make sure it's, you know, video ready. And that's, you know, I got a month to do that basically."
+    },
+    {
+      "start": 6660.36,
+      "end": 6663.72,
+      "speaker": "gerhard-lazu",
+      "text": "Well, and I know we went a bit long. I know we covered a lot of stuff."
+    },
+    {
+      "start": 6663.72,
+      "end": 6668.16,
+      "speaker": "adam-stacoviak",
+      "text": "I dig this, I love it. I'm glad you showed this. I would love on Make It Work. Do you mind if I promote that?"
+    },
+    {
+      "start": 6668.16,
+      "end": 6669.84,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, go for it, go for it, yeah, go for it."
+    },
+    {
+      "start": 6669.84,
+      "end": 6757.45,
+      "speaker": "adam-stacoviak",
+      "text": "I would love to see a tour of whatever you can share. It could just be iPhone. It could be low produced. I don't really care. I just want to see what you're doing. Cause you know, what I love talking to Tim about in particular, one, I like him as a human being. He's so cool. And I truly think we're not just friends on the podcast, but I think, you know, if he wasn't 2000 miles away, I would hang out with him and spend time. Same with you. And you're a lot more than 2000 miles away. But I love, there's not many geeks I can meet that like nerd out on hardware. Like you do, and like he does, and a couple others do out there that are friendly in the world like Tom Lawrence. We met him years ago at a Microsoft something or other, I think in New York. I haven't reached out since then. He's become more and more famous since then. So now I just watch him on YouTube, you know? And I appreciate his takes and stuff like that. But there's not a lot of geeky nerds who nerd out on hardware. Like for no reason like we do. Like we build things we want to need. And so we make a need for it, you know what I mean? Maybe there's some true need, but you're like, you justify it like this TV behind you. Cause like, why not have a knock? Like Jared said, when I have this big thing behind you and not let it be a green screen, let it be a real thing. Just cause, you know? So makeitwork.fm to not hide the URL. .tv, that's what I would say, .tv, .tv, .tv."
+    },
+    {
+      "start": 6757.49,
+      "end": 6759.29,
+      "speaker": "gerhard-lazu",
+      "text": "That's all new, by the way."
+    },
+    {
+      "start": 6759.29,
+      "end": 6761.45,
+      "speaker": "adam-stacoviak",
+      "text": "That, that, oh gosh."
+    },
+    {
+      "start": 6762.33,
+      "end": 6763.68,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 6763.68,
+      "end": 6771.94,
+      "speaker": "adam-stacoviak",
+      "text": "And that is, geez, I keep fat fingering it. I put a comma there instead. I haven't been there in a bit. To .fm. So this is still running from your home lab, right?"
+    },
+    {
+      "start": 6773,
+      "end": 6776.44,
+      "speaker": "gerhard-lazu",
+      "text": "No, actually this is running on fly and it has a CDN in front."
+    },
+    {
+      "start": 6776.44,
+      "end": 6781.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Cause last time it was on your home lab stuff. It was, yeah. Was it Jellyfin?"
+    },
+    {
+      "start": 6781.9,
+      "end": 6831.57,
+      "speaker": "gerhard-lazu",
+      "text": "Well, Jellyfin is still on my home lab. Jellyfin, like the media is still served from the air because of the iGPU. But actually like this one, if I would just click on this one, so there's a couple of things here and I'm logged in. So it's obviously the episode, like the audio, which is coming from Transistor. So there's like an embed and there's obviously the embed video. And as a member, when you sign in, you get the whole thing. This is served from the CDN directly. So this is like the CDN content. And there's also Jellyfin. So once you log in, see the quality for this one wasn't very good. That's something that I'm still working on. And that's why I mentioned that I have to record my screen locally, which is what I did for this because Riverside is not great with screen recording. They improved it, but it's not there yet. The quality is not as high."
+    },
+    {
+      "start": 6831.57,
+      "end": 6863.05,
+      "speaker": "adam-stacoviak",
+      "text": "Distributed podcasting is so hard. It really is. Like, cause you want to share that screen with us, but then counting on Riverside to record it in a resolution that is good for long-term uses. Yeah. Yeah. And .fm if you want to go the audio route only, but .tv is where you said to go. So go there instead. Yeah, man. I want a studio tour. I want something. Don't take six months. Do the simple version, Gerhard. Or just, hey, listen, we could just zoom and then just show them you in the real, you know?"
+    },
+    {
+      "start": 6863.05,
+      "end": 6864.71,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. I mean, that would be-"
+    },
+    {
+      "start": 6864.71,
+      "end": 6866.39,
+      "speaker": "adam-stacoviak",
+      "text": "We could just FaceTime. You could just show it to me."
+    },
+    {
+      "start": 6866.39,
+      "end": 6908.73,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. We could just show it to me. We could definitely do that. That's much easier. It's the whole backlog that I have to go through. Yes. I'm still working on that. It took me such a long time to find a good editor and I think I finally have him. It took me at least four months, five months of proper searching to get someone that I'm also able to afford because this is still everything self-funded. But it works. And at first I need to make it work work before I can, but even makeitwork.tv, now there are subscribers and there's like all of you, like members, like people can pay for it. So that's up and coming. That was something new."
+    },
+    {
+      "start": 6908.73,
+      "end": 6915.29,
+      "speaker": "adam-stacoviak",
+      "text": "I want to put you to the spot, but we did talk about CPU for you, so I'm hoping you're still excited. I am, I am, yeah. We're making steps, so maybe-"
+    },
+    {
+      "start": 6915.29,
+      "end": 6919.49,
+      "speaker": "gerhard-lazu",
+      "text": "I'm keen to be part of that. I just did not have time between everything."
+    },
+    {
+      "start": 6919.49,
+      "end": 6956.43,
+      "speaker": "adam-stacoviak",
+      "text": "Same, you know, we really just, I've been focused on getting like the agreement solid. I wanted to make a solid promise and have it be clear to folks. And so I think that's like a simple thing, but understanding your terms between the people you're going to serve, I feel like is, you got to examine that and have clarity there. And so, cool, man, this has been a fun Kaizen, a deep Kaizen. If you've stuck around to now, holy moly, I'm not sure what's getting cut, but wow. You are a trooper, you're a super fan, and you should be a plus plus member. I'm not going to force you, but changelog.com slash plus plus. It is better. Bye friends."
+    },
+    {
+      "start": 6956.43,
+      "end": 6959.75,
+      "speaker": "gerhard-lazu",
+      "text": "See you in the next one. See you in the next one. Kaizen. Kaizen."
+    },
+    {
+      "start": 6959.75,
+      "end": 7026.62,
+      "speaker": "adam-stacoviak",
+      "text": "Kaizen. All right, that is changelog for this week. Thanks for Kaizen-ing with us. For the entire saga, head to changelog.com slash topic slash Kaizen. There you'll find all 18 Kaizen episodes for your listening and now watching. Pleasure. Thanks again to our sponsors of this episode. Please support them because they support us. Also because they have awesome products and services. Thanks to Retool, to Sentry, and to Temporal. Links in the show notes. You know what to do. And thanks as always to Breakmaster Cylinder, the best beat freak in the entire universe. I think so. Do you? I'm sure you do. Next week on the changelog, news on Monday. Anti-rez, yes, the creator of Redis on Wednesday. And on Friday, our first ever game of Friendly Feud. Have a great weekend. Like and subscribe on YouTube if you dig it. And let's talk again real soon."
+    },
+    {
+      "start": 7026.62,
+      "end": 7104.73,
+      "speaker": "gerhard-lazu",
+      "text": "Change logging for Adam and Jared. Some other RAM, but now it's recoding. Ticket backlog isn't a problem, so why don't you change logging for Jared? But honestly that, your list of to-do's is way. No more listening to chicken to the floor. Change logging, friends. Ever show."
+    }
+  ]
+}

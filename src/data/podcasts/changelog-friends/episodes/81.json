@@ -1,0 +1,981 @@
+{
+  "title": "Change my mind",
+  "description": "Jerod and Adam discuss software development topics they have and haven't changed their minds on over their careers, using Chris Kiehl's blog post as a starting point. Topics include REPLs as design tools, the value of thinking before coding, CSS complexity, collaboration challenges, and why 'software can't solve people problems.'",
+  "links": {
+    "YouTube": "https://youtu.be/31nkVne-YdI",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 14.8,
+      "end": 66.93,
+      "speaker": "jerod-santo",
+      "text": "Welcome to changelog and friends your weekly talk show about changing your mind a massive thank you to our friends and our partners over at fly.io learn more and deploy your app in five minutes at fly.io okay let's talk well friends before the show i'm here with my good friend david shu over at retool now david i've known about retool for a very long time you've been working with us for many many years and speaking of many many years brex is one of your oldest customers you've been in business almost seven years i think they've been a customer of yours for almost all those seven years to my knowledge but share the story what do you do for brex how does brex leverage retool and why have they"
+    },
+    {
+      "start": 66.93,
+      "end": 175.07,
+      "speaker": "adam-stacoviak",
+      "text": "stayed with you all these years so what's really interesting about brex is that they are a extremely operational heavy company and so for them the quality of the internal tools is so important because you can imagine they have to deal with fraud they have to deal with underwriting they have to deal with so many problems basically they have a giant team internally basically just using internal tools day in and day out and so they have a very high bar for internal tools and when they first started uh we were in the same yc batch actually we're both at winter 17 and they were yeah i think maybe customer number five or something like that for us i think door dash is a little bit before them but they were pretty pretty early and the problem they had was they had so many internal tools they needed to go and build but not enough time or engineers to go build all of them and even if they did have the time or engineers they wanted their engineers focused on building external physics software because that is what would drive the business forward brex mobile app for example is awesome the brex website for example is awesome the breast expense flow all really you know really great external vision software so they wanted their engineers focused on that as opposed to building internal crud uis and so that's why they came to us and uh it was honestly a wonderful partnership it has been for seven eight years now today i think brex has probably around a thousand retool apps they use uh in production uh i want to say every week uh which is awesome and their whole business effectively runs now on retool and we are so so privileged to be a part of their journey and to me i think what's really cool about all this is that we've managed to allow them to move so fast so whether it's launching new product lines whether it's responding to customers faster whatever it is if they need an app for that they can get an app for it in a day which is a lot better than you know in six months or a year for example having to schlep through spreadsheets etc so i'm really really proud of our partnership with brex okay retool"
+    },
+    {
+      "start": 175.07,
+      "end": 206.16,
+      "speaker": "jerod-santo",
+      "text": "is the best way to build maintain and deploy internal software seamlessly connect to databases build with elegant components and customize with code accelerate mundane tasks and free up time for the work that really matters for you and your team learn more at retool.com start for free book a demo again retool.com all right should we talk about change of mind"
+    },
+    {
+      "start": 206.16,
+      "end": 250.61,
+      "speaker": "adam-stacoviak",
+      "text": "changing our mind we're talking about chris keel yeah that's how you say his name shout out to chris a software developer and overall pretty cool guy his words not mine i can't vouch for whether or not any of that's true i just read it on a web page on the internet but chris writes that and he also writes software development topics i've changed my mind on after 10 years in the industry now this did not make changelog news for a funny reason maybe not funny maybe an unfortunate reason title's too long dude i just couldn't figure out a way of getting that title down to where it made any sense and so i was like tough nuts i guess you're not going to be on that was a great post yeah that is tough you have"
+    },
+    {
+      "start": 250.61,
+      "end": 260.32,
+      "speaker": "jerod-santo",
+      "text": "to paraphrase the title to get it in there yeah i couldn't even think how would you shorten that adam let me try let me let me test my wits here yeah show us your compression algorithm"
+    },
+    {
+      "start": 260.32,
+      "end": 264.92,
+      "speaker": "adam-stacoviak",
+      "text": "software development topics i've changed my mind on after 10 years in the industry that's"
+    },
+    {
+      "start": 264.92,
+      "end": 289.24,
+      "speaker": "jerod-santo",
+      "text": "his post title dev topics i've changed my mind on after 10 years that's pretty long still i mean that's about as much as you get you can short development to the dev right topics has got to be topics i've changed my mind on it's i mean you can't lose that phrase and then after 10 which is the key you know numeral there right of how many years this"
+    },
+    {
+      "start": 289.24,
+      "end": 303.44,
+      "speaker": "adam-stacoviak",
+      "text": "has become a pattern hasn't it like something i've learned after and then it's like whatever many years it is i feel like we've had a couple people who've written successful posts like that and then other people are like oh i've also spent 10 years doing a thing and it's"
+    },
+    {
+      "start": 303.44,
+      "end": 325.91,
+      "speaker": "jerod-santo",
+      "text": "a good limiter yeah you can uh sort and limit pretty easily you know because if i've spent 10 years in the industry i might be like okay i'm inclined to read this because i may have similar or the same takes but if i've been in the industry two years i'm like well i don't have the depth so that one's not for me but i'll maybe i'll watch anyways i'll"
+    },
+    {
+      "start": 325.91,
+      "end": 341.05,
+      "speaker": "adam-stacoviak",
+      "text": "check it out anyways you know what's the lower limit you can put on a post like this and still get some traction you know like software development topics i've changed my mind on after six weeks in the industry how low can you go and still get people's attention that's"
+    },
+    {
+      "start": 341.05,
+      "end": 357.13,
+      "speaker": "jerod-santo",
+      "text": "a good question i think a year for most topics i think ai maybe like weeks right you know i mean because really i think i had some different ideas three months ago and some of those ideas are still the same but they're not they've matured or they've you know morphed a little"
+    },
+    {
+      "start": 357.13,
+      "end": 402.96,
+      "speaker": "adam-stacoviak",
+      "text": "bit right you know well a change of mind does require some prerequisites right you have to have formed an opinion previously yeah and then you must have been holding that opinion for some amount of time to test it against the real world and then you must be convinced that that opinion was wrong and change your mind which is easier and harder to do depending on the person the experience level yeah i think people who are fresh to topics can change your mind a lot because they haven't had time to harden their heart for whatever it is that they're currently thinking of so you and i have been in the industry for a very long time now did you know that gosh how long you've been in the industry now he doesn't really define the industry but i think we can just say the software world i would say i think"
+    },
+    {
+      "start": 402.96,
+      "end": 445.38,
+      "speaker": "jerod-santo",
+      "text": "i entered officially in 2003 that was more on the services and hardware side of things data center side of things and it was more in the development when i say development i mean business development side of things yeah but i was learning more about technology servers firewalls virtualization etc and then i began to build and stuff like that and so shortly thereafter i was actually into the software not just the hardware and the biz i'd say since 2003 i mean that's uh you're over 20 years yeah i think so officially as of uh"
+    },
+    {
+      "start": 446.18,
+      "end": 452.37,
+      "speaker": "adam-stacoviak",
+      "text": "this year 2023 yeah it's 2025 now so officially that's like two years what year is this man"
+    },
+    {
+      "start": 453.41,
+      "end": 458.21,
+      "speaker": "jerod-santo",
+      "text": "really two uh 22 years then jared jeez i can do math thank you very much there was that one time"
+    },
+    {
+      "start": 458.21,
+      "end": 503.67,
+      "speaker": "adam-stacoviak",
+      "text": "vortex that happened somewhere yes 2020 and now there was like a vortex is it really 2025 nobody really knows what time it is as the song goes you know so i'm with you maybe a couple years behind i graduated from college i think in 06 05 or 06 it's always very fuzzy and went straight into industry pretty much from there but i was already doing stuff on the web in college prior to college my computer use was like basically napster and video games yeah and when amp and stuff it wasn't really like productive creating things i wouldn't say i was in the industry but yeah probably 20 years for me since it is 2025 and have you changed your mind at all there's actually a lot that i"
+    },
+    {
+      "start": 503.67,
+      "end": 523.35,
+      "speaker": "jerod-santo",
+      "text": "don't think i have changed my mind on there's a there's a lot that i have and a lot that i haven't i would say so yes and no my list is not exhaustive because i'm thinking like gosh what did i know or think i knew that i think now i don't know or know and maybe it's changed you know it's it's a it's a lot of years to go through to come through really yeah well we went through a little"
+    },
+    {
+      "start": 523.35,
+      "end": 558.23,
+      "speaker": "adam-stacoviak",
+      "text": "exercise the two of us we thought of a few things we have changed our mind on things we haven't changed our mind on which i think is also powerful and chris did the same thing so he starts off with a list of things he's changed his mind on things he now believes which in the past he would have squabbled with himself and then he also has a list of opinions he's picked up along the way and then finally things he has not changed his opinion on and so we've done similar but i thought we'd talk through some of chris's because many of these things are agreeable to me other things i would need clarification on what exactly he means i mean it's a bulleted list right so this is how you"
+    },
+    {
+      "start": 559.35,
+      "end": 567.48,
+      "speaker": "jerod-santo",
+      "text": "go viral on software keep it simple scannable yeah you know digestible 10 minutes or less"
+    },
+    {
+      "start": 568.12,
+      "end": 626.31,
+      "speaker": "adam-stacoviak",
+      "text": "30 minutes if you want to dig things i've learned after n years you know make the topic too long and then just list it up and let the rest of us opine on it so we're going to start with a few of those and uh where should we go first here's one that i thought was interesting repels this is tying now back into our discovery coding conversation with jimmy chris thinks repels are not useful design tools though they are useful exploratory tools that's a good one to that i would say exploration is design man let's go yes discovery coding hat on and explore your way to a design i think repels are great design tools because you get to explore the space that you're trying to design for it's kind of like if you're trying to design the interior of a room and you're not allowed to explore that room first you're not going to be able to come up with a good design but a repel is a way that you can explore the living system it's like design we're get a"
+    },
+    {
+      "start": 626.31,
+      "end": 632.18,
+      "speaker": "jerod-santo",
+      "text": "couch for this room how big's the room right yeah i can't tell you can i feel the walls yeah no"
+    },
+    {
+      "start": 635.88,
+      "end": 714.74,
+      "speaker": "adam-stacoviak",
+      "text": "so uh he's changed his mind to that and i would like to differ i think repels are useful design tools insofar as they are used exploratory now perhaps chris thinks there's a different way to use a repel in order to design things and i'm not thinking of that but that's the disadvantage of not having him here with us and the advantage of getting to assume what we thinks what he thinks because then we can just disagree with a straw man what does repel stand for a repel is a read evaluate print loop and so it is an interactive environment where you can execute some code you can read well you can read are you reading or is it reading i never thought of it so definitionally maybe both yeah so there's stuff you can read and it can read then you can evaluate expressions right there and print out the results and then do it again and so it just the the environment is modified as you run it so if you declare a variable after the loop you can then use the variable etc and so it's exploratory it's interactive it's pretty rad it's where i do most of my design work when coding oh god sometimes i will take things right out of the repel and paste them into somewhere else into a text file and call that"
+    },
+    {
+      "start": 714.74,
+      "end": 723.52,
+      "speaker": "jerod-santo",
+      "text": "coding yeah that is coding right what is coding after all that's true what is coding lezard"
+    },
+    {
+      "start": 723.52,
+      "end": 749.24,
+      "speaker": "adam-stacoviak",
+      "text": "lamport thinks coding is typing he does not like typing he likes to think outside of the code i think it's more than just typing i've picked the net with him on that before but he's way smarter than i am so i'll let him have that one but i think coding is murkier today than it ever has been like what does it mean to actually do a thing because everything's changing underneath us"
+    },
+    {
+      "start": 749.88,
+      "end": 774.48,
+      "speaker": "jerod-santo",
+      "text": "yeah you really have to enjoy i guess typing characters into a machine right i mean that's totally you have to think obviously you have to have some domain knowledge you have to have thought through maybe a problem set how to handle it like middle out you know something like that which is always the way you should that's right uh you know and then you gotta type it in there"
+    },
+    {
+      "start": 775.2,
+      "end": 830.58,
+      "speaker": "adam-stacoviak",
+      "text": "or have someone else type it for you you know like some sort of robot that you just dictate to yeah that'd be nice so here's chris's other things he's changed his mind on i feel like we should get chris on with jimmy and go and have him go at it because this one he says most programming should be done long before a single line of code is written and here we have an outliner right so it takes all kinds i'm not against outliners if this works for you go for it but there's also discovery coding and i would i would have to understand what he means by most programming again what does it mean to program what does it mean to code i think chris means you should think through things before you do things i cannot problem with thinking before you act i just think that we think better while we're acting and while we're exploring and so i tend to get to a line of code faster perhaps than he would but a younger him would"
+    },
+    {
+      "start": 830.58,
+      "end": 869.09,
+      "speaker": "jerod-santo",
+      "text": "be with me yeah i don't know i i i don't fully i don't so much disagree but but let me it's like the spaghetti thing in your brain right i don't want to walk around while i'm doing the dishes or cooking dinner with the spaghetti stuff in my brain albeit there are times when i have my biggest thoughts or biggest breakthroughs not in the moment of the action right i mean oh yeah i didn't think about that let me do it like this next time or when i get back to my terminal or whatever yeah when you're gonna walk let me try this new thing out right so i guess if he's"
+    },
+    {
+      "start": 869.09,
+      "end": 904.84,
+      "speaker": "adam-stacoviak",
+      "text": "calling that programming yeah i suppose you know yeah are we talking about sitting at the terminal and typing code into a text editor are we talking about think actively trying to solve a problem of software and i agree that you can absolutely and should and most of my good ideas come away from the keyboard but then i gotta come back to the keyboard and try stuff and find out that idea kind of stinks actually you know when i was walking down the road over there it sounded like a brilliant idea and then when i tried it it wasn't so smart so i think there's no i would"
+    },
+    {
+      "start": 904.84,
+      "end": 919.08,
+      "speaker": "jerod-santo",
+      "text": "reword this most programmatic thinking or most thinking that you should do should be done away from that keyboard long before you get to the keyboard to write it i do think that once you're"
+    },
+    {
+      "start": 919.08,
+      "end": 963.46,
+      "speaker": "adam-stacoviak",
+      "text": "stuck you should step away yeah and you should step away way faster than i usually do i probably waste hours by not stepping away quicker yeah if i stepped but you know the thing is is like when you get stuck doesn't stepping away feel like you're just giving up like it feels like you're admitting failure and i don't want to be a failure i want to succeed in life and so i'm going to sit here and figure this out dognabbit but then yeah i do finally admit that i can't figure it out right now and i step away and i go take a shower i go work out or i go ride a bike or whatever it is and then right there when i wasn't thinking about it pops in the actual other way i could do it which is way similar and solves all my problems that's a"
+    },
+    {
+      "start": 963.46,
+      "end": 1033.65,
+      "speaker": "jerod-santo",
+      "text": "confounding part of the process i would even say a an energy renewal too because there's times you get fatigued you know i wouldn't say necessarily physically but maybe mentally you know maybe a little both but you step away you get that uh cold water in your face if you're gonna wash your face kind of thing you know girl go wash your face throw back to that good book title rachel hollis you know go wash your face get refreshed maybe come back with some new energy there's times i'm like trying to do something and you know i've got the willpower i think i have the energy i'm making progress but it just feels like i'm just like i'm walking through three feet of snow you know like it's not even mud it's like imagine like having to lift your leg up three feet just to get your foot out of the hole oh yeah to go forward to put it into a brand new hole it's gonna just sink right back down again yeah i'm making progress you know i can see the finish line but you know i go away wash my face snow melts better world you know well some procrastination is really actually"
+    },
+    {
+      "start": 1033.65,
+      "end": 1039.09,
+      "speaker": "adam-stacoviak",
+      "text": "smart the hard part is discovering what procrastination is smart and what is just lazy"
+    },
+    {
+      "start": 1039.09,
+      "end": 1060.68,
+      "speaker": "jerod-santo",
+      "text": "you know i've been trying to find that out for a very long time because there's times i'm like i don't want to do this thing until i absolutely have to do it because that's when i'll spend less time the least amount of time on it right under pressure and i get it done in the moment it's over 10 minutes versus an hour kind of thing you know some problems go"
+    },
+    {
+      "start": 1060.68,
+      "end": 1075.4,
+      "speaker": "adam-stacoviak",
+      "text": "away while you're not doing them and you realize i never had to solve that problem it disappeared while i was procrastinating but other problems get bigger and hairier and worse while you don't do them and knowing the difference is wisdom right that's that's everything oh man what is this jared"
+    },
+    {
+      "start": 1076.04,
+      "end": 1080.76,
+      "speaker": "jerod-santo",
+      "text": "what is this you're throwing out here about all this wisdom just slapping us with the wisdom"
+    },
+    {
+      "start": 1080.76,
+      "end": 1182.87,
+      "speaker": "adam-stacoviak",
+      "text": "stick well you've been in the industry a long time you know i have a lot of failures under my belt yes i learned something from gerhard years ago which wasn't really him teaching me something it's almost like he put words to something that i already knew but then i like it reified to use a term and that was when i was visiting london for oscon europe or something like this and i visited gerhard for the first time we saw each other irl for the first time it was cool went out to lunch hung out at the pivotal office there and played some ping pong and we were playing ping pong and i don't know if they call it ping pong or table tennis over there i can't recall gerhard could straight us out straighten us out on that but he's very into it and i like a good game of ping pong just like anybody else you know for sure and we're playing with some of his colleagues who are on their break or whatever and he said do you know why we play ping pong while we're at work and i was like it's fun it's fun like no because we refresh our brains because when we're playing ping pong everything else in the world disappears for a few minutes and all we're doing is just playing ping pong and we can just put everything away just for a few minutes and then come back to it and your brain is refreshed and i was like that's right that's true i've known that but he said it to me and i was like hmm that's a great way of looking at it because that's really what is happening and so useful distractions usually physical sometimes mental but just in a different area competition wash your face as you said i have a dart board over there and don't really use it anymore but when i used to get stuck i just throw darts"
+    },
+    {
+      "start": 1184.26,
+      "end": 1230.98,
+      "speaker": "jerod-santo",
+      "text": "that helps yeah take a walk take a shower that's so uh that's so smart i i agree with that sentiment it is like a different take on step away to get unstuck but what you're focusing on is what the activity is when you're stepped away you know because if you have to put blinders to everything else you obviously have to focus and someone say laser focus and you can't think about that problem anymore you literally have to put it down and put it away completely to focus on the collaborative process of ping pong or table tennis or washing your face or whatever the activity is that lets you kind of sort of put blinders on everything else all the problems"
+    },
+    {
+      "start": 1231.62,
+      "end": 1298.69,
+      "speaker": "adam-stacoviak",
+      "text": "yeah and there's something like a childlike wonder that comes out during games of competition even even doesn't have to be competitive like even i'm sure when you go mountain biking where it's like you're just being free and you're being a kid and you're just doing something that has exhilaration and takes concentration and if you don't pay attention you're going to get hurt so you better take it seriously and so while you're taking it seriously nothing else can really fill your mind that's the hard part about actually stepping away to get unstuck is you can step away but you can't necessarily turn your brain off the problem unless you force it out by doing something that requires your brain and your body lots of times and then you're actually stepping away and so i think it does force us to turn our brain off the problem which gives us that chance to refresh so big fan of ping pong or whatever your game of choice is i like that good one so good yeah all right moving on anything else that chris has said here that you agree with or take issue with there is no pride this is chris talking there is no pride in managing or understanding complexity"
+    },
+    {
+      "start": 1298.69,
+      "end": 1315.84,
+      "speaker": "jerod-santo",
+      "text": "that one's probably deep for him right pretty deep yeah because i can think about some ideas where that applies to but you know maybe his contact is is pretty particular pride somebody must have been prideful around him around managing some complexity my guess is it was from"
+    },
+    {
+      "start": 1315.84,
+      "end": 1320.8,
+      "speaker": "adam-stacoviak",
+      "text": "his younger self like he used to take pride in it and now he doesn't yeah i guess so because these"
+    },
+    {
+      "start": 1320.8,
+      "end": 1324.24,
+      "speaker": "jerod-santo",
+      "text": "are things he's changed his mind about i would love to ask him questions about that because all"
+    },
+    {
+      "start": 1324.24,
+      "end": 1347.48,
+      "speaker": "adam-stacoviak",
+      "text": "i have is questions really i get him on the show he can't just talk about his blog post we gotta talk to him okay uh let's switch bases then and go to second base which is where we always go after first base let's get out and talk about our own mind changes since here we can talk to each other we don't have to guesstimate what we mean you haven't changed your mind about much i tried to"
+    },
+    {
+      "start": 1347.48,
+      "end": 1361.64,
+      "speaker": "jerod-santo",
+      "text": "kill my brain for changes couldn't find them you know not a lot of change honestly i mean it's been a lot of the same for you know a decade and a half basically it's not a lot of change here"
+    },
+    {
+      "start": 1361.64,
+      "end": 1364.28,
+      "speaker": "adam-stacoviak",
+      "text": "do you want to start with things that you haven't changed your mind about though like things that"
+    },
+    {
+      "start": 1364.28,
+      "end": 1377.08,
+      "speaker": "jerod-santo",
+      "text": "you believe in the industry i think that would be easier for me okay uh i've always thought front end slash css is hard and i still believe front end slash css is still hard you may be more right"
+    },
+    {
+      "start": 1377.08,
+      "end": 1401.48,
+      "speaker": "adam-stacoviak",
+      "text": "now okay let me caveat that css is easier than it's ever been it's still hard alone technology except for that's overwhelming now because there's so much it can do yes but it's never been easier to accomplish stuff with css however front end which is much bigger than just that i think and i've been here a long time has never been more complicated than it is today and so i think you might be more right about that than you were in the past"
+    },
+    {
+      "start": 1402.2,
+      "end": 1462.37,
+      "speaker": "jerod-santo",
+      "text": "yeah bro i mean oh i did conflate them i will agree with that okay so let's maybe just front end over there css over here okay i will agree that css has gotten easier and i will say that they've it's become easier potentially because of lms i think because you know i'm not a daily driver on front end building i'm not building front end sites every day so i don't i don't have the muscle memory every day of like how i lay something out with css or like i did back in the day like back in the day i had i i really thought at one point jared that i could design and build an entire front end without ever looking at the browser i could just write the code and then call it done at some point you know command r like cipher staring into the matrix yeah i really felt like that and uh you know i don't think i've ever actually given myself the true try on that but i think i may have done simple things like menus and roughly outs not"
+    },
+    {
+      "start": 1462.37,
+      "end": 1481.89,
+      "speaker": "adam-stacoviak",
+      "text": "like a full-on design but like enough so you just go from like blank blank page yes to like writing all the html and the css that's right and you just load the browser once and it looks like yes i would have loved to put that to the test back here golden years my golden are the good old days whatever it's called golden years is when you're older isn't it and now i"
+    },
+    {
+      "start": 1481.89,
+      "end": 1562.07,
+      "speaker": "jerod-santo",
+      "text": "don't think i could ever do that today is maybe maybe i mean uh i'm just my time between progress in css to other tasks and then back to it again is too far in between for me to maintain that muscle memory well enough i think like i used to be able to do when i was younger or maybe just had less things in my brain at once so i really feel like css is still really really hard like even with tailwind and i'm i'm i'm pro utility classes i'm pro tailwind i know some people are like absolute haters of it whatever you know purists yeah purists why say why not both right that's my favorite thing you know tailwind in the html and then tailwind applies in the css why not do both tailwind's really good and easy to do i mean it's it's uh the the ad apply is cool and you can multi-line that versus like one single line it gets a little easier you can still define roles and stuff like that you can include you know i don't you call them anymore i'm like nomenclatured out on css like you can make a class and include that class later through and apply it's cool you know no more sas required for this just just use tailwind and its utilities"
+    },
+    {
+      "start": 1562.07,
+      "end": 1624.95,
+      "speaker": "adam-stacoviak",
+      "text": "to build your css so cool i'm not anti-tailwind at all i think that most of the little things that i build are scoped in such a way that for me it feels like overkill because all i need to do is ask an llm you know how to get the layout i want with flex with flexbox or with css grid and then i can just toggle stuff i really like the dev tools ability to like change the flow and the direction of like flexbox things i can just like click which one i want and wait till it looks the way it's on the opposite of you like i gotta have it in front of me looking at it and i can just kind of twiddle bits around until i get to something that i'm happy with and i think that it's never been easier to do that than it used to be but i do think on many many projects for especially teams like you and i working together tailwind makes way more sense because we can just throw the utility classes in there and not have two different styles and mess you know like have to like synchronize the way we build things out we just are like use the use the right classes"
+    },
+    {
+      "start": 1624.95,
+      "end": 1740.47,
+      "speaker": "jerod-santo",
+      "text": "and everything's fine that's right there's a way there's a way yeah i think uh there's a lot of good stuff in there that's why i was so in that conversation with chris coir i was so pro you know what codepen could do because i feel like where else can you play with html css in particular and sure you can sprinkle some js in there if you want to but primarily it's you know html css where else can you do that in a way where you can show it to other people create little things and show off than in codepen right that is the coolest being able to riff like that basically and show off a little bit that's that to me is super cool and i don't even know if they've i haven't played with it in a while but you know i'm pretty sure they have tailwind baked in i don't know i would imagine they would chris is smart but being able to play with that kind of stuff in the browser where you can show off to somebody and just let it be a toy so to speak or just a stab or a spike i think you've said before that to me is kind of cool i also like a lot of other stuff around tailwind and like you can define your colors and stuff like that like that to me in your in your tailwind config is like just the coolest being able to do all that like that and you can define you know where you would have to do that css before with you know in like the route with variables or not at all back before variables weren't even there i think that's cool that you can define all these color palettes and stuff like that and it's built into the way tailwind works at a at a structural level not just uh classes and utilities and stuff like that it's it's part of the overarching nicety framework that it brings that to me cool but it's still hard yeah i think it might always be hard jared what do you think"
+    },
+    {
+      "start": 1741.7,
+      "end": 1773.97,
+      "speaker": "adam-stacoviak",
+      "text": "well i mean 20 years later still hard for you so you expect that to change at this point i guess not for some it's easy well i think if you did it more often i think some of it is because of your proximity to the technology not being on all the time there are certainly people who are writing front end and specifically doing the css 40 hours a week 60 hours a week and could you imagine you do anything that much no no you do anything that much and you're gonna get it's"
+    },
+    {
+      "start": 1773.97,
+      "end": 1786.53,
+      "speaker": "jerod-santo",
+      "text": "gonna become easy to you so that's funny i used to be like that i would work all day and all night on nothing but that all the time that's why i guess smaller problems less complexity well"
+    },
+    {
+      "start": 1786.53,
+      "end": 1794.87,
+      "speaker": "adam-stacoviak",
+      "text": "then it's always gonna be hard until you commit what about you what has what has uh what has not"
+    },
+    {
+      "start": 1794.87,
+      "end": 1798.87,
+      "speaker": "jerod-santo",
+      "text": "changed what has not changed okay is that what we're answering here is what's right now we're"
+    },
+    {
+      "start": 1798.87,
+      "end": 1925.59,
+      "speaker": "adam-stacoviak",
+      "text": "doing what things we haven't changed our mind about that's right things we haven't changed our mind about thank you so there's a few things i've been preaching for years and years and years and years and i don't think i'll ever change my mind on them and one of those is slow down to go faster i have not changed my mind i still think if you want to go fast you have to slow down and it sounds like a contradiction but it's not because as you go slow over the course of time you end up going faster because you don't have to redo rewrite start over or backtrack as often as if you were moving too fast in the first place as kelsey hightower said it let's see if i can remember his saying it was really cool as everything kelsey says is cool i think he said do it right do it light do it wrong do it long i tell that to my kids sometimes and they're like what's that mean i'm like i don't know but it sounds cool doesn't it listen this podcast you'll get it yeah you do it right you do it light you just slow down you go faster you know it's the old tortoise in the air and so much of the tech industry is focused on raw and utter speed and we end up foot gunning as they say shooting ourselves in the foot repeatedly or shooting our teammates in the foot or the future developer who's replacing us because i've spent my 12 months and i'm moving on and we end up churning and burning a lot of our colleagues because we're so focused on speed and if you would just slow down and take the break or write that additional test or look at the source code or don't abstract that method yet or you know insert your way of slowing down here that those small decisions over time lead to faster and i still believe that today and i think i wrote that blog post like 15 years ago so yeah that's one is that similar or the same as keep it simple"
+    },
+    {
+      "start": 1926.37,
+      "end": 1938.2,
+      "speaker": "jerod-santo",
+      "text": "or like keep it simple in there of slowing down it's definitely not the same as keep it simple it's in there because you're saying don't do that abstraction now which is kind of yeah that was one"
+    },
+    {
+      "start": 1938.2,
+      "end": 2093.3,
+      "speaker": "adam-stacoviak",
+      "text": "example of slowing down right and in fact many people this leads me to another one about dry which we can get to in a minute but many people think that not doing the abstraction makes it less simple but i just obviously i disagree with that which i used to not disagree with that i don't know simplicity is a really tough one obviously it's not subjective for sure but there are complicated things in the world this is kind of where i was getting with i can't remember who's on the show we're talking about simplicity recently maybe it was bert i think it was because he was all about simplicity right less dependencies less abstractions more simplicity straightforward and where i was talking about how i think a lot of people desire that in their code and he said well a lot of people like clever complex things and going back to chris's point about don't have an ego about being able to manage complexity in your head that's kind of a young person's concept i think where it's like look how brilliant i am because i can manage all this complexity in my head and so bert was saying well most of us don't really want simplicity we actually want complexity because that makes us smarter i understand that i think many of us do desire simple solutions though and yet we still find ourselves with complex ones over time and so there's definitely some slowdown to go faster in that like slow down to keep it simple which is incredibly difficult and i still fail at you know after all these years i think i'm being simple and then i'm actually realizing oh it's too simple because i wanted to keep it simple and it doesn't handle all the things it needs to handle because like i said to bert the real world is complicated and some some systems cannot be simple i mean look at our tax code just as for one instance you think turbo tax can be simple software i mean it just can't be because it's handling a very complicated thing now it can be more or less simple in its approach but you're not going to be able to file somebody's tax i mean not just one person's taxes arbitrage people arbitrary people's taxes in any given year without some serious complexity under the hood they're just not going to happen and so the real world is jagged and backwards often and changing you know look at time zones political i mean think how much software is changing right"
+    },
+    {
+      "start": 2093.3,
+      "end": 2100.44,
+      "speaker": "jerod-santo",
+      "text": "now because of doge for instance how much uh tech that has been wiped away or accrued or created"
+    },
+    {
+      "start": 2100.68,
+      "end": 2152.37,
+      "speaker": "adam-stacoviak",
+      "text": "exactly as there are you know machinations in in the political we're getting ready to ship this just cancel it all yeah yeah how many of us doesn't matter anymore i mean i've been i've built things that never shipped and it wasn't a software reason it was like just business or change of mind or you know yeah it's like that's not going to ship it's like oh wow and i'm sure our listeners are just like everybody's lived through that project that like you put your heart into and you're proud of it technically and then it's just like yeah it's never gonna see the light of day yeah and then you can think well at least i got paid well hopefully you can think that that's the or learn back on you know or learn yeah exactly you try to get like silver linings out of it yeah so yeah simplicity is really tough slow down to go faster i never"
+    },
+    {
+      "start": 2152.37,
+      "end": 2226.42,
+      "speaker": "jerod-santo",
+      "text": "really understood that it always seemed like a you know obviously a conundrum of sorts or a paradox essentially like what no that doesn't make sense well it goes back to one of your favorite sayings slow and steady wins the race i preach bro preach i mean uh you know there's times you know i even have to re-explain that to myself because i try to go too fast slow down and check yourself right you know and i think i always tell people when when we say or someone says i think most people mean it this way i know we do slow and steady doesn't mean you literally go slow i think even here slow down doesn't mean don't go fast it means slow and steady means going at a speed the fastest speed possible to remain steady right you know your team may be able to achieve a much greater velocity or yourself may be able to then prior versions of you by not also going slow you're sort of going fast but you're steady whatever that is to go forward on this thing on this mission whatever it might be in a steady manner as fast you can go while being steady yeah well said and"
+    },
+    {
+      "start": 2226.42,
+      "end": 2308.63,
+      "speaker": "adam-stacoviak",
+      "text": "that's how you win yeah exactly and especially in a digital landscape that can change dynamically as we build it like we are building things that are completely malleable and we can we can completely destroy our creations by just making that rash decision you know going through that one-way door and not realizing it was a one-way and then you get out over your skis and i just use like all the cliches and it's too late like you're gonna land on your face and if you and and now you're way backwards right now now you're now you're just playing catch up and so many of our projects are playing catch up with a timeline because we set the timeline too drastically and so we cut corners and made bad decisions and moved too fast and then that thing's never gonna ship because of all the tech that we've accrued and it's like who slowed if we were to slow down and checked ourselves we'd actually be moving faster in the long run so there you go good summary okay that's that's one of mine slow down and go faster haven't changed my mind i did find the original blog post it was 2010 so yes i wrote that 15 years ago wow man what was it titled slow down and go faster there you go too good what makes me mad is i think i don't think i i'm not sure if i coined that but i'm definitely one of the only people that have written that or like probably the first one and if you google it like other jokesters show up first and say come"
+    },
+    {
+      "start": 2308.63,
+      "end": 2313.83,
+      "speaker": "jerod-santo",
+      "text": "on people why does mckinsey and company this this guy jared santa's got some good ideas let's just"
+    },
+    {
+      "start": 2313.83,
+      "end": 2331.46,
+      "speaker": "adam-stacoviak",
+      "text": "take his title who are these mckinsey people and then somebody on medium it's like come on y'all that was written in 2023 anyways ideas are cheap so i don't deserve much for that one and i don't think i invented it either but when you google the exact phrase you think that my post would show up"
+    },
+    {
+      "start": 2332.34,
+      "end": 2392.71,
+      "speaker": "jerod-santo",
+      "text": "i'm sorry man it's okay i'm sorry i will uh i'll backlink you bro i'll get you out there yeah yeah we're already doing everything we can so well friends i am here with a new friend of mine scott deaton ceo of augment code i'm excited about this augment taps into your team's collective knowledge your code base your documentation your dependencies it is the most context aware developer ei so you won't just code faster you also build smarter it's an ask me anything for your code it's your deep thinking buddy it's your stand flow antidote okay scott so for the foreseeable future ai assisted is here to stay it's just a matter of getting the ai to be a better assistant and in particular i want help on the thinking part not necessarily the coding part can you speak to the thinking problem versus the coding problem and the potential false dichotomy"
+    },
+    {
+      "start": 2392.71,
+      "end": 2403.51,
+      "speaker": "adam-stacoviak",
+      "text": "there a couple of different points to make you know ais have gotten good at making incremental changes at least when they understand customer software so first and the biggest limitation that"
+    },
+    {
+      "start": 2403.51,
+      "end": 2435.43,
+      "speaker": "jerod-santo",
+      "text": "these ais have today they really don't understand anything about your code base if you take github copilot for example it's like a fresh college graduate understands some programming languages and algorithms but doesn't understand what you're trying to do and as a result of that something like two-thirds of the community on average drops off of the product especially the expert developers augment is different we use retrieval augmented generation to deeply mine the knowledge that's inherent inside your code base so we are a co-pilot that is an expert and that can"
+    },
+    {
+      "start": 2435.43,
+      "end": 2446.47,
+      "speaker": "adam-stacoviak",
+      "text": "help you navigate the code base help you find issues and fix them and resolve them over time much more quickly than you can trying to tutor up a novice on your software so you're often"
+    },
+    {
+      "start": 2446.47,
+      "end": 2452.39,
+      "speaker": "jerod-santo",
+      "text": "compared to github copilot i gotta imagine that you have a hot take what's your hot take on github"
+    },
+    {
+      "start": 2452.39,
+      "end": 2465.67,
+      "speaker": "adam-stacoviak",
+      "text": "copilot i think it was a great 1.0 product and i think they've done a huge service in promoting ai but i think the game has changed we have moved from ais that are new college graduates to in"
+    },
+    {
+      "start": 2465.67,
+      "end": 2508.55,
+      "speaker": "jerod-santo",
+      "text": "effect ais that are now among the best developers in your code base and that difference is a profound one for software engineering in particular you know if you're writing a new application from scratch you want a web page that'll play tic-tac-toe piece of cake to crank that out but if you're you're looking at you know a tens of millions of line code base like many of our customers lemonade is is one of them i mean 10 million line mono repo as they move engineers inside and around that code base and hire new engineers just the the workload on senior developers to mentor people into areas of the code base they're not familiar with is hugely painful an ai that knows the answer and is available 7 by 24 you don't have to interrupt anybody and can"
+    },
+    {
+      "start": 2508.55,
+      "end": 2514.15,
+      "speaker": "adam-stacoviak",
+      "text": "help coach you through whatever you're trying to work on is hugely empowering to an engineer"
+    },
+    {
+      "start": 2514.15,
+      "end": 2758.72,
+      "speaker": "jerod-santo",
+      "text": "working an unfamiliar code very cool well friends augment code is developer ai that uses deep understanding of your large code base and how you build software to deliver personalized code suggestions and insights a good next step is to go to augment code.com that's a u g m e n t c o d e dot com request a free trial contact sales or if you're an open source project augment is free to you to use learn more at augment code dot com that's a u g m e n t c o d e dot com augment code dot com what else you got another one i think collaborating is still hard you know i haven't it's always been hard collaborating has always been hard especially maybe face to face hasn't been that hard to collaborate with but i feel like as a remote team true in the groove what is the mission collaboration is hard tools change over time then you got politics over a tool like i've had them float on notion they're one of our sponsors as you may know jere but i i had them back as a sponsor because i'm using notion all the time right and uh for a while there we only use notion for one single thing because we tried to collaborate around certain things that just never got in a groove uh and i think it's mainly a tool problem not a not a consolidation or compartmentalization problem because is is the notion is notion the best place to write was the question we had and the answer is probably not like i've used obsidian and now i'm kind of like in between obsidian and notion and i don't know which one to reach for when i got to take a note anymore i was like this drives me crazy so is that collaboration though or that's just for your own use uh it's from it's for me it's keeping my so there's certain workflows that i have like sponsors and campaigns there's a lot of details involved and i'm just like i i need to share these things google docs work but then they were too arduous where the template wasn't that great and it became formatting and so notion just sort of simplifies some of those things and so now i'm back in this notion world because it can let me build dashboards and workflows and operating systems basically right and it didn't have to be shared it can just be me this is how i work and it's my environment and this is you know what works let's just say i can't do that kind of stuff inside of docs inside of obsidian at least not that well and so notion kind of won a couple battles in terms of workflows and then i can share the things too and so now i find myself in notion more all that to say is that collaborating with a team is so hard you got zulip you got slack you got discord you got places to go and you got opinions everywhere of like where can we talk in the real time where can we talk in the async oh you don't like that toll gosh you have an issue with that you don't like jira man who likes jira i like jira i met one dude he's a good friend of mine he loves jira really loves jira because it's so powerful not because he like literally loves jira it's like this is the best tool for an enterprise like ours it's so flexible it's so sturdy it's got so many apis and so many ways in and out of it that you could just get things done so many integrations i'm like great those are great reasons to love it those are the reasons i don't love it because i don't have those needs you know right so i feel like collaboration is just so fractured bifurcated fragmented that it's just like which tool where to go and then the by time by the time you get in there you're like well now we're paying 200 bucks a month if we're a small team it's like hundreds of dollars a month just for like one person to do all the collaborating or a couple in a small team i just feel like collaborating is hard and i wish i don't know if software can solve it because it's tried again and again and again you know and i feel like it's just like this drum that never gets beaten hard or good enough let me hop in here"
+    },
+    {
+      "start": 2758.72,
+      "end": 2873.04,
+      "speaker": "adam-stacoviak",
+      "text": "because you just said a key phrase that lines up with something i have changed my mind about okay which now i believe and i used to not believe software can't solve people problems i used to think you could just throw software darn near anything and i used to be like let's do this i solve problems with software i'm gonna solve your problems with software let's make some software yeah and now after years of trying to do that and sometimes it works and most of the times it doesn't software can solve some problems but it can't solve people problems and collaboration ultimately is a people problem now can it help yes but can it actually solve it can you find the one true tool that's going to finally make us collaborate better i just don't think you can do it i mean a lot of what you're talking about here is like people don't want to do that i mean i know that i'm not a fan of this new idea to go back to notion because we've done it before and that's why i haven't asked you to do it yeah and i'm like well i thought i was using obsidian now and i'm happy with obsidian and most of my stuff doesn't need to be shared and when i do it's a markdown file so maybe i can but i'm not dealing with third party as much as you are like external entities like our customers and so i don't have to like make it look nice it can be you know h1s and h2s ultimately and so for me notion is cumbersome and too much just like jira is for some people and if i can avoid it i would love to because it's like you said it's one more place to go did i put that in notion i put up sitting right now i'm living in one world i'm happy for my notes at least um and that's people problem like you you have to convince me i guess that it's worth it or i have to just be like all right i'll try it for you and then we'll see where it goes and we've done this with lots of tools over the years trello notion uh did we do pivotal did we do pivotal tracker me and you probably not it was early days just you and gerhard i was in there"
+    },
+    {
+      "start": 2873.04,
+      "end": 2878.48,
+      "speaker": "jerod-santo",
+      "text": "a little bit it was like early early 2016 early days get up projects yeah i'm just thinking off"
+    },
+    {
+      "start": 2878.48,
+      "end": 2945.99,
+      "speaker": "adam-stacoviak",
+      "text": "the top of my head i'm sure there's others and the problem is like everybody thinks differently and we think differently at different times like that's the the real people problems like my tastes have changed over the years too to where like what i used to think was good i don't think is good anymore and so i have to even convince myself to stay with a tool even if i'm not collaborating you know i'm like you know what this used to be cool but now i'm just thinking not cool and then later on i think you know what trello was pretty cool maybe we should use trello again and i go back to it i'm like oh no atlassian ruined it by putting a bunch of other crap on top oh yeah i'm not sure if that's true or not but it is true so true but their single sign-on was such a mess like they consolidated things and now i have an atlassian account and i don't care because all i use is trello blah blah blah blah yeah that's just one dynamic of of people problems you know it's like we can't actually solve people problems with software we have to solve people problems with people skills all right that's i concur with that that sucks my resistance i think"
+    },
+    {
+      "start": 2946.87,
+      "end": 3099.75,
+      "speaker": "jerod-santo",
+      "text": "with things like notion this is not a notion problem this is not even their fault it is my resistance is the lock-in that happens and i'm thinking okay great let's create some workflows and we do and we start to collaborate you and i even just two people and we start to use their commenting feature and maybe they uh launch a real-time chat that sort of supplants some of the things we talk about in zulip or dms and so now we got two places we talk in real time well now our productivity is reliant on that particular feature set but then the overarching tool begins to maybe not be so good or something else revolutionizes something it's not even that it changed or got worse because they're poor developers or poor leaders it's just that the puck moved and that happens in tooling that's my resistance is like gosh man i'm just tired of and maybe i'm just crying here okay i'm sorry if i'm crying here 22 years deep apparently in this industry it's time to cry you got you get some scars and some and some calluses yeah is i am just tired of moving from tool to tool to tool right over all these years now i will agree and by no means is a sponsor they are a sponsor of ours but this is my own true sentiment i do think that right now notion is one of the best places it's on all the platforms it's got some ai stuff in it i've found that notion ai pretty useful to summarize things and help me find things in a massive workspace or notes like rather than search in this one weird way i just go to notion and just search for these things so i feel like they're onto something and i really hope that they can kind of keep iterating because every year they kind of launch a new version of it and it's gotten better and i was even surprised when i went back to it after how how much we really i don't want to say hate it but we're like after that year of having all of our sponsorships in there and they just suck and i feel like our sales suck because i didn't enjoy how it was organized anymore so hard it was just like every day was just like a was just hard to manage our schedule what was available to sell where was it at who had the spot what's it was just hard and so we were using probably the wrong tool for the right job the right the right job we need to get done but that was the wrong tool and ultimately google spreadsheet was just better at it it was just a simpler tool so slow down keep it simple maybe"
+    },
+    {
+      "start": 3101.35,
+      "end": 3106.31,
+      "speaker": "adam-stacoviak",
+      "text": "and uh and then the other golden rule which is like most the time a spreadsheet's best that's"
+    },
+    {
+      "start": 3106.31,
+      "end": 3110.87,
+      "speaker": "jerod-santo",
+      "text": "right yeah when in doubt spreadsheet it you know seriously start with a spreadsheet start with the"
+    },
+    {
+      "start": 3110.87,
+      "end": 3119.99,
+      "speaker": "adam-stacoviak",
+      "text": "spreadsheet probably stay there unless there's a real reason to move out i know you've prompted me many times to write us some custom stuff i still want you to know i just i know you do but i resist"
+    },
+    {
+      "start": 3119.99,
+      "end": 3132.34,
+      "speaker": "jerod-santo",
+      "text": "it because i'm like i don't the problem changes too frequently and so every time you would make the software great i think i would be like it's got to change you like dude this is a complete architecture change this is a whole new feature set and i'm like you know how much work i had to"
+    },
+    {
+      "start": 3132.34,
+      "end": 3257.49,
+      "speaker": "adam-stacoviak",
+      "text": "put in to get anywhere near what you have with google sheets right now like let's just keep using that because it's so flexible it is and you're gonna hate whatever i build until i you know dump years into it yeah what we've been building a back-end sales system for years so i've been i've been very resistant as you know i'm i'm a tough sell especially when it comes to writing code i'd rather have no code that's the best no clothes the best uh some of this lock-in fatigue that you have is one of the reasons why i to this day and maybe won't last but i still love obsidian because its philosophy of file over app takes me to happy places i just love the fact that at the end of the day i'm writing markdown files and i can take those anywhere and they just store on a hard drive i can sync them with dropbox and if obsidian disappeared i wouldn't i'd be just fine i have plenty of other markdown editors including zed which i write code in all the day all of it all the day long weird sentence and i love that and uh steph ango the creator of obsidian has this whole philosophy written out called file over app that he wrote i'd love to get him on the show by the way steph if you listen please come on the show we are fans we would love to talk to you we'll get you an official invite to share your email address we'll find you we'll get you right that's right and uh if you if you listen and you know steph and you can help steph know that we'd like to have him on the show please because very interesting person lots of that stuff i agree with i'll link up in the show notes his post called file over app it's a philosophy he says if you want to create digital artifacts that last they must be files you can control in formats that are easy to retrieve and read use tools that give you this freedom i like that and i like obsidian for that reason because at the end of the day it's just an awesome i think layer on top of files and that gives us freedom"
+    },
+    {
+      "start": 3257.49,
+      "end": 3347.16,
+      "speaker": "jerod-santo",
+      "text": "and lack that's why i love it so i mean don't get me wrong my recipes are still in obsidian all of my you know building an ai machine creator pc a boon to machine like all of my personal dunks i've created to like tell future adam what all adam learned you know is still and will be in obsidian it's the things that i think and so this file over app scenario there's there's certain workflows that i can see how i could possibly use it in obsidian but it's a personal thing i can't share that easily with a group and get them to just jump into a way you know they have to have certain plugins and community things and maybe it's a something's going to be in the way in obsidian and it's going to go beyond file because the problem set that i'm trying to communicate the communication is beyond a simple file as a single person or an individual with my own things yeah it works you know it and it's so fast i love obsidian amazingly amazingly it's so good but to collaborate with a group of people around a workflow notion's better that's totally fair that's totally fair but lock-in sucks man i'm so close to asking you to come back in notion though i'm waiting to feel really good about it by myself though there's a couple things i think would be kind of cool a couple things we do not every collaboration but a couple key flows that require that ebb and that flow that in and that yang to get done right"
+    },
+    {
+      "start": 3347.8,
+      "end": 3491.7,
+      "speaker": "adam-stacoviak",
+      "text": "let's talk about something i've changed my mind about okay because i know this one's going to strike deep into the heart of many people i've actually shared this in the past as an unpopular opinion and i think it was unpopular so i mostly share this when i'm making fun of nick nisi because what's one of my favorite pastimes a shout out to nick and by the way uh friendly feud coming soon the cast of js party will be there thank you to everybody who took our survey we've got a huge response we got way more responses than i wanted so i'll just comb through all those i wanted 100 but uh i forgot to turn the type form thing on where you can like close it after n responses and so we've got way more than 100 which is great it's just uh more than we needed so happy happy that you all supported us and that will be recorded early march and so it's going to be coming to changelog and friends here soon a quick update on nick nisi but what i believe now which i used to not believe especially as a younger person with more time on my hands is that customization and tweaking of your environment is the root of all yakshaves i think we waste way too much time customizing tweaking fiddling changing our programming environments than we need to i think you can get 80 of the way there with 20 of the effort and then knock it off and get some work done stop customizing you're just shaving a yak i know it feels good but you're not doing the main thing you got to keep the main thing the main thing and i used to customize to the hill my dot files were like pristine and i checked them in i changed them and i loved all that stuff and i went searching for other people's themes and i was like you know the people have like a comment font and then a code font and then like dark mode and light mode and they can toggle it based on you know where they are in the world or whatever it is you know and they've just got all that stuff figured out it's like you don't need to do all that you can just write code and be happy mm-hmm what do you think about that adam you know there's"
+    },
+    {
+      "start": 3493.44,
+      "end": 3521.28,
+      "speaker": "jerod-santo",
+      "text": "it makes me think about htop vanilla htop is not good enough for me you know i always have to tweak it a little bit and so i think that drastic customization is not good but i think subtle customization is good 80 20 rule right i think i'm not sitting there tweaking everything i can pot i'm just thinking of htop because like literally every machine that i can man"
+    },
+    {
+      "start": 3521.28,
+      "end": 3526,
+      "speaker": "adam-stacoviak",
+      "text": "i've never uh i've never like launched it and thought this isn't good enough but maybe i just"
+    },
+    {
+      "start": 3526,
+      "end": 3532.16,
+      "speaker": "jerod-santo",
+      "text": "don't know oh well then you should see my htop i would love to i think we can customize mine"
+    },
+    {
+      "start": 3534,
+      "end": 3572.21,
+      "speaker": "adam-stacoviak",
+      "text": "i can hold on i have to brew install htop that's how long it's been since i've used it let's see here i won't log into i stat menus which is rad and provides me cool charts and stuff without having to be the terminal yeah i just launched htop it shows me you know that brave is using all my cpu right now and that i have nine processors and i'm using 26 gigs of ram out of my 64 what am i missing here i got i've been up for 12 days okay what's yours look like"
+    },
+    {
+      "start": 3573.76,
+      "end": 3591.72,
+      "speaker": "jerod-santo",
+      "text": "i just share it with you i mean i don't know how to do this in our new world of video first but i share with you in zulip we'll get it on the screen for the pod okay on youtube later but this is this is my this is my htop man okay let me describe this verbally host name cineplex oh"
+    },
+    {
+      "start": 3591.72,
+      "end": 3599.24,
+      "speaker": "adam-stacoviak",
+      "text": "can i can i dox you yeah that's cool i just host name doxed you host name cineplex uptime 16 hours"
+    },
+    {
+      "start": 3599.24,
+      "end": 3606.04,
+      "speaker": "jerod-santo",
+      "text": "is that days hours 16 colon 11 colon 18 that's ours because i think i i downed it and then i"
+    },
+    {
+      "start": 3606.04,
+      "end": 3647.3,
+      "speaker": "adam-stacoviak",
+      "text": "pulled the latest docker images and compose up it now i would argue that my stock htop is better than that because mine says uptime 12 days and yours lacks information but i guess it looks cooler um and then it shows the standard top things of the average memory and swap usage um all of your processors are listed along the right hand side you have 16 processors so that's kind of cool whereas the stock one lists them horizontally i guess zero and so you rearrange the order of things and i think maybe your colors are more vibrant i don't know what what you tweak"
+    },
+    {
+      "start": 3647.3,
+      "end": 3718.72,
+      "speaker": "jerod-santo",
+      "text": "here mainly layout okay so host name is there uptime is there and there's a there's a blank space in between those two sections on the left so you got two columns left and right on the right is all the cpu cores right on the left is information essentially of like the system host name uptime and then a blank space in between to separate average cpu the memory usage and any swap usage and notice that there's zero k swap yeah my system's tuned okay i also have zero k swap there's no swap going on here we're gonna brag about it then another yeah we gotta we gotta brag about no swap bro that's all it goes that's right no swap over here the game is no swapping that's right right then you get the blank space in between then you got network and disk now if it's a zfs machine and i'm running like zfs pools i'm gonna have arc there and things like that to tell me about my zfs pools okay so i'm missing that section i don't have network and disk okay so you just add it f2 and you go into your settings there and you can add it to your left you push enter on the one in the far right and you arrow left arrow left and you put it wherever you want and then you push enter again and you put network and disk wherever you like and so now do"
+    },
+    {
+      "start": 3718.72,
+      "end": 3723.76,
+      "speaker": "adam-stacoviak",
+      "text": "you store that into like a dot rc file or something so here's the thing and this goes back to your"
+    },
+    {
+      "start": 3724.48,
+      "end": 3777.84,
+      "speaker": "jerod-santo",
+      "text": "your principle of customization yeah to my knowledge htop and maybe btop is better maybe this is where btop is better i don't know i like htop is as simple htop does not have a configuration file that can translate from machine to machine for whatever reason it's a unique snowflake the layout is the same on all these machines and i would go and tweak it for this one little thing it takes me just enough time maybe a minute or two to do this you know not much but i would love it if it was a config file that i could just paste but no that's not how htop works but htop is simple btop is kind of loud and expressive and vibrant and visual i think btops some would say it's better htop to me is just simple so that's me all that to say"
+    },
+    {
+      "start": 3777.84,
+      "end": 3790.34,
+      "speaker": "adam-stacoviak",
+      "text": "is i'm flabbergasted honestly i i don't want to call your expertise into question but i just feel like there has to be a way to get a config file that's just please call make me wrong i would"
+    },
+    {
+      "start": 3790.34,
+      "end": 3822.52,
+      "speaker": "jerod-santo",
+      "text": "love it because you'll solve a big problem mine the last time i checked into it in the in the htop docs it was a unique it wasn't a config file that was it was like it didn't even make sense the config file there is one for it but it doesn't make sense yeah when you look at the format of it it doesn't it's machine to machine and it's unique i think it's because it's like basic on sensors and stuff like that because you can have like cpu temperatures in there like per core and like if you have lm sensors installed you can get a bunch of stuff we're"
+    },
+    {
+      "start": 3822.52,
+      "end": 3854.36,
+      "speaker": "adam-stacoviak",
+      "text": "in the weeds yeah we're in the weeds i think that and i'm over here trying to prove you wrong i think that you are right and wrong i think you're mostly right i'm mostly right technically you're wrong because there is a config file however yes written by htop and overwritten anytime you hit and it's not human friendly exactly so it's not cool like you could figure it out how cool would it be if it was human friendly yeah i mean come on who who makes a config file like you know what i've been friendly not necessary on this one suckers friends the computers only this config"
+    },
+    {
+      "start": 3854.36,
+      "end": 3860.68,
+      "speaker": "jerod-santo",
+      "text": "file yeah that's just dumb whatever that is i don't get it i think if all your friends are"
+    },
+    {
+      "start": 3860.68,
+      "end": 3865.08,
+      "speaker": "adam-stacoviak",
+      "text": "computers and no you don't have any human every machine jared is a version of this layout unless"
+    },
+    {
+      "start": 3865.08,
+      "end": 3873.96,
+      "speaker": "jerod-santo",
+      "text": "it's got zfs on it that i'm adding arc and a couple other niceties that's like particulate to that machine but it's always all the cores on the right and the left is the information every"
+    },
+    {
+      "start": 3873.96,
+      "end": 3879.14,
+      "speaker": "adam-stacoviak",
+      "text": "single machine so you hop in there and hit f2 every time like once a machine and it's once"
+    },
+    {
+      "start": 3879.14,
+      "end": 3923.92,
+      "speaker": "jerod-santo",
+      "text": "done for its lifetime i'm not creating new machines all the time i will say that cineplex is a new machine for me i moved plex off of prox mox it was a vm and prox mox so get this it was prox mox hypervisor a burn to vm docker contain you know a docker application running plex okay i moved it onto a new machine standalone intel nuck by itself a boon to 2404 installed docker again and it's running in docker there and so now cineplex it's the new hotness plex was the old machine now cineplex is the new machine i just like the name cineplex it's kind of cool"
+    },
+    {
+      "start": 3923.92,
+      "end": 3934.29,
+      "speaker": "adam-stacoviak",
+      "text": "cineplex is cool it is kind of cool so and so this is running your plex server yes this is running my plex server and does docker make that easier because couldn't you just like advocate install"
+    },
+    {
+      "start": 3934.29,
+      "end": 4095.46,
+      "speaker": "jerod-santo",
+      "text": "plex and be done like on top of ubuntu yes um except for i believe this has been my hypothesis that it's easier because this this application has moved from machine to machine to machine lots i feel like it would just be easier to rsync that docker directory which is like you know my home directory slash plex and all of it lives in there the compose file all of the data lives in there i don't even use volumes with it uh that compose file and then every any data that goes with it's about 100 100 gigs this application directory i just rsync it to a new machine docker compose up dash d and it's running so i feel like docker makes the application composable wherever it needs to be you know versus like okay i'm app getting and installing this thing and i've got like it's tied to the machine more i can leave it tied to docker and let docker be the runtime and no matter where docker's at i can run the application yeah provided the hard work and support of course you know but sure that would be pretty easy so that's been my sense that's been my reasoning for docker it didn't make sense to proxmox vm then docker you know so i just took out a layer and got rid of proxmox and maintain a standalone ubuntu machine and it's called cineplex you know there you go and it's got a cool htop config just enough customization is that so i'm concurring with this is a long-winded i forgot what we were talking about yes long-winded i think i'm with you i think that people i've seen this and and it's it's tantalizing you got somebody i just was watching this video this really great cinematographer also a developer tool kind of fella he's got his perfect desk right perfect desk it's got this um super awesome keyboard he built it himself of course he's got these keys that don't need lube because they come pre-lubed you know like that's cool he can kvm between his window machine so he can game and he can kvm between that is mac and i'm like ninja oh dude i just don't have that time i just wish i mean i would love that i mean like that's i don't want to say it's a young person's game but i feel like it is because you and i are so far into our careers that we've got either more problems to deal with and we can't spend the time there or we've now let go of things like that that we realize this principle you've shared is truly true that overly customizing your environment is kind of a fool's errand what did you say it was it's just not it's not smart i called it the uh the root of all yak shaving root of all yak shaving that sounded cool that's not cool i mean it is a yak shave and you"
+    },
+    {
+      "start": 4095.46,
+      "end": 4184.21,
+      "speaker": "adam-stacoviak",
+      "text": "know yak shaving is unnecessary by definition well depends on how you think about it sometimes a yak shave is a necessary series of events in order to do what you originally wanted to do but other times you're just out here shaving yaks you know and you're not actually doing the main thing yeah that's more i'm using it that way yeah i do think it's a fool's errand and i think that it's if you like compute as part of your joy of your life and like this is your identity and stuff like have at it have fun yeah but if you think that it's the problem is that when you when a lot of us see that person who happens to be also a great software developer and then we idolize their setup and we think like if i could just customize mine to be like primogems or whoever it is like whoever it is that you're idolizing then i could also be a great software developer like that person and it's like no dude you're just gonna waste all your time customizing your machine and you're not actually getting better at the craft you're just like tinkering around the edges of the craft which i used to do as well and so i've just set those things aside and i think that we all would do well to set those things aside in moderation like you said i think you can get 80 of the way there with 20 of the effort i customize some stuff you know i got my new my new terminal last year and my new text editor and i've customized a few things on both of those just to make myself a little bit happier nothing wrong with that you got to get a blanket and a pillow but i'm not out there reading every config i can set on ghostie in order to just like make it look like the sickest it could possibly look for instance right"
+    },
+    {
+      "start": 4185.17,
+      "end": 4352.05,
+      "speaker": "jerod-santo",
+      "text": "yeah i think you realize there's just enough so i'm all about good environment and so i think what you're trying to suggest is that you should make the environment you're in comfortable whether it's a chair a text editor a new tool whatever htop you know pick your environment of where comfortability is important and do what you got to do to make it good for you right your version of that and my version of that is probably two different measuring sticks but you do you whatever works for you but don't do too much don't spend all your time there because you forget to do the task that was originally planned in the first place i i do want to give this person a shout out because this person does create some amazing videos and so i'm i'm like mentioning this this fellow named luda if you want to check him out on youtube i'll link it up in the show notes of course youtube.com slash and this is important i've learned the at symbol so youtube.com slash at capital l u d a l x luda lx basically why is the at important because you can get to ours without it you know i learned recently that somebody let's see if it's important for this person no it's not important for this person it is important for techno tim so if you went to at techno tim i think i don't know i learned this recently because i was trying to get there by just url hacking so if you go to youtube.com slash www dot htps slash slash at techno tim you will get to the technotim that we know if you take the ad away let me see if this is still correct you get to a whole different person really yes so at technotim versus technotim is two different people two different profiles but that is not unanimous across youtube so that your mileage may vary if you do it on my last changelog yeah we're both at and non-at and for my friend luda lx it's it is true that he is both luda lx and at luda lx so pick your flavor go there and check out his latest video the cleanest mac slash well it's not the latest the cleanest mac slash pc hybrid desk setup you've ever seen now you will be enamored by the amazing cinematography you will be like i need those speakers to get by in my life if i could just customize my environment to be like that then i say quickly throw that away and just do as necessary to make the environment yours do you remember amy hoy i do of course of course am i talking with elmer fudd almost of course of course of course i'm blushing over here yeah"
+    },
+    {
+      "start": 4352.05,
+      "end": 4460.23,
+      "speaker": "adam-stacoviak",
+      "text": "of course that was funny so long time creator out of the ruby community startup person i don't know talented individual she puts out a lot of microsites a lot of interesting visualizations and i think one of the sites that she built that i still use is like everytimezone.com um etc and she's always had a great design eye and the ability to bring her design eye to fruition and i remember her complaining this was years ago because every time that she would create something usually she was creating back then i think a lot of cheat sheets for different tools and they're just very well done like a git cheat sheet and whatever rails cheat sheet and they're just nice and she says every time i put something out there into the world that i've created for people all these people in the comments asked me like what tool i used to create this which is kind of the same thing as like what's your text editor config like what and they're missing the entire point of like how did i go about thinking through what a good design for a cheat sheet would be and like how i pick my typography and my color schemes and like all the things that designers think about when they're doing information design or technical writing even and they asked me like what tool like was it adobe illustrator like as if me telling them or giving my me handing my set of tools to a neophyte would like turn them into an expert all of a sudden it'd be similar to like seeing a master carpenter and being like if i only i had all of his tools i would be just as good as him at that thing and it doesn't connect it's not true and so trying to emulate or recreate an expert's environment is not going to make you an expert and we seem to think we can"
+    },
+    {
+      "start": 4460.23,
+      "end": 4596.28,
+      "speaker": "jerod-santo",
+      "text": "like jump in line somehow so i don't disagree with that but i disagree with that and here's where i disagree and maybe it's not a direct disagreement it's more like a roundabout let's just say okay i'm ready for it there are many times i would say in the last several years where i've like admired somebody's work and wanted to know their tools behind the scenes and at least from my perspective it isn't how can i recreate you with me or how can i be as expert level as you are it's more like i have been down the road enough to know there's a right tool for the right job and sometimes i want to learn somebody's hacks because their right tool is like literally that light is over there dangling off of duct tape you know but it's in the right place and so there's things you learn by learning how they got to where they're going or where what they've what they've used to get there and so at least my perspective isn't like let me become an expert like you it's and i maybe that's the line of question they've given amy and that's just like me where i'm off is that i would say this in particular like network chuck i was watching one of his videos from i think 2020 recently because it's i stumbled on how he does what he does and i've always wondered how he did the pen thing on his screen in real time during the videos and it's so simple that you wouldn't think it's as simple and so unless you knew how he did it you might not stumble on the same simplicity maybe he's changed since then i don't know but he uses a Wacom pen like i do and tablet and he has photoshop open in a green screen mode so the background of photoshop is the green screen essentially and his writing is white so it's chroma keyed and so he has software that watches photoshop and he can in real time during his videos draw on the screen for you and he sees it too because he's seeing it in photoshop i would have never thought that that's how he did it am i going to recreate that no but if i think of ever wanting to do that i'm like i know now how he did it and at least start there on my journey of finding out which tool helped me get to wherever i might want to go you do that with lighting you do that with you know you name it woodwork i think you are"
+    },
+    {
+      "start": 4596.28,
+      "end": 4610.28,
+      "speaker": "adam-stacoviak",
+      "text": "talking about tools but it's a proxy for techniques which is an entirely different thing isn't it yeah i think so i mean obviously you use tools to deploy a technique sure but the how is really what you're interested in figuring out right not exactly and the what might be like tangentially"
+    },
+    {
+      "start": 4610.28,
+      "end": 4618.84,
+      "speaker": "jerod-santo",
+      "text": "i was like if i had that camera i could be chuck if i had that camera that lens that light i could certainly just grow my beard out and boom right no i didn't well for instance you said like there's"
+    },
+    {
+      "start": 4618.84,
+      "end": 4649.96,
+      "speaker": "adam-stacoviak",
+      "text": "a light hanging off of maybe it's duct tape over there but they have it placed just right right and it's like well the knowledge or the experience or whatever brought them to put that at the exact right place and no you can't just transfer that by buying the same duct tape like you have to actually either learn it yourself or ask them like what are some of your techniques for you know accomplishing such high quality like that would be a question i don't think amy would have a problem with like what tool did you create this in like she can just answer it was adobe illustrator and it's like what did that do for you it's like okay i should go get that i guess like that"
+    },
+    {
+      "start": 4649.96,
+      "end": 4654.52,
+      "speaker": "jerod-santo",
+      "text": "have you ever launched illustrator gosh it's such a hard hard tool to learn actually you know the"
+    },
+    {
+      "start": 4654.52,
+      "end": 4672.2,
+      "speaker": "adam-stacoviak",
+      "text": "worst ones after effects like good night yes yes well that's why i said i might be a little off of my disagreement but that's that's how i approach yeah no i definitely i don't disagree with what you're saying i think you can certainly learn techniques from people who are good at it and it maybe even just copy the way they do it until you can figure out your own process but i think"
+    },
+    {
+      "start": 4672.2,
+      "end": 4753.78,
+      "speaker": "jerod-santo",
+      "text": "fake it do you make it emulate until you make it whatever picker right but focusing on the tools is an incorrect focus it might be for sure for sure and i like network chuck by the way he's a he's very very talented um and what he's done and he will tell you like hey this isn't about the tools i use he says the same thing like you can go and get all this stuff and not be the same it's it's about we know this jared gosh it's about showing up yeah it's about being consistent it's about caring it's about a level of sweating particular details to iterate towards whatever your version of greatness is right that's what it's really about but i love it when people share some of the tools they use because i'm like man i don't you know it's exposure it's learning you know like now i know like whoa that's i've got a wacom tablet i knew how that worked but i didn't think to use photoshop with a green screen basically like that's cool whatever he did there was super cool very smart very simple too well friends i'm here with samar abbas co-founder and ceo of temporal temporal is the platform developers use to build invincible applications but what exactly is temporal samar how do you describe what temporal does i would say to explain"
+    },
+    {
+      "start": 4753.78,
+      "end": 4830.1,
+      "speaker": "adam-stacoviak",
+      "text": "temporal is one of the hardest challenges of my life it's a developer platform and it's a paradigm shift i've been doing this technology for almost like 15 years the way i typically describe it imagine like all of us when we were writing documents in the 90s i used to use microsoft word i love the entire experience everything but still the thing that i hated the most is how many documents or how many edits i have lost because i forgot to save or like something bad happened and i lost my document you get in the habit uh when you are writing up a document back in the 90s to do control s literally every sentence you write but in the 2000 google doc doesn't even have a save button so i believe software developers are still living in the 90s era where majority of the code they are lighting is they have some state which needs to live beyond multiple request response majority of the development is load that state apply an event and then take some actions and store it back 80 of the software development is this constant load and save so that's exactly what temporal does what it gives you a platform where you write a function and during the execution of a function of failure happens we will reselect that function on a different host and continue executing where you left off without you as a developer writing a"
+    },
+    {
+      "start": 4830.1,
+      "end": 4859.65,
+      "speaker": "jerod-santo",
+      "text": "single line of code for it okay if you're ready to leave the 90s and build like it's 2025 and you're ready to learn why companies like netflix door dash and stripe trust temporal as their secure scalable way to build invincible applications go to temporal.io once again temporal.io you can try their cloud for free or get started with open source it all starts at temporal.io all right"
+    },
+    {
+      "start": 4859.65,
+      "end": 4907.08,
+      "speaker": "adam-stacoviak",
+      "text": "should we continue changing minds or should we uh let's change some minds man what else can we talk about here i got a couple more uh let me just rattle off yeah you can tell me it um dry as we know it is a mistake okay i'm gonna change my i agree sql is good and everyone should know it but not really anymore that's the other one i wrote down you want to talk to me about that one is that it is that your list too uh those are the the changed minds haven't changed my mind uh convention over configuration is rails is a great idea i think that's something that i thought originally and i still think today and that's the end of my list like i said i had four and three so yeah anything there you want to bite off and chew or maybe we just i'm down for"
+    },
+    {
+      "start": 4907.08,
+      "end": 4911.4,
+      "speaker": "jerod-santo",
+      "text": "anything like whatever you're most passionate about let's you pick i like them all uh you"
+    },
+    {
+      "start": 4911.4,
+      "end": 5132.66,
+      "speaker": "adam-stacoviak",
+      "text": "choose since it's your list well let's talk about sql because i think that that might lead us into another conversation or maybe we just end on that so i've always been a pretty big fan of orms honestly probably which is object relational mappers for the uninitiated this is when you have a programming language library that maps on top of your database rows and columns and allows you to you know crud create read update and delete database records without writing native database language of sql structured query language i used to really dislike sql i thought it was gnarly and hard to learn and ugly and i've always liked orms mostly because active record which is rebound rails rm has always been a pretty good orm i've also tried data mapper and other ones back in the day nowadays i use ecto from the elixir and phoenix people and i think sql is kind of like vim remember gary burnhardt telling us you know on the old vim show where he's like you tried this and over the years like you've went from text me to adam to this and he's like here's me getting better and better of him and i'm like oh you're so much better than all of us gary um which is probably true but i'm still using zed today um so i didn't learn my lesson i feel like sql is kind of like that like you can invest in the language and a library and then you can switch libraries and they all kind of map on top of what are ultimately outputting sql expressions and some are better and worse and they allow you you know break out of the box and write your own fragments and i think ecto is a pretty good one but after years and years and years of like ending up with sql and then learning it because i'm looking at it now even though i didn't write it i wrote some ruby code for instance i just think sql is really powerful it's been here since day one practically of most of our careers it's not going anywhere and it's one technology the language i'm speaking specifically that is worth every software developer learning because it's transferable across jobs projects languages etc and i didn't really invest in it directly my career i kind of learned it slowly through osmosis and i probably would have been better off just setting aside all the orms all the years and just being like learn sql really really really good and i'd probably be a better developer and so i've changed my mind about that it's probably too late for me but for you youngsters maybe invest in sql however my addendum to that sentence is but not really anymore that's because you know what is really good at writing sql is language models they're just really good at it and so do you have to learn it anymore i don't know i guess you have to be able to try to use it after your llm has written it for you and make sure that it works the way it's supposed to but i haven't wrote in a sql query in a couple of years now with by myself and so there's my addendum is like maybe maybe we don't have to learn sql because it's so low level so low level that's a weird thing to say it's low enough of a level that your everyday developer you know starting today and going forward won't have to just write it directly anymore they'll have tooling that writes it for them so that's my change of mind but also not so sure because"
+    },
+    {
+      "start": 5132.66,
+      "end": 5311.59,
+      "speaker": "jerod-santo",
+      "text": "of what they're doing to our workflows yeah i think it's still i think it's still viable learning it though i mean because if you write ruby code and the orm maps out and spits out sql and you have a better understanding or that lm is down or unavailable and you're like well local baby come on i'm kind of stuck here can't yeah i think i remember how this sql thing works you know and you're sort of stuck there i think that seems like a first principles scenario where like you eventually will have the first principle of being a good developer would be to use a database if you're using a database use a sql based database and then to understand at some level how to construct sql queries but still be proficient in ruby and orms and how you use it natively in that language in that framework because you're faster better whatever and i'm with you i think that's that's i think where i want to that's where my curiosity sort of lands at is is give me the things that make up the foundation i don't want to become 110 expert in that foundation i want to become 50 60 70 maybe 80 if it's really important to me but at least 50 on some of these foundational things and potentially get the 80 of mastery with it because or awareness of it or understanding of it because i think that gives you a good baseline so when you don't have your tool belt or your your complexity killer which is an lm it's like hey i want to do this you know query write it for me like i don't want to like there's there were some things i was doing recently with a a backup and i was uh in bash backing up like a directory and i don't know all of 7z's params that it can be tossed and in which case i would use them i would never want to do that i just want to know that 7z is the tool that's my 50 70 is a tool i'm using that tool to compress this thing and i can use it on windows i could use linux it's available anywhere i want but i'm not going to go and learn all the things about this thing so i know which params to use to keep the permissions to do different things or certain compression levels like i know i'm going to ask the llm to help me with that because that's mental bandwidth i want to give to something else that's more important right you know but i want to know enough about 7z that it can and i don't need to know about all those swapables there same thing with sql like you should know enough about it to be content and i would say secure right in the code you're writing and the careers you're you're putting out there because whether you're not toppling of your database or spinning up your cpu to whatever and your database machine topples"
+    },
+    {
+      "start": 5311.59,
+      "end": 5442.32,
+      "speaker": "adam-stacoviak",
+      "text": "over because you've written a poor query yeah no i absolutely think that sql is one of those foundational technologies that i think i eschewed when i was just coming out of college because maybe i was either taught probably indirectly that it was kind of a passing fancy or it was like a thing that people are using but it's not going to necessarily be here forever and there are query languages that have come and gone i mean i think that if you spent a lot of time investing in for instance mongo db's query language that's not useless information but it's not broadly useful because there's just not enough databases out there that speak mongo db query language or whatever it's called mongo ql i don't know i know it's json ask or javascript ask and i've been leery of any database technology that comes out with a brand new query language and not sql in addition i think that that's a dangerous proposition in terms of personal investment but i'm not sure how much like you said like how much does each person need to become expert in the foundational technologies today and tomorrow versus maybe just proficient enough to guide and direct the lms towards success i don't know i feel like that's a moving target yeah and one that i've been more skeptical of probably in the past than i am today i think it's progressing at a more steady clip of i'm talking about language model advancement is progressing out of a steadier clip than i thought it would and they're getting better but yet still not ultimately reliable so there you go there's my change of mind i think if i was coming out of college if i would have been talking to me coming out of college oh yeah i like that i would ask myself like what should i really learn oh yeah and now today i'd say you should learn sql for sure"
+    },
+    {
+      "start": 5442.32,
+      "end": 5449.99,
+      "speaker": "jerod-santo",
+      "text": "like just directly go learn it master it it's going to help you 80 110 where would you land"
+    },
+    {
+      "start": 5450.79,
+      "end": 5468.66,
+      "speaker": "adam-stacoviak",
+      "text": "not 110 is technically impossible but i go it's a stretch you know i just like to point that out and be pedantic i'd go probably 80 yeah i get 80 on the way there why not okay whereas i probably only got like 30 of the way there and it took me years and years and years and years to like flush"
+    },
+    {
+      "start": 5468.66,
+      "end": 5494.58,
+      "speaker": "jerod-santo",
+      "text": "out that knowledge yeah you know the challenge though with learning like that i have found personally to be the case and i'm sure you probably agree with this too is that i can't truly learn and retain the learning unless i have a reason to learn it and so maybe with you it took those years and those different experiences to have the reason to learn to the depth of 80 percent yeah you know yeah i've always been a means to an end kind of guy"
+    },
+    {
+      "start": 5494.58,
+      "end": 5504.84,
+      "speaker": "adam-stacoviak",
+      "text": "so like i do have to have an end goal in mind i don't learn for learning's sake very well which is kind of what you're saying right like you have to have a reason yeah it's almost like i i have to"
+    },
+    {
+      "start": 5504.84,
+      "end": 5730.23,
+      "speaker": "jerod-santo",
+      "text": "have a need i have to have a problem i have to be trying to solve something or at least some curiosity that i'm trying to close a loop on and then i can learn it you know i one example i can give you is that i've i've shunned away if that's even the right way to say it i've just written off windows in my life years ago yeah same until recently until recently now i think there's a world where i as a computer user slash developer slash podcaster slash business person slash whatever i find that there's a place for windows there's a place for mac and there's a place for linux where's the place for windows for you this is still in motion this might dovetail into a topic that is a bonus i would say so i tried to i prefer docker so let's just caveat that for running applications i tried to play with llms ollama and stuff like that open web ui on linux and had issues with seeing the gpu and enabling the gpu to docker on linux and maybe it's just me and i'm still just not there yet but windows was super easy it just just worked because windows is so widely used that and nvidia is so widely used on windows machines that there's a perfect marriage there i didn't have to go and load drivers and be special about it was just there and when i launched docker desktop on windows well guess what the gpu was available i didn't have to do anything special and in minutes i was to a place that took me you know trials and tribulations beforehand and it could be because i was poking the dark and it could be because of xyz i don't think it's linux's fault but i found that getting to ollama running accessing the gpu and open web ui being there tailskill on the machine and then now that essentially ai machine is available to the network and all my telnet was just like so fast comparative to the same path with linux and so creator pcs even like i like to build i like to build machines they're fun to build swapping out components you know choosing your cpu stuff like that i think the thing that max do for people like us is they really simplify it it's like well i don't have to think about any of those parts because apple solved it in a single small box and it turns through less power but to a tinkerer that's not very fun and i admit that it's a solved problem by them but it's not that fun so a creator pc or an ai machine i think those are the two areas where i think windows has a has a good chance to to kind of go there for me could you do the same thing with linux probably but i had issues and i was like you know what maybe i can solve this because i've seen other people solve it easier with windows and it's actually not that bad it really isn't there's a a cool script from chris titus that will install and de-bloat certain things around windows to make it more enjoyable as an experience less user hostile as i said on that show with our good friend tim stewart slash techno tim i was like you know i've written windows off it's user hostile i don't like it you know but now i've given another chance and i'm further along to the ai machine running on my network and accessible via my telnet to the point where i've got let's see here multiple models running you know just too easy it's too easy now it's just"
+    },
+    {
+      "start": 5730.23,
+      "end": 5736.2,
+      "speaker": "adam-stacoviak",
+      "text": "there and you wanted to build that machine you didn't want to buy something uh well what would"
+    },
+    {
+      "start": 5736.2,
+      "end": 5741.96,
+      "speaker": "jerod-santo",
+      "text": "you buy a mac mini yeah i suppose yeah like what's the that's no fun because you said linux versus"
+    },
+    {
+      "start": 5741.96,
+      "end": 5747.24,
+      "speaker": "adam-stacoviak",
+      "text": "windows for your ai machine i think mac os runs a llama great so i'm i'm not even saying there's"
+    },
+    {
+      "start": 5747.24,
+      "end": 5751.32,
+      "speaker": "jerod-santo",
+      "text": "a right way or wrong way it's just more about exploring i was just curious why you ruled out"
+    },
+    {
+      "start": 5751.4,
+      "end": 5760.28,
+      "speaker": "adam-stacoviak",
+      "text": "mac os for that use i think for a creator pc then yes yeah i can't build a mac machine that's why like i can't i can't do that so that was a prerequisite to your decision making was like"
+    },
+    {
+      "start": 5760.28,
+      "end": 5845.06,
+      "speaker": "jerod-santo",
+      "text": "i'm gonna build something yeah being able to build something or repurpose hardware already had you know basically into something that wasn't like if i could run if i could build my own machine and put mac os on it i would totally do that but that's not possible if if i had my rathers i would install mac os over windows pretty much any day of the week you know any day of the week but that's just not the option that tim cook slash steve jobs and anybody else that apple's given us it's just not it's just not there our hackintosh is not a thing anymore maybe they are but they're always there's a the word in their hack it's always seemed like trouble filled and issues and isn't that part of the tinkering nah not for me no no i mean i've never been curious to the hackintosh way i've been curious to the linux way the stable production ready production possible way and i could be wrong but i feel like that the word hack and hackintosh is what just deters me for the same reason i wouldn't run was it ahi linux or ashi linux or what what's the name of it asahi asahi gosh way off on an apple machine to run linux i just it just seemed very buggy it's not where my curiosity is i'm not saying it's wrong it's just i'm not curious there you know i would much rather but then again"
+    },
+    {
+      "start": 5845.06,
+      "end": 5850.31,
+      "speaker": "adam-stacoviak",
+      "text": "i'm thinking like gosh well then you could have your cake and eat it too you could have your"
+    },
+    {
+      "start": 5850.31,
+      "end": 5855.03,
+      "speaker": "jerod-santo",
+      "text": "precisely with mac os that's where maybe i'm wrong maybe an m4 mac a base level i'm not sure"
+    },
+    {
+      "start": 5855.03,
+      "end": 5871.73,
+      "speaker": "adam-stacoviak",
+      "text": "hackintosh those are still a thing or not yeah because that was a big community back in the day but i know with switch over to arm things changed and i don't know i i don't keep up because i just run apple hardware but i wonder where the state of that is yeah well i would say you could probably"
+    },
+    {
+      "start": 5871.73,
+      "end": 5885.33,
+      "speaker": "jerod-santo",
+      "text": "answer that because you've got an m1 mac you run a llama i think what's how do you run your local ai do you do you do that at all do you do you just go to chat gpt every time now are you local only"
+    },
+    {
+      "start": 5885.33,
+      "end": 5927.2,
+      "speaker": "adam-stacoviak",
+      "text": "it's kind of like google and dot go you know yeah where like i use dot go and then i'm like yeah this result might not be good i go to google okay i kind of do that with i switch back and forth between deep seek and llama 3.2 okay and now the deep seek is out the deep seek coding latest i think was the one i was using and i use that and then when i'm like is this the best response that you could do and then i go over to chat gpt and i add you know i paste the same prompt in chat gpt and i think that chat gpt pretty much is the google to my local dot go currently it's better um not as good as changelog plus plus but it is better it is not that better it's a different"
+    },
+    {
+      "start": 5927.2,
+      "end": 6038.72,
+      "speaker": "jerod-santo",
+      "text": "better okay so there's where i'm at i also wanted to be curious too it wasn't like oh let me build this i got no problem i'm just playing devil's advocate i like that because i mean it pushes back on your reasons why you would do x and also i was like you know maybe this windows world is kind of it's got its pros and cons maybe it's cool i'll tell you one thing it's got some cool things in it it just remaps certain keys right one thing i like about it is whenever you hover over the icon in the taskbar and if you got multiple instances of it instances of it it will let you choose which one like if you hover over it gives you this new ui that shows you here's one two and three for example like fogs more that's kind of cool i'm gonna am i gonna move there for that no but it's nice that it's there right and you know i think wsl has some really cool stuff involved and i haven't even gone as deep as i could so far but like windows subsystem for linux version 2 is what uh is being used now you can run linux side by side with windows it's almost like it's a vm yes but it's it's um it feels more native because you can reference the file system on both you know and i think that's super cool the way they've milled that together and i haven't explored it all but i think it's just wild how they've done that and we've known about wsl for years and here i am just now learning it you know here's me you know what i mean like that's just the the jit of learning in my opinion is like i've known about wsl but i've never had a need to learn it or a desire to learn it beyond just knowing it's there now i'm like okay i can probably spin up this and run docker and docker leverages wsl on windows to make docker do docker things but man it was just pretty easy honestly pretty easy so let me ask"
+    },
+    {
+      "start": 6038.72,
+      "end": 6058.48,
+      "speaker": "adam-stacoviak",
+      "text": "you a real dumb question from somebody who hasn't booted windows uh since college you build a creator pc how do you get windows on there today do you like usb drive it or oh yeah yeah yeah okay it's a bootable iso and if you're doing it on mac it used to be there's not like cool new"
+    },
+    {
+      "start": 6058.48,
+      "end": 6071.92,
+      "speaker": "jerod-santo",
+      "text": "ways of doing it same network you know you're just building into your bios you put your usb stick in there you're confirming which you know selecting that usb drive to boot from it boots and you do the install process it's no different than the way you would do linux or and how do you"
+    },
+    {
+      "start": 6071.92,
+      "end": 6077.36,
+      "speaker": "adam-stacoviak",
+      "text": "get it onto there do you just download it for free off of windows.com or yes yeah you can download"
+    },
+    {
+      "start": 6077.36,
+      "end": 6115.7,
+      "speaker": "jerod-santo",
+      "text": "the 64-bit uh iso from windows and it used to cost money for that you know so they it does still cost money um that's not cool it i believe they'll let you use it to a certain capacity for free you can't change the desktop background you can't do certain things but it will be a machine i believe they can run in perpetuity without any restrictions just like certain things you'd want to do you can't do without getting a license key and so i really wish like that would be maybe they would lose tons of money but that would be cool like make windows free like mac os is free like mac os is essentially free to anyone who could run"
+    },
+    {
+      "start": 6115.7,
+      "end": 6124.82,
+      "speaker": "adam-stacoviak",
+      "text": "the hardware i figured they would eventually get there but they also have so many enterprises paying for licenses and i'm sure there's like some bucket of money that would just stop flowing in"
+    },
+    {
+      "start": 6124.82,
+      "end": 6166.39,
+      "speaker": "jerod-santo",
+      "text": "that's not worth doing that so windows by default should be free or could be free as an example in this world windows pro could be the paid license just saying just saying it's got some cool firewall stuff uh windows firewall defender is pretty cool it's pretty easy to configure it's pretty easy to hop into the command line and do like ip config to know where you're at for example it's pretty easy to run things in like pseudo mode or whatever you want to call that like as an administrator i mean it's not it's not dramatically different than maybe even mac os is in terms of what you could do they're just like it's just a different flavor honestly no i i"
+    },
+    {
+      "start": 6166.55,
+      "end": 6173.6,
+      "speaker": "adam-stacoviak",
+      "text": "get it here's why i will never go there okay backslashes are trash they are back they are"
+    },
+    {
+      "start": 6173.6,
+      "end": 6179.52,
+      "speaker": "jerod-santo",
+      "text": "trash man i haven't encountered any backslashes yet though i mean they're there the c prompt"
+    },
+    {
+      "start": 6179.52,
+      "end": 6184.48,
+      "speaker": "adam-stacoviak",
+      "text": "right don't you like if you if you launch command.exe it launches you to c colon backslash"
+    },
+    {
+      "start": 6185.67,
+      "end": 6190.07,
+      "speaker": "jerod-santo",
+      "text": "doesn't it or if things change that much you know i haven't navigated the file system"
+    },
+    {
+      "start": 6190.07,
+      "end": 6195.43,
+      "speaker": "adam-stacoviak",
+      "text": "via the terminal yet that's so i just haven't gotten there do it man don't do it once i'm"
+    },
+    {
+      "start": 6195.43,
+      "end": 6199.67,
+      "speaker": "jerod-santo",
+      "text": "there maybe i'll be like this is the worst ever honeymoon yeah honeymoon will be over yeah i'll"
+    },
+    {
+      "start": 6199.67,
+      "end": 6220.63,
+      "speaker": "adam-stacoviak",
+      "text": "be like upset about it all right well that was a good uh i appreciate that you're exploring that you're tinkering that you're trying out things that most of the people listen to this know very well all the basics you've described to me you know about how windows works you'd be surprised meanwhile i don't know anymore because i haven't run since college but uh cool it's a windows world"
+    },
+    {
+      "start": 6220.63,
+      "end": 6296.37,
+      "speaker": "jerod-santo",
+      "text": "that you're you're entering i'm i'm open to a windows world i'm open to a place where he's exploratory where windows um is is an option like i would love a monitor that has kvm built into it like this guy i did and it's not because it's all him i'm like curious about this world where the monitor can be the kvm to it you have a keyboard and a mouse plugged into the monitor or connected to the monitor the monitor is the kvm you can swap between a windows pc and a mac machine now i would love to see how well some of these llms run via a llama on like an m4 pro or something like that because maybe that's just the easy button maybe that's the less fun tinkerer button where you can i mean i'm not getting a chance to build that machine but you know that's kind of the in quotes fun part is choosing the components and choosing the motherboard and putting it in the cool case and maybe some rgb if you want to now that's not me i'm not an rgb kind of guy but i do like things to be aesthetically nice you know so you know thus far it's just in this rack mount kind of ugly thing that was just in the rack like it was a different machine beforehand it was it was actually my process machine that uh the ram plex"
+    },
+    {
+      "start": 6298,
+      "end": 6313.56,
+      "speaker": "adam-stacoviak",
+      "text": "and i built it for plex before and now i've repurposed it gotcha well stay tuned uh will adam's mind be changed about windows he's open to change he's open it's production ready right now"
+    },
+    {
+      "start": 6313.56,
+      "end": 6338.69,
+      "speaker": "jerod-santo",
+      "text": "i mean i can go to you know the machine's name is genesis i can go to genesis right now and run open web ui and i've got uh llama three two five four latest deep seek uh 70 b deep seek 32 b 70 b is a little slower but 32 b is pretty fast uh i mean it's almost real-time results with it"
+    },
+    {
+      "start": 6339.33,
+      "end": 6352.76,
+      "speaker": "adam-stacoviak",
+      "text": "five four is pretty good actually and do you run your max against it then like are you running it from your mac over the network to your ai machine so i'm in the browser right here in safari oh you"
+    },
+    {
+      "start": 6352.76,
+      "end": 6359.09,
+      "speaker": "jerod-santo",
+      "text": "run on my mac yeah it's it's uh open web ui do you know about open web ui yeah i just think you"
+    },
+    {
+      "start": 6359.09,
+      "end": 6370.52,
+      "speaker": "adam-stacoviak",
+      "text": "should hook up something native to that like that enchanted one or something like some deeper mac integrations cool i haven't used open web ui maybe it's like amazing you don't have any need for"
+    },
+    {
+      "start": 6370.52,
+      "end": 6528.74,
+      "speaker": "jerod-santo",
+      "text": "something like that well open web ui basically is a version of what chat gpt is to llama so rather than doing it from the terminal you're doing it from the web like chat gpt and you can choose your models you can do you know code interpretation you can do all sort of cools the other cool thing is you can uh you can right lane left lane two different models so you can single prompt add two models to the same prompt and let whichever one win and choose the one that's winning so if you know well i will sometimes get better mileage out of five four versus you know llama 32 for example you can compare those two together in the same question and just choose which path you want to go or keep going down both paths it's kind of cool so are you off chat gpt then no so so you're like me that's the test so that's my hypothesis is like so my question really is this this is the question i think i'm trying to answer it's one fun to tinker but two is it worth spending the money on hardware to local your ai given that more and more models would become more and more open source or is it better to pay x dollars to open ai or whomever perplexity or you know you name the different places you can go to claud for example there's some cool stuff happening in claud because there's a lot of things are doing in that web ui claud in particular with like document-based collaboration with the llm steven would say collaboration given that you're you know you're so anti-humanizing these things anthropomorphizing these things you know it's uh but being able to in the ui iterate on the document in a way that you as the prompter can know it's not being changed it's like it's like changing parts versus whole document kind of thing claud's got some cool stuff going on too so my to zoom out again my question really is like is it worth it and it may not be true today but at some point it will be is will it make more sense to have your own ai able hardware on your land on your local network to run against home assistant to run against yourself your kids whomever could be could it be a service inside the household could it be that today and skip the bill and i don't think it's about cord cutting because this is like kind of cord cutting in a way but it's like i don't always want to share all that info with someone else it's in my own local llm right you know and you have"
+    },
+    {
+      "start": 6528.74,
+      "end": 6598.58,
+      "speaker": "adam-stacoviak",
+      "text": "nothing to hide until you have something to hide you know that's right no totally i think that's a real good reason to want to do it and i think that if we could i think the models will get there in terms of their quality responses and i think that the interfaces will get better with how you actually like feed your life into that local network thing but like will the devices come along you know like it would be rad if i could take my echo and point it at that instead of amazon servers now i don't think amazon has any reason to do that but if there was like an echo like because you know ultimately like you said on a previous episode you want to talk to these things and right now we're talking to an amazon server i'd much rather ask questions or have my kids ask questions of something that's running on my local network so when they do ask a personal question to an llm it's not you know forever in amazon's database yeah tied to a human you know i think that that's really creepy it is and so i think i think that ultimately these efforts are worth it i think right now yeah the trade-offs aren't quite there yet and there's way too much groundwork to be laid by nerds but we'll get there and i think the the recipe though is you"
+    },
+    {
+      "start": 6598.58,
+      "end": 6940.53,
+      "speaker": "jerod-santo",
+      "text": "could do it on linux mac or windows apparently apparently is docker ollama open web ui either a really powerful cpu or an igpu i don't think ollama actually recognizes igps or gpu and gps are scarce expensive you can find decent ones on ebay they're actually if you can ebay well you can find a decent one maybe just buy the m4 mac pro and call it done and maybe you'll have a limitation right that's essentially an igpu it's an integrated gpu i think ollama runs well there to my knowledge but if you want to like go crazy and like do multiple gps you're gonna have to motherboard that thing right that means you're gonna choose between linux and windows and in my case i was like okay i got better mileage or easier mileage on my shoes when they were stamped with windows and so that's the route i went but basically docker ollama open web ui pick your model from there capable hardware and that's how you can get to local lm today you can play with deep seek you can even do a smaller parameter model ollama obviously or sorry llama 32 is probably the one that most people can run because it's small enough llama 33 is pretty big it's 70 billion parameters it's sizable 70 gigs i believe which is like larger than most people can run on a single machine unless you got like multiple gps i wanted to get to that point where i could run those things and i would love it now is to is once i've sort of gotten that mastered and running stable to begin to and i don't even know what the terminology is there so forgive me if i'm stupid in this regard having done what we've done for so long now i'm actually learning it is i want to train one of these models or teach it a particular trick the particular trick is like okay here's all of our agreements here's how we price here's how we quantify make that job easier can it can it make that job easier can it make me faster in those ways and be just as accurate and sweat the details just as much as i do in the real time doing those exercises myself that's what i'm really trying to get to is like i would love it if i can get to certain things i do that are deep think things that are crucial in business to get right i want to give people the wrong price give them the wrong contract or the wrong terms i want to give this thing certain parameters certain business parameters to get to certain results so i can kind of like word calculator my way to faster easier better quotes for people and stuff like that i don't want to write my novels i just want to help me make those kind of things faster and be my word calculator and be very accurate so that's my next journey cool let us know how it goes okay i will bye friends bye friends okay here in the post show i want to talk about some bonuses i suppose some extras on that last segment about running ai services locally now i built my ai home lab with windows 11 pro i have a gpu in there of course an rtx tough 3090 and my stack is a llama open web ui running in docker kind of easy to set up honestly it was really easy with windows drivers nothing missing very very fast and i'm able to get some really good results i will say however that i've gone back to opening eyes for a model their 01 model and i've gone to claud as well for some other things because there is so far not a single silver bullet for running your ai so i'm very much in tinker mode here in my home lab in my ai home lab i should say and i want to hear from you so if you're messing with tinkering with and learning about running ai inferences llms etc locally you're playing linux windows mac i want to hear from you we want to hear from you hop in the home lab channel in zulip go to changelog.com community and if you haven't signed up yet that will get you in of course it is free to join and we'd love to have you there again changelog.com slash community it's free and for those who haven't caught on yet we are publishing full length episodes with lots of clips to youtube fully chapter clips are there lots of fun things subscribe to our youtube channel youtube.com slash changelog full length episodes waiting for you okay big thank you to our friends over at retool retool.com our friends over at augmentcode.com this is your developer ai assistant that you need right now augmentcode.com and of course our friends over at temporal temporal.io solving retries for everyone enabling resilient non-breakable software again temporal.io and of course to the beat freak in residence break master cylinder bring in those banging beats the best beats in the biz as jared says gotta love those beats i love them hope you love them too okay this week is done the show is done friends is done and so we'll see you on monday enjoy your weekend"
+    }
+  ]
+}
