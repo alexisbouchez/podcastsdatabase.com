@@ -126,64 +126,46 @@ def transcribe(audio_path, model_name, language):
 # ── Step 2: Diarize ───────────────────────────────────────────────
 
 def diarize(audio_path, num_speakers, api_key):
-    import httpx
+    update("diarizing", "Loading pyannote model on GPU...")
 
-    update("diarizing", "Uploading to pyannote...")
+    from pyannote.audio import Pipeline
+    import torch
+    import torchaudio
 
-    base = "https://api.pyannote.ai/v1"
-    headers = {"Authorization": f"Bearer {api_key}"}
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    hf_token = os.environ.get("HF_TOKEN", api_key)
 
-    # Get presigned upload URL
-    filename = os.path.basename(audio_path)
-    media_url = f"media://{filename}"
-    resp = httpx.post(
-        f"{base}/media/input",
-        headers=headers,
-        json={"url": media_url},
-        timeout=30,
+    pipeline = Pipeline.from_pretrained(
+        "pyannote/speaker-diarization-3.1",
+        use_auth_token=hf_token,
     )
-    resp.raise_for_status()
-    upload_data = resp.json()
-    presigned_url = upload_data["url"]
+    pipeline.to(device)
 
-    # Upload file
-    with open(audio_path, "rb") as f:
-        put_resp = httpx.put(presigned_url, content=f, timeout=600)
-        put_resp.raise_for_status()
-
-    update("diarizing", "Starting diarization job...")
-
-    # Start diarization
-    diarize_body = {"url": media_url}
-    if num_speakers > 0:
-        diarize_body["numSpeakers"] = num_speakers
-
-    resp = httpx.post(
-        f"{base}/diarize",
-        headers=headers,
-        json=diarize_body,
-        timeout=30,
-    )
-    resp.raise_for_status()
-    job = resp.json()
-    job_id = job["jobId"]
-
-    # Poll
+    update("diarizing", "Loading audio and running diarization on GPU...")
     start_time = time.time()
-    while True:
-        time.sleep(5)
-        elapsed = int(time.time() - start_time)
-        resp = httpx.get(f"{base}/jobs/{job_id}", headers=headers, timeout=30)
-        resp.raise_for_status()
-        data = resp.json()
 
-        if data["status"] == "succeeded":
-            update("diarizing", f"Diarization complete ({elapsed}s)")
-            return data
-        elif data["status"] == "failed":
-            raise RuntimeError(f"Diarization failed: {data}")
+    # Load audio as waveform to bypass TorchCodec/AudioDecoder issues
+    waveform, sample_rate = torchaudio.load(audio_path)
 
-        update("diarizing", f"Diarizing... {elapsed}s elapsed")
+    params = {}
+    if num_speakers > 0:
+        params["num_speakers"] = num_speakers
+
+    diarization = pipeline({"waveform": waveform, "sample_rate": sample_rate}, **params)
+
+    elapsed = int(time.time() - start_time)
+    update("diarizing", f"Diarization complete ({elapsed}s)")
+
+    # Convert to same format as pyannote API response
+    turns = []
+    for turn, _, speaker in diarization.itertracks(yield_label=True):
+        turns.append({
+            "start": round(turn.start, 3),
+            "end": round(turn.end, 3),
+            "speaker": speaker,
+        })
+
+    return {"output": {"diarization": turns}}
 
 
 # ── Step 3: Merge ─────────────────────────────────────────────────
@@ -267,7 +249,7 @@ def main():
     num_speakers = int(os.environ.get("NUM_SPEAKERS", "2"))
     language = os.environ.get("LANGUAGE", "en")
     model_name = os.environ.get("WHISPER_MODEL", "medium.en")
-    api_key = os.environ.get("PYANNOTE_API_KEY", "")
+    api_key = os.environ.get("HF_TOKEN", os.environ.get("PYANNOTE_API_KEY", ""))
     port = int(os.environ.get("OUTPUT_PORT", "8080"))
 
     if not url:

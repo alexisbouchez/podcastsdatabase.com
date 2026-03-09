@@ -20,15 +20,15 @@ function loadEnv() {
 loadEnv();
 
 const FLY_API_TOKEN = process.env.FLY_API_TOKEN;
-const PYANNOTE_API_KEY = process.env.PYANNOTE_API_KEY;
+const HF_TOKEN = process.env.HF_TOKEN || process.env.PYANNOTE_API_KEY;
 const FLY_APP = process.env.FLY_APP || "pdb-transcriber";
 
 if (!FLY_API_TOKEN) {
   console.error("Error: FLY_API_TOKEN must be set in .env.local");
   process.exit(1);
 }
-if (!PYANNOTE_API_KEY) {
-  console.error("Error: PYANNOTE_API_KEY must be set in .env.local");
+if (!HF_TOKEN) {
+  console.error("Error: HF_TOKEN must be set in .env.local");
   process.exit(1);
 }
 
@@ -114,7 +114,7 @@ interface MachineJob {
   title?: string;
 }
 
-const FLY_IMAGE = process.env.FLY_IMAGE || `registry.fly.io/${FLY_APP}:deployment-01KK7K84KNWQ3MHEGKAE5QTQ73`;
+const FLY_IMAGE = process.env.FLY_IMAGE || `registry.fly.io/${FLY_APP}:deployment-01KK96KPWA2Y5BHVXZ2P0FF7B7`;
 
 async function createMachine(audioUrl: string): Promise<MachineJob> {
   const image = FLY_IMAGE;
@@ -128,7 +128,7 @@ async function createMachine(audioUrl: string): Promise<MachineJob> {
           NUM_SPEAKERS: String(numSpeakers),
           LANGUAGE: language,
           WHISPER_MODEL: model,
-          PYANNOTE_API_KEY: PYANNOTE_API_KEY,
+          HF_TOKEN: HF_TOKEN,
           OUTPUT_PORT: "8080",
         },
         guest: {
