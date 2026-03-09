@@ -1,0 +1,1995 @@
+{
+  "title": "Other people's robots",
+  "description": "Jerod and Adam discuss Nvidia's personal AI supercomputer, Waymo's latest infinite loop incident, getting a modern terminal setup, and whether AI has truly gone mainstream.",
+  "links": {
+    "YouTube": "https://youtu.be/eXVBY_xeN74",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo"
+  ],
+  "segments": [
+    {
+      "start": 15.28,
+      "end": 22.16,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and friends, a weekly talk show about Goonies deep cuts."
+    },
+    {
+      "start": 22.16,
+      "end": 36.44,
+      "speaker": "adam-stacoviak",
+      "text": "Thanks as always to our partners at Fly. The public cloud built for developers who ship with push button deployments scaling to thousands of instances. Learn all about it at fly.io. Okay, let's talk."
+    },
+    {
+      "start": 36.44,
+      "end": 97.98,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends before the show, I am here with a new friend of mine, Scott Deaton, CEO of Augment Code. I'm excited about this. Augment taps into your team's collective knowledge, your code base, your documentation, your dependencies. It is the most context-aware developer AI, so you won't just code faster, you'll also build smarter. It's an ask me anything for your code, it's your deep thinking buddy, it's your stand flow antidote. Okay, Scott, so for the foreseeable future, AI assisted is here to stay. It's just a matter of getting the AI to be a better assistant. And in particular, I want help on the thinking part, not necessarily the coding part. Can you speak to the thinking problem versus the coding problem and the potential false dichotomy there? A couple of different points to make, you know, AIs have gotten good at making incremental changes, at least when they understand customer software. So first and the biggest limitation that these AIs have today, they really don't understand"
+    },
+    {
+      "start": 97.98,
+      "end": 113.64,
+      "speaker": "jerod-santo",
+      "text": "anything about your code base. If you take GitHub copilot, for example, it's like a fresh college graduate, understand some programming languages and algorithms, but doesn't understand what you're trying to do. And as a result of that, something like two thirds of the community on average drops off"
+    },
+    {
+      "start": 113.64,
+      "end": 122.6,
+      "speaker": "adam-stacoviak",
+      "text": "of the product, especially the expert developers. Augment is different. We use retrieval augmented generation to deeply mine the knowledge that's inherent inside"
+    },
+    {
+      "start": 122.6,
+      "end": 227.64,
+      "speaker": "jerod-santo",
+      "text": "your code base. So we are a copilot that is an expert and that can help you navigate the code base, help you find issues and fix them and resolve them over time much more quickly than you can trying to tutor up a novice on your software. So you're often compared to GitHub copilot. I got to imagine that you have a hot take. What's your hot take on GitHub copilot? I think it was a great 1.0 product, and I think they've done a huge service in promoting AI, but I think the game has changed. We have moved from AIs that are new college graduates to, in effect, AIs that are now among the best developers in your code base. And that difference is a profound one for software engineering in particular. You know, if you're writing a new application from scratch, you want a web page that'll play tic-tac-toe, piece of cake, to crank that out. But if you're looking at tens of millions of line code base, like many of our customers, Lemonade is one of them, I mean, 10 million line mono repo, as they move engineers inside and around that code base and hire new engineers, just the workload on senior developers to mentor people into areas of the code base they're not familiar with is hugely painful. An AI that knows the answer and is available 7x24, you don't have to interrupt anybody and can help coach you through whatever you're trying to work on, is hugely empowering to an engineer working an unfamiliar code. Very cool. Well friends, Augment Code is developer AI that uses deep understanding of your large code base and how you build software to deliver personalized code suggestions and insights. A good next step is to go to AugmentCode.com, that's A-U-G-M-E-N-T-C-O-D-E.com, request"
+    },
+    {
+      "start": 227.64,
+      "end": 317.55,
+      "speaker": "adam-stacoviak",
+      "text": "a free trial, contact sales, or if you're an open source project, Augment is free to you to use. Learn more at AugmentCode.com, that's A-U-G-M-E-N-T-C-O-D-E.com, AugmentCode.com. So Jared, I hear that AI is now mainstream. How mainstream? Officially. Officially. Who officiates such things? I mean, I feel like it's been a star for two years-ish or more, I guess mainstream is now like everybody. You know, it's kind of funny, I was actually at a men's retreat this weekend and I was talking to them about something, I can't recall the context now that I'm sharing the story, but I said, oh, it's probably because of this, this, and that in the API and they're like, the whole group of guys was like, I have no idea what you just said. So like, y'all don't know what an API is, they're like, no, oh my God, I can't even tell you that. If you don't know what an API is, for sure you are below the API, right? I mean, maybe not, I don't think you have to be aware of the API to be above or below it, but you know, if AI is mainstream and AI was not mainstream to them, you know, that's a big deal. What kind of concerns me is that AI is becoming the API in many cases, and it's true unreliable in its response, non-deterministic responses."
+    },
+    {
+      "start": 317.55,
+      "end": 321.39,
+      "speaker": "jerod-santo",
+      "text": "Of course, our good friend, Daniel Whitenack's entire startup, which I believe is called"
+    },
+    {
+      "start": 321.39,
+      "end": 341.96,
+      "speaker": "adam-stacoviak",
+      "text": "Prediction Guard, not a sponsor, but a good friend, is all built around just trying to do that is like, get consistent output from the AI so that you can use it programmatically in a, not necessarily a deterministic way, but just like, hey, when I asked for JSON"
+    },
+    {
+      "start": 341.96,
+      "end": 347.54,
+      "speaker": "jerod-santo",
+      "text": "back, let's shoot for a hundred out of a hundred times, I'm going to get it."
+    },
+    {
+      "start": 347.54,
+      "end": 361.34,
+      "speaker": "adam-stacoviak",
+      "text": "And not one of those times it's going to be malformed simply because of your essence. So that's a problem. I got a fun way I used AI recently, maybe you can, as I'm telling this story, you can"
+    },
+    {
+      "start": 361.34,
+      "end": 368.62,
+      "speaker": "jerod-santo",
+      "text": "share another or think about another, is I was ripping a brand new Blu-ray disc I just"
+    },
+    {
+      "start": 368.62,
+      "end": 403.08,
+      "speaker": "adam-stacoviak",
+      "text": "got called Fight Club. The first rule of Fight Club is you do not talk about Fight Club. The second rule of Fight Club is you do not talk about Fight Club. So I hadn't watched, I hadn't re-watched Fight Club in forever. Oh yeah, I haven't seen it for a long time. And I was like, man, I don't even own this film. So I bought it on Blu-ray because it's not on 4K. And for whatever reason, whenever I go into make MKV to rip it, it was naming all the files a dot."
+    },
+    {
+      "start": 403.08,
+      "end": 417.76,
+      "speaker": "jerod-santo",
+      "text": "And so all the files I was ripping, each one of them was a dot and it had an increment, but all the files were hidden. And I didn't notice it until I went back after it was done. And I was like, where the heck is all the, I see that it successfully ripped, but where"
+    },
+    {
+      "start": 417.76,
+      "end": 421.92,
+      "speaker": "adam-stacoviak",
+      "text": "is all the files? And I'm like, oh yeah, these are hidden files. Let me go and fix this."
+    },
+    {
+      "start": 421.92,
+      "end": 429.92,
+      "speaker": "jerod-santo",
+      "text": "And I'm like, well, there's like 25 of them in this directory. I'm not going to go one by one inside a terminal and rename these things."
+    },
+    {
+      "start": 429.92,
+      "end": 526.77,
+      "speaker": "adam-stacoviak",
+      "text": "And I'm also not going to think about a script to automate renaming these things. So what did I do? I went to my good friend, Chad GPT, and I said, I copied the directory and I said, I've got on a Mac, I need to rename all these files so they're not hidden. Ideally, they'd be in sequential order of sorts. And it gave me a script. I put that script in and boom, all my files were there. I mean, that's the that is the beauty of this word calculator, Jared. Like, I don't have to think about any of that stuff. Sure, I could have. It would have been a fun exercise, but it had been a, you know, what do you call it? A squirrel, a yak to shave. I'd have been there for 20 minutes thinking about this versus one, not even one. After the races, Fight Club is renamed and boom, it's on Plex and I'm watching it and I'm happy. That's the way life should be. I don't have any good ones. I just feel like all mine are boring the way I use it. It's pretty much the new search engine in my life. I do still go to Google. And when I say Google, I mean DuckDuckGo. I only ever go to Google when I do the pound G in DuckDuckGo. And I've been that way for many years now. Pound G means actually Google this because DDG is failing me, which I would say probably I hit that 5% of the time, but it doesn't matter anymore because I rarely go to DuckDuckGo at all. And I don't think that we are unique in that way."
+    },
+    {
+      "start": 526.77,
+      "end": 595.08,
+      "speaker": "jerod-santo",
+      "text": "I mean, I'm sure you're going to a GPT first most of the time, unless you're, unless I'm like, just like, I, all I want to do is find the Wikipedia page. Then I'll go to the search bar in my browser, but if I'm actually looking for something, I've tried perplexity of late a couple of times. In fact, my question this morning for perplexity was to find me a minimal web browser. I wanted a web browser just for being able to share screen, share tabs as we record these video versions of our shows so we can put them in the video more easily, but I didn't want all the Chrome. I didn't want, I mean that both metaphorically and literally I don't want Chrome. I don't want all of the, my particular customizations in Safari, for instance, or my bookmarks, the favorites, all the things that are like popping out, the bookmarks, the favorites, the extensions that are in the reading lists. You open a new tab and there's your most recent things. And you're like, Oh, I was on Amazon buying some Odor X for my feet. And I don't want people to know that my feet stink. I just made that up."
+    },
+    {
+      "start": 595.68,
+      "end": 611.52,
+      "speaker": "adam-stacoviak",
+      "text": "Stinky feet. Come on now. So I was like, all I want is just a minimal web browser. And so I, I started there with DuckDuckGo and I think I, I DuckDucked something like minimal web browsers, 2025 or something like this."
+    },
+    {
+      "start": 611.52,
+      "end": 614.44,
+      "speaker": "jerod-santo",
+      "text": "I didn't want old ones. Right."
+    },
+    {
+      "start": 614.8,
+      "end": 624.74,
+      "speaker": "adam-stacoviak",
+      "text": "And it was kind of junky and a lot of like the listicle people who just create lists of 27 web browsers that you've never heard of. Couldn't really find much."
+    },
+    {
+      "start": 625.1,
+      "end": 633.77,
+      "speaker": "jerod-santo",
+      "text": "A lot of them were for Linux or old, or just like Chrome, Safari, Brave, Vivaldi, Firefox."
+    },
+    {
+      "start": 633.77,
+      "end": 659.74,
+      "speaker": "adam-stacoviak",
+      "text": "I'm like, no, I, these are not minimal. And what I really wanted, not minimal in terms of memory usage, but minimal in terms of browser Chrome. Like I want to just show me the webpage and maybe some tabs at the top. Arc, Arc might've been good for this. I consider just trying Arc because I've seen a lot of people use it for that purpose. And then I thought, Arc's a dead dog, man. Why would I want to download Arc? It's still alive. It's not a dead dog. I know it is, but it's dead to me."
+    },
+    {
+      "start": 659.86,
+      "end": 685.91,
+      "speaker": "jerod-santo",
+      "text": "Well, if you watch the video, I actually think where we may be mischaracterizing it's, it's, I mean, I know it's not feature rich in terms of its future, but I think they're planning to kind of keep it around and do some things. I don't think it's literally a dead dog. I think it still works, obviously. Yeah, it still works, but TikTok still works. Yeah. I think that you crossing off the list for this purpose may be, you know, foolish. Yeah, I think so."
+    },
+    {
+      "start": 685.95,
+      "end": 686.35,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 686.75,
+      "end": 712.35,
+      "speaker": "adam-stacoviak",
+      "text": "I'd give it a second look. Well, I wouldn't have got this cool story about perplexity.ai. Okay. Also not a sponsor. So I went to perplexity because I thought, yeah, people will keep telling me about perplexity. I just haven't really used it much. Yeah. And I typed in something. The reason why I wouldn't go to, for instance, Llama with this or even ChatGPT, although it's gotten better at recency. Is because of that. It's like, well, I want recent."
+    },
+    {
+      "start": 712.63,
+      "end": 719.2,
+      "speaker": "jerod-santo",
+      "text": "And so I tried perplexity and, uh, got great results from that sucker."
+    },
+    {
+      "start": 719.72,
+      "end": 729.74,
+      "speaker": "adam-stacoviak",
+      "text": "Wow. I said, what's the simplest web browser in terms of UI, something great for screenshots. It gave me four sources, which is awesome."
+    },
+    {
+      "start": 729.74,
+      "end": 748.35,
+      "speaker": "jerod-santo",
+      "text": "Like right at the top, here's my sources, clickable, click out and go. It gave me the answer based on search results, several browsers offer simplicity. Okay. It gives me a whole bunch of browsers links. My old friend, I didn't want text-based not that minimal screenshot friendly."
+    },
+    {
+      "start": 748.35,
+      "end": 796.26,
+      "speaker": "adam-stacoviak",
+      "text": "It gave me dot.go one called Calibri, which had an account you had to create to get it. So I didn't do that one bad Wolf didn't check that one out. Scroll past it, actually. And the first one I clicked on was like for Linux. And so then I just said it must run on macOS as a followup. And it just said, well, for minimalist browser that runs on macOS. I recommend min browser. Sounds promising. Yeah, at least by name. So I went to min browser.org and meet men, a smart web browser. This is open source. Browse without distractions, find anything instantly stay organized. It's super simple and like no Chrome. Basically look at this Chrome. Is that what you're using? That's what I'm using right now. This is the reveal."
+    },
+    {
+      "start": 796.38,
+      "end": 917.08,
+      "speaker": "jerod-santo",
+      "text": "This is the big reveal min browser. My gosh. I love this. It is cool. It is cool. So like up to date and yeah, maintained well, et cetera. And I didn't find it on any of those other lists, like perplexity pointing me straight to this. I looked at it. He's got a nice website. Uh, it shows off. I'm like, Ooh, look at that. Nothing like a plus, some tabs, a setting screen and a back button. Very simple. And so I went and download this sucker. I checked it out first and made sure it was legit. Cause I'm like, Hmm, it's on GitHub. Checked him out. Shout out to Palmer AL. I'm sure it's not Palmer AI. Just kidding. That was the ongoing joke for sure. It's not Palmer AF. No, it's Palmer AL. I didn't say AF. I said AI. I know you did. I was adding another one. Perhaps his name is Al. Um, perhaps his name is Palmer AL. Regardless of his name, he's got this min browser. You can sponsor him. I saw this. Oh, wait, how do you get to sponsors? The one thing it doesn't have is my, uh, swipe back to go back. But it does have keyboard customization. So I already have gone into here. And the other thing it didn't have is like, uh, one keyboard shortcut. I use all the time, which is Mac OS specific, but it's, it's global is command shift, uh, left and right parens to switch tabs and this didn't work. And so I'm like, well, that's kind of lame. So I went in here and look at that customizable keyboard shortcuts. So I went into this one and I threw it in there. That's what I was doing. When you hopped on, I added my command plus shift plus right bracket and command plus shift left bracket and boom. So pretty cool. So that made me very happy both with min so far, shout out Palmer, Palmer, Al, and with perplexity, which pointed me directly to this. And I was like, that's actually a really good recommendation. So what you're saying is AI truly is mainstream."
+    },
+    {
+      "start": 918.02,
+      "end": 931.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Right. I mean like this is, it, it, it, uh, provided a better result. It found something, nothing else resulted in the Googles of the world, the duck that goes the world, right?"
+    },
+    {
+      "start": 932.16,
+      "end": 935.76,
+      "speaker": "jerod-santo",
+      "text": "You know, as you were sharing your story too, I was logging into perplexity"
+    },
+    {
+      "start": 935.76,
+      "end": 1004.92,
+      "speaker": "adam-stacoviak",
+      "text": "because I've had a, an account there, but I don't use it very frequently. And I was like, how do I get in here? Cause I don't have it saved in my one password. And so I'm like, I know I have these Google options. I would always use email. Maybe I did. So then I had to go back to my email search perplexity. And sure enough, I use my email to get in long story short. I hate that. I hate not knowing how I got in somewhere. I almost never use SSO, almost never use Google or Facebook or whatever to log in or get hub. Even if you forced me to do that, I do not like it. Email is my friend, not the enemy being my friend. Anyways, what I like about this is it says, what do you want to know now? What do you want to know? And it's got this question box and then it's got what recent scores. Uh, stocks, some news ticking. It's like a little news ticker and it's got the weather for me nearby. So it's kind of like being the Yahoo of your, right? Like it's trying to be this potential homepage, go here, let your day begin here and boom, you've got this place to kind of go and hang out at answer"
+    },
+    {
+      "start": 1004.92,
+      "end": 1008.8,
+      "speaker": "jerod-santo",
+      "text": "questions, get better results and get your news and scores and stuff."
+    },
+    {
+      "start": 1008.92,
+      "end": 1011,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I'm not sure if I like that."
+    },
+    {
+      "start": 1011,
+      "end": 1033.05,
+      "speaker": "jerod-santo",
+      "text": "I like the idea that they're trying to do. It might be good for some people, not for me. I don't need a homepage, you know? It reminds me of like Yahoo back in the nineties where it's like, this is your, what do they call them back then? Portals. Portals. Yeah. It was called a portal, which is a cool word, but it's not necessarily a thing that you want where it's like, this is your one page that takes"
+    },
+    {
+      "start": 1033.05,
+      "end": 1042.85,
+      "speaker": "adam-stacoviak",
+      "text": "you to all the other pages on the internet and Yahoo was one. Of course, AOL had a portal. Portals were big business back in the nineties. Yeah."
+    },
+    {
+      "start": 1042.85,
+      "end": 1054.09,
+      "speaker": "jerod-santo",
+      "text": "And honestly, this might bring it back. I mean, AI is the new search, as you can tell based on your story. Yes. It's this, the new search for me too. My, I'll share a shorter version of it."
+    },
+    {
+      "start": 1055.26,
+      "end": 1058.46,
+      "speaker": "adam-stacoviak",
+      "text": "I do want to concur though. A big shout out to min browser. That's super awesome."
+    },
+    {
+      "start": 1059.14,
+      "end": 1092.88,
+      "speaker": "adam-stacoviak",
+      "text": "I recently used ChatGPT and this was actually the 4.0 model. It wasn't the 0.1 model. I think I was just, you know, silly for a day. Didn't swap out to 0.1 anyways. I'm in the, I think I'll be in the market soon to get new tires. And I know that when you buy truck tires, it's always like, well, you want to look cool, you want to have the, the MT, right? You want to be a cool dude. I don't know what the MT is. I don't know what it means either. I think it means mud tire. Okay."
+    },
+    {
+      "start": 1093.48,
+      "end": 1097.96,
+      "speaker": "jerod-santo",
+      "text": "It's basically an off-road tire. You know, you want them, they've gotten that, that part across."
+    },
+    {
+      "start": 1097.96,
+      "end": 1102.32,
+      "speaker": "adam-stacoviak",
+      "text": "You don't know what it is, but you know, you want it. Well, it looks cool. Okay. It looks stout."
+    },
+    {
+      "start": 1102.36,
+      "end": 1103.48,
+      "speaker": "jerod-santo",
+      "text": "It looks rough."
+    },
+    {
+      "start": 1103.48,
+      "end": 1104.24,
+      "speaker": "adam-stacoviak",
+      "text": "It looks rugged."
+    },
+    {
+      "start": 1104.32,
+      "end": 1114.43,
+      "speaker": "jerod-santo",
+      "text": "Okay. And so as a dude, you may be swayed to go that route. Yeah. If that's what you're drawn to, I think it look cool. Maybe it stands for manly tread."
+    },
+    {
+      "start": 1114.47,
+      "end": 1145.48,
+      "speaker": "adam-stacoviak",
+      "text": "You want that manly tread? Maybe so. So what does AT stand for then Jared, if you, if you've got this down. Oh, what's AT stand for? Because there's AT and then MT. Oh, awesome tread. Awesome tread. Okay, cool. Yeah. I like awesome tread personally. So I prefer a tire that is designed for road travel and a little off road. Cause I do pull things here and there. I've got a travel trailer, right? Sure. It's not so frequent where it's a daily driver kind of thing, but I do want to have that concern accounted for when I purchase tires."
+    },
+    {
+      "start": 1145.48,
+      "end": 1190.56,
+      "speaker": "jerod-santo",
+      "text": "And so I used ChatGPT to locate some good tires for my particular truck, my year, make model, et cetera, gave it my engine and told it how I drive, what I'm kind of optimizing for, went through a couple of rounds and landed on four good tires that are really good selections. And the one that it suggested most was exactly what Discount Tire, now also not a sponsor, geez, so many not sponsors this time around. I'm a fan of Discount Tire though. Okay. You have them there? Yeah, we have them here. Fantastic. Cause I love Discount Tire. They make it simple. They make it easy. They really do. They're the best. You can call ahead. You can book an appointment. If you're a military veteran or a active military, they'll give you a discount, et cetera, really good people. Usually pretty knowledgeable staff, even if they're new, they're pretty knowledgeable."
+    },
+    {
+      "start": 1191.31,
+      "end": 1221.89,
+      "speaker": "adam-stacoviak",
+      "text": "And so I benchmarked this advice from ChatGPT against the advice I would get from, you know, the real deal, the real deal, holy photos, I would say, and, uh, pegged it on the Michelin Defender LX M slash S, which means mostly super awesome. So I went with a road-ish tire, a road-ish tire. Anyways, great recommendations from LLM. So honestly, in my opinion, yeah. So, well, that's a win."
+    },
+    {
+      "start": 1222.87,
+      "end": 1232.19,
+      "speaker": "jerod-santo",
+      "text": "I think that one thing that we're both doing now, both with Perplexity, at least in the configuration that I just used it off the website and with ChatGPT."
+    },
+    {
+      "start": 1232.83,
+      "end": 1270.25,
+      "speaker": "adam-stacoviak",
+      "text": "In the configuration that you're using it is that we are running remote LLMs, right? These are other people's robots. Are you down with OPR? Uh, apparently we are, but Nvidia wants us to perhaps have it all in our house or in our office with this new $3,000 personal AI supercomputer they call Digits. Did you see this news from last week at them? I was very excited about this news. I have not deeply investigated it aside from its price tag and its potential"
+    },
+    {
+      "start": 1270.25,
+      "end": 1274.97,
+      "speaker": "jerod-santo",
+      "text": "availability, and the fact that anybody who is buying a Mac mini is not"
+    },
+    {
+      "start": 1274.97,
+      "end": 1294.64,
+      "speaker": "adam-stacoviak",
+      "text": "reconsidering their purchase to consider this instead, even though it's quite a bit more than a typical Mac mini configuration. So the price points are quite a bit different, right? Yeah. Entry point for a Mac mini is 600 bucks, maybe? Yeah, around there. Something like that. Plus tax and shipping and stuff. Well, there's no, of course, when you get the one you actually want."
+    },
+    {
+      "start": 1294.92,
+      "end": 1295.48,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 1295.64,
+      "end": 1384.32,
+      "speaker": "adam-stacoviak",
+      "text": "Which is why I had not bought the M4 Mac book pro yet, because I specked out the one I actually want and couldn't justify that ticket, but when you max out the mini, which we should maybe talk about Dell's new naming, cause it just made me think of that. The Dell premium max pro yes. They're following Apple for no good reason into a naming quagmire. However, back on Nvidia, once you max out a mini, you're, you're basically going to be in the price range of this new digits supercomputer that they announced last week at the CES keynote. This was a big deal. I mean, Nvidia all of a sudden has become like, they need to put in, they need to put another N into the fang or the magenta, or I don't know, they're always changing this acronym, but I mean, Nvidia is like out of nowhere become yeah. Seemingly out of nowhere. That's like a slow creep. I mean, they've been around a long time. They've been valuable. They've been producing good stuff, but man, did they just find themselves perfectly positioned for both AI, blockchain gamers, like all, all of the things that are still burgeoning are going up AI, of course, being the main one and this massive new need for GPU's and video has just been killing it."
+    },
+    {
+      "start": 1384.76,
+      "end": 1384.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1384.92,
+      "end": 1393.27,
+      "speaker": "adam-stacoviak",
+      "text": "The only sad part, I would say, this might dovetail a little bit, but let's not go there if we don't have to. I just want to make this statement. Okay. Okay."
+    },
+    {
+      "start": 1393.55,
+      "end": 1420.29,
+      "speaker": "jerod-santo",
+      "text": "Is that, uh, the sad part is in that world of building your own machine is not Mac OS, right? I love, uh, Apple hardware. I don't love it so much that I only want to use only Apple hardware. I like other hardware, but I love Mac OS. Right. I want to take Mac OS elsewhere. And what I want to do is build my own machine. Cause it's fun. Yeah."
+    },
+    {
+      "start": 1420.77,
+      "end": 1428.13,
+      "speaker": "adam-stacoviak",
+      "text": "But I want to run Mac OS and I can't. So I ended up running a windows machine, which is not the worst ever, but it's not Mac OS."
+    },
+    {
+      "start": 1429.34,
+      "end": 1439.26,
+      "speaker": "adam-stacoviak",
+      "text": "It's not that it's bad or better or good. It's just my preference. It's not about good, better, best. It's what I've been aware of, known of, et cetera. It's my platform of choice."
+    },
+    {
+      "start": 1439.26,
+      "end": 1448.02,
+      "speaker": "jerod-santo",
+      "text": "And so to go this route of Nvidia GPUs, which is fun. I've got to now use, in my opinion, a subpar operating system"
+    },
+    {
+      "start": 1448.02,
+      "end": 1451.7,
+      "speaker": "adam-stacoviak",
+      "text": "comparative to what I'm used to. Not because it's worse or better because I like it."
+    },
+    {
+      "start": 1451.9,
+      "end": 1456.14,
+      "speaker": "jerod-santo",
+      "text": "I like Mac OS better just to be super clear. Sure. But what it says here though, is it's kind of cool."
+    },
+    {
+      "start": 1456.14,
+      "end": 1482.83,
+      "speaker": "adam-stacoviak",
+      "text": "Is that each project digit system comes equipped with 128 gigs of unified, coherent memory. What does that mean? Unified, coherent memory. Is that something new? I don't know. It says by comparison, a good laptop might have 16 or 32 gigs of RAM and up to four terabytes of NVMe storage. And it says for even more demanding applications to project digit. This is cool. Two project digit systems can be linked together to handle models"
+    },
+    {
+      "start": 1483.15,
+      "end": 1529.37,
+      "speaker": "jerod-santo",
+      "text": "with up to 405 billion parameters. Meta's best model, llama 3.1 has 405 billion parameters as an example. It goes on to share more stats and specifics, but wow, it's back in the punch. I mean, you can pair them together. So this AI mainstream that we opened up with, you know, I want to run, which I have not done yet, and it's not because I'm not able to, I just haven't had the time to dedicate to doing it right. So I'm a fan of do it once, do it right kind of thing. I like to iterate too, sure. But in most cases I want to do it once, do it right. Cause I got a limited time to dedicate. I want to run my GPT locally. And I think this might be the gateway there."
+    },
+    {
+      "start": 1529.41,
+      "end": 1563.36,
+      "speaker": "adam-stacoviak",
+      "text": "Although the price tag is prohibitive, even though it's cool, just don't know. Yeah. I don't think that I would buy this, but I would certainly take one for free. Nvidia. If you guys want to send us some, we'll definitely try them out. Um, it's cool. It's small, man. It looks like the Mac mini. Yeah, I would definitely make use of one if I had access to it, I would load it up with Linux or something and have some fun with it, pull that image back up while"
+    },
+    {
+      "start": 1563.36,
+      "end": 1567.6,
+      "speaker": "jerod-santo",
+      "text": "you're talking to this, this GB 10 ship seems to be like at the core of what"
+    },
+    {
+      "start": 1567.6,
+      "end": 1624.68,
+      "speaker": "adam-stacoviak",
+      "text": "they're offering here says it delivers up to one petaflop of AI performance. I'm sorry. What does that mean? One petaflop. Is that just like basically infinite, big, massive. Awesome. Uh, well, I know petabytes bigger than a terabyte. So a petaflop is going to be bigger than a teraflop. It can perform one quadrillion, one quadrillion. I had trouble saying that so big one quad, one quadrillion AI calculations per second at FP for precision. They throw out new acronyms here. They make up things on the fly with this new system. Okay. I remember what a petaflop is. I can't believe I forgot this. It's 1000 trillion. I normally do this kind of math when I'm just bored. 1000 trillion or one quadrillion operations. Is that what you just said? Yeah. Okay. I had trouble doing it. I was looking it up while you were describing it. So I wasn't listening to you. That's okay."
+    },
+    {
+      "start": 1625.44,
+      "end": 1627.68,
+      "speaker": "jerod-santo",
+      "text": "That's extremely fast computing for a single machine."
+    },
+    {
+      "start": 1627.72,
+      "end": 1659.93,
+      "speaker": "adam-stacoviak",
+      "text": "A flop of course is a floating point operation per second. Did you say that also? No, I didn't say that. All right. I like your deeper explanation though. This is, this is great stuff. Yeah. Well, that's what I'm here for. So you might buy one if you could run my Mac OS on it. I'm pretty happy where I am, but I think it's cool that there's like, you know, a brand new entrant. Here's the thing is making computers. Isn't the easiest thing to do. And so has Nvidia made computers before? I just feel like, do they have, they have the resources. Of course."
+    },
+    {
+      "start": 1660.21,
+      "end": 1666.21,
+      "speaker": "jerod-santo",
+      "text": "They now have laptops and desktops. They do. They do. That's news to me. Tell me more. Well, I don't know much. I'll just say they do."
+    },
+    {
+      "start": 1666.69,
+      "end": 1681.25,
+      "speaker": "adam-stacoviak",
+      "text": "So they have made computers and do people like those computers? I think this is a newer thing though. I think in the last year they've, they've come out with a laptop and a desktop. Which to me, and this is sort of, and I'm, I'm not deep where I know all the things,"
+    },
+    {
+      "start": 1681.25,
+      "end": 1693.29,
+      "speaker": "jerod-santo",
+      "text": "but this is like entrance knowledge. Having built several different machines, the fun part is choosing components obviously. And I feel like if Nvidia is an amazing player in the marketplace, you want to choose their GPUs."
+    },
+    {
+      "start": 1693.69,
+      "end": 1701.33,
+      "speaker": "adam-stacoviak",
+      "text": "If they're building laptops and desktops, maybe potentially you disagree to that. Just, just give them your stuff, man."
+    },
+    {
+      "start": 1701.57,
+      "end": 1703.21,
+      "speaker": "jerod-santo",
+      "text": "Just let them, let them track you."
+    },
+    {
+      "start": 1703.49,
+      "end": 1705.25,
+      "speaker": "adam-stacoviak",
+      "text": "I just accepted Nvidia's cookies."
+    },
+    {
+      "start": 1705.37,
+      "end": 1706.65,
+      "speaker": "jerod-santo",
+      "text": "This is an addition to men."
+    },
+    {
+      "start": 1706.73,
+      "end": 1798.76,
+      "speaker": "adam-stacoviak",
+      "text": "Men block all tracking. Right. Right. That'd be cool. It's open source. Made that contribution. Uh, what was I saying? Is that it's almost like the Apple way and I'm hoping that doesn't go that way where they become, I suppose the probably, the probably wouldn't happen with them being a GPU seller as a component. They wouldn't corner the market or try to corner or stranglehold, stranglehold the market by creating laptops and desktops that make it so that you can eventually buy their component and build your own system. That's my concern, not fear, but concern. Like, will they get to a point where they become such a behemoth that they Apple the ecosystem and stop making the components to sell and force you to buy their laptop, desktop. Digit, et cetera, right. Close system. You know, I like open systems where I can swap things out, choose the components, swap out the CPU, the GPU, the Ram, all the things, you know, that's the fun part of, of that side of it. And maybe you, maybe you're the one that's guinea pig in the platform and if they've already solved it, maybe it's not worth it, but that's the fun part. So I'm perusing their marketplace. Oh, you're getting an error. So I'm perusing their marketplace on this tab and they got a bunch of desktops. I'm having a hard time. Oh gosh. Either this is either men's fault or Nvidia's fault. Let's blame Nvidia. Cause you know, men's just one guy with open source code. He's slinging and videos substantially more resourced than that."
+    },
+    {
+      "start": 1799.28,
+      "end": 1807,
+      "speaker": "jerod-santo",
+      "text": "Um, price points are good though. The price points are good. I can't tell if these are actually Nvidia making these or if these are just like OEM, like these are featured brands."
+    },
+    {
+      "start": 1807.04,
+      "end": 1812.52,
+      "speaker": "adam-stacoviak",
+      "text": "I think this is just like them slapping Nvidia thing on top of somebody else's hardware."
+    },
+    {
+      "start": 1812.56,
+      "end": 1813.68,
+      "speaker": "jerod-santo",
+      "text": "Let's hope, let's hope."
+    },
+    {
+      "start": 1813.88,
+      "end": 1835.24,
+      "speaker": "adam-stacoviak",
+      "text": "I think so. Cause I'm a fan of like MSI. I'm a fan of Asus, you know, I liked the idea of like multiplayers and I think that's what keeps the, you know, despite my thoughts on windows and I'm not a windows hater, I just have a preference. Okay. Uh, despite that, I feel like having a multiplayer world in that PC building market enables to thrive."
+    },
+    {
+      "start": 1835.76,
+      "end": 1841.36,
+      "speaker": "jerod-santo",
+      "text": "Because you've got one year, you know, this particular motherboard is going to thrive."
+    },
+    {
+      "start": 1841.4,
+      "end": 1855.94,
+      "speaker": "adam-stacoviak",
+      "text": "This brand is going to thrive or they have a, a feature set that enables ECC memory that others don't or whatever it might be. Or they're enabling the latest DDR five Ram, or they're able to handle clock speeds and overclock. You know, you've got these selections."
+    },
+    {
+      "start": 1855.94,
+      "end": 1865.89,
+      "speaker": "jerod-santo",
+      "text": "That's, what's cool about the PC building world in my opinion. Yeah, for sure. What's up friends. I'm here with Kurt Mackey, co-founder and CEO of Fly."
+    },
+    {
+      "start": 1865.93,
+      "end": 1887.89,
+      "speaker": "adam-stacoviak",
+      "text": "As you know, we love Fly. That is the home of changelog.com. But Kurt, I want to know how you explain Fly to developers. Do you tell them a story first? How do you do it? I kind of change how I explain it based on almost like the generation of developer I'm talking to. So like for me, I built and shipped apps on Heroku, which if you've never used Heroku is roughly like building and shipping an app on Vercel today."
+    },
+    {
+      "start": 1887.97,
+      "end": 1900.77,
+      "speaker": "jerod-santo",
+      "text": "It's just, it's 2024 instead of 2008 or whatever. And what frustrated me about doing that was I didn't, I got stuck. You can build and ship a Rails app with a Postgres on Heroku the same way you can build and ship a Next.js app on Vercel."
+    },
+    {
+      "start": 1900.89,
+      "end": 1910.33,
+      "speaker": "adam-stacoviak",
+      "text": "But as soon as you want to do something interesting, like as soon as you want to, at the time, I think one of the things I ran into is like, I wanted to add what used to be like kind of the basis for Elasticsearch."
+    },
+    {
+      "start": 1910.33,
+      "end": 1912.45,
+      "speaker": "jerod-santo",
+      "text": "I want to do full text search in my applications."
+    },
+    {
+      "start": 1912.61,
+      "end": 1929.37,
+      "speaker": "adam-stacoviak",
+      "text": "You kind of hit this wall with something like Heroku where you can't really do that. I think lately we've seen it with like people wanting to add LLMs kind of inference stuff to their applications on Vercel or Heroku or Cloudflare or whoever these days they've, they've started like releasing abstractions that sort of let you do this."
+    },
+    {
+      "start": 1929.41,
+      "end": 1951.53,
+      "speaker": "jerod-santo",
+      "text": "But I can't just run the model I'd run locally on these black box platforms that are very specialized. For the people my age, it's always like, Oh, Heroku was great, but I outgrew it. And one of the things that I felt like I should be able to do when I was using Heroku was like run my app close to people in Tokyo for users that were in Tokyo. And that was never possible. For modern generation devs, it's, it's a lot more Vercel based."
+    },
+    {
+      "start": 1951.53,
+      "end": 1963.97,
+      "speaker": "adam-stacoviak",
+      "text": "It's a lot like Vercel is great right up until you hit one of their hard line boundaries and then you're kind of stuck. There's another one. We've had someone within the company. I can't remember the name of this game, but the tagline was like five minutes to start forever to master."
+    },
+    {
+      "start": 1964.09,
+      "end": 1967.49,
+      "speaker": "jerod-santo",
+      "text": "That's sort of how we're pitching fly is like you can get an app going in five minutes."
+    },
+    {
+      "start": 1967.57,
+      "end": 2011.16,
+      "speaker": "adam-stacoviak",
+      "text": "But there's so much depth to the platform that you're never going to run out of things you can do with it. So unlike AWS or Heroku or Vercel, which are all great platforms, the cool thing we love here at Changela most about fly is that no matter what we want to do on the platform, we have primitives, we have abilities, and we as developers can charge our own mission on fly. It is a no limits platform built for developers. And we think you should try it out. Go to fly.io to learn more launcher app in five minutes. Too easy. Once again, fly.io this digit though."
+    },
+    {
+      "start": 2011.36,
+      "end": 2046.52,
+      "speaker": "jerod-santo",
+      "text": "So if you were to purchase it, what would make me think it's valuable is if this thing can be on my network and give me local LLM to my land, maybe I can assign a, a global, a domain name to it and actually access it from external. I can tap into it from the API. Maybe I can attach a client to it that fetches via the API and it's all local to me where I don't have to do what you said before, which is, you know, other people's robots, you know, OPR."
+    },
+    {
+      "start": 2047.48,
+      "end": 2050.4,
+      "speaker": "adam-stacoviak",
+      "text": "I'd like to, to own my own robot."
+    },
+    {
+      "start": 2051.25,
+      "end": 2057.67,
+      "speaker": "jerod-santo",
+      "text": "And if digit is the way to go, then it's three grand to do that."
+    },
+    {
+      "start": 2059.1,
+      "end": 2063.3,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe, maybe the gen two, you know, always by the gen two. Right."
+    },
+    {
+      "start": 2063.5,
+      "end": 2244.5,
+      "speaker": "adam-stacoviak",
+      "text": "Well, this one doesn't come out until may. So there'll still be time will tell. And I'm sure the Jeff gearlings of the world and the, the techno Tim's. Yeah, exactly. We'll all have reviews and yeah, breakdowns and we'll see if it's any good right now. It's just interesting, but you have you tried Ollama yet? This was how I have been running llama locally and I'm all but sure you can set it up to run over a network and have a beefy computer. That's actually, I know, I think last time you and I were on a friends by ourselves, we looked at, or maybe there's two of them back. We looked at Ollama settings and we saw that you could set up a network URL to run against. I haven't done it though. If I would, uh, I would buy a inexpensive Mac mini with as much, you know, peripherals as necessary, no storage really necessary. Maybe there's some storage necessary. I don't know. I would configure a Mac mini, put it on my network and you know, I don't know if a 10 gig connection to it is necessary either. It's just probably not, but why not data, you know, a one gig connection is probably just plenty. So you can go with potentially the base model Mac mini and get maybe a majority of, or a lot of what you can get from this. And via digit. Now, I think the numbers there's thinking is positioned at somebody who's gone beyond the land. Like I'm looking for, you know, how can I integrate suggestions? Gosh, I'm, I don't know. Do you have Alexa in your house? Uh, who now? Alexa. Oh yes. Do you like Alexa? What's your, what's your relationship with Alexa, positive or negative? It's similar to Siri. I guess my, my stance is similar to Siri, which is like slightly annoyed, but still useful at times. My kids love it. They ask all kinds of questions. Yeah. Kids love that stuff. Yeah. They have patience. We don't have, you know, well, for a lot of them, uh, my kids, it's the only thing they have in terms of like, you know, we don't give a lot of them smartphones or anything until they're in their teens. And so like they have iPad, but that's like family shared use and you're like, but like, just to ask a question, like if you want to know what. 14 times 14 is, and you haven't memorized your times tables yet. They'll just ask it. Right. They'll ask how to spell things like it's, it's kind of a crutch. It's kind of a crutch, but that being said, they get a lot of value out of it. I don't get very much, but it's mostly just playing music for us. What's your, you asked me so that I would ask you back. Here you go. What's your stance? It's new. So my personal usage has always been frustrated at friends houses. They've got it to do lights and stuff like that. And I'm like, okay. So in that example, which I haven't gotten there yet, I think that's cool. This goes back to the self hosting. I would totally set up home assistant, configure Alexa to do these things."
+    },
+    {
+      "start": 2244.98,
+      "end": 2248.98,
+      "speaker": "jerod-santo",
+      "text": "I think that's cool. That's a, that's a great usage of voice."
+    },
+    {
+      "start": 2249.38,
+      "end": 2250.54,
+      "speaker": "adam-stacoviak",
+      "text": "It's simple, right?"
+    },
+    {
+      "start": 2250.54,
+      "end": 2268.56,
+      "speaker": "adam-stacoviak",
+      "text": "It's a simple interface to do things in your household. I was like home kid. And so in my house at least we have some automated blinds or some, some, and they're on the network. It has a hub. How do I describe this? They're blinds that are electronic."
+    },
+    {
+      "start": 2268.56,
+      "end": 2277.96,
+      "speaker": "jerod-santo",
+      "text": "They have a battery in them so you can like recharge them once per year kind of thing. And it has a remote and you can use the remote obviously, but you can also just tell home kit."
+    },
+    {
+      "start": 2278.95,
+      "end": 2316.92,
+      "speaker": "adam-stacoviak",
+      "text": "Open all blinds or close living room blinds or open living room blinds to 80% like it'll take even that kind of percentage number. And so home kit does a lot of that for me. So I haven't really leaned too far into home assistant. That being said, I'm not a super insane self-hosting home automation person. I'm just a dip my toe in person cause I haven't, I don't have enough time to go as deep as I want to. I really should carve out more time, but my issue with Alexa is that it's mostly frustrating. And the reason why I'm getting to this Alexa conversation is that how would I want to leverage an LLM that I would host myself?"
+    },
+    {
+      "start": 2316.96,
+      "end": 2324.28,
+      "speaker": "jerod-santo",
+      "text": "Like Olam or whatever, I would love to have some voice version of it. So I'm speaking to it versus just having to type everything to it."
+    },
+    {
+      "start": 2324.28,
+      "end": 2328.68,
+      "speaker": "adam-stacoviak",
+      "text": "You know, like can I take this LLM and expand its usage?"
+    },
+    {
+      "start": 2329,
+      "end": 2337.12,
+      "speaker": "jerod-santo",
+      "text": "Alexa and Siri are the two good options for voice OS. And so I'm not sure that Siri is there yet."
+    },
+    {
+      "start": 2337.16,
+      "end": 2419.52,
+      "speaker": "adam-stacoviak",
+      "text": "I wonder if Apple's Apple intelligence will prohibit Siri from being more useful in those regards. Don't talk to me, Siri. Gosh, Siri's listening on my phone right in front of me. Go away, Siri. So I think I would love it if someone would just corner the market on a really awesome voice OS that is agnostic so that as NVIDIA predicts this AI going mainstream with NVIDIA digit, I think this is true. People are going to start putting LLMs in their homes more frequently, you know, because of Olam or because of the self-hosting option. The next thing you're going to want to do though is interface it with it via voice. So how do you do that? That's why I asked you about Alexa. Well, I do think that we're very much in the early days where the pioneers are pioneering and that's why so much excitement in our particular industry was like, ooh, a new gold rush. And as tech enthusiasts and people, you know, in the software world, of course we've been interested in toying with it and trying it, but it certainly hasn't arrived yet in any packaged way where it's mainstream. I mean, Apple intelligence is probably the closest thing and it just kind of sucks at this point. I mean, are you using any of your, is it out officially? Oh yeah, no, I don't have Apple intelligence."
+    },
+    {
+      "start": 2419.52,
+      "end": 2434.94,
+      "speaker": "jerod-santo",
+      "text": "I mean, it's beta, but it's on iOS 18.2. I think it's on, I've resisted out that, that, uh, upgrade because of what they've done to the photos app. So I'm still stuck in the past cause I'm like, you're in the past. Well, I'm just scared. I'm, I'm, I'm so afraid."
+    },
+    {
+      "start": 2434.94,
+      "end": 2444.72,
+      "speaker": "adam-stacoviak",
+      "text": "I'm shaking my boots with this whole, this is the walled garden. You just, when Apple says upgrade, you have to upgrade. I know, and I'm resisting Jared. So hardcore. Okay."
+    },
+    {
+      "start": 2444.72,
+      "end": 2446.4,
+      "speaker": "jerod-santo",
+      "text": "And the reason why is the photos app."
+    },
+    {
+      "start": 2446.44,
+      "end": 2458.04,
+      "speaker": "adam-stacoviak",
+      "text": "I use the new photos app all the time. It's not very good, but what am I going to do? I don't have any alternatives. I know. I was hoping that they would reverse the, the train and do something different. Well, there's always iOS 19 though."
+    },
+    {
+      "start": 2458.92,
+      "end": 2460.92,
+      "speaker": "jerod-santo",
+      "text": "They'll dial it back. Did you see the meme?"
+    },
+    {
+      "start": 2461.32,
+      "end": 2480.17,
+      "speaker": "adam-stacoviak",
+      "text": "I want to see if we can put this in the show notes or I don't even know where to reference it at to pull it up on the screen. There was a meme of, uh, like you would see on Tik TOK where you have one person going back and forth and they're both characters. If you want to try and pull it up, you can, but it's essentially the saying it's Friday. Let's just, we got to ship this."
+    },
+    {
+      "start": 2480.17,
+      "end": 2486.49,
+      "speaker": "jerod-santo",
+      "text": "I'm paraphrasing this, uh, hysterical, uh, meme of making fun of how Apple released this photos app."
+    },
+    {
+      "start": 2487.37,
+      "end": 2490.81,
+      "speaker": "adam-stacoviak",
+      "text": "And it was like, oh, it's good enough, or I've got to leave and it's got to go."
+    },
+    {
+      "start": 2490.81,
+      "end": 2499.61,
+      "speaker": "jerod-santo",
+      "text": "And something where it was just like basically rushed and they're like, it looks good. It looks good to me kind of thing. I'm doing a terrible job describing it, but it's, it is amazing."
+    },
+    {
+      "start": 2499.61,
+      "end": 2508.05,
+      "speaker": "adam-stacoviak",
+      "text": "It was funny. Uh, that being said, my wife is upgraded. I can find it based on that description. Yeah, I'm sorry. It's Friday. We got to ship Apple photos meme."
+    },
+    {
+      "start": 2508.45,
+      "end": 2512.21,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I mean, something like that. We're going to end up with Rebecca black."
+    },
+    {
+      "start": 2513.65,
+      "end": 2542.7,
+      "speaker": "jerod-santo",
+      "text": "Hey, here's 102 happy Friday memes to kickstart your weekend. Oh gosh. Did you perplexity to that or did you just Google that? No, I'm just Googling at this point. Oh my gosh. Go to perplexity. See what they've got. Okay. Let's try it. Live brand new search. What do you think would, would bear fruit? Oh no. Put it on the screen. Find the Apple photos meme for the reason update is, is it literally about Friday?"
+    },
+    {
+      "start": 2542.74,
+      "end": 2557.75,
+      "speaker": "adam-stacoviak",
+      "text": "Should I set put Friday in there? I'm pretty sure it's Friday, but, uh, you can throw some keywords in there. Friday, recent updates, tick talk. Funny. Now I'm doing that. Like it's a search bar. It's like, I'm sorry, but, uh, Oh gosh."
+    },
+    {
+      "start": 2557.75,
+      "end": 2559.31,
+      "speaker": "jerod-santo",
+      "text": "I cannot find specific Apple photos."
+    },
+    {
+      "start": 2559.31,
+      "end": 2567.68,
+      "speaker": "adam-stacoviak",
+      "text": "Memes cannot be provided, blah, blah, blah, blah. All right. So you actually suck perplexity."
+    },
+    {
+      "start": 2569.44,
+      "end": 2581.13,
+      "speaker": "jerod-santo",
+      "text": "I'm no longer bullish. Maybe, but yeah, I guess to its credit as a miss duck, let go. Couldn't find it either. I've resisted this latest update for the reasons of the photo."
+    },
+    {
+      "start": 2581.17,
+      "end": 2584.76,
+      "speaker": "adam-stacoviak",
+      "text": "And I love the photos app. So I, uh, dad's out there."
+    },
+    {
+      "start": 2584.76,
+      "end": 2585.6,
+      "speaker": "jerod-santo",
+      "text": "Listen up. Okay."
+    },
+    {
+      "start": 2586.28,
+      "end": 2592.03,
+      "speaker": "adam-stacoviak",
+      "text": "Quick class. I've got a five year old and rather than doing like lookups, sometimes we'll do"
+    },
+    {
+      "start": 2592.03,
+      "end": 2737.16,
+      "speaker": "jerod-santo",
+      "text": "stories, obviously we still do stories, but one thing I've learned about young children is the, the reason why they love photos is they love to know where they came from. They love to re live recent memories and it's a, it's a part of bonding. It's obviously part of a dad bonding thing, but it's also like, uh, this thankfulness and appreciation for the life they have and the blessings they have in their life. And so we go back as part of a nighttime routine. We'll look through recent photos, recent events, especially if we just did something really cool and really fun, like that day kind of thing. We'll go back through and look through the adventure we had that weekend or that day. And so I'm, I'm near and dear to the way photos app delivers these memories to me. And so I'm resistant to this change. I have not, that being said, now I have not even looked at any recent update for it. I just know it's just generally bad to say the new Apple photo still does all that stuff. I mean, I know it's not like it's not going to show you some sort of infinite scroll. It's, it's like change the UI side. The UI that's changed. Yeah, it's probably me, Jared. It's a me problem. Okay. It's probably a me problem. Have you tried, are you on Sequoia? Let's see. 15.2 because there's Apple intelligence in the new Mac OS and it's, it's silliness. It doesn't do anything good. I am on Sonoma 14.1. Sorry. 14.6.1. Okay. So you are a Luddite. I'm resistant to change. Okay. Very, I mean, you should know this about me. I'm resistant to change. I know. So I pause, I think, I calculate, I him, I haul, I delay, I reconsider, I him, I haul, I delay. Then I'm like, okay, let's do it. That's my way. Yeah, that is what I'm comfortable with. Well, my point is that both of these new operating systems, which you haven't even tried, have Apple intelligence in them. And it's a nothing burger. There's no, they're there. It doesn't do anything. It's like, do you want me to auto, uh, there's like better auto-complete suggestions on your messages app. But it's like, I would never say any of those three things. I don't talk like that. So no, I'm not going to click on it. Here's what I would want. Okay. Tell me if this is what it does or what you think it will do. Okay. I use Apple maps when I drive. I will often need to recalibrate my direction all the time."
+    },
+    {
+      "start": 2737.64,
+      "end": 2750.92,
+      "speaker": "adam-stacoviak",
+      "text": "I do not want to pick up my phone and do it by hand because why it's dangerous. You're driving, man. I'm driving. Yes. I would love an Apple intelligence or any intelligence to let me remap my directions or, Hey, I'm going here."
+    },
+    {
+      "start": 2751.24,
+      "end": 2756.48,
+      "speaker": "jerod-santo",
+      "text": "What restaurants are nearby there? No, even better is like, we want to stop at the next Chipotle between us and where we're going."
+    },
+    {
+      "start": 2756.6,
+      "end": 2790.53,
+      "speaker": "adam-stacoviak",
+      "text": "Preach for me, it's buckies. Just throw it on the map for me. I was on a trip recently for this men's weekend. I was like, I'm in like nowhere land in Texas, which Texas is big. And sometimes you get out there and you're like, where is the nearest gas station? I didn't plan well enough. I'm going to run out of gas situations in Texas. That is the truth between Houston and Amarillo. You can't run out of gas if you don't plan properly. Um, where's the next buckies. I'm, I'm heading this direction. Just ease my anxiety. There's a buckies in 20 miles. Okay, great. I feel better. No, like whatever it is. That's good intelligence."
+    },
+    {
+      "start": 2790.81,
+      "end": 2794.69,
+      "speaker": "jerod-santo",
+      "text": "So the current, this exact, this Chipotle example, your, your, your"
+    },
+    {
+      "start": 2794.69,
+      "end": 2826.03,
+      "speaker": "adam-stacoviak",
+      "text": "case is buckies was exactly happened to us on the way home from Florida. And we have CarPlay in our car. And so I have the maps through my phone, Apple maps, showing us how to get home. And there's the UI where you can say add, stop, and then you can pick from a list of pre-configured categories. You want to stop in gas stations, restaurants, breakfast, parks, whatever, or ask Siri. And so I'll say, okay, ask Siri, where would you like to go? And I said, Chipotle."
+    },
+    {
+      "start": 2826.79,
+      "end": 2830.69,
+      "speaker": "jerod-santo",
+      "text": "And she said, there are nine Chipotle's on your route."
+    },
+    {
+      "start": 2831.45,
+      "end": 2862.48,
+      "speaker": "adam-stacoviak",
+      "text": "The first one is 17 minutes away. You want me to add it? And do you know which direction the 17 minutes were? Straight backwards, straight behind us. And I would say, no. And she'd say, the second one is here. And then you have to step, you know, one by one through this list of results in order to get to one that you actually want to go. I mean, it's just a complete mess and it's so close to being an amazing feature. If it just had a little bit of intelligence, you know, not much."
+    },
+    {
+      "start": 2863.08,
+      "end": 2866.24,
+      "speaker": "jerod-santo",
+      "text": "So AI is mainstream, but it has some warts."
+    },
+    {
+      "start": 2866.96,
+      "end": 2884.58,
+      "speaker": "adam-stacoviak",
+      "text": "Here's the sad part is I think as I don't know if it's mainstream yet, but as it goes more and more mainstream, I don't actually think the warts are going to go. I think we're just going to live with these things. I mean, think how bad Siri has been for so long as it is. We just lived with it. You can only put so much lipstick on a pig."
+    },
+    {
+      "start": 2885.34,
+      "end": 2902.13,
+      "speaker": "jerod-santo",
+      "text": "It's still a pig. True. Yeah. And there's value there, but there's a lot of warts, man. Yeah. My, my usage of Siri is very cursory. I do math with it. I set timers, I cancel alarms."
+    },
+    {
+      "start": 2902.97,
+      "end": 2906.4,
+      "speaker": "adam-stacoviak",
+      "text": "I close blinds. I open blinds. Yeah."
+    },
+    {
+      "start": 2906.4,
+      "end": 2909.6,
+      "speaker": "jerod-santo",
+      "text": "I'm getting a front door lock from, I believe Yale."
+    },
+    {
+      "start": 2910.24,
+      "end": 2951.93,
+      "speaker": "adam-stacoviak",
+      "text": "Yale university? Yale, the door lock company. So that's a different thing and it can connect to your network. And so I think I can say lock front door, unlock front door. I can open my garages, both. I have a carriage garage and a main garage, and I can say open main garage, open carriage, and I can actually say, I could make it say open carriage garage. It's just long and I haven't, I've been too lazy to say open garage garage. Go back and say open main. But I mean, I think open main garage is actually pretty good. I should actually get mine wired up to my garage door openers because they're smart enough. Yeah. However, I just like buttons as we've invited Rachel to come and talk buttons. I confess."
+    },
+    {
+      "start": 2951.93,
+      "end": 2952.77,
+      "speaker": "jerod-santo",
+      "text": "Like I just like to hit the button."
+    },
+    {
+      "start": 2952.77,
+      "end": 2959.49,
+      "speaker": "adam-stacoviak",
+      "text": "However, at this point, one of my garage door openers, like the button is not always working, it's finicky. So I have to launch the app sometimes to open it."
+    },
+    {
+      "start": 2959.49,
+      "end": 2964.01,
+      "speaker": "jerod-santo",
+      "text": "And I'm like, I should get that wired up so I can just say open south garage. Haven't done it."
+    },
+    {
+      "start": 2964.41,
+      "end": 2971.45,
+      "speaker": "adam-stacoviak",
+      "text": "So we have Apple CarPlay in our car as well. And so I'll push the talk button cause that's how you talk to Siri."
+    },
+    {
+      "start": 2971.61,
+      "end": 2984.28,
+      "speaker": "jerod-santo",
+      "text": "Right. And what I will say is we're driving into the driveway, open main garage. And so as I'm driving into the driveway, rather than push the button or find where the thing is at, we actually keep it hidden because we don't want anybody"
+    },
+    {
+      "start": 2984.28,
+      "end": 2989.28,
+      "speaker": "adam-stacoviak",
+      "text": "to come and steal our stuff and like come into our house through our garage opener and they've got access."
+    },
+    {
+      "start": 2989.84,
+      "end": 2995.04,
+      "speaker": "jerod-santo",
+      "text": "And so it, it like, I'd say 98% of the time it works just fine."
+    },
+    {
+      "start": 2995.08,
+      "end": 2996.52,
+      "speaker": "adam-stacoviak",
+      "text": "Every once in a while, Siri's like, what'd you say?"
+    },
+    {
+      "start": 2996.84,
+      "end": 2999.08,
+      "speaker": "jerod-santo",
+      "text": "Especially when you have a kid talking while you're talking or something."
+    },
+    {
+      "start": 2999.08,
+      "end": 3006.44,
+      "speaker": "adam-stacoviak",
+      "text": "That's usually what happens. Yeah. And what I've found though too, to go one second deeper on this is that I didn't"
+    },
+    {
+      "start": 3006.44,
+      "end": 3018.8,
+      "speaker": "jerod-santo",
+      "text": "think that my inexpensive came with my home garage door openers were connected. My neighbor who has the same ones, like, Hey Adam, did you know that these things are already wifi enabled and they already like connect? I'm like, no, I had no idea."
+    },
+    {
+      "start": 3019.4,
+      "end": 3023.16,
+      "speaker": "adam-stacoviak",
+      "text": "He's like, this is how you do it. This is like last, literally last year at the same time."
+    },
+    {
+      "start": 3024.27,
+      "end": 3026.75,
+      "speaker": "jerod-santo",
+      "text": "And sure enough, they're connected."
+    },
+    {
+      "start": 3026.75,
+      "end": 3060.6,
+      "speaker": "adam-stacoviak",
+      "text": "They're genie models. Like they're not, they just came with the home, like nothing special, not big. You know, they're, there's nothing special about them, but they connect to the network, they're really easy to use. And the iOS app that you install on the phone allows you to configure, you know, Siri and home kits and shortcuts to interface with it. So I think garage doors are a great place blinds. If you have them, we use Apple TVs a lot in our homes. I can say, you know, turn off a family room TV. It turns it off."
+    },
+    {
+      "start": 3060.64,
+      "end": 3064.45,
+      "speaker": "jerod-santo",
+      "text": "It can turn it on. All of our TVs have Apple TVs there."
+    },
+    {
+      "start": 3064.45,
+      "end": 3067.73,
+      "speaker": "adam-stacoviak",
+      "text": "So I can like speak to each room, essentially, you know, turn off living room"
+    },
+    {
+      "start": 3067.73,
+      "end": 3074.68,
+      "speaker": "jerod-santo",
+      "text": "TV, turn off master bedroom, TV, et cetera. So those things, those are the things I like, and that's nothing special."
+    },
+    {
+      "start": 3074.68,
+      "end": 3093.76,
+      "speaker": "adam-stacoviak",
+      "text": "That's not home kit or that's just all home. It's not even AI. It's just like, yeah. Well, I mean, there's some voice, voice to text going on back there, but that's longstanding technology. One last point on this, and then we should move on. You gave some dad advice earlier. Here's some kid advice on the topic of talking to Siri in the car."
+    },
+    {
+      "start": 3093.8,
+      "end": 3110.85,
+      "speaker": "jerod-santo",
+      "text": "So if you're riding in the back of your car and there's a carplay enabled, or your parents just happened to be talking to their phone, maybe directly. And they are texting their significant other via voice. A, a good kid move. If you want to have a little bit of fun with your parents is right when your mom"
+    },
+    {
+      "start": 3110.85,
+      "end": 3122.41,
+      "speaker": "adam-stacoviak",
+      "text": "or dad stops their message, just throw some non-sequiturs in, you know, just like add a random word, something that won't make any sense and that sucker will send off right alongside the rest of it."
+    },
+    {
+      "start": 3123.41,
+      "end": 3125.81,
+      "speaker": "jerod-santo",
+      "text": "And you know, you get a good laugh going."
+    },
+    {
+      "start": 3126.25,
+      "end": 3129.48,
+      "speaker": "adam-stacoviak",
+      "text": "And if your parents aren't too angry with you, they won't mind."
+    },
+    {
+      "start": 3129.96,
+      "end": 3131.84,
+      "speaker": "jerod-santo",
+      "text": "I will concur with them. My kids do that to me."
+    },
+    {
+      "start": 3131.92,
+      "end": 3135.24,
+      "speaker": "adam-stacoviak",
+      "text": "They, they, they know that trick. They play, they play it frequently."
+    },
+    {
+      "start": 3135.48,
+      "end": 3137.48,
+      "speaker": "jerod-santo",
+      "text": "Just got to think of a random word to throw in there at the end."
+    },
+    {
+      "start": 3137.88,
+      "end": 3212.48,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it is good stuff. Okay, friends, have you ever been doxxed on the internet? Maybe you've been stalked. Maybe you've been harassed or you've had your identity taken from you. Privacy matters so much to everyone, obviously, but have you ever wondered how much of your personal data is really out there on the internet for anyone to see there's more than you think your name, your contact info, social security number, what unlocks your credit history, your home address, or even information about your family. That's terrifying. All this data is being compiled by data brokers and is being sold online. So delete means one of our sponsors and they gave me an account to use. I tried it and it's helping me remove my personal information from hundreds of data brokers out there. Here's how it works. You sign up, you provide them with exactly what information you want deleted and their experts take from there. They send you regular personalized privacy reports, showing you what information they found, where they found it and what they removed and delete me isn't just a one-time service. It's always working for you, constantly monitoring and removing the personal information that you don't want on the internet to put it simply delete"
+    },
+    {
+      "start": 3212.48,
+      "end": 3214.04,
+      "speaker": "jerod-santo",
+      "text": "me does all the hard work."
+    },
+    {
+      "start": 3214.28,
+      "end": 3225.68,
+      "speaker": "adam-stacoviak",
+      "text": "It wipes your information, your family's personal information from these data broker websites and gives you peace of mind. So take control of your personal data and keep your private life private by signing"
+    },
+    {
+      "start": 3225.68,
+      "end": 3314.85,
+      "speaker": "jerod-santo",
+      "text": "up for delete me now at a special discount for our listeners today, you can get 20% off your delete me plan by texting changelog to 64000. Again, text changelog to 64000. Of course, message and data rates may apply. Check their term for more details. Enjoy. All right. Well, we're talking warts. I thought this was a fun story as I like to pick on. Oh yes. Autonomous vehicles. I'm actually, I'm pretty intrigued and impressed by what Waymo has been able to do. However, warts and all man, warts and all. So this is a story from tech crunch. We talked to the guy who was stuck in a Waymo robo taxi on a dizzying loop. Now I may have mentioned to this to you offhand as we were talking at some point. Of course I told you the story about them honking at each other in the parking lot all night long. Uh, this is a new one a month ago. The story comes from January 8th of 25 a month ago, a video circulated around social media of a Waymo robo taxi stuck in a roundabout loop, an isolated incident with no passengers in the vehicle. According to Waymo, apparently it wasn't a one-time thing."
+    },
+    {
+      "start": 3316.84,
+      "end": 3348.64,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, around the same time in another Waymo robo taxi headed for the Phoenix airport, Mike Johns founder and CEO of AI consultancy, Digital Mindstate also found himself circling a parking lot, unable to stop the car or get out the videos were posted within a couple of days of each other Waymo has not confirmed whether the incidents happened at the same time, or if there other similar loopy incidents, but says it issued software updates to fix the issue, blah, blah, blah, John's was stuck in the Waymo going through a loop for"
+    },
+    {
+      "start": 3348.64,
+      "end": 3354.08,
+      "speaker": "jerod-santo",
+      "text": "under seven minutes, but he says it felt like forever if we all know that feeling"
+    },
+    {
+      "start": 3354.08,
+      "end": 3398.05,
+      "speaker": "adam-stacoviak",
+      "text": "of elongation when something's going wrong and you just feel like it's never going to end and it ends up being seven minutes, particularly as he feared he would miss his flight and questioned whether the car had been hacked. It was his second time in a Waymo. How did he get out? Well, a Waymo customer support specialist called into the car with John's as prompting. The agent said she had received a notification that his car might be experienced in some routing issue. And she asked John's to open his Waymo app and tap my trip in the lower left corner of the app. And to which John's responded, can't you just do it? You should be able to handle it. Take over the car. You don't need my phone. And then she confessed. She didn't have an option to control the car."
+    },
+    {
+      "start": 3398.05,
+      "end": 3408.9,
+      "speaker": "jerod-santo",
+      "text": "Anyways, he had to do it and she walked in through it and got it unstuck. There's many more details, which we won't read. My gosh, man. Wow. So warts and all, man."
+    },
+    {
+      "start": 3408.9,
+      "end": 3410.26,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, scary."
+    },
+    {
+      "start": 3411.48,
+      "end": 3415.98,
+      "speaker": "jerod-santo",
+      "text": "I mean, life could have been lost for sure."
+    },
+    {
+      "start": 3416.34,
+      "end": 3421.38,
+      "speaker": "adam-stacoviak",
+      "text": "All right. I mean, you could have puked your guts out in this situation. It depends on how tight that loop is, you know?"
+    },
+    {
+      "start": 3421.5,
+      "end": 3422.1,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3422.18,
+      "end": 3442.2,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, eventually you're going to get maybe one and a half G two G's. I mean, at some point you get over that. And the, you know, going into the centrifugal force, right? So here's a pro tip for Waymo riders, which I just learned from tech crunch. All Waymo vehicles have a pull over button available to riders at all times."
+    },
+    {
+      "start": 3442.84,
+      "end": 3468.29,
+      "speaker": "jerod-santo",
+      "text": "It's located in the app and on the passenger screen. So if you're stuck or scared or something, there is a chicken exit. Apparently this fella didn't know about it. I didn't know about it. I've never ridden a Waymo. So I have a better excuse than he has, but maybe it's not obvious where that button is. They probably don't want you pushing it accidentally or even very often as it defeats the purpose, but there it is."
+    },
+    {
+      "start": 3468.33,
+      "end": 3476.77,
+      "speaker": "adam-stacoviak",
+      "text": "There is a Waymo chicken exit if you need it. Yeah. I think of the ending there was kind of cool. And he's like, uh, look, pull up the left corner of that map on the floor and you'll"
+    },
+    {
+      "start": 3476.77,
+      "end": 3480.65,
+      "speaker": "jerod-santo",
+      "text": "see a red button hit that button reminds me of the recent button conversation."
+    },
+    {
+      "start": 3480.65,
+      "end": 3491.33,
+      "speaker": "adam-stacoviak",
+      "text": "We obviously had with Rachel Plotnick and the importance of literal buttons. They can be pressed and it was red. You got to have a red button somewhere."
+    },
+    {
+      "start": 3491.33,
+      "end": 3493.21,
+      "speaker": "jerod-santo",
+      "text": "Something is going to happen with that."
+    },
+    {
+      "start": 3494.6,
+      "end": 3495.72,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. We need escape patches."
+    },
+    {
+      "start": 3495.72,
+      "end": 3496.48,
+      "speaker": "jerod-santo",
+      "text": "That's for sure."
+    },
+    {
+      "start": 3497.4,
+      "end": 3528.04,
+      "speaker": "adam-stacoviak",
+      "text": "I had no idea there was this button or the app button to pull over. I have not been in a Waymo, so I think that's just fine. Not having that knowledge just yet, but now that I do, I will be more confident going into a Waymo because I know how to get out should I get stuck in a perpetual loop. Has Waymo come to Austin yet? Uh, you know what? I'm not in downtown Austin enough to know. Um, maybe I would say maybe. I think I kind of imagine it might be the, the birthplace of whatever Elon Musk"
+    },
+    {
+      "start": 3528.04,
+      "end": 3531.76,
+      "speaker": "jerod-santo",
+      "text": "might launch because the headquarters is here now."
+    },
+    {
+      "start": 3531.92,
+      "end": 3537.52,
+      "speaker": "adam-stacoviak",
+      "text": "It's in a city called Bastrop, B-A-S-T-R-O-P, Bas-trop."
+    },
+    {
+      "start": 3538.49,
+      "end": 3547.36,
+      "speaker": "jerod-santo",
+      "text": "We call it Bastrop, like the word drop though. So that's a, an Eastern suburb of Austin, literally East of Austin."
+    },
+    {
+      "start": 3547.84,
+      "end": 3590.54,
+      "speaker": "adam-stacoviak",
+      "text": "Considered Austin technically, but it is the city of Bastrop, just so you know. That's not confusing enough for you. No, that is where his, uh, like the test. There's like a Tesla headquarters in North Austin. Uh, there's a Tesla something or other about 20 minutes from me here. That's like just massive. And then in Bastrop, they have their, um, what is it called? It's like a city, like a little mini city he's building. It's crazy. Uh, what he's doing here, I imagine that whatever he may launch will probably launch here first because so many folks are migrating to Texas. So I found Waymo's official list of cities."
+    },
+    {
+      "start": 3590.54,
+      "end": 3657.12,
+      "speaker": "jerod-santo",
+      "text": "They are in Metro Phoenix, San Francisco Bay Area and Los Angeles. Uh, the Metro Phoenix territory includes downtown Scottsdale, Tempe. So it's not merely Phoenix proper. And they said they're ramping up in Austin and Atlanta. In partnership with Uber, which I didn't know. Miami, we're headed your way next on the Waymo One app. Sign up so we can reach out. So looking like not yet, but eventually I was in Phoenix. That's the closest I got to riding a Waymo, but I didn't really care to have the experience enough and it cost more than the Uber did and so I'm just like, same place, let a human make some money, less money for me, like less costs for me. Let's just skip it. I want to mention this show, uh, like this being trapped thing. If anybody is a fan of eighties British television, then I want to mention a show that I, I like a lot, I haven't watched all the episodes."
+    },
+    {
+      "start": 3657.12,
+      "end": 3669.64,
+      "speaker": "adam-stacoviak",
+      "text": "It's called connections. Episode one is called the trigger effect and we're going to link to it in the show notes. Jared has it pulled up right now for you to check this out. It's on the internet archive to, to watch, which is super cool."
+    },
+    {
+      "start": 3669.92,
+      "end": 3670.48,
+      "speaker": "jerod-santo",
+      "text": "Yeah, very cool."
+    },
+    {
+      "start": 3670.84,
+      "end": 3696.6,
+      "speaker": "adam-stacoviak",
+      "text": "And so what's cool about this is this was like, this is an eighties TV show and James Burke, the, the fellow that I believe is hosting this is talking you through the way that technology traps us. And this is in the eighties. His example was New York city. Manhattan Island basically is a big trap, a big technology trap. You've got elevators, you've got taxis, you've got subways that subway stops."
+    },
+    {
+      "start": 3696.6,
+      "end": 3698.64,
+      "speaker": "jerod-santo",
+      "text": "You're stuck in this, you know, tunnel kind of thing."
+    },
+    {
+      "start": 3699.2,
+      "end": 3708.68,
+      "speaker": "adam-stacoviak",
+      "text": "You know, this is not a, a new invention of being trapped by technology. And I think as we have AI and Waymo's and stuff like that, it only is going to make"
+    },
+    {
+      "start": 3708.68,
+      "end": 3718,
+      "speaker": "jerod-santo",
+      "text": "it even more of a possibility to have this trigger effect as he calls it, which is this technology failing and then everybody being stuck in some way, shape"
+    },
+    {
+      "start": 3718,
+      "end": 3726.28,
+      "speaker": "adam-stacoviak",
+      "text": "or form. Waymo is the most modern example, potentially back in the day it was an elevator. And I think everybody's, if you ask people what their, one of their biggest"
+    },
+    {
+      "start": 3726.28,
+      "end": 3731.16,
+      "speaker": "jerod-santo",
+      "text": "fears is someone in a group of 10 is going to say stuck in an elevator for sure."
+    },
+    {
+      "start": 3731.68,
+      "end": 3732.88,
+      "speaker": "adam-stacoviak",
+      "text": "Is that one of your biggest fears?"
+    },
+    {
+      "start": 3733.56,
+      "end": 3733.84,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 3734.4,
+      "end": 3753.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I don't really have that one either. I'll admit right now what my biggest fear is. One of my biggest fears is, okay, let's hear it being stuck in a cave. Oh, okay. Let me just tell you, I do not spelunk. Okay. I do not spelunk. I do not, uh, really. So is that a claustrophobia thing or it's specific to caves?"
+    },
+    {
+      "start": 3753.72,
+      "end": 3755.84,
+      "speaker": "jerod-santo",
+      "text": "Oh, it's just like, I would just never want to do it."
+    },
+    {
+      "start": 3756,
+      "end": 3759,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I've seen enough movies for whatever reason."
+    },
+    {
+      "start": 3759,
+      "end": 3763.8,
+      "speaker": "jerod-santo",
+      "text": "YouTube has got me trapped in this algorithm of just sharing the terrible"
+    },
+    {
+      "start": 3763.8,
+      "end": 3768.4,
+      "speaker": "adam-stacoviak",
+      "text": "stories of cave divers dying and, and, and, and, and I'd never want to be in that"
+    },
+    {
+      "start": 3768.4,
+      "end": 3773.74,
+      "speaker": "jerod-santo",
+      "text": "position. I would never want to be, could you imagine picture this in your brain?"
+    },
+    {
+      "start": 3774.14,
+      "end": 3776.94,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. I'm gonna close my eyes. You are on your belly."
+    },
+    {
+      "start": 3777.8,
+      "end": 3778.16,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3778.2,
+      "end": 3803.64,
+      "speaker": "adam-stacoviak",
+      "text": "And directly above you is rock for as far as you can think of right below you is rock for as far as you can think of to the right and left of you is rock as far as you can think of. And you have a helmet on with a light that may have a battery that dies. Eventually you've got limited supplies and you're crawling for fun through this tunnel that other people may have died in. Yeah. And you may discover a body 20 yards up or whatever, and you're not even sure if"
+    },
+    {
+      "start": 3803.64,
+      "end": 3809.96,
+      "speaker": "jerod-santo",
+      "text": "at some point you have an opening enough to turn back around, right? You have to, it's like point of no return emphatically."
+    },
+    {
+      "start": 3809.96,
+      "end": 3812.08,
+      "speaker": "adam-stacoviak",
+      "text": "No, for me, it's a hard no."
+    },
+    {
+      "start": 3812.64,
+      "end": 3815.24,
+      "speaker": "jerod-santo",
+      "text": "So my fear is not even plausible because I would never do that."
+    },
+    {
+      "start": 3815.64,
+      "end": 3818.36,
+      "speaker": "adam-stacoviak",
+      "text": "But if someone held me at gunpoint, it's like, Adam, you've got to go through this"
+    },
+    {
+      "start": 3818.36,
+      "end": 3828.48,
+      "speaker": "jerod-santo",
+      "text": "cave to live. I would say, shoot me now. Okay. Cause I'm not going to do it. Well, nobody wants to end up like Chester copper pot, which is right."
+    },
+    {
+      "start": 3828.56,
+      "end": 3831.32,
+      "speaker": "adam-stacoviak",
+      "text": "There's a Goonies deep cut. All right. I liked it."
+    },
+    {
+      "start": 3831.4,
+      "end": 3834.68,
+      "speaker": "jerod-santo",
+      "text": "Let's cut that into the video, man. Let's get a little clip in there."
+    },
+    {
+      "start": 3834.68,
+      "end": 3844.4,
+      "speaker": "adam-stacoviak",
+      "text": "Will we get a demonetized for that? We're not even trying to monetize. No, man, we're not making any money. Okay. Let's get back to tech and out of that cave that you put us in."
+    },
+    {
+      "start": 3845.64,
+      "end": 3883.22,
+      "speaker": "jerod-santo",
+      "text": "Last story of the show is Julia Evans. Our friend, Julia Evans, popular nerdy blogger writes what's involved in getting a modern quotes around the modern. Terminal set up. Julia writes, hello. Recently I ran a terminal survey and I asked people what frustrated them. One person commented. There are so many pieces to having a modern terminal experience. I wish it all came out of the box. And so Julia thought it's not so hard to have a modern terminal experience. And then she thought a little harder and realized there's a lot to it. It's a lot hard."
+    },
+    {
+      "start": 3883.26,
+      "end": 3901.02,
+      "speaker": "adam-stacoviak",
+      "text": "It's pretty hard. And she goes through list of things that make for a modern experience and then how she achieves that modern experience. I thought I was living the modern terminal life with terminal dot app. And then Mitchell Hashimoto came in and was like, you got 256 colors, man."
+    },
+    {
+      "start": 3901.62,
+      "end": 3903.06,
+      "speaker": "jerod-santo",
+      "text": "And I was like, no, I didn't."
+    },
+    {
+      "start": 3903.06,
+      "end": 3932.56,
+      "speaker": "adam-stacoviak",
+      "text": "Even know, like for people who are colorblind, they don't know they're colorblind until somebody else can see more colors than them. And be like, that's not brown, dude. That's blue. You're like, what? Oh, yes. So I no longer have that problem. I have fully converted to ghostie, but that's not all the things she lists here. There's more than she mentioned. Ghostie that she mentioned ghostie very briefly towards the end right here. Oh, is she using ghostie? Uh, it was in her list."
+    },
+    {
+      "start": 3932.6,
+      "end": 3932.8,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3932.8,
+      "end": 3948.96,
+      "speaker": "adam-stacoviak",
+      "text": "I saw at the end, she put, uh, yeah. Kitty alacrity, Wes term or ghostie. I saw that I didn't get to the end of the post because we started recording. So maybe she confesses ghostie at the end. I don't think so. Truth be told, this is on our reading list, not our red list."
+    },
+    {
+      "start": 3949.08,
+      "end": 3952.28,
+      "speaker": "jerod-santo",
+      "text": "So it's, it's to be read for you. It's on my to read list."
+    },
+    {
+      "start": 3952.28,
+      "end": 3982.44,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's not my have read list. Oh, okay. So you wanted to read it together? I wanted to, you know, I wanted to mention it. I think in light of ghostie, I think in light of, I'm still a warp for life kind of person, I think until that's the thing is, I think warp does provide a lot of this stuff. Right? Yeah, I think so too. Uh, specifically she mentioned key bindings and I know that was one of your issues with ghostie. Yeah. Was that she wants specific things to work and you have specific keyboard shortcuts that you use macOS style, similar to my desire with men to have"
+    },
+    {
+      "start": 3982.72,
+      "end": 3984.84,
+      "speaker": "jerod-santo",
+      "text": "macOS supported keyboard bindings."
+    },
+    {
+      "start": 3985.72,
+      "end": 3998.93,
+      "speaker": "adam-stacoviak",
+      "text": "And you asked Mitchell about ghostie with regards to that. And his answer was like, unfortunately it's way more complicated than you think it'd be because of the way inputs work between terminals and shells."
+    },
+    {
+      "start": 3999.57,
+      "end": 4003.36,
+      "speaker": "jerod-santo",
+      "text": "And what's so funny though, is that kudos to warp."
+    },
+    {
+      "start": 4004.35,
+      "end": 4006.31,
+      "speaker": "adam-stacoviak",
+      "text": "It is so smooth and so fast."
+    },
+    {
+      "start": 4006.31,
+      "end": 4009.71,
+      "speaker": "jerod-santo",
+      "text": "And so the way Mitchell described it in that podcast, which will link up in the"
+    },
+    {
+      "start": 4009.71,
+      "end": 4013.35,
+      "speaker": "adam-stacoviak",
+      "text": "show notes and probably throw a YouTube link in there or whatever, if that's a"
+    },
+    {
+      "start": 4013.35,
+      "end": 4019.58,
+      "speaker": "jerod-santo",
+      "text": "possibility is that he was talking about the, if I, if I understood it correctly,"
+    },
+    {
+      "start": 4019.62,
+      "end": 4025.14,
+      "speaker": "adam-stacoviak",
+      "text": "he was saying that it was fraught with possible error, unpredictable. I think is the word he used."
+    },
+    {
+      "start": 4025.26,
+      "end": 4025.7,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4025.9,
+      "end": 4045.44,
+      "speaker": "adam-stacoviak",
+      "text": "Well, warp has got it locked in because there's never a time I want to do anything. It's as if the, the prompt is like a text editor. What I mean by that is like, if you're in sublime or in vs code, or if you're in any modern text editor, you can just dump around with the arrow key and all 10"
+    },
+    {
+      "start": 4045.44,
+      "end": 4048.84,
+      "speaker": "jerod-santo",
+      "text": "command and shift and stuff and do things like that's how it works."
+    },
+    {
+      "start": 4048.84,
+      "end": 4052.03,
+      "speaker": "adam-stacoviak",
+      "text": "It's very much like you're in a prose editor."
+    },
+    {
+      "start": 4053.07,
+      "end": 4056.19,
+      "speaker": "jerod-santo",
+      "text": "And I love that. I think that they nailed that well."
+    },
+    {
+      "start": 4056.27,
+      "end": 4062.63,
+      "speaker": "adam-stacoviak",
+      "text": "And no matter where you're at too, as long as you've got a space in there, you can do a tab and it will try and complete something in that directory."
+    },
+    {
+      "start": 4062.63,
+      "end": 4110.33,
+      "speaker": "jerod-santo",
+      "text": "You're in like a readme or, you know, a Toml file or whatever it might be to like sort of link to it. I think, you know, warp has done really, really a great job. And so until, until an, if I suppose, if ghostie solves that problem or desires to solve that problem, I'm a work for life kind of guy. So here's Julia's list of things that are, she considers required to be modern. And you can tell me if warp has all these or not, if you care or not. The first one is multi-line support for copy and paste. I think this is similar to what you're talking about now with it being a lot like a text editor. She says, if you paste three commands in your shell, it should not immediately run them all. That's scary. I kind of disagree with that."
+    },
+    {
+      "start": 4110.33,
+      "end": 4118.29,
+      "speaker": "adam-stacoviak",
+      "text": "I have no problem like pasting three commands and they all three execute one after the other. That's just how I would think about it, but I could see where maybe you want to just have them have a look first."
+    },
+    {
+      "start": 4118.57,
+      "end": 4119.05,
+      "speaker": "jerod-santo",
+      "text": "Hmm."
+    },
+    {
+      "start": 4119.25,
+      "end": 4123.57,
+      "speaker": "adam-stacoviak",
+      "text": "Um, so I don't really, I might end up just being too old where it's"
+    },
+    {
+      "start": 4123.57,
+      "end": 4126.57,
+      "speaker": "jerod-santo",
+      "text": "like, I've been using an old shell, an old terminal for 20 years."
+    },
+    {
+      "start": 4126.61,
+      "end": 4131.53,
+      "speaker": "adam-stacoviak",
+      "text": "And I don't care cause I have used it in the old configuration for so long."
+    },
+    {
+      "start": 4132.91,
+      "end": 4139.26,
+      "speaker": "jerod-santo",
+      "text": "But that's not necessarily something that I do want multi-line support for copy more than paste."
+    },
+    {
+      "start": 4139.26,
+      "end": 4147.58,
+      "speaker": "adam-stacoviak",
+      "text": "I would say you want to easily be able to copy and paste in and out. Okay. Check. You can do multi-paste commands. What happens when you do a multi-paste command? Nothing."
+    },
+    {
+      "start": 4147.66,
+      "end": 4150.42,
+      "speaker": "jerod-santo",
+      "text": "It waits for you to do more things. It waits for you to push return."
+    },
+    {
+      "start": 4150.42,
+      "end": 4153.38,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. So it just look, you just look at it and then you can hit enter"
+    },
+    {
+      "start": 4153.38,
+      "end": 4154.38,
+      "speaker": "jerod-santo",
+      "text": "to run all three of them then."
+    },
+    {
+      "start": 4154.74,
+      "end": 4157.7,
+      "speaker": "adam-stacoviak",
+      "text": "Well, as an example to test, I just did brew list and brew update."
+    },
+    {
+      "start": 4158.18,
+      "end": 4168.18,
+      "speaker": "jerod-santo",
+      "text": "Cause I'm like, that's, that's, those are safe commands. I can run without any concerns. Right. I paste those into the prompt and nothing happened. It's blinking cursor waiting for me to say go."
+    },
+    {
+      "start": 4169.18,
+      "end": 4174.8,
+      "speaker": "adam-stacoviak",
+      "text": "Let me try it here. All right. So I put rule list and brew update on separate lines, and I'm going"
+    },
+    {
+      "start": 4174.8,
+      "end": 4183.72,
+      "speaker": "jerod-santo",
+      "text": "to copy paste them in to ghosty and it doesn't execute it. Just paste them in one here and then one there."
+    },
+    {
+      "start": 4183.72,
+      "end": 4185.56,
+      "speaker": "adam-stacoviak",
+      "text": "And then I can hit enter to go."
+    },
+    {
+      "start": 4185.72,
+      "end": 4189.16,
+      "speaker": "jerod-santo",
+      "text": "I don't understand why this is a modern feature she desires, but what"
+    },
+    {
+      "start": 4189.16,
+      "end": 4199.28,
+      "speaker": "adam-stacoviak",
+      "text": "happened though, when I did push return, was it brew listed and then it brew updated? Yeah, it doesn't both. Yeah, but it doesn't do it automatically on paste. I think that is a modern feature."
+    },
+    {
+      "start": 4199.28,
+      "end": 4206.8,
+      "speaker": "jerod-santo",
+      "text": "Cause I want to, I think that's smart cause you want to, you may have fat fingered the copy and you paste a missing copy, but you didn't get the"
+    },
+    {
+      "start": 4206.8,
+      "end": 4210.16,
+      "speaker": "adam-stacoviak",
+      "text": "whole thing and maybe you missing fingered the copy, missing fingers."
+    },
+    {
+      "start": 4210.16,
+      "end": 4214.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, those are, those happen. You know, you got a character that didn't come with you and it's like,"
+    },
+    {
+      "start": 4214.2,
+      "end": 4236.53,
+      "speaker": "adam-stacoviak",
+      "text": "well, this is a malformed command, but wouldn't that just error? I mean, I guess it probably would, but you know, all right, let's move on. This one we're split on this one. It works in ghosty the same way it works in work. Okay. Infinite shell history. Yes, please. If I run a command in my shell, it should be safe forever. Not deleted after 500 histories or whatever. Um, so I agree with that one. There's no reason in modern times to delete my shell history."
+    },
+    {
+      "start": 4237.59,
+      "end": 4250.07,
+      "speaker": "jerod-santo",
+      "text": "Ever unless I want to, let's see. I don't know if this is a warp feature. That's a shell thing. That's a shell. Yeah. It's like a configuration thing, but she's talking about overall experience."
+    },
+    {
+      "start": 4250.07,
+      "end": 4254.15,
+      "speaker": "adam-stacoviak",
+      "text": "I understand why she lists it one more shout out to A2N if you want"
+    },
+    {
+      "start": 4254.15,
+      "end": 4257.95,
+      "speaker": "jerod-santo",
+      "text": "synchronized and awesome shell history stuff. Okay."
+    },
+    {
+      "start": 4258.27,
+      "end": 4271.87,
+      "speaker": "adam-stacoviak",
+      "text": "A2N dot S H A T U I N dot S H to be clear. A useful prompt. I can't live without having my current directory anchor and get branch in my prompt shell. Oh, she puts it, sorry, I say prompt shell."
+    },
+    {
+      "start": 4272.23,
+      "end": 4275.75,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, she puts shell in parentheses cause she realizes that this is a shell concern."
+    },
+    {
+      "start": 4276.07,
+      "end": 4282.33,
+      "speaker": "jerod-santo",
+      "text": "Gotcha. And so, yes. So like your terminal is not going to support that your shell would, I think"
+    },
+    {
+      "start": 4282.33,
+      "end": 4283.81,
+      "speaker": "adam-stacoviak",
+      "text": "we can all agree that that's useful."
+    },
+    {
+      "start": 4283.97,
+      "end": 4299.52,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, praise Robbie for, Oh my ZSH. Cause I mean, that makes it easy if you're using ZSH, but I think later on she talks about using fish. So I'm not sure if she uses fish or ZSH with Oh my ZSH. So she's either doing one or the other."
+    },
+    {
+      "start": 4299.96,
+      "end": 4426.12,
+      "speaker": "jerod-santo",
+      "text": "I don't know why you do both, but different strokes for different folks. How about 24 bit color? This is the one I didn't realize I knew. And I wonder if there's a way to put terminal dot app into 24 bit mode, because I remember doing something out of 256 and maybe I've done that, but anyways, it should be like that by default. And that's why Mitchell doesn't like terminal dot app. This is of course your terminal emulator that does this. And I think that pretty much all of them nowadays going to give you that. Well, thankfully a Google search landed me on terminal features on the warp documentation. And I will tell you, they have a, an entire grid of features that are in modern quotes, modern, uh, terminals. Warp is in the list, obviously, because it's their documentation. Terminal dot app is in there. I term, uh, aliquity and Wes term is in there. So ghostie has not made the list yet. So for 24 bit true color, it's a yes for warp. It is a no for terminal dot app. It is a yes for I term is a yes for, uh, aliquity. I can't say that alacrity, alacrity. Thank you. Alacrity, alacrity. Wes term is yes as well. So those, the one that's missing is terminal dot app. So if you're using terminal dot app chair, then, you know, which I'm not, I haven't used it for a long time. Not anymore, but you were recently. I haven't used it this year at all. His criticism was on point though. Okay. There you go. That's a good thing to say 13, 14 days into the year. Good job. I haven't used that all year. Clipboard integration. She lists. Sure. Of course you want to have that. I don't know. How does that work? Clipboard integration. No, I feel like that's copy paste, right? I don't know. She says between them and my OS so that when I copy in Firefox, I can just P and VIM so that's more of a text editor thing. Like that's a VIM thing. And, um, I don't know if the. Terminal can help you with that or not, but I'm going to go ahead and conflating the modern terminal with the modern terminal experience, I believe. So she's describing the experience. Yeah. She's conflated them all together. Shells editors and terminal emulators into one thing. Sorry for the criticism, but that's, that's what she's describing. And she does specify each one for each bullet point."
+    },
+    {
+      "start": 4426.92,
+      "end": 4433.24,
+      "speaker": "adam-stacoviak",
+      "text": "It's just messing up our comparisons here. It sure is. Having colors in LS."
+    },
+    {
+      "start": 4433.24,
+      "end": 4437.88,
+      "speaker": "jerod-santo",
+      "text": "Again, that's a shell config thing, a terminal theme that she likes."
+    },
+    {
+      "start": 4438,
+      "end": 4444.72,
+      "speaker": "adam-stacoviak",
+      "text": "So that's obviously going to be a feature of your terminal emulator. Dracula pro. They're all thermal. They're all themeable. Aren't they? They are all themeable."
+    },
+    {
+      "start": 4445.32,
+      "end": 4469.97,
+      "speaker": "jerod-santo",
+      "text": "Automatic terminal fixing. If a program prints out some weird escape codes that mess up my terminal, I want that to automatically get reset, not get reset, but get reset so that my terminal doesn't get messed up. Cool. That's a feature of your shell. Not your terminal. Key bindings. That's the one that we talked about already. And then being able to use the scroll wheel on programs who"
+    },
+    {
+      "start": 4469.97,
+      "end": 4475.32,
+      "speaker": "adam-stacoviak",
+      "text": "uses a scroll wheel, honestly. Well, this is of course, just Julia's list."
+    },
+    {
+      "start": 4475.32,
+      "end": 4481.34,
+      "speaker": "jerod-santo",
+      "text": "This is not a comprehensive list and she's completely free to have her own opinions on the matter."
+    },
+    {
+      "start": 4481.78,
+      "end": 4490.54,
+      "speaker": "adam-stacoviak",
+      "text": "She uses the fish shell, mostly unconfigured as well as, uh, any terminal emulator with 24 bit color support she's used gnome."
+    },
+    {
+      "start": 4491.18,
+      "end": 4492.86,
+      "speaker": "jerod-santo",
+      "text": "I term not picky."
+    },
+    {
+      "start": 4493.18,
+      "end": 4507.24,
+      "speaker": "adam-stacoviak",
+      "text": "And then NeoVim plus the base 16 framework for theming. Nice. Which I hadn't heard of. Yeah, this is new. Base 16, not a theme, but a framework for building tomorrow style themes"
+    },
+    {
+      "start": 4507.28,
+      "end": 4509.04,
+      "speaker": "jerod-santo",
+      "text": "using a base of 16 colors."
+    },
+    {
+      "start": 4510.12,
+      "end": 4518.47,
+      "speaker": "adam-stacoviak",
+      "text": "This thing has been around for geez, 15, 13 years. So cool. Learn something new there."
+    },
+    {
+      "start": 4519.54,
+      "end": 4527.48,
+      "speaker": "jerod-santo",
+      "text": "That sounds cool. And that's that. Well, I would say that warp checks most of those boxes."
+    },
+    {
+      "start": 4527.48,
+      "end": 4533.48,
+      "speaker": "adam-stacoviak",
+      "text": "Cause they're not all terminal specific things. And it can do all those things with, without any regard. So boom."
+    },
+    {
+      "start": 4533.96,
+      "end": 4534.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4534.48,
+      "end": 4535.28,
+      "speaker": "adam-stacoviak",
+      "text": "And so does ghosty."
+    },
+    {
+      "start": 4535.28,
+      "end": 4538.52,
+      "speaker": "jerod-santo",
+      "text": "So we're both, we're, we're modern baby warp for the win."
+    },
+    {
+      "start": 4538.88,
+      "end": 4578.46,
+      "speaker": "adam-stacoviak",
+      "text": "Ghosty for the win. Oh, easy. Now that we both won. Unlike our game of two truths and a lie that I clearly won. Somebody said that, uh, what was the chatter in Zulip? I didn't get to read it and it was over my weekend. So I was like, just checking it. Did you see that mention of, uh, let me go back to it real quick and see if I can get to it. Oh man. What is it while we wait? If you are not in our Zulip, let's fix that bug. It's totally free. Go to change all.com slash community. You can actually view the Zulip without even creating an account."
+    },
+    {
+      "start": 4579.06,
+      "end": 4613.45,
+      "speaker": "jerod-santo",
+      "text": "Click the button there that says view our Zulip and you can see some of the conversations going on. Was this in the episode 75 with Matt Ryer? So one thing we have to do, and to be clear, if you're listening this to this and audio, we have transitioned and in the process of transitioning to be video first, and that means full length episodes, chaptered the full kit and the caboodle that's right in YouTube. And so what I'm noticing we're missing on our, uh, episode page, Jared is a link"
+    },
+    {
+      "start": 4613.49,
+      "end": 4638.64,
+      "speaker": "adam-stacoviak",
+      "text": "or some sort of awareness of YouTube. So we're iterating and obviously we haven't gotten there yet. So I think the comment may have been on YouTube on this episode. And I think it was somebody commenting about how many points you may have gotten. Or I'm misremembering one of the two. I thought this was a conversation about our potentially unbelievable F word, which I did not go listen back to. I'm sure we didn't have an unbelievable F word in there."
+    },
+    {
+      "start": 4638.64,
+      "end": 4640.24,
+      "speaker": "jerod-santo",
+      "text": "Did we, Adam? I don't think so."
+    },
+    {
+      "start": 4640.24,
+      "end": 4647.56,
+      "speaker": "adam-stacoviak",
+      "text": "Somebody, somebody confirmed that it was, um, that it was just a sound. Oh yeah. I just stumbled a word."
+    },
+    {
+      "start": 4647.56,
+      "end": 4652.28,
+      "speaker": "adam-stacoviak",
+      "text": "I was going to say, figure out. And I said, there was a D word that got bleeped. Thankfully. Yes."
+    },
+    {
+      "start": 4652.28,
+      "end": 4653.64,
+      "speaker": "jerod-santo",
+      "text": "A big D word that got bleeped."
+    },
+    {
+      "start": 4658.61,
+      "end": 4659.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 4659.09,
+      "end": 4663.97,
+      "speaker": "jerod-santo",
+      "text": "A big D word. That was a slip of the tongue. If I've ever had one. So maybe I'm missing this."
+    },
+    {
+      "start": 4663.97,
+      "end": 4674.13,
+      "speaker": "adam-stacoviak",
+      "text": "I thought somebody said something about how many points you had gotten and I guess I'm wrong cause I can't find it. So I dreamt it. I think I dreamt this about you losing officially, but I guess you"
+    },
+    {
+      "start": 4674.13,
+      "end": 4675.01,
+      "speaker": "jerod-santo",
+      "text": "didn't lose officially."
+    },
+    {
+      "start": 4675.01,
+      "end": 4683.25,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I can see where maybe in your dreams I would lose. Somebody did concur a Skulk Neethling on a YouTube and comments. Yup."
+    },
+    {
+      "start": 4683.61,
+      "end": 4689.09,
+      "speaker": "jerod-santo",
+      "text": "People believe that he Mandela passed away in jail during the 1980s. Right."
+    },
+    {
+      "start": 4689.65,
+      "end": 4716.09,
+      "speaker": "adam-stacoviak",
+      "text": "See, that's a, that's a big deal there. That's a big deal. Anyways, we are on YouTube. Full length episodes chaptered and all. We are in your podcast app. If you're listening to us in your podcast app, just stay right where you are. It's nice and cozy. We're not going to change cozy. Nothing changes. You can keep, you can hang here if you want to, but if you want to see us, I would say maybe a slightly more high fidelity, especially as we're talking through things and stuff like that. We're going to have the screen up in the video on YouTube."
+    },
+    {
+      "start": 4716.09,
+      "end": 4720.61,
+      "speaker": "jerod-santo",
+      "text": "So when you're, if you, if you get to a point in the show and you're like, man, I really wish I could see that."
+    },
+    {
+      "start": 4720.81,
+      "end": 4728.45,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you can just remember the time mark and roughly around the same timeframe on YouTube, you will find the same section that you're listening to"
+    },
+    {
+      "start": 4728.45,
+      "end": 4773.04,
+      "speaker": "jerod-santo",
+      "text": "because they're not the exact same timeline. So the YouTube version and the audio version may be of different links. They may be of different spots. So your mileage may vary. That being said, you can have higher fidelity, slightly more context if you desire it via full length video podcasts on YouTube, but Shaka that's coming to you. I do have a bonus. Jerry, can we do a bonus for our plus plus folks? Can we end the show and then do one bonus? Are you cool with that? I absolutely am cool with a bonus. I think before we tail out, let's, let's tease a few of our upcoming interviews. We have some of these booked that, uh, we'd like to let people know about. Cause we have some really cool stuff coming down in the pipeline. So you probably already heard our conversation with Alicia"
+    },
+    {
+      "start": 4773.04,
+      "end": 4779.12,
+      "speaker": "adam-stacoviak",
+      "text": "white from embedded FM that's in your feed. If you haven't heard it yet, but definitely check that one."
+    },
+    {
+      "start": 4779.12,
+      "end": 4791.14,
+      "speaker": "jerod-santo",
+      "text": "That was a good one. Um, next week we have Ash from Bentos. Bentos was acquired by red Panda and we've been working with Ash. We've had Ash on go time before."
+    },
+    {
+      "start": 4791.46,
+      "end": 4806.74,
+      "speaker": "adam-stacoviak",
+      "text": "Really cool guy coming on the show to talk about that, set the sale of this open source project and all that jazz. Uh, the, the week following it's Glauber. I'm not sure if you say his name, Glauber or Glauber, and we"
+    },
+    {
+      "start": 4806.74,
+      "end": 4808.3,
+      "speaker": "jerod-santo",
+      "text": "will learn that from Terso."
+    },
+    {
+      "start": 4808.5,
+      "end": 4811.86,
+      "speaker": "adam-stacoviak",
+      "text": "Glauber. Is it Glauber? I believe so. I've talked to him once."
+    },
+    {
+      "start": 4812.3,
+      "end": 4822.4,
+      "speaker": "jerod-santo",
+      "text": "Of course, Terso has a really cool new pro open source project called Limbo, Limbo is a complete rewrite of SQLite in Rust, they're working on that."
+    },
+    {
+      "start": 4823.12,
+      "end": 4833.5,
+      "speaker": "adam-stacoviak",
+      "text": "And I'm excited to learn all about it. I'm really, I'm really excited about that one. That's it for now. I thought I had one more in the can, but there we go."
+    },
+    {
+      "start": 4833.5,
+      "end": 4846.06,
+      "speaker": "jerod-santo",
+      "text": "So stay tuned for Bentos, data streaming, open source, acquisitioning, as well as going deep on Limbo, the new rewrite of SQLite in Rust coming"
+    },
+    {
+      "start": 4846.06,
+      "end": 4847.38,
+      "speaker": "adam-stacoviak",
+      "text": "to a changelog near you."
+    },
+    {
+      "start": 4847.46,
+      "end": 4851.9,
+      "speaker": "jerod-santo",
+      "text": "Okay. Should we say goodbye friends? And then we can bonus it up."
+    },
+    {
+      "start": 4852.74,
+      "end": 4853.78,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends. Bye friends."
+    },
+    {
+      "start": 4860.65,
+      "end": 4861.37,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 4861.41,
+      "end": 4874.05,
+      "speaker": "adam-stacoviak",
+      "text": "That is your changelog for this week. Thanks for hanging with us. What do you think about NVIDIA's project digits, Waymo's, Infinite Loops and or modern terminal setups?"
+    },
+    {
+      "start": 4874.21,
+      "end": 4875.81,
+      "speaker": "adam-stacoviak",
+      "text": "Let us know in Zulip."
+    },
+    {
+      "start": 4876.05,
+      "end": 4880.01,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, the changelog community hangs in Zulip now, and it's cool."
+    },
+    {
+      "start": 4880.25,
+      "end": 4881.93,
+      "speaker": "jerod-santo",
+      "text": "You should join if you haven't yet."
+    },
+    {
+      "start": 4882.05,
+      "end": 4887.17,
+      "speaker": "adam-stacoviak",
+      "text": "Like I said on the show, go to changelog.com slash community. It's totally free."
+    },
+    {
+      "start": 4887.25,
+      "end": 4888.65,
+      "speaker": "jerod-santo",
+      "text": "There's fun convos."
+    },
+    {
+      "start": 4888.69,
+      "end": 4903.73,
+      "speaker": "adam-stacoviak",
+      "text": "There's like-minded friendly people. Why not? Right. Let's do one more. Thank you to our partners at fly.io and to our sponsors of this episode, augment code and delete me. Please check out what they're up to and support them. They support us."
+    },
+    {
+      "start": 4904.01,
+      "end": 4907.45,
+      "speaker": "jerod-santo",
+      "text": "And thanks of course, to our Beat freaking residents, Breakmaster"
+    },
+    {
+      "start": 4907.45,
+      "end": 4919.89,
+      "speaker": "adam-stacoviak",
+      "text": "Cylinder, who is hard at work cranking on some new tracks for our next full length album. Stay tuned for that next week on the changelog news on Monday, Ashley"
+    },
+    {
+      "start": 4919.89,
+      "end": 4923.85,
+      "speaker": "jerod-santo",
+      "text": "Jeffs, who takes us on his open source ride that ended with Ben"
+    },
+    {
+      "start": 4923.85,
+      "end": 4963.03,
+      "speaker": "adam-stacoviak",
+      "text": "Thoss selling to red Panda last year. That's on Wednesday and Chris Brando plus Matthew Sanabria co-hosts of the go-time spinoff fall through on Friday. Have a great weekend. Share changelog with your friends who might dig it. And let's talk again real soon. Changelog plus plus it's better."
+    },
+    {
+      "start": 4963.11,
+      "end": 4983.87,
+      "speaker": "jerod-santo",
+      "text": "Sonos CEO, Patrick Spence steps down after disastrous app launch. I can concur. They have basically ruined Sonos. Oh no. Yeah. I mean like it's not, the app used to be so easy to use or at least easy ish. It wasn't the best. It could use some improvements and the improvements they made were not improvements. They were detriments."
+    },
+    {
+      "start": 4983.87,
+      "end": 4984.19,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    }
+  ]
+}

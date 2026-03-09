@@ -1,0 +1,1377 @@
+{
+  "title": "There's a TUI for that",
+  "description": "Nick Janetakis joins Adam and Jerod to explore text-based user interfaces and terminal tools, featuring demonstrations of various open-source projects from the Awesome TUIs repository.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "nick-janetakis"
+  ],
+  "segments": [
+    {
+      "start": 14.61,
+      "end": 68.54,
+      "speaker": "adam-stacoviak",
+      "text": "This is changelog and friends our weekly talk show about text-based user interfaces aka tuis a massive thank you to our friends and partners at fly.io deploy your app near your users that's what the cool kids do make it happen at fly.io okay let's talk what's up friends i'm here with Dave Rosenthal CTO of Sentry so Dave when I look at Sentry I see you driving towards full application health error monitoring where things began session replay being able to replay a view of the interface a user had going on when they experienced an issue with full tracing full data the advancements you're making with tracing and profiling chrom monitoring code coverage user feedback and just tons of integrations give me a glimpse into the inevitable future what are"
+    },
+    {
+      "start": 68.54,
+      "end": 148.7,
+      "speaker": "nick-janetakis",
+      "text": "you driving towards yeah one of the things that we're seeing is that in the past people had separate systems where they had like logs on servers written files they were maybe sending some metrics to Datadog or something like that or some other system they were monitoring for errors with some product maybe it was Sentry but more and more what we see is people want all of these sources of telemetry logically tied together somehow and that's really what we're pursuing at Sentry now we have this concept of a trace id which is kind of a key that ties together all of the pieces of data that are associated with user action so if user loads a web page we want to tie together all the server requests that happened any errors that happened any metrics that were collected and what that allows on the back end you don't just have to look at like three different graphs and sort of line them up in time and you know try to draw your own conclusions you can actually like analyze and slice and dice the data and say hey what did this metric look like for people with this operating system versus this metric look like for people with this operating system and actually get into those details so this kind of idea of tying all of the telemetry data together using this concept of a trace id or basically some key i think is uh is a big win for developers trying to diagnose and debug real world systems and something that is uh we're kind of"
+    },
+    {
+      "start": 148.7,
+      "end": 159.1,
+      "speaker": "adam-stacoviak",
+      "text": "charged the path for that for everybody okay let's see you get there let's see you get there tomorrow yeah perfectly how will systems be different how will teams be different as a result yeah i mean i"
+    },
+    {
+      "start": 159.26,
+      "end": 202.62,
+      "speaker": "nick-janetakis",
+      "text": "guess again i just keep saying and maybe but i think it kind of goes back to this debug ability experience when you are digging into an issue you know having a sort of a richer data model that's you know your logs are structured they're sort of this hierarchical structure with spans and not only is it just the spans that are structured they're tied to errors they're tied to other things so when you have the data model that's kind of interconnected it opens up all different kinds of analysis that we're just kind of either very manual before kind of guessing that maybe this log was you know happened at the same time as this other thing or we're just impossible we get excited not only about the new kinds of issues that we can detect with that interconnected data model but also just for every issue that we do detect how easy it is to get to the bottom"
+    },
+    {
+      "start": 202.62,
+      "end": 253.23,
+      "speaker": "adam-stacoviak",
+      "text": "of it i love it okay so they mean it when they say code breaks fix it faster with century more than 100 000 growing teams use century to find problems fast and you can too learn more at century.io that's s-e-n-t-r-y dot io and use our code changelog get 100 off the team plan that's almost four months free for you to try out century once again century.io so we're hanging out with nick jantakas he's flying close to the sun with only 2.5 gigabytes of hard drive space nick do you like to live dangerously or what's going on over there yeah i must say i do you must i'm over here sitting on like three and a half terabytes i think of available space so you know"
+    },
+    {
+      "start": 253.23,
+      "end": 279.79,
+      "speaker": "nick-janetakis",
+      "text": "at this point i've gone all in with this idea of i'm going to keep this workstation alive until it no longer wants to be alive so i'm at just under 10 years now with the same like first generation ssd so what's the the ultimate size on that well the ssd is 250 gigs i do have a one terabyte hard drive as well just like an external one right but that's also getting pretty full is this a system you built yourself yeah just uh assorted parts off of well back then new egg and a little bit of"
+    },
+    {
+      "start": 279.79,
+      "end": 288,
+      "speaker": "adam-stacoviak",
+      "text": "amazon when's back then back then like 2014 dang that's how old this machine is you're on yeah i"
+    },
+    {
+      "start": 288,
+      "end": 304.24,
+      "speaker": "nick-janetakis",
+      "text": "almost can't believe it too because it's like you know i could buy a new one if i want to just part it out build it it's fun but it's like it just hasn't become a problem somehow like i can still record videos and day-to-day usage yeah what's your cpu it is a quad core 3.2 gigahertz it's"
+    },
+    {
+      "start": 304.24,
+      "end": 314.16,
+      "speaker": "adam-stacoviak",
+      "text": "like an e4460 i think an intel one you're missing out man sorry about that sorry about that yeah the last decade's been good in hardware advances you know yeah wait until you hear i have like a"
+    },
+    {
+      "start": 314.16,
+      "end": 321.04,
+      "speaker": "nick-janetakis",
+      "text": "g4 750 ti as my video card oh my god that that is an interesting one yeah i suppose well you know"
+    },
+    {
+      "start": 321.04,
+      "end": 333.68,
+      "speaker": "adam-stacoviak",
+      "text": "the new intel CPUs generally have integrated GPUs which is enough in most cases really yeah Nick wouldn't know 14th gen is sitting out there waiting for you to get it i mean 14th gen is"
+    },
+    {
+      "start": 333.68,
+      "end": 338.56,
+      "speaker": "nick-janetakis",
+      "text": "out there too but riddled with Linux bugs i'm sure because it's late as gen i'm excited for you Nick"
+    },
+    {
+      "start": 338.56,
+      "end": 353.44,
+      "speaker": "adam-stacoviak",
+      "text": "because a we might kill that machine here today as we fill up a hard drive but b you're gonna have the best upgrade of all time aren't you i mean it's gonna be amazing it's gonna be a good day that's like how Adam starves himself all day for that one meal but that one meal is the best"
+    },
+    {
+      "start": 353.44,
+      "end": 357.68,
+      "speaker": "nick-janetakis",
+      "text": "isn't it Adam i mean you really go after it you know man i have to tell you i've been like"
+    },
+    {
+      "start": 357.68,
+      "end": 370.14,
+      "speaker": "adam-stacoviak",
+      "text": "becoming a chef oh yeah oh yeah that's all i believe it i believe Nick's gonna be a chef when it comes to building the recipe for his next machine uh Nick i'm half tempted to to donate"
+    },
+    {
+      "start": 370.14,
+      "end": 375.58,
+      "speaker": "nick-janetakis",
+      "text": "some ram to you or something bro oh don't worry i've got 16 gigs okay well you got plenty of ram"
+    },
+    {
+      "start": 375.58,
+      "end": 381.02,
+      "speaker": "adam-stacoviak",
+      "text": "but does that ram scale to your next system like what what gen is that that ram even i couldn't"
+    },
+    {
+      "start": 381.02,
+      "end": 386.78,
+      "speaker": "nick-janetakis",
+      "text": "even say the exact gen of the ram but the answer is no okay this kind of reminds me of my very"
+    },
+    {
+      "start": 386.78,
+      "end": 434.29,
+      "speaker": "adam-stacoviak",
+      "text": "first macbook pro laptop which is probably around the same time period now had me before that 2010 it was one of those big heavy honkers with the really nice keyboard and i had a similar streak going not how long can i run this thing but how how long could i go without rebooting my laptop at the time i was traveling into the office to work every day and but i would never turn it off i would just close the lid and open it back up and i called it a server and all my colleagues thought i was a dork and i was but i went over a year without rebooting that thing which by the end of it i mean it was dogging it was like the ram it was swapping the ram was gone it was like please reboot me but once i had the streak going i would i didn't want to i didn't want to break it yeah"
+    },
+    {
+      "start": 434.29,
+      "end": 455.73,
+      "speaker": "nick-janetakis",
+      "text": "it's weird how streaks work i had something similar happen with uh this machine actually so this machine predates windows 10 which is i'm running now you know i used to run windows 7 on there and you know at some point in time security patches stopped and i wasn't getting auto updated for microsoft all the time so yeah i had something like 230 days of uptime i think on the machine for a windows box is like pretty decent because usually windows would be like by the way i'm"
+    },
+    {
+      "start": 455.73,
+      "end": 522.38,
+      "speaker": "adam-stacoviak",
+      "text": "gonna reboot and friday and the next tuesday on tuesdays was it tuesdays it's been so long i forget patch tuesday isn't it isn't that the big day out on the windows side i believe so nick knows tuesday i got an idea for the nick you got enough followers and subs on on youtube i would i think you probably put a call out there for like hardware folks you know get fractal designed to give you a case get so and so to give you a motherboard get so and so to give you some drives i named one brand only of course i'm sorry i like fractal design they're cool so you want me to sell out no yes that's not selling out that's leveraging your channel bro you're missing out there's good content waiting for you to build your next machine all the choices you'll make as a bash scripter a vim master a docker dude whatever you want to call yourself you know like i'm just looking at your i'm looking at all your uh you know just all your keywords on your youtube channel you're missing out man build yourself a new machine use this promotion get some friends"
+    },
+    {
+      "start": 522.38,
+      "end": 528.62,
+      "speaker": "nick-janetakis",
+      "text": "get some network boom so here we go youtube video title like how to pick the best motherboard to run"
+    },
+    {
+      "start": 528.62,
+      "end": 556.13,
+      "speaker": "adam-stacoviak",
+      "text": "docker yeah i mean it doesn't i mean i don't think you really need to choose between motherboards to run docker do you no no okay then okay just whatever's on the market anyways you should do that it's an idea it's an idea i don't think that's exactly nick's style of content you're more tutorial learn a thing opinion pieces right i think you're i've even seen you kind of reading some of your blog post now on youtube is that a recent thing you started doing or you've been"
+    },
+    {
+      "start": 556.13,
+      "end": 561.01,
+      "speaker": "nick-janetakis",
+      "text": "doing a while you mean linking to the blog post from youtube no it's like here's a blog post and"
+    },
+    {
+      "start": 561.01,
+      "end": 570.61,
+      "speaker": "adam-stacoviak",
+      "text": "there's also a video oh right the video is effectively you either reading or summarizing the blog post i mean it's almost like a audio transcript in video form and they link back and"
+    },
+    {
+      "start": 570.61,
+      "end": 591.12,
+      "speaker": "nick-janetakis",
+      "text": "forth sometimes it depends like certain posts i will write out beforehand but a lot of times i'll just make the youtube video first and then i'll just do the blog post after but yeah some of them it makes sense to write it first yeah i've been doing that style i guess maybe for like a year and a half i want to say and i was just figuring like well you know it'd be interesting to see if that increases traffic to both sites both youtube and my own site just by having you know a little"
+    },
+    {
+      "start": 591.12,
+      "end": 597.04,
+      "speaker": "adam-stacoviak",
+      "text": "bit more content in my site right have you had any good results from that or are you so it's hard to"
+    },
+    {
+      "start": 597.04,
+      "end": 603.92,
+      "speaker": "nick-janetakis",
+      "text": "tell hard to tell because i also disabled google analytics so oh whenever they switched over i don't"
+    },
+    {
+      "start": 603.92,
+      "end": 636.66,
+      "speaker": "adam-stacoviak",
+      "text": "blame you about but but how are you gonna know i don't know i don't know all right i don't know all right maybe just a feeling like you'll feel like it's worth it that's all right that's how i go on stuff a lot i'm like this feels right isn't there a plot hole we're missing out on here jared though is like the last time we talked to nick he was changing right he was like ending the podcast i think even ending the blog and like moving on to something like a gig and that's true i don't know man it's been so long that i don't remember it yeah yeah no you're right about the blog so"
+    },
+    {
+      "start": 636.66,
+      "end": 664.18,
+      "speaker": "nick-janetakis",
+      "text": "or sorry hold on you're right about the podcast because i was running running in production.com for a while did 100 plus episodes and then yeah just decided to call it quits on that one but yeah the blog and youtube channel they're still going strong weekly posts so you haven't changed at all since then no interestingly though i have done a lot of contract work but one of the people i was working with you know they did invite me to work full-time as like an sre slash like devops engineer slash developer advocate slash whatever you want to classify that role as the do all the"
+    },
+    {
+      "start": 664.18,
+      "end": 672.45,
+      "speaker": "adam-stacoviak",
+      "text": "things person yes the run things in production person that's right oh man and how'd that go"
+    },
+    {
+      "start": 672.45,
+      "end": 690.69,
+      "speaker": "nick-janetakis",
+      "text": "yeah that's actually going pretty good it's interesting because you know it's like a a nine to six type of job but it kind of feels like i was working you know similar hours doing contract work beforehand anyways and now it's just like consolidated into one company which has you know it's pros and cons right if the company decides to let you off or something happens"
+    },
+    {
+      "start": 690.69,
+      "end": 697.09,
+      "speaker": "adam-stacoviak",
+      "text": "you only have one revenue stream but so far so good and you have uh courses still in play you're"
+    },
+    {
+      "start": 697.09,
+      "end": 707.25,
+      "speaker": "nick-janetakis",
+      "text": "still doing courses or no keeping those up to date still need to make some new ones there's been a deploy course in the works now since like 1935 but older than your computer you might miss"
+    },
+    {
+      "start": 707.25,
+      "end": 753.01,
+      "speaker": "adam-stacoviak",
+      "text": "out because uh there's a lot of like non-deployment happening yeah you know people ain't shipping no he's slowing down because he can't you know he has to slow down to keep up with his computer he just can't go that's right do you have any pain from that like i mean you're rendering videos you're doing stuff i mean never be like i could wait i remember when we upgraded to the m star i think ours are m1s my mix down inside of adobe edition went from like four minutes to like between 30 seconds and 45 seconds i mean it was it was enough where i don't get as distracted now as i did because i mean you gotta waste five minutes waiting for that thing especially when you mess up you get a remix down but do you have any of that where you're like man i'm just literally watching this thing spin for video takes even longer than audio obviously right no if that"
+    },
+    {
+      "start": 753.01,
+      "end": 768.61,
+      "speaker": "nick-janetakis",
+      "text": "were the case i would have upgraded a long time ago so you're right definitely like the video encoding is going to be so much faster on a new machine probably like a 10x difference but you know let's say i record a 15 minute youtube video and maybe that takes like 25 minutes to render you know i like to walk a lot i also sleep and i eat meals and stuff so i'll just like render"
+    },
+    {
+      "start": 768.61,
+      "end": 781.65,
+      "speaker": "adam-stacoviak",
+      "text": "that video when i know i'm going away for an hour sleep yeah during your rendering your encodings he takes a nap you know right this is the exact reason why people upgrade i spend my whole my whole life"
+    },
+    {
+      "start": 781.65,
+      "end": 786.85,
+      "speaker": "nick-janetakis",
+      "text": "is optimized around me doing different things when i need to render a video oh he has things in my"
+    },
+    {
+      "start": 786.85,
+      "end": 822.21,
+      "speaker": "adam-stacoviak",
+      "text": "rendering okay cool time to do it it's like a forced pomodoro technique you know he's like i got 25 minutes i gotta go i'm the same jared i i have the imac pro at home is my kind of work home desktop thing that i use i thought i would use a lot more for like okay i don't have to go and you know somewhere else and basically just do my work i don't have to go and record so i can just like edit this show here sure nah man on that intel mac the mix down was like too slow 15 minutes like unbearable right 15 minutes no thank you when i can like spend a minute and a"
+    },
+    {
+      "start": 822.21,
+      "end": 849.73,
+      "speaker": "nick-janetakis",
+      "text": "half at most on my m1 mac forget it i know now this is a maybe a controversial take but this work computer that i have too is separate so the company issued me um an m2 air which is actually quite nice it's super speedy it's cool but it's like if i'm just browsing websites or doing like a docker compose up it's really not that much different than my current machine and i really feel like it's just having an ssd on both of them makes such a big difference like if i didn't have an ssd forget it would be like the end of the world yeah you're probably not doing a lot of"
+    },
+    {
+      "start": 849.73,
+      "end": 861.01,
+      "speaker": "adam-stacoviak",
+      "text": "compression but i would say your video work is what would really tax the the gpu particularly and then probably the cpu as well with some of that at least yeah it's certainly we're at a point now"
+    },
+    {
+      "start": 861.01,
+      "end": 868.45,
+      "speaker": "nick-janetakis",
+      "text": "where common internet usage you got your vim you got your terminal you got your browser maybe"
+    },
+    {
+      "start": 868.45,
+      "end": 934.93,
+      "speaker": "adam-stacoviak",
+      "text": "you've got a music app running you're not really going to have much of a difference on brand new hardware versus you know i guess in your case 10 years ago although when you did get that put together it was pretty bleeding edge it seemed like or at least pretty good versus like an old machine that was also low quality the time you're not going to notice as much i mean there's little things where like you tab away and you have to wait for like the window to actually swap those kind of things but really where the gains are is if you're doing heavy loads compiling test suites our test suite also runs now again in under 10 seconds i think whereas on my old one it was like getting up to 30 seconds and which of course you run that often enough that you're sitting there staring at it the old skcd the obligatory skcd i think it's 303 where they excuses that they're compiling of course is why they're having a sword fight in the hallway they're sword fighting yeah so those are the things you'll notice but yeah i mean if you're gonna go take a walk i mean you've got work i call that a work around but you know it's a lifestyle work around so it's the best kind right yeah it's funny too"
+    },
+    {
+      "start": 934.93,
+      "end": 951.49,
+      "speaker": "nick-janetakis",
+      "text": "because uh like let's say i were to release a new course right a new video course that has like 75 videos that need to render like those i'll just start that before i go to sleep i do sleep a good seven eight hours most nights so it's like by the time i wake up they're all done it's like a gift just waiting there all the all the videos i didn't have to do a single thing like waiting"
+    },
+    {
+      "start": 951.49,
+      "end": 961.09,
+      "speaker": "adam-stacoviak",
+      "text": "around does it ever fail in the middle of the night or do you ever like realize you made a mistake and then you're like ah i gotta go to sleep again sleep again yep i'm going back to"
+    },
+    {
+      "start": 961.09,
+      "end": 987.33,
+      "speaker": "nick-janetakis",
+      "text": "sleep you know i've never had a batch fail like that but i mean if it did it is interesting though because if it did fail and i was planning to launch like two days from now or something you know that would have an effect like but yeah another quick use case just around upgrading i mean yeah i would like to play a little bit more modern games so i actually do like playing video games you know mmos fps etc and like nothing modern will you know within reason is going to run my current machine so i'm stuck like playing these like 2d platform games well i'm in the same"
+    },
+    {
+      "start": 987.33,
+      "end": 1004.53,
+      "speaker": "adam-stacoviak",
+      "text": "world as you because i play all my video games on nintendo switch which is not modern hardware because they refuse to ship modern hardware nintendo does and so all the games that look silky smooth on xbox and they're all glitchy on switch but you know it's nostalgic and it's"
+    },
+    {
+      "start": 1004.53,
+      "end": 1058.37,
+      "speaker": "nick-janetakis",
+      "text": "nintendo so i just live with it yeah actually here's a here's a dilemma for you my biggest dilemma around the next upgrade is like well do i actually want to go with another workstation that i build up from parts run windows with like wsl etc maybe dual boot with linux or something or does one actually go with a laptop and then it's kind of like well you can do everything from there i mean you know parts are going to be a little bit worse but you have the convenience of actually having the laptop because man did i run into some issues when so docker had this uh captain summit in lisbon portugal last month and you know i don't have a dedicated laptop but i have this chromebook that i modified to run linux that's also like 10 years old literally and like you can't even run docker desktop and it just became annoying to like sync files from my workstation onto there so i can like post a blog post from you know there so yeah i don't know where do you guys stand on that do you like this idea of like one machine to rule them all you do all of your work and fun and all that or do you have separate ones great question so i think adam and"
+    },
+    {
+      "start": 1058.37,
+      "end": 1063.17,
+      "speaker": "adam-stacoviak",
+      "text": "i differ on this to a certain extent go ahead adam i'm i'm pro laptop honestly and i'm wrong"
+    },
+    {
+      "start": 1063.17,
+      "end": 1068.85,
+      "speaker": "nick-janetakis",
+      "text": "we do not differ well you've always had a desktop for a long time yeah i did but mainly because the"
+    },
+    {
+      "start": 1068.85,
+      "end": 1184.9,
+      "speaker": "adam-stacoviak",
+      "text": "imac pro was the latest thing you can buy that was good i suppose at that era of mac and it was a desktop and that was why i wanted a larger screen larger screens were not really a thing for apple at the time and they still had like the old school display not even with the newest stuff you know and always any sort of external display with a mac has as you know jared been generally fraught with issues throughout the years it's gotten better but it's not like native when you have a native screen the laptop screen or the imac pro screen or the imac screen it's good so i'm all for a good laptop honestly it goes everywhere just sucks going from screen to laptop because the stuff moves around the windows move around oh yeah unplugging and plugging yeah it's my biggest i mean like how has apple not solved that yet why is it a third-party tool that works okay right solving it so yeah i've been i've been pro mobility i have had a desktop in the past but i've always preferred a laptop and that to be one machine to rule them all like i just get the beefy as laptop i can i err on the side of big versus pure mobility because the difference especially now between the pros and the errors or whatever is minuscule i mean it used to be more more epic as the pros were just like these huge honking bricks that you really didn't want to put on your lap because they were they would heat your lap to send your leg hair to a point but they've gotten so good now that i just don't want to have multiple machines where i have to worry about sinking and installing stuff here installing it there and did i do this there that there blah blah blah blah and i certainly can't do my work only at my work desk i just my lifestyle doesn't afford that so i'm a laptop guy laptops for life pretty much at this point okay yeah"
+    },
+    {
+      "start": 1184.9,
+      "end": 1194.34,
+      "speaker": "nick-janetakis",
+      "text": "i've always been just build my machine up from parts but maybe that'll change or maybe i'll maybe i'll get two machines i don't know maybe a new workstation and a laptop on the side well you"
+    },
+    {
+      "start": 1194.34,
+      "end": 1199.14,
+      "speaker": "adam-stacoviak",
+      "text": "get that youtube series going you might get so much hardware be coming out your ears you know"
+    },
+    {
+      "start": 1199.14,
+      "end": 1228.18,
+      "speaker": "nick-janetakis",
+      "text": "funny enough i have had one opportunity to get hardware but it was for like one of those it was like um an exercise bike oh but like a really fancy one a crazy one with like a big screen and everything and i'm like a peloton kind of thing something like that but it wasn't you know it wasn't that brand sure but it felt weird to accept something that large like physically and like you know money-wise value to be like how does that relate to you know making a youtube video on like how to write a shell script you know like i don't know how much of an audience crossover there is"
+    },
+    {
+      "start": 1228.18,
+      "end": 1240.34,
+      "speaker": "adam-stacoviak",
+      "text": "i tell you how i'm sure there's embedded linux on that thing very possible right let's hack that thing how can we check its outgoing ip lookups and stuff like that let's look at its dns lookups"
+    },
+    {
+      "start": 1240.9,
+      "end": 1262.74,
+      "speaker": "nick-janetakis",
+      "text": "let's actually hack it to make it not a bike then you find out that it's phoning home and it's tracking everything you're doing that's right and you can bust them you can bust out the people that's right they sent me this free bike and now i'm debunking them on their privacy problems that's how you really get the views nick that is there we go so just call us anytime you get new"
+    },
+    {
+      "start": 1262.74,
+      "end": 1267.62,
+      "speaker": "adam-stacoviak",
+      "text": "hard work opportunities and we'll give you ideas to to do or to not all kinds of stuff that we"
+    },
+    {
+      "start": 1267.62,
+      "end": 1276.14,
+      "speaker": "nick-janetakis",
+      "text": "never do either no we don't we don't it would be fun peloton send me a bike i'll uh i'll hack it"
+    },
+    {
+      "start": 1276.14,
+      "end": 1487.47,
+      "speaker": "adam-stacoviak",
+      "text": "there you go well let's dive into our topic for today this is a follow-up to the last time we had you on which was been a few years but we talked modern unix tools and that was a lot of fun going through a lot of the common unix tools like ls and cd and cat and etc etc etc and talking about modern alternatives to those which have uh you know bells and whistles so that was that episode people can go back in the feed episode 451 we will link it up modern unix tools with nick janetakis today we're going to talk terminal again we're focusing on two e's i feel like two e's are having a moment a i don't want to call it a revolution a renaissance there you go a renaissance probably in light of a lot of the tooling that's now available we've had shows with people like charm the charm bracelet folks who are providing go based tooling for doing all kinds of text based in terminal things and then there's also is it will mcgoughan i believe and the textualize folks over there providing similar tools for the python community and a lot of the stuff that we'll talk about today is built with textualize and then there's also something going on in the rust world with a toolkit called ratatouille and the truth is i have no talent at all but this rat he's the one behind these recipes he's the cook spectacular name by the way i'm gonna grab that one and throw it in my notes real quick because i'm compiling a list of the best open source puns and of course that's a reference to the movie or maybe just the dish or both both but it's a good pun by the way if you're listening and you have a good open source project pun that makes you laugh giggle or at least smirk whenever you hear it or read it send it my way i'm putting together a blog post but ratatouille in the rust world is a rust crate for cooking up oh they're doubling down that's their words not mine cooking up terminal user interfaces and of course its little mascot is a rat looking chef so a lot of the tools that we're seeing also are written in rust the reason why i bring that up so like ratatouille is powering this movement charm and textualize perhaps more some people are just old school building up end curses stuff you know hand rolling their terminal or text-based user interfaces but lots going on and so there are so many twoies now in fact we went out to the awesome twoies repo which happens to be maintained by ship it host justin garrison i didn't even realize that when i first loaded up but i do know justin is super into text-based uis and if you just look at that repo and scroll it holy cow y'all there's hundreds on there and those are just the ones that have been submitted so that's kind of the topic for today we both have we all have brought some twoies to the world to the show to discuss but let's start with maybe two we maybe not but terminal tools tips and tricks that we've been using or are using or know about that we could share with each other and with our listener nick starting with you i"
+    },
+    {
+      "start": 1487.47,
+      "end": 1493.87,
+      "speaker": "nick-janetakis",
+      "text": "know you are command line junkie yeah so just general tips uh general tips or maybe a tool"
+    },
+    {
+      "start": 1493.87,
+      "end": 1498.99,
+      "speaker": "adam-stacoviak",
+      "text": "you've been using recently or something you've learned anything you want open book yeah it's"
+    },
+    {
+      "start": 1498.99,
+      "end": 1559.63,
+      "speaker": "nick-janetakis",
+      "text": "kind of funny just when it comes to solving these business problems that sometimes get thrown my way it always comes back to like grep said and cut like those three tools combined can solve so many random things that might come your way like for example just a quick use case you know the business came at me and they're like by the way you know we have this like salesforce dump of 178 csv files and it was like 30 gigs of data so we have 100 you know let's call 180 files a lot of data there you know all the different columns all the different rows and it's like well now we need to import that into a mysql database and you know if you try to do that by hand uh you know what are you going to do like you have to make like 8 000 different columns and like so many different tables like 180 of them or whatever but yeah i just threw together a little bit of shell scripting like 30 lines of code with like said and grab and cut and all those combined and we had a solution that got us like 95 of the way there like it just auto generated the create table syntax and like auto filled out the columns but like for car 55 by default and then someone can go in there by hand to like modify things as needed and it worked out real nice so yeah just"
+    },
+    {
+      "start": 1559.63,
+      "end": 1611.12,
+      "speaker": "adam-stacoviak",
+      "text": "random random stuff like that yeah i mean that's the beauty of unix tools is just the composability like little functions do one thing well and then the combining of them like a good chef adam you know we'll put together different ingredients and come up with an amazing recipe that's right that may be a one-off maybe it's something they should wrap up and share with the world but what's the movie where adam sandler is a chef and he goes home to make himself a sandwich at one point and yeah what was that it's just like an egg sandwich but because he's a world-renowned chef the way that he makes himself a sandwich for lunch is still just like mouthwatering you're like oh man how cool would it be to be that good at cooking that even your throwaway lunch sandwich is just like drool worthy maybe spanglish spanglish it was spanglish yeah"
+    },
+    {
+      "start": 1611.12,
+      "end": 1621.2,
+      "speaker": "nick-janetakis",
+      "text": "awesome came back to me good movie a really underrated movie honestly i like that solid solid movie a lot of good acting in that movie in my opinion i like that one nick that's definitely"
+    },
+    {
+      "start": 1621.2,
+      "end": 1786.67,
+      "speaker": "adam-stacoviak",
+      "text": "good use grep said and cut i was doing similar things with our front-end feud survey results so we use type form to go out and ask people a bunch of questions and because they are free form this is for like family feud are you familiar with the game nick family feud survey says yes yeah totally and so because it survey says the whole point of it is the form has to be a text box it cannot be a multiple choice because that ruins the entire point like what would people say and they have to be able to type whatever they want and so we use type form just to collect the entries and then i download a csv inside type form i'm not going to just read through all these and tally them up you know by hand and so for a long time i had this process where i would open up the csv in numbers and then i would like scrub and normalize and try to do some stuff and then i'd export it back out to a different csv and then i would use then i would import that csv into a sqlite database and then i would use the sqlite command line to go inside there and query it and then i realized i was taught by somebody might have been simon willison i can't remember who taught me that sqlite also actually has a csv mode and an in-memory mode and so and then it also will take queries directly from the command line so you don't have to go into like the little sqlite ui and do things from there the prompt and so i reduced this is not multiple tools together but this is like just knowing a tool better i actually reduce that entire process down to a single command line that would just tell that would take the original csv from type form open it in memory in sqlite as a csv and which automatically creates the tables right there and everything and then execute the specific query and then output it the way i wanted to and i was like oh happy day you know like when you have something like that just works like that it's amazing when you you're just cutting down five steps to one it's like you feel like you're superhuman yeah no i love stuff like that hey friends i'm here with a new friend of mine shane harder the founder of chronator check him out chronator.io they let you keep tabs on your chron jobs linux kubernetes apache airflow sidekick and more with over 12 open source integrations you can instrument all your jobs no matter where you're running them so shane for me you know i'm a user of chronator to me it is the missing link in my opinion to chron what do you"
+    },
+    {
+      "start": 1786.67,
+      "end": 1872.35,
+      "speaker": "nick-janetakis",
+      "text": "think how do you explain it you know every other software that a developer creates you can watch it work and you can interact with it you run it from a command line or you have an api endpoint and it's you have logs that get produced and it's really easy to add like an apm monitoring into your api where you can start to get a sense of what your application is doing internally but when it comes to chron jobs that somehow just was never built until chronator chron jobs you would have to run them at the command line see that they were and then just fire them off into the ether and let chron tab run them and the only way you could know if they're working or not is by looking at the database to see if the thing did its job or if it's like maybe if it's supposed to upload files maybe you would just go check that the files are uploaded but that sort of verification doesn't scale it's it's hard to write tests like end-to-end tests like that do that in production even if you can then they're bound to break eventually as the chron job breaks you know if you're testing a specific bucket for a file if you're checking that file gets uploaded you know soon enough that bucket's going to change or the file is going to change and then your test is going to break rather than just looking for the side effects to know that it's working chronator is actually watching every crown job execution and reporting back to the cloud service when your job runs starts or fails along with like telemetry including like the full log output so when it does fail you've got like the metrics and the logs that you need to dig in and understand why and debug it and"
+    },
+    {
+      "start": 1872.35,
+      "end": 1893.71,
+      "speaker": "adam-stacoviak",
+      "text": "fix it so i'm using linux and linux chron jobs are by far the most popular in my opinion right but there's so many other chron like things kubernetes airflow sidekick help me understand the full spectrum of background jobs and chron jobs beyond linux chron yeah linux chron jobs are"
+    },
+    {
+      "start": 1893.71,
+      "end": 1992.03,
+      "speaker": "nick-janetakis",
+      "text": "massively popular they are still 40 years later the tool that most developers will go to first when they need to start scheduling something in the background but when you get into a team environment or an enterprise environment there is a lot of other constraints at play and there's other considerations and whether it's simply like redundancy that you're not going to get from chron tab itself or you know more like complex orchestration stories like you can get with like airflow we see companies eventually outgrowing cron and what we wanted to be sure of is that first of all like migrating from cron to anything else is a complicated thing so we wanted to give you tools to help you monitor that transition and make sure your jobs are working good as you as you do that migration you know and then second we wanted to give you a way to unify all these different job platforms because seldom do you have just like platform a and you migrate cleanly to platform b probably you know in a real world scenario you're running both side by side for a while you don't want to have different monitoring tools or different monitoring strategies for different for every different platform that you that you deploy so our goal is anywhere you're running a background job you can use chronitor the number one way that we ensured that was possible is by having like a really simple api that you can just use with an http request yourself which is pretty abnormal for monitoring tools but that works in a lot of cases but to make it easier then every popular job platform out there like linux cron jobs kubernetes cron jobs windows sidekick airflow you name it we have a chronitor sdk that you can install that will run automatically configure your monitoring run in the background and sync all your jobs with chronitor the same"
+    },
+    {
+      "start": 1992.03,
+      "end": 2102.24,
+      "speaker": "adam-stacoviak",
+      "text": "way your linux cron jobs will be synced okay friends join more than 50 000 developers using chronitor i'm one of them you can start for free and they have a pay as you grow pricing plan setup is too easy with more than 20 sdks check them out at chronitor dot io that's c r o n i t o r dot io again chronitor dot io as far as tools are using it i'm still rocking a2n adam you still using it a2n no i don't have a need for it i guess yeah i use warp as my terminal and it remembers a lot for me yeah using warp on the terminal mm-hmm nick do you know about a2n nope is it an actual like a terminal or something else a2n is a history tool so it replaces control r and the up arrow with a better interface fuzzy search a bunch of stuff that is basically like your terminal's history on steroids so to speak and we did a show with a2n's creator ellie hux table yeah we did a show with ellie hux table and it's one of these tools where it kind of disappears into the background it's not like front and center because i'm never actually typing the a2n command it's just in there in my history and you invoke it via things that you're already invoking you know if you're control r-ing to search or just uh arrowing up or down to find recent commands and i've installed that i think that was like a year or so ago and i'm still rocking that definitely am not going to uninstall it's just small quality of life improvements over the default bash history or zss history oh yeah it's interesting i forgot the name of that tool but"
+    },
+    {
+      "start": 2102.24,
+      "end": 2106.32,
+      "speaker": "nick-janetakis",
+      "text": "i'm pretty sure i vaguely remember it now from like a hacker news post from some time ago"
+    },
+    {
+      "start": 2106.72,
+      "end": 2115.84,
+      "speaker": "adam-stacoviak",
+      "text": "yeah it's pretty well beloved it's one of those things that just kind of makes your life better and doesn't ask anything of you and so it's like why not for sure let me ask you this so i like"
+    },
+    {
+      "start": 2115.84,
+      "end": 2131.04,
+      "speaker": "nick-janetakis",
+      "text": "using ctrl r all the time and i happen to use fcf to do you know searching through my history like that which could be classified as a tui to some degree because it is opening up like a little interface that you can interact with how does this tool compare to fcf like have you tried built"
+    },
+    {
+      "start": 2131.04,
+      "end": 2168.64,
+      "speaker": "adam-stacoviak",
+      "text": "side by side or in general not side by side but i did use fcf for a little while and you're gonna find very similar fuzzy finding with a2n it's a little bit better looking in terms of like she's taking more time to make sure that the ui is nicer than i think fcs is i know you can tweak that and customize it but it's really kind of a no step similar functionality so with fcf this is like a thing that you go into somewhere and make sure that in your bash rc or whatever make sure that when you control r fcf gets invoked and there's like some steps that get us to set up right"
+    },
+    {
+      "start": 2168.64,
+      "end": 2180.24,
+      "speaker": "nick-janetakis",
+      "text": "yeah and then on top of that i mean if you're talking about history stuff there's you know many different bash or z shell settings that you need to configure just to get your history set up so that you can save 50 000 lines worth and you know other things like this yeah exactly which"
+    },
+    {
+      "start": 2180.24,
+      "end": 2210.72,
+      "speaker": "adam-stacoviak",
+      "text": "i had done all that stuff because i didn't know about a2n until like you know a year ago and so if you already have all that stuff set up with fcf you're gonna have a very similar fuzzy searching of your history with a2n as you would with fcf okay a2n does bring a few other things to the table like stats and i don't know when you when you up arrow are you having fuzzy search inside of the history there or like is fcf invoked at all in your up and down arrowing through your history"
+    },
+    {
+      "start": 2210.72,
+      "end": 2219.76,
+      "speaker": "nick-janetakis",
+      "text": "or that's just the standard linux one no if i'm just hitting the up arrow in my shell i don't it doesn't invoke fcf yes i mean there might be some like custom key binds to do something with that"
+    },
+    {
+      "start": 2219.76,
+      "end": 2254,
+      "speaker": "adam-stacoviak",
+      "text": "but i haven't set that up yeah so that's one thing about a2n is even when you up error i'm sure you might turn this off but it will invoke the a2n ui which you can just continue to up arrow like you normally would except for you also then have that same fuzzy search functionality as you would with control r and so sometimes you're not thinking about control r and you're just like up erroring and you realize you know it was like oh not that version of this command it was a different one then you can start to like narrow it down so it's just slightly more tuned into that but other than that i think that the experience would be relatively similar right yeah i just"
+    },
+    {
+      "start": 2254,
+      "end": 2267.04,
+      "speaker": "nick-janetakis",
+      "text": "tested this now so if you just go to your terminal with fcf and just hit control r that will bring up your search history there and then you can kind of up and down through fcf's window but you still need to invoke it with like a you know control r right so for folks who already have that configured"
+    },
+    {
+      "start": 2267.04,
+      "end": 2283.68,
+      "speaker": "adam-stacoviak",
+      "text": "probably not a big win but for people who are new to the terminal or didn't know about fcf and how to set it the right environment variables to get their bash or zsh history to be 50,000 lines or whatever like installing a2n i think is an easy like one step that does all those"
+    },
+    {
+      "start": 2283.68,
+      "end": 2306.96,
+      "speaker": "nick-janetakis",
+      "text": "things for you so let me follow up with one more question about that sure so one interesting thing when you're dealing with your shell's history is if you happen to be using a tool like tmux and you have multiple sessions and panes and windows running how does this tool let you have a unified shell history between all of them without like you know things getting out of date or commands not being in the right order when you want them yes so that's one of the core things"
+    },
+    {
+      "start": 2306.96,
+      "end": 2359.41,
+      "speaker": "adam-stacoviak",
+      "text": "about a2n is it's unified shell history not just across your tmux sessions but actually and here i am with one computer so i don't really get to live this life but across all your machines as well so that's that's one of the core things that ellie is doing that i don't really care about as much because i just have one computer is like you could have your shell history across and synced across all of your machines via into an encrypted sync service that she provides but i don't really know how i want that to work sometimes honestly like i get in there's moments where i'm like oh i type this command into another tmux session and i would love to just up arrow and type it here and it's not there and then there's times where it is there but i don't want it to be there i'm like actually that was contextual to another thing i don't want it in this little shell history i mean i am of two minds about how i would actually want the feature to work i think it's not"
+    },
+    {
+      "start": 2359.41,
+      "end": 2379.17,
+      "speaker": "nick-janetakis",
+      "text": "straightforward have you had that experience very much and it's very much like not straightforward because it it almost feels like the only way to solve this and like the best way possible is like just do like what i want that's it that's what i wanted to do as well but i don't i don't know that the computer knows your mind reader what you want is the problem you know does it say"
+    },
+    {
+      "start": 2379.17,
+      "end": 2399.17,
+      "speaker": "adam-stacoviak",
+      "text": "things like as if you ls'd and then with some flags a particular directory is it keeping the base command plus flags plus directory in its history too so that when you reinvoke it it's like well i want the ls command with these flags but not with the with the argument it's going to"
+    },
+    {
+      "start": 2399.17,
+      "end": 2403.97,
+      "speaker": "nick-janetakis",
+      "text": "be the entire command yeah that's kind of painful so you might have to like up arrow select it and"
+    },
+    {
+      "start": 2403.97,
+      "end": 2591.79,
+      "speaker": "adam-stacoviak",
+      "text": "then you can hit tab or whatever and then you can like delete back and stuff like that you can probably do a quick shell expansion thing with the exclamation mark and that kind of stuff which is obviously more kung fu and things that i can't remember how they work all the time but yeah it it's not smart enough to know like i just want the flags like i want the i liked that version of ls but now i'm doing it in a different context i want to change the path or use no path i think you have to just do that stuff manually yeah this is where i like warp i don't know if it has this feature because i do use a few machines but so sparingly that i forget what i've done the last time i used it and so warp at least on a single machine i think you would appreciate this jared and i know you already use a2n is that it does that so like i'm just tinkering on this spare linux vm i have on prox mox because hey i'm on a podcast i'm about to eat so i'm like i'm gonna install some right and i want to do it in a way where i can just blow it away and there you go and so i'm logged in i'm just like well what are some recent commands just to see if they're there because i know they're there i know how warp works but just to see if they've actually followed me even into this different machine and of course they're there so like i have that same feature because of the terminal application i've chosen versus this sub thing and i think the one thing that i think warp is driving towards and this is by zero an ad they're not even sponsoring us i just like them and zach's cool i like his team and i believe it is a version of the terminal of the future there you go i think that they're doing things like team features which i think would be cool because you can log in to warp and let those things transfer via their cloud service if they do that i think that's where they're driving towards i wish they would do that more so with settings because going between machines it doesn't have that whereas another tool i use daily is raycast and it has that where it cloud syncs settings it doesn't cloud sync clipboard history and sensitive things it's doing things that like themes and stuff you really want to have unified between machines that's kind of how i look at these tools like even though we're talking about tuis i still feel like raycast and warp are kind of similar in that respect because they they're a layer above the need for a tui because the application itself has the things in it it needs to give you that history there's other stuff too i'm not even using like expansions and snippets things i'm not even like sure i don't i don't know i don't even know how to use them honestly i think some of the tools and support tmux well i really wish maybe i haven't dug into their documentation to like criticize it but even raycast they're doing a great job with like teaching you how to use the tool because there's always these hidden features i think h1 probably could do this as well or basically any tool that has hidden features that are not easily discoverable because the jareds of the world will just be happy with the the defaults that you you're given not and all the expressiveness that you can achieve if you would just tweak a few things and maybe nick is"
+    },
+    {
+      "start": 2591.79,
+      "end": 2596.75,
+      "speaker": "nick-janetakis",
+      "text": "the kind of person's like let me tweet nick knows all on this super old hardware by the way but let"
+    },
+    {
+      "start": 2596.75,
+      "end": 2732.51,
+      "speaker": "adam-stacoviak",
+      "text": "me tweak this yeah exactly now nick definitely knows all the command line flags don't you nick some of them yeah i mean he's written them down at least they're on his blog they're on his youtube he may forget them but he can always they're google search away as long as google search continues to index our content but that's a different topic yeah i mean warp is cool i love people trying to reinvent stuff you know make it better as soon as they get tmux support then maybe i can give it a try but until then and it sounds like nick you're probably with me i'm just not going to use it because i live inside of tmux pretty much everything i do and so that's the the rub with trying to replace a lower level foundational part of the stack whereas a2 is like a history thing like it's a smaller subsection of your terminal is that you have to support you know all these different things and there's a long history of weirdness inside of terminals that is just difficult and so until then now or they convinced me they've replaced tmux with their own functionality that is better than tmux and provides me all the same things that tmux does i think they could probably get that done i'm a relatively vanilla user of tmux i'm not an advanced tmuxer but that's an education problem right like they have to be able to teach people that they've done that yeah i agree i've never been i've used tmux several times but i've never been like oh this is this is the way i've never sat beside somebody either or like pair programmed or pair terminaled which is probably different than programming it's like just like let me just see how you hack to to really be like oh well i'm really missing something with tmux like i've used it it's kind of kludgy in some cases but maybe that's because i haven't gotten past that even like the vim stage like i'm a fairly daily user of vim but very basic user of vim so yeah like i even like getting to the end of lines or jumping lines or copying multiple lines or even yanking and pasting like those are the i'm doing basics you know i can at least get out of it so thank you very much but you know with tmux i've never gotten past the whole training wheels let me actually find usefulness because i guess i just haven't sure well nick you're a tmux user right yeah give that on the pitch what's the pitch okay"
+    },
+    {
+      "start": 2732.51,
+      "end": 2812.19,
+      "speaker": "nick-janetakis",
+      "text": "so if you like to use the terminal let's say you're using vim or whatever editor and running a whole bunch of different command line tools maybe two ways as well and you don't want to leave your terminal to juggle multiple projects i mean you can use something like tmux sessions to have let's say you know maybe if you're working on the changelag source code or maybe you have your own personal blog or maybe you have a different project the casade project that you're building you know you can have a tmux session for all three of those things and then use tmux to jump between each of those and all three of those sessions they might have their own window layouts that are you know specific to that application like with the changelag source code you know maybe you have your code editor in one window maybe you have like docker compose up or however you run your application in another window and then you know when you jump to your own personal blog it has its own set of windows so you can kind of switch between contexts very quickly and have everything just ready to go right there for you without having to be like oh i gotta open up my code editor and split this window open up a second terminal and then you know do all these things that's typically how i use tmux um in my day-to-day just to help me juggle a lot of different things you know because i have probably like 11 or 12 different tmux sessions basically 11 or 12 different projects and yeah they're all laid out a little bit different i mean tmux makes it super easy to like if i just want to open up a second window or split a plane vertically or horizontally you know i can do that type of stuff and jump between those hotkeys like if i want to go to window one or two or three you know that's just a hotkey away mm-hmm yeah i've been there to"
+    },
+    {
+      "start": 2812.19,
+      "end": 2828.94,
+      "speaker": "adam-stacoviak",
+      "text": "do some of those things i definitely am not a daily driver in the terminal where i'm like effective and efficient on the daily my work is generally outside of that my tinkering is more in it so i haven't found the need to be like let me obsess over the tooling so much what's wrong with"
+    },
+    {
+      "start": 2828.94,
+      "end": 2836.35,
+      "speaker": "nick-janetakis",
+      "text": "multiple tabs well you have to set them back up again i have to go see you later guys i had to"
+    },
+    {
+      "start": 2836.35,
+      "end": 2845.23,
+      "speaker": "adam-stacoviak",
+      "text": "ask the question because somebody else is like what's wrong with multiple tabs you mean like just your terminal has multiple tabs open yeah it's like a new tab yeah a new tab new yeah exactly"
+    },
+    {
+      "start": 2845.23,
+      "end": 2853.39,
+      "speaker": "nick-janetakis",
+      "text": "well then you have to set that back up again later so that's the reason it's like the the setup the teardown so let me give you an example that maybe would be enticing for you because you ssh into"
+    },
+    {
+      "start": 2854.03,
+      "end": 2889.71,
+      "speaker": "adam-stacoviak",
+      "text": "local boxes multiple machines yeah yeah exactly so this is less of a problem as it used to be but you know ssh sessions which have not the best internet like obviously on your land you're gonna have good connections all the time but anytime you're like SSH to a remote server where you may hang you may have an internet outage you may lose that session this starts with a new screen it goes way back but tmux has its functionality as well what you can do is you can ssh in you can start tmux inside that remote machine you can have multiple panes multiple things all the stuff you could have like with tabs on your own computer but then you can also detach"
+    },
+    {
+      "start": 2889.71,
+      "end": 2911.31,
+      "speaker": "nick-janetakis",
+      "text": "from that session and it stays running and so you can set it up so like if you accidentally close your laptop and you're like dang i had three tabs open ssh into this machine right moving files around doing different stuff yeah now you basically just lost the connection to all that setup which is still live on that remote server so the next time you ssh in you just tell tmux to connect to"
+    },
+    {
+      "start": 2911.31,
+      "end": 2916.67,
+      "speaker": "adam-stacoviak",
+      "text": "that session you had going and everything magically back and so that's a big win yeah and just"
+    },
+    {
+      "start": 2916.67,
+      "end": 2974.19,
+      "speaker": "nick-janetakis",
+      "text": "expanding on like the magically back thing so one interesting thing with tmux is you know you can have multiple sessions and windows and panes and all of that but by default if you were to reboot your box and come back like all of your tmux date is going to be gone you know you have to like start from scratch there but there's this really nice tmux plugin called tmux resurrect and i've been using this one for quite some time now and now let's say you've got your tmux set up however you want you've got your 10 different sessions all these windows laid out and now you can just hit a hotkey basically your tmux leader key control r or control s to save it actually and it's going to save all of your sessions windows and layouts to a text file you don't need to think about it you don't need to worry about it and then when you reboot all you have to do is just launch tmux and then restore from your resurrected file another hotkey for that one and everything is back to just how you left it to some degree i say some degree because it's not going to like reopen every single application and put you exactly where you were but at least all of your sessions and windows and certain applications like vim can be auto started as well so it's a nice one but i've been yeah i've been using that one for a couple of years you know"
+    },
+    {
+      "start": 2974.19,
+      "end": 3065.42,
+      "speaker": "adam-stacoviak",
+      "text": "three years ago you mentioned the save and restore tmux sessions across reboots with tmux resurrect this is on your youtube i'm just thinking like gosh where could i dive deep into tmux like where is the good primer i mentioned um becoming a chef i found some really awesome resources behind the scenes i always have some sort of crazy hobby and i'm actually getting really good at cooking so good that i'm like now the cooker in our household because it's like such good food and our kids love it and i've been enjoying the process but like i've found some really cool stuff to teach me the first principles of cooking not just how to make a meal but like how do you sharpen your knives what are the best ways to dice what are the ways you should do different cheeses how to you know do garlic and pull it off the clove and like make it a garlic clove that you can actually begin to slice dice mash whatever i'd like to have the same kind of idea for tmux like help me nick if you haven't already done this maybe you have or point me to the youtube videos we'll put on our show notes but help me with a primer of like watching somebody that's what i think i lack personally is i don't have a good buddy next to me and chat gpt does not have this function yet where it's like hey let me shadow you as a seasoned engineer that loves tmux like if that when that becomes a thing that'd be kind of cool until then we've got the nicks out there that have been slaying it on youtube for years on this old hardware just just killing it nick surely you have a video about the fundamentals of tmux or something like that right i don't"
+    },
+    {
+      "start": 3065.42,
+      "end": 3087.74,
+      "speaker": "nick-janetakis",
+      "text": "have it like the exact fundamentals like sharpening your knife level but i do have like a use case based one to be like this is how i use tmux in my day-to-day and it kind of demonstrates using you know the panes and the windows and sessions and tmux resurrect and it's like you know like an eight minute video or something it was from maybe five years ago but it's interesting because i would be curious to see if adam can google for that topic and if my site or page"
+    },
+    {
+      "start": 3087.74,
+      "end": 3129.28,
+      "speaker": "adam-stacoviak",
+      "text": "doesn't come up then there's a problem which search tell me the search i'll put it in right now well that would be cheating i want you to try well just give me that cup of tea like uh getting started with tmux boom let's see what's there wow redhead is first github tmux tmux is there the wiki linux eyes ham valki linux training academy a hacker news post pragmatic pineapple wow hostinger's got some content out there on tmux it's ranking sorry nick you're losing uh let's see i'm losing that shane lee on youtube now i didn't search youtube though let me take the same"
+    },
+    {
+      "start": 3129.28,
+      "end": 3139.04,
+      "speaker": "nick-janetakis",
+      "text": "search and apply it to youtube well the funny thing is i don't even actually know the titles of those posts because they're from some so long ago but that's okay because here this is probably"
+    },
+    {
+      "start": 3139.04,
+      "end": 3162.96,
+      "speaker": "adam-stacoviak",
+      "text": "a great example so network chuck obviously is first because he's just he kills it on all content this is something you need to know right now it's always right now in all caps with exclamation points i'm like please that's an old title let it go let's see if nick is in the scroll learn linux tv is in the is in the scroll dreams of code is in the scroll you're just getting different kind"
+    },
+    {
+      "start": 3162.96,
+      "end": 3167.84,
+      "speaker": "nick-janetakis",
+      "text": "of slayed here he was slaying it earlier now he's getting slayed primogen is there theo is there"
+    },
+    {
+      "start": 3168.56,
+      "end": 3184.08,
+      "speaker": "adam-stacoviak",
+      "text": "warp dot dev is there shane lee is there again where is nick nick oh where are you on your old hardware gosh i do not see nick in the initial page scroll okay i think i discovered why because"
+    },
+    {
+      "start": 3184.08,
+      "end": 3194.8,
+      "speaker": "nick-janetakis",
+      "text": "i'm looking at this post now and the title is so this is a great aside and just how important naming your titles are because my title is using tmux sessions windows panes and vim buffers"
+    },
+    {
+      "start": 3194.8,
+      "end": 3199.92,
+      "speaker": "adam-stacoviak",
+      "text": "together ah yeah that's pretty specific on but the but the add-ons of the world aren't searching"
+    },
+    {
+      "start": 3199.92,
+      "end": 3202.88,
+      "speaker": "nick-janetakis",
+      "text": "to be like oh how do i use a window and a pane it's like you don't even know what those terms"
+    },
+    {
+      "start": 3202.88,
+      "end": 3242.16,
+      "speaker": "adam-stacoviak",
+      "text": "might be if you're just getting started right teach me tmux getting started with tmux tmux for beginners right why should i use tmux all those tmux phrases yeah i agree you have to think this is part of user experience though this is part of product development this is the problem of all products it's a the problem of all i guess startups really is like how do you capture the attention well you have to think like the user you have to talk to some people you have to go on some podcast you're doing that great no problem good job but you have to title and think like and jared and i maybe we don't do this very well right do we do this very well no we're not a great example of titling well we enjoy our titles this is for the love of titling yeah we"
+    },
+    {
+      "start": 3242.16,
+      "end": 3267.36,
+      "speaker": "nick-janetakis",
+      "text": "don't title for that purpose which is why no one finds us yeah no one finds us for other reasons but we're okay with that i guess so i found it i found another post from 2017 which is this is more of a getting started guide like it walks you through the basics and everything there's no video for that one but this one is who else wants to boost their terminal productivity with tmux which is maybe closer but still way off the radar of what a human being would search for right"
+    },
+    {
+      "start": 3267.92,
+      "end": 3304.64,
+      "speaker": "adam-stacoviak",
+      "text": "boost your terminal productivity i bet you if you took an exercise and went back and retitled some of your videos i'm not even sure how you can like optimize your youtube but my assumption is if you can go back and revisit either go back and update or revisit some of these topics and create brand new content that is better titled and more focused shorter form more focused compartmentalized time to content is super crucial no meandering get to the point and then make it a series i bet you no meandering we're we're an hour in we haven't"
+    },
+    {
+      "start": 3304.64,
+      "end": 3312.14,
+      "speaker": "nick-janetakis",
+      "text": "talked to ease yet yeah well let's talk about a two-week oh love it i got one open right now"
+    },
+    {
+      "start": 3312.14,
+      "end": 3422.58,
+      "speaker": "adam-stacoviak",
+      "text": "all right let's see let's hear it so nick on your list you had htop which i'm a fan of htop and jerry i think we had the found or the prior core committer of htop on the show way back in the day when it got yeah i have here in front of me bash top bash top bash top and i think it's kind of cool because the installation process is pretty easy one thing it asks you to do is to do the apt sorry i'm on ubuntu so my at least my process is this and your mileage may vary wherever you're at but it's on ubuntu you add the apt repository via this thing i believe is called ppa that stands for nick help me out here personal package archive and essentially you're adding bash top dash monitor slash bash top as an apt repository so you can apt update and just do pseudo apt install bash top and then it installs it installs things like libs sensors python three utilities if you don't have them in there assist that and a couple others and then once you get it there you just simply type bash b-a-s-h-t-o-p and boom you've got this beautiful thing what i like most about it is that it's got super awesome configuration theming you can do a bunch of different changes to it and one thing i don't like personally why i prefer this over htop now is one it's slightly more beautiful and then two i just hate how challenging it is to configure htop the configuration file is not meant to be edited by the human it's only via the interface and i find the interface kind of kludgy to fine tune where things are at whereas bashtop seems to be a bit more just i guess human friendly on configuration management with it okay"
+    },
+    {
+      "start": 3422.58,
+      "end": 3466.9,
+      "speaker": "nick-janetakis",
+      "text": "i'll have to check it out yeah it's interesting because with htop you know it's a tool i've also been using for a really long time but usually i'm reaching for it very occasionally you know it's like on my really really nice work machine now if i want to see if my cpu cores are pegged all four of them by the way you know i can run an htop and just see those little bars to be like oh well three CPUs are maxed out the fourth one's still doing good or you know maybe i just want to see like what what is using the most memory out of list of processes so it's interesting that you mentioned like configurability like in my mind like i would want to configure like nice themes with tmux and everything but like an htop it didn't even ever cross my mind once to like jump into its config to like tweak it out yeah just because it's like usual i'm going in very specific thing and then like exiting out 20 seconds later let me explain to you so that on my"
+    },
+    {
+      "start": 3467.86,
+      "end": 3598.91,
+      "speaker": "adam-stacoviak",
+      "text": "i like to i guess the one thing i do that makes me pay attention to those i guess metrics more so than anybody else is i wanted to monitor my plex box for how well it's using the ram or the cpu during like maybe a 4k movie transcode for example or on the trunas box i want to pay attention because we compress our archives and put them into a file package called 7z and i max it out i push the compression algorithm to the to the max and so whenever i archive these things it pegs my m1 max cpu 100 and takes the temperature to almost 200 degrees fahrenheit for five minutes and then it's done but it's kind of fun to watch that it's just kind of fun like you're really pushing this beefy machine and damn it i want to see what's going on here you know i want to htop up in there or my new case bashtop and so the one thing i do specifically on these kind of boxes is i want to have my cpu stacked i want to have them organized i want to have my host name there i want to have my uptime i want to have my average cpu my memory my swap i want these things there i want network there i want disk io there and if this system happens to have zfs htop thankfully has this other cool line item you can put in there for zfs arc management and just kind of knowing how your zfs file system is working so i appreciate that about that but for every time i've got to instantiate a new machine with new htop it's not like one config that i could just move over from a git repository or a copy paste it is literally a file you should not edit i think they even tell you that and from system to system i tried to see if like it made sense there's no rhyme or reason to this config file so every time i do it i have to do this brand new setup which is not too frequent but it's enough that i'm like forget it i don't want to do this anymore but i do keep doing it because it has been the best but now i'm looking at bashtop it's not one for me yet it's still runner up and it's still winning or at least trying to win so i haven't fully adopted bashtop but i'm thinking that it might be a long-term better"
+    },
+    {
+      "start": 3598.91,
+      "end": 3630.03,
+      "speaker": "nick-janetakis",
+      "text": "solution that makes sense and yeah it's a great aside too just around like being really engulfed in your environment right you mentioned you're running ubuntu there so i would imagine you'd be using bashtop is like your full-blown like system monitoring tool like an activity monitor or whatever whereas me with htop you know i am still running windows with wsl but like i would just probably just open windows as you know like task manager to see that information whereas for you like you're using that one tool so you want that one tool to be like yeah i want to see network and cpu and all that have it laid out the way i want so i don't need to tweak it that makes total sense"
+    },
+    {
+      "start": 3630.03,
+      "end": 3641.31,
+      "speaker": "adam-stacoviak",
+      "text": "not to go one layer deeper but there might be somebody out there saying but what about btop i agree btop is awesome except for bashtop has more letters and it's slightly more awesome there"
+    },
+    {
+      "start": 3641.31,
+      "end": 3653.55,
+      "speaker": "nick-janetakis",
+      "text": "you go well i was just reading about btop plus plus oh nice have you heard of this no do they nope they like to increment like us yeah i mean i assume it's better because that's what the"
+    },
+    {
+      "start": 3653.55,
+      "end": 3764.66,
+      "speaker": "adam-stacoviak",
+      "text": "plus plus means it is better it is it's been better for years it's by the same author bashtop in c++ so bashtop is written in pretty much bash i don't know if that surprises you but it's a 94 shell scripts which i assume is bash must be tough to maintain yeah and now there's a btop plus plus is a c++ version of bashtop now switching from something to c++ doesn't automatically make it better i mean i've heard that maybe c in certain ways is even better than c++ but one thing i'll notice about the github is that bashtop's last commit was two years ago whereas btop plus plus was committed to three weeks ago so it seems like the author of bashtop has switched their focus over to btop plus plus so maybe give that one a look so i saw a release i thought i saw a release on bashtop that made me think okay this is kind of cool and now i'm not seeing it there are no releases for it dang it it's all right this is data software yeah i'm pimping dated software what's wrong with me hey some old software is just good okay fine you're right i mean how old is tmux but if the if the so this is a case where it would be to find these tools out there on github sure there's a username there i could probably pay attention to the user who's actually making this software and see if they human the actual human that's writing your software for you and giving it to you as a gift that's right i should you know this free usb stick at the front of their lawn i just just run by and steal it right yet it's free well i think there's a dot connector that you've done that i did not do yet between the two which is if it's the same original maintainer slash author of the software have they moved on which it seems like they moved oh man that's all right so i should be using btop plus plus i don't know if it's actually better"
+    },
+    {
+      "start": 3764.66,
+      "end": 3768.9,
+      "speaker": "nick-janetakis",
+      "text": "i mean it's not change log plus plus which we know is better all right it might be and i know"
+    },
+    {
+      "start": 3768.9,
+      "end": 3782.5,
+      "speaker": "adam-stacoviak",
+      "text": "that the author is still working on it so maybe you know the big rewrite sometimes it takes a while to come up to feature parity it may actually be worse for a while but have a better foundation i am not a user of this tool so i have no idea about the history but let's get them on the pod"
+    },
+    {
+      "start": 3782.5,
+      "end": 3793.06,
+      "speaker": "nick-janetakis",
+      "text": "let's talk about it so it seems like slash btop is not just btop plus plus do they just change it then this i don't know okay it's that this same i've been doing my research while you've been"
+    },
+    {
+      "start": 3793.06,
+      "end": 3803.06,
+      "speaker": "adam-stacoviak",
+      "text": "talking so i'm very shallow at this point you actually reached the end of my knowledge person's name is jacob don't know how to see your last name we're gonna reach out there you go it is"
+    },
+    {
+      "start": 3803.06,
+      "end": 3807.46,
+      "speaker": "nick-janetakis",
+      "text": "interesting how fast developers will just like throw away a project they love just because it"
+    },
+    {
+      "start": 3807.46,
+      "end": 3837.46,
+      "speaker": "adam-stacoviak",
+      "text": "hasn't been touched in like 11 seconds right adam's like you know what btop sucks or bashtop sucks well maybe btop has the same principles well it's right it's literally the same person so i assume it's like the successor to the tool you already love and so check it out nobody wants to buy last year's product at the new year you know this product for this year nick does i mean his pc is 10 years old man that's true gosh all right next school is on going old staying old legacy there"
+    },
+    {
+      "start": 3837.46,
+      "end": 3847.7,
+      "speaker": "nick-janetakis",
+      "text": "we go it's actually funny you know we're now like however long it's been on the whole entire show but have we even defined like what makes something a tui versus just a regular command line tool"
+    },
+    {
+      "start": 3847.7,
+      "end": 3852.58,
+      "speaker": "adam-stacoviak",
+      "text": "great job nick you should be a podcaster tell us maybe one day do you have a do you have a"
+    },
+    {
+      "start": 3852.58,
+      "end": 3909.86,
+      "speaker": "nick-janetakis",
+      "text": "definition do you have an idea do you want to hypothesize well okay let's go zero research top of my head i mean i would say a tool like grep said cut etc you know this is a command line tool typically that you'd run you provide it some inputs it will provide some outputs and you know the output that you get on your screen it's almost like a transaction almost like an http request like your request is calling the command the response you get back is what you get back in the output there and it could be like an image you know an image not you know if you're dealing with like an image manipulation tool it doesn't need to be taxed but like a tui to me at least it's like something that's like just running you know it's like like htop like it's just running and you can interact with it you're still sending it inputs you're still getting outputs but you're kind of getting these little you know incremental updates on on the screen somewhere like in your case like a cpu graph or something like that so yeah i don't know in a weird way if you're going to follow that http like analogy or something it's almost like a web socket connection where like that connection is like staying open and then it's like broadcasting things back and forth or you know one way works as well but i don't know do you guys have like a different definition of"
+    },
+    {
+      "start": 3909.86,
+      "end": 3964.74,
+      "speaker": "adam-stacoviak",
+      "text": "that i think mine is slightly more simple i would say i think a tui is more application-like whereas you open it and you have a brand new probably bespoke interface that's specific to its function whereas those tools are utilities where you're sort of passing things around on the command line they're not meant to be tui's was it was tui stanford jared again text-based user interface there you go i thought so not terminal user interface text-based necessarily user interface so i think they literally are a ui to a particular application so i think they probably get started like a bash top or a btop or an htop you just invoke the command and it runs this application that has a particular ui that matches whatever its function is whether it's a a markdown reader for readmes or an editor vim is kind of like a tui right it's kind of like"
+    },
+    {
+      "start": 3964.74,
+      "end": 3974.26,
+      "speaker": "nick-janetakis",
+      "text": "an application for sure right it's kind of a tui for sure well if you run it in the terminal where else would you run it there's there's vim gooeys oh i don't know about this in fact chris"
+    },
+    {
+      "start": 3974.26,
+      "end": 4015.38,
+      "speaker": "adam-stacoviak",
+      "text": "brando got in trouble because one of his recent unpopular opinions was you should learn a text based editor like vim or emacs and of course the nerds came out of the woodwork and said emacs is not necessarily a text-based editor sure you can use it inside a terminal but emacs is so much more than just a text-based editor of course there are gooeys for vim okay but yes vim in your terminal would be a tui wouldn't it nick yeah i would agree with that so yeah i think nick's on point i think adam's on point i think the point is statelessness versus statefulness mix was more scientific though he was like a scholar laying out there what tui's are i was like laying off"
+    },
+    {
+      "start": 4015.38,
+      "end": 4020.42,
+      "speaker": "nick-janetakis",
+      "text": "the top of his head he's just scholarly yeah well he's being very technical and pedantic as we would"
+    },
+    {
+      "start": 4020.42,
+      "end": 4055.07,
+      "speaker": "adam-stacoviak",
+      "text": "expect us to be and i think he's right i think the statefulness is the point right like a a command or utility as you call it adam from the command line is a single transaction like nick said like you you run the command it does some stuff it outputs some stuff maybe it outputs nothing as it should if everything goes correctly it has no output whereas a tui has state you launch it it goes through time things change on it as it runs and then you exit it and so i think that's"
+    },
+    {
+      "start": 4055.07,
+      "end": 4063.15,
+      "speaker": "nick-janetakis",
+      "text": "pretty much the difference i would probably say they're themeable as well i mean there's an interface that you care about themeable i think is a feature that you would want in a"
+    },
+    {
+      "start": 4063.15,
+      "end": 4070.59,
+      "speaker": "adam-stacoviak",
+      "text": "tui but not necessarily a desirable feature i would say for me at least i want a theme everything dracula you know if it's not dracula just throw it in the trash"
+    },
+    {
+      "start": 4071.23,
+      "end": 4079.71,
+      "speaker": "nick-janetakis",
+      "text": "let me introduce you to a new text-based user interface for http requests this actually kind"
+    },
+    {
+      "start": 4079.71,
+      "end": 4149.2,
+      "speaker": "adam-stacoviak",
+      "text": "of inspired this episode because i just thought this was so cool i want to talk about it more put it in news on monday it's called posting a powerful http client that lives in your terminal and it's basically like take postman or take insomnia put it in the terminal it's built with textualize so it's a python tool you can pipx install it like i did and it's very much like postman insofar as you have like collections and you can create you know holes of different sessions of requests so it's not your typical like just run curl get an output this thing is a long-standing application the reason why i want to introduce it to you adam is because this sucker is themeable in fact if you launch it it's beautiful to start yeah but you can also hit ctrl p for commands and it has the you know the the command palette which is so common in in text editors and other tools today and you can just go through the themes and change the way it looks and there is a theme called hacker with the hacker green on black guys this thing is"
+    },
+    {
+      "start": 4149.2,
+      "end": 4156.88,
+      "speaker": "nick-janetakis",
+      "text": "awesome it's chasing my heart here i gotta say i'm just glancing the readme file in github now and there's a quite a few screenshots with different themes yeah this looks pretty slick"
+    },
+    {
+      "start": 4156.88,
+      "end": 4237.68,
+      "speaker": "adam-stacoviak",
+      "text": "it's very high quality in my opinion you have you have different built-in panes for different sections like the request the response a collection different things if you are familiar with postman at least the earlier versions of postman i haven't used postman for years but that whole ui is very much akin to that but here in your terminal and what's cool about it is you can do all the keyboard shortcuts but you can also use your mouse and click through on different tabs and so it's like aware of the mouse but also keyboard driven it's i wonder this would be a question for probably for wilma googan and for the author of this whose name is darren burns like how much of this functionality that they've accomplished in this particular tool he's getting for free from textualize and how much of it darren is actually done because i would consider this a very rich text-based ui as opposed to a lot of them where like it's just keyboard commands or it doesn't really have all of the things figured out the tab situation is correct like you can tab through the different areas as you would on a web form and it just it just works in the way you'd expect it to and so it's very easy to manipulate so i'm just highly impressed by this one in particular very nice yeah i may have to"
+    },
+    {
+      "start": 4237.68,
+      "end": 4279.84,
+      "speaker": "nick-janetakis",
+      "text": "check this one out it's actually interesting though like this could be maybe a hot take on tuis in general so i really don't use too many of them like sure if you want to classify vim as a ty in fcf once in a while but like i know there's two uis maybe we'll get to this a little bit forget and there's like one for kubernetes as well like k9s like i just my use cases just don't really go after using tools like that because usually it's just like i just want to run it off one one off command get some output move on do you use guis yes for certain things definitely like if i'm editing like a spreadsheet or something i prefer that in a gy would you consider a tui for that if you can find me a good spreadsheet for your ty and i shall hold on let"
+    },
+    {
+      "start": 4279.84,
+      "end": 4308.72,
+      "speaker": "adam-stacoviak",
+      "text": "me go back to the awesome tuis repo and see if i can just search for the word spreadsheet or excel hmm scim an incursus spreadsheet program for the terminal we're gonna get you to try that one out i'll give it a shot or visi data actually visit is awesome have you tried visi data that is more of a visualization tool so it's not going to be like a one for one replacement for google docs or excel or numbers but yeah i would say that spreadsheet one's an interesting use case"
+    },
+    {
+      "start": 4308.72,
+      "end": 4337.92,
+      "speaker": "nick-janetakis",
+      "text": "because some of that at least the way i use them is like you know let's say i'm exporting a stripe csv dump for like you know whatever courses i sold over the month and i want to calculate something i may just like use my mouse to drag i don't know like three weeks worth of of rows or in there and kind of just sum up a total based on what i have selected and i kind of feel like in the ty that's going to be hard to pull off like it would be probably pretty easy to sum a whole column but what about just like rows 6 15 and you know 30 through 50 that's why this particular tool is"
+    },
+    {
+      "start": 4337.92,
+      "end": 4369.28,
+      "speaker": "adam-stacoviak",
+      "text": "impressing me and i want to go back and maybe visit more textualized based and maybe even some more charm based tuis because the the manipulability of this is higher than i would expect out of a traditional terminal tool the fact that i could probably i could imagine something built with this and maybe it doesn't do this but i could imagine you'd be able to click and drag inside your terminal to select uh cells as you would inside your gooey and if we get that far i mean you may never have to leave your terminal again nick i mean this machine might last you"
+    },
+    {
+      "start": 4369.28,
+      "end": 4384.45,
+      "speaker": "nick-janetakis",
+      "text": "another decade that's right i hope so another decade hey friends i'm here with brandon fu"
+    },
+    {
+      "start": 4384.45,
+      "end": 4422.05,
+      "speaker": "adam-stacoviak",
+      "text": "co-founder and ceo of paragon paragon lets b2b sas companies ship native integrations to production in days with more than 130 pre-built connectors or configure own custom integrations brandon there's a certain level of pain that a product team or an engineering team has to endure to let's just call it rolling your own integrations help me understand that pain that angst for those teams help me understand that true pain of delayed integrations for a product not integrating or having to roll your own integration this seemingly slower route to integrations i think for context one of the"
+    },
+    {
+      "start": 4422.05,
+      "end": 4427.89,
+      "speaker": "nick-janetakis",
+      "text": "reasons we start a paragon is that today the average company uses over 130 different software"
+    },
+    {
+      "start": 4427.89,
+      "end": 4471.33,
+      "speaker": "adam-stacoviak",
+      "text": "applications so that means if you're a b2b software company selling into the market there's over 130 of your customers applications that you probably need to connect your tool to because customers today expect that any product they buy is going to work seamlessly with the hundreds of other applications that they're using of course we see this when companies come to us and they say hey we have a backlog of 10 or 20 or 50 integrations that you know our sales team has told us we're losing deals because customers are asking us to integrate with all these different apps and we can't deliver on those integrations or maybe our competitors are integrating with these tools and the problem that that results in for product and engineering teams of course is how do we build and maintain these integrations in a way that's scalable that we can not just"
+    },
+    {
+      "start": 4471.33,
+      "end": 4480.69,
+      "speaker": "nick-janetakis",
+      "text": "satisfy what customers are asking for us today but we can maintain those integrations in a way that's scalable for you know the next hundred customers the next hundred integrations that we need to"
+    },
+    {
+      "start": 4480.69,
+      "end": 4499.49,
+      "speaker": "adam-stacoviak",
+      "text": "build so for engineering one of the challenges obviously the backlog and prioritizing time for certain features or integrations but then there's this other side where you gotta really learn every single api and everything is hand-rolled custom maintained and over time that kind of gets i gotta"
+    },
+    {
+      "start": 4499.49,
+      "end": 4511.09,
+      "speaker": "nick-janetakis",
+      "text": "imagine kind of taxing on teams what do you think so most engineers know that's you know every api is completely different can be completely different in terms of how they handle authentication"
+    },
+    {
+      "start": 4511.09,
+      "end": 4559.25,
+      "speaker": "adam-stacoviak",
+      "text": "in terms of how they deal with different record types and so it becomes this problem for engineering teams to basically have to become experts in other people's apis and what could be dozens or hundreds of different apis and to build those integrations we've seen can take as much as three to six months per integration for a developer to write the code to build that integration and it depends on the use case of course and the type of product that you're integrating with but of course that becomes a massive challenge at scale when you're looking at how do we scale our product to support you know 10 or 20 or 50 different integrations so again paragon was really designed to solve that problem and to distill the complexities and the nuances and the differences between hundreds of different sas apps into a single connecting platform into"
+    },
+    {
+      "start": 4559.25,
+      "end": 4565.57,
+      "speaker": "nick-janetakis",
+      "text": "a single sdk that your engineers can install in your app and then easily connect your products to"
+    },
+    {
+      "start": 4565.57,
+      "end": 4672.26,
+      "speaker": "adam-stacoviak",
+      "text": "all these different sas applications in the market okay paragon is built for product management it's built for engineering it's built for everybody ship hundreds of native integrations into your sas application in days or build your own custom connector with any api learn more at useparagon.com slash changelog again useparagon.com slash changelog that's u-s-e-p-a-r-a-g-o-n dot com slash changelog i was thinking about this while we were going beyond the norm of a developer tool so to speak to maybe go one layer deeper on developer tool and i don't know if you're just watching this show but i saw pager duty mentioned in this list as you were digging into this list further jares i was following you and i saw pager duty i'm thinking like okay well there is pager duty dash t ui a minimalistic terminal ui to manage triggered incidents and so i'm thinking gosh well i don't want to go to the sentry dashboard can i just tui this thing in sentry and there's nothing in here for sentry but i'm thinking like particular dev tools that are you know web ui dashboard based things like sentry or others might be but it makes sense to have a tui because like hackers be hackers give me an interface that is just simplified not the extras just the things that matters is there a room for a tui in the world of like a sentry or maybe even who will be used for analysts again plausible plausible yeah like things like that like could there be a tui for plausible and sentry and obviously pager duty or something like that like"
+    },
+    {
+      "start": 4672.34,
+      "end": 4687.38,
+      "speaker": "nick-janetakis",
+      "text": "i would welcome that personally right i would yeah i think so especially with that type of data it's like you don't necessarily need to see the pie chart but the numbers matter and if the tui you know output them in a way that was glanceable then you get the same information so yeah quick"
+    },
+    {
+      "start": 4687.38,
+      "end": 4848.35,
+      "speaker": "adam-stacoviak",
+      "text": "check too it's like i don't have to exit my terminal i can maybe even have a tmux session with it already there exactly you know it's already in my world see now you're now you're thinking sentry you should do this i think plausible should do it too i think that's a great example of like something that you normally would go to some sort of web interface to check and there's something powerful in the constraints that the terminal does put on a design i believe even though we're starting to see more richness and tools like this one where it might actually even be quicker better and just better information architecture all that stuff if you're like we have to provide a really simplified view for the terminal and then you just ask yourself questions like what really matters you know versus like showing them all the widgets you know and so that could be really cool yeah simplified ui is is a big deal i think um i'd imagine they can probably put a a search or query kind of like bar in that ui to interact with the data too to some degree like almost a command line for the tui to change the data ui or just maybe even buttons or something like that that makes it a bit more rich the challenge i think is that and maybe this is something we talked with with uh what was his name mcgoogle first name which one the fellow that did textualize and textual will mcgoughan will mcgoughan the google i was thinking about a different friend of ours that's the fellow from google i was thinking about mcgoogle from that uh that github universe trip we did remember that that crazy oh yeah that drive there yeah oh man that didn't make it into your highlights video man i'm sorry about that i didn't take any pictures of that trip probably not but i that conversation we had with him i think it was pretty i'm just wondering how much we'll link that up in the show notes by the way we had a great conversation with will about textual lies and textual and rich and really just this idea of where two weeks can go and i think that was a precursor to a lot of this stuff really just a maybe a 101 on where this thing is going but realistically how defined is the interface standard i suppose for a2e they seem to be all over the map and so maybe that's why they're less appreciated maybe adopted maybe developed because there's no kind of rich standard like there is for ios for example or even like when your web design these days you usually begin with mobile screens first or the smaller screens first and that sort of sets the bar for your larger screens and i'm just wondering like there is no true standard thus far or like a just a just a what's the right word for it a system a design system for these things i almost feel like if you did that and you had components"
+    },
+    {
+      "start": 4849.26,
+      "end": 4854.54,
+      "speaker": "nick-janetakis",
+      "text": "maybe it might be maybe that's what textual does rich does i don't know yeah it's kind of moving"
+    },
+    {
+      "start": 4854.54,
+      "end": 4891.86,
+      "speaker": "adam-stacoviak",
+      "text": "a little bit away from the unix philosophy even though you're still like right there alongside all the unix tools because instead of doing one thing you're doing lots of stuff right like it's stateful there's lots of features inside of a 2e etc and you're kind of abandoning this idea of like inputs and outputs everything is text i've noticed a lot of these tools will have some sort of alternate output mode and it's usually json which makes some sense because you know json for most tooling is actually less work to parse than text is in the case that you don't know"
+    },
+    {
+      "start": 4891.86,
+      "end": 4900.66,
+      "speaker": "nick-janetakis",
+      "text": "what the text is going to be until you start to use it of course nick probably can just set and cut it to exactly what he wants but you know that can be the sort of thing about his"
+    },
+    {
+      "start": 4900.66,
+      "end": 4905.06,
+      "speaker": "adam-stacoviak",
+      "text": "communities right to slice and dice this jason i know he's actually i can see his eyes moving in"
+    },
+    {
+      "start": 4905.06,
+      "end": 4909.78,
+      "speaker": "nick-janetakis",
+      "text": "his head he's like setting he's cutting stuff he's like oh man tex is the bomb i don't disagree with"
+    },
+    {
+      "start": 4909.78,
+      "end": 4967.02,
+      "speaker": "adam-stacoviak",
+      "text": "that but i am noticing a motion towards more tools outputting json especially if they have a stateful ui where it's like the regular view is like this rich client in your terminal and then we'll also give you a json output not necessarily commenting on that but i think that it's i'm noticing it as a trend and so that's kind of going away from the unix philosophy right possibly and then i think the the standardization around inputs and outputs everything is text is it's not a user interface it is it it's an interface it's a programmatic interface that has become a standard amongst unix like things which now we have all these rich things inside the terminal i'm sure the charm toolkit works differently than the textualized one probably works differently than the ratatouille one and so you may have to learn a ui every single time as you adopt these which could be a barrier to adoption nick you were gonna say something yeah just a little bit"
+    },
+    {
+      "start": 4967.02,
+      "end": 5000.38,
+      "speaker": "nick-janetakis",
+      "text": "and it's related to that as well just you know i'm sure you guys remember the old days with like flash and you know trying to build your own flash application was a little bit challenging because it kind of just had this white blank screen and then you could literally do anything like whatever you wanted to put on there within reason can be done but with like html you have some structure you have like an h1 and you know link tag and some other stuff so you have these little components to build something which gives you a constraint but it's like still flexible enough to build the things that you'd like yeah it would be interesting to see if some of these more defined like i don't know terminal ui toolkits come out or if they're not already there like if that would help spark a"
+    },
+    {
+      "start": 5000.38,
+      "end": 5105.26,
+      "speaker": "adam-stacoviak",
+      "text": "little bit more interest in building tools like this well that was the hope going back to the conversation we have with will was he had a big idea which would be it would be fun to revisit that with him jared because he had some i would say we even pushed back in the last 20 minutes on his philosophy for being the founder and ceo of textualize which i believe is a company he founded and formed around this textual textualize rich all these projects around this idea of tubies and i think we were like you just want to take these tubies to make them websites it seemed like an oxymoron like that doesn't make sense really counterintuitive to the idea so i'd love to revisit that but if we had a champion like i think will was trying to be around standardizing what two is are popularizing them and then giving people the training wheels frameworks slash components so that it's a little easier to build them i think it would be a step up because i'm a user of them and if there was more of services i use like sentry or whatever else is out there plausible i mean where else could you use this stuff like any place you would want to use a little dashboard just to get a version of it you know i know kdas has wasn't there a seal painted glass thing that garrod had back in the day when we were on linode yeah canines there's all that for all these different applications docker has versions of them i'm sure right right i think there's there's all these things out there for docker that you can see like okay here's all my here's all my containers running here's the you know the cpu usage of each of them and you know what the status of it i mean they're here to stay i wonder if we just had better tooling underneath and maybe that's what will and uh team are doing for for this i don't know"
+    },
+    {
+      "start": 5105.26,
+      "end": 5146.3,
+      "speaker": "nick-janetakis",
+      "text": "yeah for sure it's actually another interesting segue or like what's the difference between like a cli tool that's not a tui versus one that is like docker is a great example like there's a docker stats command that you can run and that will just list out all your running containers and give you the outputs of like the cpu memory disk and network like you know just little stats about those things and you know there is this like medium ground i guess between like a cui and a tui for output like you have you guys ever used like the watch commands and like some commands just support like dash dash watch like kubernetes as well like you know it'll just watch a program and we'll let you know when the outputs are changing so it's like docker stats almost feels like it's just doing that it's not quite a tui but yeah there are other other tools dedicated to"
+    },
+    {
+      "start": 5146.3,
+      "end": 5151.66,
+      "speaker": "adam-stacoviak",
+      "text": "it's a pui actually it's a plain ui yeah but i actually going back to what adam said before"
+    },
+    {
+      "start": 5151.66,
+      "end": 5200.62,
+      "speaker": "nick-janetakis",
+      "text": "around his definition of tui is being more like application like and just going back to like the unix philosophy i do think to some degree like when you're using an application you like there's certain characteristics of the unix philosophy that you almost don't care about like if you had a tui to have like an mp3 player it's like you want to open that program find the mp3 that you want maybe like there's some bouncing lines like you know over the eq or something that'd be cool maybe some metadata about the file being played like that's what i care about because i'm like using that application to select and play an mp3 but i guess technically i mean adam and you know jared you mentioned this with like json output do some of these tuis also offer flags or ways to run them to where like if you wanted to get that metadata back you can get that back in text form and now it's like suddenly back to hey i'm getting text as output i can go and pipe that to something else so you kind of get the best of both worlds the tui when you want to use it as an app and the"
+    },
+    {
+      "start": 5200.62,
+      "end": 5321.79,
+      "speaker": "adam-stacoviak",
+      "text": "outputs for when you want to do something else yeah absolutely obviously it's app by app an mp3 player like what kind of output would you want from that necessarily maybe like your list of played recently played or maybe i did find a podcasting app which i threw in here called castero which i downloaded and tried and yes it does work this is a python thing so you pipx install it it doesn't look like it's necessarily maintained it did work i did listen to a little bit of changelog news in there that was pretty cool and when you launch it now this is like a three-pane thing with like your feeds your episodes something like that and your that would be two pains i don't know it's like your podcasts your episodes and then what's currently playing or something and my big gripe with that one is the space bar for some reason doesn't play pause it like moves up and down anyways that's a small gripe but i just think what do you think man come on everywhere the space bar it's a play pause or a quick look and so when you launch it you're like i gotta load my feeds into this thing and like you can load in and out of i think opml and so i could see where castero with some sort of flag like launching it not the tui but some other version of the program where it'll just output your opml right your subscriptions list as xml or whatever it is i could see that as a alternate way to run the program and get some output that would make sense to pipe somewhere else but yeah i think it's contextual i think some of them it makes total sense like a tool like posting which is its entire point is to do like http requests and bring you back the information after running it i can see where you can put together a collection maybe through using the user interface set it all up and a lot of people use these things for like integration tests and you could maybe take that collection save it as yaml and then you could run it from the command line with some sort of alternate flag to where it's not going to launch the user interface it's going to provide you"
+    },
+    {
+      "start": 5322.51,
+      "end": 5325.87,
+      "speaker": "nick-janetakis",
+      "text": "a boolean true or false did it pass or what you know i'm saying like"
+    },
+    {
+      "start": 5325.87,
+      "end": 5464.86,
+      "speaker": "adam-stacoviak",
+      "text": "i like the idea of the tui slash command line utility being symbiotic in the fact that they you know you might hop into the tui to do a more deeper visual you know application like experience that also has like you said a configuration or setting i'm thinking like even tailscale i'm wearing the t-shirt today big fan of tailscale not sponsored where they can even have a tui like that where you've got multiple machines across your tail net kind of thing you might go there and configure a collection of machines you know i don't know do some cool stuff in the tui but at the same time you still have the traditional tailscale cli or even the same case here with with posting it's like the application is just one more way you enjoy the cli the command line interface that's there it's just a visual version of it built probably on top of it with textualize or textual or rich or whatever they're trying to use i think more people should adopt these things man like it's it's just like an underserved market i like it please do more of it please let me ask you one question here nick on on uh on this docker stats if you don't mind because i have a question because i did this on my plex box which is a an ubuntu machine in the vm on prox box so it's got a single usage yes i know i'm running docker on top of a vm on top of prox box is multiple layers it's kind of unnecessary but i like it because it's it just keeps it siloed but anyways i digress so when i write uh or when i type in docker stats on this plex box which it literally is only a single ubuntu box dedicated to running docker to run a single docker container which is the plex dark container just to give you a full circumference of the the the reason for the machine the cpu i run docker stats and it's real time the cpu is at 66 point whatever right but then because i don't run tmux i go into a new tab and i ssh back into that box again and then i type htop because that's what i have on that box and i see that my cpu is not being taxed at all at that percentage what's the deal why is docker stats saying such"
+    },
+    {
+      "start": 5464.86,
+      "end": 5487.42,
+      "speaker": "nick-janetakis",
+      "text": "a high cpu usage and it's not yeah i mean docker stats would be reporting the cpu usage of whatever happening in the container but i mean that's still affecting your host operating system cpu no it's not like a magic cpu that's just going to exist so like that that cpu load should have carried over i mean i have to look at your setup a little a little more detail i mean when you run any docker command you're you're connecting against wherever you have docker"
+    },
+    {
+      "start": 5487.42,
+      "end": 5512.1,
+      "speaker": "adam-stacoviak",
+      "text": "running right well i can tell you on htop the average cpu usage right now is four point something whereas in the docker stats real time update it says 64 i was just wondering like maybe as a docker thing maybe this image is allocated a certain percentage of the cpu and of that slice that's been given there's a high degree of usage being used i wasn't really sure anyways that's not what this show is about i was just kind of curious that is a possibility too you'd have to"
+    },
+    {
+      "start": 5512.1,
+      "end": 5517.06,
+      "speaker": "nick-janetakis",
+      "text": "look at the command that was run because there is a way to set cpu and memory limits on a container"
+    },
+    {
+      "start": 5517.06,
+      "end": 5527.3,
+      "speaker": "adam-stacoviak",
+      "text": "okay i'd like to know more about that do you have a video about that um actually no so i'm going to put that in my drafts put in your drafts man and when you when you post it tell me and i'll"
+    },
+    {
+      "start": 5527.3,
+      "end": 5532.82,
+      "speaker": "nick-janetakis",
+      "text": "help you title it yeah i was going to say maybe i'll put adam in the title so he finds it i'm not"
+    },
+    {
+      "start": 5532.82,
+      "end": 5558.4,
+      "speaker": "adam-stacoviak",
+      "text": "searching for myself out there help adam with docker and then all the results come back there you go what can we do to get more people to do these two each year that's what i want to know can we just keep doing podcasts about it every other year or so just constantly that's it just do a uh a watch you know or sleep seven or watch i don't know how does watch work exactly nick in terms of how often it runs does it run every second so i think it might be a second or two"
+    },
+    {
+      "start": 5558.4,
+      "end": 5567.04,
+      "speaker": "nick-janetakis",
+      "text": "by default but there is a flag to to you can set the interval and then it'll just like output new changes and let you know when it changed like there's a little timestamp that happens yeah"
+    },
+    {
+      "start": 5567.04,
+      "end": 5591.6,
+      "speaker": "adam-stacoviak",
+      "text": "i've used in the past i don't get hard use it all the time i think it's a great way to basically build your own little stateful yeah command right like you're taking a stateless command and you're just running it on repeat which is like what is a user interface if not some sort of event loop with things updating at a frame rate you know you're basically doing that by using the watch command which exists on every unix-like system probably out there today yeah"
+    },
+    {
+      "start": 5591.6,
+      "end": 5596.8,
+      "speaker": "nick-janetakis",
+      "text": "that demo he gave us was the bomb did that make it to youtube yet uh it's in the drafts folder"
+    },
+    {
+      "start": 5596.8,
+      "end": 5625.52,
+      "speaker": "adam-stacoviak",
+      "text": "it's gonna hit youtube this was our recent kaizen nick gearhard demoed a pipe dream of mine and he did a really good job he actually had an entire scripted user interface i mean i'm sure i actually don't know how he put it together it was a script but it had a lot of it was magical had colors it had state i think it's just running different user prompts throughout which we'll put on youtube but i'm not sure how garrard did that he probably used dagger that'd be my guess"
+    },
+    {
+      "start": 5627.52,
+      "end": 5635.92,
+      "speaker": "nick-janetakis",
+      "text": "if i if i know garrard he probably used dagger well you're talking about watching docker stats have you seen this lazy docker one i know this was in the list it's in"
+    },
+    {
+      "start": 5635.92,
+      "end": 5683.58,
+      "speaker": "adam-stacoviak",
+      "text": "my list i did not uh try it yet but it's on my list to do so there's three tools built by jesse duffield lazy docker lazy git and lazy npm and they're all of a similar ilk of course sponsored by warp which is interesting uh warp is sponsoring jesse's work on these things you can tell because there's a big special thanks to warp in the readme and it looks a lot like your docker stats there nick except for it's interactive you can select different images and see more information you can just watch the animated gif there in the readme if you haven't yet to see what i'm talking about would that be something that you'd be interested in using or i mean are you just good to go already because i know you're kind of shying away from these things but this one looks like it's pretty"
+    },
+    {
+      "start": 5683.58,
+      "end": 5733.49,
+      "speaker": "nick-janetakis",
+      "text": "useful i mean i guess it would be when would i use it like what would be the use case that would be like okay now i gotta use this because i do know like for example the other month i was doing a kubernetes update you know just updating from version whatever 1.28 to 1.29 and that process when you have your own kubernetes worker nodes requires like creating new nodes you need to join the cluster and there's like a whole like you know sequence of events that happen in that case yeah i just used kubernetes like watch flag on like the nodes list so i can see these new nodes coming up when are they being like drained when you know when are they ready and stuff like that so it's like little one-offs like that i don't know like watch goes pretty far but here yeah i don't know i'll be curious to either of you have a use case in mind where you would use this tool i don't use docker okay took the easy way out he's hardcore against docker i'm not i just don't like it very"
+    },
+    {
+      "start": 5733.49,
+      "end": 5795.55,
+      "speaker": "adam-stacoviak",
+      "text": "much i tend to i have one machine that i have more than one docker container running on and it's like the one machine that's like it does like home assistant and like other automation stuff and it's it's sort of like not in a good state because i don't have time to tinker with it but i do have a single machine that is a vm that is intended to be more beefy for multiple applications running docker and i think in those cases i would want something like that because then you have maybe a docker network you've got multiple applications you've got different things happening at least on that machine and it's kind of like htop or btop plus plus or bashtop for docker essentially you're seeing your services the containers that are running the images that they're using config stats it's kind of like that for docker logs i mean i don't know if i would dig into it but i would certainly crack it open at least once or twice just to just to see how cool it is to to command this world you know yeah to have a single box for all these services no it is nice because"
+    },
+    {
+      "start": 5795.55,
+      "end": 5807.47,
+      "speaker": "nick-janetakis",
+      "text": "i mean even like docker desktop is like the gui version to look at some things about your containers and images and volumes and stuff yeah and it it it displays you know similar-ish things but here is like that same information on the command line so it is nice well you need that"
+    },
+    {
+      "start": 5807.47,
+      "end": 5825.63,
+      "speaker": "adam-stacoviak",
+      "text": "for a headless machine so in these in this case i'm ssh into it there is no right you know you need a tui and that's a great actually a good example of like where a tui really applies is like when you're just ssh into a box that has no monitor or no gui you you need a tui no gui"
+    },
+    {
+      "start": 5825.63,
+      "end": 5832.35,
+      "speaker": "nick-janetakis",
+      "text": "get a tui and and here's the biggest pitch ever to use lazy docker it looks like dhh is a sponsor"
+    },
+    {
+      "start": 5832.35,
+      "end": 5943.92,
+      "speaker": "adam-stacoviak",
+      "text": "so his avatar is in there on the readme file well let me give you the actual pitch because jesse has taken a moment to read or to write an elevator pitch and i'm going to read this to you nick and you tell me if he sells you or not he says minor rant incoming something's not working maybe a service is down docker compose ps yep it's that microservice is still buggy no issue i'll just restart it docker compose restart okay now let's try again oh wait the issue is still there hmm docker compose ps right so the service must have just stopped immediately after starting i probably would have known if i was reading the log stream but there's a lot of clutter in there from other services i could get the logs for just that one service with docker compose logs dash dash follow microservice but that dies every time the service dies so i need to run that command every time i restart the service i could alternatively run docker compose up my service and in that terminal window if the service is down i could just up it again but now i've got one service hogging a terminal window even after i no longer care about its logs this sounds like an infomercial it's such a pain but wait there's more yeah i guess when i want to reclaim the terminal real estate i can do control p q but wait that's not working for some reason should i use control c instead i can't remember if that closes the foreground process or it kills the actual service what a headache this is a infomercial he says memorizing docker commands is hard memorizing aliases is slightly less hard keeping track of your containers across multiple terminal windows is near impossible what if you had all the information you needed in one terminal window with every common command living one key press away and the ability to add custom commands as well lazy docker's goal is to make that dream a reality sounds like jesse needs to"
+    },
+    {
+      "start": 5943.92,
+      "end": 5967.36,
+      "speaker": "nick-janetakis",
+      "text": "start using tmux then his terminal problems go away this is true this is true this is true no but seriously i will say like i tried not to read it along like i was just listening to you and like uh-huh the way he handles some of those objections what was it the first one to be like oh i'll just like follow that service or maybe i'll just up that one thing like those were things going in my mind so i think it did a great job at just demonstrating like the usefulness of it yeah"
+    },
+    {
+      "start": 5967.36,
+      "end": 5991.76,
+      "speaker": "adam-stacoviak",
+      "text": "like you literally do those things and it works for you and he obviously knows how to do those things as well it is a pretty good elevator pitch but there's something about knowing the pain of something enough that you just do it and you kind of just become calloused to the pain and you're like well that's just what i do i do the docker compose ps thing and then i do that thing but yeah tmux does solve a few of these problems i feel like you're indirectly telling me to like"
+    },
+    {
+      "start": 5991.76,
+      "end": 5996.4,
+      "speaker": "nick-janetakis",
+      "text": "upgrade my computer already because all the pain i'm experiencing well i told you that directly"
+    },
+    {
+      "start": 5996.4,
+      "end": 6001.6,
+      "speaker": "adam-stacoviak",
+      "text": "about an hour ago so i wouldn't need to be so coy no but yeah if you had a production server we had"
+    },
+    {
+      "start": 6001.6,
+      "end": 6017.6,
+      "speaker": "nick-janetakis",
+      "text": "a whole bunch of different containers running like not in kubernetes or something and you just want to have an outlook of all of your docker related things yeah i can definitely see that being used because you're right it is annoying to like up arrow enter control c up arrow switch to the tab do this thing if i can just look at a screen and monitor that stuff and that is a win that is a"
+    },
+    {
+      "start": 6017.6,
+      "end": 6032.56,
+      "speaker": "adam-stacoviak",
+      "text": "quality of life improvement right all right so we're selling it here adam we're getting them over to our side the two e world slowly but surely i've moved to about 10 now at the start of the show i was at like two resistance is futile all will be assimilated by the way earlier you"
+    },
+    {
+      "start": 6032.56,
+      "end": 6047.68,
+      "speaker": "nick-janetakis",
+      "text": "mentioned that you know adam you wanted to get a little bit more interest in folks like contributing towards the tui uh ecosystem of things and i think you guys joked around about starting a podcast around that one but you guys do have ship it so i think you need to start like tui it mmm"
+    },
+    {
+      "start": 6047.68,
+      "end": 6104.02,
+      "speaker": "adam-stacoviak",
+      "text": "tui it well that's not our game man no i like your ideas but that's not our game what's our game i don't know i think i would actually really encourage will to do that kind of podcast because jared and i are not the epicenter of that i think we would welcome him on the show and encourage them to create their own content because that's their world in my opinion and i would support it from externally and report it to the masses but not be the like i suppose if i had tui ink and i was trying to build the next big thing on top of tui's and there was some sort of advantage there than i would but uh our advantage is keep the main thing the main thing and the main thing is not tui's the main thing is i would suppose like developer culture developer happiness the latest tech that's evolving where trends are going why should we care those kinds of questions but i don't discredit the idea just not for us okay"
+    },
+    {
+      "start": 6104.02,
+      "end": 6114.18,
+      "speaker": "nick-janetakis",
+      "text": "what would you name said podcast i mean i obviously you said tui it but i think that's a terrible name myself no offense tui up tui up yeah a little better not to eat down about uh"
+    },
+    {
+      "start": 6115.62,
+      "end": 6131.66,
+      "speaker": "adam-stacoviak",
+      "text": "tui for ue i bet you tui fm is available i mean just to keep it super short url yeah that'd be cool tui fm and our tui ftw that fm you know that'd be a good company name to you"
+    },
+    {
+      "start": 6131.66,
+      "end": 6141.5,
+      "speaker": "nick-janetakis",
+      "text": "for the win nick if we find out if we if we land on a good name here adam's gonna completely change from okay we're doing this not our game to this is our totally our game we need to make this podcast"
+    },
+    {
+      "start": 6141.5,
+      "end": 6173.26,
+      "speaker": "adam-stacoviak",
+      "text": "oh my gosh i'll stop there stop with a really bad name like tui for you yeah you've won the worst name possible yeah i did i beat you on the two yet well i think tuy's are fun i think i would summarize it i don't know how much more deep you want to go but i think i think we're plenty there is a place for more tuy's out there i do enjoy a good tuy and if it was a a sandwich or a meal of sorts like a tuy sandwich nom nom nom you know all day long give it to me is this a spanglish"
+    },
+    {
+      "start": 6173.26,
+      "end": 6177.74,
+      "speaker": "nick-janetakis",
+      "text": "callback if it were a sandwich or some food what would it actually taste like like how would you"
+    },
+    {
+      "start": 6177.74,
+      "end": 6201.41,
+      "speaker": "adam-stacoviak",
+      "text": "describe tuy as a taste bright flavorful lots of flavor scrumptious yummy gimme gimme gimme i'm not gonna wade into that pool we're gonna let adam have the final say on that uh all right nick anything else you want to say about this or any topic before we let you go no"
+    },
+    {
+      "start": 6201.41,
+      "end": 6206.29,
+      "speaker": "nick-janetakis",
+      "text": "i think this was a really fun episode i learned some new things i may need to explore tuy's in"
+    },
+    {
+      "start": 6206.29,
+      "end": 6233.95,
+      "speaker": "adam-stacoviak",
+      "text": "a little bit more detail yeah there is one thing i want to say before we go can i say one more thing just i think this is worth sharing this is the installation process you can't just get the tuy right you have to get the install process right and i don't know how you all feel but if the only way to install is via mpm you're doing it wrong is that is that can we do an unpopular opinion i feel like that's like that's a popular opinion i'm terrible at unpopular opinions i am so with"
+    },
+    {
+      "start": 6233.95,
+      "end": 6250.19,
+      "speaker": "nick-janetakis",
+      "text": "you on that one yeah i will not if i have to install node to install your tool and it's nothing against no this could happen to ruby or whatever like it's the same thing i much prefer either you know give me a binary i can just curl down and run it or yeah if you have built-in package manager"
+    },
+    {
+      "start": 6250.19,
+      "end": 6292.13,
+      "speaker": "adam-stacoviak",
+      "text": "support for my ls that's nice too yeah i didn't mind the the process that i mentioned for btop or bashtop i should say and that may have been dated which was the to do the add app repository and the ppa version of it and then literally update apt and then install the bashtop application i didn't mind that but don't make me use a thing that's not even intended to be on my system that has no place in my system because it's not my desktop it's maybe a remote machine a standalone vm that i just don't want to have i want to keep it minimized and if the only way to install is via only node or npm then i don't like that i want to have a"
+    },
+    {
+      "start": 6292.13,
+      "end": 6339.89,
+      "speaker": "nick-janetakis",
+      "text": "native way to install it for my system yeah i think a great point around that one too is just like adaptability or adaptability of a tool at maybe like an organization because right now the place i work at you know we've got 15 developers and you know we're allowed to have mac os we can have beta linux you can have windows with wsl you know these are all viable setups that you can have as your dev environment and if i'm writing a script or a tool to help automate setting up tools on any of those devices you know it is nice to have a way like go to github release pages for the project and just download that binary for that cpu architecture you know that base operating system and then that will just work and there's little variables you know you can run the command line to like get those programmatically so you have one command to run for any system it's going to be installed on no extra you know dependencies or if conditions or whatever i think that goes a"
+    },
+    {
+      "start": 6339.89,
+      "end": 6386.74,
+      "speaker": "adam-stacoviak",
+      "text": "reasonably long ways yeah i definitely want to pay attention to the install process i would say installation and initial usage is to me is key for any 2e it might seem obvious it's just simply type in bashtop for example after you install it that might seem obvious but at least give me that next step in your docs where it's installation for my system i'm cool with brew i'm cool with whatever else is out there if you have an ubuntu system or you're using apt you know give me that apt flavor if it's a binary and you want me to pipe it in the bash i'm cool with that too i'll obviously check the file first before i do that because hey that's just crazy or check the source code and just double check that but then after that like what's the very first next step to enjoying the tool what's the config like what's the setup like and i think for any 2e that is that's just like how"
+    },
+    {
+      "start": 6386.74,
+      "end": 6412.58,
+      "speaker": "nick-janetakis",
+      "text": "you document it how you get people into it yeah i'm a big fan of just you know seeing the tool being used on something real like a use case of here's how to solve this type of problem i love that stuff but even going back to the installation adam would it help like let's say that the tool is just you know not a binary you can just install but you need node or you need something i think even if they wrapped it up in a docker image so you can just run it as a container quickly at least to get a feel for the tool like day one i think that goes kind of a long ways that'd be"
+    },
+    {
+      "start": 6412.58,
+      "end": 6464.18,
+      "speaker": "adam-stacoviak",
+      "text": "kind of interesting actually to have a demo as a docker image because you can set up like your own little dummy file system there if it required you know some demo data basically and provide a world where you're like hey let me try this out and i don't have to like muck up my my install like my machine keep it vanilla keep it pristine because even like on a vm before i do some of this stuff i'll i will back up that vm if it's necessary you can't back up a machine pretty easily but you can do that with a vm on prox box or a cloud box or whatever i like that because you can easily now that assumes you've got docker but that's a pretty good assumption of most developer machines these days aside from jared's like he's just like don't even touch my machine with d o c k e r get it out of here no docker here you know it's just too slow i have docker installed oh you do have it installed okay never mind i just don't want to i just don't want to"
+    },
+    {
+      "start": 6464.18,
+      "end": 6468.74,
+      "speaker": "nick-janetakis",
+      "text": "but i have to because i'm a developer and sometimes you just need it some doctor one"
+    },
+    {
+      "start": 6468.74,
+      "end": 6493.52,
+      "speaker": "adam-stacoviak",
+      "text": "basically yeah they won they won big time but i'm with you if you had a docker image it's like hey let me play with this that'd be kind of cool i think it'd be good for mileage for new adoption probably be good for mileage potentially even a dev setup to maybe more easily contribute it can be a dull facing use case for using docker in that case like a demo as well as maybe contribution"
+    },
+    {
+      "start": 6494.08,
+      "end": 6507.84,
+      "speaker": "nick-janetakis",
+      "text": "yeah i actually love that that's another angle that's really important like the more people that can contribute towards the project even just like opening up a pr to like do some small patch yeah if all i have to do is just run a container and that's it absolutely sign me up yeah i love"
+    },
+    {
+      "start": 6507.84,
+      "end": 6536.32,
+      "speaker": "adam-stacoviak",
+      "text": "that idea a lot honestly like if i could just doc impose up anything i'll do it you just send me a command or anything whatsoever i'll just do it i'll tell you in the show jared just do it just do it send adam a command anything that's right and he'll just do it prefaces with docker compose all right well nick always good to catch up i think we should do more shows like these with"
+    },
+    {
+      "start": 6536.32,
+      "end": 6554.48,
+      "speaker": "nick-janetakis",
+      "text": "you because it's always fun yeah thanks a lot for the invite and if anybody's curious you know we mentioned i had two and a half gigs of hard drive space at the start of this episode i've been recording this locally just as a backup if needed it still shows that i have nine hours remaining of disk space so even though a wave is being output we're still pretty efficient wow wow"
+    },
+    {
+      "start": 6554.48,
+      "end": 6567.02,
+      "speaker": "adam-stacoviak",
+      "text": "even on that old hardware you're doing good keep going then yeah we're just nine hours away from from denial of servicing him that's right that's right that's a slow motion dos no go ahead but i"
+    },
+    {
+      "start": 6567.02,
+      "end": 6571.1,
+      "speaker": "nick-janetakis",
+      "text": "was gonna say yeah thanks again for the invite and happy to come on whenever you want awesome"
+    },
+    {
+      "start": 6571.1,
+      "end": 6652.24,
+      "speaker": "adam-stacoviak",
+      "text": "well you're a friend you're welcome here anytime that's right bye friends all right bye friends okay that's it for this week's developer pods from changelog hope you enjoyed them awesome having nick back talking about two is this time text user interfaces i love them i hope they become more in vogue but only time will tell we do have a bonus for this episode for a plus plus subscribers learn more at changelog.com slash plus plus it's better some say it is better i think it's better but you should try it out see for yourself 10 bucks a month 100 bucks a year drop the ads directly support us get bonus content get closer to that cool changelog medal and of course get a free sticker pack sent directly to you that's awesome again changelog.com slash plus plus well we couldn't do this without awesome sponsors and awesome partners today's sponsors are chronitor sentry and paragon if you turn out century use the code changelog and get 100 bucks off for three months and of course a massive thank you to our friends over at fly.io pull your ass near users too easy learn more at fly.io into the beat freak in residence break master cylinder thank you for those awesome beats that's it the show's done"
+    },
+    {
+      "start": 6652.24,
+      "end": 6700.19,
+      "speaker": "nick-janetakis",
+      "text": "we'll see you next week actually just a quick closing remark that's maybe interesting around you know good stuff for free so when i was actually traveling around portugal i was on the top of some castle i think it was saint george's castle i'm probably butchering the pronunciation but i was wearing the changelog shirt that you guys sent me the very first time i was on the show yes and that is one of my favorite shirts honestly like i wear it kind of frequently and this guy was just like cool shirt and i was like thank you uh and he's like i'm familiar with the show i've watched so many different episodes he knows who both of you are and uh get out of here yeah that"
+    },
+    {
+      "start": 6700.19,
+      "end": 6706.43,
+      "speaker": "adam-stacoviak",
+      "text": "weird no it was really cool yeah on a castle in portugal yeah that's a small world i guess"
+    },
+    {
+      "start": 6706.43,
+      "end": 6715.87,
+      "speaker": "nick-janetakis",
+      "text": "but it made me think like the only reason i accepted your invite to go on the show was to potentially get another awesome high quality free shirt the only reason well now you're not"
+    },
+    {
+      "start": 6715.87,
+      "end": 6726.51,
+      "speaker": "adam-stacoviak",
+      "text": "getting one well yeah now we have to do with your thank you code we're gonna do the we're gonna set the flag to to uh to no coupon code to not send him the coupon code yeah just to spite you you're"
+    },
+    {
+      "start": 6726.51,
+      "end": 6730.19,
+      "speaker": "nick-janetakis",
+      "text": "gonna adjust the price so it's actually twice expensive so like i can't get it the function"
+    },
+    {
+      "start": 6730.19,
+      "end": 6743.55,
+      "speaker": "adam-stacoviak",
+      "text": "is called has one or not and you already have one so you get not no the other the the toggle is like has he spied at us that's right and you just spied at us so oh man check this out man ultimate"
+    },
+    {
+      "start": 6743.55,
+      "end": 6748.35,
+      "speaker": "nick-janetakis",
+      "text": "backfires but seriously do you guys have uh a different a different inventory of shirts or is"
+    },
+    {
+      "start": 6748.35,
+      "end": 6753.47,
+      "speaker": "adam-stacoviak",
+      "text": "it the same well it depends on which one you got do you have the og i have the cool i don't know if"
+    },
+    {
+      "start": 6753.47,
+      "end": 6757.87,
+      "speaker": "nick-janetakis",
+      "text": "it's og but it has the globe and it says change log same one yeah we haven't changed but you can"
+    },
+    {
+      "start": 6757.87,
+      "end": 6780.5,
+      "speaker": "adam-stacoviak",
+      "text": "get a js party maybe or you can get yourself a kaizen or a scale t-shirt we don't sell them skills that's what i'm wearing adam will send you the tail scale off his back yeah so you could get a practically isolated you don't have to get the change log one so you'd have two you can get a different version you get a kaizen a few more kaizens out there whatever you like man hook yourself up you have to have the special link to get the kaizen cool i was trying"
+    },
+    {
+      "start": 6780.5,
+      "end": 6783.7,
+      "speaker": "nick-janetakis",
+      "text": "to give you guys a free plug on your awesome shirts no i loved it and we're just messing"
+    },
+    {
+      "start": 6783.7,
+      "end": 6788.66,
+      "speaker": "adam-stacoviak",
+      "text": "with you yeah that's so cool though honestly to to rewind you can 100 have another t-shirt"
+    }
+  ]
+}

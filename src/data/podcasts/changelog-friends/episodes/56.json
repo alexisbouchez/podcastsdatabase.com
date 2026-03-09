@@ -1,0 +1,1424 @@
+{
+  "title": "Picking a database should be simple",
+  "description": "Database expert Ben Johnson joins Jerod to discuss which database to choose, exploring various database types, their tradeoffs, and why simplicity matters when making infrastructure decisions.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "ben-johnson"
+  ],
+  "segments": [
+    {
+      "start": 14.99,
+      "end": 38.66,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog, and friends, a weekly talk show about materialized views. Thanks to our partners at Fly.io, the home of Changelog.com. Launch your app near your users. Fly makes it easy. Learn how at Fly.io. Okay, let's talk."
+    },
+    {
+      "start": 38.66,
+      "end": 42.2,
+      "speaker": "ben-johnson",
+      "text": "What's up, friends? I'm here with Dave Rosenthal, CTO of Sentry."
+    },
+    {
+      "start": 42.2,
+      "end": 69.88,
+      "speaker": "jerod-santo",
+      "text": "So, Dave, when I look at Sentry, I see you driving towards full application health, error monitoring where things began, session replay, being able to replay a view of the interface a user had going on when they experienced an issue with full tracing, full data, the advancements you're making with tracing and profiling, Chrome monitoring, code coverage, user feedback, and just tons of integrations. Give me a glimpse into the inevitable future. What are you driving towards?"
+    },
+    {
+      "start": 69.88,
+      "end": 74.8,
+      "speaker": "ben-johnson",
+      "text": "Yeah, one of the things that we're seeing is that in the past, people had separate systems"
+    },
+    {
+      "start": 74.8,
+      "end": 145.46,
+      "speaker": "jerod-santo",
+      "text": "where they had logs on servers, written files. They were maybe sending some metrics to Datadog or something like that or some other system. They were monitoring for errors with some product, maybe it was Sentry. But more and more what we see is people want all of these sources of telemetry logically tied together somehow. And that's really what we're pursuing at Sentry now. We have this concept of a trace ID, which is kind of a key that ties together all of the pieces of data that are associated with the user action. If user loads a web page, we want to tie together all the server requests that happened, any errors that happened, any metrics that were collected. What that allows on the back end, you don't just have to look at three different graphs and line them up in time and try to draw your own conclusions. You can actually analyze and slice and dice the data and say, hey, what did this metric look like for people with this operating system versus this metric look like for people with this operating system, and actually get into those details. This kind of idea of tying all of the telemetry data together using this concept of a trace ID or basically some key, I think is a big win for developers trying to diagnose and"
+    },
+    {
+      "start": 145.46,
+      "end": 150.98,
+      "speaker": "ben-johnson",
+      "text": "debug real world systems in something that is, we're kind of charged the path for that for everybody."
+    },
+    {
+      "start": 150.98,
+      "end": 158.5,
+      "speaker": "jerod-santo",
+      "text": "Okay. Let's see you get there. Let's see you get there tomorrow perfectly. How will systems be different? How will teams be different as a result?"
+    },
+    {
+      "start": 158.5,
+      "end": 165.06,
+      "speaker": "ben-johnson",
+      "text": "Yeah. I guess again, I'll just keep saying it maybe, but I think it kind of goes back to this debugability experience."
+    },
+    {
+      "start": 165.06,
+      "end": 194.26,
+      "speaker": "jerod-santo",
+      "text": "When you are digging into an issue, having a sort of a richer data model that your logs are structured, there's sort of this hierarchical structure with spans, and not only is it just the spans that are structured, they're tied to errors, they're tied to other things. So when you have the data model that's kind of interconnected, it opens up all different kinds of analysis that were just kind of either very manual before, kind of guessing that maybe this log was, you know, happened at the same time as this other thing, or we're just impossible."
+    },
+    {
+      "start": 194.26,
+      "end": 203.54,
+      "speaker": "ben-johnson",
+      "text": "We get excited not only about the new kinds of issues that we can detect with that interconnected data model, but also just for every issue that we do detect how easy it is to get to the bottom of it."
+    },
+    {
+      "start": 203.54,
+      "end": 227.82,
+      "speaker": "jerod-santo",
+      "text": "I love it. Okay. So they mean it when they say code breaks, fix it faster with Sentry, more than 100,000 growing teams use Sentry to find problems fast, and you can too. Learn more at Sentry.io. That's S E N T R Y.io and use our code change log. Get $100 off the team plan. That's almost four months free for you to try out Sentry."
+    },
+    {
+      "start": 227.82,
+      "end": 235.06,
+      "speaker": "ben-johnson",
+      "text": "Once again, Sentry.io."
+    },
+    {
+      "start": 235.06,
+      "end": 281.64,
+      "speaker": "jerod-santo",
+      "text": "We are back with yet another, it depends episode. That means I have to play my jingle. It depends. You know, there are no silver bullets. So the best way that we can help you build great software is to equip you with knowledge. Much of that knowledge can only be gained through experience. And that's why on this, it depends miniseries, I sit down with experienced devs to discuss their decision-making process. Today I have with me Ben Johnson, who you may have heard on our shows in the past nine times. In fact, this is Ben's 10th appearance on changelog pods. Johnson created Bolt DB and is doing some gnarly and cool stuff with SQLite at Fly.io. Ben welcome back."
+    },
+    {
+      "start": 281.64,
+      "end": 283.64,
+      "speaker": "ben-johnson",
+      "text": "Thanks for having me, Jared. It's good to be back."
+    },
+    {
+      "start": 283.64,
+      "end": 293.4,
+      "speaker": "jerod-santo",
+      "text": "It's great to have you. For some reason, your name always comes to mind when I think about databases. Is that weird? You're just living rent-free in my mind, I guess."
+    },
+    {
+      "start": 293.4,
+      "end": 297.4,
+      "speaker": "ben-johnson",
+      "text": "I guess so. I don't know. I think it's that I do weird stuff with databases. Maybe that's why."
+    },
+    {
+      "start": 297.4,
+      "end": 298.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 298.4,
+      "end": 299.6,
+      "speaker": "ben-johnson",
+      "text": "Pops into people's heads."
+    },
+    {
+      "start": 299.6,
+      "end": 312.12,
+      "speaker": "jerod-santo",
+      "text": "I think that might be the case. A lot of your career has been focused on databases and in the Go community. I'm curious why for you, databases, why do you focus on that particular part of the technology stack?"
+    },
+    {
+      "start": 312.12,
+      "end": 340.84,
+      "speaker": "ben-johnson",
+      "text": "That's a good question. I was a UI developer, and I did data visualization for a big part of my career. I started off doing Oracle databases, and I thought I was really going to be an Oracle DPA early on in my career. But then everyone else that you're competing against has 20 years of experience at the time, and I just had to find a different route for a while. But I don't know. I think there's something raw about databases, and that's the lowest level abstraction you get to. I think it's interesting."
+    },
+    {
+      "start": 340.84,
+      "end": 343.36,
+      "speaker": "jerod-santo",
+      "text": "It's the most important part, too, at the end of the day."
+    },
+    {
+      "start": 343.36,
+      "end": 345.36,
+      "speaker": "ben-johnson",
+      "text": "Yeah. And if you mess it up, then you really..."
+    },
+    {
+      "start": 345.36,
+      "end": 407.6,
+      "speaker": "jerod-santo",
+      "text": "You mess it up, and you have problems, right? The security, of course, is a big issue, but it's also the most lasting part of most valuable applications is the data. The application code and the features come and go, but the underlying data is valuable probably even after the business is gone or the application is no longer in use. It's like that data has an inherent value to it, so it's definitely down in there and oftentimes the most lasting part. So today we want to talk about databases, and this is an It Depends where we kind of share decision-making processes. How do you pick this? How do you decide that? Knowing that everybody has a different context, and so we can't just simply say to you, just use this because that might not be true all the time. However, long-time listeners that change the log know that I probably am going to say just use Postgres, and It Depends doesn't apply here, but Ben, you might say something different because I know you're an SQLite fan, so was that going to be your stock answer? Just use SQLite."
+    },
+    {
+      "start": 407.6,
+      "end": 443.08,
+      "speaker": "ben-johnson",
+      "text": "I mean, I would actually go with just use Postgres generally. Oh, you would? Yeah. If you don't know databases very well, there's probably the most amount of information out there for how to use it, how to set it up, how to debug it, that kind of stuff. You get a lot of like Dewey tools. You get all that kind of stuff. I mean, I think it also depends on the community. I think PHP does a lot more MySQL, so maybe in that world you do MySQL, but yeah, I think Postgres, honestly, it's hard to go too wrong with Postgres. Obviously, sharp edges as well, but it's probably the least worst option out there."
+    },
+    {
+      "start": 443.08,
+      "end": 500.08,
+      "speaker": "jerod-santo",
+      "text": "All right. That's our show. There you go. Thanks for having me on. Well, maybe we can adjust that because there are so many specific use cases and so many scenarios for applications where the type of database you're using really does matter, and you can play to a database's strengths and get a lot of benefits, but maybe we adjust it to say, just start with Postgres and you're probably going to be a safe starting place or MySQL, but I agree, Postgres has the mind share, it has the tool share at this point, it has the momentum as an open source database, although SQLite has a ton of momentum right now, but I think there's more caveats to SQLite depending on what you're up to, and we can probably get into that as we talk here, but just the breadth of the types of databases is somewhat overwhelming. I mean, here we are talking about three different databases, but they're all pretty much the same. I mean, they probably share like 90% overlap, and then the devil's in the details."
+    },
+    {
+      "start": 500.08,
+      "end": 511.48,
+      "speaker": "ben-johnson",
+      "text": "Yeah, and a lot of them, even like SQLite has support for MySQL style SQL and Postgres style SQL, so you can kind of swap out parts of them, so they definitely try to overlap."
+    },
+    {
+      "start": 511.48,
+      "end": 547.36,
+      "speaker": "jerod-santo",
+      "text": "Because there are extensions and plugins, there's crossover into different types, but if we're going to lay out some of the major types of databases, because before you pick a specific database, sometimes you have to even decide what kind of style of database is going to play to my strengths. I made a list here, and this is probably not, this is certainly not comprehensive, but if we're going to talk different types of databases, we have relational, graph, document, key value, columnar, time series, of course there's vector DBs, which are all the rage right now because of semantic search."
+    },
+    {
+      "start": 547.36,
+      "end": 552.92,
+      "speaker": "ben-johnson",
+      "text": "I didn't see an XML database in there, or an object oriented database, those are some old school ones."
+    },
+    {
+      "start": 552.92,
+      "end": 573.4,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah, what did I miss there? Oh yeah, OODBs. Yeah. I actually really like that concept inside of working with an OOO language. If you can map your data store directly on your object graph, and you're just talking about like hydrating and dehydrating it at the end of the day, isn't that kind of what you want in an object oriented language?"
+    },
+    {
+      "start": 573.4,
+      "end": 588.16,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I mean that's kind of what ORMs do. They just do it on top of a different model, but yeah, I mean there's like this holy grail idea of just like you write your application, and the objects just magically persist, and you don't have to worry about them."
+    },
+    {
+      "start": 588.16,
+      "end": 590.56,
+      "speaker": "jerod-santo",
+      "text": "Why can't we have that? I mean, I want that."
+    },
+    {
+      "start": 590.56,
+      "end": 632.48,
+      "speaker": "ben-johnson",
+      "text": "No, yeah, for sure. You know, I mean I think that there are, I think there's obviously like recursive, like self referential types and some complications in there. I think though, one thing I noticed when I was doing a lot of development with Bolt is you kind of need like a schema layer, but beyond like just a schema layer, it's nice to have like kind of a data language layer, because you do a lot of stuff where you're like, oh, I need to pull down a certain set of data, I need to do some kind of export transform or whatnot that you don't necessarily want to tie to your application language. It might be like a migration you might do. So in that case, it is kind of nice to have some separation between your kind of your generally relational model and your actual application model."
+    },
+    {
+      "start": 632.48,
+      "end": 709.22,
+      "speaker": "jerod-santo",
+      "text": "Right. And I think we're getting into a whole other line of thinking, which is beyond database choice. It's like how much of your application logic should reside inside of your database. And I feel like there's been a pendulum swing in both directions over time where it was like used to be stored procedures and like all the things in there. And we found problems with that, you know, in operational problems, all kinds of things that you could say, well, that's not ideal because of this. And then I think Ruby on Rails, at least in the web dev space, really swung it in the opposite direction of like your data store is a dumb thing that you treat as a input output mechanism that will store things on disk and you put everything inside your application code, your consistency rules, your foreign field, you know, like your relationships, like all that stuff as an app code. And that way you can actually even just swap out the backend and not even worry about it. And I feel like that was a move too far in the other way because of the reasons you said that. All of a sudden you want to like use it outside of the context of your Ruby code. And you're like, oh, where's all my consistency rules, where's all my, you know, constraints and all that. Well, they're over there in your Ruby on Rails app, so you can't use it in any other context. You lose it and now you have data problems on the backend. So that's another thing is like, where do you put stuff? Where do you fall on that usually?"
+    },
+    {
+      "start": 709.22,
+      "end": 765.95,
+      "speaker": "ben-johnson",
+      "text": "I mean, I think the high level things like foreign key constraints, some checks, check constraints maybe. I would probably just put in the database because yeah, you do have a lot of, you know, users or clients for a database, not just your own single application. So I think it's tough. I mean, I think putting too much into your application layer, again, like if you ever want to rewrite or change it or move somewhere else, like you're moving everything. But I mean, I used to do stored procedures back in Oracle and I would say like the one thing I really loved about stored procedures is that they're just wicked fast. Like they're literally, you're putting your code right next to your data and like it's hard to explain just how fast like a store procedure will run. So if you really need the speed, that can be great. But they're again, the other, they're terrible to like maintain. This is 20 years ago. So it was like, there was no like get repo or like versioned everything. It was like, Oh, we're just going to upload this giant SQL file to like replace our store procedures and hope it works. So that's terrifying."
+    },
+    {
+      "start": 765.95,
+      "end": 822.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I wonder if I'm sure there's people who feel like they've found a good middle ground and I'm most familiar with Postgres. So like writing PSQL functions and using extensions, but also like keeping that stuff in version controlled, maybe tested, I don't know, places where you can, cause for me, like the, the distance from my code to a store procedure was always the problem. It's like, now I have to like connect to a thing over there and then update the stored procedure. And it was always just like a weird disconnect there that I felt was going to cause problems, whether it ever did or not. But I'm wondering if people are like building, like, you know, similar to the folks who took Nginx to the limit and like made app frameworks like right there inside Nginx, you know, modules and stuff. I wonder those people who are like, you know, Postgres or whatever, you know, pick your database store procedures for life, you know, just kind of like coding it up."
+    },
+    {
+      "start": 822.35,
+      "end": 844.22,
+      "speaker": "ben-johnson",
+      "text": "Yeah. I mean, one thing I like about SQLite is that like your code is right next to your data. So it's, you're almost writing stored procedures just in the language of your choice. Right. So you don't have that, that latency to go between the two. But as far as Postgres, I mean, I think I hate writing SQL based stored procedures. Like I think it's a pain. So I just generally move stuff to the application layer."
+    },
+    {
+      "start": 844.22,
+      "end": 880.94,
+      "speaker": "jerod-santo",
+      "text": "What about other functionality? So we've had Paul Coppolstone on recently and at SupaBase and he calls them Postgres maxis because they really leverage the database and they're providing all kinds of services on top of it for things like background jobs. I think PubSub, of course, is there in Postgres. They do like row level access control. So like really taking advantage of the security things that you can do inside of there. And I'm curious if that kind of stuff intrigues you. Does that sound like you're taking it too far in terms of like what you're going to do with your database?"
+    },
+    {
+      "start": 880.94,
+      "end": 903.02,
+      "speaker": "ben-johnson",
+      "text": "I think it's interesting to kind of play around and see where you can maximize, you know, different performance characteristics, I would say. I don't feel like from a usability standpoint, it's always the best. I mean, I think that Postgres is a pain to set up a lot of times to begin with. But sure. So I think adding more to it just scares me a little bit. But I mean, yeah, I think that's that's cool. Trying new things out. See what sticks."
+    },
+    {
+      "start": 903.02,
+      "end": 931.43,
+      "speaker": "jerod-santo",
+      "text": "Well, friends, I'm here in the breaks with one of my new friends over at 1Password, Martin Shosh, software developer at 1Password on the SDK team. 1Password now has SDKs as well as their CLI that allows you to build secrets management integrations using Go, JavaScript or Python. And they're available right now. So Martin, how can developers use these SDKs today? Give me some examples."
+    },
+    {
+      "start": 931.43,
+      "end": 937.51,
+      "speaker": "ben-johnson",
+      "text": "Yeah. So the CLI was built more for managing your 1Password account and accessing it from the"
+    },
+    {
+      "start": 937.51,
+      "end": 956.61,
+      "speaker": "jerod-santo",
+      "text": "terminal and writing various scripts for local automations. But the SDKs really go a step beyond that, where you can build these automations into other pieces of software. You can run them in Cloud Functions. You can build them into your natively running desktop apps, which now are also able to leverage"
+    },
+    {
+      "start": 956.61,
+      "end": 964.09,
+      "speaker": "ben-johnson",
+      "text": "functionality such as loading data from 1Password, rotating secrets in 1Password, creating new items and more."
+    },
+    {
+      "start": 964.09,
+      "end": 982.69,
+      "speaker": "jerod-santo",
+      "text": "Yeah. So in addition to this awesome new functionality, you're going to give developers to leverage 1Password in such unique ways. I think it's also worth noting how you built these SDKs. You have a core Rust library that generates these various SDKs. What's the backstory?"
+    },
+    {
+      "start": 982.69,
+      "end": 988.89,
+      "speaker": "ben-johnson",
+      "text": "When we started the SDK project, one of our goals was to really build the SDKs in a scalable"
+    },
+    {
+      "start": 988.89,
+      "end": 1036.47,
+      "speaker": "jerod-santo",
+      "text": "way, where a relatively small team can maintain multiple SDKs at the same time. And we can add support for more languages and also add more functionality to them as time goes on. To achieve that level of scalability, we designed the SDKs in a way that they all leverage a shared Rust library that's written once and it has all the features of all the SDKs inside of it. Now to make this library accessible in each language, we generated a wrapper for that library in each of the supported languages. This wrapper code is automatically generated, so this gives us even more speed, agility when adding new features to the SDKs because we just add the feature to the SDK core library"
+    },
+    {
+      "start": 1036.47,
+      "end": 1043.21,
+      "speaker": "ben-johnson",
+      "text": "and each of the SDKs automatically gets updated to expose the new functionality in all of the languages."
+    },
+    {
+      "start": 1043.21,
+      "end": 1077.39,
+      "speaker": "jerod-santo",
+      "text": "That's so cool. Okay. The next step is to go to 1Password.com slash changelawpod. They've given our listeners an exclusive extended free trial to all the developers out there to use 1Password for 28 days. That's not 14 days, but 28 days. They doubled it. Make sure you go to 1Password.com slash changelawpod to get that exclusive signup bonus or head to developer.1password.com to learn about 1Password's new SDKs available right now, their amazing developer tooling, their CLI, their SSH and Git integrations, their CI CD integrations and so much more."
+    },
+    {
+      "start": 1077.39,
+      "end": 1088.83,
+      "speaker": "ben-johnson",
+      "text": "Again, 1Password.com slash changelawpod or developer.1password.com to learn more."
+    },
+    {
+      "start": 1088.83,
+      "end": 1095.03,
+      "speaker": "jerod-santo",
+      "text": "How many different types of databases have you used throughout your career? I listed off a bunch of them. Have you used all those?"
+    },
+    {
+      "start": 1095.03,
+      "end": 1142.99,
+      "speaker": "ben-johnson",
+      "text": "I think most of them. I haven't done a ton with graph databases, but I've done document databases. Yeah, I've worked in time series before. I've done columnar for analytics. And I think that the way I think of it in my head, I think document was an interesting road we went down of like, you know, you kind of denormalize your data and it makes it a lot faster just to grab one big chunky object instead of doing, you know, one and then N plus one query after that to grab all the children. But like denormalization has its own issues as far as, you know, you update in one place and it doesn't update in all of them necessarily. So I think that especially with like the work that Postgres and a lot of databases like SQLite have done as far as JSON embedding inside the rows, I don't see a big need for document databases these days. I think you can do a lot of that stuff inside relational databases."
+    },
+    {
+      "start": 1142.99,
+      "end": 1279.27,
+      "speaker": "jerod-santo",
+      "text": "I would tend to agree. I was, I have used MongoDB on a production project. It was probably 10, 15 years ago now. And it was very much because I was convinced by one of their sales demos. So it was when they showed this layout of Magento, which is a PHP e-commerce framework, very popular then, probably still in use in many places now. And they showed the table structure of that particular piece of software. And it was gnarly in the bad sense of gnarly. I mean, there were so many relationships, so many tables, this is like how many joins you have to do to pull together your shopping cart was kind of what this thing was. And it was just like, wouldn't this all make a lot more sense if it was a single document and they showed what it would look like inside of Mongo and the document oriented data structure and then like, then you just pull out the document for the shopping cart and you're rocking and rolling. And I was like, that's pretty compelling. I think it was exacerbated by the fact that Magento's structure was particularly heinous in my opinion, probably because it grew over time as many of these things do. That's how your database tables can get out of control. And I thought, yeah, that makes a ton of sense. I think for an e-commerce site, a document oriented database made sense. And so I went for it. I was building like an e-commerce thing for a client and went with MongoDB and it was relatively, I think it fit pretty well. The problem that I came across over time was I didn't really have any MongoDB chops. You know, like I have a brand new thing that I don't really know how to administer. And so that's where I get a little bit of fish out of water with something where I feel like this thing fits the data structures. And so then my application code becomes simpler, but now my operations are either more complicated, more expensive for that to pay somebody else to do it. And so in that case, I ended up being like kind of upset that I did it because then I later learned about Postgres's JSON stuff and I was like, oh, you know, I can kind of have the best of both worlds if we just can shove a few non-normal things into an otherwise relational database. And I do agree with you that generally speaking, I think document oriented, you can probably get away with not going with a document oriented first solution today."
+    },
+    {
+      "start": 1279.83,
+      "end": 1327.07,
+      "speaker": "ben-johnson",
+      "text": "You can do a lot of stuff too with like materialized views where you're essentially like building a physical table out of query. So, you know, I think there's, and it automatically updates itself. So I think there's a lot of cool stuff you can, you can kind of play around with to get around that. I mean, the graph database side though, I think is a little trickier. I think there are extensions for like graph language stuff within SQL, but it's always heinous or like you can do like CTEs or like common table expressions and they're recursive and they're impossible to debug, but they can work. I mean, that's an option, but I think that, I think that's a fairly rare instance where you have stuff that's so relational or not relational. Like it's, it's weird. It's relational. I mean, they have things that relate to other things like if you need to do like a six degrees of Kevin Bacon in your application for some reason, then I think a graph database makes"
+    },
+    {
+      "start": 1327.07,
+      "end": 1367.21,
+      "speaker": "jerod-santo",
+      "text": "sense. Yeah. Your typical social network. Right. It makes sense for a graph database because if you think about followers and followings and friendships and these kind of relations, if it's, if it's all about that, then the way I heard it explained is like if you have edges and nodes in a system, if the edges are more important than the nodes are, which the edges would be the connecting points, then you're probably well served by a graph database and in the case of a social network, like that's pretty much what it was all about. Right. It's like, who's connected to whom, where, then something like Neo4j or other graph solutions have made sense. I've never used one of those and so I can't speak to it personally."
+    },
+    {
+      "start": 1367.21,
+      "end": 1413.57,
+      "speaker": "ben-johnson",
+      "text": "Yeah. I haven't really either. I think the funny thing though is like all these essentially boiled down to like B, B plus trees as the actual implementation. So it's kind of all a matter of language at the high level, like they're all kind of key value stores underneath. So I find it like it's interesting too, because like most of it you're optimizing to minimize number of queries so you don't have so much latency. So that's why you have, you can send a certain single query to get a bunch of relationships instead of sending a ton of queries to get those. Whereas like once you actually get to running something locally, like a bolt or SQL light, like you don't have that overhead, so you could make a bunch of different queries and you can essentially kind of have kind of the best of all those worlds, but you could basically write kind of a graph database with just a SQL light, just since you're so close to the"
+    },
+    {
+      "start": 1413.57,
+      "end": 1437.34,
+      "speaker": "jerod-santo",
+      "text": "data. Right. So how much of that is like file structure on disk binary blob formats, like that whole deal layout of the data on disk, and how much of that is client server? Because it seems like when you say embedded, we're moving that client server connection, which oftentimes is a network connection, it could also be a socket, but that connection is going to be latency, right?"
+    },
+    {
+      "start": 1437.34,
+      "end": 1468.94,
+      "speaker": "ben-johnson",
+      "text": "Yeah. I mean, generally there's the physical latency just going between this box to this box or this region to this region, which can be significant when you have a hundred queries. But then yeah, like Postgres you can run locally, you can run just over like a Unix socket and it's quite fast. You know, SQL light runs just in process, so there's not even like a process barrier to go between. I mean, you can have like a kernel, you know, the kernel for locking and whatnot, but you're really like as close as you can possibly be to the data. So it's pretty fast."
+    },
+    {
+      "start": 1468.94,
+      "end": 1475.12,
+      "speaker": "jerod-santo",
+      "text": "And that's what you're building with BoltDP as well, right? This was an embedded key value store for Go."
+    },
+    {
+      "start": 1475.12,
+      "end": 1496.76,
+      "speaker": "ben-johnson",
+      "text": "So yeah, the data was actually memory mapped into like a read only map. So you'd actually interact directly with this memory map, which essentially pulls the data up from disk into the OS page cache. So as long as you have, you know, if you can fit most of your data into memory, at least the hot parts of your data, it's basically, you're like, you're just interacting with the speed of the memory, which is again, quite fast."
+    },
+    {
+      "start": 1496.76,
+      "end": 1506.72,
+      "speaker": "jerod-santo",
+      "text": "And what were BoltDB's like perfect use cases and then where would you get towards like that's probably not best for something like this. And using that as a proxy for these embedded key value stores."
+    },
+    {
+      "start": 1506.72,
+      "end": 1560.92,
+      "speaker": "ben-johnson",
+      "text": "Sure. Yeah. I mean, I think BoltDB was good when you have some kind of simple structure that you're trying to use and you don't need a lot of things like indexes or, you know, I think too complicated. If you're storing just some basic objects or basic rows, you can do a lot with just, you know, converting that to JSON and storing that in a blob and then decoding that when you read it out. You could use protocol buffers, anything like that to kind of encode your data. It's good if you really want like a really super lightweight dependency, if you want it to be pure go, that goes a long way. I would say most people are probably better served with SQL lite. It has an actual schema on top of it. I know there's a lot of applications now that are actually using it as their file format. I think Audacity is one of them. So you can actually just pop it up and just read, like, look at your data with a SQL lite, you know, CLI, which is kind of cool. So I would say generally, I would probably lean towards SQL lite for most use cases."
+    },
+    {
+      "start": 1560.92,
+      "end": 1565.56,
+      "speaker": "jerod-santo",
+      "text": "Well, we're talking key value stores, thoughts on Redis?"
+    },
+    {
+      "start": 1565.56,
+      "end": 1583.92,
+      "speaker": "ben-johnson",
+      "text": "I don't use a ton of Redis. I mean, the most of the use cases I see it for are more like a caching layer. And I know it does a bunch of other things too. You can do kind of queues and you can do sets and all kinds of stuff. I think those are probably fine, but I think it's, it seems like it's like this, it's rarely used as a primary store. It's more like a memcached kind of thing."
+    },
+    {
+      "start": 1583.92,
+      "end": 1584.92,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 1584.92,
+      "end": 1614.56,
+      "speaker": "ben-johnson",
+      "text": "So I think it's fine for that use case. I don't know about its durability, you know, guarantees, I'm not sure about its transactional guarantees. That's another one you get into. And like the more you learn about like transactional guarantees and what the defaults are on things like Postgres and MySQL, I think they're atrocious. Like most people don't understand isolation levels, really. So like when you actually look at, you know, what guarantees you actually get, they're pretty limited. That's one of the reasons I do like SQL lite is it has a really strong isolation level and it's the only one you can do."
+    },
+    {
+      "start": 1614.7,
+      "end": 1616.52,
+      "speaker": "jerod-santo",
+      "text": "Can you say more about isolation levels?"
+    },
+    {
+      "start": 1616.52,
+      "end": 1670.15,
+      "speaker": "ben-johnson",
+      "text": "Sure. Isolation levels are around where what you can, like when you read something from the database, if other transactions are going on at the same time, like sometimes the transaction level will mean like if you read it one time and then someone else updates it and you read it again in the same transaction, you may get the same version, you may get the new version. So there's a lot of like weird little edge cases where you can get into where you might, you know, maybe fetch a list of objects and then you run a count for however many objects. And those two may differ depending on your isolation level and whatever else is going on. So it can be tricky if you're not using something like really strict, like serializability or snapshot isolation is another strong one. That's generally pretty good. But I think Postgres uses read committed, if I remember correctly, which is like one of the lower ones, like the least strong, one of the least strong isolation guarantees."
+    },
+    {
+      "start": 1670.15,
+      "end": 1672.15,
+      "speaker": "jerod-santo",
+      "text": "Yeah. That's what it's called."
+    },
+    {
+      "start": 1672.27,
+      "end": 1679.15,
+      "speaker": "ben-johnson",
+      "text": "And you can use things like select for update as well to give yourself some extra, like some locking around things and whatnot."
+    },
+    {
+      "start": 1679.15,
+      "end": 1680.15,
+      "speaker": "jerod-santo",
+      "text": "What's like for update?"
+    },
+    {
+      "start": 1680.15,
+      "end": 1697.95,
+      "speaker": "ben-johnson",
+      "text": "What's that do? So it's like for update, if you're going to select a list of data, like do a query and then you basically want to say, I want to, I'm going to update parts of this data after that. It'll actually take a lock on those, those rows or maybe even the table so that they aren't changed from underneath you, but it does block other people from using those as well."
+    },
+    {
+      "start": 1697.95,
+      "end": 1704.07,
+      "speaker": "jerod-santo",
+      "text": "Gotcha. Where does one go to get that level of knowledge about these different things?"
+    },
+    {
+      "start": 1704.07,
+      "end": 1705.75,
+      "speaker": "ben-johnson",
+      "text": "I mean, writing databases helps."
+    },
+    {
+      "start": 1705.75,
+      "end": 1708.47,
+      "speaker": "jerod-santo",
+      "text": "Well, we don't all have that much time."
+    },
+    {
+      "start": 1708.47,
+      "end": 1709.47,
+      "speaker": "ben-johnson",
+      "text": "No, that's fair."
+    },
+    {
+      "start": 1709.47,
+      "end": 1711.47,
+      "speaker": "jerod-santo",
+      "text": "That's fair. Then you'll understand it."
+    },
+    {
+      "start": 1711.47,
+      "end": 1713.47,
+      "speaker": "ben-johnson",
+      "text": "Yeah. Just, yeah."
+    },
+    {
+      "start": 1713.47,
+      "end": 1717.51,
+      "speaker": "jerod-santo",
+      "text": "After your fifth database, you're right. I was hoping for like a website or something. I could just read a table that says, here's what you should use."
+    },
+    {
+      "start": 1717.51,
+      "end": 1727.19,
+      "speaker": "ben-johnson",
+      "text": "I mean, it's tough. I mean, there's definitely a lot of people that do blog posts about internals. On the fly blog that we have, I've written a bunch on like SQLite internals and how that"
+    },
+    {
+      "start": 1727.19,
+      "end": 1728.19,
+      "speaker": "jerod-santo",
+      "text": "works."
+    },
+    {
+      "start": 1728.23,
+      "end": 1817.71,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I would say, yeah, so if you look at like Kyle Kingsbury, he goes by AFER online. He does a bunch of writing on kind of how he basically tests production databases and breaks them. That's kind of what he's known for. Okay. So he'll go in and he'll actually go and find where they may guarantee a certain isolation level or there are certain guarantees and they don't actually hold up. Then they'll write a whole blog post dumping on that and then the companies go and fix them. It's great. Yeah. Once you get into like distributed systems especially, it's kind of hard to like keep in your head like all the different clients going on, what their views of data are and how they interact with each other. So Kyle Kingsbury has a website, Jepson, that's his software as well, that's the software to test these different databases. But on there, there's a list of consistency models that he'll show on there. And that's a great resource to kind of dive in and to kind of understand the relationship between them. Because you get, there's kind of two different camps, there's kind of like more traditional databases and like their write isolation more or less, I would say. That's where you think of like read committed or read uncommitted and snapshot consistency. But then there's also things where you get into like eventually consistent systems about what they can read and it's more kind of like a read consistency side. So there's a lot to read out there, honestly, and it's kind of, it hurts the brain a lot. I would just say like if you're not sure, generally try to have the highest isolation level you can and you won't get a bunch of weird little bugs later on you can't figure"
+    },
+    {
+      "start": 1817.71,
+      "end": 1827.23,
+      "speaker": "jerod-santo",
+      "text": "out. And is SQLite's isolation level so good because of its embedded nature or because they've coded it in such a way that it's that good or both?"
+    },
+    {
+      "start": 1827.23,
+      "end": 1837.8,
+      "speaker": "ben-johnson",
+      "text": "I think it's more of a simplicity, like they only allow a single writer. So it basically guarantees serializability because you can't have other writers at the same time. You also get a consistent view of the data."
+    },
+    {
+      "start": 1837.8,
+      "end": 1842.32,
+      "speaker": "jerod-santo",
+      "text": "It's a bummer though, right? It's a bummer that you can't have more than one writer at the same time, right?"
+    },
+    {
+      "start": 1842.36,
+      "end": 1862.08,
+      "speaker": "ben-johnson",
+      "text": "I mean, I would say generally it's a bad idea to have long running writes anyway, regardless of the system. You can get into deadlocks and you can get into all kinds of lock issues. So I like the idea, like you can generally do writes very, very fast in SQLite. So they seem like they, yeah, they don't, they don't feel like you only have a single writer."
+    },
+    {
+      "start": 1862.08,
+      "end": 1871.88,
+      "speaker": "jerod-santo",
+      "text": "You can write a bunch. It seems like it's parallel, but it's not. Yeah. Yeah. It's like just so close to the parallel that like it rounds to zero kind of a thing, but it's not actually zero, so to speak."
+    },
+    {
+      "start": 1872.6,
+      "end": 1876.16,
+      "speaker": "ben-johnson",
+      "text": "But it makes the whole, the model much simpler to think about simplicity."
+    },
+    {
+      "start": 1876.16,
+      "end": 1878.08,
+      "speaker": "jerod-santo",
+      "text": "Is this something that you like in software, Ben?"
+    },
+    {
+      "start": 1878.08,
+      "end": 1925.59,
+      "speaker": "ben-johnson",
+      "text": "A little bit. Yeah. It's a big fan. There's just so much over engineering. I feel like for a lot of this stuff and I think it's, I think I've wrote on this for a while, but like, I feel like people have these extreme ideas of what they need as far as like their uptime or their durability. Like everyone thinks that, Hey, I should never, ever, ever lose data, which is, it sounds like you shouldn't. Right. There's never a guarantee. Like you could lose your database and then you could lose all your backups and you can lose this and that. So you're really just like kind of adding nines onto your durability over time. So I like one of my favorite, I bring this up, but like, and I really don't mean to dump on these people that I think they're, they do a great job, but like one of my favorite examples is GitLab where like they lost like six hours of data, like kind of famously years"
+    },
+    {
+      "start": 1925.59,
+      "end": 1926.59,
+      "speaker": "jerod-santo",
+      "text": "ago."
+    },
+    {
+      "start": 1926.59,
+      "end": 1947.51,
+      "speaker": "ben-johnson",
+      "text": "Okay. I'm kind of recalling. And it was a very public, but like they're a public company. Like they, they got through that. It was fine. Like it wasn't the end of the world. Like you can't do that with all data. But I mean, I don't think people actually think about how impactful some level of data loss is. I know that sounds weird, but like, and they just try to over optimize to make sure that they never, ever, ever lose data."
+    },
+    {
+      "start": 1947.51,
+      "end": 2032.9,
+      "speaker": "jerod-santo",
+      "text": "Well, certainly the law of diminishing returns comes into effect, right? Where you continue to exert effort as you try to get that down to zero and money and time and all the things that effort requires, but you are only now squeezing out very minuscule gains at a certain point where you can get huge gains to start with. And so what is that happy place where you can say, you know what, six hours, it was similar to a decision that I made a while ago, which I can't think of it specifically. I remember talking to Adam about it and it had to do with our website and maybe it was Gerhard as well when he asked me like, well, what happens to changelog's business if changelog.com goes down? And I said, well, for how long, you know, because we could be down for 24 hours and like our business is not going to disappear. In fact, our MP3s are served elsewhere, of course, new, we couldn't publish new episodes, but if we're down for 24 hours, we're not going to be happy. I don't want that to happen, but we're not going to die as a business. Now, if our website was down for 30 days, yeah, I mean, you know, like people would wonder if we literally died. So there is a level that you have to define, like what kind of thresholds matter for us in our use cases. And I think as weird as it sounds, Ben, saying like some data loss is okay coming from a database guy, refreshing, I guess it makes me feel better."
+    },
+    {
+      "start": 2032.9,
+      "end": 2066.26,
+      "speaker": "ben-johnson",
+      "text": "Yeah. And honestly, like I wrote a tool called Lightstream where you can kind of like continuously stream updates to S3 for SQLite. So you basically have like this super small window of data loss of, you know, maybe a second or two. But honestly, that's even overkill for a lot of people. There's even documents, documentation on the website of like, Hey, if you just want to use a cron job and back up hourly, here's, here's how to do it. It's simple and you know, it's hard to break. So like, I think there's, there's great options when you don't need that, that really high level of data loss guarantee, I guess."
+    },
+    {
+      "start": 2066.26,
+      "end": 2092.1,
+      "speaker": "jerod-santo",
+      "text": "Right. It's easy for us all to kind of jump to the like maximal side of anything. Cause I immediately think like, well, that wouldn't work for Amazon, you know, because every second they're down, they're literally losing hundreds of thousands, if not millions of dollars in sales. And so then I'm like, but I'm not building a solution for Amazon, you know, I'm building it for me. And I don't know why that is that we immediately go to like, maybe it's a purist thing or I"
+    },
+    {
+      "start": 2092.1,
+      "end": 2119.22,
+      "speaker": "ben-johnson",
+      "text": "think probably, but yeah, I think the funny thing too is like when you get into like high availability where you have multiple servers, you want one to fail over or whatnot. A lot of time you can, a lot of times you can make it so complex that you actually lower your availability where like something goes down and you can't, it doesn't fail over right. Or you might even lose some data in there cause of how it fails over. So honestly, sometimes it's just like having a database that dies and then you just like bring up a backup might be the best thing. That's probably fine."
+    },
+    {
+      "start": 2119.22,
+      "end": 2235.72,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you might actually save yourself downtime and trouble by having simpler solutions. the next wave of advancements in technology. Here's what you can expect. Understand the emerging innovation and trends in dev tools, languages, frameworks, and technologies in AI and beyond to empower you and the solutions you're building. Get in depth technical experience, join hands on workshops, labs, meetups, and hackathons to collaborate and solve problems in real time. You can explore featured partner and Intel solutions. They have partners there, startups there, customers there, and Intel is showcasing the latest in products, services, and solutions across keynotes, tech sessions, and the show floor to help you meet your development needs. Collaborate with experts, learn and have fun, engage in interactive sessions to connect, to get certified, gain unique ideas and perspectives, build long-lasting networks, and of course, have fun. And get inspired, hear from leading industry experts, technologists, startup entrepreneurs, and fellow developers, along with Intel leadership, CEO, Pat Gelsinger, and CTO, Greg Lavender, as they take you through the latest advancements in technology. Don't miss this chance to be at the forefront of innovation. Take advantage of earlier bird pricing right now until August 2nd. Register using the link in our show notes. Or to learn more, go to intel.com slash innovation."
+    },
+    {
+      "start": 2235.72,
+      "end": 2245.7,
+      "speaker": "ben-johnson",
+      "text": "Once more, that's intel.com slash innovation, or go to the show notes and click that link."
+    },
+    {
+      "start": 2245.7,
+      "end": 2300.06,
+      "speaker": "jerod-santo",
+      "text": "Well, you'll like this, Ben. I wrote this on Monday for Changelog News. I was covering a story called Why CSV is Still King, which, of course, there's the details in there, but you kind of get the point from the title of their post. And one of the reasons, when they went through the history of CSV, one of these interesting accidental standards, like nobody wrote, nobody designed this thing. It was almost like JavaScript, 10 days, you know, in a lab and now out it comes. This just became a thing and remains a thing. And this whole point of this post was like, and it ain't going anywhere, basically. But one of the things they said is it's good enough for many situations and it's dead simple to use. It's just dead simple. And so that got me thinking more and more about simplicity. And of course, there's two sides to simplicity. One side is like, it's not clever. You know, it's not impressive. It's simple."
+    },
+    {
+      "start": 2300.06,
+      "end": 2302.06,
+      "speaker": "ben-johnson",
+      "text": "Yeah, no one puts CSV on their resume, yeah."
+    },
+    {
+      "start": 2302.06,
+      "end": 2354.42,
+      "speaker": "jerod-santo",
+      "text": "Right. And yeah, I mean, you're not gonna get a job because you know how to do CSVs. We even have like a term simpleton. Like that's explain somebody who's not very deep, right? They're a simpleton. And so nobody wants to be called that. And I remember Jamis Buck, who was prominent in the Ruby community, worked at 37signals, was core contributor on Ruby on Rails. And he wrote the Capistrano deployment tool, which turned out wasn't super simple, but I think he wanted it to be. And one time he said, everybody thinks simple is, paraphrasing, not quoting them. Everybody thinks simple is unimpressive because they think it's easy. They think simple is easy, but simple is actually the hardest thing to accomplish in a complex world. And so it looks easy, but the hard part was making it simple so that it actually looks easy. And so it actually is impressive, but it's not impressive. It's one of these weird deals, right?"
+    },
+    {
+      "start": 2354.42,
+      "end": 2363.74,
+      "speaker": "ben-johnson",
+      "text": "Yeah. It's always weird when you're like, you might've tried a thousand different ways of doing something and trying to get down a butt, that simple essence. And then when you finally get to it and explain to somebody, they're like, oh yeah, duh."
+    },
+    {
+      "start": 2363.74,
+      "end": 2364.78,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 2364.78,
+      "end": 2367.74,
+      "speaker": "ben-johnson",
+      "text": "It's like, yeah. You didn't get the whole journey."
+    },
+    {
+      "start": 2367.74,
+      "end": 2394.28,
+      "speaker": "jerod-santo",
+      "text": "Right. Then the solution was obvious, but it was only obvious once you went through the journey and made it obvious, but to the person you presented to. Anyways, what I wrote was the old saying in real estate, the three things that matter in picking a property's location, location, location. Well, I said the three and most important factors in determining the desirability of a solution, implying software solution, of course, are simplicity, simplicity, and simplicity. I kind of think that's true."
+    },
+    {
+      "start": 2394.28,
+      "end": 2396.76,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I would probably agree with you on that."
+    },
+    {
+      "start": 2396.76,
+      "end": 2403.48,
+      "speaker": "jerod-santo",
+      "text": "It might be like the highest thing that you can achieve in software is simplicity, which is probably why you like SQLite."
+    },
+    {
+      "start": 2403.48,
+      "end": 2420.84,
+      "speaker": "ben-johnson",
+      "text": "Yeah, no, it's great to debug. And I think that's a lot of it too, is like none of these solutions are perfect. And when they go wrong, like, can you just open up a file and edit it and like, see, oh, there's, it's missing a double quotes or something like that. Like you can't do that with, you know, protocol buffers. Right. It just says, you're just SOL, honestly."
+    },
+    {
+      "start": 2420.84,
+      "end": 2461.09,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And to that point, you know, I've been using Postgres for many, many years and I'm proficient with it, but I've never, I know where the data folder is, but I've never like gone in there and poked around. I know, I know lots of people have. And so I'm not saying that that particular part of Postgres is complex. Maybe it's not. It's just like a thing that's been a black box to me. And I think that, I think that does speak volumes about their abstraction layer, but I've also used SQLite quite a bit. And I got no problem just opening up a SQLite file in either the SQL command or using an editor or whatever. Obviously I'm not going to open it up in Zed and read it from there. Maybe you do Ben, but I'm not quite that far into the matrix."
+    },
+    {
+      "start": 2461.09,
+      "end": 2462.41,
+      "speaker": "ben-johnson",
+      "text": "Everybody needs a hobby."
+    },
+    {
+      "start": 2462.41,
+      "end": 2496.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And so there is something about that. That's just like, just being able to, it's just a file on disk. And that goes back to even, I think, some of the virtues of the UNIX philosophy, or maybe it's Linux. Everything is a file. That part of the UNIX philosophy, I know it speaks to it. Yeah. Everything's a file. There's a simplicity to that. And of course it has its drawbacks, you know, like it's not perfect, but it's also kind of nice in a lot of ways, just have that simple mental model around it. So SQLite definitely has that going for it. What are the drawbacks of SQLite though? I mean, there have to be some."
+    },
+    {
+      "start": 2496.45,
+      "end": 2531.81,
+      "speaker": "ben-johnson",
+      "text": "Oh, there definitely are. I mean, I think people that are used to more of a graphical user interface, like there's not a great way to do that for remote databases. Honestly, that's one of the biggest things I find that people hit when they're not really, like I always use CLIs, so it never bothers me, but that is definitely a big one. You know, I mean, like you mentioned around concurrency, like you can't have multiple writers. There's, you know, obviously some solutions around disaster recovery you can do, but essentially it is just a file on a disk. It can be on its own. You can't just replicate it with just simple SQLite. So, you know, there's definitely some trade-offs."
+    },
+    {
+      "start": 2531.81,
+      "end": 2535.49,
+      "speaker": "jerod-santo",
+      "text": "Right, so in comes Lightstream. You built that for that purpose, right?"
+    },
+    {
+      "start": 2535.49,
+      "end": 2551.39,
+      "speaker": "ben-johnson",
+      "text": "Yeah, for disaster recovery, yep. Just trying to push it up somewhere so that you can basically run an app on a single server and not worry about, you know, it just crapping out and then you lose all your data. So you can set it up so you kind of restore immediately and get all your data right back."
+    },
+    {
+      "start": 2551.39,
+      "end": 2563.61,
+      "speaker": "jerod-santo",
+      "text": "Have you spoken with the SQLite folks, like Richard Hipp and his team about like, do you think that, I would think that something like that would be part of what they offer then to like just completely knock out that particular drawback."
+    },
+    {
+      "start": 2563.61,
+      "end": 2598.03,
+      "speaker": "ben-johnson",
+      "text": "I think they, I did talk to them pretty shortly after the Lightstream stuff came out. I got a little conference call with them. Super nice, great people. I think that they tend to have a focus more on like embedded devices and like single server or like single system uses. I think a lot of their, they have like the SQLite consortium as well, which is like a bunch of companies that pay money in to kind of help support the ecosystem. I think a lot of it is more like device manufacturers and things like that. So I don't think that they have a strong, yeah, incentive to go outside of that right now."
+    },
+    {
+      "start": 2598.03,
+      "end": 2603.97,
+      "speaker": "jerod-santo",
+      "text": "They aren't trying to serve that particular use case, but you want to use it that way."
+    },
+    {
+      "start": 2603.97,
+      "end": 2615.77,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I mean, I liked writing stuff in Bolt. It was super fast, but I just wanted a schema and like, indexes and like, you know, without building those myself inside Bolt. So SQLite was a good, good in-between."
+    },
+    {
+      "start": 2615.77,
+      "end": 2623.09,
+      "speaker": "jerod-santo",
+      "text": "How far do you think SQLite could go in a web server, you know, a dynamic web app scenario?"
+    },
+    {
+      "start": 2623.09,
+      "end": 2650.57,
+      "speaker": "ben-johnson",
+      "text": "I mean, I think it really depends on your language. Like I write in Go mostly and it's really fast. So, I mean, I can serve hundreds, if not thousands of requests per second out of a SQLite database on a pretty minimal hardware, but I know Ruby and things like that. They tend to go a lot slower and are more CPU bound. So I'm sure you'd probably get some, some limitations around that, but maybe you could just scale up number of processors. I'm not sure, but I mean, I think it's probably beyond the scale of 90% of websites out there, you know?"
+    },
+    {
+      "start": 2650.57,
+      "end": 2651.41,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2651.41,
+      "end": 2652.65,
+      "speaker": "ben-johnson",
+      "text": "I think you're probably fine."
+    },
+    {
+      "start": 2652.65,
+      "end": 2696.79,
+      "speaker": "jerod-santo",
+      "text": "That reminds me of something Brian LaRue told me on JS party a couple of months ago about dynamism inside of a webpage. And they've done some actual work on this. And I can't remember the exact percentage he gave. We can go back and pull that out if we need to, but something like 90, it was something like 90% of all elements on a page are completely inert. Might have been higher than that. Meaning they're just written once and there, it's just like, it's the head of your page, it's the footer, it's the this. Like most of those things, it's just, they're inert. And very few elements are dynamic in any way. And I think probably, you know, 90% of web apps out there are mostly inert, you know? Like they're doing stuff."
+    },
+    {
+      "start": 2696.79,
+      "end": 2697.99,
+      "speaker": "ben-johnson",
+      "text": "Yeah, probably a lot of it, yeah."
+    },
+    {
+      "start": 2697.99,
+      "end": 2702.11,
+      "speaker": "jerod-santo",
+      "text": "But not the way that we designed for such scale."
+    },
+    {
+      "start": 2702.11,
+      "end": 2726.19,
+      "speaker": "ben-johnson",
+      "text": "Yeah. And honestly, I really miss, I mean, I know we're kind of going back to server-side rendered applications, which I love, but like when all the React stuff came around or whatnot, like every time I went to a webpage and it had some fancy JavaScript stuff going on, I just knew like the back button wasn't gonna quite work how I wanted it to, or like some little, certain little things that just always drove me nuts. I miss just like basic web apps."
+    },
+    {
+      "start": 2726.19,
+      "end": 2729.47,
+      "speaker": "jerod-santo",
+      "text": "That pendulum has begun to swung back, for sure."
+    },
+    {
+      "start": 2729.47,
+      "end": 2735.35,
+      "speaker": "ben-johnson",
+      "text": "Yeah. I know Remix, I think, does a bunch of server-side, and I mean, I think React does as well."
+    },
+    {
+      "start": 2735.35,
+      "end": 2767.47,
+      "speaker": "jerod-santo",
+      "text": "React themselves are moving server-side as well to provide more of a full-stack solution. Oh, that's had a lot of issues because of just the nature of how React started and what it is, and like the user base of React. It's been very difficult for them to make that transition and so I think there's opportunity for newer component libraries that are server-side in nature or full-stack in nature to start with to actually gain some foothold because simplicity and React at this point are not in the same ballpark."
+    },
+    {
+      "start": 2767.47,
+      "end": 2768.31,
+      "speaker": "ben-johnson",
+      "text": "Okay."
+    },
+    {
+      "start": 2768.31,
+      "end": 2769.15,
+      "speaker": "jerod-santo",
+      "text": "They just aren't."
+    },
+    {
+      "start": 2769.15,
+      "end": 2775.71,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I try to learn React like once every two years. I'm like, ah, let's go back to write and go."
+    },
+    {
+      "start": 2775.71,
+      "end": 2804.67,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the basics aren't too bad, but things do get complex pretty quickly. But anyways, we were talking SQLite and scaling. You all have put on some work to do some horizontal scaling as well, like moving it around to different regions and having, like if I had a web app with app servers geographically distributed, aren't you trying to also take my SQLite database and move it around and have it replicated around the world?"
+    },
+    {
+      "start": 2804.67,
+      "end": 2847.61,
+      "speaker": "ben-johnson",
+      "text": "Yeah, so we have an open-source project called LightFS where we essentially, we implement kind of like a file system layer and fuse so that we intercept, we basically, it's a pass-through file system essentially. So all your SQLite writes and whatnot go straight through to the database, but we can essentially detect where transactions start and end so that we can then kind of wrap up those changes into a separate file and then ship those out to other SQLite or Lightstream, sorry, LightFS, too many lights, LightFS nodes, and then they can then apply those changes. And it's all done kind of at a file system layer and like a physical layer. So you can use any extensions you want on top of that. It's not specific to any of those."
+    },
+    {
+      "start": 2847.61,
+      "end": 2859.51,
+      "speaker": "jerod-santo",
+      "text": "So as an app developer, I don't have to necessarily think about it. I just deploy and say, you know, put my, I was gonna say dinos, but that's the Heroku thing. What do y'all call it at fly? Put my fly, my machines?"
+    },
+    {
+      "start": 2859.51,
+      "end": 2868.91,
+      "speaker": "ben-johnson",
+      "text": "Machines over here at fly, but yeah. Yeah, you can spin up machines in different regions and then they just automatically can connect up to the, the primary and stream down changes."
+    },
+    {
+      "start": 2868.91,
+      "end": 2870.03,
+      "speaker": "jerod-santo",
+      "text": "Are people using that?"
+    },
+    {
+      "start": 2870.03,
+      "end": 2884.55,
+      "speaker": "ben-johnson",
+      "text": "Yeah, we've got quite a few people using it, so. Nice. Yeah, and if it's your use case and you need latent, you know, low latency stuff around the world, which can go a long way, then I think it's a good fit for people. It's a lot simpler than setting up like Postgres and a bunch of replicas and things like that in there."
+    },
+    {
+      "start": 2884.55,
+      "end": 2900.63,
+      "speaker": "jerod-santo",
+      "text": "So I was checking out the LightFS repo on GitHub. By the way, of course, everybody knows fly.io is a sponsor of the changelog. This is not a sponsored episode. I had been on for years before he ever worked at fly. Just so happens there's lots of crossover and things that we're interested in and our sponsors, so."
+    },
+    {
+      "start": 2900.63,
+      "end": 2901.47,
+      "speaker": "ben-johnson",
+      "text": "It's a small world too."
+    },
+    {
+      "start": 2901.47,
+      "end": 2911.95,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. There's a disclaimer there. I was looking at LightFS on the old GitHub there and it was like, latest commit seven months ago. Is this thing finished or is this, have you moved on or what's going on?"
+    },
+    {
+      "start": 2911.95,
+      "end": 2926.39,
+      "speaker": "ben-johnson",
+      "text": "We haven't done as many changes recently on it. I mean, it was in a pretty good state for a long time. So we've done some incremental changes, but by and large, it's mostly just kind of worked. And I think getting too fancy with any tooling can be, can cause the sound issues."
+    },
+    {
+      "start": 2926.39,
+      "end": 2954.65,
+      "speaker": "jerod-santo",
+      "text": "Yeah, well, you move away from that simplicity model. The other thing that I was thinking about with you, Ben, is just your willingness to declare something finished or at least that you're done with it. Moving on from BoltDB, your strong stances on open source, but not open contribution. And just, there's an expectation setting that you do that I really appreciate. And I wonder where that comes from. Like, do you, most people don't have the guts to just say that kind of stuff."
+    },
+    {
+      "start": 2954.65,
+      "end": 2956.23,
+      "speaker": "ben-johnson",
+      "text": "No, I think it's just a lot of burnout."
+    },
+    {
+      "start": 2957.07,
+      "end": 2958.27,
+      "speaker": "jerod-santo",
+      "text": "You're just sick of it."
+    },
+    {
+      "start": 2958.27,
+      "end": 2979.11,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I mean, I just realized like with Bolt, especially, like I just got to a point where I got so burnt out trying to maintain it, especially at like a certain scale, you know, any changes could potentially affect performance characteristics. And you just have to do so much testing on it that probably hadn't been set up to the level that I really needed it to be. And then so every change involved just so much time, so."
+    },
+    {
+      "start": 2979.11,
+      "end": 2991.55,
+      "speaker": "jerod-santo",
+      "text": "And Bolt really thrived in the era of the launching into the stratosphere of like the cloud native stuff, didn't it? Like Go, Systems, Kubernetes, I'm not sure if it's in Kubernetes, but things around it."
+    },
+    {
+      "start": 2991.55,
+      "end": 2993.39,
+      "speaker": "ben-johnson",
+      "text": "That's in SCD, which is in Kubernetes."
+    },
+    {
+      "start": 2993.39,
+      "end": 3009.51,
+      "speaker": "jerod-santo",
+      "text": "It's in SCD, yeah, exactly. And like that, like the amount of like success and money and valuations and money raised and stuff, we're just going through the roof and like all these little like Bolt DBs and all of these different things, wasn't it?"
+    },
+    {
+      "start": 3009.51,
+      "end": 3014.27,
+      "speaker": "ben-johnson",
+      "text": "Yeah, yeah, it was in, yeah, Go kind of went crazy with the cloud native stuff, so."
+    },
+    {
+      "start": 3014.59,
+      "end": 3015.43,
+      "speaker": "jerod-santo",
+      "text": "Which you probably didn't see coming."
+    },
+    {
+      "start": 3015.43,
+      "end": 3023.91,
+      "speaker": "ben-johnson",
+      "text": "No, no, not at all. And honestly, I wasn't ever trying to like write Bolt to be like the Go database. I was mostly just trying to learn about databases when I wrote it."
+    },
+    {
+      "start": 3023.91,
+      "end": 3027.43,
+      "speaker": "jerod-santo",
+      "text": "Right, that's how you know so many isolation levels."
+    },
+    {
+      "start": 3027.43,
+      "end": 3028.27,
+      "speaker": "ben-johnson",
+      "text": "There you go."
+    },
+    {
+      "start": 3028.27,
+      "end": 3063.87,
+      "speaker": "jerod-santo",
+      "text": "So LightFS in good shape. I haven't played with it, but I'm definitely interested in the concept of of course our production app is already Postgres. So waiting for a good use case to try out a geographically distributed SQLite and just see how it all works because it fascinates me. It seems like, I don't want to say a square peg round hole specifically, because I feel like that's usually a bad idea, but it definitely seems like kind of like a stretching into an area where even the SQLite team, like you said, aren't super keen on it. What was your guys' driving force behind this move?"
+    },
+    {
+      "start": 3063.87,
+      "end": 3092.27,
+      "speaker": "ben-johnson",
+      "text": "You know, I think there are a lot of people that are interested in using SQLite. Honestly, the two biggest things for like complaints as far as light stream were that it didn't have like a failover system. So if you went to do a deploy, you had to take down your app for a second or two and then roll it back up. And then the other one was just read replicas. So people might want to have read replication out to some distant area and just didn't support that. So that's kind of where the driving force was around that."
+    },
+    {
+      "start": 3092.27,
+      "end": 3093.11,
+      "speaker": "jerod-santo",
+      "text": "Gotcha."
+    },
+    {
+      "start": 3093.11,
+      "end": 3104.95,
+      "speaker": "ben-johnson",
+      "text": "But it is, I mean, it's a fine line though. I mean, like SQLite is kind of known for simplicity. So like adding any complexity, definitely. There's like a certain level that people find acceptable and it's kind of a gray area where that is. So, yeah."
+    },
+    {
+      "start": 3104.95,
+      "end": 3107.79,
+      "speaker": "jerod-santo",
+      "text": "Probably depends on each individual's taste."
+    },
+    {
+      "start": 3107.79,
+      "end": 3119.31,
+      "speaker": "ben-johnson",
+      "text": "Yeah. Whereas I'm sure like if you built this into some more complex product, people would be like, okay, well, that's fine. But like people are very, very focused on simplicity within the SQLite community."
+    },
+    {
+      "start": 3119.31,
+      "end": 3126.19,
+      "speaker": "jerod-santo",
+      "text": "You take something that's simple and make it complex. People are upset, but you take it a little bit complex and make it more complex, then we'll buy that."
+    },
+    {
+      "start": 3126.19,
+      "end": 3129.87,
+      "speaker": "ben-johnson",
+      "text": "Oh yeah. Yeah, people buy money or pay money for that."
+    },
+    {
+      "start": 3129.87,
+      "end": 3132.59,
+      "speaker": "jerod-santo",
+      "text": "That's funny. What are you working on now then?"
+    },
+    {
+      "start": 3132.59,
+      "end": 3143.62,
+      "speaker": "ben-johnson",
+      "text": "Doing a lot of stuff at Fly. I mean, still doing some SQLite work, but yeah. I'm VP of product here at Fly now. So kind of stretched my hands on the different projects and whatnot."
+    },
+    {
+      "start": 3143.62,
+      "end": 3148.66,
+      "speaker": "jerod-santo",
+      "text": "Right on. So. Hung up the nights and weekends open source stuff."
+    },
+    {
+      "start": 3148.66,
+      "end": 3166.38,
+      "speaker": "ben-johnson",
+      "text": "Yeah, pretty much, yeah. I don't do as much code these days at Fly. So I got to find a little a side project or something to nerd out on. Right. The RQLite guy, he's a manager at Google. I used to work with him, but he gets all his pent up like engineering energy out by working on RQLite, like a distributed SQLite system."
+    },
+    {
+      "start": 3166.38,
+      "end": 3169.82,
+      "speaker": "jerod-santo",
+      "text": "Oh, I haven't heard of that RQLite. Tell me more. Do you know more about it?"
+    },
+    {
+      "start": 3169.82,
+      "end": 3183.42,
+      "speaker": "ben-johnson",
+      "text": "Oh, no, it's a Raph-based system. And it's more of a client server model than something like LightFS, which is more like a direct SQLite file system based. But yeah, he's great. He's a great guy."
+    },
+    {
+      "start": 3183.42,
+      "end": 3184.26,
+      "speaker": "jerod-santo",
+      "text": "That is cool."
+    },
+    {
+      "start": 3184.26,
+      "end": 3188.48,
+      "speaker": "ben-johnson",
+      "text": "We didn't actually do SQLite at the time when we worked together, but for some reason we both went out."
+    },
+    {
+      "start": 3188.48,
+      "end": 3189.7,
+      "speaker": "jerod-santo",
+      "text": "You're both interested in it?"
+    },
+    {
+      "start": 3189.7,
+      "end": 3191.62,
+      "speaker": "ben-johnson",
+      "text": "Made distributed SQLite implementations."
+    },
+    {
+      "start": 3191.62,
+      "end": 3201.66,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Have you looked into any of the vector stuff? I've only been listening about it. I know there's PG vector. There's probably SQLite vector things."
+    },
+    {
+      "start": 3201.66,
+      "end": 3226.38,
+      "speaker": "ben-johnson",
+      "text": "Yeah, there's SQLite vector extension as well. I haven't really dug in a ton to that stuff. I kind of researched a little bit when the AI stuff first started coming out, but now I haven't found like a great use case that I love AI stuff for. But yeah, so I haven't really dug in. I like infra stuff. I like writing infrastructure code. So I think that's kind of where I stuck to."
+    },
+    {
+      "start": 3226.38,
+      "end": 3227.62,
+      "speaker": "jerod-santo",
+      "text": "You're still happy with Go?"
+    },
+    {
+      "start": 3227.62,
+      "end": 3228.9,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I love Go, yep."
+    },
+    {
+      "start": 3228.9,
+      "end": 3230.58,
+      "speaker": "jerod-santo",
+      "text": "Haven't had any wanderlust?"
+    },
+    {
+      "start": 3230.58,
+      "end": 3252.7,
+      "speaker": "ben-johnson",
+      "text": "I would say, I don't know. Some things I like are, like Zig I thought was kind of interesting. I wish it was just more mature, but I liked the idea of like specifically allocating your memory very intentionally, I guess. So I find that interesting. I liked Rust, like the language, but the actual like async implementation, I just, I got so infuriated by that I just gave up on Rust."
+    },
+    {
+      "start": 3252.7,
+      "end": 3254.72,
+      "speaker": "jerod-santo",
+      "text": "What triggered you the most about it?"
+    },
+    {
+      "start": 3254.72,
+      "end": 3282.84,
+      "speaker": "ben-johnson",
+      "text": "It's like its own language where like it actually compiles down to like a finite state machine. So it's not, so you can't actually do like recursive calls and async Rust and a bunch of other weird limitations. And then like, there's a bunch of weird naming stuff of like pen and unpen and sync and I don't know, there's just way too many everything around Rust. It just, it felt like so much cognitive load was just like remembering all these little rules. I didn't actually enjoy writing code."
+    },
+    {
+      "start": 3282.84,
+      "end": 3285.02,
+      "speaker": "jerod-santo",
+      "text": "Not simple enough for you, too complex."
+    },
+    {
+      "start": 3285.02,
+      "end": 3285.86,
+      "speaker": "ben-johnson",
+      "text": "Yeah."
+    },
+    {
+      "start": 3285.86,
+      "end": 3288.24,
+      "speaker": "jerod-santo",
+      "text": "Well, if you were just more clever and wise, Ben, you could handle the complexity."
+    },
+    {
+      "start": 3288.24,
+      "end": 3306.24,
+      "speaker": "ben-johnson",
+      "text": "There you go, that's the problem. I feel like you can get like 95% of the things in Rust with just like, like Go has like the race tracker and like there's other ways you can kind of like emulate some of that stuff. It won't get you like the perfect Rust safety, but I think you get pretty close."
+    },
+    {
+      "start": 3306.24,
+      "end": 3353.4,
+      "speaker": "jerod-santo",
+      "text": "The only thing on my list that we haven't talked about yet is mixing and matching. So oftentimes you're picking, when we go back to databases, you're picking a database. And I think that it's common to believe that you have to just pick one and go with it. And like, there's no rule in the rule book for programming that you just have to have a singular database. I know lots of companies have multi-variate or whatever you call it, multiple data stores depending on what they're up to. Pretty common at least to have something like a relational database and then also have something else depending on what you're up to. Oftentimes that is a key value store, often used as a caching layer, but can be used for other things as well. Have you ever gone multi-database in projects of your own or you've seen people do it, I'm sure?"
+    },
+    {
+      "start": 3353.4,
+      "end": 3403.78,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I mean, or at least projects I've worked on have gone multi-database. I feel like there's so many consistency issues though you tend to hit, just trying to keep everything in sync and that can be its own headache. So I think unless you have like a really good use case for it or like the performance is like significantly better or maybe it's just data that like, I don't know how to describe this exactly, but it's like data you don't really care as much about. So like a lot of times if you have like metrics, for example, yeah, like you can throw those in time series and it doesn't have to sync up with your relational data or whatnot. So yeah, I think time series is a great example of something where you can get something that's 10 times faster than the relational equivalent. So it makes sense. Although you have timescale which works in Postgres, everything works in Postgres, right? But I think there's certain use cases for specific types of databases like that."
+    },
+    {
+      "start": 3403.78,
+      "end": 3429.3,
+      "speaker": "jerod-santo",
+      "text": "Yeah, one that comes to mind just because it's open source and we've spoken a couple of times with the creators of it is Plausible Analytics and they use Postgres for their standard data, but then the actual analytic data, they use Clickhouse. And so then it's columnar, I believe. I've never used Clickhouse. I think that one's open source. It might be open source-ish. You never know anymore."
+    },
+    {
+      "start": 3429.3,
+      "end": 3434.24,
+      "speaker": "ben-johnson",
+      "text": "No, I mean, people like it, but I know there's a company behind it. I'm not sure what parts are open source for you."
+    },
+    {
+      "start": 3434.24,
+      "end": 3457.84,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's just the whole open source project plus business thing has gotten very gray in the last couple of years as things, the sands of time are shifting underneath us. Redis was once open source, isn't anymore. Elastic, of course. We haven't even talked about Elastic, but I think Clickhouse still is pure open source and then has probably a hosted service for you, is my guess."
+    },
+    {
+      "start": 3457.84,
+      "end": 3460.72,
+      "speaker": "ben-johnson",
+      "text": "That would make sense, yeah. I've heard it's good though, people like it."
+    },
+    {
+      "start": 3460.72,
+      "end": 3471.92,
+      "speaker": "jerod-santo",
+      "text": "Well, Ben, anything else about databases that we haven't discussed? I mean, there are lots of other things about databases, I'm sure, but anything that is on your mind or you think would be helpful for folks before we call it a show?"
+    },
+    {
+      "start": 3471.92,
+      "end": 3476.48,
+      "speaker": "ben-johnson",
+      "text": "I mean, I think your advice of just picking Postgres is probably a good thing."
+    },
+    {
+      "start": 3476.48,
+      "end": 3480.92,
+      "speaker": "jerod-santo",
+      "text": "No, it's supposed to be. It depends, Ben. No, yeah, it is. No, I said just start with Postgres."
+    },
+    {
+      "start": 3480.92,
+      "end": 3513.88,
+      "speaker": "ben-johnson",
+      "text": "Start with Postgres, yeah, but I mean, I think there's so many areas you can kind of delve into, and I think there are definitely use cases for people that need something faster or whatnot. I mean, it's interesting. A lot of these kind of niche databases came because you can get a 10x performance if you relax certain constraints, like if you don't need a certain isolation level, for example, like you can really go a lot faster, so I think kind of delving in and kind of understanding your data and what the needs are and what constraints you have can really help you kind of pick out which database works for your situation and what performance needs you actually have."
+    },
+    {
+      "start": 3513.88,
+      "end": 3521.08,
+      "speaker": "jerod-santo",
+      "text": "Good advice, good advice indeed, and last question for you, Ben. How do you make software simple?"
+    },
+    {
+      "start": 3521.08,
+      "end": 3548.36,
+      "speaker": "ben-johnson",
+      "text": "I think you have a, I think it's good to start with a vision of what you're trying to make and then just stick with that, and then instead of trying to figure out, I don't know, I think I have an allergy to writing more docs, so if there's weird edge cases and whatnot that it's gonna create, I try to avoid those so I don't have to document them, so if I can give someone just the simplest command to just do something that they want and keep the docs simple, then I think that's a great way to go."
+    },
+    {
+      "start": 3548.36,
+      "end": 3565.04,
+      "speaker": "jerod-santo",
+      "text": "So do you believe that the simplicity needs to exist at the interface more so than at the code, meaning do you hide the complexity from the user or do you design out the complexity? How do you go about it?"
+    },
+    {
+      "start": 3565.04,
+      "end": 3575.96,
+      "speaker": "ben-johnson",
+      "text": "I think you have to design out the complexity, honestly. I think that any kind of weird complexity in your code is gonna seep its way out into the UI because you're gonna have to account for it when things go wrong or whatnot."
+    },
+    {
+      "start": 3575.96,
+      "end": 3581.74,
+      "speaker": "jerod-santo",
+      "text": "And how do you go about designing out complexity? Do you take a lot of walks? Do you draw things off?"
+    },
+    {
+      "start": 3581.74,
+      "end": 3584.2,
+      "speaker": "ben-johnson",
+      "text": "I do take a lot of walks, actually. It helps a lot."
+    },
+    {
+      "start": 3584.2,
+      "end": 3586.2,
+      "speaker": "jerod-santo",
+      "text": "Do you have a whiteboard or do you?"
+    },
+    {
+      "start": 3586.6,
+      "end": 3624.2,
+      "speaker": "ben-johnson",
+      "text": "No, actually, I don't really whiteboard that much. I think I just do a lot of iterations. I tend to write kind of like the domain, like the application domain out without so much concern of the underlying dependencies, whether it's a database, whether it's like a file system layer or whatnot, and just try to understand kind of what those entities are that I'm working with and kind of, it's almost like normalization in databases, like figuring out kind of where your tables split up and how they relate to each other. We kind of start from that and then find ways to simply build in your persistence or your interface via HTTP or CLI or whatnot."
+    },
+    {
+      "start": 3624.2,
+      "end": 3668.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I'm gonna go back to Jamis Buck one more time because I think he said two things that really stuck with me and I'm gonna reference them both in the same show. The first one was about simplicity that I said earlier. And then the second one he said is that when he designs an API or when he's building an API, we're talking about not like a HTTP API, but a function name, a parameters, a library, et cetera, that he actually starts with using a fake one that he wants to use. And so he will just like call a function that doesn't exist and pass it what he wants to pass it as the user of that thing. And he works backwards from there to create all the things behind it that would actually make that API exist. And so it's very similar to what you're describing there."
+    },
+    {
+      "start": 3668.4,
+      "end": 3670.28,
+      "speaker": "ben-johnson",
+      "text": "Yeah, that's a good way to do it too, for sure."
+    },
+    {
+      "start": 3670.28,
+      "end": 3697.72,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so I submit that to you and to our listener as a way of at least try it out, see if it works. It's similar to TDD in certain ways. I think he was talking about TDD when he said that. Anyways, all right, good stuff, appreciate it. We have officially, it depends on databases. Turns out, just start with Postgres, but don't necessarily stop there depending on your particular use case. Anything else, Ben, before I let you go?"
+    },
+    {
+      "start": 3697.72,
+      "end": 3699.84,
+      "speaker": "ben-johnson",
+      "text": "No, I think that covers it pretty well, thank you."
+    },
+    {
+      "start": 3699.84,
+      "end": 3727.12,
+      "speaker": "jerod-santo",
+      "text": "Cool, man. Well, I appreciate the work you do. Appreciate you coming on the show 10 times now, and I'm going to go write a SQL query to see if you are our most-guested person. You might be up there because you've been on so many different of our shows. I can't think of anybody else who would be hitting double digits, but by the time I'll ship this, I'll throw it in the outro, and then we'll see if we can crown you the most frequent change log guests. How do you feel? I mean, you're at least in the top five, for sure."
+    },
+    {
+      "start": 3727.12,
+      "end": 3733.84,
+      "speaker": "ben-johnson",
+      "text": "Good, yeah, I like talking to you guys. I mean, I don't think it's that you guys invite me on so much. It's just more that I'm old and I've been around long enough."
+    },
+    {
+      "start": 3733.84,
+      "end": 3738.88,
+      "speaker": "jerod-santo",
+      "text": "You've been around a long time? Well, there might be some truth to that because I haven't had you on for a while."
+    },
+    {
+      "start": 3738.88,
+      "end": 3745.4,
+      "speaker": "ben-johnson",
+      "text": "Yeah, I remember meeting you guys up, I think, the first or second Go For Con in 2014, 15, so."
+    },
+    {
+      "start": 3745.4,
+      "end": 3776.28,
+      "speaker": "jerod-santo",
+      "text": "14 or 15, yeah, I remember that as well. So we were all around. Yeah, early days. Yeah, similar ages. Yeah, so you haven't been on the show since July of last year. We were on the solo Go For with Chris and Ian on Go Time. Your first appearance goes back to the change log, 170, 2015, it looks like it was just me and you on that show, Bolt DB, Influx DB, and key value databases. So there we are, a decade ago."
+    },
+    {
+      "start": 3776.28,
+      "end": 3777.1,
+      "speaker": "ben-johnson",
+      "text": "Man."
+    },
+    {
+      "start": 3777.1,
+      "end": 3779.02,
+      "speaker": "jerod-santo",
+      "text": "Talking databases, and here we are."
+    },
+    {
+      "start": 3779.02,
+      "end": 3780.68,
+      "speaker": "ben-johnson",
+      "text": "That's cool. Still here, yep."
+    },
+    {
+      "start": 3780.68,
+      "end": 3785.6,
+      "speaker": "jerod-santo",
+      "text": "All right, good stuff. Appreciate it, and that's all. We'll talk to you all on the next one."
+    },
+    {
+      "start": 3785.6,
+      "end": 3786.8,
+      "speaker": "ben-johnson",
+      "text": "Cool, thanks for having me."
+    },
+    {
+      "start": 3786.8,
+      "end": 3894.47,
+      "speaker": "jerod-santo",
+      "text": "Bye, friends. I did run that query to see who has the most guest appearances on our shows, and Ben is indeed in the top five with this 10th appearance. He's tied at third with Gerhard Lazu, who will certainly pass him up shortly with an X Kaizen, but they're both behind Ron Evans, who has appeared 11 times, and Matt Reyer, who has the most 14 guest appearances on our pods. Now, Matt is also a Go Time host, but if you think he's cheating, no. Hostings don't count. If we were counting all changelog appearances for all time, well, Adam and I would utterly destroy everyone else, but yeah, that makes sense. Okay, this has been our fourth installment of the It Depends miniseries. If you dig it, let me know in the comments what topic or experienced dev we should feature next. Thanks again to our partners at Fly.io, to our Beat Freak, the one and only Breakmaster Cylinder, and to our friends at Sentry for hooking our listeners up with a hundred bucks off a team plan by using code CHANGELOG when you sign up. Next week on The Changelog, news on Monday, Andreas Kling and Chris Wanstroth talking Ladybird on Wednesday, that'll be a good one, and a fresh episode of Changelog and Friends on Friday. Have a great weekend, share the show with your friends who might dig it, and let's talk again real soon. The answer is It Depends. It Depends. It Depends. There's a big It Depends. I feel like It Depends needs its own little theme tune. Problem is it depends on how you view it."
+    },
+    {
+      "start": 3894.47,
+      "end": 3899.71,
+      "speaker": "ben-johnson",
+      "text": "I guess it depends, but like, yeah. Well, it depends. It depends on which country and which language."
+    },
+    {
+      "start": 3899.71,
+      "end": 3901.83,
+      "speaker": "jerod-santo",
+      "text": "Well, some people won't work with you either."
+    },
+    {
+      "start": 3901.83,
+      "end": 3913.87,
+      "speaker": "ben-johnson",
+      "text": "It really depends on the moment that you're in and what's just happened. I suppose it depends on the individual. It depends. It depends on how sort of automated you want to be about it. Yes, it depends. Trade-offs."
+    },
+    {
+      "start": 3913.87,
+      "end": 3916.43,
+      "speaker": "jerod-santo",
+      "text": "It kind of depends, right? It depends on the month, I guess."
+    },
+    {
+      "start": 3916.43,
+      "end": 3929.63,
+      "speaker": "ben-johnson",
+      "text": "It all depends. I mean, again, I hate to say like it depends, but I do, I think. Well, it depends. It depends what? I guess it depends on which TikTok you're on. So the answer to all the questions are always going to be It Depends, right?"
+    },
+    {
+      "start": 3929.63,
+      "end": 3942.71,
+      "speaker": "jerod-santo",
+      "text": "I kind of figured that there would be a It Depends, as there always is. What do you think about that? It's like probably kind of a It Depends. Yeah, it's very much a It Depends. So. It Depends."
+    },
+    {
+      "start": 3942.71,
+      "end": 3954.83,
+      "speaker": "ben-johnson",
+      "text": "It really depends on just like what. It Depends sometimes, but like it really depends on what I'm coding. And it depends on the drive size. It Depends. I heard that a few times."
+    },
+    {
+      "start": 3954.83,
+      "end": 3957.55,
+      "speaker": "jerod-santo",
+      "text": "So it's kind of an It Depends all the way down."
+    },
+    {
+      "start": 3957.55,
+      "end": 3960.07,
+      "speaker": "ben-johnson",
+      "text": "Depends on the graphic."
+    },
+    {
+      "start": 3960.07,
+      "end": 3961.55,
+      "speaker": "jerod-santo",
+      "text": "It Depends looks sexy."
+    },
+    {
+      "start": 3961.55,
+      "end": 3966.43,
+      "speaker": "ben-johnson",
+      "text": "Well, I don't know. It Depends a little bit. This is why a lawyer's favorite phrase is It Depends."
+    },
+    {
+      "start": 3966.43,
+      "end": 3971.15,
+      "speaker": "jerod-santo",
+      "text": "But I think it depends if it's a simple, I guess it depends on the."
+    },
+    {
+      "start": 3971.15,
+      "end": 3973.39,
+      "speaker": "ben-johnson",
+      "text": "The IBM ask for everything is It Depends, right?"
+    },
+    {
+      "start": 3973.39,
+      "end": 3975.99,
+      "speaker": "jerod-santo",
+      "text": "Of course. Yeah, I would say It Depends."
+    },
+    {
+      "start": 3975.99,
+      "end": 3979.19,
+      "speaker": "ben-johnson",
+      "text": "Honestly, it depends on the. So it really depends on."
+    },
+    {
+      "start": 3979.19,
+      "end": 3981.43,
+      "speaker": "jerod-santo",
+      "text": "I sometimes do. It really depends because."
+    },
+    {
+      "start": 3981.43,
+      "end": 3984.11,
+      "speaker": "ben-johnson",
+      "text": "I think like It Depends like there could be."
+    },
+    {
+      "start": 3984.11,
+      "end": 3985.39,
+      "speaker": "jerod-santo",
+      "text": "It just kind of depends like."
+    },
+    {
+      "start": 3985.39,
+      "end": 3994.15,
+      "speaker": "ben-johnson",
+      "text": "It Depends, I mean. And there It Depends, I guess. The answer is as almost always in engineering, It Depends."
+    },
+    {
+      "start": 3994.15,
+      "end": 3995.31,
+      "speaker": "jerod-santo",
+      "text": "It Depends."
+    }
+  ]
+}

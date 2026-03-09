@@ -1,0 +1,1353 @@
+{
+  "title": "It's a peccadillo circus featuring Mat Ryer on the piano",
+  "description": "Mat Ryer returns with his piano to play a game of two truths and one lie with Jerod and Adam, featuring discussions about AI in interviews, floppy disk history, and playful tech headline fabrications.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "mat-ryer"
+  ],
+  "segments": [
+    {
+      "start": 15.38,
+      "end": 35.84,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to changelog and friends a weekly talk show about trailer spoilers thanks as always to our partners at fly over 3 million apps have launched on fly the public cloud built for developers who ship that's us and that's you learn more at fly.io okay let's"
+    },
+    {
+      "start": 35.84,
+      "end": 42.31,
+      "speaker": "jerod-santo",
+      "text": "talk"
+    },
+    {
+      "start": 42.31,
+      "end": 53.39,
+      "speaker": "adam-stacoviak",
+      "text": "well before the show i'm here with jasmine casas from sentry jasmine i know that session replay is one of those features that just once you use it it becomes the way how widely"
+    },
+    {
+      "start": 53.39,
+      "end": 79.19,
+      "speaker": "jerod-santo",
+      "text": "adopted is session replay for sentry i can't share specific numbers but it is highly adopted in terms of if you look at the whole feature set of sentry replay is highly adopted i think what's really important to us is sentry supports over 100 languages and frameworks that also means mobile so i think it's important for us to cater to all sorts of developers we can do that by opening up replay from not just web but going to mobile i think that's"
+    },
+    {
+      "start": 79.19,
+      "end": 94.91,
+      "speaker": "adam-stacoviak",
+      "text": "the most important needle to move so i know one of the things that developers waste so much time on is reproducing some sort of user interface error or some sort of user flow error and now there is session replay to me it really does seem like the killer feature"
+    },
+    {
+      "start": 94.91,
+      "end": 105.89,
+      "speaker": "jerod-santo",
+      "text": "for sentry absolutely that's a sentiment shared by a lot of our customers and we've even doubled down on that workflow because today if you just get a link to an issue alert in sentry"
+    },
+    {
+      "start": 105.89,
+      "end": 119.89,
+      "speaker": "adam-stacoviak",
+      "text": "an issue alert for example in slack or whatever integration that you use as soon as you open that issue alert we've embedded the replay video at the time of the error so then it just becomes part of the troubleshooting process it's no longer an add-on it's just one of"
+    },
+    {
+      "start": 119.89,
+      "end": 128.05,
+      "speaker": "jerod-santo",
+      "text": "the steps that you do just like you would review a stack trace our users would just also review the replay video it's embedded right there on the issues page okay sentry"
+    },
+    {
+      "start": 128.05,
+      "end": 152.21,
+      "speaker": "adam-stacoviak",
+      "text": "is always shipping always helping developers ship with confidence that's what they do check out their launch week details in the link in the show notes and of course check out session replays new edition mobile replay in the link in the show notes as well and here's the best part if you want to try sentry you can do so today with a hundred dollars off the team plan totally free for you to try out for you and your team use the code"
+    },
+    {
+      "start": 152.21,
+      "end": 193.9,
+      "speaker": "jerod-santo",
+      "text": "change log go to sentry.io again sentry.io well matt is back but with no guitar no no i thought i'd uh switch things up a little bit and what i've done is i've brought my piano look love it i didn't know actually"
+    },
+    {
+      "start": 193.9,
+      "end": 199.42,
+      "speaker": "adam-stacoviak",
+      "text": "i did know that you played piano because i think you sent me a few piano tunes in throughout"
+    },
+    {
+      "start": 199.42,
+      "end": 215.14,
+      "speaker": "jerod-santo",
+      "text": "the days but i kind of forgot i know uh i'm better on the piano than i can't really play the guitar oh you fooled us yeah i just learned some tricks you don't need to learn how to play it's like coding you don't have to learn how to code you just have to learn a few tricks"
+    },
+    {
+      "start": 215.14,
+      "end": 223.94,
+      "speaker": "adam-stacoviak",
+      "text": "that's right the interview you have to trick the interviewer so you know how to code i've been an imposter for a very long very long time right you can't code but you can leak"
+    },
+    {
+      "start": 223.94,
+      "end": 234.82,
+      "speaker": "jerod-santo",
+      "text": "code you know that's all you need yes i mean genuinely though we are seeing an uptick of people using chat gpt in interviews oh really yeah what do you do like what's just what's"
+    },
+    {
+      "start": 234.82,
+      "end": 257.3,
+      "speaker": "adam-stacoviak",
+      "text": "your stance on that would you allow that or no that's a good question because to a certain extent it's like well i want to know how much you know about this craft but also i want to know what you can do and let's be honest if you're going to be doing you're going to be using some assistance yeah and so why not just use the assistance while you're doing the interview i guess i would leave"
+    },
+    {
+      "start": 257.3,
+      "end": 275.86,
+      "speaker": "jerod-santo",
+      "text": "it up to the interviewer what would you do matt well i'm i'm with you i think uh they are part of the tool chain that we have so use it i mean are we really interviewing people to find out what they know in their brain now or what what they can do right they're able to produce yeah"
+    },
+    {
+      "start": 275.86,
+      "end": 324.12,
+      "speaker": "adam-stacoviak",
+      "text": "i think it depends on what you want he just repeated exactly what you said he did he made me feel smart by just saying it back to me is that a trick of yours well i say in a british accent that's what makes it he makes it sound even better it's like he one-ups me by just saying it back with his accent not fair matt how about this idea okay okay we just add a flag to people's column you know like i'm interviewing matt matt is ai assisted cool that's it right just be honest about it yeah i'm actually quite cool with being ai assisted i'm not cool with just ai right like if you're interviewing an ai like come on yeah come on meta you don't want to be replaced you want to be assisted yeah i mean like i'm a i'm a humanist man okay see i feel"
+    },
+    {
+      "start": 324.12,
+      "end": 334.76,
+      "speaker": "jerod-santo",
+      "text": "like you're joining my team over here because i've been saying this for a while yeah assisted is the way to be i'm happy to have you i think ai powered you know like i think human plus ai equals"
+    },
+    {
+      "start": 334.76,
+      "end": 342.6,
+      "speaker": "adam-stacoviak",
+      "text": "better but ai plus ai equals disaster for now you gotta say for now you gotta say for now"
+    },
+    {
+      "start": 342.6,
+      "end": 365.9,
+      "speaker": "jerod-santo",
+      "text": "some people are avoiding using ai ethically because they're not happy with the copyright that was all right so they're sort of opting out of it from an ethical point of view and they really are kind of giving themselves a disadvantage you know so all credit to them for it really for that but yeah if if your mission is to just get stuff done yeah ai assisted i'm in yeah it's not very"
+    },
+    {
+      "start": 365.9,
+      "end": 379.13,
+      "speaker": "adam-stacoviak",
+      "text": "popular to say that you know well let me if ai or the llm this this chat is the evolution of what we had which compares well to google have you had an issue with people googling things no you have"
+    },
+    {
+      "start": 379.13,
+      "end": 393.56,
+      "speaker": "jerod-santo",
+      "text": "not it's actually expected yeah now right but in the beginning people did they said you you have to do this you're not allowed to use google you've got to do this and then some places i think some places still do that it's like the whiteboard interview this is interview process"
+    },
+    {
+      "start": 393.56,
+      "end": 408.84,
+      "speaker": "adam-stacoviak",
+      "text": "only though right you're thinking interview process only okay so if we go past the interview i'm totally cool with it i want to know what your potential is and what resources you can leverage so i think of like two things resourcefulness and resilience right those are double r's right there"
+    },
+    {
+      "start": 408.84,
+      "end": 424.7,
+      "speaker": "jerod-santo",
+      "text": "that's the quintessential pair let's just say it's double r's it's the quintessential pair why did you stop that was getting so good it's just a jingle in case you need it in case that"
+    },
+    {
+      "start": 424.7,
+      "end": 503.86,
+      "speaker": "adam-stacoviak",
+      "text": "comes up again in case there's another quintessential pair that also starts with r yeah that's a pretty good abstraction actually you didn't say the words so there you go yeah we can reuse it adam think of another couple of r's later okay i'll keep going so i think it was socrates it could be wrong on the details of the individual but there is a very prominent philosopher slash academic i think it's socrates who was against writing things down publicly he came out and said we shouldn't write this was like they had the advent of writing perhaps right the two r's yeah writing and writing and he just thought that we would lose our brains like we would stop being able to remember things and i recall when programmable phones were picking up and you no longer had to memorize people's phone numbers and there were some folks who were kind of offended by that because there was a social dynamic to like whose numbers do you have memorized it kind of shows who's important to you in your life and there's certain people like i'm just going to remember your phone number and you know 10 years later they're all off that they're all done yeah it's over with purged why would you want to remember four numbers we don't have to so yeah i feel like some of it's the the more typical just"
+    },
+    {
+      "start": 504.74,
+      "end": 541.05,
+      "speaker": "jerod-santo",
+      "text": "don't move my cheese kind of stuff yeah i get it i get why people it was like it with calculators in in my i remember my cousin wasn't allowed to use a calculator in one of his exams but for i was younger and we were allowed to use calculators and he was outraged um i mean it was an english exam so it didn't help but still sometimes your jokes don't go down so well don't worry don't worry it's all right just a little one for me there i like how you console"
+    },
+    {
+      "start": 541.05,
+      "end": 555.77,
+      "speaker": "adam-stacoviak",
+      "text": "yourself i was just over here thinking how i just missed a huge opportunity when i said the two r's writing and writing yeah because there actually were three r's if you recall in early education it was reading writing and arithmetic right and that's not even a joke that's what they called"
+    },
+    {
+      "start": 555.77,
+      "end": 560.09,
+      "speaker": "jerod-santo",
+      "text": "it i mean it is a joke but it's hilarious yeah and i missed that opportunity so i'm just recovering"
+    },
+    {
+      "start": 560.09,
+      "end": 592.89,
+      "speaker": "adam-stacoviak",
+      "text": "that and getting it in there for the record get it in there i'm gonna close the loop too for you yeah so socrates you were confirmed you were correct yes it says the philosopher most famously known for being up against writing things down as socrates yes huh i got it through his student plato's writing writings socrates expressed concerns that writing weakens memory and can lead to a false appearance of knowledge rather than true understanding yeah and it goes on to say that he believed that writing was not an effective means of communicating knowledge"
+    },
+    {
+      "start": 592.89,
+      "end": 600.73,
+      "speaker": "jerod-santo",
+      "text": "he was saying that from a place of privilege though he had plato to write all this stuff down for him come on yeah right some of us plebs have to write our own things down it was about"
+    },
+    {
+      "start": 600.73,
+      "end": 634.87,
+      "speaker": "adam-stacoviak",
+      "text": "being face-to-face it seems as to him face-to-face communication was the only way one person could transmit knowledge to another yeah it seems a little one-sided now see here's the thing though is that world was so much different the oh yeah the amount of things you could know about was so finite compared to now when did he live i don't even know forever ago uh 470 bc gosh so i i just feel like i asked that question so i could tell you i didn't i actually was typing it in if you predate jesus it's a long time ago right i mean come on it's all right yeah but i get this you"
+    },
+    {
+      "start": 634.87,
+      "end": 699.19,
+      "speaker": "jerod-santo",
+      "text": "know um when i when i'm communicating with somebody who is i don't know let's say there might be an idiot okay um present company excluded no yeah not you no no definitely not nobody nobody on the changelog uh on the changelog platform as far as i'm concerned fair yeah and that i've you know i want to just go on the record saying that no but um it's kind of a nice clue when you when you're texting with somebody or talking to them like you get clues about what's going on and you sort of lose a bit of that if things are augmented um but we want everyone to be the best version surely and we want everyone to have the best chance so i've got to come down on the side of that but yeah and there's apple intelligence adverts that show there's one guy and he's just like normally would say yeah light it up yeah what yeah walk in here that kind of character and uh gosh and then apple intelligence changes it to be like oh i believe i was i was traversing the the walkway before your vehicle approach you know changes it into something that sounds"
+    },
+    {
+      "start": 699.19,
+      "end": 720.63,
+      "speaker": "adam-stacoviak",
+      "text": "i have to interrupt this amazing story due to not paying for software loopback has introduced some noise because we needed to use loopback to combine your piano and your microphone into a single one there's a loopback going on and because because you haven't paid for it which i'm cool with they are not that's the problem that's oh it's on purpose it's on purpose that's cheeky so"
+    },
+    {
+      "start": 720.63,
+      "end": 736.23,
+      "speaker": "jerod-santo",
+      "text": "i i'm remembering this now adam good job of identifying this this is a good it's not shareware what is it called it's like trialware move by them destructive where yeah it's kind of annoying um use it but it would destroy your work maybe right here we can insert one of those a few minutes"
+    },
+    {
+      "start": 736.23,
+      "end": 751.66,
+      "speaker": "adam-stacoviak",
+      "text": "later and then we come back a few minutes later there you go we are now back from the noisiness of loopback and destructive where you're saying matt what were you saying well first of all i"
+    },
+    {
+      "start": 751.66,
+      "end": 766.86,
+      "speaker": "jerod-santo",
+      "text": "don't know if loopback need to be doing that um you know i get it a free trial and then you want to pay for it but it's a bit cheeky isn't it what did it sound like to you the worst white noise just like yeah really loud white progress we got louder and louder to the point we"
+    },
+    {
+      "start": 766.86,
+      "end": 785.02,
+      "speaker": "adam-stacoviak",
+      "text": "couldn't hear you at all i think they should give you like a seven day or a 30 day i mean that was like a 45 minute trial maybe maybe less yeah probably less but we are fans of rogue amiibo software but not necessarily that particular move they did right there yeah that was not cool and whatever story you were telling matt i'm sure it was hilarious"
+    },
+    {
+      "start": 785.02,
+      "end": 795.58,
+      "speaker": "jerod-santo",
+      "text": "i don't remember now i don't either yeah should we just move on yeah i think we should yeah let's move on to the to the good stuff here we go let's tell each other some lies oh gosh i've"
+    },
+    {
+      "start": 795.58,
+      "end": 815.34,
+      "speaker": "adam-stacoviak",
+      "text": "got a lot for you you want to do these now let's explain what we're doing here matt matt this was your idea it's similar to a game i play on js party called head lies where i do a similar thing except for just one person so i'm very excited because i've never actually gotten to participate i've always been just a host and today i'm a participant so take us away matt this was your"
+    },
+    {
+      "start": 815.34,
+      "end": 836.54,
+      "speaker": "jerod-santo",
+      "text": "idea what are we going to do so we've got um two truths and one lie and these are tech headlines right so we have to say through the three and then you've got to be able to figure out which is the lie and which ones are the truths so each of us has brought three and we'll each go in turn"
+    },
+    {
+      "start": 836.54,
+      "end": 844.18,
+      "speaker": "adam-stacoviak",
+      "text": "telling all three and then the other two people have to try to detect the lie you want to go"
+    },
+    {
+      "start": 844.18,
+      "end": 884.7,
+      "speaker": "jerod-santo",
+      "text": "first you're the guest be our guest ai has created new proteins that didn't exist before that's number one that's number one yeah number two uh there's a train in china has broken the sound barrier a train in china has broken these are headlines these are the same like summaries well that's what headline is i know right now sometimes okay my version of this is not the same what news what news what's preferred news outlet i'll try and adapt it to the bbc obviously yeah okay okay keep going and then number three um ai has actually created a new"
+    },
+    {
+      "start": 884.7,
+      "end": 959.62,
+      "speaker": "adam-stacoviak",
+      "text": "color again that was a summary not okay so ai has created new proteins new protein there's a super ai has created a new color brand new color that's never been thought of before okay and then the train one i think that one's true it's going faster than the speed of sound that is not that hard there's cars that have done it it's quite fast though i mean a train doing that is significant but you know it's china they got how fast is this sound barrier mock what 4 10 sounds like a question for a robot not a human it's uh i think it's about 700 miles is it right from memory but it could be i mean maybe cars haven't done it planes have done it not cars 770 approximately yeah i take that back i don't think a car has ever done that one two three nine kilometers per hour that was cool quite fast maybe those cars out in the desert where they're just like yeah i think they have broken it i'm just waffling back and forth yeah the rocket car yeah yeah i think they have okay so airplanes definitely break it then but has a train in china broken it probably i think they would figure that out yeah could be okay so i'm going with ai has created a new color i think that's impossible you just all the colors exist"
+    },
+    {
+      "start": 959.62,
+      "end": 966.42,
+      "speaker": "jerod-santo",
+      "text": "all you gotta do is get the right hex code it's not hex codes aren't the be-all and end-all of"
+    },
+    {
+      "start": 966.42,
+      "end": 973.14,
+      "speaker": "adam-stacoviak",
+      "text": "color jared well for me they kind of are oh you had more of an hsl guy hey did you know that yellow"
+    },
+    {
+      "start": 973.14,
+      "end": 978.26,
+      "speaker": "jerod-santo",
+      "text": "that you look at on a screen is a lie it's not the same as yellow if you're looking at a yellow"
+    },
+    {
+      "start": 979.14,
+      "end": 991.51,
+      "speaker": "adam-stacoviak",
+      "text": "that's why i'm picking that one as a lie yeah i just i don't trust colors what are you thinking man i'm still just thinking about these trains breaking this out maybe they haven't be loud"
+    },
+    {
+      "start": 991.51,
+      "end": 996.63,
+      "speaker": "jerod-santo",
+      "text": "wouldn't it imagine waiting for a train and that one zooms past and bursts your ears that's the one"
+    },
+    {
+      "start": 996.63,
+      "end": 1033.43,
+      "speaker": "adam-stacoviak",
+      "text": "i think is a lie i think that's the lie one you think the train one's a lie yeah i think the train was a lie so you and i both agree that ai created new protein sounds like something that they would be doing with it totally plausible yeah what about ai created a new color totally plausible how so don't all colors exist and they just need to be hex coded well just we need to be discovered yeah i think it's a discovery thing i mean invent and discovers he did say invent oh okay well yeah but i gave a summary not a headline clearly you didn't give a headline the train is a lie all right so adam's going with train i'm going with color matt uh is there some sort of like a prelude"
+    },
+    {
+      "start": 1033.43,
+      "end": 1087.8,
+      "speaker": "jerod-santo",
+      "text": "song that you'd play on the way up to this yeah probably i would have thought so have you ever considered a super fast train how about one that'll blow your ears out and destroy your brain you're super loud baby loud that one was true yes congratulations that one was true i'm afraid the color of a blooming thing as as jared said the colors all exist yes so we can't be that one adam looks pissed but he is fine he's love it congratulations i will concede that it's it's"
+    },
+    {
+      "start": 1087.8,
+      "end": 1113.64,
+      "speaker": "adam-stacoviak",
+      "text": "very it's more plausible for the train to have broken the sound barrier than it would be to invent a new color however i thought i had some prior knowledge to the shinkansen which is the most famous bullet train oh and i knew it's max speed because my son was such a fan of trains when he was you know growing up like three four five still is a fan but we actually like studied high speed trains for a while they're just like just for fun you know yeah at like a four-year-old"
+    },
+    {
+      "start": 1113.64,
+      "end": 1118.04,
+      "speaker": "jerod-santo",
+      "text": "level not like an academic level and none of them had broken the sound barrier no none of them did"
+    },
+    {
+      "start": 1118.04,
+      "end": 1158.62,
+      "speaker": "adam-stacoviak",
+      "text": "and they were all like the 400 range so 700 and something is is quite faster than 400 obviously and like imagine a train like here's the thing with this speed train that you got to think about is like you have to consider so much further in the distance the dangers that are there right if you've got passengers on these trains that's the whole point of them they're passenger trains and you go from here to there really really fast it's like the time to break or the time to stop is so much distance that you have to have like the proper railway to have this distance and stuff as i just thought it was like less likely i thought well you know find a color pick color plus you"
+    },
+    {
+      "start": 1158.62,
+      "end": 1164.06,
+      "speaker": "jerod-santo",
+      "text": "won't hear it coming you know that's right no because it's it's faster than sound yeah exactly"
+    },
+    {
+      "start": 1164.06,
+      "end": 1179.03,
+      "speaker": "adam-stacoviak",
+      "text": "it beats the sound to you that's actually i don't believe so i think you would still hear it coming i was just joking i also think you'll hear it but you'll hear it a little bit later than it would arrive delayed yeah i was gonna say delayed they can't hear themselves could you hear yourself"
+    },
+    {
+      "start": 1179.03,
+      "end": 1190.06,
+      "speaker": "jerod-santo",
+      "text": "going too fast if you're going faster than sound could you hear yourself inside the train the air is not moving that fast i suppose so they'll be fine but yeah if you were just traveling that"
+    },
+    {
+      "start": 1190.06,
+      "end": 1206.06,
+      "speaker": "adam-stacoviak",
+      "text": "fast there's weird physics around that right like you know if you're in a moving vehicle and you throw a baseball up in the air and you can catch it but then if you throw it out of it then it's still travel i don't know how it works but like you start to break your brain thinking about that wind resistance there friction elsewhere there's inertia there's wind resistance there's lots of"
+    },
+    {
+      "start": 1206.06,
+      "end": 1211.1,
+      "speaker": "jerod-santo",
+      "text": "things going on yeah because the ball is traveling at that speed as well relative to you so you can"
+    },
+    {
+      "start": 1211.1,
+      "end": 1290.92,
+      "speaker": "adam-stacoviak",
+      "text": "right it's its starting place is already that speed yeah it's already going dead fast even but you don't notice it like much like us we're like turning around on this globe at like how many miles per hour we have no idea yeah seven i think it was seven miles per hour we're traveling around the world oh that's not that fast oh one day per hour no one hour per hour oh yeah finally i landed on something closely correlated and true okay i have my two truths and a lie okay and let's see if you all can guess which one is the lie number one now these are gonna read more like headlines because you know i follow directions around here um but that's neither here nor there number one as tick tock ban looms meta is sponsoring tick tock posts that encourage us users to migrate to instagram that's number one number two developer fires entire team for ai now ends up searching for engineers on linkedin number three miyamoto's son this is nintendo's miyamoto miyamoto's son was so bad at super mario 64 that he questioned his parenting there you have it two truths and one lie what are you guys thinking that first one sounded"
+    },
+    {
+      "start": 1290.92,
+      "end": 1296.2,
+      "speaker": "jerod-santo",
+      "text": "long for a headline uh but again oh now you're judging mine after those summaries you provided"
+    },
+    {
+      "start": 1298.52,
+      "end": 1301.4,
+      "speaker": "adam-stacoviak",
+      "text": "well you know headlines have skewed more conversational in the last five years"
+    },
+    {
+      "start": 1302.26,
+      "end": 1306.33,
+      "speaker": "jerod-santo",
+      "text": "i think i know the answer to this but adam what do you think can i hear them again please"
+    },
+    {
+      "start": 1307.05,
+      "end": 1326.09,
+      "speaker": "adam-stacoviak",
+      "text": "as tick tock ban looms meta is sponsoring tick tock posts that encourage us users to migrate to instagram number two developer fires entire team for ai now ends up searching for engineers on linkedin number three miyamoto's son was so bad at super mario 64 he questioned his parenting"
+    },
+    {
+      "start": 1326.09,
+      "end": 1332.73,
+      "speaker": "jerod-santo",
+      "text": "man they're all terrible they're all terrible yeah but which one is not true two of those are"
+    },
+    {
+      "start": 1332.73,
+      "end": 1346.74,
+      "speaker": "adam-stacoviak",
+      "text": "true by the way two of those are true i'm thinking the last one's not true miyamoto's son yeah i don't know why okay i can't give any more credence to ai here in this podcast so far although"
+    },
+    {
+      "start": 1348.23,
+      "end": 1366.47,
+      "speaker": "jerod-santo",
+      "text": "we'll see yeah i'm gonna go with that one though the ai one because i can't say ai but what i can do is spot when jared's being a cheeky monkey i think he's uh i think it's a joke it's quite okay funny that someone would fire all their team and then do they use ai to search linkedin for people"
+    },
+    {
+      "start": 1366.47,
+      "end": 1396.15,
+      "speaker": "adam-stacoviak",
+      "text": "though at least probably well you could read the rest of the article on techgig.com oh it's real because i got that headline from techgig.com that is a true headline you are both well sorry oh no i foreshadowed you are both incorrect it's not miyamoto's son it's not linkedin the lie is as tick tock ban looms meta is sponsoring tick tock posts encourage us users to migrate to instagram"
+    },
+    {
+      "start": 1396.15,
+      "end": 1401.75,
+      "speaker": "jerod-santo",
+      "text": "i made that up well i think that could easily be true right right actually it's kind of a good"
+    },
+    {
+      "start": 1401.75,
+      "end": 1419.75,
+      "speaker": "adam-stacoviak",
+      "text": "idea yeah or if tick tock would let them they should maybe they are doing it but no one wrote the headline yeah anyways i feel bad for you guys yeah like i just hoodwinked you yeah that's all that's the game though adam looks doubly mad i'm just angry about most things you know but that's"
+    },
+    {
+      "start": 1419.75,
+      "end": 1423.35,
+      "speaker": "jerod-santo",
+      "text": "the game jared don't feel bad do you feel bad in monopoly when you're like taking money off your"
+    },
+    {
+      "start": 1423.35,
+      "end": 1463.38,
+      "speaker": "adam-stacoviak",
+      "text": "kids honestly matt when i tell people i feel bad when i'm beating them in a game it's not really feeling bad i just say that because i just feel like it's the appropriate thing oh that's sweet so that's a lie then i vote that one finally he gets one right okay adam why don't you do your turn and share with us some some truths and lies i'm bringing one close to uh to home really okay that uh that uh it goes back to matt's world in a way i've got three headlines uh-huh uh two that are true and then one that's false that's interesting why have you done that just"
+    },
+    {
+      "start": 1463.38,
+      "end": 1467.94,
+      "speaker": "jerod-santo",
+      "text": "just so you're aware yeah so you kind of okay okay which order should i read them in should i"
+    },
+    {
+      "start": 1467.94,
+      "end": 1521.06,
+      "speaker": "adam-stacoviak",
+      "text": "read the true ones first or the false one read the false one first you have to mix it up okay here we go did you read the false one first i'm sure to get it this is the false one just so you know uh u.s nuclear arsenal relied on eight inch floppy disks until 2019 oh number two scientists used slime molds to help design tokyo's rail system number three raspberry pi is due to announce an sbc style gpu to compete with nvidia okay okay so can you say the other the middle one again slime mold yes scientists used slime molds to help design tokyo's rail system i don't know what one of them is i don't either i'm not sure what slime molds are like uh like slime from"
+    },
+    {
+      "start": 1521.06,
+      "end": 1527.13,
+      "speaker": "jerod-santo",
+      "text": "ghostbusters slime slimer yeah what do you think they got him in to help consult i got headlines"
+    },
+    {
+      "start": 1527.13,
+      "end": 1536.09,
+      "speaker": "adam-stacoviak",
+      "text": "only i got no context you okay these are headlines i'm just trying to figure out if it's real or not you know if it's if it's ghostbusters based i'm gonna i'm gonna assume it's a lie it's like we've"
+    },
+    {
+      "start": 1536.09,
+      "end": 1541.53,
+      "speaker": "jerod-santo",
+      "text": "sorry we're late on the project but hiring slime it was a big mistake the office is an absolute"
+    },
+    {
+      "start": 1541.53,
+      "end": 1549.69,
+      "speaker": "adam-stacoviak",
+      "text": "state and he's contributed nothing i won't tell you this but i'll give you the details later you're gonna love this i got more context oh he's gonna give us details later so that one he's got"
+    },
+    {
+      "start": 1549.69,
+      "end": 1557.21,
+      "speaker": "jerod-santo",
+      "text": "an actual article i've ruled it out that's true which one's true the slime molds okay because"
+    },
+    {
+      "start": 1557.21,
+      "end": 1561.53,
+      "speaker": "adam-stacoviak",
+      "text": "you just said you have an article on it no i didn't say on that one i was another one that's"
+    },
+    {
+      "start": 1561.53,
+      "end": 1564.73,
+      "speaker": "jerod-santo",
+      "text": "a whole different one you just changed the subject and then told us you had information"
+    },
+    {
+      "start": 1564.73,
+      "end": 1581.13,
+      "speaker": "adam-stacoviak",
+      "text": "i was thinking about something different i was contextually somewhere else you know okay what was the first one again gosh which okay yes uh u.s united states u.s nuclear arsenal you know where the united states is too right jared you know what's that the u.s okay matt"
+    },
+    {
+      "start": 1581.13,
+      "end": 1584.25,
+      "speaker": "jerod-santo",
+      "text": "do you know where it's at yeah but i thought you were just saying us because you're from"
+    },
+    {
+      "start": 1584.25,
+      "end": 1603.56,
+      "speaker": "adam-stacoviak",
+      "text": "that just us us okay us nuclear arsenal relied on it it's it is is bad that you call your country us here we go oh it's like ai well that's kind of appropriate isn't it i mean us nuclear arsenal relied on eight inch floppy disks until 2019 eight inch floppy disks those are the big ones"
+    },
+    {
+      "start": 1603.56,
+      "end": 1609.56,
+      "speaker": "jerod-santo",
+      "text": "yeah yeah not even the save icon is it that no no no in fact that won't work for you you know"
+    },
+    {
+      "start": 1609.56,
+      "end": 1615.67,
+      "speaker": "adam-stacoviak",
+      "text": "how far does the eight inch go back because i remember floppies but i never used an eight inch"
+    },
+    {
+      "start": 1615.67,
+      "end": 1661.43,
+      "speaker": "jerod-santo",
+      "text": "it was always a three and a half inch i do i have handled an eight inch one i have had one in my hand and they are floppy like they this is why they were where the name floppy disk came from because i understood from the three and a half inch ones they weren't floppy they were rock hard because they were plastic i said plastic hard i suppose they weren't made of rocks but the uh the actual bigger the bigger ones the eight inch ones i think they were eight inch they were actually floppy actually no i'm thinking five and a half i don't think i've seen eight either i mean it's a big old disk yeah yeah it's big you do some damage with that i wonder what capacity and how much you could get probably less than the five and a half and three and a half probably hope so no i don't know because it was that direction of travel wasn't it"
+    },
+    {
+      "start": 1662.23,
+      "end": 1667.91,
+      "speaker": "adam-stacoviak",
+      "text": "that's true but i think they got better at density or something yeah you know smaller storage space"
+    },
+    {
+      "start": 1667.91,
+      "end": 1672.95,
+      "speaker": "jerod-santo",
+      "text": "over time i could easily be using it for some reason in a nuke old nuke you know antiquated"
+    },
+    {
+      "start": 1672.95,
+      "end": 1709.9,
+      "speaker": "adam-stacoviak",
+      "text": "nuclear something there will be uh oh okay for the viewing audience jesus let's place this and we'll see this is a visual audio audience only i'm sorry just imagine what eight inch five and a quarter and three and a half looks like i'm screen sharing with our friends here jared and matt as you know my friends our friends hello and on the left you have the eight inch in the middle you have the five and a quarter i believe is it five and a quarter yeah i was saying it five inches got the quarter in there yeah and then the three and a half down the very far right and i think you're correct matt saying that that one is uh more of a plastic card i think you said plastic"
+    },
+    {
+      "start": 1709.9,
+      "end": 1721.26,
+      "speaker": "jerod-santo",
+      "text": "card that's the three and a half yeah he said rock hard rock hard well compared i've had the middle one the the five and a thingy five and a quarter and they were just very floppy difficult"
+    },
+    {
+      "start": 1721.26,
+      "end": 1737.34,
+      "speaker": "adam-stacoviak",
+      "text": "to digest yeah us nuclear arsenal relied on eight inch floppy disk the one on the far left i think that's false i think he made that up i mean eight inch but it's a nuclear arsenal not a nuclear power plant but arsenal like actually firing nukes you know they have these antiquated"
+    },
+    {
+      "start": 1737.34,
+      "end": 1741.98,
+      "speaker": "jerod-santo",
+      "text": "systems though don't they and they don't change them and this is a tough one what was your third"
+    },
+    {
+      "start": 1741.98,
+      "end": 1760.78,
+      "speaker": "adam-stacoviak",
+      "text": "one again raspberry pi soon to announce sbc style gpu to compete with nvidia now what's an sbc style gpu single board computer okay a single what computer yeah you know that the sbc is like super cool because like you have this tiny little thing it's a single board computer and so they're"
+    },
+    {
+      "start": 1760.78,
+      "end": 1765.02,
+      "speaker": "jerod-santo",
+      "text": "going to compete with nvidia like you're going to be doing inference on these things or something"
+    },
+    {
+      "start": 1765.02,
+      "end": 1826.78,
+      "speaker": "adam-stacoviak",
+      "text": "i mean i can speculate some if you'd like i think what i would say is like it's probably going to pair up with like the uh the raspberry pi type thing because the raspberry pi doesn't it has gpu in it it's like not super amazing you know and does some stuff you can do a media center on it but not you probably can't transcode 4k very well or at least multiple streams so i think those things have become popular and so i my guess if this is true of course is that this sbc style gpu will pair up with a pi to give you you know more gpu and this fanatic way of doing smaller computers basically versus let's just say the most recent the rtx 50 or whatever like 5090 or 5090 or whatever they just released like that thing is huge it's got three fans in it like who wants that you want a gpu smaller sbc style mm-hmm i'm not trying to overly sell this or anything but i'm just saying you know like this could be a truth oh yeah it could be yeah"
+    },
+    {
+      "start": 1826.78,
+      "end": 1860.46,
+      "speaker": "jerod-santo",
+      "text": "exactly it could be a true for yeah it's not be true i think it's not i think that's that's what i'm gonna pick as the lie the raspberry that's what you're choosing is the lie yeah okay tell me why well i could believe the us having some old systems and you need you know still happens to need big big old disk the i don't know the point of raspberry pi is all very low tech lo-fi stuff they do have some bigger bits but sure i don't know yeah maybe they're trying to diversify and you think what is the what's the lie for you jared well i wrote off the slime molds because i"
+    },
+    {
+      "start": 1860.46,
+      "end": 1892.84,
+      "speaker": "adam-stacoviak",
+      "text": "think you were looking at the article or talking about it which means i didn't think about it very critically but i'm still thinking that that's true okay the raspberry pi story is exactly the kind of story that you would make up so i'm leaving i would make up yeah i'm for a game no yeah not just for in life like the guy just okay but i'm not sure where you'd see a report on the u.s nuclear system and they're floppies like to me that just seems like like is that a"
+    },
+    {
+      "start": 1892.84,
+      "end": 1901.72,
+      "speaker": "jerod-santo",
+      "text": "news is that a was that news recently the uh well to go back to our our initiative here we were told"
+    },
+    {
+      "start": 1901.72,
+      "end": 1908.04,
+      "speaker": "adam-stacoviak",
+      "text": "by our new friend here hello obscure tech headlines these are clearly obscure tech headlines"
+    },
+    {
+      "start": 1908.04,
+      "end": 1913.08,
+      "speaker": "jerod-santo",
+      "text": "and so i scoured the internet you're saying that was a headline from 2019 and well it doesn't matter"
+    },
+    {
+      "start": 1913.08,
+      "end": 1924.92,
+      "speaker": "adam-stacoviak",
+      "text": "when it came no they did this until 2019 it doesn't mean that they the the news is new yeah i just don't understand maybe there's like a FOIA request on the nukes right the documentation on"
+    },
+    {
+      "start": 1924.92,
+      "end": 1928.68,
+      "speaker": "jerod-santo",
+      "text": "nukes i can't confirm where i've gotten this information okay all i can i just want to applaud"
+    },
+    {
+      "start": 1928.68,
+      "end": 1938.84,
+      "speaker": "adam-stacoviak",
+      "text": "you on your ability to put together three pretty good ones okay thank you whereas you didn't like mine and i fooled you utterly uh i'm liking yours matt i feel like you're about to break into some"
+    },
+    {
+      "start": 1938.84,
+      "end": 1956.52,
+      "speaker": "jerod-santo",
+      "text": "sort of song please do please stall for me tell me which ones the lie please it's a mini song"
+    },
+    {
+      "start": 1956.52,
+      "end": 1967.75,
+      "speaker": "adam-stacoviak",
+      "text": "is there more no no no well there's another verse i like this are you a fan of mario kart sorry not mario kart uh mario party um yeah yeah hang on i'm just doing the second verse"
+    },
+    {
+      "start": 1969.03,
+      "end": 1981.96,
+      "speaker": "jerod-santo",
+      "text": "ready yeah i said please that's it it's not great yeah that was that's kind of weak it's not a hit you know they're not all hits that's an album track yeah yeah interstitials you didn't say"
+    },
+    {
+      "start": 1981.96,
+      "end": 1985.4,
+      "speaker": "adam-stacoviak",
+      "text": "please though i was thinking you'd write us something about eight inch floppies but we can"
+    },
+    {
+      "start": 1985.4,
+      "end": 1992.2,
+      "speaker": "jerod-santo",
+      "text": "definitely move on i'm saving that for later yeah which one is the lie if i metagame this"
+    },
+    {
+      "start": 1993.19,
+      "end": 2018.89,
+      "speaker": "adam-stacoviak",
+      "text": "and my goal is to win yeah i won the first round by uh guessing mats and adam missing it i won the second round by fooling both of you and so if i merely tie in round three i've kind of taken it all so i'm gonna go with matt i'm gonna say the raspberry pie is false you made that up it's so plausible though right it's really good yeah it's really good i mean like"
+    },
+    {
+      "start": 2019.45,
+      "end": 2053.08,
+      "speaker": "jerod-santo",
+      "text": "i want that to be true why lie about the raspberry pie why don't you tell the truth amen i don't know if you know the rules but you kind of did it good adam you did go adam you did it good"
+    },
+    {
+      "start": 2058.57,
+      "end": 2223.86,
+      "speaker": "adam-stacoviak",
+      "text": "okay friends i think you know how much i love notion but i'm telling you anyways because i love notion i use it every day i love how i can organize all my docs all my notes all my projects into a single space and the cool thing is now they have ai built right in yeah you can ai across your entire workspace summarize ask questions all the things all across your workspace and to me it's been a total game changer a total upgrade to my effectiveness i just love it notion is the one place to connect teams tools knowledge and you're empowered to make it yours to make it your workflow your operating system to make your work meaningful and to do well with all the things you want to do and unlike other specialized tools or even legacy systems that have you bouncing between six different apps notion is seamlessly integrated infinitely flexible and it's beautiful it's easy use mobile desktop anywhere it's there for you and recently i've been really enjoying this notion ai being right at my fingertips to handle that first draft i want to do or to jump start a brainstorm trying to do or to turn my messy notes into something that's a little bit more polished you can even automate tedious tasks like summarizing meeting notes or finding next steps notion ai does all this and more it frees you up to do your best work your deep work as you like to say and it's used by me of course and over half of fortune 500 companies and teams use notion send less email they cancel more meetings they save more of their time for the work they actually want to do they save time from searching their work and this whole entire ai crossword workspace thing has just been a game changer for me if i want to find something i just ask ai and it helps me right there so my friends if you're not using notion check it out notion.com change log that is all over case notion.com change log try the powerful easy to use notion ai today and when use our link you are supporting our show because hey notion loves us and i love notion too notion.com change log here's the thing this is cool right this other truth one the slime mold okay well what is the slime mold deal okay so they they put bits of food to represent tokyo's various population centers on a map and then they let a slime mold which is supposed to be smart right like it's you know genius basically which naturally seeks the most effective paths between food sources grow and so this thing determined the network that could be a very plausible very efficient path what so they use slime molds to help design tokyo's"
+    },
+    {
+      "start": 2223.86,
+      "end": 2233.78,
+      "speaker": "jerod-santo",
+      "text": "rail system this is true oh to design it see i thought they were building it with slime molds to help design tokyo's rail i know but i didn't pay close enough attention that's amazing i think"
+    },
+    {
+      "start": 2233.78,
+      "end": 2260.86,
+      "speaker": "adam-stacoviak",
+      "text": "at a headline level you think that they use the slime mold to mold the train track kind of thing that's what i was thinking i understand that and then obviously us nuclear arsenal rely on 18 floppy disks until 2019 this is a recent headline really and the details behind this is that the air force finally modernized systems that ran on ancient hardware around 2019 but not before plenty of raised eyebrows in the tech circles why because they're using eight inch"
+    },
+    {
+      "start": 2260.86,
+      "end": 2271.98,
+      "speaker": "jerod-santo",
+      "text": "floppies because they're using eight floppy disks what they did now then they only gone on to normal five and a quarter now they must have jumped up to three and a half inch yeah and then you know"
+    },
+    {
+      "start": 2271.98,
+      "end": 2305.29,
+      "speaker": "adam-stacoviak",
+      "text": "honestly i just was like i like raspberry pies they're cool uh nvidia and gpu's are all the rage and i just heard a headline basically if you're if you're a cpu maker you're getting into gpu making if you're a gpu maker you're getting the cpu making nvidia has cpu's coming out and uh intel has gpu's coming out so like they're flip-flopping right so what's the other thing out there that's maybe gonna do this raspberry pie and an sbc style gpu that attaches to these other smaller"
+    },
+    {
+      "start": 2305.29,
+      "end": 2315.45,
+      "speaker": "jerod-santo",
+      "text": "things would be totally cool yeah it would be cool yeah if they do it if they do it within a year do we should we come back and take jared's points off him then yeah i think so yeah we should all"
+    },
+    {
+      "start": 2315.45,
+      "end": 2365.86,
+      "speaker": "adam-stacoviak",
+      "text": "concede those points well they're gonna hear this right they're gonna hear this right this is pretty much like market research for them we should totally be doing this like let's get rid of these eight and floppy disks that we were thinking about yeah and let's do these sbcs GPUs yeah that's good i think we should take a moment to mourn that eight inch floppy oh it's happened it's happened eight inch floppy disk try it again family show matt it's a family show normally everyone has to be told that floppy disk manufacturer you know that that company that had the contract forever that they could just keep selling their floppy disks to the government at some astronomical price"
+    },
+    {
+      "start": 2365.86,
+      "end": 2374.74,
+      "speaker": "jerod-santo",
+      "text": "you know after probably 40 years of that one big contract they finally had to stop printing money"
+    },
+    {
+      "start": 2374.74,
+      "end": 2392.42,
+      "speaker": "adam-stacoviak",
+      "text": "and get a real job how many what's the n plus on the floppy disks do you think they had n plus yeah like how many in in reserve do you think they had to have to ensure the us arsenal the us nuclear arsenal was you know safe how many floppy disks well they probably"
+    },
+    {
+      "start": 2392.42,
+      "end": 2396.42,
+      "speaker": "jerod-santo",
+      "text": "didn't think they were going to need it until recent events and then they're like you know"
+    },
+    {
+      "start": 2396.42,
+      "end": 2409.06,
+      "speaker": "adam-stacoviak",
+      "text": "we actually should make sure this stuff works let's get it let's get 100 behind this n plus 100 you know yeah we got the one in the drive we're safe and we got 99 others sitting over there"
+    },
+    {
+      "start": 2409.06,
+      "end": 2416.6,
+      "speaker": "jerod-santo",
+      "text": "waiting just in case i wonder what's on the disk then like a code you think or like a gpc like a"
+    },
+    {
+      "start": 2416.6,
+      "end": 2500.6,
+      "speaker": "adam-stacoviak",
+      "text": "like a key like a gpg key or something like that it's got to be isn't it not going to be like source code for the missiles or something let's yeah let's speculate this system look what could it actually do yeah if it ran on this hardware like is it running is the program is like a usb uh version of a of a software that runs on the usb but instead it runs on the floppy well it used to boot off of a floppy so maybe it's actually like the boots in the memory right it boots into memory and then runs off the memory all right so this floppy gets put in the program is accessible it boots into memory boom goes the uh us arsenal yeah nuclear arsenal yeah probably that so the eight inch floppy originally stored 80 kilobytes in 1971 and then it went up to 256 eventually maxing out at 1.2 megabytes the five and a quarter introduced in 1976 single-sided single density 160k and then they figured out double density 360k eventually they did a double-sided double density 720k and then double-sided high density 1.2 megabytes so they finally made their way back up to the eight inch maybe this is why the us nucleus are just like we're cool with the eight inch man three and a half inch introduced in 1980 started at 720k double-sided high density 1.44"
+    },
+    {
+      "start": 2501.75,
+      "end": 2509.75,
+      "speaker": "jerod-santo",
+      "text": "that's the most common and then extra high density 2.88 megabytes this is making me think of a"
+    },
+    {
+      "start": 2510.55,
+      "end": 2526.89,
+      "speaker": "adam-stacoviak",
+      "text": "a museum is there a place in the world where there's like a technology museum that isn't somebody's random basement or some weird absolutely there is there is yeah we were there i don't know if we're sure if we were there in the building together adam but i've been there it's in the"
+    },
+    {
+      "start": 2526.89,
+      "end": 2531.37,
+      "speaker": "jerod-santo",
+      "text": "valley in san diego right i mean some san jose yeah it's called the computer history museum is"
+    },
+    {
+      "start": 2531.37,
+      "end": 2602.62,
+      "speaker": "adam-stacoviak",
+      "text": "that what it's called it's really cool i thought we were there together at it maybe i was there with somebody were we there together maybe we were i think we were it must be ancient history then uh well there is no ancient computer history because computers aren't ancient we haven't been to san francisco together i would say in about eight years it feels like at least six yeah if you go to computerhistory.org yes the computer history they have actually a pretty cool instagram as well that i've checked out where they still post stuff regularly and they have new stuff coming in i'm trying to find the actual address of the place to confirm you're saying it's in san diego it's in mountain view i think we're there together adam mountain view california so i didn't know i've been to mountain view was that when we were out to see user testing maybe yeah that might be right my brain was a little scattered we were doing something brand new with high stakes so what weed yeah totally that's why i can't remember he said high stakes oh wait that still works oh yeah it's just a steakhouse oh wait that's like the dispensary yeah high stakes is where you go afterwards yeah uh yeah i did have some other raspberry pi lies okay let's"
+    },
+    {
+      "start": 2602.62,
+      "end": 2613.82,
+      "speaker": "jerod-santo",
+      "text": "hear them do we need a theme tune for raspberry pi lies raspberry lies writes itself it does doesn't it really let's see if it does what key should it be in you pick a key any key"
+    },
+    {
+      "start": 2614.46,
+      "end": 2632.15,
+      "speaker": "adam-stacoviak",
+      "text": "a p it should be in p oh that's not one that's not one how about uh a minor yeah uh what that's a minor what do you think adam higher or lower uh higher always as you know"
+    },
+    {
+      "start": 2633.11,
+      "end": 2663.88,
+      "speaker": "jerod-santo",
+      "text": "he likes high stakes i want my raspberry pi lies baby feed them to me i wanna think that they're making gpu's all gonna sell themselves to china tell me where we're gonna be in a thousand years time but tell me through raspberry pi lies well they weren't really full"
+    },
+    {
+      "start": 2663.88,
+      "end": 2668.04,
+      "speaker": "adam-stacoviak",
+      "text": "on lies they were more like directions that i didn't flesh out so i was thinking"
+    },
+    {
+      "start": 2669.32,
+      "end": 2675.96,
+      "speaker": "jerod-santo",
+      "text": "they're more like directions that i was flushing out so i was thinking"
+    },
+    {
+      "start": 2677.42,
+      "end": 2714.98,
+      "speaker": "adam-stacoviak",
+      "text": "i was thinking uh drones like a pico drone like make your own drone from a pi uh-huh like a pico drone yeah i want that and then i was thinking like like something solar because i was like well you know these things are so small you want them to be in obscure places yeah like what if i wanted a switch like a wrt switch that's running open source stuff that's not like power accessible i have a battery maybe or like a power pack what if it was solar power powered you know so i was thinking like something solar that direction yeah that's about it i'd have gone for"
+    },
+    {
+      "start": 2714.98,
+      "end": 2720.26,
+      "speaker": "jerod-santo",
+      "text": "the u.s military disks if you'd said either of those two that's true then i was thinking well"
+    },
+    {
+      "start": 2720.26,
+      "end": 2753.08,
+      "speaker": "adam-stacoviak",
+      "text": "gpu that's in the headlines now it's ces uh recent so there you go well the challenge with solar is you need so much surface area well if it's small though like let's say if it's sub five watts which is what it would probably be like probably sub two watts it's just a switch and maybe wi-fi how much surface area do you need for that probably not much i mean the size of a pi probably pi solar could you imagine this pi solar but raspberry pi if you're not listening to this podcast for ideas"
+    },
+    {
+      "start": 2753.08,
+      "end": 2768.36,
+      "speaker": "jerod-santo",
+      "text": "should be yeah you should be yeah i mean here we go i like the drone idea i kind of want a phone case that's got that on it so i can if i do find i've lost my phone around the flat i can press a button on my watch yeah and it just flies to me yeah that'd be cool i mean it might slice some"
+    },
+    {
+      "start": 2768.36,
+      "end": 2813.38,
+      "speaker": "adam-stacoviak",
+      "text": "people on the way well there's some really small drones out there so i'm back uh i want to say about six about six or so years ago maybe seven years ago i got into like the early days of drones right they're expensive they still kind of are expensive now but there was these really small ones you could buy on amazon and they're like tiny like little toy things something that'd be kind of cool to build a drone from a pi but you probably can do that already you know all you need is a case and a compute and then i suppose servos and stuff like that to do the motors yeah i just need a good old fast fan yeah yeah one fan go up i see you what's next is this show just based on"
+    },
+    {
+      "start": 2814.02,
+      "end": 2820.66,
+      "speaker": "jerod-santo",
+      "text": "truths and lies is there more well we finished haven't we yeah i won is this a show did you"
+    },
+    {
+      "start": 2820.66,
+      "end": 2833.22,
+      "speaker": "adam-stacoviak",
+      "text": "jared you wouldn't that didn't you i would say that uh i should get some points too because you know i you know i let you in yeah that's true all right you can have some of that's points yeah"
+    },
+    {
+      "start": 2834.18,
+      "end": 2844.26,
+      "speaker": "jerod-santo",
+      "text": "he's not going to use them i can't spend them in this country the exchange rate is terrible for points on game shows that's why that you don't get many brits appearing on american shows yeah"
+    },
+    {
+      "start": 2844.26,
+      "end": 2885.24,
+      "speaker": "adam-stacoviak",
+      "text": "we should have prizes and then just give them to me at the end yeah if you win what could we give us a prize well i tell you what jared you can master this episode how about that oh there you go that's nice it'd be fun i can do that it'd be fun maybe i'll put him some applause and congratulations sounds maybe like that confetti like the you know that one yeah we should reach out to loop back though and rogue amoeba to see if they want to sponsor the show they should we should have an episode that's just white noise until the check clears that's right yeah this show brought to you by rogue amiga brought to you by you know it's a shame it's that sound it could"
+    },
+    {
+      "start": 2885.24,
+      "end": 2891.16,
+      "speaker": "jerod-santo",
+      "text": "have been a lovely little ditty or you know a snoop dog track i'll tell you what licensing fees"
+    },
+    {
+      "start": 2891.8,
+      "end": 2901.32,
+      "speaker": "adam-stacoviak",
+      "text": "i do think it'd be kind of cool to augment whatever's being done and like if you were speaking now you're not matt now you're snoop dog like you said you know or they could do the"
+    },
+    {
+      "start": 2901.32,
+      "end": 2906.44,
+      "speaker": "jerod-santo",
+      "text": "charlie brown parent thing like you just are wow wow wow that would actually be pretty cool that'd"
+    },
+    {
+      "start": 2906.44,
+      "end": 2915.83,
+      "speaker": "adam-stacoviak",
+      "text": "actually be kind of funny yeah good marketing because you could probably use it you know like an unintended consequence like next thing you know like right or bad marketing because people won't"
+    },
+    {
+      "start": 2915.83,
+      "end": 2919.67,
+      "speaker": "jerod-santo",
+      "text": "upgrade they're just like i want the charlie brown sound that's right so good and where'd you get"
+    },
+    {
+      "start": 2919.67,
+      "end": 3089.8,
+      "speaker": "adam-stacoviak",
+      "text": "that well this free trial of rogue amoeba software called loopback just go get it it's free that'd be cool that's good more ideas for these people holy boy i know well you're an idea guy oh man have you or someone you know been a victim of identity theft maybe you've been harassed on the internet maybe you've been stalked maybe you've been doxed privacy is important you know my bubble your bubble my space your space don't cross into my world unless you belong there right get out of here that's what i tell spammers but they don't listen but have you ever wondered how much of your personal data is out there on the internet just waiting to be gobbled up and sold to anyone for anyone to see well there's more than you think your name your contact info your social security number the thing that unlocks your credit history your home address even information about your family and your friends it's all being compiled by data brokers and it's being sold online and these data brokers make a profit off your data it's a commodity anyone on the web can buy your private details turns into identity theft phishing harassment unwanted spam calls i get so many of those but now i use delete me today's sponsor and they're helping me remove my data from hundreds of data brokers out there to help me curb all this unwanted spam fishing attempts even over the holidays i got texts about packages i'm sure you did too and i almost got fished by one of them it was so close so close here's how it works you sign up and provide delete me with exactly what information you want deleted and their experts take it all from there they send you regular personalized privacy reports showing you what information they found where they found it and what they removed and delete me isn't just a one-time service it's always working for you constantly monitoring constantly removing the personal information you don't want on the internet and to put it simply delete me does all the hard work of wiping your and your family's personal information from data brokers websites and that's exactly why i use it take control of your data and keep your private life private by signing up for delete me now at a special discount for our listeners today get 20 off your delete me plan by texting changelog to six four zero zero zero again text changelog to six four zero zero zero of course message and data rates may apply once again text changelog to six four zero zero zero one other thing we could talk about was just to throw some flowers at matt in addition to your amazing piano skills i hear you recently won"
+    },
+    {
+      "start": 3089.8,
+      "end": 3099.16,
+      "speaker": "jerod-santo",
+      "text": "an award yourself didn't you i did yeah can you tell us about this is this true or is it a lie no this is true i couldn't believe it i was gonna have you tell the story and have adam guess"
+    },
+    {
+      "start": 3099.16,
+      "end": 3103.48,
+      "speaker": "adam-stacoviak",
+      "text": "but you've already ruined it this is true this is what i've said it's true i mean if i was lying"
+    },
+    {
+      "start": 3103.48,
+      "end": 3127.03,
+      "speaker": "jerod-santo",
+      "text": "that is what i would say to be fair that is true if i have ruined it wow it is true yeah it's completely ruined go ahead tell us a story this is like uh now this was the open uk uh which is an organization that uh works and celebrates um open source software and i think because of um a little package i wrote with a friend of mine called testify you may have heard of it have you"
+    },
+    {
+      "start": 3127.03,
+      "end": 3135.13,
+      "speaker": "adam-stacoviak",
+      "text": "had heard heard of it adam i do declare it's a version of testifying that is declaring testifying"
+    },
+    {
+      "start": 3135.13,
+      "end": 3204.01,
+      "speaker": "jerod-santo",
+      "text": "has avoided the answer cool well you know i've heard of it matt have you well from you on go time yeah i don't stop banging on about it to be honest yeah you just won't shut up about it yeah actually well i found out from jonathan amsterdam from the the go team at google it's the most imported package go package in the world buy about three times or something wow so it's like an assertion package that helps you you know assert equal write some tests yeah it helps with your testing doesn't go have that stuff built in well it deliberately doesn't and what you what you're told to do really by the go team is to write native go code and that's your test and there's nothing new for someone to learn you don't want to do that well i just wasn't used to it um and i was used to these assertion library and it you know turns out i mean it's the you know it's the third most imported go oh it's the most important go package by three times or whatever turns out i think people want that but there's a there's a weird little rub around when you pass variables into methods in certain cases it can change and so you don't really want that happening if you're in your test suite stuff is that called shadowing or something like this i don't know"
+    },
+    {
+      "start": 3204.01,
+      "end": 3220.25,
+      "speaker": "adam-stacoviak",
+      "text": "honestly um okay it's like a go piccadilly or is this like a programming thing it's a go specific piccadilly yeah yeah yeah did i use that word right i have no idea i doubt it uh probably not"
+    },
+    {
+      "start": 3220.25,
+      "end": 3231.03,
+      "speaker": "jerod-santo",
+      "text": "i've been using words wrong all day yeah maybe you meant piccadilly which is a kind of yellow sauce it's not my idea um but it's real yellow not computer fake computer yellow unless you're"
+    },
+    {
+      "start": 3231.03,
+      "end": 3265.51,
+      "speaker": "adam-stacoviak",
+      "text": "seeing it on the computer yeah i can't you can't be trusted any longer you've been telling these you can't trust yellow no no i'm just googling piccadilly see if it's a real thing it's a place in london there's an area oh that's right it's like a square yeah isn't it a square no it's a circus what's a circus the circus is where the elephants are yeah so there's a circus in london called piccadilly piccadilly that's and this is where like elephants stand on their two heels and then the lions jump through yeah it's very popular tourist attraction is it a circle"
+    },
+    {
+      "start": 3266.39,
+      "end": 3270.63,
+      "speaker": "jerod-santo",
+      "text": "i think it's not really like much of a circle but it probably was originally"
+    },
+    {
+      "start": 3270.63,
+      "end": 3311.9,
+      "speaker": "adam-stacoviak",
+      "text": "okay is that what a circus is a circle i've only put that together talking to you now i mean let me just say the u.s audience here we don't know what a circus is unless it's you know barnum and bailey's that's the best circus in the world that's right so you're not doing a very good job explaining why piccadilly is a circus no i i can't help it you also call it a place a place so we're very confused adam are you confused i'm also confused but something else so i'm at this uh tell me if you know this url okay github.com i do yep yep slash oh hold on director say what nearly does that ring a bell to you matt stretcher stretcher"
+    },
+    {
+      "start": 3311.9,
+      "end": 3325.05,
+      "speaker": "jerod-santo",
+      "text": "oh is this uh testify yeah that's the uh the company that we that's the startup that we had when we made testify so we put it in the company name not my own personal name uh now i'd be"
+    },
+    {
+      "start": 3325.05,
+      "end": 3330.33,
+      "speaker": "adam-stacoviak",
+      "text": "world famous had i you already are you won an open source award oh yeah i forgot i didn't"
+    },
+    {
+      "start": 3330.33,
+      "end": 3354.74,
+      "speaker": "jerod-santo",
+      "text": "finish telling you that i got a medal they sent me a medal what color was it uh golden oh golden that's that's first place gold it's first yeah i think everyone gets that though it wasn't like a race but there you go so yeah it was open uk honors new year's honors list and genuinely it is quite nice to get that normally i don't win things like that but quite honored to get it"
+    },
+    {
+      "start": 3354.82,
+      "end": 3363.38,
+      "speaker": "adam-stacoviak",
+      "text": "really what do you think is that stretcher.com spelt this funny way s-t-r-e-t-c-h-r.com what do"
+    },
+    {
+      "start": 3363.38,
+      "end": 3369.54,
+      "speaker": "jerod-santo",
+      "text": "you think is there well i know that we let the domain expire and someone else got it so yeah"
+    },
+    {
+      "start": 3369.54,
+      "end": 3388.01,
+      "speaker": "adam-stacoviak",
+      "text": "that's why i was confused i think what do these folks have to do with testify for go because it's a it's a stretching company like you go there and you get stretched what's that so i was thinking like matt i mean what is going on with your software what did you write this for to be"
+    },
+    {
+      "start": 3388.01,
+      "end": 3416.97,
+      "speaker": "jerod-santo",
+      "text": "stretched well originally this was like a mongo db style api so for web and app developers you'd be able to just start posting data to restful endpoints they didn't have to exist and it would create the restful uh you know the data it would just persist it and then when you get it and get the list it would all just work so that was the idea for app for make development quicker and gives you like a back end um so kind of like a schema-less data store thing and the idea was"
+    },
+    {
+      "start": 3416.97,
+      "end": 3421.77,
+      "speaker": "adam-stacoviak",
+      "text": "describing what your idea was not this stretching idea they've got yeah i i see you've said it"
+    },
+    {
+      "start": 3421.77,
+      "end": 3431.69,
+      "speaker": "jerod-santo",
+      "text": "sounds like they're gonna stretch you like yeah they're they're doing something different altogether does it but we i need to make sure that that domain name is not on the project it"
+    },
+    {
+      "start": 3431.69,
+      "end": 3462.44,
+      "speaker": "adam-stacoviak",
+      "text": "is that's how i found it it's on the github organization i'm gonna go and change that yeah i would definitely change that because that's confusing i don't think anybody cares yeah i guess actually three times as many other folks who download or install any packages or whatever you call them yeah uh in in their go programs and software care but they're not on your org looking at what url goes back to the source yes for stretcher no but it is a concern"
+    },
+    {
+      "start": 3462.44,
+      "end": 3467.66,
+      "speaker": "jerod-santo",
+      "text": "and and i checked the emails to make sure that there were no emails that were you know"
+    },
+    {
+      "start": 3468.62,
+      "end": 3492.47,
+      "speaker": "adam-stacoviak",
+      "text": "i would do this though i would first email these folks at the new stretcher and i will let them know that you've been promoting their stuff for a few years now and that there's royalties to be paid okay yeah yeah i'd let them know that first prior to do and take a screenshot and share that with them and then say i've since stopped but you owe me back pay maybe i could take that payment"
+    },
+    {
+      "start": 3492.47,
+      "end": 3509.26,
+      "speaker": "jerod-santo",
+      "text": "in stretches so they could just come and just yeah that's right i'm willing to i'm willing to barter i could i could use a stretch yeah our body stretch can i close the loop on picadillos please do have you ever seen the movie goodwill hunting uh yeah at least once so robin williams"
+    },
+    {
+      "start": 3509.26,
+      "end": 3552.5,
+      "speaker": "adam-stacoviak",
+      "text": "character sean tells will this story about how his wife farts in her sleep oh yeah she farts and will cracks up about it she she sometimes she farts so loud she woke herself up oh right yeah i've done that and they're laughing about it and sean says uh that's the stuff that i remember because she's died she's dead right right and that's not a spoiler because that's like the start of the plot so trailer spoiler can you have a trailer spoiler it's probably in the trailer trailer spoiler okay and he says you know that's the stuff i remember you know the fact that she farted asleep which is funny and he says little things like that those are the things i miss the"
+    },
+    {
+      "start": 3552.5,
+      "end": 3565.61,
+      "speaker": "jerod-santo",
+      "text": "most the little idiosyncrasies that only i know about that's what made her my wife oh and she had the goods on me too she knew all my little picadillos and he goes on from there"
+    },
+    {
+      "start": 3566.65,
+      "end": 3579.05,
+      "speaker": "adam-stacoviak",
+      "text": "he's referring to idiosyncrasies and he uses the word picadillos and i just assumed that that was a word but i can't find that word anywhere else except for when robin williams said it as youtube we're talking about stretching or something i'm not sure what you guys are talking"
+    },
+    {
+      "start": 3579.05,
+      "end": 3583.05,
+      "speaker": "jerod-santo",
+      "text": "how would you spell that in your version of it jordan well i spelled it like picadillo square"
+    },
+    {
+      "start": 3583.05,
+      "end": 3622.09,
+      "speaker": "adam-stacoviak",
+      "text": "or sorry circus or circle and that was wrong but according to this website here called wiki quote is spelled p-e-c-c-a-d-i-l-l-o-s but you sort of know what it means even though it's not a word you totally know what it means actually it is a word i was probably just spelling it wrong all right a small sin or a fault a slight trespass or offense a petty crime a trifling fault so that's what i was talking about with go you know it was like this little sin of go right shadowing variables and stuff come on and not having built-in test assertions"
+    },
+    {
+      "start": 3622.65,
+      "end": 3650.25,
+      "speaker": "jerod-santo",
+      "text": "yeah the go team actually testify is banned at google at google i can oh is it and you don't use it anymore i know that yeah i do use it because there's lots of projects that use it but not on new stuff yeah i don't because um i just have a smaller version which is on my own github just called is and it's just like three or four methods the the you know testify has so much power in it it's one of those things where if you're a pro user and you're doing a lot of testing"
+    },
+    {
+      "start": 3650.89,
+      "end": 3654.57,
+      "speaker": "adam-stacoviak",
+      "text": "testifies for you and it's super popular so probably a bunch of people came by and added"
+    },
+    {
+      "start": 3654.57,
+      "end": 3678.33,
+      "speaker": "jerod-santo",
+      "text": "their own little peccadillos yeah and they've fixed it so now there's armadillos in it everything all kinds of delos yeah um yeah so many delos we did have the policy we had a policy of anybody that contributed a pr was added to the project so this was like an experiment really which i probably regret only because it meant that it just blew and it blew up it ballooned the api is"
+    },
+    {
+      "start": 3678.33,
+      "end": 3683.75,
+      "speaker": "adam-stacoviak",
+      "text": "enormous now did they get awards too or what happened there did you even mention them who"
+    },
+    {
+      "start": 3684.57,
+      "end": 3692.34,
+      "speaker": "jerod-santo",
+      "text": "oh mention who exactly exactly i don't know who i've slandered there because i genuinely didn't"
+    },
+    {
+      "start": 3692.34,
+      "end": 3702.9,
+      "speaker": "adam-stacoviak",
+      "text": "hear it did you matt when you took this open source award this medal this gold medal yeah did you mention all the little people that helped you along the way like all these contributors"
+    },
+    {
+      "start": 3702.9,
+      "end": 3712.42,
+      "speaker": "jerod-santo",
+      "text": "the picadillos yeah of course i did i mean i didn't give a speech anywhere but i said it i said it to myself out loud in the mirror oh there wasn't a speech this wasn't like an award"
+    },
+    {
+      "start": 3712.42,
+      "end": 3734.26,
+      "speaker": "adam-stacoviak",
+      "text": "show or something no it's just oh man i was hoping to like you know put the footage up and stuff that'd be nice well we could make that let's do it right now let's you should do an acceptance speech that we could send to them oh that's a lot of pressure this is good you can see i would have improvised it anyway matt here is your award for being great in open source go wow thank who do"
+    },
+    {
+      "start": 3734.26,
+      "end": 3834.58,
+      "speaker": "jerod-santo",
+      "text": "you want to thank i just want to thank all the little people first um they're tiny oh they're really far away either way but they helped you know and you don't have to have contributed a lot to open source like i have would testify the most important project in the world i think jared was that there were your words maybe uh you know but thank you very much for this uh lovely medal and um i'd like to thank thank all my family as well i'm holding it because it came on a ribbon so i'm just holding it up um yeah and you know keep open sourcing everyone bye that sort of thing that's everything not bad yeah now if you had to do that in song for instance yeah what would that sound like i would only have one hand because i'm holding the medal well just go strong hand only okay hold my strong hand hold my strong hand i want to thank all the little people i don't know why you're so tiny but you helped me make this project by tapping things in on your tiny keyboard oh baby one day you'll be big thank you for my award thank you for my award thank you for my lovely medal speaking of medals uh jared were you"
+    },
+    {
+      "start": 3834.58,
+      "end": 3896.54,
+      "speaker": "adam-stacoviak",
+      "text": "referencing like i was scary movie two at which point when you said take my strong hand no i was laughing at you because i know you said that uh previously during a pound of fine game after taylor trosh gave you that little hand at strange loop that's right and you held the little hand up and you said like take my strong hand that's what i was i was laughing because i knew that was a callback and i knew matt didn't know that was a callback so i was also laughing for that reason still got it i still got my hand he still has it there there it is take my strong hand so this is a this is a scary movie two quote it's actually a mandela effect oh it's not actually in there yeah people largely i'm talking like a massive population strongly emphatically believe that he said take my strong hand who in the in the movie i'd have to show you the clip i don't know the"
+    },
+    {
+      "start": 3896.54,
+      "end": 3902.92,
+      "speaker": "jerod-santo",
+      "text": "person's name but he actually said what take my little hand why don't they think he said strong"
+    },
+    {
+      "start": 3902.92,
+      "end": 3915.88,
+      "speaker": "adam-stacoviak",
+      "text": "then exactly mandela effect brah but why i don't know why mandela effect happens it just does huh yeah a lot of people believe i mean there's a lot of people who like i believe it i remember"
+    },
+    {
+      "start": 3915.88,
+      "end": 3921.08,
+      "speaker": "jerod-santo",
+      "text": "that you just told us he said that like five minutes ago i know but he didn't the truth is"
+    },
+    {
+      "start": 3921.08,
+      "end": 3939.24,
+      "speaker": "adam-stacoviak",
+      "text": "that he said take my little hand huh you take my little hand i didn't know a lot of people watched that movie and had commentary on it's a lot of people yeah it's a very popular unpopular film i mean it's it's scary movie too yeah exactly come on it's a sequel that's exactly"
+    },
+    {
+      "start": 3939.24,
+      "end": 3943.4,
+      "speaker": "jerod-santo",
+      "text": "my point you're making my point for me come on now i could imagine you saying you know when"
+    },
+    {
+      "start": 3943.4,
+      "end": 3949.32,
+      "speaker": "adam-stacoviak",
+      "text": "darth vader says luke i am your father he never says that well that's a shame honestly and that's"
+    },
+    {
+      "start": 3949.32,
+      "end": 3953.32,
+      "speaker": "jerod-santo",
+      "text": "a shame that's what everybody thinks he said why so why does everybody else believe that it's"
+    },
+    {
+      "start": 3953.32,
+      "end": 3957.88,
+      "speaker": "adam-stacoviak",
+      "text": "mandela effect mandela effect because it's kind of like what he should have said if george lucas"
+    },
+    {
+      "start": 3957.88,
+      "end": 3973.51,
+      "speaker": "jerod-santo",
+      "text": "was a slightly better writer i love that compression though right like you don't have to explain anything besides mandela effect that's just it that's right that's the the beauty of memes and compression but mandela did exist right he's not part of the mandela effect is he well"
+    },
+    {
+      "start": 3973.51,
+      "end": 4021.13,
+      "speaker": "adam-stacoviak",
+      "text": "he's the inventor of it unbeknownst to him are we talking about nelson mandela who are we talking about nelson mandela yeah yeah so to my knowledge this is what i know about it the the mandela effect came about because there was a large again a large population of people who emphatically believe that he had passed away years before he did not pass away so he passed away much later truthfully but people believed he had died many many years before that and there's a lot of people and they're like i remember seeing the headline i've ever seen the news reports etc etc meanwhile he did not and so this birthed this i suppose the name to the phenomenon that seems to have happened throughout history where you a large population misremembers or has memory of an alternate"
+    },
+    {
+      "start": 4021.13,
+      "end": 4027.13,
+      "speaker": "jerod-santo",
+      "text": "dimension oh right now if you go back to the oh right like that was just a totally normal thing"
+    },
+    {
+      "start": 4027.13,
+      "end": 4044.49,
+      "speaker": "adam-stacoviak",
+      "text": "to say what's the thing i'm trying to remember what the the somebody else would be a scientist here would know what i'm talking about it's the there's a place over in your area matt in in the european region i suppose where they have like a cern yes cern this collider yeah yeah tell me"
+    },
+    {
+      "start": 4044.49,
+      "end": 4050.41,
+      "speaker": "jerod-santo",
+      "text": "what's the call again the cern particle accelerator cern portrait accelerator there you go i like the"
+    },
+    {
+      "start": 4050.41,
+      "end": 4070.5,
+      "speaker": "adam-stacoviak",
+      "text": "way he says it so they believe that when this began to happen it started to create fractures and timelines and like alternate realities now i don't know how plausible this is but it's crazy as all get out though right like you're smashing particles together and you're rippling time and space and whatever and mandel effect there you go it should have"
+    },
+    {
+      "start": 4070.5,
+      "end": 4074.18,
+      "speaker": "jerod-santo",
+      "text": "called the jimmy carter effect you know because i thought he was dead a long time ago me too"
+    },
+    {
+      "start": 4075.62,
+      "end": 4083.46,
+      "speaker": "adam-stacoviak",
+      "text": "turns out he made it to a hundred that's why tomorrow i'm not celebrating i'm saying yeah like everybody's been more and i'm like listen the guy had a good life he died twice yeah i"
+    },
+    {
+      "start": 4083.46,
+      "end": 4102.74,
+      "speaker": "jerod-santo",
+      "text": "witnessed one of these there's a there was a guy uh he still is a guy uh called francis campoy who is oh yeah was big in the gogo community um i think he works at apple now yeah um he's great i love him actually um i should text him probably yeah anyway uh right now uh yeah and then while"
+    },
+    {
+      "start": 4102.74,
+      "end": 4110.42,
+      "speaker": "adam-stacoviak",
+      "text": "you do that sing and accepted a medal so we never finish your story we were in after some go"
+    },
+    {
+      "start": 4110.42,
+      "end": 4138.82,
+      "speaker": "jerod-santo",
+      "text": "conference he was talking about seeing freddie mercury in barcelona and my friend david and andes who i did machine box project with he was like yes i was there i saw that too and it turns out there was and then there was a guy there who was a big nerd on queen and freddie mercury and he said no it can't have been because he died the year before well they were like no no no no it was and and so yeah they they had they had it the mandela effect that's one of those moments where you think"
+    },
+    {
+      "start": 4138.82,
+      "end": 4167.21,
+      "speaker": "adam-stacoviak",
+      "text": "that perhaps you're in great harm you know like you're in harm's way do you well it's like it's like a twist at the end where you're like wait a second the call's coming from inside the house oh yeah yeah like it couldn't possibly be he's been dead for years and you're like because you know you just had lunch with him for instance right and and you have the refrigerator door open and as soon as you close it ah right and his hook is hanging on the rear view mirror"
+    },
+    {
+      "start": 4167.29,
+      "end": 4173.29,
+      "speaker": "jerod-santo",
+      "text": "oh yes i knew what you did last summer i knew it i know what i knew so freddie"
+    },
+    {
+      "start": 4174.62,
+      "end": 4179.34,
+      "speaker": "adam-stacoviak",
+      "text": "exactly oh my god the two f's oh yeah both freddies reminds me of a song"
+    },
+    {
+      "start": 4180.94,
+      "end": 4187.9,
+      "speaker": "jerod-santo",
+      "text": "the one about two r's how'd that go oh no there's no memory there's no memory double r i don't"
+    },
+    {
+      "start": 4187.9,
+      "end": 4201.77,
+      "speaker": "adam-stacoviak",
+      "text": "remember either it's actually triple reading writing arithmetic it's good isn't it why is he not singing we keep prompting him to sing but he won't do it you know that kid in on on that"
+    },
+    {
+      "start": 4201.77,
+      "end": 4217.19,
+      "speaker": "jerod-santo",
+      "text": "movie where bruce willis is dead the whole time trailer spoiler and also in the whole film he's dead he's dead the whole time and then they show you he wants to move it off you know right right yeah by now you know i think that ship has sailed i'm gonna go back and re-watch that movie actually"
+    },
+    {
+      "start": 4217.19,
+      "end": 4225.43,
+      "speaker": "adam-stacoviak",
+      "text": "that's a great movie by the way if my kids are listening to this stop right now actually a few seconds before this because we're gonna watch that together and i don't want them to be spoiled yeah"
+    },
+    {
+      "start": 4225.43,
+      "end": 4230.23,
+      "speaker": "jerod-santo",
+      "text": "yeah yeah but they love the matt ryer episodes tell them now just to stop listening a minute"
+    },
+    {
+      "start": 4230.23,
+      "end": 4244.79,
+      "speaker": "adam-stacoviak",
+      "text": "ago i just did but i know dang it it's great i have to go back in time well you can edit that yeah you could edit myself in in the future actually it's in the past depends on how you think about it okay but yeah good movie i do remember that jared i think you should talk to"
+    },
+    {
+      "start": 4244.79,
+      "end": 4271.51,
+      "speaker": "jerod-santo",
+      "text": "your kids and not rely on communicating with them through podcast but that's i'll consider it i'll take it under consideration yeah no but the little kids like i i see dead people and it's like yeah everyone can they don't go invisible when you die that's not a film this is not a film kid and i'd be if i was the bruce willis in that i'd be saying that to him i'd be like what are you talking about mate of course you can see dead people what are you talking about wait"
+    },
+    {
+      "start": 4271.51,
+      "end": 4277.11,
+      "speaker": "adam-stacoviak",
+      "text": "uh did you see then who was it it was a comedian that told this story about this film did matt"
+    },
+    {
+      "start": 4277.11,
+      "end": 4283.11,
+      "speaker": "jerod-santo",
+      "text": "just take his joke and act like it was his own no no but it reminds me of it because they said"
+    },
+    {
+      "start": 4283.11,
+      "end": 4345.27,
+      "speaker": "adam-stacoviak",
+      "text": "it was oh it was uh nate bergazzi and we love him because he's a very tasteful comedian he doesn't have to cuss or yeah he's clean anything hilarious you know egregious at all and he said it was more plausible to the listening and watching audience that his wife didn't want to talk to him than him being dead that was a version of his punch line it was more plausible that this woman was ignoring him for a year the whole film basically ignoring him completely then for him to be dead yeah what a shame no that's it's a good point what a shame so here's what i would like to have in life i'd like to have a matt gbt which is of course a musical intelligence that could answer my beck and call like if i had to say like hey matt gpt could you summarize this podcast you know because that because gpts can summarize man oh yeah they're good at that and sometimes they can summarize in musical fashion if they happen to be a musical matt gpt i see uh could i have one of"
+    },
+    {
+      "start": 4345.27,
+      "end": 4357.48,
+      "speaker": "jerod-santo",
+      "text": "those yeah i think so okay what key would you like it in by the way this is a flex because i'm you say the key and then i really play it in that key and then the listening audience musical people"
+    },
+    {
+      "start": 4357.48,
+      "end": 4373.88,
+      "speaker": "adam-stacoviak",
+      "text": "understand this but for me it's just more like stress because i don't know any more keys i already gave you a minor and i don't know the other ones yeah i mean and adam said p that's a joke that was b yeah is that a good one is that the same as a minor no it's not the same c major"
+    },
+    {
+      "start": 4373.88,
+      "end": 4511.77,
+      "speaker": "jerod-santo",
+      "text": "matt what's the best key for a summary uh that's a good question um probably e flat if we're just being honest which we haven't been well thank you for joining us i hope you had a good time baby because i know that i did i had a lovely time now it's time to go and get some r and r take it down have a relax and play some super mario oh if you got an ancient floppy disk on you yeah then you'll be fine when nuclear war breaks out and if you want to know how to make it out alive i suggest you get the slime mold to show you how wow this this is a family show yeah but how many kids listen i don't know probably not that many not yet anyway not yet anyway and now we've had a good time yeah we're going for some high stakes after this i like high stay this is my strong hand take it please take my strong hand i'll take you to cern and we'll discern if they've broken the universe and next time we'll see you on the changelog and friends now for some loopback white noise"
+    },
+    {
+      "start": 4525.99,
+      "end": 4657.16,
+      "speaker": "adam-stacoviak",
+      "text": "great job matt i actually think now that you've done that white noise i think they stole that from you yeah i think they gained your white noise bro you should get some licenses from them yeah bye friends bye y'all thanks matt take i'm thinking that matt was even more comfortable at the piano than he is with a guitar you can hear it and you can see it if you watch this episode on youtube yes we are shipping full-length video podcasts to our youtube channel this year like and subscribe why don't you at youtube.com change log and tell your friends too that'd be cool stay tuned changelog plus plus members for a 12-minute bonus all about the onion buying infowars.com and if you aren't a plus plus member that's our membership program that you can join to directly support our work make the ads disappear get free changelog stickers and get in on bonus content like plus plus only episodes and extended episodes like this one check it out at changelog.com slash plus plus people are saying it's better i'm not going to disagree with that one more thank you to our partners at fly and to our sponsors of this episode sentry notion and delete me please check out their work because they support ours and they make good stuff so it's a win-win-win next week on the changelog news on monday alicia white from embedded fm on wednesday and another fun episode of changelog and friends on friday have a great weekend share the changelog with your friends who might dig it and let's talk again real soon okay plus plus bonus don't go"
+    },
+    {
+      "start": 4657.16,
+      "end": 4667.1,
+      "speaker": "jerod-santo",
+      "text": "anywhere hang on i don't subscribe to this do i have to stop listening you made that joke last time no i didn't i just texted to you oh that's saying i said i'm gonna make this joke don't ruin"
+    },
+    {
+      "start": 4667.1,
+      "end": 4671.1,
+      "speaker": "adam-stacoviak",
+      "text": "don't call me out yeah don't call me on it oh shoot"
+    }
+  ]
+}

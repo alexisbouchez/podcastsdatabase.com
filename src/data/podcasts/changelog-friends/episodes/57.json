@@ -1,0 +1,1599 @@
+{
+  "title": "The Winamp era",
+  "description": "Jordan Eldredge discusses his decade-long WebAmp project, preserving over 100,000 Winamp skins, and the bizarre digital artifacts he discovered while investigating corrupt files.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "jordan-eldredge"
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 4.32,
+      "speaker": "jordan-eldredge",
+      "text": "WinAmp, WinAmp, it really whips the f-"
+    },
+    {
+      "start": 4.32,
+      "end": 81.08,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about mainlining WinAmp nostalgia. Thanks as always to our partners at Fly.io. Over 3 million apps have launched on fly and they just lowered their prices on Nvidia L40s GPUs. Check them out at Fly.io. Okay, let's talk. Hey friends, I'm here with Brandon Foo, co-founder and CEO of Paragon. Paragon lets B2B SaaS companies ship native integrations to production in days with more than 130 pre-built connectors or configure own custom integrations. Brandon, there's a certain level of pain that a product team or an engineering team has to endure to, let's just call it, rolling your own integrations. Help me understand that pain that angst for those teams. Help me understand that true pain of delayed integrations for a product not integrating or having to roll your own integration. This seemingly slower route to integrations."
+    },
+    {
+      "start": 81.08,
+      "end": 141.88,
+      "speaker": "jordan-eldredge",
+      "text": "I think for context, one of the reasons we started Paragon is that today the average company uses over 130 different software applications. So that means if you're a B2B software company selling into the markets, there's over 130 of your customer's applications that you probably need to connect your tool to. Because customers today expect that any product they buy is going to work seamlessly with the hundreds of other applications that they're using. Of course, we see this when companies come to us and they say, hey, we have a backlog of 10 or 20 or 50 integrations that our sales team has told us we're losing deals because customers are asking us to integrate with all these different apps. And we can't deliver on those integrations or maybe our competitors are integrating with these tools. And the problem that that results in for product and engineering teams, of course, is how do we build and maintain these integrations in a way that's scalable, that we can not just satisfy what customers are asking for us today, but we can maintain those integrations in a way that's scalable for the next hundred customers, the next hundred integrations that we need to build."
+    },
+    {
+      "start": 141.88,
+      "end": 164.1,
+      "speaker": "adam-stacoviak",
+      "text": "So for engineering, one of the challenges, obviously, the backlog and prioritizing time for certain features or integrations. But then there's this other side where you got to really learn every single API and everything is hand-rolled, custom, maintained. And over time that kind of gets, I got to imagine kind of taxing on teams. What do you think?"
+    },
+    {
+      "start": 164.1,
+      "end": 228.58,
+      "speaker": "jordan-eldredge",
+      "text": "So most engineers know that every API is completely different, can be completely different in terms of how they handle authentication, in terms of how they deal with different record types. And so it becomes this problem for engineering teams to basically have to become experts in other people's APIs and what could be dozens or hundreds of different APIs. And to build those integrations, we've seen can take as much as three to six months per integration for a developer to write the code to build that integration. And it depends on the use case, of course, and the type of product that you're integrating with. But of course, that becomes a massive challenge at scale when you're looking at how do we scale our product to support 10 or 20 or 50 different integrations. So again, Paragon was really designed to solve that problem and to distill the complexities and the nuances and the differences between hundreds of different SaaS apps into a single connecting platform, into a single SDK that your engineers can install in your app and then easily connect your products to all these different SaaS applications in the market."
+    },
+    {
+      "start": 228.58,
+      "end": 271.23,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Paragon is built for product management, is built for engineering, it's built for everybody. Ship hundreds of native integrations into your SaaS application in days or build your own custom connector with any API. Learn more at useparagon.com slash changelog again, useparagon.com slash changelog. That's U-S-E-P-A-R-A-G-O-N dot com slash changelog. I'm going to steal your words, Derek. How deep does the web amp slash win amp rabbit hole go? That's what we want to know. Jordan, you're back. It's been too long. How are you doing?"
+    },
+    {
+      "start": 271.23,
+      "end": 280.27,
+      "speaker": "jordan-eldredge",
+      "text": "Doing pretty good. It's a sunny day here in the Bay Area. Starting out a little early to meet with you all, but glad to be here and doing well."
+    },
+    {
+      "start": 280.27,
+      "end": 283.67,
+      "speaker": "adam-stacoviak",
+      "text": "What time is it for you? 8 a.m., I guess, right? I was going to say, are you a night owl or what?"
+    },
+    {
+      "start": 283.67,
+      "end": 287.67,
+      "speaker": "jordan-eldredge",
+      "text": "Well, you know, 8 a.m., pretty early for software engineers."
+    },
+    {
+      "start": 287.67,
+      "end": 301.45,
+      "speaker": "adam-stacoviak",
+      "text": "Sure. True. Fair enough. Glad you set your alarm for us this morning. Happy to have you. Still, after all these years, still hacking on Winamp, dude, or web amp, or just the world of Winamp."
+    },
+    {
+      "start": 301.45,
+      "end": 336.81,
+      "speaker": "jordan-eldredge",
+      "text": "You're still into it. Yeah. My little side project started back in 2014. I was looking it up this morning. I started… It's a decade. Yeah. Exactly. It's crazy. To try to replicate Winamp, this classic Windows Napster era MP3 player in the browser. Yeah, still, 10 years later, still fiddling with things either directly on that or building on top of it. I don't know. This would have been a little playground for me to explore all kinds of different things."
+    },
+    {
+      "start": 336.81,
+      "end": 388.77,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I'm sure we'll touch on this, but this is what I love most about the way you've leveraged this project. I would say leverage is the proper word because you've explored different, as you've said, subprojects because of web amp slash Winamp and this fascination, I suppose, with the nostalgia of it, but then uncovering more and more. How can we take more and more of this to the browser? How can we take the animated cursors and the different things like that and how the interfaces with WebAssembly and TypeScript and all these different problems, I guess, that come about? And then, obviously, the partnership, which I guess you could talk about with the Internet Archive and how that played out. This has been this interesting project for you. I imagine you'll go down in some version of history as the web amp slash Winamp person who just cared enough to take it there."
+    },
+    {
+      "start": 388.81,
+      "end": 484.23,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, I joke with some friends that it's been my backfilled university education in computer science. I didn't go to school for software, and this has sort of been, like I said, a little playground where anytime I'm interested in some topic, I'm able to draw a line, so be that playing with things, just browser APIs when I was just getting started, all the way through to file encoding and decoding and eventually compilers. I think it's just you have enough context in one area, and then whenever something new comes along, you're like, oh, I can connect that back to this thing. And I have some context there, which either gives me an excuse to play with something or things like that, and it's just been really, really great. And yeah, it also led to all kinds of interesting collaborations and opportunities to do work that actually ended up being kind of impactful in terms of, like I said, the partnership with the Internet Archive where we're able to preserve Winamp skins, which are like these sort of themes that people could create for Winamp and did in vast quantities. And yeah, that's felt like really an actual meaningful thing to do to take all this work that amateur artists and people just getting started in their careers, so many people who work in design now or even software got their start sort of tinkering with this stuff, and to be able to preserve it has felt really cool. So both an education for me and sort of accidentally some useful outcome for others."
+    },
+    {
+      "start": 484.23,
+      "end": 584.33,
+      "speaker": "adam-stacoviak",
+      "text": "Well, Winamp has a lot of nostalgia for many of us, especially I would call us age mates, those of us in the 30s and 40s who grew up really in the Web 1.0 era. In the Napster era, for sure, Winamp and Napster were like, for me at least, two programs that were just two pieces in the same pod, right? Like you download with Napster and listen to it in Winamp and too much free time as a youth and not really a robust Internet. There wasn't just streams of video content that you could just flip through and watch. So you really had to kind of tinker and toy to entertain yourself. And so you're listening to that new album that you shared of your own CD and then downloaded off of Napster from yourself, because it was all legal, as we all did. And then you're just tweaking your look. I mean, it was very much like the digital equivalent of pimping out your ride, you know, although because it's on a desktop in the 90s, like only people are going to see it are those who like come over and sit down next to you. But still, it was still so, what's the word, I don't know, just fun, enjoyable. It was just so much fun to do that, but I'm amazed at how many there actually are. I mean, the post that caught our eye or Adam's eye, I think this time was the bizarre secrets you found investigating corrupt Winamp skins. And we want to, of course, hear all about that, but one of the things that you talk about is just how many Winamp skins there are. Like your Winamp museum, your skin museum has like 100,000 or something like that. How many are there?"
+    },
+    {
+      "start": 584.33,
+      "end": 667.13,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. So we sort of started this partnership with the Internet Archive. So I was like trying to find different Winamp skins to test my WebAmp project. And I was like, oh, you know, I got to find all these different Winamp skins to like find all the edge cases. Because I'm basically reverse engineering this file format and it's not documented. So the examples in the wild are the spec. And that led to me collecting a few thousand and then I was like, oh, these are falling off offline. And websites that used to host them are no one paying attention to them. And so I was like, you know, we should try to grab up as many as we can. Someone put me in contact with Jason Scott at the Internet Archive. And so we started a collection there. And they actually did like an integration where the WebAmp players actually like loads up on the Internet Archive itself. So you could actually listen to like all their audio files in WebAmp. But then that announcement created the sort of flywheel where people were getting in touch and they're like, oh, I have a collection of these. And that's sort of what sparked the Winamp Skin Museum. And yeah, we just crossed 100,000 unique Winamp skins. Now that's like unique based on their MD5 hash. So there are some like, you know, re-encodings or version 1.1 point, you know, whatever. But yeah, it is like a pretty, I think a much larger number than I would have expected when I first started out on this journey."
+    },
+    {
+      "start": 667.13,
+      "end": 678.97,
+      "speaker": "adam-stacoviak",
+      "text": "That is a surprising number. And I wonder if those are all ancient or if it's, is there a retro Winamp skinning scene or are you just the one guy who's out there still doing stuff?"
+    },
+    {
+      "start": 678.97,
+      "end": 718.09,
+      "speaker": "jordan-eldredge",
+      "text": "I think to the extent that there is, it's like three people in the WebAmp Discord. Well, when we did the partnership with the Internet Archive, Luigi Hahn, who did sort of some of the like the great sort of classic Winamp skins, I think most notably, there's like a great Zelda one that he did. And he, to sort of celebrate that partnership, he made an Internet Archive Winamp skin, which sort of like is an ode to the building that they inhabit in San Francisco. And it's really great. So there are still sort of like here and there, people come around and do one or two. But yeah, definitely dominated by historical artifacts."
+    },
+    {
+      "start": 718.09,
+      "end": 727.08,
+      "speaker": "adam-stacoviak",
+      "text": "And what makes up an actual skin? I read it just a zip file, but certainly like if you were to describe the spec, what would that spec say?"
+    },
+    {
+      "start": 727.08,
+      "end": 782.16,
+      "speaker": "jordan-eldredge",
+      "text": "So like many file formats, it's really just a zip archive by another name. That's sort of like the wrapper, I guess you could call it. And then there's a convention of files inside of it, which are actually just like sprite sheets. So there are bitmap files and each file contains like all the buttons for the main window, but in like a very particular layout. And that's sort of the main bulk of it is these sprite sheet images. But then there's also some like INI files for like what colors should the text be or and there's even a region.txt file which says like define some like polygons of which areas of the skin should be transparent. So yeah, like a wide variety of just little different kinds of things that are in there and they all have file names that they're expected to be located at."
+    },
+    {
+      "start": 782.16,
+      "end": 794.92,
+      "speaker": "adam-stacoviak",
+      "text": "And do you know how people figured that out originally? Like did they reverse engineer the default skin or were there instructions on how to build a skin coming from the Winamp folks?"
+    },
+    {
+      "start": 794.92,
+      "end": 894.24,
+      "speaker": "jordan-eldredge",
+      "text": "So I think the backstory is that originally they didn't have anything like that. They just distributed it as a binary. And then people in the community started kind of like game modding. They would like unpack the binary, find where these image assets were, modify them, and then redistribute it as a new exe. And they saw enough people doing this. They're like, well, this is dangerous. And they're like, well, you know, there's this latent interest in doing this, which I guess speaks to what you were saying earlier about sort of this era and how we related to our music in that Napster era. And I think it really, like you said, it's people of sort of our generation that were coming of age and having, you know, I think as teenagers, we have a special relationship to the music that we listen to in our teens. And we, I think our generation had a very special time there, right? That Napster was this completely unprecedented musical transformation. And as we sort of lived through that, our experience of that music and how we listened to it was, you know, really personal. And so it makes sense that people would want to sort of tweak it out and make it their own. And yeah, so that was the original. And then I think there was sort of minimal documentation from the actual Knolsoft people and the community just sort of, there was sort of a canonical, if it was called like tutorial that, you know, everyone would sort of reference, maybe it was in like the forum or something like that. That's one, one user maintained."
+    },
+    {
+      "start": 894.24,
+      "end": 902.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's hard to overstate how groundbreaking and culture changing Napster really was for"
+    },
+    {
+      "start": 902.28,
+      "end": 903.28,
+      "speaker": "jordan-eldredge",
+      "text": "us."
+    },
+    {
+      "start": 903.28,
+      "end": 954.98,
+      "speaker": "adam-stacoviak",
+      "text": "Like it was the killer app of the internet for teenagers. It was the reason that I got a computer when I was younger. It was like, I need to listen to music, you know, and like my friends were doing it. And the stealing part wasn't even the point. It was just like, all of a sudden you now had unfettered access, which is what everybody has today. So we take it for granted. Like, of course, if I could pay $9.99 or $15.99 or whatever it is a month and be able to listen to every song pretty much in the world, I would have just done that instead of the whole Napster game, because it was also a huge time sink and like failed downloads and you get the file and it doesn't, it's like a really low bit rate version and you're like, ah, then you got to spend all this time futzing with the ID3 tags to make it look nice. And like, it was a ton of work for us. Thankfully we had free time, but before that, I mean, access to music was not straightforward. Yeah."
+    },
+    {
+      "start": 954.98,
+      "end": 1000.62,
+      "speaker": "jordan-eldredge",
+      "text": "I think especially as a teenager, right? Like you're limited in your funds and you know, you have to make sort of your really strategic moves as to which album you're going to get. And yeah, I think it really did completely, you know, change how we interact with music. And I think it was both the unfettered access to just like everything. And obviously the price point was attractive, but I think also there was like a feel of it too. Like the way as a teenager, you feel when you're sort of like pulling one over on the man. Right. And I think you tie that with music and you know, I think teenagers like their music to be a little, you know, edgy and counterculture rebellious and this sort of played into that."
+    },
+    {
+      "start": 1000.62,
+      "end": 1027.05,
+      "speaker": "adam-stacoviak",
+      "text": "I feel like. Yeah. For sure. But the alternative was terrible. I mean, you, you'd buy an album. I guess singles were a thing, but you'd spend 20 to $30. Okay. Used nine 99 for an album. And you would only know one song. A lot of the times, like you'd hear a song on the radio and of course you can't just hit repeat or anything like that. You got to either call in and request it or hope they just play it again."
+    },
+    {
+      "start": 1027.05,
+      "end": 1036.29,
+      "speaker": "jordan-eldredge",
+      "text": "Oh my gosh. Jared, can you, can you remember actually like calling into a radio station and waiting on hold? Absolutely. Yeah. Gosh. Nobody in this world today gets that."
+    },
+    {
+      "start": 1036.29,
+      "end": 1116.78,
+      "speaker": "adam-stacoviak",
+      "text": "And I did it way less. I remember my, my sister did it more than I did because she was three years older and I don't know. I had like a fear of phones, you know, like calling strangers was really difficult for me at that age. Yeah. Uh, not people my age, but older people. I don't know. It was like an anxiety. Yeah. I don't know what to say, but calling in a radio station was pretty straight forward because all you do is just request the song you wanted. Still I didn't do it very often, but my sister sure did it quite a bit. And yeah, just hoping they play your, your track, you know, but then you think, okay, here's a song that I like, I'm going to go acquire that song so I can listen to it. And you have to go spend 20 bucks to buy an album. And like nine times out of 10, that's the only good track on the whole album. I mean, that's why we love albums that are good so much because like, it's amazing back then to go buy an album and be like, holy cow, I can listen to all these songs when I really wanted the, the one I knew. And those are like why I think our generation also has a album fetish, so to speak. Like we care about albums as an, as an artifact more than songs, not more than songs, but in addition to the songs individually, whereas nowadays, you know, a lot of, a lot of new artists don't even release albums. They just release singles over and over again and you know, whatever works. For us. And they're called drops now. Oh yeah. Right? Not releases, they're drops. Is that what they call them? I believe so."
+    },
+    {
+      "start": 1116.78,
+      "end": 1134.74,
+      "speaker": "jordan-eldredge",
+      "text": "I believe so. And like all of that is downstream of this Napster, right? Like that now the unit of distribution is the file and not the, you know, the packaged CD and we sort of, all that, it was sort of at some point, inevitable the moment Napster, you know, came on the scene."
+    },
+    {
+      "start": 1134.74,
+      "end": 1157.5,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. There was no going back. A favorite album either of you like that you can know of like, this is end to end. I can push play on track one and stop at track 10 or 11, which is usually the number of tracks in an album. Maybe if a few more, maybe it's eight, somewhere between eight and 12 that you can literally, I mean, I have one of mine, so I'm curious if y'all have one of mine."
+    },
+    {
+      "start": 1157.5,
+      "end": 1166.5,
+      "speaker": "jordan-eldredge",
+      "text": "That's like favorite movie. I can't do just one. If you gave me a genre or like a, an activity, classic rock, classic Roxy, I can't even do that. That's, that's too big of a genre."
+    },
+    {
+      "start": 1166.5,
+      "end": 1189.88,
+      "speaker": "adam-stacoviak",
+      "text": "Like, okay, you're going to go lift weights. Then I would probably say AC DC back in black cause it's like the perfect kind of meathead weightlifting rock jock Anthem. Like that's a perfect one front to back in my opinion."
+    },
+    {
+      "start": 1189.88,
+      "end": 1194.48,
+      "speaker": "jordan-eldredge",
+      "text": "But there's so many that it's very difficult to say, but Adam, you have a one in mind, so please do."
+    },
+    {
+      "start": 1194.48,
+      "end": 1199.4,
+      "speaker": "adam-stacoviak",
+      "text": "I'm curious about Jordan. I'm going to put you on the spot, Jordan. I don't mind telling mine, but I think it's the best ever."
+    },
+    {
+      "start": 1199.4,
+      "end": 1268.1,
+      "speaker": "jordan-eldredge",
+      "text": "So well, I guess in, in keeping with the, you know, the, the Napster conversation, I feel like my musical interests were always a little, you know, not the, the jock Anthem, but the sort of off the beaten track thing. Really? And I think my, probably my favorite artist is, I don't know how well known he is. He has a cult following, but Tom Waits and his album Alice. And then actually my, like my main love of file sharing was related to opera. So I studied music in college and I was doing classical singing in high school. And so I was collecting all these opera recordings. So you know, I think I have, if you were to ask, you know, my very favorite recordings on disc, it would probably be an opera recording."
+    },
+    {
+      "start": 1268.1,
+      "end": 1273.78,
+      "speaker": "adam-stacoviak",
+      "text": "Wasn't Tom Waits the guy that Heath Ledger was channeling for his version of the Joker?"
+    },
+    {
+      "start": 1273.78,
+      "end": 1279.54,
+      "speaker": "jordan-eldredge",
+      "text": "I've never heard that before, but I can absolutely tell you that that's likely true having seen the movie."
+    },
+    {
+      "start": 1279.54,
+      "end": 1312.78,
+      "speaker": "adam-stacoviak",
+      "text": "Really? Yeah. I think that's the case. I think he, that like he came out and actually said that he goes inspired by Tom Waits and the way Tom Waits talks and sounds, which is very distinct and very interesting. Just way of communicating with people. And yeah, once you, once you hear that, then you watch the Joker, Heath Ledger, and you're like, Oh, okay. Makes sense. But Adam, you were going to tell us the best album of all times. I'm going to pause for one second and go one layer deeper on what you just said there. So quick cursory search lands me on of course the awesome website Reddit."
+    },
+    {
+      "start": 1312.78,
+      "end": 1313.78,
+      "speaker": "jordan-eldredge",
+      "text": "Yes."
+    },
+    {
+      "start": 1313.78,
+      "end": 1335.17,
+      "speaker": "adam-stacoviak",
+      "text": "And if this is accurate, it's two years ago, it says in 1979 Tom Waits interview that some believe inspired Heath Ledger's Oscar winning portrayal of the Joker. And this is showing it's all I'll put the link in the show notes of course. This is while Heath Ledger never confirmed this, the similarity between the vocals and mannerisms is uncanny."
+    },
+    {
+      "start": 1335.17,
+      "end": 1336.17,
+      "speaker": "jordan-eldredge",
+      "text": "I've seen that video."
+    },
+    {
+      "start": 1336.17,
+      "end": 1343.33,
+      "speaker": "adam-stacoviak",
+      "text": "I haven't watched it. I'm just kind of watching it in silent mode. So here in the, you know, live version of the show while it's being recorded, I can't"
+    },
+    {
+      "start": 1343.37,
+      "end": 1351.37,
+      "speaker": "jordan-eldredge",
+      "text": "confirm this, but I'm going to cue it up for yourself later. I've seen that video and it is uncanny. I travel extensively in Europe as well. Hmm."
+    },
+    {
+      "start": 1351.37,
+      "end": 1352.73,
+      "speaker": "adam-stacoviak",
+      "text": "I don't do half bad."
+    },
+    {
+      "start": 1352.73,
+      "end": 1356.49,
+      "speaker": "jordan-eldredge",
+      "text": "They tell me you have a new market now in Ireland. Is that true?"
+    },
+    {
+      "start": 1356.49,
+      "end": 1359.97,
+      "speaker": "adam-stacoviak",
+      "text": "I've performed in Dublin and done very well there as well."
+    },
+    {
+      "start": 1359.97,
+      "end": 1363.05,
+      "speaker": "jordan-eldredge",
+      "text": "You look like a leprechaun. You should do well there."
+    },
+    {
+      "start": 1363.05,
+      "end": 1369.09,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I, uh, I'm also big in Philadelphia."
+    },
+    {
+      "start": 1369.09,
+      "end": 1378.72,
+      "speaker": "jordan-eldredge",
+      "text": "Excuse me. I feel like I'm at my grandmother's look, listen."
+    },
+    {
+      "start": 1378.72,
+      "end": 1391.55,
+      "speaker": "adam-stacoviak",
+      "text": "I know why you choose to have your little group therapy sessions in broad daylight. I know why you're afraid to go out at night."
+    },
+    {
+      "start": 1391.55,
+      "end": 1399.5,
+      "speaker": "jordan-eldredge",
+      "text": "The Batman. It's what convinced me. I thought maybe he actually came out and said it, but yes, and he may have, cause this is"
+    },
+    {
+      "start": 1399.5,
+      "end": 1414.94,
+      "speaker": "adam-stacoviak",
+      "text": "not, like I said, it was like, it's Reddit, you know, it's one link. I just click one link. And so there's at least some version of, of confirmation there. Okay. So my favorite album of all time, literally of all time, I can put this in and it puts me in a mode."
+    },
+    {
+      "start": 1414.94,
+      "end": 1431.93,
+      "speaker": "jordan-eldredge",
+      "text": "Led Zeppelin album number four, Zoso, Black Dog, Rock and Roll, The Battle of Evermore,"
+    },
+    {
+      "start": 1431.93,
+      "end": 1447.77,
+      "speaker": "adam-stacoviak",
+      "text": "Stairway to Heaven. I mean, it's a forbidden track. You can't play that on guitar in guitar center. They'll throw you out. Misty Mountain Hop, Four Sticks, Going to California, and With a Love You Breaks, eight tracks. Amazingness. That's their best album ever."
+    },
+    {
+      "start": 1447.77,
+      "end": 1449.77,
+      "speaker": "jordan-eldredge",
+      "text": "Sergeant Pepper's anybody? Come on."
+    },
+    {
+      "start": 1449.77,
+      "end": 1451.05,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I'm, I'm a Beatle fan."
+    },
+    {
+      "start": 1451.05,
+      "end": 1456.21,
+      "speaker": "jordan-eldredge",
+      "text": "That's too obvious for Jordan. I'd probably go like Revolver. Oh really? River Soul."
+    },
+    {
+      "start": 1456.21,
+      "end": 1471.92,
+      "speaker": "adam-stacoviak",
+      "text": "I can't listen all the way through to Revolver myself, but there's a lot of variety in the Beatle. That's why everybody likes him. Something for everybody. Side note, I did hear that Jimmy Page destroyed his voice because of his voice. There you go. What's that mean?"
+    },
+    {
+      "start": 1471.92,
+      "end": 1473.92,
+      "speaker": "jordan-eldredge",
+      "text": "You destroyed his voice because of his voice? Well he sang."
+    },
+    {
+      "start": 1473.92,
+      "end": 1497.44,
+      "speaker": "adam-stacoviak",
+      "text": "So I mean, Jordan, you probably know this cause you probably pay attention as a singer, but I've heard that like Jimmy Page has this kind of like screechy voice. Like he screams. He does some quite loud singing and I think he destroyed his voice over the years. And as the band got older, they kind of had to stop touring because his voice just wasn't the same that people showed up for."
+    },
+    {
+      "start": 1497.44,
+      "end": 1527.49,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, that's pretty rough. I think the voice is a delicate instrument and if you got a rough touring schedule and you're doing that sort of ambitious, maybe not safe. As a classical musician, you spend a lot of time figuring out how do you project over an orchestra without hurting yourself. And I think you blow up as a rock musician, I don't think you have any of that training or also any of that patience or willing to compromise on your sound. You got to make the sound you want to make."
+    },
+    {
+      "start": 1527.49,
+      "end": 1533.49,
+      "speaker": "adam-stacoviak",
+      "text": "How did Mick Jagger do it? Cause man, the Stones toured for so long, you know, how does, how does one man's voice"
+    },
+    {
+      "start": 1533.49,
+      "end": 1536.81,
+      "speaker": "jordan-eldredge",
+      "text": "survive that level of use? I don't know."
+    },
+    {
+      "start": 1536.81,
+      "end": 1563.85,
+      "speaker": "adam-stacoviak",
+      "text": "A lot of tea with lemon and honey and maybe I would say a voice coach can help you utilize your voice. Sure. Jordan, you know this. I'm sure you had voice coaches or have been one yourself. Like the better you can understand how like the properties of your voice and how to protect them while utilizing them, I think is, is what some folks just don't get, but I can't imagine why would Jimmy Page not have that? Like he's a rock star."
+    },
+    {
+      "start": 1563.85,
+      "end": 1592.45,
+      "speaker": "jordan-eldredge",
+      "text": "A whole lot of singers, I think it's, you know, it may be that part of your sound is, you know, the production mechanism that isn't healthy, untangling. How do you, how do you compromise, you know, is it going to compromise your sound to make it healthy and finding that like balance between what am I willing to compromise on in terms of how I want to sound and how I want to be longevity or can I, you know, do I have the sort of control over my physiology to do it?"
+    },
+    {
+      "start": 1592.45,
+      "end": 1627.97,
+      "speaker": "adam-stacoviak",
+      "text": "And there's certain sounds your voice can produce. Like I think what you're saying is like there's things you can do that becomes your signature. And I was loosely saying Sia because she's well known for like those breaks in her voice. And those breaks is where obviously it's called breaks for a reason. I'm sure it's probably not good because there's something happening in your vocal chords that is not good, but it's also part of her signature sound as a singer. That's why I like her. I like her because she can really hit those notes while also breaking her voice and it has a unique Sia only sound. Yes, I am a Sia fan."
+    },
+    {
+      "start": 1627.97,
+      "end": 1646.89,
+      "speaker": "jordan-eldredge",
+      "text": "I already knew that about you. I got no problem with it, man. No room to talk because being a Tom Waits fan, you know, if anyone hasn't heard him, his voice is like, if you look up like quotes online of like describing Tom Waits' voice, there's a number of incredibly colorful descriptions, but it's like, you know, whiskey and broken glass or something. Yeah."
+    },
+    {
+      "start": 1646.89,
+      "end": 1657.49,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's not like the most like purely enjoyable sounds that he makes, but there, but it's so, like I said earlier, it's just an interesting sound, you know, what is his most popular"
+    },
+    {
+      "start": 1657.49,
+      "end": 1658.49,
+      "speaker": "jordan-eldredge",
+      "text": "song?"
+    },
+    {
+      "start": 1658.49,
+      "end": 1666.37,
+      "speaker": "adam-stacoviak",
+      "text": "I'm good question. I got to admit, I've never, to my knowledge, heard of the name. I may have heard of the music and heard the music, but I just don't know the name down"
+    },
+    {
+      "start": 1666.37,
+      "end": 1683.33,
+      "speaker": "jordan-eldredge",
+      "text": "in the hole. I think the original, if you watch The Wire, like the intro music was a song of his called Down in the Hole. And I think they did like each season, they did a different artist covering it, but I think the first season was him. So my one might be more recognizable to folks."
+    },
+    {
+      "start": 1683.33,
+      "end": 1684.33,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 1684.33,
+      "end": 1692.41,
+      "speaker": "jordan-eldredge",
+      "text": "But yeah, it's this very sort of like Louis Armstrong-esque kind of raspiness, but has a lot of character. Probably not great for his voice though."
+    },
+    {
+      "start": 1692.41,
+      "end": 1708.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Well, I'm listening to his most popular track and it doesn't ring a bell. I'm going to have to go back in time and listen to some of this because I was just never exposed to Tom Waits, unfortunately. There you go. What a sadness, man. He sounds pretty cool though. Go ahead, Jared. You got a Larry Deaver, go ahead."
+    },
+    {
+      "start": 1708.38,
+      "end": 1717.02,
+      "speaker": "jordan-eldredge",
+      "text": "Well, I was just speaking to Jordan's interest in more obscure art. I think that was one of Napster's strengths that when Napster went away and things that"
+    },
+    {
+      "start": 1717.02,
+      "end": 1805.22,
+      "speaker": "adam-stacoviak",
+      "text": "came after, specifically BitTorrent, for instance, we talk about the nature of protocols and how they inform certain things. BitTorrent is a protocol that was better the more people had the files, whereas Napster was a situation where you could find really obscure, different live stuff on Napster. And then I found later on BitTorrent, for instance, okay, if you have one person seating, you could still do it. But there was kind of this crowd effect on BitTorrent where everybody rushes to a thing, which is really great for big crowds because the more people are actually interested, the easier it is for everybody, the way it distributes out the downloads that you can get this part from this person, this part from that person, and it stitches it all back together again. I just found it really difficult to find obscure music because I also have very eclectic tastes. I like weird stuff that's out there as well as the classic rock stuff like ACDC. And man, you could just find anything on Napster. But then after that, there was kind of this down period where it was harder and harder to satisfy that musical itch because you just get bored of the same stuff, especially when I was young. I just got so bored. Whereas now as an older person, I kind of just listen to that stuff that I found back then. I don't get bored as much. It's like, nostalgia just carries me through. I'm still listening to the same stuff I found when I was 16, 17. But when you're young, you just want new, new, new, new, new."
+    },
+    {
+      "start": 1805.22,
+      "end": 1812.46,
+      "speaker": "jordan-eldredge",
+      "text": "First of all, more stuff is new to you because you have less experience with music. But nowadays I wonder how it is. I guess everything's just available."
+    },
+    {
+      "start": 1812.46,
+      "end": 1844.31,
+      "speaker": "adam-stacoviak",
+      "text": "I think music discovery is so strangely, I wouldn't say broken, but just never fixed. It's never been like, here's the way you find new music. I don't feel like that's even possible. There's nothing in Spotify that attracts me. There's playlists that are made for me based on things, but they're still not helping me discover. I discovered Tom Waits, given that I'm a diehard classic rock, kind of in that era fan. And I think he's probably in that realm to some degree. Nothing's ever been great for discovery."
+    },
+    {
+      "start": 1844.31,
+      "end": 1845.31,
+      "speaker": "jordan-eldredge",
+      "text": "Classic for sure."
+    },
+    {
+      "start": 1845.31,
+      "end": 1848.31,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, definitely classic. I'm not sure about rock. More folky."
+    },
+    {
+      "start": 1848.31,
+      "end": 1850.31,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. Kind of, I don't know."
+    },
+    {
+      "start": 1850.31,
+      "end": 1853.99,
+      "speaker": "adam-stacoviak",
+      "text": "How would you genre-fy Tom Waits? Maybe bluesy, folky. Yeah."
+    },
+    {
+      "start": 1853.99,
+      "end": 1858.79,
+      "speaker": "jordan-eldredge",
+      "text": "I would say like, I mean, he's, I guess the cliche would be that he transcends genre."
+    },
+    {
+      "start": 1858.79,
+      "end": 1859.79,
+      "speaker": "adam-stacoviak",
+      "text": "Sure."
+    },
+    {
+      "start": 1859.79,
+      "end": 1868.07,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. Definitely like blues, blues and rock and maybe some sort of like, you know, barroom jazz kind of stuff."
+    },
+    {
+      "start": 1868.07,
+      "end": 1869.07,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 1869.07,
+      "end": 1990.59,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. Yeah. I think it's interesting how like, you know, all our algorithms are sort of designed to solve that problem. And I think to some degree they do. Like I feel like, you know, if you like ask Spotify to like play some artist and it runs out of tracks for that artist, it'll be like, I'm just gonna make up some more tracks to play for you that I think are similar. And I feel like I have discovered some things in that way. Which is interesting. You know, I think we have, we had these systems of, you know, libraries and record stores and they had some discoverability built in, but only sort of as an accidental artifact of, you know, oh, well, we need to find something to let you find the thing you want to buy. And in the process, well, we have to sort of organize them and then we're going to end up with, you know, things organized by genre and you'll stumble across, you know, someone adjacent to the thing that you're looking for. And I think you see this like in bookstores too, where you're like browsing along and you're like, oh look, there's this like, you know, I'm in the sci-fi section and I've never seen this before. This looks interesting. And then when we went online and everything, you know, it's like, well, if you want the thing, you just go straight to the thing. You don't need to spend, you know, all, waste all this time browsing through, but along the way we shed this accidental piece of like, well, we had this, you know, browsing based discoverability and in the name of efficiency, we sort of let that go, which I think is right. I don't, I'm not passing like a value judgment on it, but we're sort of now being like, okay, well we accidentally had a solution to that problem that maybe wasn't ever designed and it wasn't necessarily perfect, but we sort of dropped it and now we're sort of, okay, how do we backfill that? And I think sort of this algorithmic solution is what's has emerged, but yeah, it does make you wonder if there's better or maybe those algorithms will get better over time. And, but it's, it is interesting that we had it sort of as a, as an accident and now we have to design it from scratch as an actual solution."
+    },
+    {
+      "start": 1990.59,
+      "end": 2050.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Plus we have a gluttony of riches at this point. I mean, there's so much music that there's something for everybody and there's a lot for everybody. I mean, you talk about going off the end of a playlist and it just keeps playing. I mean, I hear good new stuff all the time, but I don't really stop to catalog and be like, who's this person? And I'm going to go ahead and dive into their whole back catalog. Like I used to, maybe that's just a function of age or time availability as well, but there's like another good song coming on after this. And so maybe things are like less sticky cause there's just, especially when you're listening to a lot of the music I listen to as well, working or while coding and I mean, lo-fi and electronic and stuff like that stuff all just kind of flows into one long life track. You know, like I can't very easily break out individual pieces and say like, wow. Whereas back in the day it was just like, well, sandstorm is all you had access to. So we're all going to like sandstorm. Aren't we?"
+    },
+    {
+      "start": 2050.55,
+      "end": 2088.79,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. And I did form a much closer sort of, you know, relationship with the artists. Cause you're like, well, I, I make, this is my one album that I'm getting this month or whatever. And so like, you know, I'm going to live with it and then I'm going to sort of make a really intentional decision about what I'm getting. And now it is so, you know, okay, well onto the next thing. I will be interesting to see how, you know, sort of the younger generations, I say as an old man, we'll have a really different relationship with music that is maybe more track-based and just, I like the song. I don't even know who the artist is or I don't know, it'd be interesting to see."
+    },
+    {
+      "start": 2088.79,
+      "end": 2229.34,
+      "speaker": "adam-stacoviak",
+      "text": "I think there's also this connection. There was actually an announcement, I believe between, it was META's music deal. Jared, you may have seen this in snacks today, Universal Music Group and META expand their partnership as labels lean on social media. I think today's exposure for, I mean, music is culture or it's representative culture at least. And it's like the algorithm and what I was talking about, like discovering to me is some version, some pulse towards culture and that culture could be, hey, I'm X, Y, Z years old. So my culture and desire to tap into it is different than somebody else's, but it's this idea of like connecting me to culture that I find relevant to me or a culture I find worthwhile pursuing or understanding more of or being curious about. But this, this Universal Music Group deal with META, I think is representative of how, I don't want to say young people either, but I feel like just generationally, generationally how we tap into or come to know more music. For example, I didn't know the Watermelon Sugar song from Harry Styles until I heard it via TikTok and then it was blended and I'm going to put it in this, well, maybe Jared you can, cause you'll do the show, mastering at least. We have a track that we inspired by Watermelon Sugar and Seaside. There's this remix that was only on social media, only really available as social media. It was never an official track. I'm not even sure if Harry Styles and this other artist that I have no idea who the name is of this person talking about how we don't connect with the artist because it just sort of goes by so fastly. But at the same time, I thought it was a really cool blend between Watermelon Sugar and this song called Seaside. And anybody who hears it, you would think that this, that version, that remix is the original. And if you were like me, the first time you ever heard it, you only heard this remix version, you're like, that's the OG, that's the original. And that's not true. But the point I'm getting at is that, is my exposure to this new music, even like Meke"
+    },
+    {
+      "start": 2229.34,
+      "end": 2242.3,
+      "speaker": "jordan-eldredge",
+      "text": "Baa, gosh, who's heard the song Meke Baa?"
+    },
+    {
+      "start": 2242.3,
+      "end": 2244.3,
+      "speaker": "adam-stacoviak",
+      "text": "I have. Okay, good."
+    },
+    {
+      "start": 2244.3,
+      "end": 2245.3,
+      "speaker": "jordan-eldredge",
+      "text": "I didn't want to be alone here."
+    },
+    {
+      "start": 2245.3,
+      "end": 2246.3,
+      "speaker": "adam-stacoviak",
+      "text": "Jordan?"
+    },
+    {
+      "start": 2246.3,
+      "end": 2248.3,
+      "speaker": "jordan-eldredge",
+      "text": "It's very catchy. I may have, but I don't recognize it by any means."
+    },
+    {
+      "start": 2248.3,
+      "end": 2249.3,
+      "speaker": "adam-stacoviak",
+      "text": "Well, it's a viral thing right now."
+    },
+    {
+      "start": 2249.3,
+      "end": 2250.3,
+      "speaker": "jordan-eldredge",
+      "text": "It's a very catchy song."
+    },
+    {
+      "start": 2250.3,
+      "end": 2312.2,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. There's several like that, that you, that at least I've discovered, not through pushing play on Spotify or WebAmp or WinAmp or some, some different version of listening to music. It's been through a swipe or a click or something like that. And it's been the track to someone building something or someone making cookies or whatever it might be. So that's kind of interesting how music exposure has not come from pushing play or an algorithm or a playlist. It's come through interest and following of different creators or influencers or whatever you want to call those folks. It's that cultural press or swipe that happens that the music comes with it. And I think the labels have now found the new Napster is a swipe away on social media. It's not, and it still is free. Like you're not paying necessarily for TikTok or Instagram. You're sort of there in your data is the payment so to speak."
+    },
+    {
+      "start": 2312.2,
+      "end": 2318.24,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. The social media specifically, TikTok, Instagram reels, and then probably in third place YouTube"
+    },
+    {
+      "start": 2318.24,
+      "end": 2374.89,
+      "speaker": "adam-stacoviak",
+      "text": "shorts. But as I've been, I post our stuff to these places, it's all the same content. People at this point are just posting to everything, but that's definitely become like the new exposure for new artists. Like you, you want to go TikTok viral. And so that's changed the actual music as well because now people are then what do we do? Well, we feed the beast and they're like, well, what does the algorithm want? Well, these are the kinds of songs that are catchy and short and have like, you know, 0.7 seconds before the drop or whatever it is like you're going to get that there's people out there trying to figure it out and writing music for that, which you can kind of say it's a shame because you know, you want to write music for other reasons, but I think it's just a fact of history that the. The medium very much is the message it always has been. And so when people were making albums, they were writing albums and when people were trying to get TikTok viral, they're going to make TikTok music. You know, that's just kind of how it probably always has been."
+    },
+    {
+      "start": 2374.89,
+      "end": 2468.57,
+      "speaker": "jordan-eldredge",
+      "text": "And so, yeah, I mean, you think about, I mean, even going back to classical music, right? The sort of publication of music for, you know, to be played in the home, it's like the original album was like a book that you would buy and play at your home piano. And then that goes all the way through to, you know, how did artists write their music to fit on album? They had to think about their music as a cohesive, you know, nearly hour long piece or whatever. And maybe that was great. Maybe that inspired some artists who wanted, who were great. And that was how they would have wanted to create anyway. But then we got to, you know, the sort of radio play and it's like, well, now you got to write for the radio and, you know, we're now in our, in our sort of new era, but I think there's something interesting about the, you know, you were saying like discovery of music being both personal, but I think there's also this like longing for some kind of, you know, as we have gone, everything is personal, right, on the internet. Everything is tailored to you. Everything is exactly what you want, you know, exactly tailored to your taste. There's a gluttony of options available to you for, you know, tailor made to exactly your tastes. But I think then we also crave this sort of connection of like, well, what are the pieces that pull us together, you know, that we can sit down in this, you know, in this podcast and have things in common, we're like, oh, yeah, the watermelon sugar song, like, yeah, we all know what that is. And I think there's, there's like sort of two different pieces. There's like, what is the thing that is like perfectly going to resonate with me, but also what is the thing that's going to, you know, I'm going to get to talk about with my coworkers or, you know, in the schoolyard or whatever it is."
+    },
+    {
+      "start": 2468.57,
+      "end": 2470.57,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Schoolyard."
+    },
+    {
+      "start": 2470.57,
+      "end": 2472.28,
+      "speaker": "jordan-eldredge",
+      "text": "Nice."
+    },
+    {
+      "start": 2472.28,
+      "end": 2473.28,
+      "speaker": "adam-stacoviak",
+      "text": "The playground."
+    },
+    {
+      "start": 2473.28,
+      "end": 2477.36,
+      "speaker": "jordan-eldredge",
+      "text": "We're on the playground. For the youngsters. For the youngsters out there in the schoolyard."
+    },
+    {
+      "start": 2477.36,
+      "end": 2495.63,
+      "speaker": "adam-stacoviak",
+      "text": "Gosh. Well, I mean, that brought up a memory, like literally as you said that, when I actually, I said playground, that brought the memory up, but you brought the memory up because you said what you said. Full backstory. I remember the very first Guns N' Roses album when I was like fifth or sixth grade on the playground. I'm talking about my good friend, Jason Kolick."
+    },
+    {
+      "start": 2495.63,
+      "end": 2496.63,
+      "speaker": "jordan-eldredge",
+      "text": "Shout out to Jason."
+    },
+    {
+      "start": 2496.63,
+      "end": 2521.61,
+      "speaker": "adam-stacoviak",
+      "text": "We were on the swing set. We were talking about, you know, Mr. Brownstone or whatever, like, that's crazy how far back that goes for me to remember that album. And I'm still listening to the album, like almost to this day, not on the daily, but I will definitely turn on Welcome to the Jungle and be a very happy person because it's like, you know, let me, like you said, Jared, let me go lift some weights or throw some kettlebells with that track because it's, it's very rocky."
+    },
+    {
+      "start": 2521.61,
+      "end": 2525.27,
+      "speaker": "jordan-eldredge",
+      "text": "For sure."
+    },
+    {
+      "start": 2525.27,
+      "end": 2551.47,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, I'm here in the breaks with one of my new friends over at 1Password, Martin Shosh, software developer at 1Password on the SDK team. 1Password now has SDKs as well as their CLI that allows you to build secrets management integrations using Go, JavaScript, or Python, and they're available right now. So Martin, how can developers use these SDKs today? Give me some examples. Yeah."
+    },
+    {
+      "start": 2551.47,
+      "end": 2556.87,
+      "speaker": "jordan-eldredge",
+      "text": "So the, the CLI was built more for managing your 1Password account and accessing it from"
+    },
+    {
+      "start": 2556.87,
+      "end": 2575.99,
+      "speaker": "adam-stacoviak",
+      "text": "the terminal and writing various scripts for local automations, but the SDKs really go a step beyond that, where you can build these automations into other pieces of software. You can run them in cloud functions. You can build them into your natively running desktop apps, which now are also able to leverage"
+    },
+    {
+      "start": 2575.99,
+      "end": 2583.47,
+      "speaker": "jordan-eldredge",
+      "text": "functionality such as loading data from 1Password, rotating secrets in 1Password, creating new items and more."
+    },
+    {
+      "start": 2583.47,
+      "end": 2602.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So in addition to this awesome new functionality, you're going to give developers to leverage 1Password in such unique ways. I think it's also worth noting how you built these SDKs. You have a core Rust library that generates these various SDKs. What's the backstory?"
+    },
+    {
+      "start": 2602.05,
+      "end": 2608.05,
+      "speaker": "jordan-eldredge",
+      "text": "When we started the SDK project, one of our goals was to really build the SDKs in a scalable"
+    },
+    {
+      "start": 2608.05,
+      "end": 2650.53,
+      "speaker": "adam-stacoviak",
+      "text": "way where a relatively small team can maintain multiple SDKs at the same time, and we can add support for more languages and also add more functionality to them as time goes on. To achieve that level of scalability, we designed the SDKs in a way that they all leverage a shared Rust library that's written once and it has all the features of all the SDKs inside of it. Now to make this library accessible in each language, we generated a wrapper for that library in each of the supported languages. This wrapper code is automatically generated, so this gives us even more speed, agility"
+    },
+    {
+      "start": 2650.53,
+      "end": 2662.61,
+      "speaker": "jordan-eldredge",
+      "text": "when adding new features to the SDKs because we just add the feature to the SDK core library and each of the SDKs automatically gets updated to expose the new functionality in all of the languages."
+    },
+    {
+      "start": 2662.61,
+      "end": 2707.7,
+      "speaker": "adam-stacoviak",
+      "text": "That's so cool. Okay. The next step is to go to 1Password.com slash changelawpod. They've given our listeners an exclusive extended free trial to all the developers out there to use 1Password for 28 days. That's not 14 days, but 28 days. They doubled it. Make sure you go to 1Password.com slash changelawpod to get that exclusive signup bonus or head to developer.1password.com to learn about 1Password's new SDKs available right now, their amazing developer tooling, their CLI, their SSH and Git integrations, their CI CD integrations, and so much more. Again, 1Password.com slash changelawpod or developer.1password.com to learn more."
+    },
+    {
+      "start": 2707.7,
+      "end": 2724.46,
+      "speaker": "jordan-eldredge",
+      "text": "Do you remember who told you about Napster or what was that like on the schoolyard as well? I think for me, it was in the yearbook, whatever room the yearbook class was in. I was talking with someone there and there was a computer and they're like, oh, look at this thing."
+    },
+    {
+      "start": 2724.46,
+      "end": 2771.46,
+      "speaker": "adam-stacoviak",
+      "text": "I remember mine as well. But even more distinctly, I remember my very first exposure to grunge music and Nirvana in specific because I went to a birthday party. I think it was fifth grade going into sixth grade, so like going from grade school into middle school and it was a birthday party with some people that I didn't know quite so well. So it was kind of like a new group of kids. And up to that point, I was basically listening to what my sister was listening to. She's three years older and a girl and so she liked boy bands. I mean, it was like new kids on the block and that kind of stuff. Boys to men, a lot of R and B, stuff like that. So like prior to that, my only tape, which now I'm dating myself, I had a tape. I think Aladdin, which good tunes for Aladdin. But you know, that's the kind of music that I was thinking, Aladdin and new kids on the block."
+    },
+    {
+      "start": 2771.46,
+      "end": 2774.46,
+      "speaker": "jordan-eldredge",
+      "text": "Aladdin? Like the movie Aladdin? Yeah."
+    },
+    {
+      "start": 2774.46,
+      "end": 2776.46,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. You know, it's got a great soundtrack."
+    },
+    {
+      "start": 2776.46,
+      "end": 2778.46,
+      "speaker": "jordan-eldredge",
+      "text": "Go back and check it out, dude. Yeah, I'm down."
+    },
+    {
+      "start": 2778.46,
+      "end": 2779.46,
+      "speaker": "adam-stacoviak",
+      "text": "Robin Williams is on that."
+    },
+    {
+      "start": 2779.46,
+      "end": 2784.62,
+      "speaker": "jordan-eldredge",
+      "text": "Lots of good people recently reintroduced that movie and album to my eight year old daughter and it holds up."
+    },
+    {
+      "start": 2784.62,
+      "end": 2786.62,
+      "speaker": "adam-stacoviak",
+      "text": "It's really good. Yeah."
+    },
+    {
+      "start": 2786.62,
+      "end": 2802.34,
+      "speaker": "jordan-eldredge",
+      "text": "Really good music. Oh it's sad. Parents accept he hasn't gone home. Gotta eat to live, gotta still to eat, tell you all about it when I got the time."
+    },
+    {
+      "start": 2802.34,
+      "end": 2820.1,
+      "speaker": "adam-stacoviak",
+      "text": "But I go into this birthday party and like the very first time I heard Nirvana, specifically it was in utero was the album. It was not, nevermind, which is what it was that most people are spinning, smells like teen spirit, but this was in utero and I just couldn't believe like, I'm like, what are these sounds?"
+    },
+    {
+      "start": 2820.38,
+      "end": 2848.94,
+      "speaker": "jordan-eldredge",
+      "text": "But I also had to act like I was just like, I'm like, oh you guys, you know, like just"
+    },
+    {
+      "start": 2848.94,
+      "end": 2863.82,
+      "speaker": "adam-stacoviak",
+      "text": "playing it cool. I had no idea. I was listening to Aladdin on the way over and now, and it was like from, from then on out I was like, I was Nirvana boy for like two and a half years until I, so I found Pearl Jam and Stone Temple Pilots and the whole grunge scene really just swept over me."
+    },
+    {
+      "start": 2863.82,
+      "end": 2866.22,
+      "speaker": "jordan-eldredge",
+      "text": "Oh yeah. STP for life, man."
+    },
+    {
+      "start": 2866.22,
+      "end": 2870.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Pearl Jam for life. Absolutely. Even flow."
+    },
+    {
+      "start": 2870.35,
+      "end": 2873.35,
+      "speaker": "jordan-eldredge",
+      "text": "Right? Oh yeah. Pearl Jam's still out there."
+    },
+    {
+      "start": 2873.35,
+      "end": 2876.67,
+      "speaker": "adam-stacoviak",
+      "text": "They're still doing stuff. Just slaying it still yet. I don't know how they do it."
+    },
+    {
+      "start": 2876.67,
+      "end": 2880.51,
+      "speaker": "jordan-eldredge",
+      "text": "Fortunately, Nirvana and Stone Temple Pilots had unfortunate ends."
+    },
+    {
+      "start": 2880.51,
+      "end": 2897.85,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I mean, that's how it works out I guess. Speaking of tape or a cassette tape, I should be more specific, that Zoso album was, I owned it on tape and you had to flip it, right? Like you had to get to like track five."
+    },
+    {
+      "start": 2897.85,
+      "end": 2901.61,
+      "speaker": "jordan-eldredge",
+      "text": "Sometimes you had to stick a pencil in there and rewind it. You ever do that when it gets?"
+    },
+    {
+      "start": 2901.61,
+      "end": 2913.77,
+      "speaker": "adam-stacoviak",
+      "text": "I suppose. Yeah. Like I had like my Honda CR-V. No, CR-X. Not CR-V. That was the, it was a 1985 Honda CR-X. It was red tape deck in it."
+    },
+    {
+      "start": 2913.77,
+      "end": 2914.77,
+      "speaker": "jordan-eldredge",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 2914.77,
+      "end": 2915.77,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, just terrible speakers."
+    },
+    {
+      "start": 2915.77,
+      "end": 2939.14,
+      "speaker": "jordan-eldredge",
+      "text": "Jordan, did you ever own a tape deck? I did. I had like some, I feel like I was mostly like, you know, I didn't think I have like like legit tapes. I had like, you know, tapes that a friend like copied off of his dad's tapes or something like that. Sure. But going to the eclectic musical taste, I think I had like two Weird Al tapes. So definitely like a lover of, of novelty music."
+    },
+    {
+      "start": 2939.14,
+      "end": 2962.94,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I still listen to Weird Al with my boys. That was the heir of parody for him at least. He definitely did a great job of that. He was the best. You know, I got to admit this though, like I didn't get to enjoy Napster like you all did. No. And the reason why I was looking at this because we now have LLMs and you can ask it any question and it will give you a pretty brief, but hopefully mostly non- Somewhat true. Who's hallucinogenic answer. Somewhat true answer."
+    },
+    {
+      "start": 2962.94,
+      "end": 2969.62,
+      "speaker": "jordan-eldredge",
+      "text": "Probably, probably equal, equal, you know, equally hallucinatory as our recollections of the past."
+    },
+    {
+      "start": 2969.62,
+      "end": 3014.46,
+      "speaker": "adam-stacoviak",
+      "text": "Well, let's see. Tell me if this concurs then because I just asked it, what year, what was the year of Napster? Cause I was thinking, I do recall a time with Napster, but it was brief and I was trying to figure out like why. And so Napster, according to GPT 4.0 was launched in June of 1999. It was the one of the first widely used peer-to-peer, P2P file sharing services, primarily known for sharing digital music files, MP3s. And it says, only one more sentence, Napster quickly became popular, but also faced significant legal challenges for the music industry leading to its shutdown in 2001. And so the reason why, first, does that translate to what y'all remember in terms of timeline?"
+    },
+    {
+      "start": 3014.46,
+      "end": 3023.5,
+      "speaker": "jordan-eldredge",
+      "text": "That matches my hallucination. Yeah, absolutely. I would have probably dated it a little earlier, but it definitely is probably true. I would've been wrong."
+    },
+    {
+      "start": 3023.5,
+      "end": 3063.86,
+      "speaker": "adam-stacoviak",
+      "text": "So I was thinking like one year later potentially in terms of a shutdown, but I could be wrong like 2002, but I think it's probably 2001. Okay. The reason why was because I went into the military in 1998 and I don't know what you all know about going in the military, but like we're, we're deprived of most things that culture really gets access to. We're meant to be soldiers, we're meant to be focused and mission minded. And so as a young 18 year old going on 19, I did not have the luxury of having extra cash for things. And so at that time, I think I actually bought my very first Discman. Yes, Discman. Oh yeah."
+    },
+    {
+      "start": 3063.86,
+      "end": 3064.86,
+      "speaker": "jordan-eldredge",
+      "text": "Sony Discman."
+    },
+    {
+      "start": 3064.86,
+      "end": 3068.86,
+      "speaker": "adam-stacoviak",
+      "text": "Not a Walkman. A Discman. Oh yeah. Walkmans were before that, but it was Walkman."
+    },
+    {
+      "start": 3068.86,
+      "end": 3071.5,
+      "speaker": "jordan-eldredge",
+      "text": "Discman was terrible because it just skipped all the time."
+    },
+    {
+      "start": 3071.5,
+      "end": 3077.38,
+      "speaker": "adam-stacoviak",
+      "text": "It did skip. But then you had the anti-skip, which meant it would like have a 10 second buffer, which was amazing."
+    },
+    {
+      "start": 3077.38,
+      "end": 3078.38,
+      "speaker": "jordan-eldredge",
+      "text": "It would just sit there for a while."
+    },
+    {
+      "start": 3078.38,
+      "end": 3080.46,
+      "speaker": "adam-stacoviak",
+      "text": "The coolest tech ever, but it would still skip a little bit."
+    },
+    {
+      "start": 3080.46,
+      "end": 3081.46,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3081.46,
+      "end": 3101.72,
+      "speaker": "adam-stacoviak",
+      "text": "Right. So I did not have a digital download, didn't have a computer. So access to this connectivity was limited to a lot of people at that time. Although there was a large part of culture, large part of culture that actually had access, but I was in the military from 98 till 2001. So I was in this."
+    },
+    {
+      "start": 3101.72,
+      "end": 3104.72,
+      "speaker": "jordan-eldredge",
+      "text": "You missed a lot. You missed the best year in movie history. You missed Napster."
+    },
+    {
+      "start": 3104.72,
+      "end": 3136.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly. 1999. So I was in this, you know, multi-year depravity because of the military, which was great in many regards, but I didn't have access. Now towards the end of my military career, my battle buddy had a computer and we were doing some of these things, but like even then I didn't have time really. I mean, just didn't have, my focus was elsewhere, but later on in 2001, I do recall Napster downloading a bunch of stuff. Then it, as you mentioned, you're turning it a bit torrent. Then it was the thing called tracker tracker."
+    },
+    {
+      "start": 3136.64,
+      "end": 3138.4,
+      "speaker": "jordan-eldredge",
+      "text": "Do either of you recall tracker tracker?"
+    },
+    {
+      "start": 3138.4,
+      "end": 3170.1,
+      "speaker": "adam-stacoviak",
+      "text": "Well, there was a bunch of stuff. So right when Napster died, right. Cause it went like the lights went out, you know, cause it was a legal action. It was like shut down. And when that died, there was a bunch of stuff that sprung out. Bit torrent was the eventual, I think replacement, so to speak of that kind of content. But there was like lime wire and there was Nutella and there was probably tracker tracker. Like there was, you know, just like when the lights come on and the cockroaches scatter, like we were all scattering to find some other way of getting some music, you know, and there's tons of stuff."
+    },
+    {
+      "start": 3170.1,
+      "end": 3233.02,
+      "speaker": "jordan-eldredge",
+      "text": "Well, I think like the one, one of those examples going back to Winamp was, you know, Winamp obviously sort of blew up and became very popular and then eventually sold slash sold out. But you know, you got to do what you got to do to AOL for like, you know, $10 million or something, which was huge at the time. And its founder, Justin Frankel, you know, he went on at AOL to, you know, he sold out maybe, but he didn't sort of sell out in his soul. And you know, he was like a troublemaker there at AOL, you know, at this time where they're trying to merge or be acquired by or whatever it was with Time Warner, obviously giant, you know, music catalog. And he was like releasing peer to peer file sharing software, like on AOL servers, like just like an open source thing that he wrote or like a, you know, freeware thing he wrote and there's like, here it is. And they're like, no, you can't do that. He's like, I don't know. I kind of just did. Is he still around?"
+    },
+    {
+      "start": 3233.02,
+      "end": 3234.02,
+      "speaker": "adam-stacoviak",
+      "text": "Is he still out there?"
+    },
+    {
+      "start": 3234.02,
+      "end": 3256.76,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. Yeah. I got a chance to meet up with him and, you know, chat a bit with him about, you know, about Webamp and about Winamp obviously. And yeah, he's working on a digital audio software called Reaper and yeah, he's sort of like has a small group of people and they just work on this, you know, audio software and I think he like plays music and it's kind of living his best life."
+    },
+    {
+      "start": 3256.76,
+      "end": 3265.92,
+      "speaker": "adam-stacoviak",
+      "text": "Cool. I have to get him on for an interview at some point. I'd love to hear his exploits back in the AOL days, just going rogue at AOL."
+    },
+    {
+      "start": 3265.92,
+      "end": 3266.92,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3266.92,
+      "end": 3280.64,
+      "speaker": "adam-stacoviak",
+      "text": "That's hilarious. Well speaking of going rogue, we brought you here to talk about people who just shoving random crap into their skins, right? Like you went about unzipping folders and just found a bunch of weird stuff. Is that what happened, basically?"
+    },
+    {
+      "start": 3280.64,
+      "end": 3393.17,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. So this was actually back in 2001, you know, I was sort of collecting up all these files as part of the museum that I was putting together and, you know, occasionally I would come across one that wouldn't parse correctly. Like I would try to load it up in Webamp and it would like fail for some reason. And of course, sometimes that means, oh, it's a bug in my thing, right? I'm not correctly understanding the file format. And so I started to investigate like, what's going on here? And so, you know, at this point it's, you know, a hundred thousand things you sort of have to get automated. So I sort of had been, you know, downloading the skins and then extracting them and like putting the information about them into a database. And so I had sort of like a collection of like, you know, here's all the different things and I can sort of step through them with code. And so I was like, okay, let's take a look at some of these ones that don't, you know, that don't parse as Winamp skins. And you know, it's like its own file format, you know, its own file extension, wsz. It's not a zip file. But yeah, I came across just like a bunch of really weird stuff. So I think like the first one I found, which I think just like set the stage perfectly for like, what a weird adventure this was going to be, I was like, okay, I got this thing. It doesn't parse. Let's like open it up and look inside. And it just had a single PDF file with like a, you know, eight and a half by 11 advertisement for renting a like giant, like bowling pin mascot costume, like a seven foot tall bowling pin mascot. And like, I just like, like, can you think of a more random, like, digital artifact to stumble across? Yeah, and like, it just was sort of a worm, like a rabbit hole, you know, going down from"
+    },
+    {
+      "start": 3393.17,
+      "end": 3399.85,
+      "speaker": "adam-stacoviak",
+      "text": "there. Yeah. And you have a picture of that PDF on the blog post, which we'll link to."
+    },
+    {
+      "start": 3399.85,
+      "end": 3404.73,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, it's like a like a line drawing, line drawing illustration of like this, you know,"
+    },
+    {
+      "start": 3404.73,
+      "end": 3407.49,
+      "speaker": "adam-stacoviak",
+      "text": "a giant bowling pin man."
+    },
+    {
+      "start": 3407.49,
+      "end": 3408.49,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3408.49,
+      "end": 3411.69,
+      "speaker": "adam-stacoviak",
+      "text": "He looks like the Stay Puft Marshmallow Man, but he's a bowling pin."
+    },
+    {
+      "start": 3411.69,
+      "end": 3412.69,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3412.69,
+      "end": 3433.35,
+      "speaker": "adam-stacoviak",
+      "text": "I want to know why, like what made people do all these obscure things like the Bob's car and like worm.exe. Well, that one makes more sense. That one does make more sense, but then it's not a worm. No, it's not. No. Okay. That makes less sense now. Say, what's the point? What are you trying to do here?"
+    },
+    {
+      "start": 3433.35,
+      "end": 3537.9,
+      "speaker": "jordan-eldredge",
+      "text": "I mean, so there was sort of like a large, there was like a variety of things, right? There were things like the bowling pin one where like, I have to assume someone meant that as a zip archive and like it got renamed somehow and then caught up in my sort of, you know, the community sort of scraping efforts, like, well, it's got the right file extension. So maybe it was someone was confused about what that file extension should be or something somewhere caught it up in the, you know, because obviously it never would have worked as a Winamp skin. And there was this one, when Bob's car.wsz, it's just like, you open it up. It's like, oh yeah, it's like a guy's car, like not like a particularly cool, just like a guy's or a person, I guess, picture of their car. And so, yeah, I think some of them are like that. Some were, I think just like Easter eggs, you know, that people place. I think that's another thing that, you know, has, we've gotten away from in our modern software era, this idea of like Easter eggs and even on albums, right? You remember like hidden tracks on albums. I don't think there's really much of an equivalent in the sort of Spotify era. So I think some of them were like, you know, someone's creating something there in this era of, you know, even Winamp itself had like a bunch of little Easter eggs. Like if you typed in a special pattern of characters, the like title bar would swap out for a different title bar. And as a skin author, you could provide the like Easter egg version of your skin. So like, it kind of makes sense, right? You're sort of in that mode. You're designing your skin while you, you get your chance to add your version of the Easter egg into it. Sorry, I'm going to pause for one second. My mic has like slipped precariously and I'm like hunching over."
+    },
+    {
+      "start": 3537.9,
+      "end": 3541.9,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. The mic's back. Continue. Where are you leaving off at?"
+    },
+    {
+      "start": 3541.9,
+      "end": 3607.62,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. You were prompted as a skin author to like add your own Easter egg. It was like right there sort of in the file format that like there was a little place for you to put in what your title bar was going to be in Easter egg mode. And I can imagine that put people in this mindset of like, oh yeah, like what other little, you know, things should I hide in here for, for the curious to discover. And I guess probably for many of these, that one curious person was me, you know, that sort of finally found it. And so yeah, things like, you know, text files one or like some of them included like encrypted zip files inside of them. That was like one of the things I found and it was just very, yeah, lots of little hidden things. So I think that was another class on top of just like things that accidentally got renamed to be skin files. Yeah. Very peculiar. And then just like things that like, just like photos, like there was one that's like a photo, like some friends hanging out by a basketball hoop. It's like, I don't know why you included that."
+    },
+    {
+      "start": 3607.62,
+      "end": 3614.02,
+      "speaker": "adam-stacoviak",
+      "text": "Um, you know, maybe just, I wonder though, because those are user-generated if they're not like just a way to share."
+    },
+    {
+      "start": 3614.02,
+      "end": 3615.02,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3615.02,
+      "end": 3686.53,
+      "speaker": "adam-stacoviak",
+      "text": "Could be, I mean, I suppose you could have just emailed the photo that might've been slightly easier, but maybe it's like this reward system or I don't know. Cause I'm thinking like, it's like, it's not quite a hack, right? An Easter egg is not really a hack. It kind of is, it's really meant to be a reward for the enjoying parties. A creator put something in something. One of the most famous examples of, I think maybe even the first Easter egg in the world, maybe not first in the world, modern world maybe, was the game adventure from Warren Robinette. It was the, and this is famously in movies and in storylines and elsewhere, it was for the Atari 2600. Like if you didn't win the game, but you instead tried to find this path of the dark tunnel, et cetera, and you would land in this room and you got truly what was meant to be the winning thing. I think there's a backstory to that and everything too, but I just wonder like if they were just trying to share with obscure weird things with the world, not just simply like, well, here's a photo of me and my friends with a basketball hoop. Maybe they were trying to like, I don't know, like it seems strange, but share in a unique way with the world, maybe reward some way, shape or form the future Jordans who will eventually spelunk all these wind-amp skins and find the corruption."
+    },
+    {
+      "start": 3686.53,
+      "end": 3732.15,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, I think also, and maybe this was just like my friend group or whatever as a teenager, but I think at that time in the early 2000s, there was this like, this sense of like, quote unquote random being like a very like funny kind of way to be. And that like quoting random things or identifying things that are like totally quote unquote random was seen as like very like of the era. And I wonder if there was some element of that, like, what's the like weirdest sort of random thing I could include in here. And you know, I think we're, you know, having been down the rabbit hole and found all these things, it's like, yeah, I guess a bowling pin rental flyer is like a pretty random thing. So mission accomplished, I guess."
+    },
+    {
+      "start": 3732.15,
+      "end": 3787.27,
+      "speaker": "adam-stacoviak",
+      "text": "If you found multiple skins with similar contents, I would then conjecture that some of these might be signatures, you know, because sometimes people have a calling card and I imagine skin authors would author once you learn how to do it. And if you have a knack for it, it probably feels good to have your skin out there for people. And so I imagine there's people that did, you know, a handful of those. And who's going to see these files except for other skin authors, right? Those are the people who are trafficking inside of these files and yourself like archeologists. And so perhaps they're left there in certain cases for the other skin authors to see or come across. And maybe it's a calling card or maybe it's just a funny random, like you said, of like, oh, wait till somebody tries to see how I built my skin. They're going to find out that there's a bowling pin for a renter. You know what? That one was, that one was totally corrupted, I guess."
+    },
+    {
+      "start": 3787.27,
+      "end": 3788.27,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah."
+    },
+    {
+      "start": 3788.27,
+      "end": 3794.03,
+      "speaker": "adam-stacoviak",
+      "text": "But then didn't you find some that were just encrypted skins? Like it was just, it was just a skin at the end of the day, wasn't it? But it was just encrypted."
+    },
+    {
+      "start": 3794.03,
+      "end": 3829.39,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. There were a few that were, it's like zip has its own encryption like option. Right. So you can like built into the format, there's like the option to encrypt. And there were a few that were just like named, you know, dot wsz, but were actually encrypted zip files. And you know, knowing what people's notions of passwords were back in the day, I was like, I bet these could be cracked these days. So that was like, you know, going back to my point about like, this has sort of been my like education. Like this was, you know, I've always been like, man, I'd always like to know, like, how do you like crack passwords? Like, you know,"
+    },
+    {
+      "start": 3829.39,
+      "end": 3830.79,
+      "speaker": "adam-stacoviak",
+      "text": "Rainbow tables, brute force."
+    },
+    {
+      "start": 3830.79,
+      "end": 3852.29,
+      "speaker": "jordan-eldredge",
+      "text": "That's exactly like, I know there are like, cool, like tools and brute forcing, you know, different techniques. And it's like, maybe I'll get to play with that. And so, you know, I downloaded some of those things and write up on them and was able to get them running. And, and yeah, I mean, the pot, like, I think the password on the first one was just like Honda, which obviously was like, like in the, you know, in the dictionary, easy to brute"
+    },
+    {
+      "start": 3852.29,
+      "end": 3853.29,
+      "speaker": "adam-stacoviak",
+      "text": "force."
+    },
+    {
+      "start": 3853.29,
+      "end": 3885.93,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. And like, that was just like a skin that somehow had been encrypted. And I have no idea, maybe someone thought it was clever. Like, I don't think Winamp, actually, I know for a fact, Winamp would not prompt you for a password or anything. Or maybe it's got like, swept up in something else, like, yeah, I don't know. But then there were some that like, were, you know, had like a readme file in them that said like, you discovered the secret, the password is, you know, XYZ. And then alongside, there was one then alongside it in the archive was another zip file that was itself encrypted."
+    },
+    {
+      "start": 3885.93,
+      "end": 3887.33,
+      "speaker": "adam-stacoviak",
+      "text": "And now we're having fun."
+    },
+    {
+      "start": 3887.33,
+      "end": 3964.05,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, but the password didn't work when I tried it. I've got a text file telling me the password. And I've got an encrypted zip file, like they're like, I'm so close to discovering the super cool secret, you know, inner thing. And then it turned out that it was like a case sensitivity issue, and they had written the password in caps, and I just needed to try it in lowercase. Yeah. And so then I, I did, you know, I was able to unpack it, and I just had like a bunch of like music visualizer plugins inside. But you know, it was like, you know, like you said, the reward for the people who were who were digging deep. But the in terms of like signatures, it was conventional to include like a readme file, text file in each one. And so that has actually served the museum really well. Because I'm able to, you know, I don't have, you know, I'm not the site that they uploaded these things to. So like, I don't have their like, Oh, I uploaded it, and I'm gonna write my description, and I'm gonna give my author name, and I'm gonna, you know, give it as a title. And so being able to access those readme files has let me index them. And so now if you search, we can like search through all the contents of the readme files. And so even though I don't have that sort of side metadata, they are they are discoverable. But yeah, people definitely had their like signatures and sign off lines inside those readmes."
+    },
+    {
+      "start": 3964.05,
+      "end": 3977.9,
+      "speaker": "adam-stacoviak",
+      "text": "I was looking at this one, we mentioned the fellas playing basketball, or at least holding onto the hoop. And they're drinking Canadian beer. Like it's literally a beer from Molson. It's called Canadian. Like,"
+    },
+    {
+      "start": 3977.9,
+      "end": 3978.9,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, it's so funny."
+    },
+    {
+      "start": 3978.9,
+      "end": 3994.57,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, that's like, it's a beer called Canadian. There you go. It's very popular in Canada. I don't know if it's so popular to this day. But I know this era of photo looks like it may have been early 2000s 99s, you know, obviously, because it's a wind up skin."
+    },
+    {
+      "start": 3994.57,
+      "end": 4012.71,
+      "speaker": "jordan-eldredge",
+      "text": "As this post of mine made the rounds, it was really interesting reading the different comments people had on it. And like that photo in particular, which is like the most nondescript photo, right? It's like, not an action shop, just like some friends hanging out by a basketball hoop. And it's called like, was it called again, do you have it in front of you standing around"
+    },
+    {
+      "start": 4012.71,
+      "end": 4013.71,
+      "speaker": "adam-stacoviak",
+      "text": "the hoop dot jpg?"
+    },
+    {
+      "start": 4013.71,
+      "end": 4051.62,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, standing around the hoop dot jpg. And like, it was really interesting how many people in the comment sections of various places this was being discussed, like latched onto that image. And they're like, that, like feels like my my teenage years that feels like my friend group that, you know, there's something because it is, you know, it wasn't like published in a magazine. It wasn't just like some, you know, random people's photo that they took, you know, themselves hanging out. And yet it's so funny how many people have like latched onto that they're like, that touches something about my childhood that I haven't like, thought about in a long time. Maybe it's because it is so unproduced."
+    },
+    {
+      "start": 4051.62,
+      "end": 4097.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, something about it is just like, yeah, that's, that's a snapshot that we can all relate to. I say we all meaning people who were really in this era that feel the nostalgia, not just the new that is from the old. I mean, even things like these pictures from Dom's baby, Joe, like what's up with that? Dropping photos up in this thing like, here's Ellie. Ellie's in front of some sort of obscure wall coloring. Maybe she looks like she's painting it. And she's got a rack behind her of some sort of like gear. I don't know. I could speculate. Maybe she's a school teacher or something like it looks like maybe it's school potentially. Some sort of building. What the heck is Ellie doing?"
+    },
+    {
+      "start": 4097.17,
+      "end": 4157.79,
+      "speaker": "jordan-eldredge",
+      "text": "She's painting the wall. I don't know. I'm not sure why. I think the relatable thing is like, and I think the reason that these have been so fun to poke apart, but also to like preserve is that these are like created by just regular people. Yeah. There's something very like human about it. These are not professional designers, right? These are like teenagers or 20-somethings or whatever, like in their copious spare time putting these things together. And there's something really unique about, I guess you can call it art. It's a type of art that is of the people. And as part of that, you get this sort of snapshot of real life sort of tucked in the corners of it. That yeah, just like random people, it's like someone put a picture of someone painting a wall. I don't know why, but you know, there it is. Maybe that was an important person to them or they thought it was random. I don't know."
+    },
+    {
+      "start": 4157.79,
+      "end": 4192.83,
+      "speaker": "adam-stacoviak",
+      "text": "It could have been included by accident. I mean, it's not impossible. I don't think that's true, but it's possible. You know what's cool? What's cool is that I'm going to take staying around the hoop dot jpeg and le dot bitmap, although now it's a PNG and I'm going to embed those as chapter data into our episode. And so like those files are going to live on inside of an MP3 file like that's kind of cool, right? Like there's like a whole new life for these files because they were dug up and enjoyed and and I think that's cool."
+    },
+    {
+      "start": 4192.83,
+      "end": 4199.39,
+      "speaker": "jordan-eldredge",
+      "text": "Now there's new life, a new embed, but now you've spoiled the Easter egg by telling people you got to you got to keep it hush hush."
+    },
+    {
+      "start": 4199.39,
+      "end": 4204.11,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Let's just make a weird like voice over noise during that whole sentence."
+    },
+    {
+      "start": 4204.11,
+      "end": 4212.11,
+      "speaker": "jordan-eldredge",
+      "text": "So actually speaking of speaking of voiceover, there were some audio files too, and I think these were some of the most like and maybe these could be in the podcast itself."
+    },
+    {
+      "start": 4212.11,
+      "end": 4213.27,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah, absolutely."
+    },
+    {
+      "start": 4213.27,
+      "end": 4233.29,
+      "speaker": "jordan-eldredge",
+      "text": "But there's one that's what's called like cool dot MP3 or something like that, which is again the most like if you ask someone to like imagine the most random sound you could like you would come up with this. So that was like very random."
+    },
+    {
+      "start": 4233.29,
+      "end": 4283.47,
+      "speaker": "adam-stacoviak",
+      "text": "Of course. Let me tell you how the story of cool dot MP3 came about then because I know please I'm gonna hypothesize but I'm gonna act as if I know it. Okay. Some kids, 16 year olds, 14 year olds were just horsing around, maybe listen to jerky boys, making some prank phone calls, maybe, you know, listening to some Napster tracks for sure downloading very slowly and like, hey, while while we're waiting for this file to arrive, the multi parts of this file to eventually arrive, they just are just messing around like kids do. They make this thing. The other friend is like tinkering with this Winamp thing, making themes here and there. He thought he could. He's like, I'm gonna put cool dot MP3 this thing we just made today in this theme and let's see if somebody finds it eventually and they're like, what the heck is this? That's how cool dot MP3 became a thing."
+    },
+    {
+      "start": 4283.47,
+      "end": 4285.47,
+      "speaker": "jordan-eldredge",
+      "text": "I think you're right. I think you're right."
+    },
+    {
+      "start": 4285.47,
+      "end": 4323.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's totally people just messing around. This is a snapshot of just people messing around, just like pushing the buttons of whatever the buttons are and in that era it was Winamp skins, finding files like today there's no real recollection of files for tracks, for song tracks. Like it's, it's kind of erased in a way. It's hidden behind, I suppose you could still download, do people still download from like Amazon music and Apple music or is it pretty much just gone? It's just streaming, right? Like who's buying the MP3s?"
+    },
+    {
+      "start": 4323.76,
+      "end": 4325.42,
+      "speaker": "jordan-eldredge",
+      "text": "There are some hardcore people probably."
+    },
+    {
+      "start": 4325.42,
+      "end": 4328.08,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I would be buying them if I didn't have a subscription."
+    },
+    {
+      "start": 4328.08,
+      "end": 4347.22,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah. Yeah. I don't think anyone, you know, even like I think when iOS came out, it was eye opening to me that like, you know, they're so actively deprioritizing the idea of a file, like users, that was an implementation detail that users shouldn't need to think about and see, I don't think we, I don't think we're encouraged to think in that way."
+    },
+    {
+      "start": 4347.22,
+      "end": 4392.63,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. That's a, it's an absolute shame because, well, I don't know if it's an absolute shame. I think it's progress. I'll stick to my guns. It's an absolute shame. Kids these days. Yeah, exactly. Now we're old men, yell at clouds, but I mean, literally yelling at clouds. Yeah. So being able to create a literal file and distribute it in some way, shape or form, this, this form of creation sharing is becoming owned. What's up friends. I'm here in the breaks with Dennis Pilarinos, founder and CEO of Unblocked check them out at get unblocked.com. It's for all the hows, whys and WTFs. Unblocked helps developers to find the answer they need to get their jobs done. So Dennis, you know, we speak to developers who is unblocked best for who needs to use"
+    },
+    {
+      "start": 4392.63,
+      "end": 4398.95,
+      "speaker": "jordan-eldredge",
+      "text": "it. I think if you are a team that works with a lot of coworkers, if you have like 40, 50,"
+    },
+    {
+      "start": 4398.95,
+      "end": 4424.25,
+      "speaker": "adam-stacoviak",
+      "text": "60, a hundred, 200, 500 coworkers engineers, and you're working on a code base that's old and large, I think Unblocked is going to be a tool that you're going to love. Typically the way that works is you can try it with one of your side projects, but the best outcomes are when you get comfortable with the security requirements that we have, you connect your source code, you connect a form of documentation, be that slack or"
+    },
+    {
+      "start": 4424.25,
+      "end": 4462.79,
+      "speaker": "jordan-eldredge",
+      "text": "notion or confluence. And when you get those two systems together, it will blow your mind. Actually every single person that I've seen on board with the product does the same thing. They always ask a question that they're an expert in. They want to get a sense for how good is this thing? So I'm going to ask a question that I know the answer to, and people are generally blown away by the caliber of the response. And that starts to build a relationship of trust where they're like, no, this thing actually can give me the answer that I'm looking for. And instead of interrupting a coworker or spending 30 minutes in a meeting, I can just ask a question, get the response in a few seconds and reclaim that time."
+    },
+    {
+      "start": 4462.79,
+      "end": 4482.85,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I love that. So I've set up Unblocked on our code base for change.com and I did the same thing. I asked it something I knew the answer to, and I was just like you said, blown away, but I know my aha moment. Tell me, you've met with lots of customers, you've talked to different folks. What are the aha moments for those you speak with?"
+    },
+    {
+      "start": 4482.85,
+      "end": 4502.93,
+      "speaker": "jordan-eldredge",
+      "text": "I think there's two aha moments or there's two pain, sorry, I should say there's two pain points that people face. The first is if they're the ones asking questions, how long it takes to get a response. The second is if you're a person who's been around code base for a long period of time, how often your day is interrupted with questions I've been on and I still am often on both"
+    },
+    {
+      "start": 4502.93,
+      "end": 4511.29,
+      "speaker": "adam-stacoviak",
+      "text": "sides of those. I think the most frustrating part of it is when I've answered a question repeatedly. Like I had that conversation a month ago and it appears again."
+    },
+    {
+      "start": 4511.29,
+      "end": 4524.41,
+      "speaker": "jordan-eldredge",
+      "text": "Engineering leaders will hear their most talented engineering folks say, I don't get any work done because I spend all my day in meetings answering questions for folks. That is like, if you experienced that pain point, Unblocked is basically perfect for"
+    },
+    {
+      "start": 4524.41,
+      "end": 4616.66,
+      "speaker": "adam-stacoviak",
+      "text": "you. The next step to get Unblocked for you and your team is to go to getunblocked.com yourself. Your team can now find the answer they need to get their jobs done and not have to bother anyone else on the team, take a meeting or waste any time whatsoever. Again, getunblocked.com, that's G-E-T-U-N-B-L-O-C-K-E-D.com and getunblocked. I mean, I don't want to turn this conversation to the dark side, but like the creation mechanism to some degree lives. I mean, I'll go one step further and go back to that thing I mentioned earlier from snacks and I thought it was pretty interesting because there was one layer deeper on this, which was the takeaway. The labels need social media feeds to succeed, right? So like we're going back to the day of Napster when they're like, damn you kids sharing files accidentally or on purposely in this way, shape or form that subjugates and subverts our ways of profiting. And then you fast forward 22 years later and now there's a headline that says, or at least a sub headline, a takeaway headline that says labels need social media feeds to succeed. And they took a large hit. This is UMG, one of the most popular labels out there. They had Q2 results that were down. They would take a $10 million per quarter revenue hit. This is just paraphrasing some of the things in there."
+    },
+    {
+      "start": 4616.66,
+      "end": 4690.62,
+      "speaker": "jordan-eldredge",
+      "text": "I feel like it's gotten, the creativity though is actually like maybe gotten more so, like you were saying, there's like sort of the creation of a file. We sort of lost that artifact, but at the same time, I feel like we're now in the area where everyone is a content creator, right? Like the idea of creating something and sharing it with the world is like second nature, right? It's been definitely like commoditized in a way, but also at the same time, I think we've gone to a world where there's just so much creation going on, but because there's so much creation, there's so much content to see. And so the ability to like, well, you know, if there's 50,000 people creating things every day, probably not all of them can, you know, make that their profession. And again, the, what the role that the labels were playing in terms of paying the upfront cost to get artists recorded, it's like, well, the cost of actually recording something has gone way down. The cost of marketing, you know, artists, well, the way you market now is totally different and is much more, you know, based on social media. So the whole, like what role they're playing, I think has also changed dramatically."
+    },
+    {
+      "start": 4690.62,
+      "end": 4774.99,
+      "speaker": "adam-stacoviak",
+      "text": "That's why I'm over here thinking like, who needs a label? No wonder they need the social media platforms because who needs them anymore? I'm sure there are things they bring to the table, but nowhere near what it used to be in order to get your music out to people now, yes, there's more noise than there ever has been, but it's always been the case, at least in American history, that very few people could make their living by making music. I mean, it's not a mass market job. It's a very rare person that can get that done. I would argue it's easier today. There's probably more people making a living off of their music creations than in the past. Because it's easier to find your 1000 true fans and you're not maybe going to be a multimillionaire, but you can probably make a living that way because you don't have to go city to city to actually literally find them. Now, once you've got your fans, it is harder to make money, I think, which is why touring again has become the way that artists are making a living now. It used to be their album sales and the tour was kind of to promote the CD and now it's the music promotes the tour and the tour is how you make money and you sell merch and you can make a living that way. It's a hard job. A lot of people burn out and don't survive touring. It's not an easy life to live, although it's probably a very exciting life. So I just wonder, what are the labels bringing today in 2024 that is of value compared to what they extract? I don't know what that equation looks like."
+    },
+    {
+      "start": 4774.99,
+      "end": 4868.69,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, I think it's really hard to know. And I don't, I mean, I'm sure there's, there certainly is like an ideal role that they could play in producing albums, giving artists the time and the space to be in the studio to take the time to write the music and to not have to be working their other job. But increasingly it feels like, like you said, they need the social networks. They're only signing people who already have meaningful followings. And so it is a kind of a question mark, like what value are they really providing? But your point about like, you know, there's more people making music today. I think it's absolutely true that there's like a lot more music and art and content being created by people. But I suspect it is, and I suspect it's sort of like a, like you end up with a lot of people, a really long tail of like just people making stuff that maybe it's not their profession, right? They're sort of in their side time. And maybe that's good, right? I suspect that we have more people being creative, more options as a listener to hear things even for people who don't make it their full time job. But then like, I suspect that there is like a flattening where there just are fewer people who are able to make it their living. That's my suspicion. And I think it is all downstream of Napster, right? Spotify had to emerge as a competitor to Napster. And you know, you just couldn't extract the same amount of value as you know, the record labels could be for. They had to be competitive with free, which is a pretty tall order."
+    },
+    {
+      "start": 4868.69,
+      "end": 4898.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, absolutely. My thought on labels is they probably compress the time potentially. There's convenience factor in there. There's maybe network factor in there where, hey, we have X, Y, Z producer who produced for X, Y, and Z. And so the artist is like, yeah, I can go take my time and try and find producer. Maybe they can, maybe they can't. But then like you said, Jordan, maybe the label's like, hey, you don't have to work for these next month and a half while you're, or we're just pampering you to create this album or this next drop, as I said earlier."
+    },
+    {
+      "start": 4898.43,
+      "end": 4902.47,
+      "speaker": "jordan-eldredge",
+      "text": "Right. Well, they cut you that upfront check. That's pretty much what they're doing."
+    },
+    {
+      "start": 4902.47,
+      "end": 4943.27,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. They take out sort of the hard part in a, I don't know if that's actually Trump just hypothesizing clearly from what I think may be occurring, but potentially they're just enabling this space for creation and access to different talent, to different, you know, studios that have just thousands and thousands of dollars worth of gear just already set up, fine tuned, a repeated pattern of success. It's almost, I wouldn't say like it's, it's, you know, foolproof, but I'd imagine it's pretty well oiled because they've just turned so many folks through this process that it's, it's almost on repeat, like automation way."
+    },
+    {
+      "start": 4943.27,
+      "end": 4950.47,
+      "speaker": "jordan-eldredge",
+      "text": "But like Jordan said, they're only signing people who've already arrived. Like once you've made it, then they're interested in you."
+    },
+    {
+      "start": 4950.47,
+      "end": 5004.62,
+      "speaker": "adam-stacoviak",
+      "text": "And so you already know how to make music that people love. And so I understand access to producers. I understand the allure. I think what they're bringing is a legacy institution that has a lasting, I don't know you call it cloud around it and that's probably not the best word, like an allure to it similar to like mainstream television. Like everybody would love to see themselves on TV, even if they're like YouTube stars have all these millions of followers and then finally they're on like NBC and it's like even for them, that's a moment because they're like, there's this thing about being on television. I think there's a thing about being signed by a record label, which is very attractive because of the history of what that meant and I think it means less and less and I think that's going to wear off over time, but it's probably still like a trailing indicator and I think people want that upfront check because now they've made it quote unquote made it even though there's so many strings attached to that check that you better check yourself."
+    },
+    {
+      "start": 5004.62,
+      "end": 5016.3,
+      "speaker": "jordan-eldredge",
+      "text": "And they also want the street cred of like, I've been signed by RCA or whatever it is and that just gives them this instant clout, which is just because of the history of what those institutions were."
+    },
+    {
+      "start": 5016.3,
+      "end": 5055.14,
+      "speaker": "adam-stacoviak",
+      "text": "I just wonder that even things like Swift, Taylor Swift, like she was very, very popular and now she's like the name you hear everywhere and I don't think it's just because of her music. I think it's, and this is totally hypothesizing or whatever you want to call it. I'm hypothesizing how this may have happened, but I got to imagine like these labels not just having access to the studios and the producers, they also have their hands in the pocket or literal ownership of media, which is message distribution. It's idea implanting, right? You don't think so?"
+    },
+    {
+      "start": 5055.14,
+      "end": 5108.48,
+      "speaker": "jordan-eldredge",
+      "text": "I think Taylor Swift is unique in that she was sort of the first mega star to realize the power of social media and that she could own her own audience without needing the labels. And that's what went into her Taylor's version releases where she sort of reclaimed all of her content back from her labels by re-releasing everything. They owned all the masters to the original tracks. And so of course, anytime they got played, they got a cut of it. And she was like, nope. I can go on Instagram and I can say, hey, all my Swifties stopped listening to the old version. I re-released it, listen to this version now. And they're like, yep, I'm on board. And she didn't need to go on a talk show or a radio morning chat show or something to reach those people. She's got a direct line. Yeah. Point taken."
+    },
+    {
+      "start": 5108.48,
+      "end": 5163.72,
+      "speaker": "adam-stacoviak",
+      "text": "I understand that. I think they used to do that. And I think that that's probably what I'm talking about, this trailing legacy. It used to be like the old formula was you toil away in obscurity and you play dive bars and weddings and whatever you got to do, like open mic nights. And eventually some talent scout from a record label comes and discovers you. That's the person who just understands what raw talent looks like. And they discover you and they bring you in and then they sign a deal with you. And then they push you out to the world. And that's a great story. And it used to be true. And I just don't think it's as true anymore as it used to be. But there's just this wake of that being the case for so long that everybody still gives them more credit than they currently bring. But we're all just prognosticating from the outside. I'm sure if you're inside the industry, then you are probably thinking, these fools have no idea what they're talking about."
+    },
+    {
+      "start": 5163.72,
+      "end": 5218.78,
+      "speaker": "jordan-eldredge",
+      "text": "I feel like there's a parallel with internet venture capital, where the record labels were historically the venture capital of the music industry, where they would identify someone who wasn't a sure thing. And they would produce a lot of albums with a lot of upfront costs. And most of them would fail. And most of them would not become superstars. But a small number of them would become superstars, which is like the VC Unicorn. And that would subsidize all the losses they took on producing all these other records. And so a lot of artists who didn't end up becoming successful did get records produced as a byproduct of that, which probably was good for our ability to hear interesting music. But now in the sort of social media era, where it's like, well, we're just going to wait till you've already proven that you have a resonance, then maybe those albums that aren't commercially viable maybe never get produced."
+    },
+    {
+      "start": 5218.78,
+      "end": 5245.29,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, the distribution, I think, is really what changed most. And now the record label are downstream of distribution, which is why they're trying to go sign deals with the social media companies. Because they are the distribution at this point. Whereas it used to be cutting a bunch of CDs and shipping them around the world to be sold in record stores and all that was a lot of cost for any band or individual, like too much to do."
+    },
+    {
+      "start": 5245.29,
+      "end": 5253.05,
+      "speaker": "jordan-eldredge",
+      "text": "But then the record labels had that. But yeah, now that it's been flipped on its head with distribution, who needs them? That's all I'm saying."
+    },
+    {
+      "start": 5253.05,
+      "end": 5334.97,
+      "speaker": "adam-stacoviak",
+      "text": "Who needs them? Explain to me this. I've been thinking about this. Today's pop culture. How was Snoop Dogg, the mascot slash person, the front person for the Olympics? You know, that wasn't because he was like, let me do this. I think that was a job. Somebody offered that to him. And that had to be, it could have been Kevin Hart. I think there's times when different comedians are different people within culture. And it's not that Snoop is irrelevant, like the guy makes wine even, you know. I think there's like all these different things these artists get their hands in. But I wonder, like, is that part of a label relationship or has he transcended this need for a label to be like, OK, there's a job out there, Snoop, you want this interview to be the front person for the Olympics this year and you've got to be there. And obviously he's going to enjoy it anyways. I don't think he was by any means acting in terms of his zeal and excitement for what was going on. But he was on camera. It was very much Snoop Dogg. Like, how does that happen? Is it because just Snoop Dogg and his agents like, hey, I got a job opportunity for you? Or is it because there's some sort of larger conglomerate connection that has paid media access that gets a job that suddenly Snoop Dogg is now even more embedded into today's pop culture than he was, you know, prior to the Olympics, for example."
+    },
+    {
+      "start": 5334.97,
+      "end": 5340.35,
+      "speaker": "jordan-eldredge",
+      "text": "Are you signing up for next year? You put in your bid to be take Snoop Dogg's place? Yeah."
+    },
+    {
+      "start": 5340.79,
+      "end": 5344.79,
+      "speaker": "adam-stacoviak",
+      "text": "Let's get Adam in there. Adam who? I don't know. I mean, he just he applied."
+    },
+    {
+      "start": 5344.79,
+      "end": 5358.55,
+      "speaker": "jordan-eldredge",
+      "text": "I guess at some time, at some point, you like like Taylor Swift, right? You transcend from musical artist to like cultural personality, right? And then you can go do whatever you want. There's. Yeah."
+    },
+    {
+      "start": 5358.55,
+      "end": 5434.96,
+      "speaker": "adam-stacoviak",
+      "text": "And and I guess if you're good at it, too, Snoop Dogg has stood the test of time beyond rap. By the way, Snoop Dogg has put out so many tracks in his life, lots of bad music. That's just one man's opinion. He's got some good music as well. But like there's a guy where like quantity has always been higher than quality. But he's just he's just transcended culturally because of his aura or whatever it is. Right. That's who he is. I don't know the details of his label relationships. I do know that in the rap game, especially when he was coming up, you work with a label long enough until you can create your own label. And so there's a lot of label battles and hatred between rappers and labels and a lot of labels taking advantage of young rappers. And so I would be surprised if a if a label deal that was involved in this deal, I think probably NBC went to his agent and said, we want Snoop. You know, I don't know. It was a great idea by whoever thought of that, because he really did add something to the Olympics that just has never been there before. I mean, it's kind of strange, but it was like kind of a like Sideshow Bob kind of a thing like, oh, and Snoop's there and he's dancing. And you're like, who's not going to love Snoop Dogg dancing and cheering? It's like it's just he's he kind of oozes joy, doesn't he?"
+    },
+    {
+      "start": 5434.96,
+      "end": 5437.16,
+      "speaker": "jordan-eldredge",
+      "text": "It was cool. Was there did that happen before?"
+    },
+    {
+      "start": 5437.16,
+      "end": 5442.56,
+      "speaker": "adam-stacoviak",
+      "text": "Was there ever that kind of front person for the Olympics? I don't know if I recall recall."
+    },
+    {
+      "start": 5442.56,
+      "end": 5453.92,
+      "speaker": "jordan-eldredge",
+      "text": "I want to say Snoop did it before or there was I don't know. Yeah. Definitely not the expert in this. None of us are experts here. We're software developers talking about culture."
+    },
+    {
+      "start": 5453.92,
+      "end": 5462.88,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. We're not talking about the Olympics necessarily. There's a lot of interesting things this year for the Olympics. Some controversial, some not controversial, some absolutely hilarious like the breakdancing."
+    },
+    {
+      "start": 5462.88,
+      "end": 5463.88,
+      "speaker": "jordan-eldredge",
+      "text": "Oh, yeah."
+    },
+    {
+      "start": 5463.88,
+      "end": 5480.32,
+      "speaker": "adam-stacoviak",
+      "text": "The Australian breakdancer. This we're all Ray Gun article out there, I believe. I just saw my my buddy John Daniel Trask, who is the co-founder of literally Ray Gun, the software, not paid, but they're error tracking. We love them. They're awesome. At least I do. I think it's RayGun.io is their URL. I believe."
+    },
+    {
+      "start": 5480.32,
+      "end": 5481.32,
+      "speaker": "jordan-eldredge",
+      "text": "You sure that wasn't paid?"
+    },
+    {
+      "start": 5481.32,
+      "end": 5484.32,
+      "speaker": "adam-stacoviak",
+      "text": "That was not paid. I just know that. That seemed pretty big."
+    },
+    {
+      "start": 5484.32,
+      "end": 5485.32,
+      "speaker": "jordan-eldredge",
+      "text": "John Daniel Trask is a cool dude."
+    },
+    {
+      "start": 5485.72,
+      "end": 5489.72,
+      "speaker": "adam-stacoviak",
+      "text": "I think it's RayGun.io. It could be RayGun.io. It could be. RayGun.io slash changelog."
+    },
+    {
+      "start": 5489.72,
+      "end": 5493.72,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, exactly. I think that's a domain, if I think about it."
+    },
+    {
+      "start": 5493.72,
+      "end": 5594.46,
+      "speaker": "adam-stacoviak",
+      "text": "Well, if there's if there's a connection there, maybe they'll come back and sponsor again. I know we were contacted recently, but we're not haters, you know, we're not haters. We're here to promote a lot of folks out there where they the dev rel for the dev world. Yeah, I think it's it's kind of cool what Snoop did. I think you're right. He did bring some really interesting pieces to it. And I think like anybody who transcends, I think, Jordan, you've transcended simply just your role on the relay team at Meta, you know, to this Winamp world, this this Webamp world, really, where you're sort of spelunking all these unique things. And I think it's interesting how you've been on the front page of Hacker News for using SQLite in production and just all these different things that have allowed you to, you know, push the edges, even work with the Internet Archive, like all these cool things you've got to do just because of our, you know, history and nostalgia for Winamp and the skins and all the things you've learned as a result of just spelunking this this intense, crazy Winamp world. I think it's wild how you've gone deeper into TypeScript, deeper into WebAssembly, you know, uncovered secrets in these skins, this corruption stuff. And I think to even give one credit here, like you added, I believe, what was it, 56 additional skins that were skins within skins that you found and 54 of them were not already in the museum. So you were able to upload those as well. So now we've got 54 more potentially bad, potentially good skins to enjoy. But still, yeah, like your your commitment to this is uncanny. Like we had you on the show. How many years ago was it, Jared? Five?"
+    },
+    {
+      "start": 5594.46,
+      "end": 5596.46,
+      "speaker": "jordan-eldredge",
+      "text": "2018. That was 2018."
+    },
+    {
+      "start": 5596.46,
+      "end": 5620.23,
+      "speaker": "adam-stacoviak",
+      "text": "Too long ago. And then, you know, I found this article where you're talking about corrupted skins and you obviously shared a few more things with us, which will link all these up in the show notes, of course. But it's just wild how something as simple of taking Winamp to this idea of Webamp, how it can be such a rabbit hole to explore and discover. I think it's wild. You've done such a great job."
+    },
+    {
+      "start": 5620.23,
+      "end": 5681.65,
+      "speaker": "jordan-eldredge",
+      "text": "Oh, thanks. Yeah, it's been it's just been really fun. And I think there is something about it that like touches on a lot of people's nostalgia, but I think also a lot of people's like frustration with the current, you know, how the Internet, what the Internet has become and what we sort of maybe imagined it to be in its infancy. And so I think, yeah, every time I've been able to share something that I've worked on in this vein, I feel like it's had an outsized resonance in terms of how how it gets talked about because of what an important role Winamp played and what an important role the sort of user generated themes, these skins played. Yeah, it does feel like it resonates. So it's been a great experience for me to sort of have this thing to come back to and have a little playground to try out all different things that I'm curious about. And then, yeah, I think the way that that it resonates with with other people is a lot due to just what a what an interesting piece of software Winamp was and at an interesting time and in perhaps in stark contrast to where we are now."
+    },
+    {
+      "start": 5681.65,
+      "end": 5686.89,
+      "speaker": "adam-stacoviak",
+      "text": "Do you think you've plumbed its depths or do you think the rabbit hole goes even deeper?"
+    },
+    {
+      "start": 5686.89,
+      "end": 5694.92,
+      "speaker": "jordan-eldredge",
+      "text": "Uh, probably. Well, let's let's let's chat again in another six years and we'll find out. Sounds like a plan."
+    },
+    {
+      "start": 5694.92,
+      "end": 5708.52,
+      "speaker": "adam-stacoviak",
+      "text": "So the museum is at skins.webamp.org. I was slow there for drama. skins.webamp.org. Very dramatic, very dramatic."
+    },
+    {
+      "start": 5708.96,
+      "end": 5710.96,
+      "speaker": "jordan-eldredge",
+      "text": "You can check that out. Adam Stachovia sent you."
+    },
+    {
+      "start": 5710.96,
+      "end": 5750.84,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Slash. Well, there's some UTM data on there that will somehow find a way to put in the voice there. Yeah, I'm just enamored by what you've been able to do with this. I think it's so really just so cool. I think the only last question, maybe this is a good closing question, is I'm on your GitHub profile and either I'm blind and I don't see it or it doesn't exist, but you're not taking any sort of sponsorships for this. And now I imagine you got a job, so you're okay with that, but I'm sure there's like some way, not so much you can profit from this, but at least get back money for your time. Is there a reason why you haven't set up a sponsor page or allowed the community to do anything to support your efforts?"
+    },
+    {
+      "start": 5750.84,
+      "end": 5822.88,
+      "speaker": "jordan-eldredge",
+      "text": "Yeah, I think, you know, I actually have been sort of well rewarded for this work over time. I think I've always found that, I mean, very directly, I first published the WebAmp project and I got picked up on Hacker News and shortly thereafter a recruiter from Facebook at the time reached out and that ended up in a job offer and that's something I've been doing for the last seven years, which has obviously been pretty good in terms of compensation for that work. And so, yeah, I think I've found that the compensation comes more in just like the opportunities it's led me to in my career and, you know, both in terms of where I work, but also what projects I get to work on and things like that. You know, a lot of stuff that I've learned through this project and so, yeah, it's actually the Skid Museum does have some costs in terms of hosting and whatnot. I've done my best to try to minimize those, but, you know, I think I'm happy to subsidize it, you know, for it's certainly I've been rewarded just fine and, you know, to celebrate all the artists who made all these really cool pieces of art, I think it feels a little bit nice to have it just be a thing that's, you know, that's clean and free and just a thing that's done out at Goodwill."
+    },
+    {
+      "start": 5822.88,
+      "end": 5865.35,
+      "speaker": "adam-stacoviak",
+      "text": "Well said. I dig it. Skins.webamp.org, less drama this time around, but you can endlessly scroll Skins, click on them, find out more details, see them animate, do some cool stuff. I think it's cool that you've done this and I think it's cool that you got that job offer. I didn't recall that detail that you published Web Amp and then got the, you know, an offer or connection to Facebook, then Facebook, now Meta on the Relay team. I do know that part of your history, but I didn't know it was connected to, you know, the publishing of this. Not many people are happy to subsidize though. I mean, some are, some are not, but when there's such an easy access to sponsorship, I don't know. You do you, man."
+    },
+    {
+      "start": 5865.35,
+      "end": 5873.02,
+      "speaker": "jordan-eldredge",
+      "text": "You do you. Yeah. If you want to sponsor me, you can donate to the Internet Archive. I think that's a great way to do it."
+    },
+    {
+      "start": 5873.02,
+      "end": 5897.68,
+      "speaker": "adam-stacoviak",
+      "text": "That is a good way to do it. I like, I'm glad you said that. So at the same time, you can go to webamp.org, not just skins dot, because that's where the project lives at. I'm just wondering, like, maybe I'll leave this one for the, for the bonus. We'll give this to the plus plus folks. Let's say goodbye because I got one thing for you, at least an idea. Maybe you'll like it. Maybe you won't. Who knows? What's left? Anything left? I think all's left. We have to say it is bye, friends."
+    },
+    {
+      "start": 5897.68,
+      "end": 5898.68,
+      "speaker": "jordan-eldredge",
+      "text": "Yes."
+    },
+    {
+      "start": 5898.68,
+      "end": 5968.45,
+      "speaker": "adam-stacoviak",
+      "text": "Thanks, Jordan. Bye, friends. It's been great to be here. Thank you. Okay. As the three of us did, you probably loved this trip down memory lane. If not, well, I hope you at least enjoyed some of Jordan's surprise findings and maybe a few of the tracks and images that we embedded throughout the episode. If you dig it, please do let us know in the comments. We'd also appreciate you sending the episode link to other people who might enjoy the show. Word of mouth is still in 2024 state of the art when it comes to podcast discovery, weird but true. Another thanks to our sponsors, Paragon, 1Password, and Unblocked, and of course, to our partners at Fly.io, and thank you to Breakmaster Cylinder for beat freaking for us and for stitching together that llama stab on super short notice. Next week on The Changelog, news on Monday, a crossover episode on Wednesday, and we're catching up with another old friend, Seuss Hinton, on Friday. Have a great weekend. Give us a five star review if you haven't already, and let's talk again real soon."
+    }
+  ]
+}

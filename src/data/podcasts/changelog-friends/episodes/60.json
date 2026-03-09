@@ -1,0 +1,2530 @@
+{
+  "title": "Starbucks DVD peddlers",
+  "description": "Emily Freeman and Justin Garrison join Jerod and Adam to discuss burnout, tech influencers, and nostalgic topics ranging from area code rivalries to buying used DVDs at coffee shops.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "emily-freeman",
+    "justin-garrison"
+  ],
+  "segments": [
+    {
+      "start": 15.25,
+      "end": 60.57,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog, and friends, a weekly talk show about area code turf wars. Big thanks to our partners at Fly.io. Over 3 million apps have launched on Fly. You can too in less than five minutes. Learn how at Fly.io. Okay, let's talk. Hey friends, I'm here with Dave Rosenthal, CTO of Sentry. So Dave, I know lots of developers know about Sentry, know about the platform, because hey, we use Sentry, and we love Sentry, and I know tracing is one of the next big frontiers for Sentry. Why add tracing to the platform? Why tracing and why now?"
+    },
+    {
+      "start": 60.57,
+      "end": 70.65,
+      "speaker": "emily-freeman",
+      "text": "When we first launched the ability to collect tracing data, we were really emphasizing the performance aspect of that, the kind of application performance monitoring aspect, you know, because"
+    },
+    {
+      "start": 70.65,
+      "end": 95.03,
+      "speaker": "jerod-santo",
+      "text": "you have these things that are spans that measure how long something takes, and so the natural thing is to try to graph their durations and think about their durations and, you know, warn somebody if the durations are getting too long. What we've realized is that the performance stuff ends up being just a bunch of gauges to look at, and it's not super actionable. Sentry is all about this notion of debuggability and actually making it easier to fix the problem, not just sort of giving you more gauges."
+    },
+    {
+      "start": 95.03,
+      "end": 105.65,
+      "speaker": "emily-freeman",
+      "text": "A lot of what we're trying to do now is focus a little bit less on the sort of just the performance monitoring side of things and turn tracing into a tool that actually aids the debuggability of problems."
+    },
+    {
+      "start": 105.65,
+      "end": 154.42,
+      "speaker": "jerod-santo",
+      "text": "I love it. So they mean it when they say code breaks, fix it faster with Sentry, more than 100,000 growing teams use Sentry to find problems fast, and you can too. Learn more at sentry.io, that's S-E-N-T-R-Y dot I-O, and use our code CHANGELOG. Get $100 off the team plan. That's almost four months free for you to try out Sentry. Once again, sentry.io. Well, we are here with our good friend and ShipIt co-host, Justin Garrison. Hey man, how are you? Hey. What's up? How's it going? It's going well. You know, three day weekend, back at it. No complaints. No complaints."
+    },
+    {
+      "start": 154.42,
+      "end": 156.42,
+      "speaker": "emily-freeman",
+      "text": "I'm tired. I mean, that's a complaint."
+    },
+    {
+      "start": 156.42,
+      "end": 159.22,
+      "speaker": "jerod-santo",
+      "text": "Okay. I mean, I'm sure I could complain if you asked me to."
+    },
+    {
+      "start": 159.22,
+      "end": 163.38,
+      "speaker": "emily-freeman",
+      "text": "It was a great weekend. I don't have complaints about the weekend. It's just the week starting again."
+    },
+    {
+      "start": 163.38,
+      "end": 167.26,
+      "speaker": "jerod-santo",
+      "text": "Right. Let's compress five days of work into four days, which is what we're doing today."
+    },
+    {
+      "start": 167.66,
+      "end": 175.98,
+      "speaker": "emily-freeman",
+      "text": "See, that's the problem with like America though. France would be like, no, we work two days this week. You know, it's like, we're way off."
+    },
+    {
+      "start": 175.98,
+      "end": 176.98,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 176.98,
+      "end": 179.98,
+      "speaker": "emily-freeman",
+      "text": "Wait, wait. The level of output can go down? Yeah."
+    },
+    {
+      "start": 179.98,
+      "end": 194.86,
+      "speaker": "jerod-santo",
+      "text": "I know. It's crazy. Unacceptable. Unacceptable. That voice is Emily Freeman, our new friend. Emily and I met briefly at All Things Open, but Adam's meeting Emily for the first time. And Justin and Emily, you guys are old friends from, is this like AWS meetup kind of a thing? How'd y'all meet?"
+    },
+    {
+      "start": 194.86,
+      "end": 206.7,
+      "speaker": "emily-freeman",
+      "text": "I don't remember. I think Amazon. Like we knew, I knew of you, I don't know if you knew me, but I knew of you before Amazon. And I remember when you joined Amazon, I was very excited. And then, and then at that point it was just a lot of DMS."
+    },
+    {
+      "start": 206.7,
+      "end": 207.7,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 207.7,
+      "end": 209.7,
+      "speaker": "emily-freeman",
+      "text": "For years. Yes."
+    },
+    {
+      "start": 209.7,
+      "end": 219.6,
+      "speaker": "jerod-santo",
+      "text": "Like how years and years of DMS, funny how relationships can form via something like that. You know, it's such a small mechanism for communication, but there you go."
+    },
+    {
+      "start": 219.6,
+      "end": 223.68,
+      "speaker": "emily-freeman",
+      "text": "I mean, some of my closest friends come from Twitter, just random interactions."
+    },
+    {
+      "start": 223.68,
+      "end": 227.52,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Well, the only true social network is like someone's phone number, right?"
+    },
+    {
+      "start": 227.52,
+      "end": 234.24,
+      "speaker": "emily-freeman",
+      "text": "Like that's like who you know is like really part of your social network. I think it's like once you have someone's like, you could text someone or like DM their"
+    },
+    {
+      "start": 234.24,
+      "end": 250.08,
+      "speaker": "jerod-santo",
+      "text": "phone. There is like another level of intimacy there. I remember somebody who I was like internet friends with and suddenly we had our each other's phone numbers and I'm like, I feel like this is weirder. Not bad weird, but just like, I wasn't ready for that. It's another level in the relationship."
+    },
+    {
+      "start": 250.08,
+      "end": 254.96,
+      "speaker": "emily-freeman",
+      "text": "Like, Oh, we're actually friends now."
+    },
+    {
+      "start": 254.96,
+      "end": 264.52,
+      "speaker": "jerod-santo",
+      "text": "It's a different style of communication on the same device. It's like a DM in Twitter or X is still an app on your phone or slack, like a slack message."
+    },
+    {
+      "start": 264.52,
+      "end": 267.36,
+      "speaker": "emily-freeman",
+      "text": "Yeah. And then suddenly it's like literally in messages."
+    },
+    {
+      "start": 267.36,
+      "end": 273.92,
+      "speaker": "jerod-santo",
+      "text": "If you're an iPhone user, like I am like, this is where my mom texts me, same phone,"
+    },
+    {
+      "start": 273.92,
+      "end": 276.12,
+      "speaker": "emily-freeman",
+      "text": "different app. I don't know."
+    },
+    {
+      "start": 276.12,
+      "end": 279.23,
+      "speaker": "jerod-santo",
+      "text": "I don't think I'm alone with that sensation."
+    },
+    {
+      "start": 279.23,
+      "end": 282.71,
+      "speaker": "emily-freeman",
+      "text": "Do you remember when we had all our friends' phone numbers memorized?"
+    },
+    {
+      "start": 282.71,
+      "end": 286.19,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. Do you still have your childhood phone number memorized?"
+    },
+    {
+      "start": 286.19,
+      "end": 287.19,
+      "speaker": "emily-freeman",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 287.19,
+      "end": 288.19,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 288.19,
+      "end": 289.19,
+      "speaker": "emily-freeman",
+      "text": "Of course."
+    },
+    {
+      "start": 289.19,
+      "end": 295.67,
+      "speaker": "jerod-santo",
+      "text": "Uh, my home phone, but not my first, actually I do, my very first cell phone number is still my phone number. That's crazy."
+    },
+    {
+      "start": 295.67,
+      "end": 297.67,
+      "speaker": "emily-freeman",
+      "text": "That's amazing. Is that mine too?"
+    },
+    {
+      "start": 297.67,
+      "end": 298.67,
+      "speaker": "jerod-santo",
+      "text": "I think so."
+    },
+    {
+      "start": 298.67,
+      "end": 303.27,
+      "speaker": "emily-freeman",
+      "text": "Yeah. Well now you, you were born in the year when, in the years when you could port, right? Like cause like porting phone numbers, right? Like wasn't it?"
+    },
+    {
+      "start": 303.27,
+      "end": 309.83,
+      "speaker": "jerod-santo",
+      "text": "They got, somewhere along the lines, a regulator came by and said, phone number portability is like, you have to allow it. Didn't they?"
+    },
+    {
+      "start": 309.83,
+      "end": 315.31,
+      "speaker": "emily-freeman",
+      "text": "Yeah. Cause if you wanted to switch carriers, you had to give up the phone number and you're like, I got to, I got to tell everyone. That's a lot."
+    },
+    {
+      "start": 315.31,
+      "end": 325.19,
+      "speaker": "jerod-santo",
+      "text": "That's like the old school version of like rebuilding your follower list. Right? Like I got to go, like network portability is an old thing I guess."
+    },
+    {
+      "start": 325.19,
+      "end": 338.28,
+      "speaker": "emily-freeman",
+      "text": "It also opens up like fun conversations. Like I have a 727 phone number and so that's what, that was what I call my life layover in Florida. People are like, wait, you don't live in Florida? Let me tell you about my eight years in Florida."
+    },
+    {
+      "start": 338.28,
+      "end": 342.28,
+      "speaker": "jerod-santo",
+      "text": "There you go. Hmm. Yeah. You can't get away from it now."
+    },
+    {
+      "start": 342.72,
+      "end": 347.72,
+      "speaker": "emily-freeman",
+      "text": "Yeah. A 403 number. I believe. Is that what it was? 407."
+    },
+    {
+      "start": 347.72,
+      "end": 351.72,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. Yeah. Yeah. Orlando."
+    },
+    {
+      "start": 351.72,
+      "end": 352.72,
+      "speaker": "emily-freeman",
+      "text": "407."
+    },
+    {
+      "start": 352.72,
+      "end": 353.72,
+      "speaker": "jerod-santo",
+      "text": "Is that the Florida as well?"
+    },
+    {
+      "start": 353.72,
+      "end": 354.72,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 354.72,
+      "end": 355.72,
+      "speaker": "justin-garrison",
+      "text": "It's Orlando."
+    },
+    {
+      "start": 355.72,
+      "end": 357.72,
+      "speaker": "emily-freeman",
+      "text": "Wait, where were you in Orlando? In Orlando."
+    },
+    {
+      "start": 357.72,
+      "end": 373.04,
+      "speaker": "jerod-santo",
+      "text": "Well, I know I used to live there. Uh, all over the place by the airports, uh, by universal, uh, I think it was called West Lake or West gate, maybe West gate. Does that ring a bell? West something near Full Sail for a little bit too. Yeah."
+    },
+    {
+      "start": 373.04,
+      "end": 374.04,
+      "speaker": "emily-freeman",
+      "text": "So all over."
+    },
+    {
+      "start": 374.04,
+      "end": 397.9,
+      "speaker": "jerod-santo",
+      "text": "Amazing. Did Florida have like the area code turf wars? Like in LA? Like it's a thing. Like if you have a nine Oh nine, like you're just like, no, no, no. Like you're it's tribal here and yeah, it's, it's very, and then like they, they split too. Cause it's like, it's like this moment where like, Hey, we have too many phone numbers here. So like I have a six to six, which I'm very proud of for a lot of reasons. And I was like, I'm holding on to that six to six."
+    },
+    {
+      "start": 397.9,
+      "end": 398.9,
+      "speaker": "emily-freeman",
+      "text": "That's amazing."
+    },
+    {
+      "start": 398.9,
+      "end": 408.56,
+      "speaker": "jerod-santo",
+      "text": "I don't know if that's a thing other places. I know here in LA, it's just like, Oh, my wife has a nine Oh nine. And I'm like, I'm sorry. Wait, that's your, what are you sorry for? You just feel bad for her? Yeah."
+    },
+    {
+      "start": 408.56,
+      "end": 418.52,
+      "speaker": "emily-freeman",
+      "text": "I mean, Denver has seven to zero and three Oh three, but I don't think anyone like, but that's a very not Colorado thing to be worried about. They're just, they're not worried about it."
+    },
+    {
+      "start": 418.52,
+      "end": 419.52,
+      "speaker": "jerod-santo",
+      "text": "They have mountains."
+    },
+    {
+      "start": 419.52,
+      "end": 420.52,
+      "speaker": "emily-freeman",
+      "text": "You know?"
+    },
+    {
+      "start": 420.52,
+      "end": 440.24,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. That's funny. That reminds me of the old ICQ number. I'm not sure how long y'all have been around, but ICQ was one of the OG chat networks and having the smallest ICQ number, cause they were just auto incrementing or something like this was very cool. Like you can actually buy ICQ numbers on eBay that was smaller than yours."
+    },
+    {
+      "start": 440.24,
+      "end": 446.12,
+      "speaker": "emily-freeman",
+      "text": "Yeah. My, my college roommate had a five digit and it was just like, you're amazing. Like that was top tier."
+    },
+    {
+      "start": 446.12,
+      "end": 458.92,
+      "speaker": "jerod-santo",
+      "text": "Like, no way. Yeah. But like something with every social network, right? Like, cause you can get vanity phone numbers. You can buy an X, like a single letter, two letter X account or whatever. People want those, those things that are important to them."
+    },
+    {
+      "start": 458.92,
+      "end": 474.76,
+      "speaker": "emily-freeman",
+      "text": "That's true. I'm currently on the, as we, we've muddled through this era where we're like, should we leave Twitter? What other networks are available? Every time a new network comes up, I have to join, get Emily Freeman and then basically forget about it. And it's,"
+    },
+    {
+      "start": 474.76,
+      "end": 486.72,
+      "speaker": "jerod-santo",
+      "text": "Right. I'm going to pitch you on blue sky. I know you're already on there. I am. But like the domain, the domain thing is really cool, right? Like you buy the domain and the domain is your authority. Like that's who, that ruins the scarcity problem."
+    },
+    {
+      "start": 486.72,
+      "end": 490.06,
+      "speaker": "emily-freeman",
+      "text": "Look, I mean it shifted it to domain registration, right?"
+    },
+    {
+      "start": 490.06,
+      "end": 511.78,
+      "speaker": "jerod-santo",
+      "text": "Well, that was the funny thing was one of my friends, I think it was Nick Niecy, but I could be wrong. They're like, I had to get on blue sky and get my, my domain as my name. And I was like, yeah, but you own the domain, what's the, what's the rush? You know, isn't that kind of the point? Like you didn't have to get, I don't know. I think it's a cool feature. I just don't see why that is like incentivizing necessarily. I do think it's a cool feature though."
+    },
+    {
+      "start": 511.78,
+      "end": 516.06,
+      "speaker": "emily-freeman",
+      "text": "I don't know. I have some, some beef with blue sky over their early days."
+    },
+    {
+      "start": 516.06,
+      "end": 546.3,
+      "speaker": "jerod-santo",
+      "text": "I don't know if they've cleaned up, but what's that don't have no beef, no beef, no beef. I don't have any blue sky beef. I just don't have any interest. I have, it's like I have enough social networks. Thank you very much. Yeah. And you have to kind of like pick a new horse and I was, I thought Macedon was cool, you know? And it's like, it's just a little bit boring, but it's still nice and I don't know. They all kind of just have their own ways of sucking. And so there we are."
+    },
+    {
+      "start": 546.3,
+      "end": 550.74,
+      "speaker": "emily-freeman",
+      "text": "Exactly. And we don't, we didn't get to pick a new horse. We have it now a stable ponies."
+    },
+    {
+      "start": 550.74,
+      "end": 559.26,
+      "speaker": "jerod-santo",
+      "text": "Meanwhile, the only phone number on the internet now, apparently some reason is a LinkedIn account. How weird is that? Like now that's the only place everyone is."
+    },
+    {
+      "start": 559.26,
+      "end": 564.18,
+      "speaker": "emily-freeman",
+      "text": "Can we talk about how LinkedIn is like the most effective social network right now? And it's blowing my mind."
+    },
+    {
+      "start": 564.18,
+      "end": 617.13,
+      "speaker": "jerod-santo",
+      "text": "I feel like Adam, you were ahead of your time cause he was, he, he loves LinkedIn. I've been long LinkedIn for a very long time. Oh yeah. I've been diehard collecting friends, but really only people I know. So I've been hardcore about knowing somebody or having met somebody or want to be truly connected to them in some way, shape or form, like truly networking. And I don't mean that in that like I'm being posh or you know, anything like that whatsoever. Just more like I wanted it to be about people that I was trying to connect with in some way, shape or form or met literally face to face or virtually in meetings and stuff like that. Not really this like, Hey, I want to follow you. Now they do have the follow mechanism, but literally connecting. That was what I was trying to do there. So I feel like all my connections are pretty proper connections. Not just like, you know, randos on the internet that I'm a fan of. Right."
+    },
+    {
+      "start": 617.13,
+      "end": 618.13,
+      "speaker": "emily-freeman",
+      "text": "Or vice versa."
+    },
+    {
+      "start": 618.13,
+      "end": 621.29,
+      "speaker": "jerod-santo",
+      "text": "I like the thing where you can deny a connection and then say, I don't know this person."
+    },
+    {
+      "start": 621.29,
+      "end": 622.29,
+      "speaker": "emily-freeman",
+      "text": "That's right."
+    },
+    {
+      "start": 622.29,
+      "end": 625.45,
+      "speaker": "jerod-santo",
+      "text": "That's right. It just feels like the right thing to do. It does."
+    },
+    {
+      "start": 625.45,
+      "end": 629.57,
+      "speaker": "emily-freeman",
+      "text": "Oh, I enjoy that. You enjoy it. You're like, no, I don't."
+    },
+    {
+      "start": 629.57,
+      "end": 631.57,
+      "speaker": "jerod-santo",
+      "text": "I don't know you. Oh, well, there's more places."
+    },
+    {
+      "start": 631.57,
+      "end": 634.57,
+      "speaker": "emily-freeman",
+      "text": "No, I'm reporting that. I don't know you."
+    },
+    {
+      "start": 634.57,
+      "end": 666.53,
+      "speaker": "jerod-santo",
+      "text": "That's not necessarily the point, but I just feel like it's, it's giving me a reason that I can just say this without being the jerk, you know, I like it, but I feel like, and I feel like LinkedIn kind of, they kind of went to the, like the Facebook route of like, you should be connected to this person somehow outside of this network. Right. And, and like, that was like, you worked together. You knew them through a conversation, but then like social media and everything else online just kind of like blew that up to me. Like I just forget. I'm like, forget it. Like years and years ago. I'm like, I will accept pretty much every request. I was like, if you, if I don't look like you're going to spam me in DMS, like it's fine. Like we can be reconnected."
+    },
+    {
+      "start": 666.53,
+      "end": 671.53,
+      "speaker": "emily-freeman",
+      "text": "Yeah. And sometimes they spam you and you just wanted a nice little note. So it's like, okay, that sounds nice."
+    },
+    {
+      "start": 671.53,
+      "end": 686.13,
+      "speaker": "jerod-santo",
+      "text": "And then I'll, and then like at that point I can disconnect and I can block them. Exactly. Yeah. Maybe I should start trying that. I'm, I'm, I'm more like follow the rules guy. So I'm like, I'm sorry, but I don't know you. So if you like that feature, keep it, do it for you."
+    },
+    {
+      "start": 686.13,
+      "end": 687.17,
+      "speaker": "emily-freeman",
+      "text": "That's that's great."
+    },
+    {
+      "start": 687.17,
+      "end": 694.63,
+      "speaker": "jerod-santo",
+      "text": "But they have decided now they have fault. Now you can just follow without actually reciprocating until they're trying to be more of that asynchronous."
+    },
+    {
+      "start": 694.63,
+      "end": 696.61,
+      "speaker": "emily-freeman",
+      "text": "Do all accounts have that feature?"
+    },
+    {
+      "start": 696.61,
+      "end": 717.35,
+      "speaker": "jerod-santo",
+      "text": "I don't know. Or is that because for a while it was only the, what are they called? Creator accounts. Like you had to like, like apply to it. Same thing for like long posts and videos. And there was a handful of things that they gated behind this. Like you had to have so many connections and follow or connections first, then you could apply for it. Then they approved you. Cause I did that like three or four years ago."
+    },
+    {
+      "start": 717.35,
+      "end": 721.77,
+      "speaker": "emily-freeman",
+      "text": "And at that point it was just like, I don't know what feature is, is for everyone or it's like special."
+    },
+    {
+      "start": 721.77,
+      "end": 751.49,
+      "speaker": "jerod-santo",
+      "text": "I think that's, I think that's everybody at this point, but I do know there was kind of an upgraded account for a while. The weirdest thing about LinkedIn, I don't know how long we want to talk about this topic, but let's go one layer deeper. The weirdest thing about LinkedIn is how they're, they don't care about freshness whatsoever. And so as a person who's there to see what's going on, like you see something you're like, Oh, that's interesting. It was like three weeks ago, which is fine for evergreen content, but a lot of times it's like not evergreen at all. And you're like, Oh, this is really old. It's kind of, I don't know."
+    },
+    {
+      "start": 751.49,
+      "end": 757.05,
+      "speaker": "emily-freeman",
+      "text": "Yeah. I feel like Twitter is for the fast stuff and that LinkedIn is, is for the evergreen."
+    },
+    {
+      "start": 757.05,
+      "end": 803.97,
+      "speaker": "jerod-santo",
+      "text": "Yes. So much so that I've actually deleted and put back on the X app from my phone multiple times because I just don't want to deal with it anymore. So I delete it and then like something breaking news happens. Like I think it was the assassination attempt was one. And then, uh, just like locally weather alerts here in Omaha come faster through Twitter. I'm not going to download my, they do, I'm not gonna, I'm not gonna download my, my local news channels app. I'm just not going to do it. I'd rather get the Twitter app. Oh yeah. If it's like, if there's actual tornadoes coming through, which we've had some serious storms this summer, you're going to find out about it minutes before on Twitter. And those minutes actually matter when you're driving down the street wondering where is the tornado. And so for that, I like, I installed the app again. I'm like, dang it, I'm back. I'm back on the app again."
+    },
+    {
+      "start": 803.97,
+      "end": 810.47,
+      "speaker": "emily-freeman",
+      "text": "That's shocking. I'm just envisioning Jared driving down the road, looking at his phone, checking Twitter while there's tornadoes. 100%."
+    },
+    {
+      "start": 810.47,
+      "end": 816.97,
+      "speaker": "jerod-santo",
+      "text": "Just sending. I'm not sure where the tornado is, but that's a hilarious meme right there."
+    },
+    {
+      "start": 816.97,
+      "end": 819.13,
+      "speaker": "emily-freeman",
+      "text": "Is this tornado?"
+    },
+    {
+      "start": 819.13,
+      "end": 820.13,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 820.13,
+      "end": 821.81,
+      "speaker": "emily-freeman",
+      "text": "Do you have a shelter like in your house?"
+    },
+    {
+      "start": 821.81,
+      "end": 832.09,
+      "speaker": "jerod-santo",
+      "text": "Um, no, we all have basements here. So the basement is usually good enough. I know some places don't have basements readily, but there are folks who have shelters, but for the most part, just get, get as low as you can."
+    },
+    {
+      "start": 832.09,
+      "end": 858.73,
+      "speaker": "emily-freeman",
+      "text": "My family's all in Northern Alabama and my father growing up, my, my grandfather was horrified of tornadoes. In fact, the school knew that a storm was coming when my grandfather walked across the courtyard to fetch all the, his kids and all the cousins. And then he would make everyone sit in the cellar for way too long. And so they, they called it the cellar dweller club, just sitting there for hours. Yeah."
+    },
+    {
+      "start": 858.73,
+      "end": 890.61,
+      "speaker": "jerod-santo",
+      "text": "It's kind of funny. You can tell all the different kinds of people there are depending on how they react to the tornadoes. You know, I'm somewhat cautious and I'm like, and my wife is more like, it's not going to hit here, you know, and I want to be, I want to be like manly and stuff. And I'm like, seriously, we should go hide right now because it's getting pretty close. You know, she's like, no, it's not like, Oh no. So we have that kind of fun dynamic. Some people will sit on their back porch and like watch the tornado come through and other people are literally like driving to Iowa to get away from it. So it takes all kinds. I don't mess around with tornadoes, man. I've seen the movie."
+    },
+    {
+      "start": 890.61,
+      "end": 891.61,
+      "speaker": "emily-freeman",
+      "text": "Both of them."
+    },
+    {
+      "start": 891.61,
+      "end": 900.09,
+      "speaker": "jerod-santo",
+      "text": "You see the new one, uh, trailers, at least of the new one, teasers, he got close enough to that."
+    },
+    {
+      "start": 900.09,
+      "end": 906.25,
+      "speaker": "emily-freeman",
+      "text": "I don't know if this guy's going to replace bill Paxton, like bill Paxton had a magic to him."
+    },
+    {
+      "start": 906.25,
+      "end": 907.25,
+      "speaker": "jerod-santo",
+      "text": "Bill Paxton was cool."
+    },
+    {
+      "start": 907.25,
+      "end": 908.25,
+      "speaker": "emily-freeman",
+      "text": "He was cool."
+    },
+    {
+      "start": 908.25,
+      "end": 909.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it was."
+    },
+    {
+      "start": 909.25,
+      "end": 913.33,
+      "speaker": "emily-freeman",
+      "text": "Yeah. But I go see it tonight actually. So we'll see. I'll let you."
+    },
+    {
+      "start": 913.33,
+      "end": 916.33,
+      "speaker": "jerod-santo",
+      "text": "I'll let you all know. Let us know. Yeah."
+    },
+    {
+      "start": 916.33,
+      "end": 917.33,
+      "speaker": "emily-freeman",
+      "text": "It's got good reviews."
+    },
+    {
+      "start": 917.33,
+      "end": 920.33,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I feel like it's many of them. Twisters."
+    },
+    {
+      "start": 920.33,
+      "end": 925.33,
+      "speaker": "emily-freeman",
+      "text": "Yeah. They pluralized it. Yeah. I thought it was just cause they didn't want to say twister too. It's just twisters."
+    },
+    {
+      "start": 925.33,
+      "end": 934.87,
+      "speaker": "jerod-santo",
+      "text": "It's kind of like we were alien and then aliens and I was like, Ooh, they just upped the ante. Beetlejuice, Beetlejuice, every, every, every sequel needs a clever name now."
+    },
+    {
+      "start": 934.87,
+      "end": 945.13,
+      "speaker": "emily-freeman",
+      "text": "That's true. They're remaking every movie from our childhoods and they're trying to trick us into thinking they're new movies. Oh, can I cry? I'm sorry. And they're not."
+    },
+    {
+      "start": 945.13,
+      "end": 951.13,
+      "speaker": "jerod-santo",
+      "text": "Yeah, but go ahead. I agree. I, I'm not going to see Beetlejuice, Beetlejuice out of principle. Why?"
+    },
+    {
+      "start": 951.13,
+      "end": 952.13,
+      "speaker": "emily-freeman",
+      "text": "Why?"
+    },
+    {
+      "start": 952.13,
+      "end": 959.93,
+      "speaker": "jerod-santo",
+      "text": "Because they take everything that I love and is dear to me as a child and then they, they bastardize, they sell it to me again. I can concur on that with Wonka."
+    },
+    {
+      "start": 959.93,
+      "end": 963.77,
+      "speaker": "emily-freeman",
+      "text": "Oh, Wonka was a crime, a sheer crime."
+    },
+    {
+      "start": 963.77,
+      "end": 964.77,
+      "speaker": "jerod-santo",
+      "text": "Seriously."
+    },
+    {
+      "start": 964.77,
+      "end": 965.77,
+      "speaker": "emily-freeman",
+      "text": "It's awful."
+    },
+    {
+      "start": 965.87,
+      "end": 978.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I try to explain it to my kids. I'm like, it's not that that one was better. It was weird. I'm not sure I wanted more of the weird, but I didn't want to come complete opposite story. Right. Like the origin story does not connect in my opinion."
+    },
+    {
+      "start": 978.11,
+      "end": 979.11,
+      "speaker": "emily-freeman",
+      "text": "Not at all."
+    },
+    {
+      "start": 979.11,
+      "end": 984.71,
+      "speaker": "jerod-santo",
+      "text": "No. I mean, name a good reboot. It's harder than naming a bunch of bad ones. We could all name bad ones."
+    },
+    {
+      "start": 984.71,
+      "end": 985.71,
+      "speaker": "emily-freeman",
+      "text": "That's true."
+    },
+    {
+      "start": 985.71,
+      "end": 988.31,
+      "speaker": "jerod-santo",
+      "text": "We may not think of one collectively. Somebody will."
+    },
+    {
+      "start": 988.31,
+      "end": 989.31,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 989.31,
+      "end": 990.31,
+      "speaker": "jerod-santo",
+      "text": "They're few and far between."
+    },
+    {
+      "start": 990.31,
+      "end": 1001.9,
+      "speaker": "emily-freeman",
+      "text": "I'll leave it as a background process and then just randomly in the middle of conversation shout it out. I mean, there's plenty that are good, but were they better than the original? Probably not."
+    },
+    {
+      "start": 1001.9,
+      "end": 1002.9,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 1002.9,
+      "end": 1003.9,
+      "speaker": "emily-freeman",
+      "text": "No."
+    },
+    {
+      "start": 1003.9,
+      "end": 1005.9,
+      "speaker": "jerod-santo",
+      "text": "No. I can't think of one."
+    },
+    {
+      "start": 1005.9,
+      "end": 1009.54,
+      "speaker": "emily-freeman",
+      "text": "It had good properties, but it was not good for somebody who watched the original."
+    },
+    {
+      "start": 1009.54,
+      "end": 1022.94,
+      "speaker": "jerod-santo",
+      "text": "Exactly. Which is who they're selling it to, right? Like they want you to, they want to tap into your nostalgia and now you have kids or whatever. You have more money than you did before and you're going to take everybody to the theater and they need to at least satisfy the person with the wallet. No."
+    },
+    {
+      "start": 1022.94,
+      "end": 1025.12,
+      "speaker": "emily-freeman",
+      "text": "I would think. They don't care about us at all."
+    },
+    {
+      "start": 1025.12,
+      "end": 1027.7,
+      "speaker": "jerod-santo",
+      "text": "Jared. They've already gotten our money."
+    },
+    {
+      "start": 1027.7,
+      "end": 1033.12,
+      "speaker": "emily-freeman",
+      "text": "They know our children will bother us until we give up. That's the game."
+    },
+    {
+      "start": 1033.12,
+      "end": 1048.72,
+      "speaker": "jerod-santo",
+      "text": "It is the game. That's why I'm just making my kids watch all the old movies that I thought were good and then I watch them again. I'm like, it was good when I watched it the first time guys. I think there's a lot that were, at least for me, like my grandparents' generation that"
+    },
+    {
+      "start": 1048.72,
+      "end": 1056.92,
+      "speaker": "emily-freeman",
+      "text": "reboots happened that like a wizard of Oz, the remake was way better. Really? Which is the one we all know. Cause there was one from 1925."
+    },
+    {
+      "start": 1056.92,
+      "end": 1063.74,
+      "speaker": "jerod-santo",
+      "text": "Okay. But there's like a certain level of ability to make movies that advanced. Right there. We're going to hit that plateau now."
+    },
+    {
+      "start": 1063.74,
+      "end": 1067.3,
+      "speaker": "emily-freeman",
+      "text": "But there was this whole remake thing with like CG in the late nineties when everyone"
+    },
+    {
+      "start": 1067.3,
+      "end": 1085.84,
+      "speaker": "jerod-santo",
+      "text": "was like, Oh, like this is the new way we make movies. Like, no, like we've shifted back into this practical effects into world. But there's a lot of like the really old movies that are like, Oh, I didn't know that was a remake that I think would apply. But I think if you're looking at modern last 50 to 60 year remakes, that's going to be"
+    },
+    {
+      "start": 1085.84,
+      "end": 1088.84,
+      "speaker": "emily-freeman",
+      "text": "harder. Oh, they're just ruining our childhood. They really are."
+    },
+    {
+      "start": 1088.84,
+      "end": 1118.82,
+      "speaker": "jerod-santo",
+      "text": "What about, here's what I didn't see, but I think Adam saw, what about the Blade Runner reboot? Adam, was that one good? So I was, yes, in my opinion it was good. I'll answer that easily. I think the cinematography was phenomenal. The soundtrack was phenomenal. I think the acting was continuous and you know, from where it began to where it ended up. I think there was a lot of throwbacks and cuts between that connected, so then it did a pretty good job. In my opinion. All right."
+    },
+    {
+      "start": 1118.82,
+      "end": 1122.82,
+      "speaker": "emily-freeman",
+      "text": "It was a solid movie. We'll count it and we'll say we thought of one. Oh, Dune. Dune's a good remake."
+    },
+    {
+      "start": 1122.82,
+      "end": 1123.82,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 1123.82,
+      "end": 1124.82,
+      "speaker": "emily-freeman",
+      "text": "Dune is good."
+    },
+    {
+      "start": 1124.82,
+      "end": 1127.82,
+      "speaker": "jerod-santo",
+      "text": "Okay. That one was kind of easy though. Honestly, don't you think?"
+    },
+    {
+      "start": 1127.82,
+      "end": 1128.82,
+      "speaker": "emily-freeman",
+      "text": "Kind of easy."
+    },
+    {
+      "start": 1128.82,
+      "end": 1129.82,
+      "speaker": "jerod-santo",
+      "text": "We didn't say it was so bad."
+    },
+    {
+      "start": 1129.82,
+      "end": 1131.26,
+      "speaker": "emily-freeman",
+      "text": "It was so bad."
+    },
+    {
+      "start": 1131.26,
+      "end": 1141.56,
+      "speaker": "jerod-santo",
+      "text": "It was so like cheeky bad. A lot of people like it though, don't they? I will agree. It definitely is a good. And the sequel, Mad Max Fury Road. Now we're on a roll here."
+    },
+    {
+      "start": 1141.56,
+      "end": 1145.56,
+      "speaker": "emily-freeman",
+      "text": "Mad Max. Yeah. Yeah. I'm on the fence on that one."
+    },
+    {
+      "start": 1145.56,
+      "end": 1146.56,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1146.56,
+      "end": 1153.64,
+      "speaker": "emily-freeman",
+      "text": "I would just say it's a good movie. It is a good movie, but I feel like they're different movies. I know it's the same movie. Yeah."
+    },
+    {
+      "start": 1153.64,
+      "end": 1156.64,
+      "speaker": "jerod-santo",
+      "text": "They are. Yeah. Okay."
+    },
+    {
+      "start": 1156.64,
+      "end": 1158.64,
+      "speaker": "emily-freeman",
+      "text": "I'm just lowering the bar so we can get some winners. That's all."
+    },
+    {
+      "start": 1158.64,
+      "end": 1175.82,
+      "speaker": "jerod-santo",
+      "text": "Wait. Who was going to say something about Dune, Adam? Oh, just that part two was good. Part two was good. And you know, I think part two is actually potentially better than part one. Agreed. I feel like there was a lot of good stuff in there where two of the same of the new movie, right? Of the pre-boot part one was a lot of character development and build up and backstory for the second half."
+    },
+    {
+      "start": 1175.82,
+      "end": 1178.02,
+      "speaker": "emily-freeman",
+      "text": "I didn't see the second half either. I fell asleep in the first one."
+    },
+    {
+      "start": 1178.02,
+      "end": 1183.42,
+      "speaker": "jerod-santo",
+      "text": "I was not like, no, I made it to the end, but I didn't know it was going to be the first half of a movie."
+    },
+    {
+      "start": 1183.42,
+      "end": 1188.1,
+      "speaker": "emily-freeman",
+      "text": "So no, I did finish it and I'm like, what, seriously?"
+    },
+    {
+      "start": 1188.1,
+      "end": 1209.22,
+      "speaker": "jerod-santo",
+      "text": "Like they should have put Dune one when you go, but they didn't just call it Dune. So I expected to be a full movie. It's like, if I would've got 50% off, I'd be less. Yeah. Right. I get half a story. I pay half the fee. That's right. I remember getting like two thirds of the way through, I'm like, dang, they have a lot more to talk about. How are they going to get through all this?"
+    },
+    {
+      "start": 1209.22,
+      "end": 1210.22,
+      "speaker": "emily-freeman",
+      "text": "Did you read the books?"
+    },
+    {
+      "start": 1210.22,
+      "end": 1211.22,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 1211.22,
+      "end": 1214.22,
+      "speaker": "emily-freeman",
+      "text": "No. Adam, did you read the books? Did anybody read the books?"
+    },
+    {
+      "start": 1214.22,
+      "end": 1216.22,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I did not read the books."
+    },
+    {
+      "start": 1216.22,
+      "end": 1217.35,
+      "speaker": "emily-freeman",
+      "text": "What?"
+    },
+    {
+      "start": 1217.35,
+      "end": 1218.35,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 1218.35,
+      "end": 1219.38,
+      "speaker": "emily-freeman",
+      "text": "I'm sorry."
+    },
+    {
+      "start": 1219.38,
+      "end": 1232.08,
+      "speaker": "jerod-santo",
+      "text": "I... You're not proper nerds. No. I want to read the books. There's just so many of them. It's a lot. You might want to be the kind of person that read the books. I believe that Brett Cannon said... I don't. I don't. I don't."
+    },
+    {
+      "start": 1232.08,
+      "end": 1233.75,
+      "speaker": "emily-freeman",
+      "text": "It's all right."
+    },
+    {
+      "start": 1233.75,
+      "end": 1235.75,
+      "speaker": "jerod-santo",
+      "text": "You only... Tell us how you really feel, Justin."
+    },
+    {
+      "start": 1235.75,
+      "end": 1250.99,
+      "speaker": "emily-freeman",
+      "text": "You only really need to do the first like two and then it kind of jumps to shark. But the first one is one of, in my opinion, the most magical, beautiful pieces of writing. I mean, it is just, it's amazing."
+    },
+    {
+      "start": 1251.01,
+      "end": 1269.65,
+      "speaker": "jerod-santo",
+      "text": "So I guess one thing for you, Jared, is the director of Dune, part one and two. Yes. Is also the director of Blade Runner 2049. Okay. So this person knows what they're doing. Also the director of Sicario. That was a good one. Arrival. Yeah. Arrival's good. Enemy, which stands out to my brain, but I'm not sure why."
+    },
+    {
+      "start": 1269.65,
+      "end": 1270.94,
+      "speaker": "emily-freeman",
+      "text": "What is Enemy?"
+    },
+    {
+      "start": 1270.94,
+      "end": 1275.1,
+      "speaker": "jerod-santo",
+      "text": "I don't know. There's two good movies about enemies. Enemy of the Gate. Oh, yes."
+    },
+    {
+      "start": 1275.1,
+      "end": 1276.1,
+      "speaker": "emily-freeman",
+      "text": "Good movie."
+    },
+    {
+      "start": 1276.1,
+      "end": 1281.66,
+      "speaker": "jerod-santo",
+      "text": "That was a good movie. And then less good, but still pretty good is Enemy of the State, back when I liked Will Smith more."
+    },
+    {
+      "start": 1281.66,
+      "end": 1284.66,
+      "speaker": "emily-freeman",
+      "text": "Will Smith. Yeah. Yeah."
+    },
+    {
+      "start": 1284.66,
+      "end": 1285.66,
+      "speaker": "jerod-santo",
+      "text": "I just bought, I just bought the DVD of that one."
+    },
+    {
+      "start": 1285.66,
+      "end": 1289.66,
+      "speaker": "emily-freeman",
+      "text": "Shut up, really? Because I put it in Plex. Did you really? No, for real."
+    },
+    {
+      "start": 1289.66,
+      "end": 1296.86,
+      "speaker": "jerod-santo",
+      "text": "It's like, I put all of them in Plex and like, I just rewatched it. I'm like, this movie holds up. Amazing. Like it actually has like a good, yeah, no, like the, the, the, the things they're doing in it and all the like conspiracy and stuff."
+    },
+    {
+      "start": 1296.86,
+      "end": 1299.66,
+      "speaker": "emily-freeman",
+      "text": "You brought the DVD or the Blu-ray cause isn't that 720p?"
+    },
+    {
+      "start": 1299.66,
+      "end": 1311.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah. No, not even. It's 480 or whatever. It's like 480i probably. Yeah. Yeah. No, it's fine. Like I buy Muse. I just buy like, there's people I can offer up. Just for a movie or whatever. And I throw it in Plex."
+    },
+    {
+      "start": 1311.18,
+      "end": 1312.82,
+      "speaker": "emily-freeman",
+      "text": "And where do you buy these?"
+    },
+    {
+      "start": 1312.82,
+      "end": 1314.82,
+      "speaker": "jerod-santo",
+      "text": "Offer up eBay. We're off the internet."
+    },
+    {
+      "start": 1314.82,
+      "end": 1315.82,
+      "speaker": "emily-freeman",
+      "text": "Okay."
+    },
+    {
+      "start": 1315.82,
+      "end": 1337.42,
+      "speaker": "jerod-santo",
+      "text": "I was just like, well, I mean, I meet locally. I don't want to pay for shipping on the street corner or something like, I mean, like I meet them at a Starbucks. Like if it's local. Right. Like I just like, Hey, I'm in the area. Can I buy these three movies from you? Really? Yeah. I do it all the time. So you got, so you meet somebody at Starbucks to buy a $2 version of enemy of the state. I mean, this is hilarious. I love it. Why not?"
+    },
+    {
+      "start": 1337.42,
+      "end": 1338.42,
+      "speaker": "emily-freeman",
+      "text": "Cause they could murder you?"
+    },
+    {
+      "start": 1338.42,
+      "end": 1350.63,
+      "speaker": "jerod-santo",
+      "text": "What is out of character here? I would never. I wouldn't either. I'd be like, I'm going to get hit with a shiv in my back, you know?"
+    },
+    {
+      "start": 1350.63,
+      "end": 1354.63,
+      "speaker": "emily-freeman",
+      "text": "100%. I'm like, no, no. Thank you. I'm okay."
+    },
+    {
+      "start": 1354.63,
+      "end": 1367.6,
+      "speaker": "jerod-santo",
+      "text": "Peddles, used DVDs at Starbucks. It just sounds, it's just a world. I didn't know this world existed. Adam, you're, you would never do a used DVD. This guy goes highest quality, everything, right?"
+    },
+    {
+      "start": 1367.6,
+      "end": 1370.4,
+      "speaker": "emily-freeman",
+      "text": "I'm not sure to get it."
+    },
+    {
+      "start": 1370.4,
+      "end": 1371.4,
+      "speaker": "jerod-santo",
+      "text": "You wouldn't use your money."
+    },
+    {
+      "start": 1371.4,
+      "end": 1378.4,
+      "speaker": "emily-freeman",
+      "text": "I know. I mean, I would buy it. I would buy, I would buy it from eBay or something like that. I'm not sure if I would like meet locally to get it."
+    },
+    {
+      "start": 1378.4,
+      "end": 1408.88,
+      "speaker": "jerod-santo",
+      "text": "Maybe under $5. Yeah. Like if it's under $5 for per movie and like people will sell lots. They're like, I got 300 movies. Which ones do you want? And I'll go get like, give me five or whatever. I'm a meet you up. Here's 10 bucks. Right. And then it was like, okay, well then I just put them in Plex and that's wild. Yeah. I am with you on the, put them in Plex part. You know, I feel like if it's not full res on Plex, it's not a movie. How about 480i for two bucks? You can go for that."
+    },
+    {
+      "start": 1408.88,
+      "end": 1409.88,
+      "speaker": "emily-freeman",
+      "text": "I have plenty of that."
+    },
+    {
+      "start": 1409.88,
+      "end": 1414.08,
+      "speaker": "jerod-santo",
+      "text": "If that's all it has. Yeah. If that's like the max resolution available, then sure. Yeah."
+    },
+    {
+      "start": 1414.08,
+      "end": 1420.24,
+      "speaker": "emily-freeman",
+      "text": "If that's the master, sure. I'm checking my, I have 1,023 movies in Plex and this isn't counting TV shows. This isn't counting shorts."
+    },
+    {
+      "start": 1420.24,
+      "end": 1438.52,
+      "speaker": "jerod-santo",
+      "text": "This isn't counting alternative stuff. Like I just, I have boxes and boxes of DVDs over here. So then I paid like a buck or two for, and like it's content that I own, I keep and all these streaming services. I don't have to like every one of them raised their prices. Right. Like how much is Disney plus now? It's just like, as someone who ran Disney plus, I'm like, well, isn't it, are you part"
+    },
+    {
+      "start": 1438.52,
+      "end": 1446.64,
+      "speaker": "emily-freeman",
+      "text": "of the problem over there? So they take movies away. I was trying to find something the other day and you can't, you can't find it. And they changed the movies."
+    },
+    {
+      "start": 1446.64,
+      "end": 1447.64,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 1447.64,
+      "end": 1448.64,
+      "speaker": "emily-freeman",
+      "text": "Yes."
+    },
+    {
+      "start": 1448.64,
+      "end": 1460.6,
+      "speaker": "jerod-santo",
+      "text": "Yes. Stop changing our movies. Enemy of the state was one I couldn't find to watch. Like literally it was like, I want to watch that movie. And you can't stream it. And so I was like, forget it. I found it on offer up. And I was like at the store. I'm like, Hey, can you meet me here? And they come over and here you go. Here's your, do you, that's, do you strap?"
+    },
+    {
+      "start": 1460.6,
+      "end": 1461.6,
+      "speaker": "emily-freeman",
+      "text": "I've been doing it for years."
+    },
+    {
+      "start": 1461.6,
+      "end": 1462.6,
+      "speaker": "jerod-santo",
+      "text": "Do you strap just in case?"
+    },
+    {
+      "start": 1462.6,
+      "end": 1464.6,
+      "speaker": "emily-freeman",
+      "text": "Do you? No, I'm in public."
+    },
+    {
+      "start": 1464.6,
+      "end": 1474.92,
+      "speaker": "jerod-santo",
+      "text": "It doesn't matter. I have more faith in humanity. I also, I also have a lot of privilege as a white dude in Southern California where I'm just like, yeah, it's fine."
+    },
+    {
+      "start": 1474.92,
+      "end": 1481.6,
+      "speaker": "emily-freeman",
+      "text": "It took me like 20 seconds to realize what strap meant for just, I was like, Oh, Oh, a gun, a gun."
+    },
+    {
+      "start": 1481.6,
+      "end": 1482.6,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1482.6,
+      "end": 1490.56,
+      "speaker": "emily-freeman",
+      "text": "Yeah. Sorry. We, Jared and I grew up in the air when you would watch, what was the movie? Give me a second to answer your question."
+    },
+    {
+      "start": 1490.56,
+      "end": 1497.56,
+      "speaker": "jerod-santo",
+      "text": "The meantime, I'm not a gun person, but I hang out with a lot of them. So I know the lingo. I do not strap myself."
+    },
+    {
+      "start": 1497.56,
+      "end": 1504.66,
+      "speaker": "emily-freeman",
+      "text": "I do not strap. Oh, we grew up in the air when you could watch boys in the hood 1991 when you could watch"
+    },
+    {
+      "start": 1504.66,
+      "end": 1519.4,
+      "speaker": "jerod-santo",
+      "text": "it. Yeah. Like you still watch it today, but like we grew up when it came out. Oh yeah. Right. It's 91. Heck yeah. from that movie there. Probably. I was wondering where he was going with that. I'm like, where's he going with this?"
+    },
+    {
+      "start": 1519.4,
+      "end": 1524.6,
+      "speaker": "emily-freeman",
+      "text": "Can I tell you that my theory is that 1995 was the best year of our lives and we'll never get it back."
+    },
+    {
+      "start": 1524.6,
+      "end": 1526.16,
+      "speaker": "jerod-santo",
+      "text": "Oh, I want to hear more."
+    },
+    {
+      "start": 1526.16,
+      "end": 1534.08,
+      "speaker": "emily-freeman",
+      "text": "I mean, I hear the theory, but please think about the movies from 1995, like incredible story movies."
+    },
+    {
+      "start": 1534.08,
+      "end": 1536.72,
+      "speaker": "jerod-santo",
+      "text": "I got a better year for you, but that's just one."
+    },
+    {
+      "start": 1536.72,
+      "end": 1564.8,
+      "speaker": "emily-freeman",
+      "text": "Okay. That's one. Think about pizza hut. Nineties pizza hut. I did not understand how great 90s pizza hut, remember you had the plastic, which were probably killing us. It was like made of BPA and there's like massive soda jugs. They come over with the BPA soda pitchers. You get a whole thing. You have booths. There's like a salad bar before it killed you. I mean, 90s pizza hut was magic. I wish I could time travel."
+    },
+    {
+      "start": 1564.8,
+      "end": 1581.32,
+      "speaker": "jerod-santo",
+      "text": "Okay. Right. Yeah. That would be nice. Time travel. I would definitely time travel to do that kind of stuff. I'm looking at the movies right now. This is not living up to 99 had a better year. Well, 1999 is the best year ever. So we can't really even compare."
+    },
+    {
+      "start": 1581.32,
+      "end": 1583.32,
+      "speaker": "emily-freeman",
+      "text": "Why is 1999 the best year ever?"
+    },
+    {
+      "start": 1583.32,
+      "end": 1594.36,
+      "speaker": "jerod-santo",
+      "text": "Oh my goodness. Here we are again. Adam, do you want to get the list out? We can go a long list. We can go 30 movies deep and you'll still be saying that's a good movie. I'm serious. It's insane. There's there's a book written about it."
+    },
+    {
+      "start": 1594.36,
+      "end": 1595.36,
+      "speaker": "emily-freeman",
+      "text": "Apparently."
+    },
+    {
+      "start": 1595.36,
+      "end": 1596.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1596.36,
+      "end": 1601.92,
+      "speaker": "emily-freeman",
+      "text": "Okay. Maybe I have to shift it to 1999. I have to look at 95. I think you need nostalgia for that too. For sure."
+    },
+    {
+      "start": 1601.92,
+      "end": 1610.72,
+      "speaker": "jerod-santo",
+      "text": "I remember the first time they put cheese in the cross, the pizza stuff cross. Yes. I crushed. And I was like, wait, there's cheese inside the crust."
+    },
+    {
+      "start": 1610.72,
+      "end": 1612.72,
+      "speaker": "emily-freeman",
+      "text": "They all said you to eat it backwards."
+    },
+    {
+      "start": 1612.72,
+      "end": 1615.72,
+      "speaker": "jerod-santo",
+      "text": "Exactly. Float around. That's the kind of innovation that we're lacking."
+    },
+    {
+      "start": 1615.72,
+      "end": 1628.66,
+      "speaker": "emily-freeman",
+      "text": "I just want to be able to like sit. Remember Wendy's Wendy's had like, it was a nice place to eat. You could go get the dollar menu and not feel like you were going to get some kind"
+    },
+    {
+      "start": 1628.66,
+      "end": 1657.54,
+      "speaker": "jerod-santo",
+      "text": "of disease in the restaurant, some sort of chicken bone. This past summer, we took my son for his very first time into a play place. Oh yeah. And like, cause he, he was like partial COVID like we're like, yeah, we're never doing that. And then this look, we're this summer, you're going to be able to, so we went to like burger King and Chick-fil-A and McDonald's and like, we're hitting up all the ones that had, if they had indoor play places, like you can go to it and like, I'm sitting there, I'm like, can we go now? Can we go now?"
+    },
+    {
+      "start": 1657.54,
+      "end": 1658.54,
+      "speaker": "emily-freeman",
+      "text": "And they're buying DVDs."
+    },
+    {
+      "start": 1658.54,
+      "end": 1659.54,
+      "speaker": "jerod-santo",
+      "text": "That was so good."
+    },
+    {
+      "start": 1659.54,
+      "end": 1662.54,
+      "speaker": "emily-freeman",
+      "text": "Well done. You go play over there. Only buys DVDs."
+    },
+    {
+      "start": 1662.54,
+      "end": 1666.99,
+      "speaker": "jerod-santo",
+      "text": "Amazing. Did he love it? Did they love it? Or what?"
+    },
+    {
+      "start": 1666.99,
+      "end": 1668.34,
+      "speaker": "emily-freeman",
+      "text": "Oh yeah, absolutely."
+    },
+    {
+      "start": 1668.34,
+      "end": 1682.3,
+      "speaker": "jerod-santo",
+      "text": "And so he has a tier now of like, which ones are the best and mostly because of which friends he met at each one. Right. And so he's like, oh, well, this one had better kids. I'm like, well, like they're not always there."
+    },
+    {
+      "start": 1682.3,
+      "end": 1705.4,
+      "speaker": "emily-freeman",
+      "text": "I don't know about your kids. My kid becomes the mayor of whatever playground she's on people where she gets, she's like, this is my playground. These are my people. Like what is happening and they all fall for it. They do. And people come up and be like, how does she know everyone? I was like, she doesn't know these people. She doesn't know these children. She just met them."
+    },
+    {
+      "start": 1705.4,
+      "end": 1708.4,
+      "speaker": "jerod-santo",
+      "text": "She gave them names."
+    },
+    {
+      "start": 1708.4,
+      "end": 1712.04,
+      "speaker": "emily-freeman",
+      "text": "They're merely her subjects. It's magic."
+    },
+    {
+      "start": 1712.52,
+      "end": 1713.52,
+      "speaker": "jerod-santo",
+      "text": "Hilarious."
+    },
+    {
+      "start": 1713.52,
+      "end": 1720.24,
+      "speaker": "emily-freeman",
+      "text": "What else? Should we talk about like tech at some point or are we just a movie 90s nostalgia pod here?"
+    },
+    {
+      "start": 1720.24,
+      "end": 1734.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I mean, eventually we have to rename it, but I want to, I do want to throw one more thing in there that just to close the loop, I love it. Close it for us. Okay. Close the loop on 1995. I'm gonna just go name some movies because these are the ones. Okay. Toy story."
+    },
+    {
+      "start": 1734.88,
+      "end": 1735.88,
+      "speaker": "emily-freeman",
+      "text": "Yep."
+    },
+    {
+      "start": 1735.88,
+      "end": 1736.88,
+      "speaker": "jerod-santo",
+      "text": "The original."
+    },
+    {
+      "start": 1736.88,
+      "end": 1737.88,
+      "speaker": "emily-freeman",
+      "text": "Braveheart."
+    },
+    {
+      "start": 1737.88,
+      "end": 1738.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1738.88,
+      "end": 1739.88,
+      "speaker": "emily-freeman",
+      "text": "Amazing."
+    },
+    {
+      "start": 1739.88,
+      "end": 1746.6,
+      "speaker": "jerod-santo",
+      "text": "Seven. Yeah. Apollo 13. Nice. Casino. Mm hmm."
+    },
+    {
+      "start": 1746.6,
+      "end": 1747.6,
+      "speaker": "emily-freeman",
+      "text": "Yes."
+    },
+    {
+      "start": 1747.6,
+      "end": 1755.64,
+      "speaker": "jerod-santo",
+      "text": "Heat. Mm hmm. Jumanji. Okay. Die Hard with a Vengeance. And GoldenEye. The vengeance is all right. Yeah."
+    },
+    {
+      "start": 1755.64,
+      "end": 1756.64,
+      "speaker": "emily-freeman",
+      "text": "GoldenEye was pretty good."
+    },
+    {
+      "start": 1756.64,
+      "end": 1760.64,
+      "speaker": "jerod-santo",
+      "text": "Jurassic Park was 95 too, right? Oh, what? Jurassic Park? Assuming of hallucination."
+    },
+    {
+      "start": 1760.64,
+      "end": 1761.64,
+      "speaker": "emily-freeman",
+      "text": "That's accurate."
+    },
+    {
+      "start": 1761.64,
+      "end": 1763.64,
+      "speaker": "jerod-santo",
+      "text": "This is hallucinating. You were the-"
+    },
+    {
+      "start": 1763.64,
+      "end": 1764.64,
+      "speaker": "emily-freeman",
+      "text": "Oh, you're not even-"
+    },
+    {
+      "start": 1764.64,
+      "end": 1766.64,
+      "speaker": "jerod-santo",
+      "text": "Not me. Jurassic Park was 93."
+    },
+    {
+      "start": 1766.64,
+      "end": 1767.64,
+      "speaker": "emily-freeman",
+      "text": "This is not-"
+    },
+    {
+      "start": 1767.64,
+      "end": 1769.64,
+      "speaker": "jerod-santo",
+      "text": "No. Really?"
+    },
+    {
+      "start": 1769.64,
+      "end": 1776.32,
+      "speaker": "emily-freeman",
+      "text": "Oh. June 11th, 93. It's close enough to 95. But I think there was a thing with Michael Crichton had like-"
+    },
+    {
+      "start": 1776.32,
+      "end": 1791.2,
+      "speaker": "jerod-santo",
+      "text": "Was it the second one? Oh, that'd be bad. Jurassic World maybe. That's the second one. Jurassic World is... No, that's the other one. Jurassic Parks. What was the second one? They're going to two parks on this one."
+    },
+    {
+      "start": 1791.2,
+      "end": 1793.2,
+      "speaker": "emily-freeman",
+      "text": "It's like Disney. We go east coast, west coast."
+    },
+    {
+      "start": 1793.2,
+      "end": 1795.2,
+      "speaker": "jerod-santo",
+      "text": "Do you know? Yeah, exactly."
+    },
+    {
+      "start": 1795.2,
+      "end": 1799.2,
+      "speaker": "emily-freeman",
+      "text": "I hit them all. Jurassic Park holds up though. It's-"
+    },
+    {
+      "start": 1799.2,
+      "end": 1801.2,
+      "speaker": "jerod-santo",
+      "text": "For sure. Yeah."
+    },
+    {
+      "start": 1801.6,
+      "end": 1806.6,
+      "speaker": "emily-freeman",
+      "text": "I know. These composers like overdue. Yeah. I mean, everything. It's like, okay."
+    },
+    {
+      "start": 1806.6,
+      "end": 1824.09,
+      "speaker": "jerod-santo",
+      "text": "We're just stalling for Justin. What year was it, Justin? I'm still looking. Okay. They had the Jurassic World rebooted in 2015. Lost World was 97. That'd be the third one though. Yeah. That's what I'm trying to find. What was the second one called? I think Jurassic World was the name of it."
+    },
+    {
+      "start": 1824.09,
+      "end": 1825.09,
+      "speaker": "emily-freeman",
+      "text": "Maybe that's right."
+    },
+    {
+      "start": 1825.09,
+      "end": 1826.09,
+      "speaker": "jerod-santo",
+      "text": "The second one."
+    },
+    {
+      "start": 1826.09,
+      "end": 1831.57,
+      "speaker": "emily-freeman",
+      "text": "Screwed up. But I could be wrong. Do you all remember Wizard of Oz 2 with the wheelers and how scary that was?"
+    },
+    {
+      "start": 1832.37,
+      "end": 1843.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah. You were thinking of The Lost World then because in 1995 The Lost World comes out, I think as a book though. Yeah. Oh. And you read books. I do read books."
+    },
+    {
+      "start": 1843.46,
+      "end": 1844.46,
+      "speaker": "emily-freeman",
+      "text": "I don't read books."
+    },
+    {
+      "start": 1844.46,
+      "end": 1850.06,
+      "speaker": "jerod-santo",
+      "text": "I'm just saying. I read a lot of my fiction just not by reading it."
+    },
+    {
+      "start": 1850.06,
+      "end": 1851.06,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 1851.06,
+      "end": 1858.94,
+      "speaker": "jerod-santo",
+      "text": "Lost World was the second one and that was 97 and then Jurassic Park 3, they went back to the number system, was 2001. So yeah. It was 93, 97 in 2001."
+    },
+    {
+      "start": 1858.94,
+      "end": 1870.3,
+      "speaker": "emily-freeman",
+      "text": "There was something in, maybe I got the year wrong. I thought it was Michael Crichton in one of those years had like the best selling book, the best selling movie and some other element. It was like a special."
+    },
+    {
+      "start": 1870.3,
+      "end": 1873.3,
+      "speaker": "jerod-santo",
+      "text": "Special year. Yeah. It's like when you wear the EGOT award."
+    },
+    {
+      "start": 1873.3,
+      "end": 1874.3,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 1874.3,
+      "end": 1880.36,
+      "speaker": "jerod-santo",
+      "text": "They don't do that. They don't do that all in one year, do they? But that's when you win a Grammy, a Tony, an Oscar."
+    },
+    {
+      "start": 1880.36,
+      "end": 1881.36,
+      "speaker": "emily-freeman",
+      "text": "And an Emmy."
+    },
+    {
+      "start": 1881.36,
+      "end": 1882.36,
+      "speaker": "jerod-santo",
+      "text": "I don't know about that."
+    },
+    {
+      "start": 1882.36,
+      "end": 1888.36,
+      "speaker": "emily-freeman",
+      "text": "Emmy. I always wanted an Emmy because I feel like that would be so, it's like Emily has the Emmy."
+    },
+    {
+      "start": 1888.36,
+      "end": 1893.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Right. Yeah. The year after 1995. Now we're stretching."
+    },
+    {
+      "start": 1893.76,
+      "end": 1895.76,
+      "speaker": "emily-freeman",
+      "text": "Just to close one more loop. I didn't realize he wrote Twister."
+    },
+    {
+      "start": 1895.76,
+      "end": 1897.16,
+      "speaker": "jerod-santo",
+      "text": "Apparently it did."
+    },
+    {
+      "start": 1897.16,
+      "end": 1899.76,
+      "speaker": "emily-freeman",
+      "text": "His best book, in my opinion, was Andromeda Strain."
+    },
+    {
+      "start": 1899.76,
+      "end": 1901.16,
+      "speaker": "jerod-santo",
+      "text": "Did that get turned into a movie?"
+    },
+    {
+      "start": 1901.16,
+      "end": 1903.68,
+      "speaker": "emily-freeman",
+      "text": "I think, but it would be. The book was magic."
+    },
+    {
+      "start": 1903.68,
+      "end": 1905.28,
+      "speaker": "jerod-santo",
+      "text": "You should have started a book review service."
+    },
+    {
+      "start": 1905.28,
+      "end": 1907.28,
+      "speaker": "emily-freeman",
+      "text": "I know. Media with Emily and Justin."
+    },
+    {
+      "start": 1907.28,
+      "end": 1908.28,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 1908.28,
+      "end": 1910.28,
+      "speaker": "emily-freeman",
+      "text": "The years are wrong, but the thoughts are right."
+    },
+    {
+      "start": 1910.28,
+      "end": 1954.62,
+      "speaker": "jerod-santo",
+      "text": "Hey, it's a good segue. Does it really matter what year it was? Well, that's somehow a hard segue into DevRel and careers because there's no possible way of getting there with my limited skillset. Okay, friends. I'm here in the breaks with Annie Sexton over at Fly. Annie, you know we use Fly here at Changela. We love Fly. It is such an awesome platform and we love building on it, but for those who don't know much about Fly, what's special about building on Fly?"
+    },
+    {
+      "start": 1954.62,
+      "end": 1964.58,
+      "speaker": "emily-freeman",
+      "text": "Fly gives you a lot of flexibility, like a lot of flexibility on multiple fronts and on top of that you get, so I've talked a lot about the networking and that's obviously"
+    },
+    {
+      "start": 1964.58,
+      "end": 1994.82,
+      "speaker": "jerod-santo",
+      "text": "one thing, but there's various data stores that we partner with that are really easy to use. Actually one of my favorite partners is Tigris. I can't say enough good things about them when it comes to object storage. I never in my life thought I would have so many opinions about object storage, but I do now. Tigris is a partner of Fly and it's S3 compatible object storage that basically seems like it's a CDN, but it's not. It's basically object storage that's globally distributed without needing to actually set"
+    },
+    {
+      "start": 1994.82,
+      "end": 2013.9,
+      "speaker": "emily-freeman",
+      "text": "up a CDN at all. It's like automatically distributed around the world. It's also incredibly easy to use and set up. Creating a bucket is literally one command. It's partners like that that I think are this sort of extra icing on top of Fly that really makes it sort of the platform that has everything that you need."
+    },
+    {
+      "start": 2013.9,
+      "end": 2021.26,
+      "speaker": "jerod-santo",
+      "text": "So we use Tigris here at Changelog. Are they built on top of Fly? Is this one of those examples of being able to build on Fly?"
+    },
+    {
+      "start": 2021.26,
+      "end": 2032.06,
+      "speaker": "emily-freeman",
+      "text": "Yeah, so Tigris is built on top of Fly's infrastructure and that's what allows it to be globally distributed. I do have a video on this, but basically the way it works is whenever, like let's say a"
+    },
+    {
+      "start": 2032.06,
+      "end": 2077.26,
+      "speaker": "jerod-santo",
+      "text": "user uploads an asset to a particular bucket. Well that gets uploaded directly to the region closest to the user. Whereas with a CDN, there's sort of like a centralized place where assets need to get copied to. And then eventually they get sort of trickled out to all of the different global locations. Whereas with Tigris, the moment you upload something, it's available in that region instantly. And then it's eventually cached in all the other regions as well as it's requested. In fact, with Tigris, you don't even have to select which regions things are stored in. You just get these regions for free. And then on top of that, it is so much easier to work with. I feel like the way they manage permissions, the way they handle bucket creation, making things public or private is just so much simpler than other solutions."
+    },
+    {
+      "start": 2077.26,
+      "end": 2088.6,
+      "speaker": "emily-freeman",
+      "text": "And the good news is that you don't actually need to change your code if you're already using S3. It's S3 compatible. So like whatever SDK you're using is probably just fine. And all you got to do is update the credentials. So it's super easy."
+    },
+    {
+      "start": 2088.6,
+      "end": 2149,
+      "speaker": "jerod-santo",
+      "text": "Very cool. Thanks Annie. So Fly has everything you need. Over 3 million applications, including ours here at changelog, multiple applications have launched on Fly. Boosted by global anti-cast load balancing, zero configuration private networking, hardware isolation, instant wire guard VPN connections, push button deployments that scale to thousands of instances. It's all there for you right now. Deploy your app in five minutes. Go to fly.io. Again fly.io. And by our friends over at Paragon, use paragon.com, check them out, ship every SaaS integration your users need with more than a hundred plus pre-built connectors. You can add dozens of integrations to your app quickly and reliably with their embedded iPads for developers. And I'm here with co-founder and CEO Brandon Foo. So Brandon, talk to me about the friction developers feel with integrations, SSO, dealing with rate limits, retries, auth, all the things."
+    },
+    {
+      "start": 2149.12,
+      "end": 2158.48,
+      "speaker": "emily-freeman",
+      "text": "Yeah, so there's a lot here and I think there's a lot of aspects to the different problems that you have to solve in the integration story in building these integrations and also"
+    },
+    {
+      "start": 2158.48,
+      "end": 2263.42,
+      "speaker": "jerod-santo",
+      "text": "providing them in a user-friendly way for your customers to self-serve and onboard and consume those integrations. So part of what the Paragon SDK provides is that embedded user experience, again, what we call our connect portal. That's going to provide the authentication for your users to connect their accounts. That's going to be the initial onboarding. But in addition to that, your users may also want to configure different options or settings for their integrations. A common example that we see for Salesforce or for CRM integrations in general is that your users may want to select some type of custom object mapping. Every CRM can be configured differently. So your users might want to map objects to some different type of record in their Salesforce or different fields in their Salesforce. And typically that's what developers would have to build on their own is this UI for your users to configure these different settings for every single integration. That's also going to be what's provided by the Paragon SDK is not just that initial onboarding and authentication experience, but also the configuration end user UX for different settings like custom field mapping, selecting which types of features on your integration that your user might want to configure. And that's also going to be provided fully out of the box by Paragon SDK. With integrations, different APIs might have different rate limits. They might have different policies that you have to conform with and your developers typically have to learn these different nuances for every API and write code individually to conform to those different nuances. With Paragon, because we build and maintain the connector with each of the integrations that we support in our catalog, we're automatically going to handle for things like retries, things like rate limits. And so we look at this as sort of the backend or infrastructure layer of the integration"
+    },
+    {
+      "start": 2263.42,
+      "end": 2273.62,
+      "speaker": "emily-freeman",
+      "text": "problem that we have spent the last five years essentially building and optimizing the Paragon infrastructure to act as the integration infrastructure for your application."
+    },
+    {
+      "start": 2273.62,
+      "end": 2308.96,
+      "speaker": "jerod-santo",
+      "text": "Okay. Paragon is built for product management, is built for engineering, it's built for everybody. Ship hundreds of native integrations into your SaaS application in days or build your own custom connector with any API. Learn more at useparagon.com slash changelog again. Useparagon.com slash changelog, that's U-S-E-P-A-R-A-G-O-N dot com slash changelog. Lee. Yes. You were the mayor of AWS when I met you."
+    },
+    {
+      "start": 2308.96,
+      "end": 2311.96,
+      "speaker": "emily-freeman",
+      "text": "And you're of AWS, hardly. Thank you."
+    },
+    {
+      "start": 2311.96,
+      "end": 2317.24,
+      "speaker": "jerod-santo",
+      "text": "What was your, yeah, tell us about your role there and then what happened since then because things have changed."
+    },
+    {
+      "start": 2317.24,
+      "end": 2357.54,
+      "speaker": "emily-freeman",
+      "text": "I know. In AWS, I ended up, I came in as head of DevOps product marketing, which is awesome. Peter Ullender, who is now the CMO of Mongo pulled me over. He's incredible, incredible leader. So that was a fun time. And then went over to DevRel, led community efforts, really focused around especially third party communities. I think AWS does a really good job of ensuring people who are already bought into AWS continue to be bought into AWS. I think they have a growth area in reaching developers who are not already AWS fanboys. So that's what I focused on."
+    },
+    {
+      "start": 2357.54,
+      "end": 2363.18,
+      "speaker": "jerod-santo",
+      "text": "If you don't call yourself a builder, then you're a third party community for AWS."
+    },
+    {
+      "start": 2363.18,
+      "end": 2383.62,
+      "speaker": "emily-freeman",
+      "text": "I never bought into that term. So if you don't know, at Amazon, when you think about developer, they call developers builders. And I just, it's like, I've never roofed a house. I don't have carpentry. I'm not a builder. Though, to be honest, sometimes when you say developer, people will be like, oh, I'm a developer. And they're like, oh, you buy land? Like you develop land?"
+    },
+    {
+      "start": 2383.62,
+      "end": 2384.62,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 2384.62,
+      "end": 2443.42,
+      "speaker": "emily-freeman",
+      "text": "No, I don't. I'm not that cool. But yeah. And then after AWS, I left, which was a really good decision. I left sort of jumping off a cliff. I didn't have another role. But it was interesting, like, I don't know if any of you have had this in your career. I was so burnt out and empty that I was just not even showing up the way I wanted to. Like I just needed a break. And it wasn't just Amazon that that sucked my soul. It was Microsoft before that. Microsoft during the pandemic was a special, special kind of exhausting. But yeah, took a break. And then in May, June, Forest Brazil was like, hey, I have an idea. Tell me your idea. And I was like, I think we could be make an influencer marketing agency and connect companies with influencers and get content creators paid. I was like, I like this. Do you think they pay for it? Turns out they do. And so that's what we're we've been up to all these months. That's cool."
+    },
+    {
+      "start": 2443.42,
+      "end": 2465.78,
+      "speaker": "jerod-santo",
+      "text": "It's amazing. Big fans of Forest for our listener. If you don't know Forest Brazil, go back in our back catalog. I did a song encoder episode all about him, featuring him on all of the songs he's made up over the years. Although now probably it's outdated. He's continued to just crank out amazing cartoons, music, just very talented communicator."
+    },
+    {
+      "start": 2465.78,
+      "end": 2468.78,
+      "speaker": "emily-freeman",
+      "text": "Super talented. And so. Incredibly creative."
+    },
+    {
+      "start": 2468.78,
+      "end": 2479.32,
+      "speaker": "jerod-santo",
+      "text": "Yeah, he is. And like classically trained in on piano and I think even voice, I don't know. Very good. So you jumped off the ledge."
+    },
+    {
+      "start": 2479.32,
+      "end": 2480.32,
+      "speaker": "emily-freeman",
+      "text": "I did."
+    },
+    {
+      "start": 2480.32,
+      "end": 2486.5,
+      "speaker": "jerod-santo",
+      "text": "And you landed. How did you have the confidence to do that? You probably were getting paid well there and you're supposed to be happy and all this"
+    },
+    {
+      "start": 2486.5,
+      "end": 2510.51,
+      "speaker": "emily-freeman",
+      "text": "kind of stuff. I was paid well. Happiness is a different conversation. I ended up leaving honestly because I was scared for my health. The last five months my eye was twitching. I'm not even kidding. It just would not stop twitching. And I went to my doctor. I was like, this seems like a bad sign. She's like, yeah, that's not great. Seems like you might be stressed. I was like, no."
+    },
+    {
+      "start": 2513.51,
+      "end": 2514.51,
+      "speaker": "jerod-santo",
+      "text": "What am I paying you for?"
+    },
+    {
+      "start": 2514.51,
+      "end": 2594.58,
+      "speaker": "emily-freeman",
+      "text": "Thanks, doc. I appreciate that. And so it was like, well, you just have to remove the stress. I'm like, I can't do that until my stock drops. Thank you. And so I went to an acupuncturist and she actually helped the most. She kind of like made it manageable for the last little home stretch. But yeah, as soon as I realized there wasn't going to be any kind of meaningful change and I wasn't going to be able to be what I needed to be to be effective, I was like, I can't keep going. And so, yeah, I just, I made the bold decision. And it wasn't, I think a lot of times in my, because I've made some real bold decisions in my career and people sometimes think that I'm just like bold by nature. I am not. I am driven by like, I don't know. I think it was, it's more of a fear response than anything else, right? It wasn't like in that moment, like I could revisionist history this and say like, oh, I had a plan and I was going to make sure everything was going to be amazing. I was going to go off on my own, but really it was like, I cannot keep going down this path or I will damage myself, both soul and body. And it's like, okay, we have to, we have to stop this and figure out what's next, whether that's a new job or something on my own. I don't know, but yeah."
+    },
+    {
+      "start": 2594.58,
+      "end": 2602.38,
+      "speaker": "jerod-santo",
+      "text": "Justin or Adam, have you ever been in such a precarious circumstance as Emily's where it's like, my health is suffering."
+    },
+    {
+      "start": 2602.38,
+      "end": 2608.48,
+      "speaker": "emily-freeman",
+      "text": "If I don't make a dramatic change, I'm going to damage myself."
+    },
+    {
+      "start": 2608.48,
+      "end": 2640.88,
+      "speaker": "jerod-santo",
+      "text": "You always have to ask yourself, can I, can I keep doing this whenever you're really in any position where you feel like strain, I suppose. I think so. Definitely during the pandemic, you know, there was a lot of pressure on a lot of sides of our lives. I would say during the pandemic for sure, you know, can I keep going at this clip? Can I keep, is this what I'm doing today is sustainable? And if it, if it isn't, how long do I need to keep doing it to get to the next lily pad?"
+    },
+    {
+      "start": 2640.88,
+      "end": 2645.3,
+      "speaker": "emily-freeman",
+      "text": "And your answer was just to hold out for the next lily pad."
+    },
+    {
+      "start": 2645.3,
+      "end": 2659.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I mean, I think that's kind of what life is, right? No matter what you, you're just like looking for the next lily pad. That's my analogy at least, right? Like you want to be a frog above water. Sure. If you go underwater, you got crocs under it, you got things under there that can get"
+    },
+    {
+      "start": 2659.62,
+      "end": 2663.62,
+      "speaker": "emily-freeman",
+      "text": "you. Yeah. That's been pretty well. But I get what you're saying."
+    },
+    {
+      "start": 2663.62,
+      "end": 2665.62,
+      "speaker": "jerod-santo",
+      "text": "Is the floor lava? Is the floor lava?"
+    },
+    {
+      "start": 2665.62,
+      "end": 2666.62,
+      "speaker": "emily-freeman",
+      "text": "Isn't it always?"
+    },
+    {
+      "start": 2666.62,
+      "end": 2673.7,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I think that's a, that's spot on to try to do your best to maintain equilibrium until the next lily pad appears."
+    },
+    {
+      "start": 2673.7,
+      "end": 2674.7,
+      "speaker": "emily-freeman",
+      "text": "Sure."
+    },
+    {
+      "start": 2674.7,
+      "end": 2677.82,
+      "speaker": "jerod-santo",
+      "text": "Cause it could be, you know, too far off a leap and you can land in the water."
+    },
+    {
+      "start": 2677.82,
+      "end": 2678.82,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 2678.82,
+      "end": 2681.82,
+      "speaker": "jerod-santo",
+      "text": "But Emily couldn't see any lily pads. She just jumped, right? Yeah."
+    },
+    {
+      "start": 2681.82,
+      "end": 2687.1,
+      "speaker": "emily-freeman",
+      "text": "You didn't have a plan. I was just like, I know that this, I will die if I continue. Yeah."
+    },
+    {
+      "start": 2687.1,
+      "end": 2690.1,
+      "speaker": "jerod-santo",
+      "text": "But what were you thinking? I need six months. I need three months."
+    },
+    {
+      "start": 2690.1,
+      "end": 2788.77,
+      "speaker": "emily-freeman",
+      "text": "I need a year. I thought I need a month. So this is, this is the lie of burnout. And especially for people who are like, I'll put myself in the high achieving overachiever category. I generally have no ability to recognize my own limitations and that's not a good thing. Right? Like, and so what happened is I quit. I immediately got sick and was sick for like a month, basically, because I had like held on for so long. And then my immune system was just like, time to rest. And so I had that rest. And then I was like, Oh, like I remember in January, I was like, time to start writing. It's going to be amazing. And then there was just, you're empty. Like you're, you're so far, you've gone through all your gas, you've gone through the reserve tank. There's nothing there. There's not even fumes. And so you just have to sit still. And I actually think one of the hardest things to do in our society in this moment where we all run so fast and we operate under so much pressure of like being the best, being better, striving to do better in all things, all the time, like sitting still and not doing anything and trusting, like it was really, really hard. And then I went through like this whole identity crisis of what am I without my big cloud career? Am I even valuable to the industry as Emily Freeman? Like that, that was February. And then like March, April, May was just around mostly cleaning closets. I really, I, my friends will tell you, like, I went nuts on just tidying and cleaning and neurotically organizing. I mean, my closets look like a serial killer lives in the house."
+    },
+    {
+      "start": 2788.77,
+      "end": 2789.77,
+      "speaker": "jerod-santo",
+      "text": "Literally cleaning."
+    },
+    {
+      "start": 2789.77,
+      "end": 2841.3,
+      "speaker": "emily-freeman",
+      "text": "Literally like a hundred, no metaphors here, like literally removing junk, buying perfect little containers, labeling the containers, like a psychopath, putting things in. I mean, it's, it's beautiful, but yeah, it was, it's a whole process. And I'm just now to a place where it's like, Oh, I have energy. I actually liked the industry again. Cause I was real, real bearish on tech, the companies, the people, honestly, like, it's just like, what are we doing here? And that's not a good attitude and certainly not a place for creativity and hopeful inspiration, you know? I needed a break, but I think when you're in burnout, you have this thought of like, Oh, I just take a vacation. It'll be fine. It's like, no, this is years of compounding stress on, on your body, on your mind and your soul. And it has to, it has to heal. That takes time."
+    },
+    {
+      "start": 2841.33,
+      "end": 2857.83,
+      "speaker": "jerod-santo",
+      "text": "Isn't that what sabbaticals are all about? Are there companies? I think there were at one point, maybe this was a cert phenomenon, but where there are companies that would allow for sabbaticals that were like six weeks, eight weeks. But those are like once in a career at a company, right? It's not a yearly thing."
+    },
+    {
+      "start": 2857.83,
+      "end": 2865.27,
+      "speaker": "emily-freeman",
+      "text": "I had a friend who worked at PayPal and I think he got one every five years while he worked there, which was long enough where I remember him going on multiple sabbaticals. I've known him for a long time."
+    },
+    {
+      "start": 2865.27,
+      "end": 2883.43,
+      "speaker": "jerod-santo",
+      "text": "And of course the fear is like, when I get back, am I going to, is my job going to be still there? Cause like they got to replace you for eight weeks. They start to wonder like, is this person necessary? Of course he had that little bit of a fear in there, but I'm not sure if that's still PayPal's standard, but I know they allowed, I think a six or eight week about sabbatical"
+    },
+    {
+      "start": 2883.43,
+      "end": 2884.43,
+      "speaker": "emily-freeman",
+      "text": "once every five years."
+    },
+    {
+      "start": 2884.43,
+      "end": 2913.04,
+      "speaker": "jerod-santo",
+      "text": "Well, I mean a lot of like how much European companies, it's just like you leave for a month, like you're, you're, you're, you're gone for a month as like normal vacation every year. Oh, I know it because Natalie Pisanovic, our friend from go time, Natalie, she disappears every August. She's a, she lives in Berlin and she works, you know, on go time throughout the year. And then she's like, I'll be back in September. I'm like, you're not from around these parts, are you?"
+    },
+    {
+      "start": 2913.04,
+      "end": 2920.32,
+      "speaker": "emily-freeman",
+      "text": "In back, in back in September and not like catching up from August, like back in September and I'm going to start in September, we'll see where you're at."
+    },
+    {
+      "start": 2920.32,
+      "end": 2938.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. Yeah. So there's, there's that I guess. But what I was wondering, Emily, at any point, did you consider, which is kind of cliche, but people are doing it like just trying something completely different, you know, like start a company that organizes closets, for instance."
+    },
+    {
+      "start": 2938.02,
+      "end": 2943.06,
+      "speaker": "emily-freeman",
+      "text": "I think it's, I didn't even have energy for that. Like when I say I was empty, I was, I was toast."
+    },
+    {
+      "start": 2943.06,
+      "end": 2947.54,
+      "speaker": "jerod-santo",
+      "text": "I mean, after the rejuvenating period now versus going back into it."
+    },
+    {
+      "start": 2947.54,
+      "end": 3004.86,
+      "speaker": "emily-freeman",
+      "text": "I mean, some somewhat, but I've already reinvented myself so many times that at this point, it's like, okay, you have to like stick with something for a minute. Um, I mean, I was, I worked in politics and then I worked in PR and then I did nonprofits and then I was writing and then I was in tech and it's like, okay, I do feel like I have learned so much around specifically this industry and even more specifically like how the really big companies operate, what they need, um, how they fit into the market. I think the role of like AI and developers in the next decade is really interesting. I want to be a part of that. And so, no, I don't think so. And then in all transparency, I mean like what other industry could we join outside of finance, which is more stressful than this role. Where could we make the money that we make? There's no other, even doctors and lawyers don't make what we make, which is crazy."
+    },
+    {
+      "start": 3004.86,
+      "end": 3009.94,
+      "speaker": "jerod-santo",
+      "text": "And they have to be trained. I know they have more, they have more debt. Exactly. For sure."
+    },
+    {
+      "start": 3009.94,
+      "end": 3020.26,
+      "speaker": "emily-freeman",
+      "text": "For sure. More debt. Yeah. It's wild to me that they, I mean, some of these doctors come out of school. If you, if you didn't get scholarships or your parents didn't pay for it, you can come out of school at 350, $400,000 in debt."
+    },
+    {
+      "start": 3020.26,
+      "end": 3021.36,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3021.64,
+      "end": 3023.64,
+      "speaker": "emily-freeman",
+      "text": "It's insane. It is insane."
+    },
+    {
+      "start": 3023.64,
+      "end": 3049.6,
+      "speaker": "jerod-santo",
+      "text": "I think a lot of the thoughts that I've had, and Adam, you as well, maybe you can speak to this because you're always talking about boring businesses and kind of brick and mortar. And like my thoughts are always like, couldn't I start a regular business and use my software and tech skills in order to be better than other people at that particular thing? I've never tried it. So it's just a pipe dream, if you will. But Adam, you're always talking about coffee business."
+    },
+    {
+      "start": 3049.6,
+      "end": 3050.6,
+      "speaker": "emily-freeman",
+      "text": "Sure."
+    },
+    {
+      "start": 3050.84,
+      "end": 3052.84,
+      "speaker": "jerod-santo",
+      "text": "Laundromats. Laundromats?"
+    },
+    {
+      "start": 3052.84,
+      "end": 3053.84,
+      "speaker": "emily-freeman",
+      "text": "What was your other one?"
+    },
+    {
+      "start": 3053.84,
+      "end": 3060.84,
+      "speaker": "jerod-santo",
+      "text": "The laundromats, storage businesses, they say those just are less likely to fail. They're recession proof, things like that."
+    },
+    {
+      "start": 3060.84,
+      "end": 3063.84,
+      "speaker": "emily-freeman",
+      "text": "Yeah. They're more like investments than they are like. Yeah."
+    },
+    {
+      "start": 3063.84,
+      "end": 3085.84,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Same thing with like, you can translate storage units to like mailbox storage. People don't want to change their address. There's stress in change. They don't change. They hold off for at least one more year and that might happen two years or three years. And by then you've got enough recurring on that person that you're, as a business owner, you know, you're kind of protected or insulated a little bit."
+    },
+    {
+      "start": 3085.84,
+      "end": 3086.84,
+      "speaker": "emily-freeman",
+      "text": "Sure."
+    },
+    {
+      "start": 3086.84,
+      "end": 3105.6,
+      "speaker": "jerod-santo",
+      "text": "There's lots of studies on, you know, those boring businesses. Laundromats is something that a lot of towns need. You don't know it until you know it really. I mean, you got a lot of people who are in between things and just need a place to wash their stuff and say, hey, I need to go to a laundromat. And you know, a high quality one could do a good job."
+    },
+    {
+      "start": 3105.6,
+      "end": 3113.24,
+      "speaker": "emily-freeman",
+      "text": "Don't have a laundry, don't have an in-unit laundry. I grew up without an in-unit laundry and so it's like you have to, you have to go where there's machines."
+    },
+    {
+      "start": 3113.24,
+      "end": 3153.86,
+      "speaker": "jerod-santo",
+      "text": "What's up friends? I'm here with Kyle Carberry, CTO at Coder.com. So Kyle, I've known Coder as the IDE in the cloud and over time you've iterated to become a fully open source cloud development environment, a CDE. How do you explain what Coder is and what it does?"
+    },
+    {
+      "start": 3153.86,
+      "end": 3182.18,
+      "speaker": "emily-freeman",
+      "text": "Coder is a platform to provision you a development environment on any cloud infrastructure. That might be in a VM, that might be inside of a container, but Coder is kind of a developer's route to provision infrastructure for them to write software inside of. We started with the IDE, which is kind of like putting VS code in the browser, which is what most people are certainly familiar with us for. And we kind of funneled that into more of a platform where people provision the infrastructure. And a lot of people do use a web IDE with Coder, a lot of people use a local IDE and just connect in."
+    },
+    {
+      "start": 3182.18,
+      "end": 3185.1,
+      "speaker": "jerod-santo",
+      "text": "Okay, so what are teams coming to you for? Who's coming to you?"
+    },
+    {
+      "start": 3185.1,
+      "end": 3207.54,
+      "speaker": "emily-freeman",
+      "text": "What people really come to us for, particularly this problem is really exacerbated if you're a large enterprise, is when you have like 500 engineers that are trying to update like a version of Python. And instead, we allow one engineer to go through that tedious work of updating some scripts or some Docker container, and then you can actually just deploy that in one click to say like 500 engineers and make it really, really simple."
+    },
+    {
+      "start": 3207.54,
+      "end": 3227.94,
+      "speaker": "jerod-santo",
+      "text": "Let's laser focus in on the platform engineer. It is that team's job to provide the best infrastructure, the best platform for their given applications for their teams. What are some signs or signals for platform engineers to think about when it might be time to consider a cloud development environment like Coder.com?"
+    },
+    {
+      "start": 3227.94,
+      "end": 3234.82,
+      "speaker": "emily-freeman",
+      "text": "So as a platform engineer, developers might constantly be opening like IT tickets that their computer isn't working properly."
+    },
+    {
+      "start": 3234.82,
+      "end": 3314.6,
+      "speaker": "jerod-santo",
+      "text": "They might constantly want to update dependencies, but that's a big mess. You constantly have to email people across your team to say, hey, Adam, could we update from Java 17 to Java 18? Those are the kinds of problems that people typically have. That's the status quo. You ship people more powerful laptops to improve the build times of your projects. You try to reduce the complexity of your products instead of simply leveraging better hardware. We believe that the future is leveraging the cloud for a lot of these things. You can get more powerful instances in GCP or AWS that can make the build times faster instantly. We want to let one developer create a standardized environment and then distribute it to a thousand so that when you're updating from Java 17 to 18, it's just a simple pull request. You can co-locate your servers right next to something like S3 or a database they're using in development so that you get immediate data transfers and it's not slow. Many of our customers, which is a crazy thing to say, but they use absolutely massive monorepos and they get clones that go from like 10 minutes or 20 minutes or an hour to simply like a minute or 30 seconds. It's just a lot simpler when all of your engineers are standardized on one centralized piece of infrastructure and then one person can impact the lives of hundreds of engineers. And with that, we don't believe that everything belongs in the cloud. We think that some workloads are really amazing for it and some are absolutely terrible. Coder should be a self-serve offering to your engineers."
+    },
+    {
+      "start": 3314.6,
+      "end": 3325.04,
+      "speaker": "emily-freeman",
+      "text": "It should not be prescriptive where you migrate all pieces of software development into the cloud. Only the things that really get a lot better by running them in this cloud native way do we really promote moving."
+    },
+    {
+      "start": 3325.04,
+      "end": 3357.12,
+      "speaker": "jerod-santo",
+      "text": "Well, it might be time to consider a cloud development environment and open source is awesome and Coder is fully open source. You can go to Coder.com, get a demo or try it right now or even start a 30 day trial of Coder Enterprise. Once again, Coder.com, that's C-O-D-E-R dot com, Coder.com. I'm curious though, this idea of influencers on tap, I'm just on your homepage, so I'm just leveraging your headline."
+    },
+    {
+      "start": 3357.12,
+      "end": 3358.56,
+      "speaker": "emily-freeman",
+      "text": "I love it."
+    },
+    {
+      "start": 3358.56,
+      "end": 3370.4,
+      "speaker": "jerod-santo",
+      "text": "What was appealing about that to go from the, as you said, the big cloud jobs, this identity even to be like, wow, I can, yeah, and then I can too."
+    },
+    {
+      "start": 3370.4,
+      "end": 3371.4,
+      "speaker": "emily-freeman",
+      "text": "Yes."
+    },
+    {
+      "start": 3371.4,
+      "end": 3373.52,
+      "speaker": "jerod-santo",
+      "text": "Like the idea is good and I'm capable."
+    },
+    {
+      "start": 3373.52,
+      "end": 3385.08,
+      "speaker": "emily-freeman",
+      "text": "Yes. So some of it is just like, let's see what happens, which if you don't have that phrase in your life, like I highly recommend just saying, let's try and see what happens sometimes."
+    },
+    {
+      "start": 3385.28,
+      "end": 3399.6,
+      "speaker": "jerod-santo",
+      "text": "Usually when I say that something catches on fire, just like literally on fire, like my workbench behind me, like I, yeah, it's a problem. You're still standing, Justin. You're still standing. You're fine. You have eyebrows."
+    },
+    {
+      "start": 3399.6,
+      "end": 3400.6,
+      "speaker": "emily-freeman",
+      "text": "Just be careful."
+    },
+    {
+      "start": 3400.6,
+      "end": 3402.6,
+      "speaker": "jerod-santo",
+      "text": "You're good. I haven't my whole life."
+    },
+    {
+      "start": 3402.6,
+      "end": 3410.52,
+      "speaker": "emily-freeman",
+      "text": "Wait, have you ever burned off your eyebrows? Oh yeah. Oh yeah. Seriously? That's amazing. Is there more to the story?"
+    },
+    {
+      "start": 3410.52,
+      "end": 3419.52,
+      "speaker": "jerod-santo",
+      "text": "Is it worth it? No, I was playing with fire. Like, you know, flower, like, like cooking flowers can explode, but yeah, like I, yeah, you can learn to blow off your eyebrows pretty quick with some flower inflame."
+    },
+    {
+      "start": 3419.52,
+      "end": 3569.61,
+      "speaker": "emily-freeman",
+      "text": "If you fill an area, like if you, you can explode a home that way, if you feel like with a fan or whatever, like Tata, I'm going to get a call. So yeah, I think with influencers in particular, I have been an influencer. I don't love that term, but it is the thing that I think people immediately understand what it is. I also think about like content creators or, you know, subject matter experts, influencers, just more of a broad umbrella for a lot of different skill sets. I have been on that side. I've also worked at the companies who need people to speak on behalf of the company while not also being employed there. Right. I think, and I mean, Justin, you've experienced this. When you work at a company, I think you are obviously the most knowledgeable about those products and services because you have the most time to dedicate to those products and services. And there's this layer of, well, you work there, of course you have to say nice things. And there's a trust. Like I think I've made a commitment all those years ago when I first started in developer relations and I think I've held true to it, which is I am never going to come up here and say something that is factually inaccurate. I am never going to blanket represent a product and say it's the best without understanding your situation. You know, I have on a number of occasions suggested a different product for customers. It's like, well, this isn't going to solve your problem because of X, Y and Z. Go over here. That's the only way I think you keep and maintain trust, credibility. And that's huge. I mean, my reputation is based on authenticity and my credibility and my reputation. I am not going to violate that or my commitment to the community for a paycheck. I'm just not. But still there's this thought of like, okay, well, are you the most like, have you actually utilized this outside of the company? And often you haven't. And so a lot of times companies are looking for folks to either create that content, do deep dives, and that can be long form content, a blog, a tutorial, a video or short form content. It's, you know, a social post, a LinkedIn post, a video on TikTok or Instagram. And really it's not just about, this is a great product. That's awesome if it is, but it's more about how do you utilize this? Where is this useful? What are the pros and cons about that? And that type of authentic voice for companies is priceless. I mean, they need it, but there's a lot of challenges with that."
+    },
+    {
+      "start": 3569.61,
+      "end": 3620.65,
+      "speaker": "jerod-santo",
+      "text": "Yeah. In the year 2024, this is post Twitter and in the year of AI can generate pretty much anything. How much of that is still like, cause I feel like the platform platforms play a huge role in any sort of DevRel marketing. And like if the platforms are falling apart, you don't really have the reach or the credibility of the platform. Like, yeah, I can't guarantee that a post is going to go anywhere. Right? Like there's so much of that. That's just out of my hands. But also the fact that like AI, any text box on the internet, AI can fill it and they can generate credible people. Right. That don't exist and in personas that don't even exist and say like, Oh, this is someone that will tell you all the things you want to hear and can earn that money. How much of that plays into this? What companies are willing to pay for?"
+    },
+    {
+      "start": 3620.65,
+      "end": 3623.21,
+      "speaker": "emily-freeman",
+      "text": "Didn't the conference do that though? Are they generated some people?"
+    },
+    {
+      "start": 3623.21,
+      "end": 3624.21,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3624.21,
+      "end": 3626.21,
+      "speaker": "emily-freeman",
+      "text": "Like last year, wasn't it? What was that conference?"
+    },
+    {
+      "start": 3626.21,
+      "end": 3644.08,
+      "speaker": "jerod-santo",
+      "text": "Well, they generated women speakers, right? It was women speakers, but it was, it was the same idea, but it was in that case, trying to slight the, the, the gender skew, so to speak, but it was still the same premise. Like, let me generate somebody to seem credible so that we seem credible. Right. Right."
+    },
+    {
+      "start": 3644.08,
+      "end": 3648.36,
+      "speaker": "emily-freeman",
+      "text": "And they almost got away with it. Right. But now, I mean, once we remember who they are, they are ruined forever."
+    },
+    {
+      "start": 3648.36,
+      "end": 3656.92,
+      "speaker": "jerod-santo",
+      "text": "And we've already forgot their names. No, it's the best question."
+    },
+    {
+      "start": 3656.92,
+      "end": 3712.84,
+      "speaker": "emily-freeman",
+      "text": "And it's like the first thing that people ask, right? Why would this be valuable? AI can do this. And it's yes and no. I mean, yes, you can, you can generate content through AI. And I'm sure it will get better, but that plethora of content developed by machines is actually making real human authentic voices more valuable. Because as the market is flooded with this, this content that is generated, you know, I don't, I don't know that this is, if it comes from someone I don't know, then how can I trust this content? But if it comes from you, I know you, I've seen you. I already trust you. When it comes from you, that is so much more valuable. And so we're actually seeing the opposite of what you would think. The existing newsletters, videos, influencers are commanding even higher prices because people know and trust them already."
+    },
+    {
+      "start": 3712.84,
+      "end": 3733.8,
+      "speaker": "jerod-santo",
+      "text": "But how does someone get started there? Right. Because like you can't build that reputation without, like I can never out content creates AI in computers. Right. Like I could just like, they can make us so much more. I'm like, I have to be really focused on, I want to make this thing and it's going to take me three hours. And what other thing am I not going to do for three hours? But then if I'm getting started today, like where do you even go?"
+    },
+    {
+      "start": 3733.8,
+      "end": 3789.04,
+      "speaker": "emily-freeman",
+      "text": "It's well, it's not about, I mean, quantity. You're never going to beat a machine on quantity, right? It's about your unique voice. I think the thing that separates influencers across the board, and we see this, like when I place for a client, I'm not just looking for, can this person actually reach this number of eyebrows? Obviously that is important, but it's, are they experts in this specific niche? What is their voice? Are they trusted? Who is their audience and is their audience dialed in, right? There are newsletters that you can go place a sponsorship in and get way more impressions than you can through Freeman and Forest, but the clicks and the impressions are worthless to you. So, you know, we really focus on high value, high impact impressions. You're really dialing into, these are specifically the people who are either going to buy and or use your products."
+    },
+    {
+      "start": 3789.04,
+      "end": 3798.48,
+      "speaker": "jerod-santo",
+      "text": "And full disclosure, like Emily, you've reached out to me to make content on behalf of someone and I was never an expert for any of those companies. And so it was like, yeah, this doesn't seem to make sense."
+    },
+    {
+      "start": 3798.48,
+      "end": 3815.28,
+      "speaker": "emily-freeman",
+      "text": "Exactly. Yeah. And so that's, it's really important to me to work on that and to make sure that that authenticity holds and that the creators that we work with are going to be the best ones matched with each company. That's the sort of magic of Freeman and Forest."
+    },
+    {
+      "start": 3815.28,
+      "end": 3818.28,
+      "speaker": "jerod-santo",
+      "text": "Matching. You're a hitch. I'm a yenta."
+    },
+    {
+      "start": 3818.28,
+      "end": 3820.28,
+      "speaker": "emily-freeman",
+      "text": "Yes. That's cool."
+    },
+    {
+      "start": 3820.28,
+      "end": 3910.8,
+      "speaker": "jerod-santo",
+      "text": "I think we need more of this, honestly, I think that it is a challenge for brands. I feel bad for some of the brands out there. They want to, they want to have the ability. They don't know how to do it internally. Maybe they don't even have the resources to staff up or employ that person or persons. And sometimes you need somebody inside the company. They can think holistically and say, well, this exists, but I've got to put the work in. I've got to go out and interview all these different places. I've got to ask them for proposals. I've got to essentially learn as much as I can about every potential channel or content source. Label people as these, you know, just widgets kind of thing. But that's the truth. We get we're in that in that regard as well. You know, we get reached out to from folks. And for us, it's really about can we help them and what is their who are they trying to reach? Do we actually talk to people they're trying to reach? Is their message clear? Are they in a mature state where that we can even apply help? They need help, but maybe they need to change in order for our help to be adequate. You know, like we can only give you attention. We can't give you the guarantee. Like Justin was saying, I can't guarantee this article goes somewhere. You still have to do the work being you, the brand, your landing page or marketing your product, who you are, your actual literal brand, not just your logo has to be where it needs to be to capture, not just simply get pointed to."
+    },
+    {
+      "start": 3910.8,
+      "end": 3927.6,
+      "speaker": "emily-freeman",
+      "text": "Yes. And we have learned so many things that I wouldn't have even thought of prior to starting this business. But think about at a company like I'll pick on the large companies who struggle with vendors. A cloud to onboard a vendor to one of the major tech companies, six month process takes"
+    },
+    {
+      "start": 3927.6,
+      "end": 3928.66,
+      "speaker": "jerod-santo",
+      "text": "forever."
+    },
+    {
+      "start": 3928.66,
+      "end": 3982.36,
+      "speaker": "emily-freeman",
+      "text": "So to do that with 20 influencers is impossible. So for us, with the larger companies, that's a huge selling point. It's like you write one check. We handle the rest for you. And then to yeah, it takes an entire this is a full time, full time gig. So unless you have a resource for a full time role to actually scope out influencers, maintain those relationships, make the placements, look at scheduling, look at the type of content, you're not going to be able to do it because we were just experts. I mean, it's in this at this point, I know so many of the influencers where they play, what plays well on their different assets. That is something I could have only learned by doing this 100 percent of the time. And so, yeah, there's just it's been phenomenal learning how this actually operates and the best possible ways to get the biggest ROI for companies."
+    },
+    {
+      "start": 3982.36,
+      "end": 3988.32,
+      "speaker": "jerod-santo",
+      "text": "When you say assets, you mean like someone's social network, right? Like where they have a presence or whatever they reach people."
+    },
+    {
+      "start": 3988.32,
+      "end": 4007.56,
+      "speaker": "emily-freeman",
+      "text": "Yes. So that's how I think of like changelog is an asset. You all are influencers, but it's like a mini to mini relationship. Right. But changelog has many influencers and you all have different podcasts. Right. Justin, you're associated with this and other other sort of YouTube channels, etc."
+    },
+    {
+      "start": 4007.56,
+      "end": 4037.28,
+      "speaker": "jerod-santo",
+      "text": "What assets were surprising to you that people wanted to reach or that you're like, because like, are people advertising on podcasts as much in 2024? Is it newsletters? Is it's I mean, I think that if people had text message access to everyone's phones, right, like you guys had a group chat, like that would be like the most intimate sort of like, hey, I want to influence like, you're not influencing you, but hey, I want to tell you about this cool thing. Right. Like, that would be an amazing thing to have for people. But also on the other end, it's like I have a blog and hardly anyone comes to it."
+    },
+    {
+      "start": 4037.28,
+      "end": 4091.12,
+      "speaker": "emily-freeman",
+      "text": "So great question. And circling back to what Jared said at the very beginning, yes, it proximity with text messages. Sure. And too intimate, too fat. Like it's a violation at that point, right? And so it's finding this balance. The assets that do the best are newsletters and LinkedIn. Those are the ones that get the highest number of impressions and specifically the highest number of click throughs. So if you're if you're working on something like getting someone to actually play with a with a product or experiment or sign up, that's sort of the path where you're going to go. On the other hand, there's awareness campaigns, right? There's companies that are doing amazing work, but they're primarily known in Europe or Latin or, you know, and so they want to come into the American market. And that's where you would see a lot more of just a brand lift and see sponsorships of podcasts and more things where you're not like actually clicking through. That's not the primary goal."
+    },
+    {
+      "start": 4091.8,
+      "end": 4134.24,
+      "speaker": "jerod-santo",
+      "text": "I'm way back on the concept of all of this AI slop has made humans more valuable. Like I'm just I'm just as a human, I'm reveling in the fact that at least for now, that differentiating factor is like they can't copy that, you know, like they can they can put out all the stuff they want to. But the robots cannot copy our actual humanity at this point. And so that connection is real, that humanity is real. And as much as if you are a content creator, the more human you can be, the more voice you can have that is you, the better off you are versus trying to churn, I guess, or to"
+    },
+    {
+      "start": 4134.24,
+      "end": 4135.24,
+      "speaker": "emily-freeman",
+      "text": "crank."
+    },
+    {
+      "start": 4135.24,
+      "end": 4137.24,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. Where you can't win that battle."
+    },
+    {
+      "start": 4137.24,
+      "end": 4205.32,
+      "speaker": "emily-freeman",
+      "text": "Well, it's let's take AI out of it for a moment. You know, a lot of times people, especially people who are just brand new either to the industry or to actually sort of learning in public, they'll say, well, what's the value of my blog post? These things have already been written, but it's not written by you. Right. We all come with specific points of view, specific experiences, personalities. You know, people who who really resonate with me aren't going to resonate with others and people who resonate with others aren't going to resonate with me. And I think it's finding your voice and really being true to who you are. That's the key to this. Not trying to fit a format. I think people and I'm seeing this a lot and I prefer not to work with them. It's like people will try and rise really quickly and build an audience very quickly through being kind of mean or cutting things down or people down, being extra spicy. I think being an influencer, you want to be like jalapeno hot, not not ghost pepper hot. And it just doesn't it doesn't feel good. Not just for like brands, but like these aren't people that I want to watch or be close"
+    },
+    {
+      "start": 4205.32,
+      "end": 4255.08,
+      "speaker": "jerod-santo",
+      "text": "to because it's like the emotion hacking. It's like you need the engagement. So you play on people's emotions and the quickest emotion that someone will like engage with is hatred. Right. And there's like, oh, I hate this. I have to reply. And I have to it's like, oh, yeah, you could you can hack your way into that to your blog post point, though. I have so many people to ask me about writing and maintaining a blog. I love encouraging everyone, like go own a domain and write a blog. But you don't write for someone else. You write for yourself. Exactly right. It doesn't matter. If you write a blog post a million times by other people, you've never said it and you need to say it for yourself and you're writing the blog post that you can think through the thoughts and you could develop the rest of the idea and write slowly and be a little bored with. Yes. Right. You have a bunch of drafts and you're like, I want to pick that one up again. Oh, I thought about that background process is finally finished. I can go finish that, you know, a couple of paragraphs and post it so it doesn't matter who reads it and why because you wrote it for yourself."
+    },
+    {
+      "start": 4255.08,
+      "end": 4267.6,
+      "speaker": "emily-freeman",
+      "text": "Yes, exactly. And please, if you're listening to this, start a newsletter. I have so many placements and I need more, so please, please start things so I can sponsor them. I would really appreciate it."
+    },
+    {
+      "start": 4267.6,
+      "end": 4268.6,
+      "speaker": "jerod-santo",
+      "text": "Thank you."
+    },
+    {
+      "start": 4268.6,
+      "end": 4269.6,
+      "speaker": "emily-freeman",
+      "text": "That's a good call to action."
+    },
+    {
+      "start": 4269.6,
+      "end": 4270.6,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 4270.6,
+      "end": 4271.6,
+      "speaker": "emily-freeman",
+      "text": "Yeah."
+    },
+    {
+      "start": 4271.6,
+      "end": 4283.8,
+      "speaker": "jerod-santo",
+      "text": "It was a good call to action. Yeah. I was with you too, Jared, though, on this, this idea that the fact that AI exists in this slop mannerism, it elevates the actual human. And I think the for now is potentially key."
+    },
+    {
+      "start": 4283.8,
+      "end": 4284.8,
+      "speaker": "emily-freeman",
+      "text": "Sure."
+    },
+    {
+      "start": 4284.8,
+      "end": 4398.61,
+      "speaker": "jerod-santo",
+      "text": "The human in me wants to believe that a human-human relationship will always be more valuable than a human-to-machine relationship. Although I've seen the movie Her and I've seen how twisted people can get at some point in life. And you don't know you're twisted because you don't have perspective. You just live in a modern world and modern world is however modern world is. And so acceptability is, is skewed based on societal acceptability, not just simply morals. Although there's always that outlier or outliers that direct, you know, back to the moralistic ways. But I'm, I'm happy because that you still require, you can have AI give you a plan. You can have AI give you a list. You can have AI give you slop and or tons of stuff to edit down. And I think for now you can't have AI give you the humanity to initiate, engage, and be the human in the world. You still need someone to not just be like, oh, this is how you market, but more like this is how you connect the dots. And the dots are the problem sets with the people with the problem with understanding the pain and, and not just simply coming at it straight, but more like from a different angle that only humans can do, because we think so multifaceted that we see a problem differently than it's not just like, oh, here's, here's problem, here's solution, connect. It's so much more unique than that in the way that you hear somebody's story or a brand story and where they're at and how to get them truly connected with an audience to make that authentic connection. It's such a, such a magic art to do. And it's such, it's so hard to do, but for some it's easy, but it's still so hard even when it's easy."
+    },
+    {
+      "start": 4398.61,
+      "end": 4409.95,
+      "speaker": "emily-freeman",
+      "text": "Well said. Any final words, Justin, Emily, and that was Adam's final words. Was that my final words? I got four. That's why I didn't offer them to you. I figured those are your last words. Do you want to, you want some more words?"
+    },
+    {
+      "start": 4409.95,
+      "end": 4415.45,
+      "speaker": "jerod-santo",
+      "text": "We got three minutes. I don't, I don't think we have time for it, but I kind of disagree with what you said. You did. I think that a lot of words."
+    },
+    {
+      "start": 4415.45,
+      "end": 4416.45,
+      "speaker": "emily-freeman",
+      "text": "Write it on blog post."
+    },
+    {
+      "start": 4416.45,
+      "end": 4475.92,
+      "speaker": "jerod-santo",
+      "text": "Right. Because there's so much just, there's so much just pattern matching that is just like, people don't realize that like there were patterns to exist. And I think one of the biggest things of AI has done is just like exposed a lot of those patterns. It's like, actually it's not smart. It's not intelligent. It just matched the patterns from a bigger set of data and it's just like, wow, I found the pattern. Here you go. Here's the pattern back. And also I worked with and know a lot of humans that don't connect to the broader dots. Right. And in, in cases of like work and things are complex, but also in the cases of maturity and like my kids don't do that. Right. Like there's this like subset of like, there are people that can connect the dots and I love working with those people. I love learning from those people. But the, some of the smartest people I know remember what the world was like 10 years ago. Right. And they're the ones that can connect the dots of, Oh, we did this 10 years ago. This pattern is playing out again. And then we can just show you the way forward. And I think that those data sets exist and, and AI is able to remember 10 years ago better than a lot of humans."
+    },
+    {
+      "start": 4475.92,
+      "end": 4477.92,
+      "speaker": "emily-freeman",
+      "text": "Whose team are you on? I don't know."
+    },
+    {
+      "start": 4477.92,
+      "end": 4498.38,
+      "speaker": "jerod-santo",
+      "text": "I don't know about this one. I think, but I think the, the, like the, the human creator side of it is a lot about imperfection and it's a lot about the things that like, Hey, you said that wrong by accident or whatever. And like, people are like, Oh, like, but you're not an AI. You didn't do it. Perfect. Like the, it's not a forgiveness thing, but it's like, I see your humanity in that you're still learning too."
+    },
+    {
+      "start": 4498.38,
+      "end": 4499.38,
+      "speaker": "emily-freeman",
+      "text": "Right."
+    },
+    {
+      "start": 4499.38,
+      "end": 4509.18,
+      "speaker": "jerod-santo",
+      "text": "And I'm with you because I'm learning that at the same time or I'm, I'm catching up or whatever. Like humanity. Isn't about perfection. It is about sharing all the little imperfections along the way."
+    },
+    {
+      "start": 4509.18,
+      "end": 4566.09,
+      "speaker": "emily-freeman",
+      "text": "I will leave you with what I always tell people, you know, when we look at the perfect people on Instagram or whatever else, the perfect bodies, the perfect hair, the perfect makeup, perfect families, et cetera, et cetera, we don't actually bond with them. People bond with other people over struggle and realness. And I always think of it as clay. When you're making a teapot, you have to scratch the surface of each side before you put the pieces together and have them actually join each other. And I think to your point, Justin, that sort of real authentic humanity is what allows all of us to come together and to, to really form those relationships. And that is something that is just impossible to replicate outside of our very broken, emotional, beautiful human experience."
+    },
+    {
+      "start": 4566.09,
+      "end": 4669.12,
+      "speaker": "jerod-santo",
+      "text": "Well said team human is going to win because Emily said it best. All right. That's our show. Thanks Emily. This has been awesome. Justin. Bye friends. Bye. Bye friends. It may have taken us too long to find our way to the main topic on this one, but we had a lot of fun along the way. So maybe that's not a bad thing. Part of me thinks these windy laugh filled conversations are exactly what change solving friends are all about. And the other part of me is like, give the people what they came for, which is hard won tech focused knowledge from people who really know their stuff like Emily. What do you think we would love to hear from you? Let us know in the comments link in the show notes. Here's a deal. During the month of September, I'm trading changelog sticker packs for thoughtful five star reviews or blog posts about the pod. Write something nice, screenshot it or didn't happen and send it to Jared at changelog.com. That's J E R O D at changelog.com with your mailing address and I'll send you those stickers. Let's do it. Thanks to our sponsors on this episode, Sentry, Fly.io, Paragon, and Coder.com, and of course, to our Beat freaking residents, Breakmaster Cylinder. Thank you, BMC. We love these beats. Next week on the changelog news on Monday, Erez Zuckerman talking ergonomic keyboards on Wednesday and another awesome, but currently TBD episode of changelog and friends on Friday. Have a great weekend. Leave us a five star review if you want some stickers and let's talk again real soon."
+    }
+  ]
+}
