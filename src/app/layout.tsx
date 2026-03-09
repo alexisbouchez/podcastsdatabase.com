@@ -29,7 +29,7 @@ export default function RootLayout({
         </div>
         {children}
         <Analytics />
-        <Script src="https://www.palmframe.com/embed.js" strategy="lazyOnload" />
+        <Script src="https://cdn.palmframe.com/embed.js" strategy="lazyOnload" />
         {/* @ts-expect-error -- custom element */}
         <palmframe-widget project="podcastsdatabase" />
       </body>
