@@ -232,7 +232,17 @@ function fmtDuration(ms: number): string {
 
 function urlLabel(url: string): string {
   const m = url.match(/friends[/-](\d+)/);
-  return m ? `ep${m[1]}` : basename(url).slice(0, 30);
+  if (m) return `ep${m[1]}`;
+  // For anchor.fm / cloudfront URLs, extract the unique filename part
+  const cfMatch = url.match(/\/(\d+-\d+-\d+-[a-f0-9]+)\.\w+/);
+  if (cfMatch) return cfMatch[1];
+  // For other encoded URLs, try decoding first
+  try {
+    const decoded = decodeURIComponent(url);
+    const decodedBase = basename(decoded);
+    if (decodedBase.length > 5) return decodedBase.replace(/\.\w+$/, "").slice(0, 40);
+  } catch {}
+  return basename(url).slice(0, 40);
 }
 
 // ---------------------------------------------------------------------------
