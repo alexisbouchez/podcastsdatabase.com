@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { Search } from "./components/search";
@@ -28,6 +29,9 @@ export default function RootLayout({
         </div>
         {children}
         <Analytics />
+        <Script src="https://www.palmframe.com/embed.js" strategy="lazyOnload" />
+        {/* @ts-expect-error -- custom element */}
+        <palmframe-widget project="podcastsdatabase" />
       </body>
     </html>
   );
