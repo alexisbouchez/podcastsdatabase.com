@@ -16,7 +16,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const person = getPerson(slug);
   if (!person) return {};
-  return { title: `${person.name} — Podcasts Database` };
+  const description = `${person.name} on Podcasts Database — episode appearances, links, and full searchable transcripts.`;
+  return {
+    title: `${person.name} — Podcasts Database`,
+    description,
+    openGraph: {
+      title: `${person.name} — Podcasts Database`,
+      description,
+      url: `https://www.podcastsdatabase.com/people/${slug}`,
+    },
+  };
 }
 
 export default async function PersonPage({

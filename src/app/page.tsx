@@ -17,6 +17,12 @@ export default function Home() {
     <>
       <Breadcrumbs />
       <h1 className="text-2xl font-semibold mt-6">Podcasts Database</h1>
+      <p className="mt-3 text-sm text-foreground/60 text-pretty leading-relaxed">
+        Conversations disappear. The good ones shouldn&apos;t. We transcribe
+        every episode, diarize every speaker, and make every word searchable.
+        No summaries. No AI slop. The actual transcript — who said what, when.
+        Built for the people who&apos;d rather search than scroll.
+      </p>
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">

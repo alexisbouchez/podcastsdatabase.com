@@ -30,6 +30,11 @@ export async function generateMetadata({
   return {
     title: `#${id} ${episode.title} — ${podcast.title}`,
     description: episode.description,
+    openGraph: {
+      title: `#${id} ${episode.title} — ${podcast.title}`,
+      description: episode.description,
+      url: `https://www.podcastsdatabase.com/podcasts/${slug}/episodes/${id}`,
+    },
   };
 }
 

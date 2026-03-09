@@ -22,7 +22,19 @@ export async function generateMetadata({
   const { slug } = await params;
   const podcast = getPodcast(slug);
   if (!podcast) return {};
-  return { title: `${podcast.title} — Podcasts Database` };
+  const logo = getPodcastLogo(slug);
+  return {
+    title: `${podcast.title} — Podcasts Database`,
+    description: podcast.description,
+    openGraph: {
+      title: podcast.title,
+      description: podcast.description,
+      url: `https://www.podcastsdatabase.com/podcasts/${slug}`,
+      ...(logo && {
+        images: [{ url: `https://www.podcastsdatabase.com${logo}` }],
+      }),
+    },
+  };
 }
 
 export default async function PodcastPage({

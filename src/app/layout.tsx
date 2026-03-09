@@ -10,8 +10,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "Every episode. Every word. Searchable transcripts from the best podcasts in software, devtools, and startups.";
+
 export const metadata: Metadata = {
   title: "Podcasts Database",
+  description: siteDescription,
+  openGraph: {
+    title: "Podcasts Database",
+    description: siteDescription,
+    url: "https://www.podcastsdatabase.com",
+    siteName: "Podcasts Database",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "Podcasts Database",
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({
