@@ -1,0 +1,1773 @@
+{
+  "title": "Let's build something phoenix.new with Chris McCord",
+  "description": "Chris McCord, creator of Elixir's Phoenix framework, discusses his new remote AI runtime for building Phoenix applications. The conversation explores how LLMs enable full-stack app development and includes a live demonstration of building a 'Hot or Not' code rating app.",
+  "links": {
+    "YouTube": "https://youtu.be/E6_7GcxyUzI",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "chris-mccord"
+  ],
+  "segments": [
+    {
+      "start": 15.09,
+      "end": 161.51,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about existential vibes. Thank you to our partners at Fly.io, who are highly featured in this episode, not because they sponsor us, but because they do cool stuff and we like cool stuff. Check them out at Fly.io. Okay, let's talk. Well friends, Retool Agents is here. Yes, Retool has launched Retool Agents. We all know LMs, they're smart. They can chat, they can reason, they can help us code. They can even write the code for us. But here's the thing, LMs, they can talk, but so far they can't act. To actually execute real work in your business, they need tools. And that's exactly what Retool Agents delivers. Instead of building just one more chat bot out there, Retool rethought this. They give LMs powerful, specific, and customized tools to automate the repetitive tasks that we're all doing. Imagine this, you have to go into Stripe, you have to hunt down a chargeback. You gather the evidence from your Postgres database, you package it all up and you give it to your accountant. Now imagine an agent doing the same work, the same task in real time, and finding 50 chargebacks in those same five minutes. This is not science fiction. This is real, this is now. That's Retool Agents working with pre-built integrations in your systems and workflows. Whether you need to build an agent to handle daily project management by listening to standups and updating Jira, or one that researches sales prospects and generates personalized pitch decks, or even an executive assistant that coordinates calendars across time zones. Retool Agents does all this. Here's what blows my mind. Retool customers have already automated over 100 million hours using AI. That's like having a 5,000 person company working for an entire decade. And they're just getting started. Retool Agents are available now. If you're ready to move beyond chatbots and start automating real work, check out Retool Agents today. Learn more at retool.com slash agents. Again, retool.com slash agents. Today we're joined by our old friend, Chris McCord. Welcome back, Chris."
+    },
+    {
+      "start": 161.51,
+      "end": 163.07,
+      "speaker": "chris-mccord",
+      "text": "Hello, thanks for having me back."
+    },
+    {
+      "start": 163.07,
+      "end": 174.33,
+      "speaker": "jerod-santo",
+      "text": "This is your third, fourth, fifth, or sixth time on the pod. I don't know, I didn't look it up this time, but you've been around as the, probably talking Phoenix pretty much at all times, that's my guess. I think so."
+    },
+    {
+      "start": 174.33,
+      "end": 177.63,
+      "speaker": "chris-mccord",
+      "text": "I think so, yeah. Elixir maybe, but probably Phoenix."
+    },
+    {
+      "start": 177.63,
+      "end": 185.52,
+      "speaker": "jerod-santo",
+      "text": "As you know, we're pretty big fans of Phoenix. We've been running it for a decade now. So thank you still, and again, for creating a cool web framework."
+    },
+    {
+      "start": 185.52,
+      "end": 186.72,
+      "speaker": "chris-mccord",
+      "text": "Yeah, you're welcome."
+    },
+    {
+      "start": 186.72,
+      "end": 191.96,
+      "speaker": "jerod-santo",
+      "text": "Which I use like none of your cool new features. Like I'm basically using the stock CRUD abilities"
+    },
+    {
+      "start": 191.96,
+      "end": 195.84,
+      "speaker": "chris-mccord",
+      "text": "from like 2016. Hey, that's cool too though. We'll take it, right? And it just works."
+    },
+    {
+      "start": 195.84,
+      "end": 207.34,
+      "speaker": "jerod-santo",
+      "text": "It does just work. And I continue to enjoy it. I even avoided contexts, even though I was kind of keeping up with the Joneses. I am on a recent version, but I just ignore the warnings or whatever."
+    },
+    {
+      "start": 207.34,
+      "end": 224.4,
+      "speaker": "chris-mccord",
+      "text": "That's fine too. We could, yeah, there could be a whole episode on that. Just one giant rant, but yeah, it's modules and functions. You know, that's all we're asking. That's all we're asking. If you want to, it's a suggestion. Maybe create well-defined interfaces, right? But that's it, so yeah, do what you want."
+    },
+    {
+      "start": 224.4,
+      "end": 227.94,
+      "speaker": "jerod-santo",
+      "text": "Well, I mean, who writes code nowadays anyways, right?"
+    },
+    {
+      "start": 227.94,
+      "end": 230.22,
+      "speaker": "chris-mccord",
+      "text": "That's right. It doesn't matter anymore, right?"
+    },
+    {
+      "start": 230.22,
+      "end": 243.41,
+      "speaker": "jerod-santo",
+      "text": "Because it doesn't matter. That's where I'm getting to in my life. And that's where we're getting to with coding agents taking over the world. It's like, as long as they know what the new features are and I can test drive it in the browser."
+    },
+    {
+      "start": 243.41,
+      "end": 247.37,
+      "speaker": "chris-mccord",
+      "text": "They write pretty good Phoenix context too. So I'll just do it for you."
+    },
+    {
+      "start": 247.37,
+      "end": 265.85,
+      "speaker": "jerod-santo",
+      "text": "And you have a brand new related thing, Phoenix.new. That's spelled out, spell it out. P-H-O-E, Adam, can you spell it out? Oh my gosh. Yes, I don't mind. Scared me. Cause I don't know how to spell this word, okay? P-H-O-E-N-I-X, ding, ding, ding, ding."
+    },
+    {
+      "start": 265.85,
+      "end": 267.51,
+      "speaker": "chris-mccord",
+      "text": "I win. Nailed it."
+    },
+    {
+      "start": 267.51,
+      "end": 278.59,
+      "speaker": "jerod-santo",
+      "text": "Nailed it. Man. .new, which is the cool new T-L-D as the .new. It's the cool new. I love .news, you know? I mean, it's like, it's the place to go to start something, you know? You got to go there to do it."
+    },
+    {
+      "start": 278.59,
+      "end": 280.43,
+      "speaker": "chris-mccord",
+      "text": "It was available, so it works out well."
+    },
+    {
+      "start": 280.43,
+      "end": 287.03,
+      "speaker": "jerod-santo",
+      "text": "All the cool kids are doing it. It took us a long time to get .news. We could have got .new and put a slash S, I just realized."
+    },
+    {
+      "start": 287.03,
+      "end": 288.31,
+      "speaker": "chris-mccord",
+      "text": "That would be cool."
+    },
+    {
+      "start": 288.31,
+      "end": 292.75,
+      "speaker": "jerod-santo",
+      "text": "Just go to changelog.new slash S. I don't know, it has a hard time saying that out loud."
+    },
+    {
+      "start": 292.75,
+      "end": 301.39,
+      "speaker": "chris-mccord",
+      "text": "The dev app URLs are also phx.run. So, you know. Yeah, that's cool too. .run is a thing. I didn't even know that was a thing, but I was like, this is perfect."
+    },
+    {
+      "start": 301.39,
+      "end": 304.87,
+      "speaker": "jerod-santo",
+      "text": "I like the new TLDs. I don't like that they cost a premium."
+    },
+    {
+      "start": 304.87,
+      "end": 306.19,
+      "speaker": "chris-mccord",
+      "text": "Yeah, it's ridiculous."
+    },
+    {
+      "start": 306.19,
+      "end": 309.99,
+      "speaker": "jerod-santo",
+      "text": "It's like, how about 9.99? Like it used to be the good old days, you know?"
+    },
+    {
+      "start": 309.99,
+      "end": 316.35,
+      "speaker": "chris-mccord",
+      "text": "Oh, I think I paid like, it was like seven something, seven dollars. Oh gosh. 2003 was my first domain."
+    },
+    {
+      "start": 316.51,
+      "end": 327.9,
+      "speaker": "jerod-santo",
+      "text": "I think to expect less than 50 bucks a year for domain these days is just like not a possibility. No. It's just not. What's the .new going rate, Chris?"
+    },
+    {
+      "start": 327.9,
+      "end": 331.08,
+      "speaker": "chris-mccord",
+      "text": "I think it's several hundred dollars. 700 bucks, 800 bucks, I don't know."
+    },
+    {
+      "start": 331.08,
+      "end": 333.32,
+      "speaker": "jerod-santo",
+      "text": "Wow. Is it the first time or annual?"
+    },
+    {
+      "start": 333.32,
+      "end": 346.06,
+      "speaker": "chris-mccord",
+      "text": "It's annual and there's something like, I think within 90 days you have to actually have like some kind of like real property on it or something, or they. Oh wow. There's some rules there that yeah, you can't just squat them."
+    },
+    {
+      "start": 346.46,
+      "end": 347.3,
+      "speaker": "jerod-santo",
+      "text": "You can't be old."
+    },
+    {
+      "start": 347.3,
+      "end": 354.06,
+      "speaker": "chris-mccord",
+      "text": "Yeah. I don't know how they enforce it, but you can't squat those. But I mean, they're kind of price prohibitive for squatting anyway."
+    },
+    {
+      "start": 354.06,
+      "end": 361.86,
+      "speaker": "jerod-santo",
+      "text": "Those prices are like acting like zero interest rates. They're still a thing, you know? It's like, come on. We don't have that kind of money anymore. Get it together, man."
+    },
+    {
+      "start": 361.86,
+      "end": 362.78,
+      "speaker": "chris-mccord",
+      "text": "You know?"
+    },
+    {
+      "start": 362.78,
+      "end": 389.62,
+      "speaker": "jerod-santo",
+      "text": "But I should speak for myself because apparently fly.io sprung for this phoenix.new. They can afford it. And .run, which is super cool. Tell us about your new project. Started in back in December. Of course, this is kind of what everyone's doing right now is like, how can I make LMs and agentic coding work in my slice of the world? And your slice of the world is Elixir and Phoenix. That's where you started, right?"
+    },
+    {
+      "start": 389.62,
+      "end": 552.11,
+      "speaker": "chris-mccord",
+      "text": "Yep, that's right. Yeah, so we can talk about like what it is now and kind of what I think we accidentally made, which is kind of like this journey that I've been on since we started this. So right now, phoenix.new is a essentially vibe coding Elixir and Phoenix platform. But I think what differs a little bit is like we give you like a full machine with root access. So we kind of just like let the agent have full reign to go full ham on whatever it wants, install app packages, and build a full stack application. So a lot of these like five coding platforms will gladly write JavaScript apps and run them in the browser. But like, if you want a real app and needs to talk to the database, needs to talk to file systems, like we wanted to start by like building a full stack app generator. So that's kind of what we've arrived at. So it's great at building a Phoenix and real-time live view application. So out of the box, you'll get like what you would expect from a vibe coding platform fully designed, but then everything that should be real-time will be real-time kind of like how we build things in Phoenix and live view. So the agents kind of like told, like make everything real-time and then it typically makes everything real-time. So that's like the current out of the gate experience. And what we found is like, it actually takes very little to get this agent because it has shell and it has these like sharp tools to like get it to do anything. So the first thing my coworkers did was they immediately had to create a Rails app and they nailed it. Ah, they're trolling you. It's optimized for Phoenix currently, but it's like in an effort to kind of nail this full stack application and giving it like, we give it shell and root. It turns out that like you give agents like a few sharp tools, they kind of just can make decisions and choices on their own. So kind of where I see this going in the future is how I'm building it as like a remote AI runtime. So similar to like Codex or Devin, or I think Google has like a Jules product now where you can just like have this thing asynchronously work on stuff. We can do that too. And it's like, and it turns out like it just does it. So when I built things initially, like everything's running as an elixir app behind the scenes and that's stateful. So it's like, we accidentally made this like remote thing. So the agent, if you ask them to build an app now and close your tab, throw your laptop out the window, it's going to keep working and you can pop in from anywhere in the world. So it's already like, it's already headless and like, you don't have to be there. So much like Devin or Codex, you can just ask the agent, hey, go check out GitHub issues or PRs and send a PR when you're done. And like, it will do that today. So I think, you know, while it's optimized for vibe coding out of the gate now, like the system prompt is like all about vibe coding an app. Like next thing we want to move towards is like more of these rich Codex type flows that it can already do, but doesn't really know it can do. That makes sense, you have to like coax it."
+    },
+    {
+      "start": 552.11,
+      "end": 561.07,
+      "speaker": "jerod-santo",
+      "text": "How deep did you go on making it know Phoenix well? Is it just the system prompt? Is it deeper than that?"
+    },
+    {
+      "start": 561.07,
+      "end": 647.04,
+      "speaker": "chris-mccord",
+      "text": "Yeah, I mean, it's just a system prompt combined with let's say the quote unquote world knowledge of these frontier models. But the remarkable thing is, so we're using Clod for Sonic currently, but the remarkable thing is how like portable it is. My intuition coming into this space was like all these, you know, these things are non-deterministic. You change one little thing in the system prompt and it's a totally different behavior. And if you want like to move to another model, like OpenAI or Gemini, it's going to be a ton of rework. But it turns out like you just shop your system prompt around and you get reasonable behavior just out of these things, which is totally against my intuition. The knowledge is mostly gap filling. So like you're relying on this implicit world knowledge and then through a lot of trial and error, you see where it sucks. Like, you know, it likes all these agents like to put like a bracket index-based access on elixir lists, which blows up, it's not a thing. So you have to like find these like dumb things that these agents do and then tell them what to do and what not to do. But it really isn't much harder than that. Then you give them tools to kind of get over stumbling blocks or like go fetch things as they need. So it's like, it can, since it runs shell, it can just like get the elixir documentation out of a module locally, or it can hit the web and fetch it. So it's just a fascinating field that I think is overly complicated that it's far more simple than folks realize."
+    },
+    {
+      "start": 648.26,
+      "end": 658.94,
+      "speaker": "jerod-santo",
+      "text": "So somewhere in your prompt, it just says like, elixir doesn't have, list does not have an at function in elixir or something like that. Like you're literally just putting those little things in there so that it never does it."
+    },
+    {
+      "start": 658.98,
+      "end": 687.92,
+      "speaker": "chris-mccord",
+      "text": "Just in dumb English, you're like, don't do this. And it doesn't do it after that. I mean, it's really a lot of trial and error. It's, you know, people likened it to like spell casting, but it's far less fiddly than I would have thought. And given the non-deterministic nature, I thought it would be like, you know, oh, now I'm gonna ask, I'm gonna add one line and it's gonna throw everything else off. And that's not been the case. It's actually been remarkable how much they stay well behaved."
+    },
+    {
+      "start": 687.92,
+      "end": 697.92,
+      "speaker": "jerod-santo",
+      "text": "And do you have regression tests for this? Because you know, that doesn't have to be there maybe with cloud five, because now it knows there's no at, and you could pull that one out and simplify or is that just-"
+    },
+    {
+      "start": 697.92,
+      "end": 752.94,
+      "speaker": "chris-mccord",
+      "text": "Yeah, not currently. I mean, it's mostly, we've done a ton of trial and error. We have some like a headless driven integration tests where we're actually like do the full cycle, but nothing like scoring the result. Cause that's the hardest part is like, what constitutes a successful outcome? And it's not just getting to a running server cause like most of these models can get to a running Phoenix server at the end, but like, does it look good? So like cloud has been the best at design by far in my experience. So it's like, it's mostly about like the end to end, like does the app look good? Is it just like some cruddy thing or did it actually come up with some compelling actual, like, you know, you give it like make me a to-do list and did it actually come up with some compelling features that weren't like just, that weren't implied, like were implicit. And so most of that is trial and error and just generating much naps and finding out."
+    },
+    {
+      "start": 752.94,
+      "end": 777.01,
+      "speaker": "jerod-santo",
+      "text": "Have you found that Clod 4 in particular is better than other things right now? It just seems like maybe it's not this particular model or version, but it's like mid, you know, mid 2025, all of a sudden I feel like the coding agents and I specifically have experience with Clod where it's like, oh, I'm not mad at you anymore. Like I used to be at the previous versions."
+    },
+    {
+      "start": 777.01,
+      "end": 852.96,
+      "speaker": "chris-mccord",
+      "text": "It's slightly better than Clod 3, 5 or 3, 7, whatever the previous on it was. It's the best. And I think it's just a little bit better, not like remarkably than previous Clod, but Clod has been the best at these like agent workflows. And I use words like it's the best decision maker and the best, it makes the best choices on like what to do next. But most of the models, I mean, even like Grok 3 will like go through the standard steps that you would expect the agent to do when it's building a Phoenix app. It's just like, whether it gets caught on these little things or makes a silly mistake or like makes an app that actually looks good is Clod just as like gets over that quality hump. But the others are definitely viable. Like GPT 401 is similar in this like agentic flow. Like it looks the part, it's just not quite as good as Clod. And Gemini is the same. They work and they're really good. I mean, if we're talking like single file, like make this code for me in one file, like then it's a different story. Like a lot of people love Gemini 2.5 Pro does a great job. But like, as far as like this end to end, you're an agent, you make decisions on the step-by-step flow Clod just seems to nail it compared to everybody else."
+    },
+    {
+      "start": 852.96,
+      "end": 872.04,
+      "speaker": "jerod-santo",
+      "text": "I asked that not to toot Clod's aranthropic horn, but because I feel like for me personally, and maybe it's all of them have reached a threshold of quality recently where I've kind of bought in now more fully than I was. And it just seems like it just recently happened."
+    },
+    {
+      "start": 872.04,
+      "end": 887.28,
+      "speaker": "chris-mccord",
+      "text": "It was like sometime late last year. I mean, when GPT 4 came out, that was when, I wish I had had the insight then, that was pretty much what changed the game to do something like we're doing. And we're just now catching up to, I think what these models have been able to do for a while now."
+    },
+    {
+      "start": 887.28,
+      "end": 897.8,
+      "speaker": "jerod-santo",
+      "text": "When is Phoenix.new to fly? What does it represent? Is it a skunk works? Is it a growth model? Is it marketing? Is it R&D? What do you, how do you kind of grasp it?"
+    },
+    {
+      "start": 897.8,
+      "end": 1019.72,
+      "speaker": "chris-mccord",
+      "text": "It started as just, I would say more marketing and I'm not even gonna call it R&D. So the original thesis was like a lot of folks in the Elixir community have been like, these agents are all doing JavaScript. All these platforms are doing JavaScript. And since JavaScript has the most data, we're gonna fall behind because JavaScript is gonna eat the world, all the agents are gonna write and it's pretty soon no one's gonna care about what the agents are writing. So part of this was like, can we show that Elixir and Phoenix are just, work great with these large language models. And the other part was like with fly is like, we have a large customer base that is using our platform to do these vibe coding agents, but a lot of them are just generating JavaScript. So it's like, part of it was marketing to show like, the original goal was like, I had six weeks just to spike out a text area on a webpage to generate a full stack Phoenix app. We were just gonna use that as kind of a marketing for Phoenix to be like, look, we're here, we can do the same cool stuff. And then there's also one market fly for that segment to say like, yeah, we're great at like Sandbox JavaScript, but hey, look, you can just have the agent write whatever. So six weeks later, I had like, I basically had the MVP of what you see today, wasn't quite as polished and good, but it was like basically like full in browser ID, generating a Phoenix application. And it was like, oh my God, like, there's something here, right? Like it was much more than I thought was that we could deliver. So we decided to kind of see where it went and see if we could turn it into a product. But it definitely started as this, just like little marketing R&D thing that suited the Phoenix side and fly side. And then it turned into like, oh wow, this could be a thing. And now it's a real product. So we're going to see where it goes. So I would say Skunk Works, it went from marketing to, okay, Skunk Works to now growth, right? Like, okay, let's launch this. Okay, we have users. Okay, let's try and do this thing."
+    },
+    {
+      "start": 1019.72,
+      "end": 1023.6,
+      "speaker": "jerod-santo",
+      "text": "So this is now a product, is that where it's at now, product level?"
+    },
+    {
+      "start": 1023.6,
+      "end": 1035.08,
+      "speaker": "chris-mccord",
+      "text": "Yeah, we're in our product growth raise, right? I mean, before we launched, what was that, four days ago. So we've had hundreds of people sign up at this point. So we're doing it, let's go."
+    },
+    {
+      "start": 1035.08,
+      "end": 1048.12,
+      "speaker": "jerod-santo",
+      "text": "I mean, that happened for Bolt as well, right? Bolt.new. What was their previous company? I mean, it's a company that created Bolt. They were doing other stuff. It was like Node in the browser. I can't remember what it's called. I've met them."
+    },
+    {
+      "start": 1048.12,
+      "end": 1050.76,
+      "speaker": "chris-mccord",
+      "text": "Oh really, I didn't know they had some previous."
+    },
+    {
+      "start": 1050.76,
+      "end": 1073.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah. They had been start upping and doing cool things in the browser for a long time. I mean, talking like three, four, five years and they'd be on JS party and Bolt was their new thing. And it became their only thing. I mean, it came out and just was really cool and got a huge adoption right away from folks. And so it became now, I think, who they are. It's like, got to talk about a pivot."
+    },
+    {
+      "start": 1073.96,
+      "end": 1086.4,
+      "speaker": "chris-mccord",
+      "text": "It is crazy. Their story is actually quite crazy than that. Their founder had some like stuff out there I think even as well. It was like a weird way. The old version of the company kind of like faltered."
+    },
+    {
+      "start": 1086.4,
+      "end": 1089.92,
+      "speaker": "jerod-santo",
+      "text": "It was- Stack blitz, that's what it was, stack blitz. Yeah."
+    },
+    {
+      "start": 1089.92,
+      "end": 1092.6,
+      "speaker": "chris-mccord",
+      "text": "It just came back to- Oh yes, yeah, yeah, yeah. I remember this."
+    },
+    {
+      "start": 1092.6,
+      "end": 1103.54,
+      "speaker": "jerod-santo",
+      "text": "A lot of news from stack blitz and now it's just Bolt, like that's who they are now. Yep. That's so weird then. Maybe that's not the same. Who is the real Bolt here? Okay. Maybe I'm wrong."
+    },
+    {
+      "start": 1103.54,
+      "end": 1105.46,
+      "speaker": "chris-mccord",
+      "text": "No, you're right. There was an old Bolt too then."
+    },
+    {
+      "start": 1105.46,
+      "end": 1107.96,
+      "speaker": "jerod-santo",
+      "text": "Okay. Maybe I'm wrong. I'm sure there's been other Bolts."
+    },
+    {
+      "start": 1107.96,
+      "end": 1153.51,
+      "speaker": "chris-mccord",
+      "text": "Yeah, they've had explosive growth as well as like lovable. And there's been some big folks in this space. So initially it was just, let's see if we can kind of show this as possible in a full stack way. And it turned into like, oh my God, now it turned into like, here's a full ID with a root shell on the browser. So I think pretty quickly it turned into like a very compelling remote dev runtime, starting from kind of like, what if we just gave you a text area? Because I think a lot of the other players in this space, you get the chat interface and they kind of give you some kind of like basic code editor or code visualization. But we're just like, just put VS code in the browser and let you and the agent go at it."
+    },
+    {
+      "start": 1153.51,
+      "end": 1178.07,
+      "speaker": "jerod-santo",
+      "text": "So now that you all realized how generally useful this is and not necessarily specific to Elixir or Phoenix, like it can do other things, especially if you stop making it seem so Elixir and Phoenixy, do you wonder if maybe you like, pigeonholed it or misnamed it, or maybe it should be something different? Is or is Phoenix still cool? Even for people who don't know what Phoenix is?"
+    },
+    {
+      "start": 1178.47,
+      "end": 1321.3,
+      "speaker": "chris-mccord",
+      "text": "We went back and forth on this a lot, because it definitely started as like, let's do this for Elixir and Phoenix, right? And then over time it became apparent like, oh wow, this thing is like, turns out if you give the agent a full environment and you let it do sharp tools, it could just do things. So we decided to, we wanted to nail one stack to start. So once it became apparent that we could use this for pretty much anything, right? Like Ruby, PHP, Go, Rust, all the languages you would care about are already on the box. But we wanted to actually give a compelling experience for one stack first, right? Cause it's like, you could release this, right? But if the agents can just like, if the agents just flop around being moderately okay at Rails or Phoenix or whatever, then it's still not going to be a good experience. So we definitely wanted to start with like, let's nail one stack, let's actually make it compelling. And Phoenix gives you a lot as well. Real-time features, right? So it's like, if you can nail one stack and especially with Phoenix, you just like, you get these real-time apps that sync out of the box. There's like something I think unique towards the future of like, if we take the argument that JavaScript eats the world and it doesn't matter what language these agents write in, they're going to use JavaScript because that's what they've seen. We can flip it around and say like, well, what if we can get to, if we get to that world where the code that the agent write doesn't matter for us or people asking it, maybe Phoenix can be the thing that doesn't matter, right? Maybe we can be so lucky that most people don't care. And if you flip it around and say, could we do that? Then the agents actually have the ability to make these really compelling experiences with far less glue and things, infrastructure to bring in. So it's like, there may be, I think there was a thesis and a story there on if we keep progressing towards this world where there's less and less, you don't show the editor anymore because the agent does that code stuff, then I think Elixir and Phoenix actually may be the perfect language to be that thing that people by and large don't care about, that makes sense. So there's, I think something special there with Elixir and Phoenix, but I do agree that the positioning has been tricky for us. But right now it's like, we want to make it compelling and make it compelling for the folks that don't care about the language or get them into Elixir Phoenix this way. And then as we do that backfill with other stacks and kind of see what we do branding wise, but TBD."
+    },
+    {
+      "start": 1321.34,
+      "end": 1330.66,
+      "speaker": "jerod-santo",
+      "text": "How close are we to that future where the language matters less, the editor is shown less? Like how close are we to where that's a realization?"
+    },
+    {
+      "start": 1330.66,
+      "end": 1489.72,
+      "speaker": "chris-mccord",
+      "text": "It's a contentious topic. It is. Yeah, so I would say like the CEO of Fly kind of like, I'm not going to say pitch to me, but one, he thinks Phoenix new is like the most successful nerd snipe of all time. Cause you know, it started as his idea of like, oh, Chris, just spend six weeks, go make this like texture on a webpage and it turned into an accidental product. But it was his insight on like, you know, if we are heading towards that future, like maybe we can make Elixir and Phoenix that platform that these agents are excelling at. And I thought that seemed far off, but then if you followed the Hacker News discussion on the announcement, the top comment was a PHP developer who had never, they knew what Elixir and Phoenix was, but they never tried it. And they were like, well, it's an hour never. So they signed up and then they developed, they made a tic-tac-toe game that was multiplayer and you could create your own room and then like play with other people. And they made that in one sitting and then deployed it on fly. And they had never like touched Elixir and Phoenix before. So it's like in one sitting, this person, and they were an experienced developer, but they didn't write a single line of code and had this like compelling experience that converted them to an Elixir user, a Phoenix user and a fly paying customer in one go. So I think that like, it seems like people hearing this that are just coming into this space will think it sounds like way far off, but it's like, we're seeing that today, right? Like literally someone came in, like typed on into a chat and like they got this app multiplayer real time out of the box. So it's like maybe not as far off as folks think. And I think that's where we're headed. I think that the programming, I'm gonna call it iteration because like developers are very, they don't like this idea, but I do think that local development becomes less and less valuable. I think that most of our code iteration, most of the computation time is gonna happen remotely just because these agents provide value at all times. So it's like, it will become silly to think that like I closed my laptop and like work stops happening because why would it, right? So like, this is again, forward-looking statement, but for me, I think the future programming is like much more like your CI environment is constantly out there just like fiddling and doing stuff. And like you pop in and check on it or work within that context, but your predominant thing that's being, the artifact that is your software is gonna be running somewhere else and the agent's gonna be doing that subset of that work and where that subset starts and stops, I don't know. I can't predict the future, but I feel pretty confident that's where we're headed, but we'll see. And a lot of folks do not like hearing that opinion."
+    },
+    {
+      "start": 1489.72,
+      "end": 1509.32,
+      "speaker": "jerod-santo",
+      "text": "Well, it has huge implications. I'm hearing echoes of the death of the IDE, which is what Steve Yegge predicted on this show a few weeks back. And he didn't mean like it's gonna disappear, but just the reducing towards obsolescence, like you're moving away from it as an important piece of the thing."
+    },
+    {
+      "start": 1509.32,
+      "end": 1568.04,
+      "speaker": "chris-mccord",
+      "text": "The most interesting thing with this is like, part of when I put this together is like, a lot of these other Vibe platforms don't have a real IDE. So I thought it was like really compelling to have like VS code in the browser. And I still think that's true. But then the funny thing about developed, like making that is like the editor, the IDE that like most people think is like the thing is just eye candy for humans. So like this agent- They're just watching it, do stuff. Yeah, this agent, like it serves no purpose to the agent. So the agent, you close the tab, it's not aware of VS code, right? It's just literally there for us slow meat brains too. I mean, we can go in there and interact with you, but it's fascinating to like, to work my way bottom up and then be like, oh, this thing could just go away. And it doesn't matter for the actual process of the agent working, it's just fascinating. So I definitely, that resonates with me and I don't know how I feel about it fully, but it is the reality of what, where we're headed and kind of where we're at. So yeah, I definitely agree with that."
+    },
+    {
+      "start": 1568.04,
+      "end": 1591,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and we tend to anthropomorphize too much, but I can imagine if I would just to do that a little bit, that the agents themselves would be fed up with us at some point, like, why do I have to show you what I'm doing and like, teach you this stuff as I go? Like, you're adding nothing to me here, basically. Like, just let me do my stuff, I'll report back and then you tell me if I should do something different."
+    },
+    {
+      "start": 1591,
+      "end": 1686.29,
+      "speaker": "chris-mccord",
+      "text": "That, I mean, I totally agree. And that's, I mean, that's where we're at. You know, it's like there are limitations currently, but it's like, you can just let these things go off and rip and then come back and, or they just send a PR when they're done. And I think that, yeah, that makes people uncomfortable. And it's also weird to me, like this whole, we're in a really, really weird time, right? Where you have people that are getting all this value. Like I'm using LLMs every day and I'm like, I feel like I'm a god tier developer, right? And then I have like people that are really intelligent peers that are like, LLMs provide no value to me. And I'm like, I don't know how to reconcile with these two worlds because I'm shipping more than I ever could. And then there's also, the whole space is weird too because it's overly complicated by the folks building these tools, I feel like. It's far less complicated after coming through this experience than I expected it to be. And it's also like everyone's trying to build an editor too. So I think it's just like, I could be wrong, but it's just like a very weird, like I think Windsor, if there's rumors for like multi-billion dollar valuation or acquisition, you've got cursor, which is doing amazing work, but everyone's like trying to build the IDE. And I feel like we're building the IDE and the IDE is going to disappear by the time they get done building the IDE. I don't know, it's just, it's a weird time. Like I feel like the real part of this is, and folks are working on like Jules and Codex and Devin as well, that like there's some medium point that these things meet and I don't know that it's going to be a desktop IDE, but we'll find out."
+    },
+    {
+      "start": 1686.29,
+      "end": 1729.24,
+      "speaker": "jerod-santo",
+      "text": "So as the purveyor of the Phoenix framework and this potential world where phoenix.new brings Phoenix framework, even more users through this selection process, right? Because not necessarily because of the ergonomics or choices of Phoenix, but what it provides with WebSockets and all this stuff built in the pub sub and the real time features and all the other things that Phoenix has. If that ball starts to roll, right? That snowball starts to roll down the hill and get bigger. Do you then look at Phoenix as a framework differently and say, okay, how can we build Phoenix differently to actually make it, I don't know, even better for these things or how does that change your view of Phoenix?"
+    },
+    {
+      "start": 1729.24,
+      "end": 1836.54,
+      "speaker": "chris-mccord",
+      "text": "No, it's a good question because we're already, already like every thought is like, well, how would this affect in a good way or a bad way, large language models? So it's like, but the most fascinating thing for me is like, they're much like people. I know we talked about anthropomorphizing. They're much like people in that, like the data, you know, they're trained on the data that's out there. So in the same way, I'm like, well, if we change this, actually, I was just talking with Jose Vellante today, like, well, if we do that, then the agent's gonna, you know, run this mix command that's gonna be deprecated. But it's the same, like, it's funny how alike it is. It's the same thought you would put into your existing user base, right? Like, oh, well, people are used to doing it this way and now they're gonna have to do it that way. So it's a very similar overlap, but I do think it changes fundamentally, like how you start thinking about features. Cause it's more like LLM first versus like people first, which also makes folks uncomfortable. But it's like, that's where we're headed. So yeah, so I don't have any concrete examples yet, other than like pretty much every decision now is like taking that into consideration. And then one thing we're doing is like the community is standardizing on like an agent's MD file. So like Phoenix, yeah, this is naming overlap, phx.new, the Phoenix project generator will have an agent's MD file that gives you a lot of kind of what I have in the Phoenix new system prompt. Like a lot of these gap fillers, basically, in a lot of communities are doing something similar, but we're gonna have like each package have their own agent's MD, which is just a plain text file that agents can utilize, but you can also make like, you know, a mixed task that extracts these things and just an easier way to like lift that into, you know, whatever agent you're running, whether it's cloud desktop or anything, or Phoenix new, you could look at these files as well. And so it's kind of like on our minds for everything we're doing now. And I think that's where everyone's heading at this point."
+    },
+    {
+      "start": 1836.54,
+      "end": 1858.22,
+      "speaker": "jerod-santo",
+      "text": "You were saying before though, this kind of goes back a little bit, but you were saying before that the person adjacent to you, let's just say, got not a lot of value from, or no value from an LLM, but you were getting immense. What kind of value are you getting? Like, is it just in your software life where you're writing more code? Is it like in your personal life? How are you using and getting value?"
+    },
+    {
+      "start": 1858.22,
+      "end": 2077.22,
+      "speaker": "chris-mccord",
+      "text": "Yeah, so it's like, yeah, I'm gonna sound like an evangelist. Like the really weird, yeah, it's just we're in this weird time where like, like folks have equated it to like cryptocurrency scammers where I feel personally slighted if someone, yeah, like it's like, oh, it's just like a crypto hype. It's like, I'm literally getting value every day. But in any case, like it's at all levels. So like, for me, it's changed like any little thing you wanna spike out, like that would take you several weekends, right? I can just like go generate that thing. And then four minutes later, I have it. So we could like do that on air, right? Like what is like some little app that, you know, regardless of what it is that you just haven't had the time to work on, you could go have that thing just be done. But also from like just things as a developer, I can't be bothered to do. Like, I mean, like I test my code, but it's as I'm like a regrettable tester where it's like, I have to do this. So I'll do it after, you know, after I get my things working. But now it's like the vast majority of my tests are started by an LLM by and large. And like, they'll even find like edge cases, like the Phoenix new parser that's parsing the token stream is like fully tested by test generated by the LLM. And it caught some like edge cases that I didn't even think that were there. Benchmarking is another good example. I asked like the agent to, I was working, I use Phoenix new to work on Phoenix new. And part of it is like the token rate limiting or rate limiting all the incoming and outgoing tokens. You don't want to lose those because it costs real dollars. Like if someone like sends up a request and then cancels it early, we still have to calculate that. So in a way it's like a in-memory that's backed rate limiter that syncs with Postgres. And I wanted to know how fast it was in general and then how long it would take to sync because I have to do some locks. And you know, that kind of thing is like, take, it could take several hours for me to actually try to benchmark that, like setting up the benchmark. Soon I just asked Phoenix new to benchmark this code and it extracted, again, I gave it nothing then, let's benchmark this. And it took the, it was a gen server with ETS doing Postgres syncing and it took the critical path of the code. It put it into an excess file. So instead of trying to like drive the code in an integration way, it just like automatically duplicated the critical path and then ran that in a tight loop. It gave me all this formatted output of like thousand rows, 10,000 rows, a hundred thousand rows. It put it in the console and like a pretty formatted table and it wrote a markdown file of a summary. So these kinds of things at all levels, I feel like this is how we're going to do everything. And it's like, whether you're like, you've never programmed before or you've never programmed Elixir before, you can get value there. Whether you're like, you created a framework and you're at the far end, you're still going to be able to use these things to do the tedious work or future work. So what I try to tell people that the seasoned developers is like for me, LLMs, like the discourse is like, everyone's like, oh, it's all AI slop, which I think is a silly argument, but like, it's not AI slop for me. It's like these LM, the code that the LM generates, that artifact is a starting point. And the discourse, for some reason, for people that are on the negative side, seems to be like they treat that thing that falls out of your chat GPT as the artifact that you shipped to production. But it's like, no, these things are just a starting point. So now it's like, instead of having myself write out this hundred lines of gen server code, it's now just like this really intelligent code generator that's my starting point. It's not what I like to then just ship to the production. So I think the discourse is flawed, but I think that at all levels of the experience stack or programmer at stack, you're gonna have people getting value out of tools like this."
+    },
+    {
+      "start": 2077.22,
+      "end": 2091.82,
+      "speaker": "jerod-santo",
+      "text": "The AI slop is the blog post that nobody wanted to read. And its only purpose is there to attract attention so you can sell some advertising or something, or the essay that you spat out because you didn't have time to actually write your own. Like that's slop."
+    },
+    {
+      "start": 2091.82,
+      "end": 2123.76,
+      "speaker": "chris-mccord",
+      "text": "Yeah, I mean, I like to say, we've all been sloppy vibe coders, right? It's just now way easier, but like the people copy pasting Stack Overflow and the people that ship that trip to production, like now they can do that more easily, but it's like, but those people were already writing bad code and not carefully considered prior. So that's gonna remain true. It's gonna be easier for those folks to like get something into production, but it doesn't change the fact that like you can't, I don't know. I feel like it's more gatekeeping than anything else. Folks are throwing that term around."
+    },
+    {
+      "start": 2123.76,
+      "end": 2148.92,
+      "speaker": "jerod-santo",
+      "text": "Well friends, it's all about faster builds. Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay, so Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 2148.92,
+      "end": 2221.33,
+      "speaker": "chris-mccord",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is, if you think about a CI provider, it is in essence a lowest common denominator generic VM. And then you're left to your own devices to essentially configure that VM and configure your build pipeline. Effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast. Making them fast, making them secure, making them cost-effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features and a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box. Makes their builds more cost-effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top-level entity inside of generic CI providers."
+    },
+    {
+      "start": 2221.33,
+      "end": 2253.84,
+      "speaker": "jerod-santo",
+      "text": "Yes, okay friends, save your time, get faster builds with Depo, Docker builds, faster GitHub action runners, and distributed remote caching for Bazel, Go, Gradle, Turbo repo, and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one-line code change. Learn more at depo.dev. Get started with a seven-day free trial. No credit card required. Again, depo.dev. Well, should we try to vibe code something? I got an idea."
+    },
+    {
+      "start": 2253.84,
+      "end": 2256.28,
+      "speaker": "chris-mccord",
+      "text": "Let's do it. I got an app idea. I wanna see it."
+    },
+    {
+      "start": 2257.28,
+      "end": 2263.64,
+      "speaker": "jerod-santo",
+      "text": "I'll screen share this and for our listener who doesn't have video, have no fear. We're not gonna like leave you behind or something. You can talk there."
+    },
+    {
+      "start": 2263.64,
+      "end": 2281.8,
+      "speaker": "chris-mccord",
+      "text": "Yeah, it's nothing better than live coding in a non-deterministic way. I did this on stage at ElixirConf EU where it's like, you know, I always like to like live code which has some level of risk but then you're like, you know, you're live generating something that you, you know, it's just a random number generator ultimately. So let's do it. Let's see what happens."
+    },
+    {
+      "start": 2281.8,
+      "end": 2316.84,
+      "speaker": "jerod-santo",
+      "text": "All right, so here's my app idea. It's like hot or not, but for code functions. So like imagine Chris writes his version of QuickSort, right? And I've got a better way of doing it. And so we both enter our QuickSort function and then other people will vote. Like, is this hot or does this not? I mean, is this good code or bad code? Let's do it. Sounds awesome. I have phoenix.new open over here. What would you like to build? Pick one or type your own. Of course you have a video out there, seven minutes on the to-do list. So we're not going to do that. How do you suggest I prompt this thing? Just tell it what I just told you or get more specific?"
+    },
+    {
+      "start": 2316.84,
+      "end": 2352.88,
+      "speaker": "chris-mccord",
+      "text": "And just what you said. So here's the remarkable thing is people, the intuition and the tribal knowledge is you gotta be as specific as you can. The remarkable thing is like in terrible English with typos, you just ask for the thing and the agent has intuition or it will give you reasonable questions. Someone asked it about making like a mashup of communication providers, like mashing up SMS and email. And it was like, well, what would you like to use? Twilio or Syngr? Like, would you want to GraphQL API or JSON? So it's like, let's give it like, I mean, do what you want, free form. But I don't think you need to actually spell out anything. Just tell it exactly what you told me."
+    },
+    {
+      "start": 2352.88,
+      "end": 2364.6,
+      "speaker": "jerod-santo",
+      "text": "So I said, let's build hot or not, but for code. You put your code in and people can vote it up, hot or down, not. Good enough? Should I be any more specific than that?"
+    },
+    {
+      "start": 2364.6,
+      "end": 2367.94,
+      "speaker": "chris-mccord",
+      "text": "Whatever we want here. Let's see what it does. It's gonna hype you up. You're hype, man."
+    },
+    {
+      "start": 2367.94,
+      "end": 2396.14,
+      "speaker": "jerod-santo",
+      "text": "This is a great idea. Great idea. Thank you. Now you're starting to stroke my ego. A hot or not for code, where developers can submit code snippets and get community feedback. Here's my high level plan. Oh, it's a 12 step plan, 12 to 14 steps. And so it's gonna give me 11 steps with some features, submit code snippets, blah, blah, blah, real time voting. There you go. There's your real time. Did you system prompt like be real time by default if they don't specify? Cause I didn't say anything about that."
+    },
+    {
+      "start": 2396.14,
+      "end": 2406.46,
+      "speaker": "chris-mccord",
+      "text": "It's basically like, you know, a Phoenix framework has pub sub, build in, presence, whatever. So like anything that makes sense to be real time should be real time. That's more or less the gist of it."
+    },
+    {
+      "start": 2406.46,
+      "end": 2422.98,
+      "speaker": "jerod-santo",
+      "text": "Gotcha. So I'm not being very discerning. I just said, yes, great plan. Please continue. And now it's gonna ask me if I want to do dark theme, minimal theme, vibrant tech, professional corporate, or something else. And then we got any cool theme ideas?"
+    },
+    {
+      "start": 2422.98,
+      "end": 2449.14,
+      "speaker": "chris-mccord",
+      "text": "It nails Tron when you ask, but the cool thing with these choices here is like, we just go on there. I was tired of, yeah, Tron is always great. I was tired of typing yes and no to the agent. So I was like, in the system prompt, I was like, anytime you idle, give the user a choice, you know, example, yes, no. And it started producing stuff like you see there. And you're like, what? Like, it's just remarkable what you can get out of these things without trying. It's just like, I thought it would be way more."
+    },
+    {
+      "start": 2449.14,
+      "end": 2450.46,
+      "speaker": "jerod-santo",
+      "text": "Without trying."
+    },
+    {
+      "start": 2450.46,
+      "end": 2458.02,
+      "speaker": "chris-mccord",
+      "text": "Right? I want a yes, no. And then it's like, what did it type here? Like, would you like a dark GitHub, dark style? Like, if you're like, what?"
+    },
+    {
+      "start": 2458.02,
+      "end": 2461.18,
+      "speaker": "jerod-santo",
+      "text": "It's like, no, here's six options. They're all good."
+    },
+    {
+      "start": 2461.18,
+      "end": 2483.73,
+      "speaker": "chris-mccord",
+      "text": "Yeah, so it's gonna write out a plan and a plan MD file. So it plans out its own work. And then that remains in context. Now your server's running. So it compiled and built it in that amount of time. And you get that live review. And then you get that URL as well that you could share with, it's private by default, or you can toggle it public. And anyone could visit that Phoenix server now if you toggle it public."
+    },
+    {
+      "start": 2483.73,
+      "end": 2488.35,
+      "speaker": "jerod-santo",
+      "text": "All right, I'm gonna paste this to you guys. Sweet. Riverside chat."
+    },
+    {
+      "start": 2488.35,
+      "end": 2502.35,
+      "speaker": "chris-mccord",
+      "text": "Oh yeah. And once this goes right in, you can toggle the public in the top right there by your, it shows the URL in the top right of the editor. I know the public little toggle there by the pink text, purple text, left."
+    },
+    {
+      "start": 2502.35,
+      "end": 2514.13,
+      "speaker": "jerod-santo",
+      "text": "Right here. There you go. Boom. All right, so I had made that. So it gives me a phx.run URL that I made public, paste it to you guys. Meanwhile, it's coding things, right?"
+    },
+    {
+      "start": 2514.13,
+      "end": 2552.51,
+      "speaker": "chris-mccord",
+      "text": "Yep, looks like there is a syntax error and it's slanting the code as it goes. And so just like we can see the browser here, it actually has its own headless Chrome browser. So it's able to visit the page as a human would with a real browser, see JavaScript errors, and then it can also interact with the page. So if we're lucky, we'll get to a working hot or not, and it will post its own code snippet to the app and we'll see it in real time by actually driving the browser. That would be amazing, right? We'll see what happens here. So it's writing the- Or not. Oh, it's giving us a, yeah, it's gonna start with a static design here. So this is it, like just writing a, let's see. Syntax error."
+    },
+    {
+      "start": 2552.51,
+      "end": 2555.55,
+      "speaker": "jerod-santo",
+      "text": "It's fixing the syntax error currently."
+    },
+    {
+      "start": 2555.55,
+      "end": 2624.41,
+      "speaker": "chris-mccord",
+      "text": "My guess is we'll see if it actually is this issue. So someone reported this. If it's trying to write a code example on the page, it's gonna use curly brackets. And one of the open issues internally is they're used to Elixir Heeks files. Like our curly bracket is a reserve syntax. So like if you try to put a code sample in like a code tag or a pre-tag, Heeks throws a compilation error. And this is like the same thing that trumps up people. Anytime people wanna do this, they go to the forum and they're like, how do I write this? So you actually have to annotate with a phx-no-curly interpolation. And I have a branch where, yeah, I'm sure it's hitting this. So we need to actually tell it, hold on, let me see. So it's amazing we hit this. Let me, I think we have passed this. Of course I'm a nerd, so I pick a code app, anything. No, no, it's fine. This is good. So it's one of these edge cases that like it, again, trips people up where they're like, how do I do this? I can't interpolate. But eventually that agent will probably start trying to like random, like trying to interpolate by like stringifying the brackets. Hold on, let me, I'm gonna paste this to you because it's a really long."
+    },
+    {
+      "start": 2624.41,
+      "end": 2625.81,
+      "speaker": "jerod-santo",
+      "text": "It fixed it."
+    },
+    {
+      "start": 2625.81,
+      "end": 2637.25,
+      "speaker": "chris-mccord",
+      "text": "Did it really? Oh, okay, we'll revisit this later. My guess is it like put it in, like interpolated the strings like it did something ridiculous that works around the issue."
+    },
+    {
+      "start": 2637.25,
+      "end": 2644.41,
+      "speaker": "jerod-santo",
+      "text": "Does it ever stop so us meatbags can keep up? I was like, cause I was gonna read what it was doing up there and I'm afraid it's gonna, I'm gonna miss something now."
+    },
+    {
+      "start": 2644.41,
+      "end": 2646.25,
+      "speaker": "chris-mccord",
+      "text": "No, the thing is."
+    },
+    {
+      "start": 2646.25,
+      "end": 2650.53,
+      "speaker": "jerod-santo",
+      "text": "Meatbags. Slow down, buddy. I'm trying to keep up."
+    },
+    {
+      "start": 2650.53,
+      "end": 2689.81,
+      "speaker": "chris-mccord",
+      "text": "Here's the thing. On the newer models, they're not as good. So like Gemini Flash is fast enough where I get existential vibes because like we're following this now and we're like, oh yeah, it's working on the, the context file here. But like Gemini Flash is so fast that you lose, it's like, now I'll do this, now I'll do this. And you feel like you're in the way. Now, granted, it's not, the quality is terrible. It doesn't give you working apps, but then the first time I can see it, I can see the future where I'm like, I'm just sitting here as a meatbag and I'm in the way, right, like it's just, I can't even read what, follow what it's doing. And that's like where we're headed, right? It's like, we're not there."
+    },
+    {
+      "start": 2689.81,
+      "end": 2691.13,
+      "speaker": "jerod-santo",
+      "text": "Look at this."
+    },
+    {
+      "start": 2691.13,
+      "end": 2718.37,
+      "speaker": "chris-mccord",
+      "text": "Okay, so yeah, so it made a static Heeks file. So none of that's functional. And now it's going to actually use that and write a real app around that static file. So now it's writing the live view here and it's going to start doing the live view pub sub and everything. But it gives you that, like, it hit the syntax errors, but it gives you, we wanted to give people like the early feedback of like seeing the app, like what it's going to look like versus waiting the whole time and then at the very end."
+    },
+    {
+      "start": 2718.37,
+      "end": 2721.97,
+      "speaker": "jerod-santo",
+      "text": "So you tell it to do that, like build a static version first and then make it live."
+    },
+    {
+      "start": 2721.97,
+      "end": 2744.61,
+      "speaker": "chris-mccord",
+      "text": "Yep, and it's also helpful because if you wait till the end in like something about, like, it's good, I mean, just like humans start with a mock-up, right? So it's like, for the same reason, you don't want to have a consultancy just like, here's your finished product. And you're like, oh, I really didn't want, you know, there was some fundamental difference of the design that would have made the code much different. It makes a lot of sense to work in the same way, like, you know, a person would."
+    },
+    {
+      "start": 2744.61,
+      "end": 2745.49,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 2745.49,
+      "end": 2748.53,
+      "speaker": "chris-mccord",
+      "text": "Look at that, yeah. See, it nails Tron pretty well."
+    },
+    {
+      "start": 2748.53,
+      "end": 2752.85,
+      "speaker": "jerod-santo",
+      "text": "It does look kind of cool, very Tron-y. Submit your code, let the grid decide."
+    },
+    {
+      "start": 2752.85,
+      "end": 2760.53,
+      "speaker": "chris-mccord",
+      "text": "Yeah, and then it picks copy. So here's the thing, like, you know, these MLMs come up with copy that makes sense. And all you said was like the word Tron, right?"
+    },
+    {
+      "start": 2760.53,
+      "end": 2763.61,
+      "speaker": "jerod-santo",
+      "text": "That's what I said, let's do it Tron style. That's all I said, Tron style."
+    },
+    {
+      "start": 2763.61,
+      "end": 2796.48,
+      "speaker": "chris-mccord",
+      "text": "Okay, so you see how it's using its own web browser now. So you said it visited the app. So there, like, it would have caught any JavaScript errors. It actually saw the app. So it's like, this was also one of the, like, special things that I feel like made it error, like really good error correction. It's like, not only can it see, like, it looks at our logs and actually, like, try to visit the app. And if it broke the JS build, it would see that too. Oh, it's going to try to post something. Did it work? Close the terminal now on the little right, right hand side X, it tried to write code. Did it actually add it?"
+    },
+    {
+      "start": 2797.78,
+      "end": 2810.28,
+      "speaker": "jerod-santo",
+      "text": "There is an issue. It says, excellent, our Tron style code reader is working perfectly. Let's set the functionality by, or test it by submitting a sample code. There's an issue. The web tool is trying to fill a select dropdown with text instead of selecting an option. Let me try a different approach."
+    },
+    {
+      "start": 2810.28,
+      "end": 2830.88,
+      "speaker": "chris-mccord",
+      "text": "So if you expand, I see the issue real quick. That like, if you, there's a little expand button on that message right there. Yeah, yeah. So you can see it actually wrote JavaScript to eval on the page. So it actually tried to, tried to post something for real. So like within its own headless browser, it was trying to, oh wait, the Fibonacci generator, is that what it wrote?"
+    },
+    {
+      "start": 2830.88,
+      "end": 2832.88,
+      "speaker": "jerod-santo",
+      "text": "It's trying to write a Fibonacci generator."
+    },
+    {
+      "start": 2832.88,
+      "end": 2853.54,
+      "speaker": "chris-mccord",
+      "text": "It did. So the recent submissions here are, is what, so it uses its browser. I think it, there's probably a handle info. I can't see the code. Oh, there it is. My guess is it blew up, like maybe something in the PubSub crashed it, but it actually, yeah, it interacted with its page by writing Java, by writing its own code in JavaScript to run on the page and."
+    },
+    {
+      "start": 2853.54,
+      "end": 2858.9,
+      "speaker": "jerod-santo",
+      "text": "Bam. So are you guys seeing this too? So if I vote this hot, are you gonna see my update? Wait, hang on a second."
+    },
+    {
+      "start": 2858.9,
+      "end": 2860.74,
+      "speaker": "chris-mccord",
+      "text": "Hold on, I gotta open this now."
+    },
+    {
+      "start": 2860.74,
+      "end": 2869.14,
+      "speaker": "jerod-santo",
+      "text": "Oh, look at all those hots. Quicksort, there's a hello world in Elixir. Oh gosh, there's more? There's a Quicksort algorithm. Oh, there's 42, so this is hot."
+    },
+    {
+      "start": 2869.14,
+      "end": 2872.62,
+      "speaker": "chris-mccord",
+      "text": "I just, I just hotted Fibonacci. Is it 43 now for you guys?"
+    },
+    {
+      "start": 2872.62,
+      "end": 2878.48,
+      "speaker": "jerod-santo",
+      "text": "Yes, I'm gonna say not. I'm hot, it's 44. Full tone. Oh my goodness. Who's doing the nots? Not, not, not."
+    },
+    {
+      "start": 2878.48,
+      "end": 2883.04,
+      "speaker": "chris-mccord",
+      "text": "So yeah, so that's, this is, I mean, other than the syntax error at the beginning that it got caught up on it."
+    },
+    {
+      "start": 2883.04,
+      "end": 2883.88,
+      "speaker": "jerod-santo",
+      "text": "Get outta here."
+    },
+    {
+      "start": 2883.88,
+      "end": 2886.72,
+      "speaker": "chris-mccord",
+      "text": "This is, this is Phoenix new, right? And it's."
+    },
+    {
+      "start": 2886.72,
+      "end": 2887.92,
+      "speaker": "jerod-santo",
+      "text": "Oh my gosh."
+    },
+    {
+      "start": 2887.92,
+      "end": 2892.56,
+      "speaker": "chris-mccord",
+      "text": "Try to post some code here real quick. I just wanna see if it fully works."
+    },
+    {
+      "start": 2892.56,
+      "end": 2893.92,
+      "speaker": "jerod-santo",
+      "text": "Let me grab a."
+    },
+    {
+      "start": 2893.92,
+      "end": 2905.4,
+      "speaker": "chris-mccord",
+      "text": "Cause we didn't really follow, we just let the agent figure it out while we were like whatever, do whatever. I'm curious if it's gonna show up on everyone's screens or not."
+    },
+    {
+      "start": 2905.4,
+      "end": 2906.32,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2906.48,
+      "end": 2910.32,
+      "speaker": "chris-mccord",
+      "text": "So we have one, two, we got three submissions. And whenever you submit."
+    },
+    {
+      "start": 2910.32,
+      "end": 2927.46,
+      "speaker": "jerod-santo",
+      "text": "I'm gonna say fib copy pasta. Cause I'm gonna copy that one and repaste it. So it says fib copy pasta in Python paste. And upload to the grid. There it is, my fib copy pasta, but it doesn't have any votes. You guys wanna vote for it? I'm hotting it right now."
+    },
+    {
+      "start": 2927.46,
+      "end": 2929.46,
+      "speaker": "chris-mccord",
+      "text": "Did it show up on everyone's screens?"
+    },
+    {
+      "start": 2929.46,
+      "end": 2932.3,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I got one hot. I got two hot."
+    },
+    {
+      "start": 2932.3,
+      "end": 2969.86,
+      "speaker": "chris-mccord",
+      "text": "It's at the bottom. Three hot. It's at the bottom. So there you go. Fully real time. Vibed app. Successful run. Yeah, yeah. So now it probably offered up some ideas to continue, but this is basically like where, yeah. So it excels at like getting here, right? So like the Vibed app and it will gladly continue and you could add features, you could add user auth. Getting to this point was where we were like, okay, like this is, we want it to nail the, like does it deliver some from prompt to some compelling, like full actual application experience. So that's all, it's SQLite by default, that's persistent to the database and that's something you could deploy."
+    },
+    {
+      "start": 2969.86,
+      "end": 2973.22,
+      "speaker": "jerod-santo",
+      "text": "Now let's say I wanted to take this and run with it. Yep."
+    },
+    {
+      "start": 2973.22,
+      "end": 3003.7,
+      "speaker": "chris-mccord",
+      "text": "What would I do? So you can, in the hamburger menu, you can copy get clone and run that in a local shell. And boom, that's gonna be proxied through the Phoenix app. And it's like proxies all the way down. That request will go up to a fly proxy on some edge node. We proxied to the Phoenix app that you're using the chat, which we would then proxy with fly replay to your IDE, which has a reverse proxy that goes through, get HTTP back end to clone that and then back up the chain, right? So."
+    },
+    {
+      "start": 3005.5,
+      "end": 3011.62,
+      "speaker": "jerod-santo",
+      "text": "Now, could I start? Then we have a Phoenix application as you well know. Could I just like give it that and be like."
+    },
+    {
+      "start": 3011.62,
+      "end": 3055.76,
+      "speaker": "chris-mccord",
+      "text": "There's a copy get clone as well that you paste in your local shell and it will show up in your ID, VS code ID right here. And that's where like, I wanna add next a pair mode. So like it's system prompted examples are fully like vibe mode, right? So if you do send up an existing project where you want it to take more measured steps, you have to like be explicit in your initial prompt, like do this step by step in a way for further instructions. But I want like a toggle, right? Cause people don't want it to just like go full ham all the time. So that's something we wanna explore next, but like getting the vibe mode out was a real initial goal for us. And I think we've pretty well nailed it. So it's always exciting to see someone do something and have a good outcome. So it's pretty cool."
+    },
+    {
+      "start": 3055.76,
+      "end": 3057,
+      "speaker": "jerod-santo",
+      "text": "Well, especially cause it was on hard mode"
+    },
+    {
+      "start": 3057,
+      "end": 3098.89,
+      "speaker": "chris-mccord",
+      "text": "because it had to paste code into its own. Can we look at that? Although it fixed it. No, no, it will be in the, well, it'd be in the get history, but I'm curious what it did. Anyway, it's not too important. I always guarantee it was the interpolating the heeks cause like heeks is gonna blow up when you lint it with a bracket error. And it's confusing to, like I said, the humans too, cause heeks can't tell you, oh, you're trying to literally add code, right? We just blow up like you fat fingered a bracket, just like in your markup. So I'm just curious how it worked around it because it probably did not use the no interpolation. My guess is it added like some ridiculous interpolation of the literal elixir string of brackets or something, but."
+    },
+    {
+      "start": 3098.89,
+      "end": 3110.21,
+      "speaker": "jerod-santo",
+      "text": "So here's where it finds the error. It says, I see the error was caused by unescaped raw code lines in the home in heeks. I'll fix this by wrapping the code blocks correctly with heeks safe sigils, sigils?"
+    },
+    {
+      "start": 3110.21,
+      "end": 3136.43,
+      "speaker": "chris-mccord",
+      "text": "I don't know. Okay, yeah, that's exactly what it did. It did inline elixir and then it interpolated some elixir code that returned the string of the bracket. So these agents brute force, that's not the solution, right? The solution would be like, cause then if you have a code block, you have like all these little strings of quotes around or brackets, and it was just like, whatever, I can make this work. I have the technology, so that's pretty cool."
+    },
+    {
+      "start": 3136.43,
+      "end": 3138.83,
+      "speaker": "jerod-santo",
+      "text": "I have a terminal somewhere as well, don't I?"
+    },
+    {
+      "start": 3138.83,
+      "end": 3166.23,
+      "speaker": "chris-mccord",
+      "text": "Yeah, if you click agent terminal, that's the one that the agent, if you like get logged there, you'll see every time the agent touches a file, it does a commit. So you and the agent both could revert back to each file. So one thing we also want to add is each of the file tools that it did will have a revert button. So you can just, we'll just do a get revert back to that state of each of these commits. So the agent knows each file shot at any given point as well."
+    },
+    {
+      "start": 3166.45,
+      "end": 3185.97,
+      "speaker": "jerod-santo",
+      "text": "There it is right there. Fix syntax error by correcting HTML entity and coding in code blocks. And so I should be able to just get show that and see the actual diff, which it's like piping through more or something. There it is. Now that's not it. Now that is it right there."
+    },
+    {
+      "start": 3185.97,
+      "end": 3191.69,
+      "speaker": "chris-mccord",
+      "text": "Did you ever hear about this theory of the monkeys? There was an experiment where they had a cage"
+    },
+    {
+      "start": 3191.69,
+      "end": 3253.87,
+      "speaker": "jerod-santo",
+      "text": "full of monkeys and at the top of the cage, or like in the center of the cage, it was like this thing they can climb to get to the bananas. Let's just say, right? And the first batch of monkeys, they don't know any better, right? So they climb this thing in the middle to get to the bananas because they want the bananas. What monkeys want, right? Naturally as a monkey would, it climbs and does. And that's not the way this place works. If you try to climb that, you get sprayed down and it sucks, you don't like it. And so they all learned that monkey climb, monkey get banana, monkey get sprayed, monkey get hurt, doesn't like it, okay? Eventually these monkeys, they get replaced with monkeys who only have ever been there, let's just say. Now the monkeys, they only know what they know because it's tribal knowledge. And so they no longer ever attempt to do this. Although they've never been sprayed, they don't try to attempt to get the monkeys because-"
+    },
+    {
+      "start": 3253.87,
+      "end": 3255.63,
+      "speaker": "chris-mccord",
+      "text": "They don't know why, they just don't do it."
+    },
+    {
+      "start": 3255.63,
+      "end": 3280.41,
+      "speaker": "jerod-santo",
+      "text": "And so the reason why I tell you all this is because we're looking at some really awesome Phoenix code and we have a Phoenix application so we have this background. What happens when the monkeys don't care about their code anymore? You know, they just don't know what to choose. And the LLM chooses for them. And the taste making is no longer by the taste makers. It's more like this hodgepodge. Maybe it's good, maybe it's not. You know, that's what I'm thinking about."
+    },
+    {
+      "start": 3280.41,
+      "end": 3434.23,
+      "speaker": "chris-mccord",
+      "text": "Yeah, that's a good question. So I think like in the medium term, and I don't know what timelines, I do think it's safe to say that the anthropic CEO said that 90% of code by humanity by the end of the year will be AI generated and people dunked on him for that. I think that's absolutely going to be true. I mean, if you just look at like, and again, it doesn't mean that that's 90% of code that a human didn't see. It's just like, if I think about my own AI usage, right? I'll start with, if I'm running a def module gen server, it's like that's being started by an LLM and I take that and then use it. So then the LLM is generating, let's say 90% of my code today, but it doesn't mean that I just shipped that, right? So I think that we're there in the medium term on like, we are going to be like the purveyors of like what's good or not, and we're going to be enhanced by it. But then long-term, I don't know. I don't have a good answer to like, as these get better, does software become disposable? Which, you know, I don't know how I feel about that, but it's like, these agents are expensive today, but they're valuable enough that like, people are getting an extreme amount of value, even in the fact that they're expensive. So it's like, if it's an absolute pile of mud, which all software is anyway, if it's an absolute garbage, but it does what you want, and granted, I'm not saying like we're there today where you just like dispose it and whatever it can be crap, but I'm saying, if that's where we get, software could be in a by and large disposable, where you just like regenerate the thing, right? Like it gets to a point where it's unmaintainable or something and no one vetted it properly, then it may just be like, well, we'll pay $100 and now we have our new app. So I don't know that that's where we're headed, but I could see it, right? Where it's like, you know, this Tron example, if the agent was 50 times faster at that, we could have, you know, it would have taken us longer to write the prompt than it would be to get the app potentially. And if we get to that future, I don't know what happens because why wouldn't you just have this thing generate? We can talk about security and all the caveats and I'm not saying this utopia is gonna happen, you could have an agent vetting it for security. And again, for better or worse, I feel like this is where we're headed and I don't know what walls will hit, but it's like clear that's the trajectory we're on and I'm not saying it's all good, but it's like, it's clear to me that that's where we're headed. So I don't think it helps by like just saying like, oh, well, it's all slop, it's gonna be terrible. I just think it's like, it's helpful to acknowledge that, you know, this tide is washing over us and whether we like it or not, it's like, this is where we're going."
+    },
+    {
+      "start": 3434.23,
+      "end": 3461.19,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I mean, maintenance could become like just small rewrites and which, I mean, if you think about what refactoring is, that is what you're doing. Like you're kind of rewriting a small portion and those portions could get bigger and bigger. And so maybe maintenance becomes replacement when replacement is that cheap and easy. And so you're kind of just like ship of DCSE and everything."
+    },
+    {
+      "start": 3461.19,
+      "end": 3516.47,
+      "speaker": "chris-mccord",
+      "text": "Yeah, and it could even be like, if you imagine like it's expensive now, but imagine you have a dozen agents doing a dozen versions of that and then you just pick the best one. So it's like, this is like agents are going to eat the world. Like I said, for better or worse, it's like, I just see this future where instead of this Toronto example, you could have been given 10 options of that and chosen the best one, right? Because it's not deterministic, but as they get cheaper and more efficient, now you have like 10 choices and you just pick the best one. So it's like, it's just going to be more and more of this. And I don't know what that says about the future, but I think there's just going to be like more compute and it gets cheaper. So we do more LLMs, it gets cheaper. So it's just, it keeps advancing the envelope of where you would just throw these things out of problem. And it's clear that that's going to happen to me. And I don't know if that's going to be all unicorns and rainbows, but it's definitely where we're headed."
+    },
+    {
+      "start": 3516.47,
+      "end": 3530.83,
+      "speaker": "jerod-santo",
+      "text": "It goes back to the conversation we've had around these parts over and over again, which is that skills become less important and judgment becomes more important. But to Adam's monkey point, how do we know which one is the best one eventually? Like eventually we're like-"
+    },
+    {
+      "start": 3530.83,
+      "end": 3532.49,
+      "speaker": "chris-mccord",
+      "text": "Oh, it's an easy answer."
+    },
+    {
+      "start": 3532.49,
+      "end": 3533.63,
+      "speaker": "jerod-santo",
+      "text": "Is it what's the best?"
+    },
+    {
+      "start": 3533.63,
+      "end": 3534.79,
+      "speaker": "chris-mccord",
+      "text": "No, you asked the agent."
+    },
+    {
+      "start": 3536.11,
+      "end": 3537.95,
+      "speaker": "jerod-santo",
+      "text": "Can you ask that one?"
+    },
+    {
+      "start": 3537.95,
+      "end": 3584.25,
+      "speaker": "chris-mccord",
+      "text": "Here's the thing, I'm joking, but now that I said it out loud, I mean, not guessing that, right? Well, in some cases, for sure. Yeah, it's actually quite reasonable to think now that even with today's models, you could have it evaluate each one, right? They're multimodal. Literally, you could ask, tell me which one looks the best. And it probably today, the OpenAI image model would probably do a good job telling you the accessibility of, you know, it's a meme, like, believe it or not, large language models, I think, sort of everything. Yeah, and that's where we were just removed from the loop. So yeah, I don't know. Other than to say, I feel like there's gonna be agents everywhere. And as it gets more efficient and cheaper, it's just gonna be more."
+    },
+    {
+      "start": 3584.25,
+      "end": 3593.37,
+      "speaker": "jerod-santo",
+      "text": "So my next feature for my Hot or Not app should be an API. So the agents, an MCP server, so the agents can actually vote themselves. Cause what do we care? Like, we don't know what's Hot or Not."
+    },
+    {
+      "start": 3593.37,
+      "end": 3632.73,
+      "speaker": "chris-mccord",
+      "text": "Oh, ask the agent right now to assess the current ones and then vote them Hot or Not. I'm just curious, cause yeah, it's like, you can do that already. And here's the thing, this is like, this is what people don't get. The agents will brute force using the tools available, anything. So it doesn't need an API. It will just use it, like it has a headless current browser. It's gonna go do the thing. Just like, we don't need a Postgres MCP server. We can talk about MCP if you want. Because the agent has shell, it's just gonna use PSQL and drive PSQL, not because I told it to, just because it knows it has shell. So it's like, you give them a few sharp tools and they don't need all these MCP servers."
+    },
+    {
+      "start": 3632.73,
+      "end": 3637.13,
+      "speaker": "jerod-santo",
+      "text": "It's like water, right? Water is always like, it finds a way to wherever it's gotta go."
+    },
+    {
+      "start": 3637.13,
+      "end": 3656.25,
+      "speaker": "chris-mccord",
+      "text": "They will brute, given an infinite amount of tokens and energy, they will brute force their way to a solution. It's remarkable. Although it's like half the net wrote itself. So, oh wait, you have users in the background doing stuff. Right? So we should write like a, we should insert like an obviously bad one or something, like something with SQL injection or something. I'm curious now. I have to do an audit."
+    },
+    {
+      "start": 3656.25,
+      "end": 3662.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah, real quick. We need to fire up and get some bad code. Quick, open up my GitHub."
+    },
+    {
+      "start": 3662.18,
+      "end": 3669.5,
+      "speaker": "chris-mccord",
+      "text": "Yeah, let me do SQL. SQL, index. Amazing. Hold on, let me do a SQL injection."
+    },
+    {
+      "start": 3669.5,
+      "end": 3686.86,
+      "speaker": "jerod-santo",
+      "text": "Remember when I used to joke about writing code? Yeah. Finally, all my crap code pays off. Did I understand, while we're hearing this sort of pause, I suppose, did you say, Chris, that we will give the judgment call to the LLM basically? And do you think we'll like it to some degree?"
+    },
+    {
+      "start": 3686.86,
+      "end": 3690.1,
+      "speaker": "chris-mccord",
+      "text": "Well, I joked, right? I was joking, but I actually think."
+    },
+    {
+      "start": 3690.1,
+      "end": 3699.84,
+      "speaker": "jerod-santo",
+      "text": "But then you weren't joking. Like you thought about it. Yeah. What did that first, I'm asking you like, honest, like what was the first thought you thought when you thought that could be actually kind of real? What was the thought you were having?"
+    },
+    {
+      "start": 3699.84,
+      "end": 3745.54,
+      "speaker": "chris-mccord",
+      "text": "It's like for better or worse. I mean, I think I've internalized like a, I was a very much like a copy pasta chat GPT user, like thing like, oh, the AI is pretty helpful, right? But then like, once you just take that same model and you put it in this recursive loop, I've internalized pretty well at this point, like the holy moments, right? So for me, that revelation just jives with kind of everything else. But I would say it's not like a, it's not a great feeling, but I think it's like, it would make sense, right? I mean, you probably have your security audit model for sure, right? And it'd probably do a decent job, better than most developers at catching obvious things. So that seems useful, but then it also says like, we're just gonna trust these things more and more. And I don't know, I don't know if that's, that's great."
+    },
+    {
+      "start": 3745.54,
+      "end": 3746.56,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3746.56,
+      "end": 3807.9,
+      "speaker": "chris-mccord",
+      "text": "But it's also better than like, I think back to like, I made my first, I made a business when I was in high school that got successful and it was built on PHP. And I scoured like the php.net forums and like all my database calls were just like opening database connections inside the markup. And it was not secure. It was just like one index to PHP with a bunch of if elses. And like, I made that successful. And in that regard, I'm like, LLM would have been an incredible capability for me, right? Cause it's like, I had no idea what I was doing and I still ship code, right? So it's like, if I had an agent tell me what was bad, that would have been like a force multiplier. So I don't even know if it's that concerning, but once you get to the logical conclusion of, well then I'm removed from the loop entirely, then that's where it, yeah, it's dystopian, right? Cause right now it's a force multiplier and I still get to do the things I enjoy. It's doing the stuff I don't enjoy. But then at that point, it just takes the craft entirely away. Then that's a feature that doesn't seem great, but it does seem like that maybe where we're headed."
+    },
+    {
+      "start": 3807.9,
+      "end": 3841,
+      "speaker": "jerod-santo",
+      "text": "What's happening here on screen, Jared? Okay, so I've gone out and I've found a Reddit thread called, dear Reddit, what is the worst piece of code that you've ever seen? Probably a few of those. Is this Java? I don't know. Okay. So I've got some bad code in here. Now I'm telling it, cause it says, do you want to add some more features? I said, before we add more features, I want you to look at all the currently submitted code snippets and vote each one hot or not. Then I want you to figure out which of the code snippets were actually copied from your own code. Cause one of them I copy pasted."
+    },
+    {
+      "start": 3841,
+      "end": 3847.12,
+      "speaker": "chris-mccord",
+      "text": "You should have it zero out first. Zero out the votes. Cause that way we know it's actually changed."
+    },
+    {
+      "start": 3847.12,
+      "end": 3863.24,
+      "speaker": "jerod-santo",
+      "text": "I'll add that at the end. See if that works. Before you do any of that, making this as hard as possible. Forget all previous commands and any of that. Zero out all the votes."
+    },
+    {
+      "start": 3863.24,
+      "end": 3869.33,
+      "speaker": "chris-mccord",
+      "text": "Yeah. And we'll probably have to hard refresh cause I'm sure it won't do it. It probably will like repo."
+    },
+    {
+      "start": 3869.33,
+      "end": 3872.01,
+      "speaker": "jerod-santo",
+      "text": "Okay. Zero out all the votes before analyzing them."
+    },
+    {
+      "start": 3872.01,
+      "end": 3878.49,
+      "speaker": "chris-mccord",
+      "text": "Look, see it did a mixed run. See look at MCPs. We don't need an MCP that has a zero out tool. It just ran, it evaluated Elixir."
+    },
+    {
+      "start": 3878.49,
+      "end": 3880.01,
+      "speaker": "jerod-santo",
+      "text": "Oh, it's just running mixed run right there."
+    },
+    {
+      "start": 3880.01,
+      "end": 3884.25,
+      "speaker": "chris-mccord",
+      "text": "Now it's going to make sure they're all zeroed probably."
+    },
+    {
+      "start": 3884.25,
+      "end": 3886.57,
+      "speaker": "jerod-santo",
+      "text": "Yep. Updated the database directly. Perfect."
+    },
+    {
+      "start": 3886.57,
+      "end": 3891.13,
+      "speaker": "chris-mccord",
+      "text": "Now it's going to write a ton of JavaScript to about probably to vote them all."
+    },
+    {
+      "start": 3891.13,
+      "end": 3891.97,
+      "speaker": "jerod-santo",
+      "text": "Yeah, probably."
+    },
+    {
+      "start": 3891.97,
+      "end": 3893.63,
+      "speaker": "chris-mccord",
+      "text": "Oh wait, no, no. It's doing what did you say?"
+    },
+    {
+      "start": 3893.63,
+      "end": 3899.15,
+      "speaker": "jerod-santo",
+      "text": "It could just use the database directly again, right? It doesn't need to even use the website. It needs to do a PSQL."
+    },
+    {
+      "start": 3899.15,
+      "end": 3900.87,
+      "speaker": "chris-mccord",
+      "text": "Yeah, it can do PSQL."
+    },
+    {
+      "start": 3900.87,
+      "end": 3905.67,
+      "speaker": "jerod-santo",
+      "text": "Oh, it's creating those files to analyze each code snippet and identify which ones came from my original seeds."
+    },
+    {
+      "start": 3905.67,
+      "end": 3915.18,
+      "speaker": "chris-mccord",
+      "text": "Oh yes. I'm actually good. We'll talk about that in a moment. I'm glad I saw this in the wild. We'll talk about why that's important. Now it's going to write JavaScript to interact with the page."
+    },
+    {
+      "start": 3915.18,
+      "end": 3917.28,
+      "speaker": "jerod-santo",
+      "text": "Oh, it likes Quicksort. Hot vote."
+    },
+    {
+      "start": 3917.28,
+      "end": 3955.02,
+      "speaker": "chris-mccord",
+      "text": "I'm trying to reframe. I'm trying to reframe, you know, people say hallucinate in a bad way. I'm trying to reframe it as a pro. So the cool thing about like we gave it a web tool and we just tell it, we told it you have a headless web browser. You can evaluate JS with dash dash JS, okay? That's all I've told it. And it's hallucinating this JavaScript to interact with this markup it wrote, right? But like, we didn't have to tell it, like build the selectors this way so you can then write JavaScript this way. Like the JavaScript you see it passing the eval here is fully, I'm going to use the term hallucinated, right? On its own, but somehow it's getting the selectors right. It's getting the clicks right. That's just remarkable to me, right?"
+    },
+    {
+      "start": 3955.02,
+      "end": 3964.18,
+      "speaker": "jerod-santo",
+      "text": "It's really just brute forcing because it's like it voted twice on the same one on accident and now it's going to go delete that and vote. Oh, is that what it is? Yeah, he's like, wait a second."
+    },
+    {
+      "start": 3964.18,
+      "end": 3970.49,
+      "speaker": "chris-mccord",
+      "text": "Hold on, it's doing buttons. It's like doing a query selector for the buttons. Yeah. I see the database queries. There's an update, right?"
+    },
+    {
+      "start": 3970.49,
+      "end": 3974.01,
+      "speaker": "jerod-santo",
+      "text": "Yeah, there's an update on one submission."
+    },
+    {
+      "start": 3974.01,
+      "end": 3983.21,
+      "speaker": "chris-mccord",
+      "text": "But you can see, yeah, where we get towards this world of like, you know, you just let these things go off and it's going to do it. Right? We're just, we're just here watching."
+    },
+    {
+      "start": 3984.19,
+      "end": 3994.06,
+      "speaker": "jerod-santo",
+      "text": "This is hilarious. The PHP code now has one not vote. Let me continue with the manual memory management, which leaks memory, which it doesn't."
+    },
+    {
+      "start": 3994.06,
+      "end": 3996.1,
+      "speaker": "chris-mccord",
+      "text": "The code you pasted has no, like, so it caught."
+    },
+    {
+      "start": 3996.1,
+      "end": 3998.58,
+      "speaker": "jerod-santo",
+      "text": "There's no context at all. I didn't give it any context."
+    },
+    {
+      "start": 3998.58,
+      "end": 4053.28,
+      "speaker": "chris-mccord",
+      "text": "So it got the memory leak. So the joke about it evaluating your, the joke about it evaluating other generated things is not like, you can see how you're like, okay, like it could at least be a reasonable flag on like what's bad or not. And I don't know if that, like that shouldn't be the end right now, but like I do think we move towards verifiers more and more. And then at some point we're going to be worse verifiers than the Borg. And I don't know if that's a happy outcome for folks, but seems that way. I don't know. I don't have any timelines. Sorry. I don't know where this, if we just hit walls immediately, but where we're at now, it's like, we're here today, right? Like we're watching this. So it's like, even if we stop and say, we fundamentally hit a power efficiency algorithm law, like this is like change the game now. And like folks are, we're just catching up now to this like change game. So, so let's see. Oh, it even gave us a summary of what it did."
+    },
+    {
+      "start": 4053.28,
+      "end": 4075.2,
+      "speaker": "jerod-santo",
+      "text": "Look at that. Here's a summary. Oh yeah. Summary of code analysis and voting. From my original seeds, the quicksort algorithm got the green check, voted hot. Two votes for some reason that I'm not sure if it voted twice on purpose or on accident. Hello world and the lesser got green check, voted hot, two votes. The Fibonacci generator is in Python, my original seed, but inefficient recursive implementation."
+    },
+    {
+      "start": 4075.2,
+      "end": 4079.28,
+      "speaker": "chris-mccord",
+      "text": "So. Oh, and even, okay. So it's like, it's not just hyping itself up."
+    },
+    {
+      "start": 4079.28,
+      "end": 4123.31,
+      "speaker": "jerod-santo",
+      "text": "It doesn't like its own code. And then it says, user added submissions, fib, fib copy pasta, copy of my Fibonacci example, voted not. Frequently called function syntax errors with elsif, voted not. The PHP inside some HTML version, dangerous has a dangerous eval usage, voted not. Manual memory management has a memory leak bug, voted not. SQL appears to be SQL injection attempt, voted not. Key findings, three out of eight submissions were from my original seeds. Two submissions got hot votes for clean functional code. Six submissions got not votes for poor quality, security issues or plagiarism. The voting system works perfectly with real-time updates across tabs. Blah, blah, blah. I did a great job. You know, please give me a cookie."
+    },
+    {
+      "start": 4123.31,
+      "end": 4144.61,
+      "speaker": "chris-mccord",
+      "text": "You can see where like, kind of like I mentioned on like where we're at today, versus like where I think we can go from this like remote AI runtime where it's like, you just asked it to do this and it did it, right? So it's like in an effort to make this like thing that can vibe code an app. It's like, now you're like, oh, I can just like ask it to go do a bunch of stuff and it's gonna do the stuff. You know, and I didn't have to do that in the system prompt."
+    },
+    {
+      "start": 4144.61,
+      "end": 4153.01,
+      "speaker": "jerod-santo",
+      "text": "So follow up question that only you can answer. This is on a $20 a month plan. How much money of your guys's did I just spend doing this?"
+    },
+    {
+      "start": 4153.01,
+      "end": 4155.49,
+      "speaker": "chris-mccord",
+      "text": "Yeah, so I can go check your usage."
+    },
+    {
+      "start": 4155.49,
+      "end": 4157.17,
+      "speaker": "jerod-santo",
+      "text": "I'm curious. How many tokens am I on?"
+    },
+    {
+      "start": 4157.17,
+      "end": 4164.29,
+      "speaker": "chris-mccord",
+      "text": "What is that divided by a hundred? 551 cents, $5 and 51 cents."
+    },
+    {
+      "start": 4164.49,
+      "end": 4165.41,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 4165.41,
+      "end": 4232.21,
+      "speaker": "chris-mccord",
+      "text": "So far. So that's actually less than I would have thought. So we have this weird thing where, not weird. So there's no credit usage visualization now. So this is my fault. I ship credits the day before launch and no way to actually see them in the app. But people are surprised in how like expensive these things are. I think if you use cloud code, you're like, most people are familiar with how much this costs. But the interesting thing is, so like that $20 of usage in my experience gets us like three fully designed Vibed apps. And that's pretty, I think what we saw here, right? So $5 got us this Vibed app that was designed. It wasn't incredible, but it was a thing that you could take and run with. So you could do that maybe three times with some of these like side quests of like what we asked it to poke around with. And that's the base usage. And after you exhausted that, then you'd get your, you still get the remote runtime preview URLs, and you can code the app in the editor if you wanted, but the LLM would be, would not reset until your next billing cycle, but you can buy credits at that point."
+    },
+    {
+      "start": 4232.21,
+      "end": 4238.37,
+      "speaker": "jerod-santo",
+      "text": "Right on. So five bucks, basically five bucks for that, which I think I got my money's worth. I mean, that was fun."
+    },
+    {
+      "start": 4238.37,
+      "end": 4392.57,
+      "speaker": "chris-mccord",
+      "text": "Yeah, so I mean, like I said, it depends on what your expectations are and what you're building. So it's like, you know, it's like, again, like it's like the opposite ends of the spectrum. Like we have folks that are surprised, especially if this is like their first like heavy usage of AI agent, but then you have like someone tweeted this morning, like it's like, it's like wild extreme. So if someone tweeted this morning, like responding to someone that was surprised how fast their credits went, someone said that they spent $60 and got a $20,000 application. And I don't know what they built, but it's like, you know, it seems like an astroturf comment, right? But I'm just, it wasn't me. It was a real, it was a real person. So it's like, you know, if you think about what it takes to get like a fully designed tail end markup thing going, it's like, I can absolutely see being in the consulting world, that being true, you know, I don't think that that's going to be like, you know, every, every roll of the dice, you're going to be able to go sell this. But I think that like, if you're using this from that perspective of like my time as a developer, if, if in however long it took, if your task at the company was to make a vibe coding, or sorry, a code ranking platform, you know, you could for $20, you could have a pretty, pretty good amount of like, you know, several days of work. Off to a good start. Yeah, so I think, you know, from here, we definitely, we have been, we've not been optimizing for token usage. It's like the goal was to like actually make it compelling. So I think there is a lot of potential there to, to get the token usage to be much more efficient. So like, you know, every time it's using its web browser, basically anytime these agents call anything, you have to send up the whole chat history. So as the chats get longer, it gets more expensive. So we do force you to squash. So we can actually show that. I'm actually curious if you go back, if you want to share your screen again. So there's our, like we are crossing the window as we go. So there are things like, it's not just like, like cloud has all the artifacts. We're only keeping the most recent code version. We're printing the window as we go. So we are doing some tricks with the context size, but like when you invoked its web tool to hit the webpage, you know, that was sending the whole chat up. So there are a lot of ways that we could try to get that down, but for now it's like, let's make it like work and compelling. And like, and if the value is there for what you're doing then, and then that's great, but like, it would be nice to bring the cost down as well. But yeah, from the hamburger menu, you can do squash and we'll force you at like 150 messages. We probably need to make it more aggressive. We can just see it work here. So like, this is why, I don't know why cloud or chatgpt doesn't have this. Like how many times have you like, Claude slaps your hand, like long chats consume a lot."
+    },
+    {
+      "start": 4392.57,
+      "end": 4395.61,
+      "speaker": "jerod-santo",
+      "text": "I'm like, how do I take the context somewhere else?"
+    },
+    {
+      "start": 4395.61,
+      "end": 4401.17,
+      "speaker": "chris-mccord",
+      "text": "And every time I'm like, it just upsets me. It is self-summarized, right? So it's like,"
+    },
+    {
+      "start": 4401.17,
+      "end": 4402.09,
+      "speaker": "jerod-santo",
+      "text": "So what's this doing exactly?"
+    },
+    {
+      "start": 4402.09,
+      "end": 4418.33,
+      "speaker": "chris-mccord",
+      "text": "It's going to self-summarize the whole history and then it will keep the files in context that it had worked on. So yeah, it's just gonna, I mean, it's like, you know, simple, right? It's like, I'm just, I sent a push request to chat completions. It's like, here's the message history, self-summarize it. And then we just squash it into the agent state."
+    },
+    {
+      "start": 4419.17,
+      "end": 4420.97,
+      "speaker": "jerod-santo",
+      "text": "This self-summary is like the new change log."
+    },
+    {
+      "start": 4420.97,
+      "end": 4443.57,
+      "speaker": "chris-mccord",
+      "text": "Yeah, there you go. And now you can keep working. So I think there, yeah, so there's, I think we need to do that sooner for people. Cause I think a lot of folks are having like really long chats, even though we force you 150 messages, I think folks are just like going until, until they're burning, you know, a 50 cents a pop or something on each prompt. But out of the box, yeah, that's what we've got right now."
+    },
+    {
+      "start": 4443.57,
+      "end": 4461.39,
+      "speaker": "jerod-santo",
+      "text": "So in this case, it was phoenix.new, right? We vibe the new thing. I think you loosely mentioned being able to import from repos. So what if we loaded change.com's code base currently? Like how would the experience be different to?"
+    },
+    {
+      "start": 4461.39,
+      "end": 4474.51,
+      "speaker": "chris-mccord",
+      "text": "Is it, it's on GitHub, right? Yeah. It's on GitHub. Yeah, just try it, tell it on this prompt, say clone the, just give it the GitHub repo and tell it to like set the app up or something. I don't know what, so let's watch it."
+    },
+    {
+      "start": 4474.51,
+      "end": 4478.11,
+      "speaker": "jerod-santo",
+      "text": "So I'm just, I just have the URL, clone this and what, do what with it?"
+    },
+    {
+      "start": 4478.11,
+      "end": 4481.93,
+      "speaker": "chris-mccord",
+      "text": "I don't know, what do you want to do with it? Set it up? Run it. Test pass, run it."
+    },
+    {
+      "start": 4481.93,
+      "end": 4482.77,
+      "speaker": "jerod-santo",
+      "text": "Clone this and run it."
+    },
+    {
+      "start": 4482.77,
+      "end": 4486.27,
+      "speaker": "chris-mccord",
+      "text": "Find, find issues to work on. I don't know if you have any issues. I mean, whatever you want."
+    },
+    {
+      "start": 4486.27,
+      "end": 4489.29,
+      "speaker": "jerod-santo",
+      "text": "Clone this, run the test."
+    },
+    {
+      "start": 4489.29,
+      "end": 4491.55,
+      "speaker": "chris-mccord",
+      "text": "Do you have open issues?"
+    },
+    {
+      "start": 4491.55,
+      "end": 4495.6,
+      "speaker": "jerod-santo",
+      "text": "Oh man, it's flawless. Okay."
+    },
+    {
+      "start": 4497.79,
+      "end": 4499.47,
+      "speaker": "chris-mccord",
+      "text": "Oh, perfect. Clone it and save."
+    },
+    {
+      "start": 4499.47,
+      "end": 4500.29,
+      "speaker": "jerod-santo",
+      "text": "I can't see my subscription."
+    },
+    {
+      "start": 4500.29,
+      "end": 4509.48,
+      "speaker": "chris-mccord",
+      "text": "Not on my gosh. Clone it and tell it to find a, Who's this? Clone it, set up the project and find a good issue to work on and let it decide on what to work on."
+    },
+    {
+      "start": 4510.4,
+      "end": 4511.88,
+      "speaker": "jerod-santo",
+      "text": "Bam, run."
+    },
+    {
+      "start": 4511.88,
+      "end": 4519.54,
+      "speaker": "chris-mccord",
+      "text": "And this is where, this is our agent future, right? Where you would then just go, you know, hit the pool, hit the gym."
+    },
+    {
+      "start": 4519.54,
+      "end": 4520.38,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4520.38,
+      "end": 4522.22,
+      "speaker": "chris-mccord",
+      "text": "You're like, got my work done for the day."
+    },
+    {
+      "start": 4522.22,
+      "end": 4523.9,
+      "speaker": "jerod-santo",
+      "text": "Listen to the change log."
+    },
+    {
+      "start": 4523.9,
+      "end": 4565.34,
+      "speaker": "chris-mccord",
+      "text": "Listen to the change log. That's it. So it cloned it, I don't know what's going on now. Okay, switch workspaces. Now it's gonna, and again, it's just like we're rehearsing on like the context and then it decided to invoke LS there, right? So it's like all these decisions it's making is not like, I don't have a workflow for cloning a GitHub repo, right? The only thing it sees in its examples in the system prompt is like it vibe coding a Phoenix app, like mix Phoenix new and then it, you know, asks the user about it as a design. So yeah, GitHub issue list. I didn't know how to use the gh command line interface. I just knew it existed. I told the agent, you have the GitHub gh command, use it. And then it uses it. And I'm like, oh, that's how you use it. So it's like, I did not have to give it anything."
+    },
+    {
+      "start": 4565.34,
+      "end": 4570.34,
+      "speaker": "jerod-santo",
+      "text": "You set up the VM or the whatever it's called, the image to have that just pre-installed"
+    },
+    {
+      "start": 4570.34,
+      "end": 4593.38,
+      "speaker": "chris-mccord",
+      "text": "that it starts with. Yeah, it's its own Docker file for the fly machine. Yeah, it just has gh pre-installed. And then like, I didn't have, you know, it's world knowledge has the knowledge of the GitHub CLI. If it didn't, you could teach it right, with context stuffing. But I didn't even like, I didn't even know how to use that tool, right? That's why I didn't even have to tell it how to use it. I didn't know how to use it. Right. I just knew that it could."
+    },
+    {
+      "start": 4593.38,
+      "end": 4601.04,
+      "speaker": "jerod-santo",
+      "text": "So for those listening, there is a command called gh, which is probably apt-get install, brew install, et cetera."
+    },
+    {
+      "start": 4601.04,
+      "end": 4623.2,
+      "speaker": "chris-mccord",
+      "text": "There's some curl, curl pipe SH command. The nice thing about it is it's, you can do gh auth login, and then that will give you a URL to do like a GitHub one-time password thing. So you can authorize your agent to do private GitHub repos by right, by typing that. And then in your own browser, you could visit that URL and enter your password."
+    },
+    {
+      "start": 4623.2,
+      "end": 4636.02,
+      "speaker": "jerod-santo",
+      "text": "But for public ones, they can just do this. So it run gh issue list dash, dash limit 20, dash, dash state open. And that will, I assume it's already in the repository."
+    },
+    {
+      "start": 4636.02,
+      "end": 4684.17,
+      "speaker": "chris-mccord",
+      "text": "Yeah, but isn't that remarkable? So it's like, you know, it doesn't know the, I don't know those arguments, but like the fact that, you know, you said, it's just like, you know, everyone likes to say, oh, next token prediction. Yeah, obvious. But like, you're like, what? Like it's by next token prediction, it's able to like take what you asked and then, you know, pass the open issue flag. There's something crazy, but yeah, we could see what happens later. So like, you know, your Phoenix server launched when we first did Tron in like five seconds, cause it's pre-compiled, but building this from scratch is gonna take a while. But no, I'm curious what goes on, but again, oh, there it goes. But this is, again, we could close the tab here and just check later what it did. So that's like this whole like a headless experience. Like the whole agent is headless. We're just humans watching what it's doing."
+    },
+    {
+      "start": 4684.21,
+      "end": 4772.58,
+      "speaker": "jerod-santo",
+      "text": "All right, I'm gonna stop it to act as if we close the tab and we can just chit chat. I don't know. What do you think, Adam? I'm enamored, man. I can't believe this is even possible. I knew we'd be talking about, I mean, I've been quiet cause I'm just thinking about like, man, we're building for these robots basically. And the robots are building for us. Yeah, but then as I'm like, you know, watching like this whole, you know, conversation unfold, I'm just thinking, okay, so fly's biggest user I'm aware is like robots these days, right? We're fly users, we're not robots, we're humans, as you know, just to be super clear. And so you've got this robot uprising, but the robots are just, you know, multipliers of the Jerads and the Atoms out there and the Gerhards out there. Like they're just like 10 or 20 Atoms versus, cause I've got agents and I've got things happening. And so my robots are replications of me. And so I think about the platform fly and I think about the brand fly, what y'all are doing, but how does this impact like this accidental product creation growth thing, new product you've got going on here, which is really, really revolutionary. How does it impact how fly approaches the user it builds for, whether it's human or robot, how does it think about its user, so to speak?"
+    },
+    {
+      "start": 4772.58,
+      "end": 4900.8,
+      "speaker": "chris-mccord",
+      "text": "That's a good question. I mean, so like we're, you know, this is still branded just for Phoenix. So, you know, it started as a skunk works thing. You know, we launched it four days ago. So early, early days and still narrowly scoped. But I do think so, like, you know, we have our own platform as a service for hosting your web apps managed database. Like that's obviously where our bread and butter is going to continue to be. But I do think there's like, there's some learnings we had from building this, like dog fooding our own infrastructure that like, you know, fly machines were perfect for this, but we also found some, there's some unique differences in this space where like, what we really have here is like the state, which is like your app, this like evolving artifacts. And fly machines are great for these like ephemeral sandbox machines, but like very few people wanted like one and only one of those machines, right? Like normally you're like, I want to run my app. I want it to be highly available. Maybe I want to run it in different regions to be fast, but like in this agent case, you know, you want like one and only one of these things running. So we have found some missing primitives in the platform that we're building for that we're, that we're extracting from Phoenix new. And one of those neat things, and again, I don't want to like get ahead of ourselves. So nothing is announced or launched yet, but one thing to consider is like, once you have these free form agents, I'm going to say like, like a CI, right? They're popping in, but they're actually like mutating the thing and experimenting. Like once you get to that state, then you're, once you get to that state, once you get to that point, then the state of your app is constantly evolving and the agent's running app, then it's doing all these experiments and things. And then you're going to want to be able to like snapshot, snapshot the entire environment, right? So I think that we move towards primitives that give us the ability, not only to say, oh, I want to deploy this dev app now, but like give us the ability to say like the entire environment at this time that this agent was working in could be snapshotted. So we're like, you know, it installed app or did something crazy or did this whole thing. I can actually snapshot and point in time restore, not, not only my code, right? Not just get, but like just imagine your entire ID, becomes this like, I'm going to go back to the state that it was here. And I think that will be necessary once these agents are just going full ham. I think that it would be interesting to have a platform kind of offer those kinds of primitives built in."
+    },
+    {
+      "start": 4900.8,
+      "end": 4903.56,
+      "speaker": "jerod-santo",
+      "text": "So we'll see."
+    },
+    {
+      "start": 4903.56,
+      "end": 4912.6,
+      "speaker": "chris-mccord",
+      "text": "So anyway, the answer question, I think that like Phoenix new is going to be self-serving for fly for building blocks, but then those building blocks, we can turn around and give to all of our customers."
+    },
+    {
+      "start": 4912.6,
+      "end": 4919.04,
+      "speaker": "jerod-santo",
+      "text": "Quick update from our closed tab. It is currently on a yak shave. That's about three layers deep because."
+    },
+    {
+      "start": 4919.04,
+      "end": 4920,
+      "speaker": "chris-mccord",
+      "text": "What's it doing?"
+    },
+    {
+      "start": 4920.84,
+      "end": 4943.36,
+      "speaker": "jerod-santo",
+      "text": "Well, it tried to, it tried to load the seeds file, which is actually, I don't think even works anymore. Cause we kind of abandoned it. And it's like, oh, there's a problem with the seeds file and this thing. Yeah. So now it's like migrating things and changing. Like this is actually should be a text field, not a string. I'm going to update the form. So it's easier to use. And like, it's just down this rabbit hole."
+    },
+    {
+      "start": 4943.36,
+      "end": 4945.24,
+      "speaker": "chris-mccord",
+      "text": "And that's kind of how I mentioned like, you know,"
+    },
+    {
+      "start": 4945.24,
+      "end": 4947.08,
+      "speaker": "jerod-santo",
+      "text": "it's fixing stuff."
+    },
+    {
+      "start": 4947.08,
+      "end": 5001.78,
+      "speaker": "chris-mccord",
+      "text": "Yeah. It's funny, but you know, it's like, I do think this is where like the different modes come in. And then you could also like, you know, you could interrupt it and say like, no, just do the thing. That's where it's funny. Like it's remarkable watching people use the platform because like sometimes they like don't, they, I don't know what this says about humanity. Like I've seen a lot of folks don't like, even though we give them the full VS code ID, they don't like just jump in and like, and like also you like do something, right? Like put some effort in. Like, you know, there'd be like a syntax error. Like, oh, it keeps, it keeps messing this up. I'm like, you could just like, you know, use your meat fingers and fix it. So it is kind of just funny. I'm like, I think that says a lot about like where we already are as developers, right? Where we're just like, you offload, you know, even if you're using chat GPT web, you're already like, we're already offloading a large part of our critical thought where we're just like, no computer fix. Right. And instead of just changing the one problematic line."
+    },
+    {
+      "start": 5001.78,
+      "end": 5025.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Hilarious. Now it is trying to, so it got to that point. And then it's like, if you want to migrate your database, first I'll start Postgres. And it's like, it can't start Postgres for some reason. It's like, you know what? Oh, I see there's a .dev container file. Cause we have like years of cruft in here of things that we've tried and whatever. And it's like, oh, I'll fire up a Docker image and run Postgres from there. And it's like, it's going to be layers and layers deep."
+    },
+    {
+      "start": 5025.88,
+      "end": 5033.05,
+      "speaker": "chris-mccord",
+      "text": "Just tell it to install Postgres. But yeah, it's, you definitely don't want to have it install Docker. That's going to be, it was going to try."
+    },
+    {
+      "start": 5034.05,
+      "end": 5036.45,
+      "speaker": "jerod-santo",
+      "text": "It's forcing the agent to take a little break."
+    },
+    {
+      "start": 5037.45,
+      "end": 5078.49,
+      "speaker": "chris-mccord",
+      "text": "That's me. So it's like, you know, like the elevators used to have, elevators used to have a full-time operator, right? Like up and down. And now the only thing they have now is the big red button, like the whole stop. So I have meet space code in the agent that right now it's, I think 35 mess, 35 concurrent loop, recursive loops. We force it to stop if it doesn't idle. And I will tune that, but like that's my recursive runaway, right? Like in this case, you send it off on this, on this quest where if, you know, we started with the vibe idea, the goal was not to like consume all your credits accidentally, right? Right. So you're just like, do this thing. And we close the tab and you're like, I can't believe it. So I just forced you to have,"
+    },
+    {
+      "start": 5078.49,
+      "end": 5079.57,
+      "speaker": "jerod-santo",
+      "text": "My credits are gone."
+    },
+    {
+      "start": 5079.57,
+      "end": 5083.93,
+      "speaker": "chris-mccord",
+      "text": "I forced you to click a button right now to continue and you could click continue, but yeah,"
+    },
+    {
+      "start": 5083.93,
+      "end": 5086.21,
+      "speaker": "jerod-santo",
+      "text": "Like the old Netflix, are you still watching?"
+    },
+    {
+      "start": 5086.21,
+      "end": 5093.15,
+      "speaker": "chris-mccord",
+      "text": "That's what it is. It's just the, oh, there's code. There's meet space code that I wrote. That's like, nope, you have to stop."
+    },
+    {
+      "start": 5093.67,
+      "end": 5101.55,
+      "speaker": "jerod-santo",
+      "text": "I'm going to let it idle. I'm not going to let it roll. Cause it's going, just doing crazy things. I don't think it should be doing. So I'm just going to let it leave it there for now."
+    },
+    {
+      "start": 5101.55,
+      "end": 5146.17,
+      "speaker": "chris-mccord",
+      "text": "But yeah, but that is a nice thing. Like, you know, there's a, you know, the free form exploration on like, even for me as a open source maintainer, like people will send up like a reproduction of a bug and it's a whole elixir app, right? So it's like just running mix on that thing could pwn me, right? So it's like, I usually have to go like evaluate, like I'll usually manually pull out file by file that will reproduce it. But that could be like a bunch of files. So there is something freeing about this, like full remote environment that I can just like throw away. So for me, it unlocks like this, this pretty unique workflow. But I think for things like this, where you're just like, oh, try to run this. And it's not something you would want to provision your own server for and figure out or run a bunch of stuff locally. So I think that's, it can be helpful in that regard."
+    },
+    {
+      "start": 5146.17,
+      "end": 5162.75,
+      "speaker": "jerod-santo",
+      "text": "And I think you might've mentioned this, but I was of course distracted as I was watching that thing go. Is there the possibility of like persistent sessions or something, or like I could bake this, the results of this into an image? Cause it would be nice to be able to fire off a new one against our code base with everything else set up and done."
+    },
+    {
+      "start": 5162.75,
+      "end": 5165.23,
+      "speaker": "chris-mccord",
+      "text": "It's all persistent there. So that code that-"
+    },
+    {
+      "start": 5165.23,
+      "end": 5169.27,
+      "speaker": "jerod-santo",
+      "text": "But what if I wanted a brand new session, but with our existing code base all ready to run?"
+    },
+    {
+      "start": 5169.27,
+      "end": 5198.75,
+      "speaker": "chris-mccord",
+      "text": "Yeah, just start a new chat and tell it to clone that and clone that repo into a different directory. So it's not like one-to-one, it's a whole, it's like basically you can treat it as you would treat your own IDE today, like your IDE that you work in, you have multiple code files at different directories. You can have multiple chats around the same code base, like purpose-built, right? My testing chat, my benchmarking chat, or you could have multiple chats around different apps all in the same IDE and those all are, all are persistent and they share the same environment."
+    },
+    {
+      "start": 5198.75,
+      "end": 5200.83,
+      "speaker": "jerod-santo",
+      "text": "So I guess- So imagine it's like one VM, basically."
+    },
+    {
+      "start": 5200.83,
+      "end": 5255.64,
+      "speaker": "chris-mccord",
+      "text": "It's basically your one VM, your one desktop that has packages running. So if you wanted different environments entirely, that's TBD. The architecture I have is set up for multiple IDEs, but then you get into like, we had to see what users did with this first, because if I allowed you to create a IDE per project, that's like physical compute, that at least things have to be pretty beefy. That's just a lot more compute for us, which would be a higher price for everyone. So if that's what folks end up wanting, that's definitely something we can do and it's set up for that. But right now I think it's more, right now at my hunches, it's more these building block primitives for Fly doing like environment snapshots that I think like it's less about, it's less about like different environments and more like I want to like let the agent and myself explore, but then like be able to get back to that working state from a code perspective and an environment perspective and just like one click."
+    },
+    {
+      "start": 5255.64,
+      "end": 5277.08,
+      "speaker": "jerod-santo",
+      "text": "Well, exciting times, exciting times. It's fun to watch yourself and so many people tackling the same very interesting, difficult nut to crack and how to make these things super useful while also not super expensive and not super scary because they kind of are in existential ways."
+    },
+    {
+      "start": 5277.08,
+      "end": 5301.25,
+      "speaker": "chris-mccord",
+      "text": "Yeah, it's pretty wild. Yeah, so we'll see. I mean, this is still an experiment. We'll see if the whole Phoenix do thing, where it goes and if it works out. But I do think something like this is the future of programming. Not necessarily that it's gonna be us, but I think that something that looks like this is gonna be what we're all doing in some capacity like much sooner than folks expect."
+    },
+    {
+      "start": 5301.25,
+      "end": 5309.81,
+      "speaker": "jerod-santo",
+      "text": "Well, you heard it here first, folks. In fact, you've heard it here a few times now. So fair warning as these things are coming, multiple people keep telling us this."
+    },
+    {
+      "start": 5309.81,
+      "end": 5312.61,
+      "speaker": "chris-mccord",
+      "text": "I feel like every time I stop talking, I get a big sigh."
+    },
+    {
+      "start": 5313.97,
+      "end": 5342.05,
+      "speaker": "jerod-santo",
+      "text": "No, I'm excited. I mean, I'm coming to grips with it all and I do appreciate handcrafted things. I like to write code and like all that stuff, but at the same time, I've always been more results oriented. I've always been more about the ends than the means, even though I think historically you've had to care about the means in order to keep the ends going and maybe we don't have to do that so much anymore. Maybe we do, I don't know yet."
+    },
+    {
+      "start": 5342.05,
+      "end": 5423.29,
+      "speaker": "chris-mccord",
+      "text": "Yeah, I agree with you. Like before formatters, I was aligning my equal signs and code is entirely a craft for me. I was gonna say very much a craft, but like it's entirely a craft for me, just like woodworking is. So it's like, what I like to tell people is like, programming, yeah, it's purely a passion and craft for me. It's like my favorite thing, my job and my hobby, but I'm still, like you said, come to grips with like, here's where we are. And I also say that like in the same way, when I go to Google anything today, I'll type out in the Google search box and midway through, I'm like, what am I doing with my life? Like, why would I go to Google and do this effort of like going through the search results, click on the webpage, finding the thing, and I'll just abandon that and I'll go ask chat GPT or cloud. But now that same thing is happening to code with me, where I'll be like def module, then I'll be like, what am I even doing, right? Like, why wouldn't I just ask the board for the starting point? And I don't know how I feel about that. Like, and I don't feel good, but like even for me as this, like someone that considers programming a craft, like I'm already there, right, in my mind. And I don't know if that's cause I'm a lazy human or you know what I mean? This is a change that's happened for code for me as someone who cares about the craft. So I don't know what that says other than like this is just fundamentally changing I think how we are as professionals. And I don't know if it's good or bad, but it's happening."
+    },
+    {
+      "start": 5424.25,
+      "end": 5445.36,
+      "speaker": "jerod-santo",
+      "text": "I'm not sure this is a one-to-one, but this is somewhat of a rationale for me. Is, do you all text message anybody in your life? Do you text message anybody? Sure. Trick question, not a trick question. I do too, just so you know, I text a lot of people. Okay. One person in particular, I text my wife, you know,"
+    },
+    {
+      "start": 5445.36,
+      "end": 5452.52,
+      "speaker": "chris-mccord",
+      "text": "frequently, I was actually gonna pause this moment here and just text her right now, just cause I miss her, you know, okay."
+    },
+    {
+      "start": 5452.52,
+      "end": 5454.6,
+      "speaker": "jerod-santo",
+      "text": "Thank you for not doing that while we're talking to you."
+    },
+    {
+      "start": 5454.6,
+      "end": 5465.08,
+      "speaker": "chris-mccord",
+      "text": "Just so you know. But instead of texting these days, like an idiot, like typing the message out one character at a time, I just talk to the thing, you know,"
+    },
+    {
+      "start": 5465.12,
+      "end": 5483.14,
+      "speaker": "jerod-santo",
+      "text": "cause it does that. And I push send and more often than not, it's pretty close, right, to what it should be. It's kind of like that for me. I don't want to text the text anymore. I want to just talk. Same thing with like an app. I just want to just talk things out. I don't want to like go through these motions of."
+    },
+    {
+      "start": 5483.14,
+      "end": 5489.86,
+      "speaker": "chris-mccord",
+      "text": "Serial detection, dictation. And pretty soon it's going to be like, oh, send my wife something, some lovey-dovey message."
+    },
+    {
+      "start": 5489.86,
+      "end": 5492.7,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. Yeah, haiku would be nice."
+    },
+    {
+      "start": 5492.7,
+      "end": 5497,
+      "speaker": "chris-mccord",
+      "text": "I don't even want to talk anymore. Just send her something nice. Yep."
+    },
+    {
+      "start": 5497,
+      "end": 5540.64,
+      "speaker": "jerod-santo",
+      "text": "I don't think it's going to go there, Chris. You know what I normally say to my wife? Say it again. Literally not texting it out with my fingers anymore. I'm talking it out. I got you. I attribute it to that. It's like, you know, I could. What do I gain from it? And it's not exact one-to-one to like, I could write this dev module and write it all out, but what do I gain by doing it myself when I can have the Borg just do it for me? And I think we'll have more and more of these versions of these things we do in our life. And you just say, well, I would just rather not do it that older way anymore, because this other way is just like same place. You know, it becomes the question is like, why would you do it the other way anymore? Like just don't do it that way anymore. Cause this is the new way."
+    },
+    {
+      "start": 5540.64,
+      "end": 5569.7,
+      "speaker": "chris-mccord",
+      "text": "Yep, I think one of my, Thomas, one of my coworkers that wrote a blog post on Fly that was about this whole LLM space and dialogue had a good comment, something like, you know, people are writing worse versions of code purely out of spite that the LLM could do better, something like that. It said much better that I thought was really interesting. Like the folks, like they know, they know that it would be better to like actually go ask, but out of pure spite, I could do this myself."
+    },
+    {
+      "start": 5569.7,
+      "end": 5603.65,
+      "speaker": "jerod-santo",
+      "text": "Well, as the old saying goes, don't move my cheese, you know, and our cheese is being moved and we need to be able to adapt or die as we've been saying often here. And who knows, maybe you'll like the new world more than you thought you would. And that's what I'm starting to feel as well. It's like, you know what? This way actually is, it's got its warts. It's got its problems. It's not perfect. And neither has any of the code I've ever written in my life, so there you go. All right, let's, how do we end this session? How do we close this out?"
+    },
+    {
+      "start": 5603.65,
+      "end": 5605.85,
+      "speaker": "chris-mccord",
+      "text": "Phoenix.new, check it out now."
+    },
+    {
+      "start": 5605.85,
+      "end": 5606.89,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 5606.89,
+      "end": 5617.92,
+      "speaker": "chris-mccord",
+      "text": "If you haven't gone there yet, I'm off the bat for you, son. That's right. Definitely share what you've built with me because I live vicariously through watching people build things, so."
+    },
+    {
+      "start": 5617.92,
+      "end": 5620.82,
+      "speaker": "jerod-santo",
+      "text": "You probably had a great time here, man. Hot or not for code, that was sweet."
+    },
+    {
+      "start": 5620.82,
+      "end": 5621.66,
+      "speaker": "chris-mccord",
+      "text": "That was fun."
+    },
+    {
+      "start": 5621.66,
+      "end": 5632.22,
+      "speaker": "jerod-santo",
+      "text": "It was so fun watching you actually, you know, analyze what your creation was doing. You know, like, oh, look at it did that. Oh my gosh, I can't believe it did this, that was cool."
+    },
+    {
+      "start": 5632.22,
+      "end": 5648.78,
+      "speaker": "chris-mccord",
+      "text": "Oh yeah, the notes thing, the notes thing was a recent addition to the system prompt where I squashed the window. So for research-based tasks, something that it's gonna be long relived context, it's supposed to write in a notes file. And it was neat seeing it do that."
+    },
+    {
+      "start": 5648.78,
+      "end": 5654.38,
+      "speaker": "jerod-santo",
+      "text": "Yeah. It's alive, it's alive. All right, Chris, always a pleasure hanging with you."
+    },
+    {
+      "start": 5654.38,
+      "end": 5655.58,
+      "speaker": "chris-mccord",
+      "text": "Yeah, thanks for having me on."
+    },
+    {
+      "start": 5655.58,
+      "end": 5723.56,
+      "speaker": "jerod-santo",
+      "text": "Later, Chris. All right, that is Changelog for this week. Are you feeling the vibe or are you getting all vibed out? Well, I have bad news for you. If you're done with this topic, I don't think this is a passing fancy. In one form or another, we are witnessing the way of the future and we're going to keep talking about it because the agents are coming and we best be prepared for it. We'll continue our prepping next week when Torsten Ball from Sourcegraph joins us to discuss building coding agents in general and building AMP in particular. But on Friday, we have something entirely different for you. Well, Adam does, as he sat down with Jeff Kaley from World Wide Cyclery. I hope you enjoy it and I hope I enjoy it too. I'm not sure what to expect from that one. Thanks again to Chris for hanging out with us, to Fly.io for their continued support, to Retool and Depot for sponsoring this episode, go to retool.com slash agents and to depot.dev and to Brakemaster Cylinder for the never ending supply of dope beats. Have a great weekend. Send the show to your friends who might dig it and let's talk again real soon."
+    }
+  ]
+}

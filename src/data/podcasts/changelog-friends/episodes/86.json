@@ -1,0 +1,1449 @@
+{
+  "title": "Of agents & agency",
+  "description": "Long-time JS Party panelist Amal Hussein joins Jerod to discuss her career trajectory across companies like npm, Stripe, and Cisco, explore the viability of agentic coding, share her feelings about AI as a developer, and reveal a significant life change.",
+  "links": {
+    "YouTube": "https://youtu.be/e-VGpKH002M",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "amal-hussein"
+  ],
+  "segments": [
+    {
+      "start": 15.12,
+      "end": 57.12,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and friends, a weekly talk show about the Vibe Coding Gold Rush. Thanks as always to our partners at fly.io, the public cloud built for developers who ship. If you ship like we do, you should ship where we do at fly.io. Okay, let's talk. Well friends, I'm here with a good old friend of mine, Terrence Lee, cloud native architect at Heroku. So Terrence, the next gen of Heroku called Fur is coming soon. What can you say about the next generation for Heroku?"
+    },
+    {
+      "start": 57.12,
+      "end": 75.52,
+      "speaker": "amal-hussein",
+      "text": "Fur represents the next decade of Heroku. You know, Cedar lasted for 14 years and more, still going. And Heroku has this history of using trees to represent ushering in new technology stacks and foundations for the platform. And so like Cedar before, which we've had for over a decade,"
+    },
+    {
+      "start": 75.52,
+      "end": 119.2,
+      "speaker": "jerod-santo",
+      "text": "we're thinking about Fur in the same way. So if you're familiar with Fir trees at all, Douglas Firs, they're known for their stability and resilience. And that's what you want for the foundation of a platform that you're gonna trust your business on top of. We've used stacks to kind of usher in this new technology. And what that means for Fur is we're replatforming on top of open standards. A lot has changed over the last decade. Things like container images and OCI and Kubernetes and cloud native, all these things have happened in this space. And instead of being on our own island, we're embracing those technologies and standards that we help popularize and pulling them into our technology stack. And so that means you as a customer don't have to kind of pick or choose. So as an example, on Cedar Today, we produce a proprietary tar ball called Slugs."
+    },
+    {
+      "start": 119.2,
+      "end": 139.52,
+      "speaker": "amal-hussein",
+      "text": "That's how you run your apps. That's how we pack to them. On Fur, we're just gonna use OCI images, right? So that means that tools like Docker are part of this ecosystem that you get to use. So with our cloud native build packs, you can build your app locally with a tool called Pack and then run it inside Docker. And that's the same kind of basic technology stack we're gonna be running in Fur. So you can run them in your platform as well."
+    },
+    {
+      "start": 139.52,
+      "end": 163.32,
+      "speaker": "jerod-santo",
+      "text": "So we're providing this access to tools and things that people, developers are already using and extensibility on the platform you haven't had before. But this sounds like a lot of change, right? And so what isn't changing? And what isn't changing is the Heroku you know and love. That's about focusing on apps and on infrastructure and focusing on developer productivity. And so you're still gonna have that Git push Heroku main experience. You're still gonna be able to connect your applications"
+    },
+    {
+      "start": 163.32,
+      "end": 172.58,
+      "speaker": "amal-hussein",
+      "text": "and pipelines up to GitHub, have that Heroku flow. We're still about abstracting out the infrastructure from underneath you and allowing you as an app developer to focus on developer productivity."
+    },
+    {
+      "start": 172.58,
+      "end": 190,
+      "speaker": "jerod-santo",
+      "text": "Well, the next generation of Heroku is coming soon. I hope you're excited because I know a lot of us, me included, have a massive love and place in our heart for Heroku. And this next generation of Heroku sounds very promising. To learn more, go to Heroku.com slash changelawpodcast"
+    },
+    {
+      "start": 190,
+      "end": 201.35,
+      "speaker": "amal-hussein",
+      "text": "and get excited about what's to come for Heroku. Once again, Heroku.com slash changelawpodcast."
+    },
+    {
+      "start": 201.51,
+      "end": 217,
+      "speaker": "jerod-santo",
+      "text": "Well, my old friend, Amel Hussain, who you probably heard and saw on our recent friendly feud, but you were probably wondering, where'd she go? She's here with me for a one-on-one. Amel, welcome to the changelaw."
+    },
+    {
+      "start": 217,
+      "end": 252.04,
+      "speaker": "amal-hussein",
+      "text": "Hello, Jared. I'm so excited to be back. It's been a real like whirlwind exciting year for me. And I haven't done barely any podcasting. It's like life has been kind of turned up to the max on all levels, which I think we'll unpack shortly. Absolutely. But so happy to be back and yeah, share what I've been up to and all the new things that are happening in my life. And yeah, I think we're gonna dig into all the things."
+    },
+    {
+      "start": 252.04,
+      "end": 287.72,
+      "speaker": "jerod-santo",
+      "text": "Yeah, absolutely. So we're recording on a Thursday morning, which is not our regular time. I'm drinking coffee. So forgive me if I'm not as sharp as you're used to when we chit chat around lunchtime or noon or 2 p.m. Usually see, I already misspoke because I haven't had enough caffeine yet, but we're recording early on Thursday morning because you've been working this week and you've been having a huge feature you're trying to ship. We wanna get into your journey. I don't even understand your journey as somebody who knows you pretty well because like you were at NPM and then this happened and was it Stripe or Meta or this and that, some other company for a while and now I don't even know where you work."
+    },
+    {
+      "start": 287.72,
+      "end": 291.96,
+      "speaker": "amal-hussein",
+      "text": "Yeah, I don't even know where I work either. I work, I don't even, I don't either."
+    },
+    {
+      "start": 291.96,
+      "end": 304.76,
+      "speaker": "jerod-santo",
+      "text": "So you've been making moves, but recently and literally this week we had a Bump recording a few times just because trying to get a big feature out and did you ship it? I assumed you shipped it cause here you are."
+    },
+    {
+      "start": 304.76,
+      "end": 356.4,
+      "speaker": "amal-hussein",
+      "text": "We shipped it, we shipped it. I signed off 9 p.m. Eastern last night. I live on East Coast. It's a long, long day, but no, we had a pretty big release going out this month, data migrations and just a huge release that also my team was in charge of kind of adding in an authentication layer to our integrations platform, which is what I'm in charge of. We'll dig into that. And so we're kind of adding in support for doing integrations that require third-party off. And so that really touched everything and literally every part. And so it's always like release days are always, there's always getting through the release pipeline. Those challenges are very real. Right."
+    },
+    {
+      "start": 356.4,
+      "end": 373.92,
+      "speaker": "jerod-santo",
+      "text": "And you thought it was gonna be released earlier than that. In fact, that's why we bumped a couple of times, which is totally cool with me, but I just think it's funny when it's like, yeah, it should be done Tuesday morning. And then it's like, well, maybe Wednesday morning. And it's like, well, how about 9 p.m. Eastern? I mean, what, does something go wrong or?"
+    },
+    {
+      "start": 374.88,
+      "end": 425.08,
+      "speaker": "amal-hussein",
+      "text": "It's not so much that it's not put wrong. Well, a couple of things like, migrations are always tricky, right? So there's that, definitely some things got adjusted, but it was more actually, I think what we were really bitten by was, the developer definition of done, right? Like, I think we always forget to account for like, okay, done is not just when I am done. It's also not, it's when like code's been reviewed and code review updates have gone through and CI has kind of done its thing and we've fixed any new problems from the changes and we've deployed somewhere off your machine and we've integrated, it's like, there's this literally almost like 30% of the work starts when a developer thinks that they're done. They're done, yeah."
+    },
+    {
+      "start": 425.08,
+      "end": 433.24,
+      "speaker": "jerod-santo",
+      "text": "And it's kind of a romantic optimism, it's pretty much finished, right? Like I'm done. And like you said, there's still the other 80% to go."
+    },
+    {
+      "start": 433.24,
+      "end": 604.76,
+      "speaker": "amal-hussein",
+      "text": "Yeah, and I tell this to my team. So we were kind of in this interesting mode where we're working on this massive new integration, massive thing that just touches everything front to back, right to left, but, so then we're in the 20% phase of this project where like, you've done 80% of the work and you have 20% left. So then there's, then you're struck by the like, the fact that 80% of the work is in the last 20 and then you're done with what you think is done, but then you have to still get it over the wire, which is like, then a new clock starts, right? And then you're at another like 80, 20. And so, yeah, I think just, shipping to production, shipping massive changes, specifically things that like go horizontal across multiple parts of your application, multiple parts, multiple projects in our case. And so it's, yeah, it's no small feat. And so, yeah, it's, I miss the days when, you know, you just, you know, I was working purely on front end or something along those lines, right? Where like, it's like, oh, you know, great. Like, you know, we just, I feel like the front end community has the most enviable release process in many ways. Like, it's just like the fastest and then, then, then, but it's, you know, that's the, cause the benefit of just being on the top of the stack, right? But yeah, anything lower is like, you know, and that's been a big shift for me. Like I've worked on full stack applications, my whole, pretty much most of my career. I've spent a lot of time in the middle front, you know, started out in the back, kind of moved up over time and then kind of spent a good chunk of my time, you know, in like middleware, middleware layers, like in the middle of the app. And now I've kind of, now I'm managing a pretty complex platform team. And that's, you know, I was actually a principal engineer, still kind of am doing like, I'm doing that crazy job. That's like TLM, you know, tech lead manager, like a principal engineer at direct reports. Now they're like, oh, Mel, you're basically just like running this whole thing. Like here, you just take this org, you run this now, you know? So that, that kind of happens to me and just why I've been like pendulum swinging throughout my career. I've been doing this like yo-yo between, you know, principal and manager, lead engineer and manager. And so, you know, I enjoy doing both jobs. Definitely doing more principal right now because I have a team of very senior engineers and I don't really need to do much like management per se. It's more just like giving my team technical direction and like setting our, you know, here's the architecture, here's the plan, here's what we're doing."
+    },
+    {
+      "start": 605.76,
+      "end": 644.36,
+      "speaker": "jerod-santo",
+      "text": "So give me your, like enumerate to me the companies that you've worked for, because when we first met, this was probably 2018, 2017, something like this, you were at Boku, I believe. We met at All Things Open one of those years. And so for our listeners sake, we've known each other for that long. And then we met there, hit it off, had a great time. We invited you on the changelog. I think we had a great changelog conversation back then. So good I think that we even put a quote of yours in our trailer because it was just so high quality, what you're talking about, like real applications or they're gnarly in there, it got these, you know, problems. And it was just like a really good."
+    },
+    {
+      "start": 644.36,
+      "end": 645.24,
+      "speaker": "amal-hussein",
+      "text": "They're living, breathing."
+    },
+    {
+      "start": 645.24,
+      "end": 665.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. And then I was like, I invited you on JS party back then you had the web platform podcast, but it was kind of on, not a hiatus, but just you guys are struggling to ship. And I was like, why don't you just come be a panelist? And so you were a panelist on JS party for many years. And during that time it was like Boku and then it was NPM. Am I right? And then NPM got acquired or were you already?"
+    },
+    {
+      "start": 665.8,
+      "end": 836.5,
+      "speaker": "amal-hussein",
+      "text": "Yeah, yeah, no, I, yeah, NPM got acquired. And then shortly after they, you know, laid off majority of the company. It sounds like three people. So it was, so I was part of that. And then it was like this horrible thing where like they only three people got offers to transition into GitHub. One of them was the founder. The other one was the community face. So they couldn't, you know, obviously like that would be bad. And then the other one would be the other person was the, yeah, just the lead, the architect that was still there, the single person that had the continuity of the legacy code base. And then every, yeah, for other folks were put on short term contracts just to finish up and or laid off. It was, it was rough. So yeah, after that, I ended up at a pretty, you know, at the time a pretty cool unicorn startup called Indigo, which is like an ag tech company. I do remember this. Yeah, I was really like building Uber for ag. I was basically a principal engineer building like Uber for agriculture. It was actually a pretty rewarding time in my career. Cause you know, got to learn a lot about the challenges in the ag world and digitizing it into, you know, kind of bringing it into like the 21st century. The company, you know, had everything going for it. Like again, very high evaluation, like attracted a lot of really top talent, et cetera. And, you know, just unfortunately, just kind of fell into that same pit, I think with startups sometimes when they're doing too well, but then they get struck by bad product management and like leadership decisions and just, you know, just, it just kind of, yeah, I don't know what's going on now, but like still exists and it's still doing its thing, but like I am no longer there. Neither is many of the people that I worked with. So a lot of people have exited, had a lot of layoffs. And then I ended up at Stripe after that. Stripe was pretty fun. I was a staff engineer, but it was just also the hustle culture and the stress of that job was just not really worth it for me. Like it's like absolutely zero work-life balance. And at that point, you know, just, I'm just at a point in my career where like, I don't, I want to work hard. I do work hard naturally, right? So you have person like me, who's like a hard worker, and then you add in the, the like, oh my God, people can fake collaborating, but competing, you know, kind of culture, which, you know, and just, I, I hate to say this as well. I don't really talk about this publicly, but you know, I definitely also experienced like a fair level of toxicity from coworkers in that role. And so it was just, yeah, it was just like, okay, not worth it. I had multiple offers when I joined Stripe, right? Like literally, so."
+    },
+    {
+      "start": 836.5,
+      "end": 859.38,
+      "speaker": "jerod-santo",
+      "text": "So you picked Stripe, you had, these were the good days, right? When like you could just line up offers and you were lining them up and good for you. So Stripe was obviously an attractive, especially from the outside, it's an attractive place to work. I'm sure the compensation was great. The tech problems are interesting, but yeah, the hustle culture is certainly still there. Yeah. So then you left Stripe and then what?"
+    },
+    {
+      "start": 859.38,
+      "end": 891.78,
+      "speaker": "amal-hussein",
+      "text": "So then, yeah, I had, I was being, you know, I had, like I said, I had lots of offers and I was like, okay, well I need to optimize for, you know, just being at Stripe. I was like, oh my God, this is like, Stripe had a little bit of a Peter Pan syndrome. And I can't take credit for that. I won't name the person who came up with that, but it was so accurate. Peter Pan being like, doesn't really want to grow up. Like it was this massive company that still tried to act small. And that caused a lot of problems, you know? And so, yeah, so like."
+    },
+    {
+      "start": 891.78,
+      "end": 963.64,
+      "speaker": "jerod-santo",
+      "text": "That's interesting because GitHub was like that for a while where they had this like engineering, not just engineering led, but like engineers do what they want in culture. And it was really cool and attracted great engineers at the start. And I remember Zach Coleman, who's an early GitHub-er who was like on the conference scene, going around talking about like this new style of company, which is like engineering led, and you work on what you want to, and it's all like the stuff that we want to hear, you know? And that didn't scale. I mean, it's no surprise, but it was like, as GitHub grew, that just wasn't going to work anymore. And GitHub, to their credit, and Chris Wanstroth and Tom Preston-Warner and the other leaders inside GitHub that started it, they actually did grow up. I mean, they decided to make changes and some of those changes were hard and some were better than others and mishandled. And of course there were all kinds of issues along the way, but GitHub did grow up and then it grew up so much that now it's like, you know, Microsoft bought it and now it's like as grown up as you could possibly be, I think probably to its dismay at this point. But they had that to start, but then they actually, I think, realized it. They're like, this is not going to last. And maybe it's interesting that, at least when you were at Stripe, that culture had still existed there. And I'm wondering if it's holding them back."
+    },
+    {
+      "start": 963.64,
+      "end": 981.92,
+      "speaker": "amal-hussein",
+      "text": "Yeah, I think your hypothesis is, and your question comment at the end was like very on point. I do think it is holding them back in many ways. And you know, like, yeah, we haven't seen an IPO for many reasons, like, you know, like, you know, when I was there, it was like IPO in two months, two months, you know."
+    },
+    {
+      "start": 981.92,
+      "end": 984.24,
+      "speaker": "jerod-santo",
+      "text": "I'm pretty sure there's lots of people that would love to see that IPO happen."
+    },
+    {
+      "start": 984.24,
+      "end": 1011.6,
+      "speaker": "amal-hussein",
+      "text": "Oh my God, it was, yeah, expect it to be the biggest. I mean, you know, when I joined Stripe, it was the most valuable VC backed company in the world. Like, I think it was like almost 100 billion valuation or something like wild like that, you know. And just, there's so many great things about the product, the company, the ethos, you know, I think, but yeah, definitely like needs a heavy dose of grown up on many levels. And I'll just kind of like leave it at that."
+    },
+    {
+      "start": 1011.6,
+      "end": 1014.2,
+      "speaker": "jerod-santo",
+      "text": "Sure, so where'd you head after Stripe then?"
+    },
+    {
+      "start": 1014.2,
+      "end": 1047.92,
+      "speaker": "amal-hussein",
+      "text": "So after Stripe, I was like optimizing for the opposite of Stripe, you know, like I said, like it was in a very fortunate position. And I was like, okay, like I really just kind of want to be back in enterprise. I really thrive in enterprise. I spent a decent amount of my time in enterprise. And so I was like, all right, like, you know, just being poached by a team at Cisco working on a really important product. That's like a single pane of like bringing Cisco together. Like Cisco is a massive company, sixth largest software company in the world. And so they're bringing together, you know."
+    },
+    {
+      "start": 1047.92,
+      "end": 1053.16,
+      "speaker": "jerod-santo",
+      "text": "Kind of quietly too, you know, you don't think about it too much, probably cause they're at the network layer most of the time."
+    },
+    {
+      "start": 1053.16,
+      "end": 1057.46,
+      "speaker": "amal-hussein",
+      "text": "Yeah, network layer, but everything runs through Cisco software and hardware."
+    },
+    {
+      "start": 1057.46,
+      "end": 1067.44,
+      "speaker": "jerod-santo",
+      "text": "Yeah, totally. That's what I'm saying, like, it's like, it's kind of like Intel inside, you know, it's like Cisco outside, but you don't think about it very much as like such a big player, but it certainly is."
+    },
+    {
+      "start": 1067.44,
+      "end": 1186.28,
+      "speaker": "amal-hussein",
+      "text": "Right, and the company overall is just like a really nice company, really well run. Like it was actually really refreshing to be there because they've got like a really good internal, like their internal, you know, it was basically like, you're exposed to like, wow, this is how big businesses run well on the inside, right? Where you literally have like 30% or something like that of the staff is dedicated towards internal operations. You know, whether it's HR or like anything, like you're just, you have people in roles that are facing inward on the business itself, operating on the business. And so I think that was just very refreshing, I think after being at like a Peter Pan company, you know. And, but also like, I think the flip side to that with Cisco was unfortunately like, you know, one of the, you know, we're just, one of the challenges we're dealing with in an org that's trying to kind of innovate and push things forward were kind of like a spear. You know, we were like the COOs kind of pet project, you know, like kind of an innovation component is that you're battling against a lot of just like legacy culture and bureaucracy and what I like to call like a castle wall guarding, what am I thinking of? Like people kind of protecting their forts, you know. Gatekeeping? Not gatekeeping, just like people either trying to, yeah, like they're trying to protect, like grow their orgs, grow their reporting chains. They're on guard, they are guarding. Yeah, castle guarding or whatever, right? Like, you know, and you just deal with a lot of bureaucracy and politics. And so I think that was the biggest turnoff for me was like, man, like, you know, and then someone like me, that's a little bit of a, you know, I hate to use the word, but it's corny and way overused, but a little bit of a disruptor in the sense of like, you know, I kind of act as a catalyst at, you know, in many places that I joined and just kind of trying to move things forward and quickly, you know."
+    },
+    {
+      "start": 1186.28,
+      "end": 1212.76,
+      "speaker": "jerod-santo",
+      "text": "Right, well, let me say it for you because you don't want to say yourself, but like any room that you come into, like the room changes, you know, like you're going to have an impact. It's just true, like you're that kind of a presence where it's like, oh, Amel's here, you know, we all know it and we're happy. Some people are probably not happy, especially if they're trying to guard that room. But yeah, I mean, you're definitely a disruptor. I think it is an overused word, but it's certainly fair because you're going to make an impact and that's powerful."
+    },
+    {
+      "start": 1212.76,
+      "end": 1344.81,
+      "speaker": "amal-hussein",
+      "text": "Yeah, yeah, well, your words and thank you. It's very kind feedback, but, you know, so basically that was just an interesting challenge. I was like, you know, just getting things done, like ruffled feathers and, you know, I was just really like very proud of the impact that I made there and the amount of time and the change that I was able to kind of bring to my team and the work that we were doing, but just kind of like politics, politics, politics was the kind of downside there. Otherwise, just amazing people, really just impressively run business. And, you know, I think the challenge there is just like, yeah, they're going to need to, they're going to need to change some of their internal cultures, I think, in order to really compete moving forward, right? Because you just can't, like that level of politicking and bureaucracy just cannot exist if you want to kind of compete in 2025. And so, and what's interesting that, you know, when they want to move fast, they move fast, but then there's also just a lot of, yeah, back-channeling that, you know, happens. So, yeah, but so Cisco had, so basically our org was, you know, unfortunately, like the COO, the person who have the company who was kind of was like, you know, shepherding this project, you know, she exited the company. So, you know, you have your executive sponsors kind of gone and she was on, you know, and so just, it was just, you know, we had new leadership come in from Google, they started chopping things, you know, and so just, it was, it was kind of a little bit of a bloodbath and I got caught up in a wave of restructuring where I was very fortunate because there's other people who were just straight up, just laid off. And so the restructuring for me was like, okay, you have a job, we want you to stay at Cisco. Here's three months to do nothing other than just go find internal jobs that are over or externally. You can do whatever you want, but in three months, if you don't, if you choose to either not pick a team internally and or leave, like you're gonna get a separate. So I just was like, you know what? Like, I think I'm good, actually. I'm just gonna ride out these three months."
+    },
+    {
+      "start": 1344.81,
+      "end": 1397.13,
+      "speaker": "jerod-santo",
+      "text": "That happened to Justin Garrison at AWS. He had the exact same thing. I think he ended up terming it silent sacking because it's like, they don't wanna actually let you go, but they're gonna put you in like, not necessarily a lose-lose, but like a very hard to win game where it's like, you need to find something else to do. And with him, I think they were just gonna keep paying him because they kind of slipped under the radar and they're just gonna keep on paying him. And he's like, I'm not gonna stick around for this because who knows? But that was a move that I think corporates were making at that time. Some of it was to either decrease the size of their layoffs, make it not look so bad. So it's like a silent sacking where they're like, find something to do. And well, what if I don't wanna do any of those things or I can't or whatever it was. They also had that RTO policy, which I think he was gonna be suffering under."
+    },
+    {
+      "start": 1397.13,
+      "end": 1501.17,
+      "speaker": "amal-hussein",
+      "text": "Oh yeah, yeah. That's the other. It's like, let's do layoffs without having to pay out severance packages like strategy. But yeah, so I mean, for me, it was just, it was obviously it wasn't just me, right? It was like many, many people. And we, the folks that were in my round, we're really just kind of like high number, high cost numbers in a spreadsheet. I was in the middle of delivering some very important work and making some incredible progress. And whether it was my performance reviews or just review some peer feedback and all of that stuff, Cisco had this nice thing where people give each other money. Thank you for this thing. Here's like $25 to go spend on some website to like, so I just like, I literally had like thousands of dollars racked up from like thank yous and praise. And so, I had all indicators were high performer, obviously. Right, like you're doing a good job. Yeah, and it was just cost-driven, it's like, and I would agree with the fact that like, yeah, the overall, this overall org was pretty bloated. They kind of hired aggressively. And again, I think part of that was driven by this culture of, again, castle building, castle guarding, like I'm gonna make my reporting chain the biggest, I'm gonna hire people I don't need so that I have like authority. And so, yeah, it's just the one downside, but yeah, Cisco like, would I work there in the future if that problem didn't exist and if I were guaranteed to like, probably, yeah. But hopefully I don't want to though because I now I'm so happy at work. I just wanna like retire with this company. I don't wanna do anything else."
+    },
+    {
+      "start": 1502.25,
+      "end": 1523.25,
+      "speaker": "jerod-santo",
+      "text": "Well friends, I'm here with a brand new friend of mine, Kyle Galbraith, co-founder and CEO of Depo.dev. Your builds don't have to be slow, you know that, right? Build faster, waste less time, accelerate Docker image builds, get up action builds and so much more. So Kyle, we're in the hallway at our favorite tech conference and we're talking, how do you describe Depo to me?"
+    },
+    {
+      "start": 1523.25,
+      "end": 1532.89,
+      "speaker": "amal-hussein",
+      "text": "And Depo is a build acceleration platform. The reason we went and built it is because we got so fed up and annoyed with slow builds for Docker image builds, get up action runners."
+    },
+    {
+      "start": 1532.89,
+      "end": 1599.93,
+      "speaker": "jerod-santo",
+      "text": "And so we're relentlessly focused on accelerating builds. Today, we can make a container image build up to 40 times faster. We can make a GitHub action runner up to 10 times faster. We just rolled out Depo cache. We essentially bring all of the cache architecture that backs both GitHub actions and our container image build product and we open it up to other build tools like Bazel and Turbo repo, SC cache, radial, things like that. So now we're starting to accelerate more generic types of builds and make those three to five times faster as well. And so in simple terms, the way you can think about Depo is it's a build acceleration platform to save you hundreds of hours of build time per week. No matter whether that's build time that happens locally, that's build time that happens in a CI environment. We fundamentally believe that the future we want to build is a future where builds are effectively near instant, no matter what the build is. We want to get there by effectively rethinking what a build is and turn this paradigm on its head and say, hey, a build can actually be fast and consistently fast all the time."
+    },
+    {
+      "start": 1599.93,
+      "end": 1610.13,
+      "speaker": "amal-hussein",
+      "text": "If we build out the compute and the services around that build to actually make it fast and prioritize performance as a top level entity rather than an afterthought."
+    },
+    {
+      "start": 1610.13,
+      "end": 1647.64,
+      "speaker": "jerod-santo",
+      "text": "Yes, okay friends, save your time, get faster builds with Depo, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo Repo and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depo.dev. Get started with a seven day free trial. No credit card required. Again, depo.dev. So where are you working now? So this is your new thing. This is your, is it startup? Is that what it is?"
+    },
+    {
+      "start": 1647.64,
+      "end": 1667.04,
+      "speaker": "amal-hussein",
+      "text": "It is, it is. I'm back in the startup side of things. Yeah, I feel like singing that song. I'm back in the saddle again. I really am. So I've never been at a startup this early stage, but also like high, high competence and."
+    },
+    {
+      "start": 1667.04,
+      "end": 1669.36,
+      "speaker": "jerod-santo",
+      "text": "How early, like series A or pre?"
+    },
+    {
+      "start": 1669.36,
+      "end": 1689.04,
+      "speaker": "amal-hussein",
+      "text": "Yeah, we just closed series A, but we were like, we closed it late because again, like the company, we have revenue, we have a revenue company and there's just no, there's no like desperate need to raise, if that makes sense. And so, yeah, so company's a few years old, but yeah, we're series A now. I'm like, I'm like, do I want, I have not publicly announced this at all."
+    },
+    {
+      "start": 1689.04,
+      "end": 1693.12,
+      "speaker": "jerod-santo",
+      "text": "Let's bring some news here. It's not even on your LinkedIn or what?"
+    },
+    {
+      "start": 1693.12,
+      "end": 1710.64,
+      "speaker": "amal-hussein",
+      "text": "It's not anything, I was like, oh yeah, no, like I do not, I, my 2025 goal is to use LinkedIn. Like, you know, as in I have a LinkedIn profile, I do not use it because every time I log on, it's like, it feels like, it's like corporate worship meets corporate Facebook."
+    },
+    {
+      "start": 1710.64,
+      "end": 1751.34,
+      "speaker": "jerod-santo",
+      "text": "I think it's, I think it's to its credit, and I've been a LinkedIn hater for many years. Adam loves LinkedIn and he has, cause he's gotten a lot of value out of it. I never got any value out of it for a long time, but it's becoming now one of the only places where everybody's is because, and they're, and they're like, I don't want to say like they behave themselves, but it's like, it's nice. People are nicer there because you know, it's your, this is your professional network. That being said, it's starting to loosen up a little bit. Their feed is terrible the way they load it. Like I'm never enjoying the content there, but people are starting to post some memes. Like I can feel like I can be there myself there a little bit. I've started to like post random stuff and it gets good reactions. And so I don't know."
+    },
+    {
+      "start": 1751.34,
+      "end": 1757.08,
+      "speaker": "amal-hussein",
+      "text": "That's how it starts, that's how it starts. Like before you know it, it's going to be like a cesspool, slippery slope."
+    },
+    {
+      "start": 1757.08,
+      "end": 1777.3,
+      "speaker": "jerod-santo",
+      "text": "It's the early days, you know, where it's not that sassy. It's like, you know, you can dip your toe in. Anyways, it's not as bad as it once was. It's not cool. And that might be it's saving grace. It's like, it's not cool, but it's getting slightly, slightly more enjoyable of an area to hang out. Anyways, we haven't put this on LinkedIn, but you work in a place called, what's it called?"
+    },
+    {
+      "start": 1777.3,
+      "end": 1792.04,
+      "speaker": "amal-hussein",
+      "text": "It's called Istari Digital. Istari, okay. Yeah. And yeah, it's like a pretty amazing. What are you building? What is it? Oh my God. What do they do? Like, do you have three hours? No, I will tell you in a second."
+    },
+    {
+      "start": 1792.04,
+      "end": 1793.96,
+      "speaker": "jerod-santo",
+      "text": "Give me the one liner. What's the one liner?"
+    },
+    {
+      "start": 1793.96,
+      "end": 1816,
+      "speaker": "amal-hussein",
+      "text": "What's on their website? Oh my God, I'm not prepped for a one liner. Well, so speaking of website, so we have this website that like I think was designed like when the company first started and nobody's touched it since, and it is going through a massive, not a massive, there's gonna be a whole new, we're rebranding and there's an official Reel for Realty website coming. So don't go to the website. We won't link it up. Don't go to the website for another week or two."
+    },
+    {
+      "start": 1816,
+      "end": 1817.2,
+      "speaker": "jerod-santo",
+      "text": "Okay, fair enough."
+    },
+    {
+      "start": 1817.2,
+      "end": 1908.46,
+      "speaker": "amal-hussein",
+      "text": "We can link it in a week or two, I think. Okay. But no, it's basically a platform for, I mean, it's really, it's why I hate, everyone says it's a platform for anything, but it really is. But the area that we're focused on is right now is digital engineering, which is this concept of, if I had to kind of explain it like you're five, how folks working in aerospace and mechanical engineering, people building things for the physical world, all the tools that they use, how those things can connect. So how do you actually connect secure, like highly secure, classified, you know, IP sensitive technical data? How do you connect all those threads together while being able to share, collaborate, have audit trails, and also protect your IP and protect the data, right? And so we have a zero knowledge, zero trust, multi-tenancy platform that has a control plane and a data plane that allows users to, you know, integrate all of their third-party tools and all the things that they use to do their regular jobs and like pull data from those things and connect them, connect them, like we actually have, we almost, we have an IDE like experience where you can make a digital thread is what it's called. And actually the founder of the, one of the founders of the company was the person who actually coined the whole term digital engineering and digital threads. But it's, you know, how do I take-"
+    },
+    {
+      "start": 1908.46,
+      "end": 1909.98,
+      "speaker": "jerod-santo",
+      "text": "So what's a digital thread?"
+    },
+    {
+      "start": 1909.98,
+      "end": 2050.34,
+      "speaker": "amal-hussein",
+      "text": "Yeah, so digital thread is like, so I'll give you an example. So you take, you pull data from CAD, for example, or you pull data, let's even just like Excel, we go even more basic. So we, you know, you can integrate Excel. We pull data from Excel. Then you can take those values, you know, using our digital IDE to then push them into another program so you can pull values from Excel, push them into CAD, then take that CAD file, then push it to another program, run a simulation, right? And so you can actually build this kind of CI, CD, what we call CC, which is continuous compliance kind of like workflow, making sure that like, while you're building this thing in the physical world, it's still complying to the metrics, right? So like, how do engineers that are working on a physical thing, basically, how do they collaborate? So like, how can they make sure that when they're, when they're making changes and they're tuning things, all this stuff is still like in bounds. It's all still, all still works together. And also how do we give people on the team situational awareness? How do we share just pieces of our data with our vendors? Like, you know, I have a third party vendor who's building the tires for this airplane. How do I just share the specs that they need for, you know, right now, unfortunately, a lot of people, there's emailing of things. There's no secure way for people to share these, you know, these technical files and this technical data. And it also costs a lot of time, you know, when you don't have a way of digitally kind of certifying that something works. And so using our IDE, essentially using our SDK and our tooling and our integrations, you're able to kind of digitally certify things, you know, basically based on the source of truth, right? So you're able to connect all these authoritative sources of truth together and then say, okay, like this works, like this, you know, because I'm actually running, running a real simulation. I'm actually looking at the real data. You know, I'm, you know, I'm able to pull, pull and extract different pieces and put it together. And so it's, yeah. So essentially it's a digital engineering, digital threading platform, but the core architecture can be used for anything, digital engineering. So aerospace and defense is the first industry that we're kind of focused on. And we have like, you know."
+    },
+    {
+      "start": 2051.58,
+      "end": 2053.38,
+      "speaker": "jerod-santo",
+      "text": "That's why you didn't need to raise any money."
+    },
+    {
+      "start": 2053.38,
+      "end": 2059.56,
+      "speaker": "amal-hussein",
+      "text": "That's why we didn't need to raise any money. Got a lot of money. Go where the money is. Got a lot of money."
+    },
+    {
+      "start": 2059.56,
+      "end": 2061.3,
+      "speaker": "jerod-santo",
+      "text": "Get those customers going, yeah."
+    },
+    {
+      "start": 2061.3,
+      "end": 2112.94,
+      "speaker": "amal-hussein",
+      "text": "You got it. And so, and what's really cool about this is like, this, we are a trust platform, you know, like we don't look at your data. We actually, we use this, you know, tokenization workflow, which is, you know, we kind of bypass, we use our clients to, you know, connect directly to, you know, storage buckets. And so, you know, we generate a token and we store a reference to that token in our DB, but none of your data passes through our layer. And so hence the control plane data plane that we set up. And so it's just very, very cool. And in an age where everyone wants your data, you know, and everyone, it's just really refreshing to be working on software that like protects and, you know, like the whole- Cares about that side of it."
+    },
+    {
+      "start": 2112.94,
+      "end": 2115.14,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it doesn't want that. Doesn't want the access."
+    },
+    {
+      "start": 2115.14,
+      "end": 2115.98,
+      "speaker": "amal-hussein",
+      "text": "Can't."
+    },
+    {
+      "start": 2115.98,
+      "end": 2126.98,
+      "speaker": "jerod-santo",
+      "text": "We don't want the access, yeah. I can't lose what I don't have, or I can't, you know, mistreat what I don't have or sell it later. Yeah. So meta question then. Yeah. How did you find this place?"
+    },
+    {
+      "start": 2126.98,
+      "end": 2145.06,
+      "speaker": "amal-hussein",
+      "text": "Oh yeah. Oh my God. So this is the best part about this drop. So like, this is why I'm like, you know, it's early so I get to move at the pace that I want to. And what's really nice about startups, anyone knows like you want to have an impact, you can have an impact. You just got to, you know, the shovels are on the ground, just pick it up."
+    },
+    {
+      "start": 2145.06,
+      "end": 2145.9,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 2145.9,
+      "end": 2159.1,
+      "speaker": "amal-hussein",
+      "text": "You know what I mean? But the way I got poached was actually my, through my colleagues at X3 at Stripe, the colleagues that I liked at Stripe poached me into this."
+    },
+    {
+      "start": 2159.1,
+      "end": 2160.98,
+      "speaker": "jerod-santo",
+      "text": "So they worked there and they're like, let's get them out."
+    },
+    {
+      "start": 2160.98,
+      "end": 2326.9,
+      "speaker": "amal-hussein",
+      "text": "Yeah. So yeah, some of my ex colleagues at Stripe work there, were settled, you know, few people both in high leadership positions in engineering, you know, both like VP of engineering or distinguished engineer and then, you know, engineer, and then another engineering leader kind of reached out and was like, hey, you know, and some of these people are also people that I knew pre Stripe, you know, folks I've had like long time friendships with, you know, like, you know, Maggie Johnson, Pent being the, I don't know, she's been on the pod before. And so, and all of this kind of was a funny timing for me, which maybe I'll get into the funny timing story later, but it's been this refreshing experience of working with really smart people on a very hard problem. And it's not just folks from Stripe, it's folks from, you know, many companies that you recognize, you know, a lot of the first, you know, companies that, you know, on a first name basis, but it's like everybody's favorite people from the jobs that they've worked at. So it feels like we've collected like all these awesome people and we are all working together. And then we also have a lot of people that, you know, worked on like really high level stuff in the air force. And as you know, like the military has been a source of a lot of big innovation, like, except I think Gen AI is the one thing that they've missed. And I think through our platform, hopefully we get to maybe help the government innovate on that because there's a huge AI play for us as well. But, you know, it's just been really nice working with innovators who have this background from the military as well, you know, working on just like really hard problems, like, you know, just for the air force, for space force, you name it, like people who have this expertise, you know, there's this nice kind of adult culture that we have at the company, which has been really refreshing for me, you know, kind of there's this like adolescent culture that kind of unfortunately is very pervasive in tech. And I think it's just been really refreshing to be at a company where, you know, actually you don't really need to bring your whole self to work. Like, you know, we're just kind of like actually here for a job. And, you know, like, yeah. And then also just high, high diversity too. You know, you realize like the military is actually one of the most diverse employers in the world. And so there's just like, you know, I'm a woman of color and I've just had like, yeah, it's just been just very refreshing seeing the level of diversity within the company, but also just the fact that like, no one really seems to care, like, you know, what your gender is or what your color is or whatever, like we're all just getting things done, you know? And so I think, you know, that's just been, it's also just been really just refreshing on a personal level. Yeah."
+    },
+    {
+      "start": 2326.9,
+      "end": 2336.14,
+      "speaker": "jerod-santo",
+      "text": "So you're working on a digital engineering, digital threading platform. When I met you, you were all about the web platform."
+    },
+    {
+      "start": 2336.14,
+      "end": 2336.98,
+      "speaker": "amal-hussein",
+      "text": "Yeah."
+    },
+    {
+      "start": 2336.98,
+      "end": 2353.83,
+      "speaker": "jerod-santo",
+      "text": "You're kind of moving to a different platform now, right? Like is the web just not part of your life as much? Or are you, is the web a deployment target? Is it play a role? And obviously like web tech certainly does, APIs, HTTP, et cetera, but is the web less important in your life these days or?"
+    },
+    {
+      "start": 2353.83,
+      "end": 2377.47,
+      "speaker": "amal-hussein",
+      "text": "Yeah. You know, that's a really, that's a deep question. I mean, so I am pretty much like exclusively working on software that like, you know, working on like platform services and software that lives on, you know, that's installed on OSs, things that like, I'm just deep in. Yeah. Obviously we've got, we've got, you know, what we work on, you know, we have clients, we have SDKs and things like that."
+    },
+    {
+      "start": 2377.47,
+      "end": 2379.27,
+      "speaker": "jerod-santo",
+      "text": "No TypeScript then, you're just, no TypeScript."
+    },
+    {
+      "start": 2379.27,
+      "end": 2382.27,
+      "speaker": "amal-hussein",
+      "text": "I'm not touching or dealing with TypeScript on a day-to-day basis at all."
+    },
+    {
+      "start": 2382.43,
+      "end": 2386.2,
+      "speaker": "jerod-santo",
+      "text": "You hear that Nick Nissi, neither of us are."
+    },
+    {
+      "start": 2386.2,
+      "end": 2391.76,
+      "speaker": "amal-hussein",
+      "text": "Wonderful internal UI for our app and all of that jazz, but that is not the, yeah, that is not, that is not my domain."
+    },
+    {
+      "start": 2391.76,
+      "end": 2396.68,
+      "speaker": "jerod-santo",
+      "text": "Are you actually coding? Are you, are you speaking? How, what are you doing? Are you vibe coding?"
+    },
+    {
+      "start": 2396.68,
+      "end": 2440.4,
+      "speaker": "amal-hussein",
+      "text": "All of the above, no vibe coding. Yeah. Although, you know, oh my God. Yeah. All of the above. Yeah. You know, writing software, doing a lot of architecture and design, not spending as much time as I want writing software. And that's always been a challenge when you're a lead, you know, cause you're in so many meetings, but I'm very involved with, you know, the actual design and rollout of like what we're doing day to day. And then, yeah, it's, you know, I basically lead an integrations platform. So we manage the interface and for how things connect into our platform, which is, you know, and I've leveraged all my expertise, you know, everything, my NPM background. What I've created is essentially something very similar to MCP actually."
+    },
+    {
+      "start": 2440.44,
+      "end": 2441.72,
+      "speaker": "jerod-santo",
+      "text": "Oh, model context protocol?"
+    },
+    {
+      "start": 2441.72,
+      "end": 2443.76,
+      "speaker": "amal-hussein",
+      "text": "Yes. Yeah. Right. Cause we, well, I-"
+    },
+    {
+      "start": 2443.76,
+      "end": 2456.64,
+      "speaker": "jerod-santo",
+      "text": "That's an acronym that I know, but I don't know much else beyond the acronym. I know the acronym and I know what they're trying to do, but I'm not sure, I don't know the protocol at all. So, and very few of us probably do, it's pretty new stuff. So feel free to elaborate if you want to."
+    },
+    {
+      "start": 2456.64,
+      "end": 2569.32,
+      "speaker": "amal-hussein",
+      "text": "Yeah, sure. So, I mean, essentially I run a team that like, one of the things that my team owns is agents. So we actually have agents that like do the tasks, do the work, you know, and we have an integration. We have an interface, a standard interface for how, you know, these third-party integrations connect. And, you know, and that was kind of my, my first baby when I joined a star, it was like, oh, we're just go up. What we need, we need a clean way of doing this integration. Like this is a third-party integration. And so we kind of have something very similar to package managers, right? Like where we have different, you know, we have packages that can get installed and you know, how those things get managed and published and registered is all very, you know, borrowed a lot from my experience working at NPM. And what we've done is kind of created the standard way for any third-party package, any third-party tool to connect and integrate in with our agents, right? And so that our agents can like do the things, you know, that our users want to do on the other side, right? So we have functions that can be invoked, that users can invoke and yeah. So I'm like, I feel like I'm getting into the weeds and I'm like, I don't, you know, this is where I'd want to have like a screen and like pull up a demo, but yeah. So we- We don't have a demo available, so. We don't, yeah. We don't have a demo available right now. We don't have a screen, but like, I think it'll be worth it like once we're a little further along and we've actually just started to come out of stealth we have, you know, we've been talking to a lot of, a lot of customers, you know, we have, you know, many customers who, again, you would know on a first name basis, but we, in terms of like beyond our customers, like we're just starting to come out of stealth. And so I think it'd be worth it to even just, once we're further along, I'd be happy to kind of come back on the show, maybe with Maggie, who's our head of product, you know, to kind of actually just talk through like, what is this? And we are, we are hiring. Can I make a plug?"
+    },
+    {
+      "start": 2569.32,
+      "end": 2575.3,
+      "speaker": "jerod-santo",
+      "text": "Sure, go for it. I'm sure our listeners would love to hear about someone hiring. That's always good right now. We want hires."
+    },
+    {
+      "start": 2575.3,
+      "end": 2589.64,
+      "speaker": "amal-hussein",
+      "text": "Yeah, if you're an info engineer or, you know, hiring for also people from my team, please, yeah. How do they, what do they do? They can't go to the website? Find me on LinkedIn. Find me on LinkedIn. Are you going to be there? I have a LinkedIn, I just DM me and yes, yes."
+    },
+    {
+      "start": 2589.64,
+      "end": 2590.48,
+      "speaker": "jerod-santo",
+      "text": "There you go."
+    },
+    {
+      "start": 2590.48,
+      "end": 2593.92,
+      "speaker": "amal-hussein",
+      "text": "I basically said that as soon as we update our website, I will update my LinkedIn."
+    },
+    {
+      "start": 2593.92,
+      "end": 2597.96,
+      "speaker": "jerod-santo",
+      "text": "Okay, so it's like a, like a standoff. It's like playing chicken, you know?"
+    },
+    {
+      "start": 2597.96,
+      "end": 2626.28,
+      "speaker": "amal-hussein",
+      "text": "It is, yes, but no, DM me, DM me if you're, and yeah, well, I'd love to talk about it more, but basically the long story short is I am in an exciting job that is super challenging and working on, like really complex problems and also a lot of complex constraints, like for example, like I'm not working on SaaS anymore, right? And so this isn't just a pure SaaS. Yeah, well no."
+    },
+    {
+      "start": 2626.28,
+      "end": 2627.4,
+      "speaker": "jerod-santo",
+      "text": "Done with the web."
+    },
+    {
+      "start": 2627.4,
+      "end": 2649.76,
+      "speaker": "amal-hussein",
+      "text": "No, we're not done with the web. I'm not done with the web, but this isn't, this is not just a purely SaaS problem. We can host it and we do host it, but it's also, you can run this fully on-prem. And so, you know, having to design under a lot of constraints where something should be able to be fully on-prem, something should be able to be fully functional in an air-gapped environment, right? Like imagine basically our software should be-"
+    },
+    {
+      "start": 2649.76,
+      "end": 2653.44,
+      "speaker": "jerod-santo",
+      "text": "How do you connect threads together in an air-gapped environment? It doesn't even make sense."
+    },
+    {
+      "start": 2653.44,
+      "end": 2655.16,
+      "speaker": "amal-hussein",
+      "text": "Through the internet."
+    },
+    {
+      "start": 2655.16,
+      "end": 2656.8,
+      "speaker": "jerod-santo",
+      "text": "Well, it's air-gapped."
+    },
+    {
+      "start": 2656.8,
+      "end": 2657.64,
+      "speaker": "amal-hussein",
+      "text": "Well-"
+    },
+    {
+      "start": 2657.64,
+      "end": 2658.48,
+      "speaker": "jerod-santo",
+      "text": "There's no internet?"
+    },
+    {
+      "start": 2658.48,
+      "end": 2660.56,
+      "speaker": "amal-hussein",
+      "text": "No, it's not internet, I said intranet."
+    },
+    {
+      "start": 2660.56,
+      "end": 2661.6,
+      "speaker": "jerod-santo",
+      "text": "Oh, intranet."
+    },
+    {
+      "start": 2661.6,
+      "end": 2662.42,
+      "speaker": "amal-hussein",
+      "text": "Yeah."
+    },
+    {
+      "start": 2662.42,
+      "end": 2668.76,
+      "speaker": "jerod-santo",
+      "text": "Okay. When I think air-gapped, I think like you have to walk over to the computer to put something into it because there's no network at all."
+    },
+    {
+      "start": 2668.76,
+      "end": 2670.6,
+      "speaker": "amal-hussein",
+      "text": "Yeah, it's not an internal network."
+    },
+    {
+      "start": 2670.6,
+      "end": 2671.44,
+      "speaker": "jerod-santo",
+      "text": "Internal network, gotcha."
+    },
+    {
+      "start": 2671.44,
+      "end": 2673.32,
+      "speaker": "amal-hussein",
+      "text": "Internal network, nothing from the outside."
+    },
+    {
+      "start": 2673.32,
+      "end": 2674.16,
+      "speaker": "jerod-santo",
+      "text": "Right, right."
+    },
+    {
+      "start": 2674.16,
+      "end": 2674.98,
+      "speaker": "amal-hussein",
+      "text": "Yeah."
+    },
+    {
+      "start": 2674.98,
+      "end": 2679.24,
+      "speaker": "jerod-santo",
+      "text": "So you have these different deployment targets on-prem hosted."
+    },
+    {
+      "start": 2679.24,
+      "end": 2680.08,
+      "speaker": "amal-hussein",
+      "text": "Yeah."
+    },
+    {
+      "start": 2680.08,
+      "end": 2680.9,
+      "speaker": "jerod-santo",
+      "text": "What-"
+    },
+    {
+      "start": 2680.9,
+      "end": 2687.52,
+      "speaker": "amal-hussein",
+      "text": "Multi-cloud, multi-cloud. Multi-cloud. AWS, Azure, GCP, OCI. Like, you know."
+    },
+    {
+      "start": 2687.52,
+      "end": 2689.6,
+      "speaker": "jerod-santo",
+      "text": "Will it run on my phone?"
+    },
+    {
+      "start": 2689.6,
+      "end": 2701.76,
+      "speaker": "amal-hussein",
+      "text": "Not just AWS, AWS Commercial and AWS, all the GovClouds, right? All the secure clouds too, which is its own thing. I've learned so much. I've learned like, not run on your phone yet. Maybe, maybe someday."
+    },
+    {
+      "start": 2701.76,
+      "end": 2708.04,
+      "speaker": "jerod-santo",
+      "text": "Well, that would be like the last deployment target. That or my dishwasher. I mean, what are you guys, what are you building over there? It's gonna run on everything."
+    },
+    {
+      "start": 2708.04,
+      "end": 2710.4,
+      "speaker": "amal-hussein",
+      "text": "Everything, everything, everything. Again, I-"
+    },
+    {
+      "start": 2710.4,
+      "end": 2712.16,
+      "speaker": "jerod-santo",
+      "text": "It's the everything platform that runs on everything."
+    },
+    {
+      "start": 2712.16,
+      "end": 2758.03,
+      "speaker": "amal-hussein",
+      "text": "Okay. It is, it really is. And so that's why it's, this is like an exceptionally hard problem. And it's not just, you know, and you know, my team, we're, you know, we own the agents. We own a lot of platform services. You know, we have stuff that we, we basically can, we're in the integrations. So we're like, we touch everything. We're in the middle of everything. And so it's also just, you know, yeah, like I think even just like hiring and for this team, you know, like you're looking for someone that is comfortable stretching themselves, not just, you know, on, in terms of stack, but in terms of like, you know, you're comfortable working on Windows targets on, you know, on, on, you know, like Red Hat, like enterprise Linux. Sure. Like, you know, like you name it, like we- AIX, you know. We have to support it, right."
+    },
+    {
+      "start": 2758.03,
+      "end": 2761.09,
+      "speaker": "jerod-santo",
+      "text": "Windows, Windows 95. We gotta run on everything."
+    },
+    {
+      "start": 2761.09,
+      "end": 2762.01,
+      "speaker": "amal-hussein",
+      "text": "Gotta run on everything."
+    },
+    {
+      "start": 2762.01,
+      "end": 2786.19,
+      "speaker": "jerod-santo",
+      "text": "So you're in charge of the, of agents. Like, how do you find agents working today? And I don't know, I have so many questions about agents. Like, what are they, where's their intelligence coming from? Like what models are being deployed and are they good? I mean, I just feel like agents are still a promise, but not a reality."
+    },
+    {
+      "start": 2786.19,
+      "end": 2830.13,
+      "speaker": "amal-hussein",
+      "text": "Right. I, you know, I feel, I don't know. I feel like I was, been working on agents before they were cool, I feel like, right. Cause it's been a year, a year or so, but like a year plus for a story. I've just been, I've been there a year. And so basically think about it this way. It, they're like the robots of the future in the sense that like, we need machines to be able to do remote execution for us and to be able to like remotely execute on tasks and remotely do work. Right. And so in theory, like they should be really dumb, but like then how do we make them smart? You know? And so we make them smart through our integrations through like, you know, here's this, like here's an integration, here's, you know, here's code for you to go use this third party module, right? Right. Like some third party tool."
+    },
+    {
+      "start": 2830.13,
+      "end": 2831.81,
+      "speaker": "jerod-santo",
+      "text": "And so. Give that model some context."
+    },
+    {
+      "start": 2831.81,
+      "end": 2868.81,
+      "speaker": "amal-hussein",
+      "text": "It's model context. Give that model, exactly. Right, right, exactly. You know, and then all the functions, but like, but ultimately these are robots that are basically just following instructions, you know, they're just kind of performing remote tasks. And so, you know, we need to, I mean, we kind of, you know, I feel like we started this dance to some degree, you know, with edge computing, right? We're like, oh, we need to be able to do compute on the edge. You know what I mean? And so now we need to be able to do more than just like compute. We need to be able to like have interactive compute on any edge, right? Like, and our agents are designed to like run on super computers. They're designed to run on your desktop. Run on anything. They're designed to run on anything. You know what I mean? That's the other thing that, like I said, that's a very hard job."
+    },
+    {
+      "start": 2868.81,
+      "end": 2872.55,
+      "speaker": "jerod-santo",
+      "text": "Can you trust them though? Can you trust them to run on anything? Like, are they not going to execute the wrong thing"
+    },
+    {
+      "start": 2872.55,
+      "end": 2889.23,
+      "speaker": "amal-hussein",
+      "text": "out there? Right, right. The way we, and that's exactly why we have something called the control plane and the data plane, right? Like our agents, our agents don't, our control plane doesn't speak to agents. Agents speak to the control plane. And so, you know, so there's just a secure communication flow, you know? Like, and-"
+    },
+    {
+      "start": 2889.23,
+      "end": 2890.23,
+      "speaker": "jerod-santo",
+      "text": "Like it's one way."
+    },
+    {
+      "start": 2890.23,
+      "end": 2898.91,
+      "speaker": "amal-hussein",
+      "text": "Right, and like, you know, all the MTLS and like- I don't know what that is. Just encrypted, like- Okay, so TLS with an M on front of it? Yes, yeah."
+    },
+    {
+      "start": 2898.91,
+      "end": 2899.73,
+      "speaker": "jerod-santo",
+      "text": "Okay, I do know what it is."
+    },
+    {
+      "start": 2899.73,
+      "end": 2942.2,
+      "speaker": "amal-hussein",
+      "text": "Thank you. Yeah, right. I'm with you, I'm back. You know, so there's just, yeah, there's a lot of, and then, you know, pat generation, right? Like, you know, tokens, there's a whole, there's ways to make this secure. It is secure. Like we, again, like security, like this is, it's always essentially, you know, our target is working with like the most classified, most sensitive information, right? So like this, you know, secure is kind of core to security and being secure is core to everything, you know? So, so yeah. So like, again, like I said, why it's a hard problem and I can't get into like everything. Sure, sure, sure, sure."
+    },
+    {
+      "start": 2942.2,
+      "end": 2944.76,
+      "speaker": "jerod-santo",
+      "text": "Can you talk about models or is that proprietary, like-"
+    },
+    {
+      "start": 2944.76,
+      "end": 2945.6,
+      "speaker": "amal-hussein",
+      "text": "Models."
+    },
+    {
+      "start": 2945.6,
+      "end": 2952.24,
+      "speaker": "jerod-santo",
+      "text": "Like what models are these agents using for their intelligence? Are you using Llama? Is it DeepSeek? Do you have your own models that you've trained?"
+    },
+    {
+      "start": 2952.24,
+      "end": 2954.56,
+      "speaker": "amal-hussein",
+      "text": "Yeah, I can't, I don't think I can get into that."
+    },
+    {
+      "start": 2954.56,
+      "end": 2955.38,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 2955.38,
+      "end": 2960.04,
+      "speaker": "amal-hussein",
+      "text": "Yeah, I know. Like I said, like once we're further, I will, I'm excited to-"
+    },
+    {
+      "start": 2960.04,
+      "end": 2963.24,
+      "speaker": "jerod-santo",
+      "text": "Would you use one of these to like buy yourself something off of Amazon?"
+    },
+    {
+      "start": 2963.24,
+      "end": 2965.74,
+      "speaker": "amal-hussein",
+      "text": "Like- I would, yeah. You would?"
+    },
+    {
+      "start": 2966.26,
+      "end": 2969.03,
+      "speaker": "jerod-santo",
+      "text": "Okay, go get me a new sweater."
+    },
+    {
+      "start": 2969.03,
+      "end": 2984.95,
+      "speaker": "amal-hussein",
+      "text": "You, well, you, you, you can, it can do anything you instruct it to do. Anything that a module, you know, anything that's in a, any function that's in a module is what it can do. So if you trust the module author, you know, you can have it do whatever you want."
+    },
+    {
+      "start": 2984.95,
+      "end": 2990.63,
+      "speaker": "jerod-santo",
+      "text": "So the agent is like a little program that runs other programs in a remote context."
+    },
+    {
+      "start": 2990.63,
+      "end": 2991.75,
+      "speaker": "amal-hussein",
+      "text": "Exactly."
+    },
+    {
+      "start": 2991.75,
+      "end": 2993.15,
+      "speaker": "jerod-santo",
+      "text": "Okay, interesting."
+    },
+    {
+      "start": 2993.15,
+      "end": 2994.75,
+      "speaker": "amal-hussein",
+      "text": "Yeah, robot of the future."
+    },
+    {
+      "start": 2994.79,
+      "end": 3001.71,
+      "speaker": "jerod-santo",
+      "text": "Have you thought and talked about agentic coding much? This is slightly upstream, but it's also in the world of agents."
+    },
+    {
+      "start": 3001.71,
+      "end": 3071.07,
+      "speaker": "amal-hussein",
+      "text": "Yeah, no, I've like read a little bit. Yeah. And I've even seen some changelog stuff come through on that. Like, I mean, I think, you know, what's interesting is like, there's so much innovation and change right now. Everything is like, you know, we're just kind of grasping and like, it feels like a mound that's like continually shaping and reshaping. Like I just saw something like, oh, is diffusion dead? Like, you know, like the thing that was so popular just like what, two years ago or something, like one and a half, you know? So it's just like, everything is morphing. Everything is shaping. We are shaping and defining our future like day by day, hour by hour at this point. And so, yeah, I'm not like over-invested and kind of keeping up with like all the specifics of the hype train, if that makes sense. You know, it's just for sanity. What I do know is that I am building for the future and I've gone through my own journey with AI and usage of AI. And, you know, and basically like what I'm doing and, you know, we're building a reference architecture to scale, you know, with LLMs. Yeah, that's kind of what we're doing at Astari as well."
+    },
+    {
+      "start": 3072.17,
+      "end": 3077.73,
+      "speaker": "jerod-santo",
+      "text": "Take us on your journey."
+    },
+    {
+      "start": 3077.73,
+      "end": 3080.41,
+      "speaker": "amal-hussein",
+      "text": "Well friends, I'm here with a good friend of mine,"
+    },
+    {
+      "start": 3080.41,
+      "end": 3098.61,
+      "speaker": "jerod-santo",
+      "text": "David Hsu, the founder and CEO of Retul. So David, I know so many developers who use Retul to solve problems, but I'm curious. Help me to understand the specific user, the particular developer who is just loving Retul. Who's your ideal user?"
+    },
+    {
+      "start": 3098.61,
+      "end": 3103.61,
+      "speaker": "amal-hussein",
+      "text": "Yeah, so for us, the ideal user of Retul"
+    },
+    {
+      "start": 3103.81,
+      "end": 3138.97,
+      "speaker": "jerod-santo",
+      "text": "is someone whose goal, first and foremost, is to either deliver value to the business or to be effective. Where we candidly have a little bit less success is with people that are extremely opinionated about their tools. If, for example, you're like, hey, I need to go use WebAssembly, and if I'm not using WebAssembly, I'm quitting my job, you're probably not the best Retul user, honestly. However, if you're like, hey, I see problems in the business and I want to have an impact and I want to solve those problems, Retul is right up your alley. And the reason for that is Retul allows you to have an impact so quickly. You could go from an idea, you could go from a meeting, like, hey, you know, this is an app that we need,"
+    },
+    {
+      "start": 3138.97,
+      "end": 3149.29,
+      "speaker": "amal-hussein",
+      "text": "to literally having the app built in 30 minutes, which is super, super impactful in the business. So I think that's the kind of partnership or that's the kind of impact that we'd like to see with our customers."
+    },
+    {
+      "start": 3149.29,
+      "end": 3159.01,
+      "speaker": "jerod-santo",
+      "text": "You know, from my perspective, my thought is that, well, Retul is well-known. Retul is somewhat even saturated. I know a lot of people who know Retul, but you've said this before,"
+    },
+    {
+      "start": 3159.01,
+      "end": 3161.81,
+      "speaker": "amal-hussein",
+      "text": "what makes you think that Retul is not that well-known?"
+    },
+    {
+      "start": 3161.81,
+      "end": 3210.01,
+      "speaker": "jerod-santo",
+      "text": "Retul today is really quite well-known amongst a certain crowd. Like, I think if you had a poll, like Engineers of San Francisco or Engineers of Silicon Valley, even, I think you'd probably get like a 50, 60, 70% recognition of Retul. I think where you're less likely to have heard of Retul is if you're a random developer at a random company in a random location, like the Midwest, for example, or like a developer in Argentina, for example, you're probably less likely. And the reason is, I think, we have a lot of really strong word of mouth from a lot of Silicon Valley companies, like the Brexist, Coinbase, Nordash, Stripes, et cetera, of the world. There's a lot of, Airbnb is another customer, so there's a lot of chatter about Retul in the Valley, but I think outside of the Valley, I think we're not as well-known. And that's one goal of ours is to go change that."
+    },
+    {
+      "start": 3210.01,
+      "end": 3219.39,
+      "speaker": "amal-hussein",
+      "text": "Well, friends, now you know what Retul is. You know who they are. You're aware that Retul exists. And if you're trying to solve problems for your company, you're in a meeting, as David mentioned,"
+    },
+    {
+      "start": 3219.39,
+      "end": 3255.06,
+      "speaker": "jerod-santo",
+      "text": "and someone mentions something where a problem exists, and you can easily go and solve that problem in 30 minutes, an hour, or some margin of time that is basically a nominal amount of time. And you go and use Retul to solve that problem. That's amazing. Go to retul.com and get started for free or book a demo. It is too easy to use Retul, and now you know. So go and try it. Once again, retul.com. Take me on your journey."
+    },
+    {
+      "start": 3255.06,
+      "end": 3263.46,
+      "speaker": "amal-hussein",
+      "text": "Well, there's a lot of feelings. So my journey has just been like, you know, it was just like terrified first, right? Because it's like, what is this, right? It's like, oh, you know? And then you use it, and you're like-"
+    },
+    {
+      "start": 3263.46,
+      "end": 3266.26,
+      "speaker": "jerod-santo",
+      "text": "I don't like new things. This is scary. Yeah, sure."
+    },
+    {
+      "start": 3266.26,
+      "end": 3405.85,
+      "speaker": "amal-hussein",
+      "text": "And then you use it, and you figure out, okay, actually, you know, this is really useful. And now I use AI multiple times a day, like every day, you know, and, you know, to do my work, to check my work, to like help clean up docs, you know, to write tests, whatever it is, right? Like, but there's just kind of this, you know, what I don't like that's going on is this hype from, you know, these founders, you know, perplexity founders, or whoever founders that are just like, in 12 months, like all code will be written by AI. And like, you know, things like that are just, you know, you have to be, they have to be taken with a grain of salt. These are people selling products, you know, they're not gods. They cannot predict the future. And also like the role of the software engineer feels like it's very much shifting in the sense that like, I think we have to accept that AI is here, right? Like we have to get to a place of acceptance. And so, you know, how are we building and incorporating this into our products? How are we delivering more value for our customers using AI, not just kind of the slap on experience, but like how are we truly integrating this into our products in a way that makes sense, that solves problems faster for customers or internally or externally. And like, I think, yeah, I think the, you know, it's okay to be afraid. Like, I think that's normal and expected. Like I can say, I don't, for me, it probably was, it was like, it was fun, you know, it was like fear, uncertainty, doubt, you know, it's probably, you know, a mix of what I had, but I think, you know, being kind of more future focused, like I actually think this is like a pretty exciting time. If you're willing to just kind of like shut your fear, mute your fear for a second and actually just kind of like, see the opportunities ahead, like, which, you know, I think are actually pretty plentiful. If you're willing to dig in and lean in. Unfortunately, this is yet another thing that's volatile and shifting for us. You know, it's like, man, like, can we ever get a break in tech? Like, you know, can I just get like one month of stability? You know, like just please, you know, but, but you know, that's just, this is the job. This is the, this is the self-flatulating industry that we've all picked. And so here we are, you know, like, it's just."
+    },
+    {
+      "start": 3405.93,
+      "end": 3410.45,
+      "speaker": "jerod-santo",
+      "text": "We got a shiny new wheel that we reinvented. You better get that new wheel."
+    },
+    {
+      "start": 3410.45,
+      "end": 3414.07,
+      "speaker": "amal-hussein",
+      "text": "Right, right. But I don't know, what do you think?"
+    },
+    {
+      "start": 3414.07,
+      "end": 3625.57,
+      "speaker": "jerod-santo",
+      "text": "So, I mean, I think medium term, I'm definitely, I don't, I'm not going to say the word bullish because I'm not necessarily, I think bullish implies that you're also excited about it. But like, I'm confident that our day-to-day work, now I'm talking about software engineering, not necessarily product development, but I think that our day-to-day work is changing and is going to continue to change over the next 18, 24 months. I don't know exactly where it plateaus or if it plateaus. I feel like I've hit a few plateaus over the last 24 months, but every time you plateau, then there's like something, like you said, it's a month goes by and something else. And so I think where the agentic coding, where the AI is actually writing the code for you is the next question mark for me, where it's like, is this actually going to be the future? Because I think it's pretty clear that it's found its use in our lives as an auto-completer, as a rubber duck programmer, right? And we're okay with it, like spitting out boilerplate that we then agree to and change or whatever, but where the real gains can be had in productivity is like, can I have a fleet of little AI agents and I send them off to do things and they're better than me at it anyways, and they do the things and they come back and I'm done, or I'm moving on to my next thing, which some people think is like happening or will happen in the next 12 months. I'm just not, that's why I asked you like, do you trust your agents? Because I'm just not so sure if and when that's gonna be like human out of the loop, because honestly, if I make fun of vibe coding all the time, mostly because I think it's a really fun term, like I'm really glad it got coined, I've made a bunch of memes about it, but if vibe coding could actually be the future of coding, like if they could get that good, it's gonna be dramatically different, it's gonna be very exciting, it's gonna be very scary for people who make their life, their careers coding. And I'm not sure long-term if it's actually gonna deliver on that promise. That's why I ask people when the agents come up, like, how good are these suckers? Because there are those who think, I most recently read the Steve Yeaggy post, The Revenge of the Junior Developer, I covered that in Changelog News, of course he works at Sourcegraph, and so I said that on the show, I'm like, he's selling tools that are gonna put AI agents into your IDE, and so he's incentivized to be bullish on this, but he's saying fleets of agents are going to 10x, 100x in the next 12 months our ability to write code, and he's a smart person, he's not just a hype boy, I respect Steve, he's had quite a career, and I'm just not sure if he's right or not, so that's why I just don't know. I see a lot of stuff out there that's like, this is great for proofs of concepts and prototypes, but will it soon be great for production systems, or is it always gonna be, and by always I mean over the next foreseeable years, just that quality of like, now we've got the prototype, now let's go build the thing. I'm not sure, that's why I ask everybody how they feel about agents, I feel like the agents you guys are deploying are different than coding agents."
+    },
+    {
+      "start": 3625.57,
+      "end": 3672.3,
+      "speaker": "amal-hussein",
+      "text": "Yeah. Yeah, but they are different, but I think for us, our goal is to, we wanna have an LLM be able to write our integrations, that's the way we scale, otherwise it's like a boil the ocean problem, because every company, every customer has their own stack, and da-da-da-da-da, and so that's kind of what we're working towards. I think in terms of the coding agents that you talk about, just putting my, taking my Astari hat off, and putting my ML engineer hat on, like, you know, it's like, I'm not personally convinced that like we're ever gonna have humans out of the loop if you want production software running, right? Like we, I mean, it's not this decade anyway, right? Like-"
+    },
+    {
+      "start": 3672.3,
+      "end": 3676.84,
+      "speaker": "jerod-santo",
+      "text": "I'm kind of with you, but then I have to like check my bias and be like, is that because I'm a curmudgeon?"
+    },
+    {
+      "start": 3676.84,
+      "end": 3682.44,
+      "speaker": "amal-hussein",
+      "text": "No, no, I don't think it is, because you need an AI to check the AI to check the AI, and then like- But can't you just do that?"
+    },
+    {
+      "start": 3682.44,
+      "end": 3714.43,
+      "speaker": "jerod-santo",
+      "text": "Like they do have AIs, you know, one of the problems with hallucinations can be solved by simply having another one that checks the original one and being like, nah, that doesn't sound right. And so while we can't get to like 100% accuracy with this current technology, because they are just, you know, next word predictors, you can have AIs that watch AIs that watch AIs, and if you have enough of that, you can like, you know, on an infinite scale, approach zero, and so you can kind of solve that problem by literally having AIs watching AIs watching AIs."
+    },
+    {
+      "start": 3714.43,
+      "end": 3742.67,
+      "speaker": "amal-hussein",
+      "text": "Yeah, but at that point, it just becomes a matter of like compute and complexity, and you're managing a different set of problems, so you're just trading one bag of problems for another, and also like, I'm sorry, like, is there a problem with using humans? Like, yeah, humans using AI to go faster seems like the best compromise, right, in the sense that like, I think that's, you know, the kind of, you know, having the AI speed pack, I think, you know, the AI jet pack on a human, I think, for me, is what actually like the future looks like."
+    },
+    {
+      "start": 3742.67,
+      "end": 3771.57,
+      "speaker": "jerod-santo",
+      "text": "I think that's a surefire win. I agree with you that that's going to be, and is, even today, even at the most basic levels now, the way I use AI in my coding, which is basic, I'm basic. Yeah. I'm basically, I'm not intended there, I have just, I don't do any of the fancy stuff, all I do is, instead of ever getting a Google search, okay, anything that I would have previously just pasted into Google, I just paste it into LLM instead."
+    },
+    {
+      "start": 3771.57,
+      "end": 3772.41,
+      "speaker": "amal-hussein",
+      "text": "Yeah, same."
+    },
+    {
+      "start": 3772.49,
+      "end": 3790.97,
+      "speaker": "jerod-santo",
+      "text": "Even just that move is probably like a 20% speed up boost over the Google path, because the Google path requires you to go read the results, click on this blog, oh, this person doesn't know what they're talking about, go back, go out, here's a stack overflow thread, oh, that's not exactly my problem. And so like, of course, the LLM is going to be wrong one in 10, but."
+    },
+    {
+      "start": 3790.97,
+      "end": 3792.13,
+      "speaker": "amal-hussein",
+      "text": "Those odds are better."
+    },
+    {
+      "start": 3792.13,
+      "end": 3819.27,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's just better. So it's better than Google, and so me plus that is better than me plus Google, for sure. Like I'm convinced of that. And so I think that as those things increase, those like automatic wins for human engineers to be better, like we just need to swipe those up and use them, you know, as engineers. But at a certain point, yeah, how good is it going to get is a question that I don't have the answer to."
+    },
+    {
+      "start": 3819.27,
+      "end": 4036.47,
+      "speaker": "amal-hussein",
+      "text": "Okay, so I hear that, here's where my, where I'm coming from, right? And I'm sure people would, there's many people who would disagree with this, but I don't know, maybe not that many actually, but ultimately like your code has to be compliant, right? If you have, if you're running software for any business, like any business that's doing anything meaningful, you know, whether it's, you know, finance, education, et cetera, like there's some level of compliance that you have to adhere to. And so if you can't, if you don't actually know what's in there, right, and you can't, like you don't have a human in the loop guarantee, like you can't certify guarantee. For me, like there's just a giant compliance problem that I see, you know? And then there's also just lots of code that's sensitive, you know, like whether it's like financial algorithms and, and, and, and, and, you know, there's just a lot of kind of, you know, many critical software that like is dealing with like sensitive transactions, right? So that's the other thing. And then, you know, we've seen now with the recent vibe coding, right? Like how easy it is to hack these apps, because they're so poorly made, right? Like, you know, there's just like, sure, people who don't have a software background can write apps by all means, like let's democratize that, go for it. But if you're trying to write something for, in a production context that needs to be compliant and secure and, and scalable, and, you know, where you can actually fix your production problem, like within a timely manner. And basically any code that needs to run a real business that's like dealing with critical or sensitive and important stuff. Like, I just, I don't, I don't see how this scales, right? And that maybe this is my, like, my 2025 basic mind, you know, she can't, she doesn't know, yeah, right, right. Like, yeah, this is, you know, she, she doesn't, she doesn't, she, she can't see the future. It's, you know, yada, dada, dada, but like ultimately, like, I'm just trying to understand, like, why is, where's all this poo poo talk to where, like, why are we poo pooing software engineers? Like, this is what I'm just don't understand. It's like, I feel like there's this attitude of like, oh, you know, we don't need developers anymore. We can be able to do this and that. And like, I just like, what, what have developed, I'm sorry, what have, okay, so I, what have developers really done to kind of deserve this type of rhetoric? Like, do you know what I'm talking about, Jared? Like, you, you've seen that, right? Where it's just like, people are excited that like software engineering jobs are going to be reduced or diminished or, or, or software engineer roles are, or software engineers are going to have like less responsibility or whatever. Like, there's just like this like celebration of like, of, I don't even want to call it a downfall, but like in a perceived downfall. And I just don't really, I don't really understand where that's coming from, you know, and, and I think for me, like the only thing I can chalk it up to, like keeping it totally real is the fact that like, you know, software engineers are, you know, we have, we have been able to assert some type of agency in this world, right? Like we're well-paid, you know, we're not in the like wealth, wealth class, but we're not like, you know, most, most people are like upper middle-class at least in North America. And so, you know, like, we're like a group that has some agency, right? And we've also been able to like, in terms of like being able to switch jobs or whatever else, I know recent years have been tough, but generally speaking for experienced engineers, like I certainly, I certainly still feel like I have agency, you know, I, I get hit up for, for stuff, you know? And so I'm just trying to understand like where, like why this hate towards, towards developers, you know? I don't know if you have thoughts."
+    },
+    {
+      "start": 4036.47,
+      "end": 4058.99,
+      "speaker": "jerod-santo",
+      "text": "I do, I mean, I feel like, I feel like anything I could say would be generalizing because I think there's lots of different reasons why people might be excited about that. One of the memes that I made about vibe coding was, you know, the exit ramp meme, where it's like a car going on the highway and it could be going straight, but then there's an exit ramp and then the car's like pulling a hard right."
+    },
+    {
+      "start": 4058.99,
+      "end": 4060.19,
+      "speaker": "amal-hussein",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 4060.19,
+      "end": 4144.32,
+      "speaker": "jerod-santo",
+      "text": "Well, I made one of those because I had, you know, copious free time and like the straight path. And so in the car was the startup guy or the idea guy, I think I called him. And like the straight path was like code school, you know, cause that's really the, the ilk of the startup guy, the idea guy specifically and gal, just a gender neutral guy. I get it, it's all good. Most of the time it's guys, honestly, it just is, is that they don't have any ability to build what their idea is, right? And so they're looking for a technical co-founder, like that's a, that's a trope. That's a real thing. And it's the plight of them because they can't actually do what they want to do because they can't do what they want to do, okay? So like the old way was like code school and we'd be like, yo, just go to code school, work hard for, you know, however long it's going to take you and then you can build your idea. And then the exit ramp now is this guy going vibe code school, you know, he's going to vibe code school. Cause now he can vibe code it. And that's very empowering to idea guys. And I feel like, and this is just one particular stereotype. Okay, like I said, lots of different reasons, but we have had agency. We've also had kind of superpowers where it's like, we can take your idea and we can build it. And that's very valuable in the marketplace. But also if I have an idea, I just build that idea. Emil, if you have an idea, you just build it."
+    },
+    {
+      "start": 4144.32,
+      "end": 4146.92,
+      "speaker": "amal-hussein",
+      "text": "Just build it, yeah, when I have time, yes."
+    },
+    {
+      "start": 4146.92,
+      "end": 4166.33,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly, we don't actually, we aren't actually very good and our ideas kind of suck. And there's lots of reasons why we still fail, but that's been a superpower for software engineers for ever since, you know, maybe the dawn of the internet. We could just take an idea without permission, build it, put it on the internet, you know, be the next Jeff Bezos or whatever it is."
+    },
+    {
+      "start": 4166.33,
+      "end": 4167.25,
+      "speaker": "amal-hussein",
+      "text": "Right."
+    },
+    {
+      "start": 4167.25,
+      "end": 4181.64,
+      "speaker": "jerod-santo",
+      "text": "Now other people think that maybe this is going to get them there. Right. And we're not necessary anymore. That's one possible reason why people are excited for the demise of the software engineer. It's like, well, we don't need you guys anymore, maybe."
+    },
+    {
+      "start": 4181.64,
+      "end": 4315.38,
+      "speaker": "amal-hussein",
+      "text": "Yeah, no, I think that, I think there's something to that. Like we've been a bottleneck, right? And I think that's like, it's not a, you know, and a frustrating one, right? Because, you know, there's so much of, you know, unfortunately one of the problems in our industry is, you know, we have this, so in industry, unfortunately in our industry, we fetishize a handful of companies, you know, a handful of companies, everyone wants to work, you know, on, you know, for these handful of companies and you have the, you know, brilliant software minds, like highly underutilized at these handful of companies, such that really smart people are working on things like animating poop emojis, right? When they could be really solving critical problems for the government, they could, you know, in education, colleges, like, you know, all kinds of industries, every industry needs to like, level up its technology and digital transformation. There's just so much work to do, but we kind of, you know, we're not line balanced, you know, when it comes to where people are working and or where they want to work and or what they're working on, right? And so I hope that this period that we're in, you know, in our industry kind of helps improve our line balance, right? Like, so that we're more balanced across like all the industries that need our support, but ultimately like we have been a bad bottleneck for all these people who can't hire good talent because either they're too expensive or there's too few of us, right? Right. So that's definitely one thing. And another thing is that like, you know, yes, like time is a real limiting factor and AI lets us do more with our time. And, you know, so that's fantastic. However, there's something called physics and like real world, like constraints, like, you know, time and like your body and all this other stuff. And so, you know, there was a study that was done on like languages and like, no matter like how fast you might think like Vietnamese sounds or Mandarin sounds or, you know, or how slow you think English sounds like the actual average, like words per minute, like, you know, spoken in any language, like, you know, is actually roughly translates to be about the same. And so it's, you know, which says something about like your brain's ability to process information, right? Like we are still like singular human beings."
+    },
+    {
+      "start": 4315.38,
+      "end": 4316.46,
+      "speaker": "jerod-santo",
+      "text": "We're bandwidth constrained."
+    },
+    {
+      "start": 4316.46,
+      "end": 4427.98,
+      "speaker": "amal-hussein",
+      "text": "We're bandwidth constrained, right? So, so yes, we can do more and all the things, but ultimately like doing more also means managing more. Right? So it's one of those things where like, if I, you know, if my team is now shipping and man, you know, shipping more and more features, each feature we ship needs some amount of maintenance. Right? And so ultimately, like, you know, like if, if the same amount of people keep making more work, but not having like, you know, but we're not maintaining it, like it there's, there's a, you know, like that math doesn't really add up. Right? Like, and so, so yes, doing more means we need more. Right? So that this is where I go back to, like, I don't see how this, any of the scales without people. Right? Because yes, we can do more and produce more, but all of that code ultimately needs to live on in front. It needs to be maintained. It needs security patches. Yes. We're going to have AI be able to do a lot of it, but there's still going, you know, with more AI generating stuff, there's still going to need, like, we're still, you know, we might not need, we might not need as many people, but we still need people. Right. And so, so by kind of us exponentiating the AI, there's, I think we'll kind of, we'll, I think there's still a growth curve for engineers, like a big one actually, you know? And so, so that's just, you know, maybe I'm conservative, you know, but I mean, that's just, that's kind of where I stand. And it's very frustrating to me to see this, like, this kind of, all these AI startup founders, you know, just kind of rejoicing at the, you know, they're just, they're just brushing off the value that software engineers bring. Like, while all of these LLMs have been trained on work produced by software engineers, actually, you know what I mean? It's like, give me, and like, end, end, end, right? Not just trained on, but like, you know, who produced this stuff? Who's rolling out this stuff, right? Like, I'm just, it's just, it's, I don't know. It's, we should be more angry about it. Let's just, I'll just, I'll just put it, put it there."
+    },
+    {
+      "start": 4427.98,
+      "end": 4453.42,
+      "speaker": "jerod-santo",
+      "text": "Well, they're disruptors, Amal. They're trying to disrupt the industry because there's lots of money to be made if you can make software without all the people that you have to pay to make software. Or if you can sell the tools that allow other people to do that, that's what a lot of these companies are trying to be, is the, you know, the pickaxe salespeople during the gold rush. And the gold rush is, the new gold rush is vibe coding."
+    },
+    {
+      "start": 4453.46,
+      "end": 4508.74,
+      "speaker": "amal-hussein",
+      "text": "I mean. That's exactly it. It is. That's exactly it. Yeah, that's exactly it, you know? And so it's like, you know what, it's fine. Like, let, let people figure it out and fail. Like, this is why we have open markets and free markets, you know? Like, ultimately, you know, there's room for experimentation and, and whatnot. It's just, it's just the, the challenge in our industry is that like, there's, I don't think, you know, we don't have, like, we don't have the best leaders, you know, because there's, there's something called FOMO and, like, domino effects of FOMO and people just feeling like they're missing out and they, they act on imperfect information and they follow trends that are not really, you know, actually, like, well, like, you know, like, well-intended, well, well thought out, well, whatever, right? Like, there's just, things happen that I think, you know, yeah, people just, there's just, yeah, people act on hype more than they should, basically. That's, that's, to put it simply."
+    },
+    {
+      "start": 4508.74,
+      "end": 4588.69,
+      "speaker": "jerod-santo",
+      "text": "Let me take the other side of this for a moment because you and I are pretty much in agreement or also in similar places in our careers. And one of the reasons why Steve Yege called this post that he wrote, which, it's a good read, you know, he's a good writer, so it's, it's entertaining alongside him making his points, but he called it the revenge of the junior developer. And the reason why he said that is because he's noticed that junior devs or non-devs who are trying to get into it are way more open to accepting and trying and really trying to push the edge of these new technologies, specifically around, you know, agents coding and vibe coding and all these things. Whereas seniors and more experienced developers, you know, we're still testing the waters and stuff, or some of us are like, write it off and never gonna use it. But we're just more stuck in our ways. And I guess I, in that sense, anti-democratization because it's kind of like, and so from our perspective, our bias might be that way because in a very real way, like you've worked really hard to get where you are. And so have I, I mean, maybe not really hard, but I put some work in. And you probably worked harder than I did. We don't need to compare, you know, we've been in the industry a long time."
+    },
+    {
+      "start": 4588.69,
+      "end": 4590.01,
+      "speaker": "amal-hussein",
+      "text": "We can both pat each other on the back."
+    },
+    {
+      "start": 4590.01,
+      "end": 4629.32,
+      "speaker": "jerod-santo",
+      "text": "That's right, that's right. But you know, we're builders. So like, you can bring me your idea and I could build it. And that didn't grow on a tree or that wasn't gifted to me by God when I was born, you know. I worked hard to get there. And so like, seeing people potentially be able to just acquire our skills without any effort, maybe that hurts a little bit. Maybe we don't like that. You know, there's a little bit of, I don't wanna call it gatekeeping. Maybe it's guarding the castle, you know, cause like this castle was hard to build. And I'm valuable now as a worker because of the skills I've acquired. And I don't know, maybe I don't want that to go away. And so I prefer not to believe that it's going to."
+    },
+    {
+      "start": 4629.32,
+      "end": 4793.71,
+      "speaker": "amal-hussein",
+      "text": "Yeah, yeah. You know, it's really, it's interesting you say that because like, I feel like I see the same kind of phenomena happen in the South and in the United States where they tried, whenever they tried to raise minimum wage past like, you know, what it, I don't know, it's like something ridiculously low still in many parts of the country, like under $10, I think. Even whenever they try to raise it to like an actual living wage, there's just so much pushback. And I feel like that pushback happens because people are like, well, you know, it took me years to make that kind of money. And I don't want, you know, like, you know, it doesn't make sense that like, somebody would just get that right away. Like, you know, this feeling that people need to earn, earn it or go through the same level of effort, you know, that they did. And, you know, the reality is like, you know, sure, somebody using LMs, by all means, like, I don't, like I still see myself as being senior to that person, like by a huge majority. I also think that having a software background with AI just puts me in a completely different like category, right? Like it, it exponentiates me in the same way that it exponentiates that other person who has zero knowledge, right? But I have like, you know, but these are like, it's exponentiation. So there's a high log factor, like to account for. So we're still not on the same level. And I think software engineers need to understand that. Like, and that's why I said like earlier, like acceptance is the first phase. And like the next phase is like, you gotta, you gotta, you gotta get moving on this stuff. It starts building for the future, keyword being future. Right? Like, because, because if you, if you dig your heels in and you're like, you know what, whatever, I'm gonna like, just show that I can do this from scratch and I can do it the hard way and this and that, like awesome, you know, but I don't, I don't think the skills that, you know, that we used to pride ourselves on are going to be as relevant anymore, specifically like the like free type coding for 20 minutes, because you've memorized all the syntax. Like, you know, somebody is gonna be able to code faster than you. This is Unix, I know this. Like, yeah, like, you know, like 10 times, like a bajillion times faster than you. So like, just, you gotta like, we have to, we have to relearn some things, you know, in terms of the way we work. But I think this is all part of like the next phase of, you know, what it means to be a senior software engineer in 2025, right? Like it's just, we have just new, yeah, just new benchmarks, new ways of working. I think these are conversations we need to be having more. I think just they haven't been happening enough. And, you know, it's just also just quite frankly, it's still a very challenging time, you know, but, you know, in terms of the market, the job market, you know, so."
+    },
+    {
+      "start": 4793.71,
+      "end": 4847.77,
+      "speaker": "jerod-santo",
+      "text": "For sure. No, I think that's a really good point. And to just, to draw a gross analogy or a basic, just to get back to basics, you know, if we talk about a pickaxe, you know, imagine somebody who had spent years, you know, trying to dig gold with their hands and then the pickaxe comes along. And it's like, hey guys, I've been digging gold with my, you know, I've been digging with my hands and now you get a pickaxe. So two points to that. The first one is you also get a pickaxe, okay? So your life's better now. So just grab the pickaxe. And the other thing is, do you know how strong you got while you were like digging rocks up with your bare hands? And so when you put a pickaxe in your hand, you're gonna be better at it, stronger. You know, it's a gross analogy. Then the person who just, you know, came off the streets and you hand them a pickaxe, you have skills. You can actually leverage the tool better than other people can. And so don't forgo the pickaxe because you got really good at using your hands. Like grab that sucker and be good at it."
+    },
+    {
+      "start": 4847.77,
+      "end": 4940.83,
+      "speaker": "amal-hussein",
+      "text": "You got it, you got it, you got it, you know? And I think also just remember y'all, like this is, yes, this is our industry. You know, for me, I have a lot of passion that I bring to my job that I, and I have a lot of passion towards this industry because, you know, it helps me solve problems. It helps me, you know, build cool stuff, yada, dada, dada, right? Like I'm very intellectually satisfied. And like, you know, like this is like a huge source of like, you know, there's some value there for me. However, this is also just a job. And I think, you know, now more than ever, we really need to be focusing on like, not just boundaries, but just understanding that like, you know, there's more to life than tech, you know, because it's so ubiquitous. It's just important to remind yourself that like, you know, yeah, you know, just cause AI is here doesn't mean that you need to spend like, you know, another, start another eight hour shift when you're home. Like, you know, you know, it's no, like you've got to find balance and just take care of yourself and your bodies. Because I think what's gonna happen with this, you know, this Ferrari that everybody has now is like, you know, you can't, you can't be driving the Ferrari all the time. It's a lot, you know, it's a lot of cognitive overhead and overload that comes with this stuff. So, yeah, I think we're still figuring out like how, you know, how we balance the, you know, the physics of our humanity with this, like, with this kind of quote unquote, like infinite, like superpower, you know, like it's, we're just, I think that's still TBD, but-"
+    },
+    {
+      "start": 4942.56,
+      "end": 4944.24,
+      "speaker": "jerod-santo",
+      "text": "But to that point, to that point."
+    },
+    {
+      "start": 4944.24,
+      "end": 4946.52,
+      "speaker": "amal-hussein",
+      "text": "Yes, yes. I think we're gonna get to my favorite topic."
+    },
+    {
+      "start": 4946.52,
+      "end": 4947.92,
+      "speaker": "jerod-santo",
+      "text": "Do you want to talk about having a baby?"
+    },
+    {
+      "start": 4947.92,
+      "end": 4953.4,
+      "speaker": "amal-hussein",
+      "text": "I mean, you had a baby. I had a baby, everyone. I got an upgrade to mom."
+    },
+    {
+      "start": 4953.4,
+      "end": 4956,
+      "speaker": "jerod-santo",
+      "text": "Yeah, there's a title no one can take away from you, right?"
+    },
+    {
+      "start": 4956,
+      "end": 4989.32,
+      "speaker": "amal-hussein",
+      "text": "Seriously, no. And that's, that's it. Like I, becoming a mother has been a centering and clarifying experience and actually, you know, it's a surprising side effect happened as well, which is actually me being more confident and efficient at work even, right? Like I, and I was, I felt like I was already pretty confident, probably could have, could have been more efficient, but generally pretty efficient. And I think it's just, it just comes down to that age old saying of like, you know, if you want something done, give it to a busy person, you know?"
+    },
+    {
+      "start": 4989.32,
+      "end": 4992.72,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah, yeah, I mean, that's, that's a classic."
+    },
+    {
+      "start": 4993.2,
+      "end": 4994.04,
+      "speaker": "amal-hussein",
+      "text": "Yeah, I'm like, I knew."
+    },
+    {
+      "start": 4994.04,
+      "end": 4995.54,
+      "speaker": "jerod-santo",
+      "text": "Cause you're busier than you've ever been."
+    },
+    {
+      "start": 4995.54,
+      "end": 4996.38,
+      "speaker": "amal-hussein",
+      "text": "Busier than I've been."
+    },
+    {
+      "start": 4996.38,
+      "end": 4998.9,
+      "speaker": "jerod-santo",
+      "text": "Which means you gotta get stuff done cause you don't have time to screw around."
+    },
+    {
+      "start": 4998.9,
+      "end": 5004.24,
+      "speaker": "amal-hussein",
+      "text": "I don't have time to bike shed all the things. You just gotta get it moving."
+    },
+    {
+      "start": 5004.24,
+      "end": 5015.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah, there is a clarity that comes from like, what's actually important here. Oh yeah. When you just don't have time to dork around, you know, you're like, no, I'm not gonna, I'm not gonna spend a half hour on what color this bike shed should be."
+    },
+    {
+      "start": 5015.36,
+      "end": 5073.98,
+      "speaker": "amal-hussein",
+      "text": "Exactly, exactly. That's exactly. And so it's just been this thing that has brought, I feel like it's been like a fluff compressor. You know, like a pillow, like you take a pillow that has all the air and then if you like scrunch it down, like it's like, oh, this pillow is actually like a lot smaller without the air. Like, I feel like I had all the air being fluff in my life for something long. And I was already like, you know, they had a lot going on, but like now it's just, I really impressed for time. And so, you know, it's, yeah, it's just, it's just in real like do mode. And I think also, you know, problem that I've had historically in my life was, you know, being a perfectionist and you know, wanting everything to be perfect. And I think that's also just, I've had really good practice with just like, oh no, actually, no, this doesn't have to be perfect. Like it's brought me to this like new phase of my life as well, which has been very healthy. And again, productive, right? Cause you know, you're, you're just, you're not letting perfect get in the way of good, you know? Right. And so."
+    },
+    {
+      "start": 5073.98,
+      "end": 5074.84,
+      "speaker": "jerod-santo",
+      "text": "Cause you don't have a choice anymore."
+    },
+    {
+      "start": 5074.84,
+      "end": 5077.02,
+      "speaker": "amal-hussein",
+      "text": "Exactly. And so."
+    },
+    {
+      "start": 5077.02,
+      "end": 5078.86,
+      "speaker": "jerod-santo",
+      "text": "But you also don't get to sleep very much, do you?"
+    },
+    {
+      "start": 5078.86,
+      "end": 5084.74,
+      "speaker": "amal-hussein",
+      "text": "I mean, how old's your child? So my son is, he's turning six months. Okay."
+    },
+    {
+      "start": 5084.74,
+      "end": 5088.22,
+      "speaker": "jerod-santo",
+      "text": "So you're outside of the real heart area. Was he, is he a good sleeper though?"
+    },
+    {
+      "start": 5088.22,
+      "end": 5196.82,
+      "speaker": "amal-hussein",
+      "text": "He is, thank goodness. That helps. Yeah, we're in like, he's been sleeping like, you know, eight hours- Oh yeah, that helps. Since like he was three months. And so thank God, cause it was, I, you know, I took like three and a half months off of work and he was just, he, you know, just in time for, for returning to work. Yeah. But no, I, you know, it was just one of the reasons why I, you know, life just got very busy. I was just at this, you know, Astari has been like, whoa, I mean, weird. I've never worked at the pace that I have while not feeling an ounce of burnout. And then that's just amazing. And I realized like, oh, you know, why is it that I felt burnt out at other jobs? And it's like, oh, it's because like burnout isn't necessarily about working hard. It's like, it's actually when you don't feel like you're making as much traction as you should be and you're working really hard and things aren't moving, you get burnt out sometimes or when you don't get the gratification back, you know, but it's just been this really nice, like work hard, get done, ship, make a difference kind of like, and, you know, working in a high, high trust environment with really smart, kind people in a rapid fashion has just been really, for me at this stage in my career, like, I feel like I'm bringing it all together. Like I'm bringing in all of my skills, you know, alignment, design, you know, working on, you know, complex problems, like all the experience that I have just in software engineering from all the jobs are coming into this role. And I get to kind of exercise all these skills, leadership, you name it. And it's just been really fun. I didn't, this is, like I said, I didn't know I was gonna enjoy early startup this much. I hope to be able to kind of just stay with the story. And like I said, just kind of retire. That's my goal. I don't wanna work anywhere else."
+    },
+    {
+      "start": 5196.82,
+      "end": 5204.16,
+      "speaker": "jerod-santo",
+      "text": "I was gonna say, I think stability at this point is probably attracted to you because you've had a lot of jobs over a not very long time. I mean, you've moved a lot."
+    },
+    {
+      "start": 5204.16,
+      "end": 5236.06,
+      "speaker": "amal-hussein",
+      "text": "Yeah, right. And moving is also like, it's, that moving is just come from like impatience on my part. Like, you know, minus the NPM layoff, really everything else is just like me being impatient and being like, oh, I'm done. Like, F this, you know what I mean? Like, you know, and so, yeah, like, I think, so it's just, so that's nice. That part is nice. And then what else? Yeah, it's just amazing. Like being alone. So you work from home then?"
+    },
+    {
+      "start": 5236.06,
+      "end": 5242.82,
+      "speaker": "jerod-santo",
+      "text": "I mean, a lot of the challenges are around logistics. Of course, the timing, like the baby's crying while you're in a meeting, like stuff like that."
+    },
+    {
+      "start": 5242.82,
+      "end": 5294.18,
+      "speaker": "amal-hussein",
+      "text": "Yeah, it's honestly been, you know, knock on wood, you know, thank God. It's been extremely smooth. I have like, we have a five bedroom house. I have childcare right in my house. You know, I get to like, I'm a nursing parent. I feed my, you know, I feed my son on like a, just get off camera. Every few hours. I'm telling people what to do and I'm feeding my kiddo. That's awesome. That's been awesome. Somebody's gonna take, you know, make sure my husband gets a photo of that at some point for our own internal memory book. But yeah, it's been, you know, just, it's, you know, it's work. We're both busy. You know, and my mom's also coming to help. She's retiring. So then we're gonna have even hopefully more help. Cool. But it's been seamless so far and just also just very rewarding. I actually already want to do this again."
+    },
+    {
+      "start": 5294.18,
+      "end": 5297.78,
+      "speaker": "jerod-santo",
+      "text": "I was gonna ask if you're gonna scale. Like, are you thinking scale?"
+    },
+    {
+      "start": 5297.78,
+      "end": 5333.44,
+      "speaker": "amal-hussein",
+      "text": "I wanna scale. I wanna do this again, which is like crazy because from like day zero to day 59, I was just like, this is amazing. I'm so glad we did this. But holy moly, like, how do people do this more than once? And then day 60 hit. And then it was just this shift instantly. It was like, oh, we're in a groove. We got this. Let's do this again. Like, can you believe it? Like, it was just this like overnight switch. But no, I definitely wanna do it again. I'm reserving the right to change my mind. But I think, you know, like in a year or two, I'd love to give this another whirl."
+    },
+    {
+      "start": 5333.44,
+      "end": 5335.18,
+      "speaker": "jerod-santo",
+      "text": "Are you an only child?"
+    },
+    {
+      "start": 5335.18,
+      "end": 5344.8,
+      "speaker": "amal-hussein",
+      "text": "I am not an only child. I have two siblings, but we are so far apart in age. Like, I'm like 16 and a half years. Yeah, so I wanna do something like not like that for my son."
+    },
+    {
+      "start": 5344.8,
+      "end": 5385.15,
+      "speaker": "jerod-santo",
+      "text": "I think only child is tough. I mean, we have a large family, as you know. And my wife came from a large family. I'm one of three and an older sister, three years older. And my brother was eight years younger than me, 11 years younger than my sister. And so he was, I mean, he's not an only child, but kind of like you, where it's like, he was kind of raised, we were already, I mean, I was in middle school when he was a toddler. And so he's kind of raised like an only child. And I've just seen like, even our kids, like we have built in friendships, like inside of your own family, like there's just a safety and a blessing to that that I think is irreplaceable. So yeah, I would definitely encourage you to scale, you know, have a few agents running around."
+    },
+    {
+      "start": 5385.15,
+      "end": 5488.67,
+      "speaker": "amal-hussein",
+      "text": "I, oh my gosh, I'm telling you, Jared, if I knew I was gonna love being a mom this much, I would have done it like way sooner. Like I held off so long. And you know, the funny thing with the timing, by the way, I didn't get back to that. So I was like interviewing for like, I was this crazy person that was like, I wanna go back to the office because I really miss being with my colleagues. And I was like, you know what? I wanna start a job where I'm in the office once a week or so. So I was like interviewing for jobs out of New York City. I was gonna commute into the city. We're gonna get a little studio there. Yeah, because we, my husband and I, we moved, we left Boston, we went to the other side of Massachusetts. Bought a house in the Berkshires. And so we're like two hours from Boston, two hours from New York now. And we spend a lot of time in both cities, like still. And so I was like, oh, we can just get like a studio in New York and I can be there like, you know, a few times a month. And I, you know, I was interviewing with, you know, I was like, actually my first choice was Data Dog. Like they had actually like, if you're listening to this, the person from Data, he listens to Change Dog. They like were so generous and like made this, you know, incredible offer to lead this team that was very exciting to, you know, to me. And I just had to kind of walk away from that whole thing because I found out just as I was about to start my interviews that I was pregnant and I didn't think it was gonna happen that quick. I was like, wait, what? No, I'm like, I'm in my like late thirties. Like there's no way, like I think it was 37 at the time. And I was like, there's no way that I'm gonna get pregnant this fast. Everybody I know has trouble getting pregnant. And I was like, I have like six to 12 months. I'm like, no problem. And it happened right away for us because I don't know how science works apparently. And, you know, I falsely applied statistics to myself that like, you know, generalize."
+    },
+    {
+      "start": 5488.67,
+      "end": 5490.99,
+      "speaker": "jerod-santo",
+      "text": "But you're not a generalization, you're specific."
+    },
+    {
+      "start": 5490.99,
+      "end": 5541.09,
+      "speaker": "amal-hussein",
+      "text": "Yeah, so I just, I thought, you know, there's no way I'm getting pregnant right now. And then I got pregnant and I was like, okay, well, this changes everything. And so I just kind of paused on all my like New York City jobs, I was like, I'm not going into an office. And then, you know, fortunately this story thing came along. You know, Maggie found out that I was like open and back on the, that I was like regrouping, like, you know, that I was like, I'm like re, like figuring out what I like, like I now need to just like focus on remote roles. And then she's like, hey, if you're open, we're actually like hiring, like we need you. Like, so, and that was it. That was how I got started. It's good to have friends, people, keep in touch with your network. For sure. Let them, you know, you never know where your next opportunity is going to come from."
+    },
+    {
+      "start": 5541.09,
+      "end": 5554.21,
+      "speaker": "jerod-santo",
+      "text": "So yeah. Well, exciting times, happy to catch up with you. And now I know the full story. I'm very excited for you and for your scale. Maybe you'll catch up with my wife and I one of these days, I don't know."
+    },
+    {
+      "start": 5554.21,
+      "end": 5577.51,
+      "speaker": "amal-hussein",
+      "text": "I don't know if you have enough time left. 37. Honest, I, you know, I'm not 37 anymore actually. But, but, but, but North, North of that. But, but no, I like, yeah, I'm telling you, like, if I, if I can squeeze in two kids, I would love to, but realistically, like I think just like one more realistically, you know. But, but yeah."
+    },
+    {
+      "start": 5577.51,
+      "end": 5581.49,
+      "speaker": "jerod-santo",
+      "text": "But hey, you're not a statistic. So, you know, go for the gusto and just see what happens."
+    },
+    {
+      "start": 5583.19,
+      "end": 5584.03,
+      "speaker": "amal-hussein",
+      "text": "Nobody knows."
+    },
+    {
+      "start": 5584.03,
+      "end": 5589.73,
+      "speaker": "jerod-santo",
+      "text": "Nobody knows their own body. I'm just curious, what, what, why did you decide to wait so long?"
+    },
+    {
+      "start": 5589.73,
+      "end": 5667.57,
+      "speaker": "amal-hussein",
+      "text": "Oh, I, it was fear really was like, I wasn't sure how I was going to change. You know, I was like, I really, I liked my life. Like I like who I am. I've worked really hard on myself, you know, professionally, personally, all the things. And I was like really afraid of becoming one of those parents that just like, just doesn't have a life and like doesn't do anything other than child stuff. I see a lot of parents like that. And I was like, I just didn't know. Like it was such a black box. And so I think there was a lot of fear. Like I've been in a stable relationship for a long time. Like my husband and I have been together for a long time. And so, you know, it wasn't like anything relationship wise that was holding me back. It was really just fear of the unknown. And then it was just kind of like, oh, we're just going to do this. And like, I didn't even think about it. Like if I, if any of Change Lock listeners see me in person, I will tell you the story of how I found out. It's a little too personal to share in like a 10,000 person podcast, but it's like pretty, it's pretty funny story. And, you know, like it took me not thinking about it to do it because like, you know, if I think I, if I think if I continue to think about it, I would have just never done it. You know what I mean? It just had to kind of just whatever, go for it."
+    },
+    {
+      "start": 5667.57,
+      "end": 5668.41,
+      "speaker": "jerod-santo",
+      "text": "Rip off the bandaid."
+    },
+    {
+      "start": 5668.41,
+      "end": 5730.11,
+      "speaker": "amal-hussein",
+      "text": "Rip off the bandaid. But it was really fear that was holding me back. And now I know, now I know that I'm still me and I'm still, yeah, actually not only am I still me, but I'm still motivated. Like in a way that like I feel is coming from a place that's even more stable and, you know, there's no vanity, right? It's like, I want to do well so that I can take care of my family. You know what I mean? And I now have somebody depending on me, you know? And so it just changes the stakes. Like it's no longer, you know, just like doing well for the sake of doing well. Like there's something more meaningful behind it. Not to say that people who don't have children don't have, like, that's not what I'm saying. It's just that like, you know, my motivations are now driven, you know, I think from a more, yeah, like an ex, a more. You have an external dependency. Yeah, less van, van, like a less vain external dependency. You got a dependency now, you know?"
+    },
+    {
+      "start": 5730.11,
+      "end": 5732.79,
+      "speaker": "jerod-santo",
+      "text": "You got a supply chain you got to work on."
+    },
+    {
+      "start": 5732.79,
+      "end": 5783.71,
+      "speaker": "amal-hussein",
+      "text": "Yeah, yeah. And I think it's just like all the things that I didn't even think I would enjoy, I'm enjoying. I didn't even think about like, okay, dressing my baby is so much fun. And then like watching my baby's development is so much fun. And then like teaching my baby and like reading to my baby and singing to my baby and like all these things, it's like, wow, you didn't even think about it. You know, like I, at least I didn't, you know? Right. But I'm just, I'm really enjoying this. I hope, you know, we're blessed with, you know, being able to do this again. And I think it's just a good antidote, you know, for me personally, with everything that's happening in the world and all the uncertainty, my little nuclear bubble, you know, is a huge source of gratification and love and, you know, clarity and all the things. And it just, you know, it just puts a lot into perspective."
+    },
+    {
+      "start": 5783.71,
+      "end": 5784.65,
+      "speaker": "jerod-santo",
+      "text": "Well said."
+    },
+    {
+      "start": 5784.65,
+      "end": 5785.49,
+      "speaker": "amal-hussein",
+      "text": "Yeah."
+    },
+    {
+      "start": 5785.49,
+      "end": 5796.57,
+      "speaker": "jerod-santo",
+      "text": "Well said, let's end on that. Yeah. Love catching up with you. We'll have to do it again sometime. And once the story gets that website out, we're gonna check it out."
+    },
+    {
+      "start": 5796.57,
+      "end": 5801.11,
+      "speaker": "amal-hussein",
+      "text": "Yeah, we have a website that's just not great. No, I don't know. The new one."
+    },
+    {
+      "start": 5801.11,
+      "end": 5806.61,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah. The better one. The better one. So congrats on everything and we'll talk soon."
+    },
+    {
+      "start": 5806.61,
+      "end": 5810.82,
+      "speaker": "amal-hussein",
+      "text": "All right. Cheers. Bye."
+    },
+    {
+      "start": 5810.82,
+      "end": 5861.4,
+      "speaker": "jerod-santo",
+      "text": "All right. That's the changelog for this week. Thanks for frenzying with us. Do you share all the feelings Amel shared on the show? Let us know in Zulip. We would love to hear from you. So sign up, why don't you? If you haven't already at changelog.com slash community. It's totally free and it's totally awesome in my opinion. Thanks again to our awesome sponsors. Fly.io, Heroku.com, Depo.dev and retool.com. Please support them. They support us and they have awesome offerings. And thank you to our B freaking residents. Brake master cylinder keeps us topped up with fresh beats. And we love that. Hopefully you do too. Have a great weekend. Share the changelog with your friends. If you dig it and let's talk again real soon."
+    }
+  ]
+}

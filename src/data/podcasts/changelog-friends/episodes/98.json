@@ -1,0 +1,2229 @@
+{
+  "title": "Just on the rocks",
+  "description": "Jerod discusses his experience testing Claude Code after Steve Yegge's episode inspired him to try AI coding assistants. He and Adam explore comments from their controversial AI agents episode, touching on cost concerns, the gig economy implications, and how these tools might democratize software creation.",
+  "links": {
+    "YouTube": "https://youtu.be/HQZZy6QpQys",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo"
+  ],
+  "segments": [
+    {
+      "start": 15.09,
+      "end": 152.5,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, your weekly talk show about generative ARay. A big thank you to our friends and our partners over at Fly.io. That is the home of Changelog.com and the home of many robots. Learn more at Fly.io. Okay, let's talk. Well friends, Retool Agents is here. Yes, Retool has launched Retool Agents. We all know LLMs. They're smart. They can chat. They can reason. They can help us code. They can even write the code for us. But here's the thing. LLMs, they can talk, but so far they can't act. To actually execute real work in your business, they need tools. And that's exactly what Retool Agents delivers. Instead of building just one more chat bot out there, Retool rethought this. They give LLMs powerful, specific, and customized tools to automate the repetitive tasks that we're all doing. Imagine this. You have to go into Stripe. You have to hunt down a chargeback. You gather the evidence from your Postgres database. You package it all up and you give it to your accountant. Now imagine an agent doing the same work, the same task in real time, and finding 50 chargebacks in those same five minutes. This is not science fiction. This is real. This is now. That's Retool Agents working with pre-built integrations in your systems and workflows. Whether you need to build an agent to handle daily project management by listening to standups and updating Jira, or one that researches sales prospects and generates personalized pitch decks, or even an executive assistant that coordinates calendars across time zones. Retool Agents does all this. Here's what blows my mind. Retool customers have already automated over 100 million hours using AI. That's like having a 5,000 person company working for an entire decade. And they're just getting started. Retool Agents are available now. If you're ready to move beyond chatbots and start automating real work, check out Retool Agents today. Learn more at retool.com slash agents. Again, retool.com slash agents."
+    },
+    {
+      "start": 157.34,
+      "end": 161.18,
+      "speaker": "jerod-santo",
+      "text": "Here we are. We are Friendzine. It's me and it's Adam. Hey, Adam."
+    },
+    {
+      "start": 161.18,
+      "end": 161.82,
+      "speaker": "adam-stacoviak",
+      "text": "What's up, man?"
+    },
+    {
+      "start": 162.14,
+      "end": 163.98,
+      "speaker": "jerod-santo",
+      "text": "Long time, no see."
+    },
+    {
+      "start": 163.98,
+      "end": 169.58,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, I know. I've had a little bit of separation, as they say. Keep them separated."
+    },
+    {
+      "start": 169.58,
+      "end": 171.58,
+      "speaker": "jerod-santo",
+      "text": "Anxiety. Do you have any anxiety about that?"
+    },
+    {
+      "start": 171.58,
+      "end": 175.02,
+      "speaker": "adam-stacoviak",
+      "text": "I've been missing you. I've been a little anxious, you know, a little anxious."
+    },
+    {
+      "start": 175.02,
+      "end": 180.54,
+      "speaker": "jerod-santo",
+      "text": "You know, this should be good. Just the two of us, you know, chatting, talking, Friendzine."
+    },
+    {
+      "start": 180.54,
+      "end": 181.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 181.18,
+      "end": 185.18,
+      "speaker": "jerod-santo",
+      "text": "Well, let's start at the start because that's always the best place to start."
+    },
+    {
+      "start": 185.18,
+      "end": 185.68,
+      "speaker": "adam-stacoviak",
+      "text": "Sure."
+    },
+    {
+      "start": 186.06,
+      "end": 196.98,
+      "speaker": "jerod-santo",
+      "text": "And the start for today is going to be me fulfilling my obligation to my new friend, Kendall Miller, who fulfilled his obligation to me and you, I believe."
+    },
+    {
+      "start": 196.98,
+      "end": 200.38,
+      "speaker": "adam-stacoviak",
+      "text": "But yeah, I'm in a different situation now."
+    },
+    {
+      "start": 201.26,
+      "end": 203.74,
+      "speaker": "jerod-santo",
+      "text": "But you are on a dry campus right now."
+    },
+    {
+      "start": 203.74,
+      "end": 204.24,
+      "speaker": "adam-stacoviak",
+      "text": "I am."
+    },
+    {
+      "start": 204.78,
+      "end": 235.6,
+      "speaker": "jerod-santo",
+      "text": "Which was, you know, Kendall Miller, the purveyor of Friday deployment spirits. And I said, Hey, man, send me some of them spirits. And he said, I will, if you test, test them out to TDD them on the show. He sent me some whiskey. He sent me some gin and a full disclosure, the whiskey has been opened. So this will not be a first time taste test. I've already tried this one."
+    },
+    {
+      "start": 235.6,
+      "end": 237.14,
+      "speaker": "adam-stacoviak",
+      "text": "You've been sipping on it. Look at that."
+    },
+    {
+      "start": 237.68,
+      "end": 245.68,
+      "speaker": "jerod-santo",
+      "text": "Here's the Friday deployment whiskey. This is the generative a rye, which is a fun punny name."
+    },
+    {
+      "start": 245.68,
+      "end": 247.12,
+      "speaker": "adam-stacoviak",
+      "text": "Generative a rye."
+    },
+    {
+      "start": 247.12,
+      "end": 248.96,
+      "speaker": "jerod-santo",
+      "text": "I got bottle number 219."
+    },
+    {
+      "start": 249.76,
+      "end": 260.51,
+      "speaker": "adam-stacoviak",
+      "text": "So early, I don't have a bottle near me. I can't judge my number. It's probably two twenties, but I guess one after me, maybe."
+    },
+    {
+      "start": 260.51,
+      "end": 264.27,
+      "speaker": "jerod-santo",
+      "text": "Then he also sent me the force push gin."
+    },
+    {
+      "start": 264.27,
+      "end": 264.83,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, okay."
+    },
+    {
+      "start": 265.55,
+      "end": 274.7,
+      "speaker": "jerod-santo",
+      "text": "Now I told him on the show and I'll tell you this. And so our listeners know I don't like gin, but it tastes like a pine tree."
+    },
+    {
+      "start": 275.26,
+      "end": 275.76,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 276.85,
+      "end": 307.74,
+      "speaker": "jerod-santo",
+      "text": "And he said, you know what? That's a really good pine tree chase. Why don't you to me? It's been, I mean, it's probably been, I don't know. Was I even legal age? I had to be. I had to be legal age, probably like in my twenties because I had gin in my twenties, like at a bar and I'm like, oh, gross. And so he said, maybe your taste buds will have changed. I said, all right, I'll try it out, but you don't just drink gin by itself. Do you? I mean, isn't gin usually with something tonic tonic."
+    },
+    {
+      "start": 308.78,
+      "end": 309.9,
+      "speaker": "adam-stacoviak",
+      "text": "My drink is a gin and tonic."
+    },
+    {
+      "start": 309.9,
+      "end": 313.74,
+      "speaker": "jerod-santo",
+      "text": "If I drink gin, I didn't have any tonic, but I do have this, which I think you're a fan of this."
+    },
+    {
+      "start": 313.74,
+      "end": 315.42,
+      "speaker": "adam-stacoviak",
+      "text": "Aren't you Topo Chico."
+    },
+    {
+      "start": 316.06,
+      "end": 317.26,
+      "speaker": "jerod-santo",
+      "text": "Now that's kind of tonic, right?"
+    },
+    {
+      "start": 317.26,
+      "end": 319.34,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, that's it's tonic ask. Yeah."
+    },
+    {
+      "start": 319.34,
+      "end": 328.24,
+      "speaker": "jerod-santo",
+      "text": "It's it's seltzer water. You got some lime up in there, which is good twist of lime, carbonated mineral water. Now this, we can drink this together. Can't we?"
+    },
+    {
+      "start": 328.24,
+      "end": 329.36,
+      "speaker": "adam-stacoviak",
+      "text": "We can drink that together."
+    },
+    {
+      "start": 329.36,
+      "end": 334.64,
+      "speaker": "jerod-santo",
+      "text": "I actually, I never knew of Topo Chico until you, you introduced me to this."
+    },
+    {
+      "start": 334.64,
+      "end": 336,
+      "speaker": "adam-stacoviak",
+      "text": "I introduced you to a lot of stuff, Jared."
+    },
+    {
+      "start": 336,
+      "end": 336.96,
+      "speaker": "jerod-santo",
+      "text": "You know, you really do."
+    },
+    {
+      "start": 336.96,
+      "end": 338.8,
+      "speaker": "adam-stacoviak",
+      "text": "I am your accessor of life."
+    },
+    {
+      "start": 339.92,
+      "end": 348.77,
+      "speaker": "jerod-santo",
+      "text": "Well, that's just a step too far there, bro. Okay. I'll roll with it. It's my accessor of life. Okay."
+    },
+    {
+      "start": 348.77,
+      "end": 349.49,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 349.49,
+      "end": 354.05,
+      "speaker": "jerod-santo",
+      "text": "Well, now that you're here, I'm living. And so I thought I'd try the gin with some Topo Chico."
+    },
+    {
+      "start": 355.02,
+      "end": 358.94,
+      "speaker": "adam-stacoviak",
+      "text": "And this is the first time taste test right now."
+    },
+    {
+      "start": 359.58,
+      "end": 361.5,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. I'd never have had this in my life."
+    },
+    {
+      "start": 361.5,
+      "end": 362.14,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 362.14,
+      "end": 364.7,
+      "speaker": "jerod-santo",
+      "text": "I can't even get the bottle open. How do you get these off?"
+    },
+    {
+      "start": 365.42,
+      "end": 366.14,
+      "speaker": "adam-stacoviak",
+      "text": "Is it a cork?"
+    },
+    {
+      "start": 366.78,
+      "end": 384.34,
+      "speaker": "jerod-santo",
+      "text": "No, I think it's just a twist. It's a cork in a twister. I might've just broken them. Okay. Oh, and I do have some ice water here. Bear with us people. This is a obligation."
+    },
+    {
+      "start": 384.34,
+      "end": 385.3,
+      "speaker": "adam-stacoviak",
+      "text": "How's the smell?"
+    },
+    {
+      "start": 385.3,
+      "end": 394.58,
+      "speaker": "jerod-santo",
+      "text": "That actually smells kind of good. I wonder if I'm going to like this and he's going to be right. And I'm going to have to eat crow. How much gin do I put in in order to match?"
+    },
+    {
+      "start": 395.7,
+      "end": 400.58,
+      "speaker": "adam-stacoviak",
+      "text": "I'd go, oh, you know, one to two ratio, one to three ratio. So put like an ounce."
+    },
+    {
+      "start": 401.52,
+      "end": 402.24,
+      "speaker": "jerod-santo",
+      "text": "That's about an ounce."
+    },
+    {
+      "start": 402.24,
+      "end": 407.58,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, no, a little bit more. Yeah, yeah, that's good."
+    },
+    {
+      "start": 407.58,
+      "end": 410.22,
+      "speaker": "jerod-santo",
+      "text": "Oh, man. Please don't spill on my computer."
+    },
+    {
+      "start": 410.22,
+      "end": 411.34,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, gosh."
+    },
+    {
+      "start": 411.34,
+      "end": 412.78,
+      "speaker": "jerod-santo",
+      "text": "And Topo Chico."
+    },
+    {
+      "start": 413.34,
+      "end": 415.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Keep going, keep going, keep going, keep going. Stop."
+    },
+    {
+      "start": 417.26,
+      "end": 418.62,
+      "speaker": "jerod-santo",
+      "text": "That's fizzy. I like it."
+    },
+    {
+      "start": 418.62,
+      "end": 421.34,
+      "speaker": "adam-stacoviak",
+      "text": "Give a little stir, a finger stir, even a double finger stir."
+    },
+    {
+      "start": 422.14,
+      "end": 423.34,
+      "speaker": "jerod-santo",
+      "text": "Put my fingers in there."
+    },
+    {
+      "start": 423.34,
+      "end": 424.38,
+      "speaker": "adam-stacoviak",
+      "text": "Sure, they're your fingers."
+    },
+    {
+      "start": 425.02,
+      "end": 430.45,
+      "speaker": "jerod-santo",
+      "text": "Wow. Yeah. I know about them more than you do. I don't put them anywhere."
+    },
+    {
+      "start": 432.26,
+      "end": 433.94,
+      "speaker": "adam-stacoviak",
+      "text": "There's only certain places those things go."
+    },
+    {
+      "start": 435.54,
+      "end": 438.34,
+      "speaker": "jerod-santo",
+      "text": "I'm going to use the back end of this pen."
+    },
+    {
+      "start": 438.34,
+      "end": 441.3,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, gosh. You have more trust with that pen than your fingers."
+    },
+    {
+      "start": 441.3,
+      "end": 444.58,
+      "speaker": "jerod-santo",
+      "text": "Well, this pen is like just sitting in a pen box. It's not been used."
+    },
+    {
+      "start": 444.58,
+      "end": 452.91,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, there's definitely some. Collectedness on that pen like the sound of that."
+    },
+    {
+      "start": 452.91,
+      "end": 457.54,
+      "speaker": "jerod-santo",
+      "text": "That's fizzy water. All right. So it's probably been two decades since I've had this."
+    },
+    {
+      "start": 459.01,
+      "end": 459.25,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 459.97,
+      "end": 491.7,
+      "speaker": "jerod-santo",
+      "text": "But this is for you, Kendall. Appreciate you. Cheers, Kendall. I hope this doesn't disgust me. Yeah, that's trash right there. That's pine trash. I'm not going to lie. Give honest reviews around here. Now, I'm sure. I'm sure if I liked gin, I might like this. I think this is just pure unadulterated."
+    },
+    {
+      "start": 491.7,
+      "end": 493.94,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, my gosh. I had to lean back on that one, man."
+    },
+    {
+      "start": 494.5,
+      "end": 496.44,
+      "speaker": "jerod-santo",
+      "text": "Oh, gosh. That's disgusting. Okay."
+    },
+    {
+      "start": 501.06,
+      "end": 506.82,
+      "speaker": "adam-stacoviak",
+      "text": "I can't wait for the playback. So I can actually watch your face. I'm too busy squinting between my tear filled eyes right now."
+    },
+    {
+      "start": 506.82,
+      "end": 515.23,
+      "speaker": "jerod-santo",
+      "text": "I like it. I can't do it. Oh, my gosh. I appreciate the generosity. Now, the good news is I need a chaser to get rid of that."
+    },
+    {
+      "start": 515.23,
+      "end": 516.59,
+      "speaker": "adam-stacoviak",
+      "text": "Some topo to chase it."
+    },
+    {
+      "start": 518.11,
+      "end": 525.65,
+      "speaker": "jerod-santo",
+      "text": "Straight topo. Pretty good. I have had this. This is the generative a rye."
+    },
+    {
+      "start": 525.65,
+      "end": 526.15,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 526.61,
+      "end": 532.35,
+      "speaker": "jerod-santo",
+      "text": "It's pretty good. I will use that to chase away this gin flavor from the bottle."
+    },
+    {
+      "start": 532.35,
+      "end": 533.79,
+      "speaker": "adam-stacoviak",
+      "text": "You got a separate glass of some ice."
+    },
+    {
+      "start": 533.79,
+      "end": 535.47,
+      "speaker": "jerod-santo",
+      "text": "I got just on the rocks."
+    },
+    {
+      "start": 535.47,
+      "end": 535.97,
+      "speaker": "adam-stacoviak",
+      "text": "Nice."
+    },
+    {
+      "start": 536.51,
+      "end": 560.37,
+      "speaker": "jerod-santo",
+      "text": "Yeah. So I'll drink. I'll sip on this throughout the show as I know it's good. Thanks, Kendall. Go out if you guys like libations. The URL fridaydeployment.co where they say not every day is a good day to deploy. But every day is a good day for a Friday deployment spirit."
+    },
+    {
+      "start": 561.17,
+      "end": 562.37,
+      "speaker": "adam-stacoviak",
+      "text": "All right. So you got this."
+    },
+    {
+      "start": 563.73,
+      "end": 564.61,
+      "speaker": "jerod-santo",
+      "text": "That is good whiskey."
+    },
+    {
+      "start": 565.34,
+      "end": 567.82,
+      "speaker": "adam-stacoviak",
+      "text": "Got some good whiskey on there. Good rye."
+    },
+    {
+      "start": 568.7,
+      "end": 569.34,
+      "speaker": "jerod-santo",
+      "text": "There you have it."
+    },
+    {
+      "start": 570.62,
+      "end": 576.42,
+      "speaker": "adam-stacoviak",
+      "text": "Look at that. That's a steep. That's a $125 bottle. He just gave you for nothing."
+    },
+    {
+      "start": 576.42,
+      "end": 581.54,
+      "speaker": "jerod-santo",
+      "text": "He did. Well, not for nothing. I mean, I mean, well, free publicity will trade."
+    },
+    {
+      "start": 581.54,
+      "end": 582.66,
+      "speaker": "adam-stacoviak",
+      "text": "He trashes gin."
+    },
+    {
+      "start": 583.7,
+      "end": 597.86,
+      "speaker": "jerod-santo",
+      "text": "Well, that wasn't necessarily his gin. I was trashing. I mean, technically it was his gin. Technically it's my gin, but that's true. I don't think you could have put a gin into my mouth that I would have enjoyed. So let's not fault him for that."
+    },
+    {
+      "start": 597.86,
+      "end": 598.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 598.42,
+      "end": 680.02,
+      "speaker": "jerod-santo",
+      "text": "Not force push. Cool name for a gin, I suppose. And generative ARI, of course. Good pun there. And here's how we transition out of this. So Kendall, new friend, Kendall lives in Denver. In fact, when we thought about this live show, I emailed Kendall and I said, Hey man, we're theme up coming to Denver. How about some recommends on some locations we could possibly go. And the Oriental theater was one of the places that he said might work for us. And it turns out that's going to work for us. So if you haven't heard, although we've said it on a few occasions already, we are doing a live show end of July, July 26th. That's a Saturday in Denver, Colorado at the Oriental theater. I will be there. Adam will be there. Gerhard will be there. BMC is going to be there. Not sure in what capacity, but has, has agreed to play music of some kind banjo. And so, uh, that's the plan. So kind of a weekend deal. Everything's optional, you know, come on out. We're going to do a Friday night meetup. We're going to do a Saturday morning live show. Starting at 10 AM. And then we're going to do a Saturday afternoon hike out at red rocks. Have you been to red rocks?"
+    },
+    {
+      "start": 681.04,
+      "end": 692.26,
+      "speaker": "adam-stacoviak",
+      "text": "I've never been to red rocks. I've been near, close, driven by, but never stopped and enjoyed. Red rocks is going to be the case for me. It's going to be a good time."
+    },
+    {
+      "start": 692.26,
+      "end": 744,
+      "speaker": "jerod-santo",
+      "text": "So to learn more about that, although I just told you everything you need to know, I guess besides the price of the tickets, 15 bucks to come to the show, five bucks now free for changelog plus plus members. If you're doing the math, yes. Change log plus plus does cost $10 per month. So, you know, sign up for a month, save five bucks on a ticket that math checks out and come hang with us. Oh my gosh. Fair amount of friends there. We have a lot of fun. We'll do an interview episode. Haven't picked our mystery guest quite yet. If you know somebody who lives in, in and around Denver, maybe Boulder, maybe Loveland, maybe, I don't know, Colorado Springs and wants to come to Denver for a live interview on stage prior to the big Kaizen slash pipely launch, let us know. We would love to hear from you."
+    },
+    {
+      "start": 746.42,
+      "end": 751.01,
+      "speaker": "adam-stacoviak",
+      "text": "Denver. It's where it's at, you know, it's where it's going to go down, man."
+    },
+    {
+      "start": 751.01,
+      "end": 815.35,
+      "speaker": "jerod-santo",
+      "text": "We're live launching pipely. I just recorded a make it work.tv episode last week with Gerhard coding up some pipely features into, into our app to be able to purge URLs from our pipe dream. And so that'll be out soon, but yeah, Gerhard's working away at it and it's getting very close. We have honeycomb logs, we have purging, we have all kinds of stuff going on. So we're getting very close. I think he even has a roadmap. Here it is. Gerhard posted the roadmap on pipely's GitHub, how it's going, how it started, and how it's going. And we're getting pretty close. So a lot of the stuff is like tag and ship. He does have a gradual rollout plan now. So that's you, buddy. You asked for that and Gerhard delivered it. And the plan at the live show on stage is to route 100% of production traffic through pipely."
+    },
+    {
+      "start": 817.12,
+      "end": 819.36,
+      "speaker": "adam-stacoviak",
+      "text": "This is like a mid-year Christmas present, you know?"
+    },
+    {
+      "start": 820,
+      "end": 821.6,
+      "speaker": "jerod-santo",
+      "text": "And it's going to be Christmas in July."
+    },
+    {
+      "start": 822.08,
+      "end": 824.24,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, I'm excited about that."
+    },
+    {
+      "start": 824.24,
+      "end": 833.95,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Any questions, any thoughts, anything at all before we move on? Adam Denver, live show, hiking, meetups."
+    },
+    {
+      "start": 835.94,
+      "end": 849.79,
+      "speaker": "adam-stacoviak",
+      "text": "No, you know, I think, uh, excitement. I'm excited to like do a meetup the one night and then do a morning show and then an afternoon hike. I think that's a great, it's a great flow, you know?"
+    },
+    {
+      "start": 849.79,
+      "end": 850.35,
+      "speaker": "jerod-santo",
+      "text": "I think so."
+    },
+    {
+      "start": 850.91,
+      "end": 856.27,
+      "speaker": "adam-stacoviak",
+      "text": "15 bucks to come or five bucks. Basically, if you're a free plus member, it's free."
+    },
+    {
+      "start": 856.83,
+      "end": 858.27,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that math checks out."
+    },
+    {
+      "start": 858.27,
+      "end": 861.15,
+      "speaker": "adam-stacoviak",
+      "text": "Sorry. Yeah. Free. I checked my math on that."
+    },
+    {
+      "start": 861.15,
+      "end": 861.79,
+      "speaker": "jerod-santo",
+      "text": "Check yourself."
+    },
+    {
+      "start": 862.35,
+      "end": 871.39,
+      "speaker": "adam-stacoviak",
+      "text": "changelog.com slash plus plus become a member, come for free or don't and just waste your money. Come on fools. Don't waste your money."
+    },
+    {
+      "start": 871.39,
+      "end": 872.35,
+      "speaker": "jerod-santo",
+      "text": "Foolish."
+    },
+    {
+      "start": 872.35,
+      "end": 881.1,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Like who makes a $15 ticket to a thing like this, Gerhard? Like how does that even, how's that? How's that check out?"
+    },
+    {
+      "start": 882.38,
+      "end": 890.78,
+      "speaker": "jerod-santo",
+      "text": "15 bucks. It's just a serious check. Like, are you serious? Are you actually going to come? Right. You know, we're not here to make money. We're here to get together."
+    },
+    {
+      "start": 890.78,
+      "end": 898.93,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. So gosh, I thought we were here to make money. I was just like having a check there."
+    },
+    {
+      "start": 899.57,
+      "end": 902.77,
+      "speaker": "jerod-santo",
+      "text": "You got to check yourself, man. That math does not check out."
+    },
+    {
+      "start": 902.77,
+      "end": 917.98,
+      "speaker": "adam-stacoviak",
+      "text": "No, this is good. The roadmap looks good. As a matter of fact, you were talking about that feature in particular with purge requests. Not that I want to toot this horn too much, but I was pretty excited because every once in a while I give Gerhard a side quest."
+    },
+    {
+      "start": 919.17,
+      "end": 919.49,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 919.49,
+      "end": 923.17,
+      "speaker": "adam-stacoviak",
+      "text": "You may notice, Jared, in the PR. What do you, what do you think is in those PRs? It's not normally there."
+    },
+    {
+      "start": 923.73,
+      "end": 925.73,
+      "speaker": "jerod-santo",
+      "text": "Oh, I do know what's in this PR because I was looking at it."
+    },
+    {
+      "start": 925.73,
+      "end": 929.09,
+      "speaker": "adam-stacoviak",
+      "text": "What's in the PR? Can we, can we just mention that really quickly? Is that cool?"
+    },
+    {
+      "start": 929.09,
+      "end": 931.97,
+      "speaker": "jerod-santo",
+      "text": "Yes. So there's code rabbit, right? Is that what it is?"
+    },
+    {
+      "start": 932.53,
+      "end": 944.8,
+      "speaker": "adam-stacoviak",
+      "text": "Code rabbit. Our new friends over at code rabbit. Now they are sponsoring. This is not a sponsor mention. I just want to mention this because one it's free for open source and because we're open source, we didn't have to ask them. So they didn't even, this is not even a blessed thing. We just did this."
+    },
+    {
+      "start": 945.52,
+      "end": 946.56,
+      "speaker": "jerod-santo",
+      "text": "Oh, GitHub is down."
+    },
+    {
+      "start": 947.2,
+      "end": 980.53,
+      "speaker": "adam-stacoviak",
+      "text": "It is down. Gosh. First time I've seen that unicorn in so long. Okay. So Gerhard, I reached out to him via DM, as you may know. I said, Hey, code rabbit has this cool thing for open source. We're open source. Can you plug this in for us on a repos? If you like it. And he's excited. I think he came in like 10 minutes later, excited, like a, like a little kid. And he said, look, what's in my PRS now. And he was so excited to show off this PR with this, uh, you know, this purging and whatnot and the feedback that it gave. And unfortunately I'm narrating an unseeable."
+    },
+    {
+      "start": 981.09,
+      "end": 985.89,
+      "speaker": "jerod-santo",
+      "text": "As I keep reloading the page and it keeps showing us this unseeable thing, but it gave"
+    },
+    {
+      "start": 985.89,
+      "end": 990.69,
+      "speaker": "adam-stacoviak",
+      "text": "a good walkthrough. I can show off what's on my screen, at least to myself."
+    },
+    {
+      "start": 991.33,
+      "end": 992.85,
+      "speaker": "jerod-santo",
+      "text": "Well, we can share yours."
+    },
+    {
+      "start": 992.85,
+      "end": 1028.45,
+      "speaker": "adam-stacoviak",
+      "text": "We can share mine. Let's share this one. Okay. So you should be seeing this now. This is the recently open PR for auth purge requests, PR 16 on the pipely repo, and then code rabbit comes in and just kind of gives this here's what's happening scenario. Here's a walkthrough of what this change does. So I don't know about you, but was this helpful to you to come by after this and be like, this is what this change is doing. And all the files they got touched on what they're doing as a change summary, right? Then even the sequence diagram showing what's happening."
+    },
+    {
+      "start": 1029.09,
+      "end": 1030.74,
+      "speaker": "jerod-santo",
+      "text": "Yup. It's cool."
+    },
+    {
+      "start": 1030.74,
+      "end": 1035.54,
+      "speaker": "adam-stacoviak",
+      "text": "And a poem and that beautiful little poem in the Warren of code, a token."
+    },
+    {
+      "start": 1035.54,
+      "end": 1048.74,
+      "speaker": "jerod-santo",
+      "text": "Now guards purge requests checked by vigilant bards feeds with slashes queries galore regexes open the normalization door. Benchmarking is clearer secrets. Well kept the rabbit hops on with tests."
+    },
+    {
+      "start": 1048.74,
+      "end": 1054.1,
+      "speaker": "adam-stacoviak",
+      "text": "Adept good robot. Good robot."
+    },
+    {
+      "start": 1055.14,
+      "end": 1060.66,
+      "speaker": "jerod-santo",
+      "text": "What's interesting is he asked, then Gerhard goes on to ask for a. Generate sequence diagram."
+    },
+    {
+      "start": 1060.66,
+      "end": 1061.62,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I did see that."
+    },
+    {
+      "start": 1061.62,
+      "end": 1082.08,
+      "speaker": "jerod-santo",
+      "text": "And then it comes down to a sequence diagram for PR. And this is really funny because then it like basically shows you how like a pull request gets merged and it's like, no, man, that's not what I thought. I don't think that's what he was after, but the other sequence diagram was on point, but that one was just funny. I was like, thank you for telling us how this. Pull request is going to get merged. Maybe."
+    },
+    {
+      "start": 1082.08,
+      "end": 1091.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I was excited to see this in it though. I was, I was happy to see this cause one love code rabbit and two. I think that's pretty cool. Pretty cool."
+    },
+    {
+      "start": 1091.73,
+      "end": 1104,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Summaries are useful, especially when you haven't been in the weeds very much and you're just coming back to something that is cool. Side questing main questing."
+    },
+    {
+      "start": 1106.14,
+      "end": 1116.53,
+      "speaker": "adam-stacoviak",
+      "text": "I gave him another side quest too, but we won't talk about that one though. That one's got to that one yet. It's just got some thorns, you know? It's like, don't, don't, don't put me in that quest. Okay. I still work on that one."
+    },
+    {
+      "start": 1117.28,
+      "end": 1133.82,
+      "speaker": "jerod-santo",
+      "text": "Next up. I thought we would talk through the comment section on our most controversial show of late adventures in babysitting coding agents. So we had Steve Yegge on the show. What was that two weeks ago now? Published June 6th about that."
+    },
+    {
+      "start": 1133.82,
+      "end": 1134.3,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 1134.3,
+      "end": 1202.22,
+      "speaker": "jerod-santo",
+      "text": "And this episode has generated a whole lot of discussion, which is always fun. Some people loved it. Some people hated it. Some people thought he was just lying. Other people thought he was inspiring and had whole kinds of gems. So here we are a couple of weeks since Adam, what are you thinking about the Steve Yegge episode now that you've had some time to digest? I'm not sure if you've listened back to it at all. I'm listening to it currently. I think I'm like two thirds of the way through always fun. A few weeks later to rethink your way through one of the things that happens live as a record, obviously is that we are consuming what he's saying from the feed, you know, from the fire hose and you're, and you're kind of reacting and you're, you're, you're along for the ride, but not always able to, I guess, grasp every sentence and think critically about every sentence. And so I think there were some things he said that when I, when I heard them back, I'm like, oh, I probably should have hopped on that because it seems like it's far-fetched. But here we are now. So what do you, what do you think about it now?"
+    },
+    {
+      "start": 1202.22,
+      "end": 1370.06,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think the, barring the fact that the tolling is expensive, given the cost of GPUs, given the cost of, you know, GPUs and compute, et cetera, like I think that will eventually flatten out or, I mean, it always does. Right. And that's going to be, it's going to be expensive now to be on the edge. So I think that was the sentiment that was in, in comments was the, the fact that these current tolling he's boasting about and what's possible is expensive to run and not everybody can do it. And I get that. But I mean, we were, I recall at the time it was just GPT. It wasn't chat GPT. It was just GPT, like early precursors of what has become chat GPT, kind of like making fun of the fact that it couldn't write copy very well. And like, it was kind of fumbly and like, it was like, oh, that's just a joke or that's not, and here you are nine months to a year later after, you know, GPT is writing copy for copywriters. The whole world's changed. Right. And so I, I'm not on the tip like Steve is, but I feel that he is, and he's not the kind of person to be like, just chicken littling us, you know, he's going to be a truth teller. And as, as much as he doesn't even want to tell the truth, he's now babysitting AI agents. Great name, by the way, for the, for the podcast, such a great title. I think I'm with him. I think there's a lot of commanding agents is what we'll all be doing in some way, shape or form. I think I was even as part of this rereading some of the recent news episodes. I think some of your commentary in the news recently was around this kind of sentiment is that, that we're all, as a developer, I think one sentiment you were sharing was like as a developer, you have certain skills and you've already automated so much of your life away because you have these developer skills where normal people just sort of deal with that toil and that tedium. And, and then your perspective was, if I was reading it right, was that everyone else has the same kind of agentic powers now as well, including all the, all the models available, but someone like you in particular with this developer skill now has the skill of marketing and the skill of branding as well, because you can sort of bolt those on and at least get by and do some damage. And so it sounded like, you know, just that you were saying that you have access to these tools like everybody else does, but now you've got these other superpowers too. And I'm for it. You know, I'm, I'm, I'm for all this. Is everything you said exactly going to play out? I don't know, but he's doing it on the daily. So there you go."
+    },
+    {
+      "start": 1370.78,
+      "end": 1662.67,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah. I think Steve did this for me, which is more than I can say, I guess for anybody else so far this year is like, he actually gave me a step toward the life that he's living. And granted he's living it on his company's dime. Like the money doesn't matter to him. And so, yeah, he has multiple agents running overnight because he has a budget of unlimited tokens because that's part of his job, you know? So we can't actually live his life. I know there's people online who are doing this and they're spending hundreds, if not thousands and not, you know, four figures a day, which is just outside of most people's budgets to have these things coding all day for them. But what he said is just go download one of these three, right? He said, Claude code, opening a codex or source graph AMP, which is the horse that Steve rides in on, of course. But to his credit, he says that's for enterprises. So, you know, try this one out and just give it the stuff you don't want to write, like the script that you've had in your mind, but you haven't written because the ROI just isn't there because it's tedious to write. But if you had it, you would love it, but you're not going to write it. And I got like six of those just sitting in my head at any given moment. And so I was like, okay, that's actionable. I can actually try that. And I gave it the old college try, you know, I went out and I tried opening a codex. I couldn't get the thing to work. I feel like their docs suck or I'm an idiot or both, but it just wouldn't work. I mean, I couldn't get it installed correctly and find stuff. My API token wasn't blah, blah, blah, blah, blah, blah. Like next, okay. You know, 15 and 20 minutes and I'm already in the red, you know, like I could have written the script by now. So I'm sure there's people who have had success with that one, but that was, and I'm an opening AI customer, so I'm not against them for any sort of philosophical reasons. And then I thought, okay, Claude code, let's do this. And I didn't have an Entropic account prior. This is one of the ones that I've been ignoring for the most part. Having tried many others, ChatGBT, all of Google's offerings over the years, Grok even, and then the open source ones, Llama, Mistroll, et cetera. But I hadn't done Claude because I was like, well, they're kind of like open AI, but different. It's probably going to be about that level. And what Claude code did for me at the command line, which did seem like actually a more interesting interface for me than, or maybe not interesting is not the right word, more compelling interface for me than even inside of Zed for some reason. It worked great. I mean, I just told it to do stuff. It was kind of like the, remember the image gen moment where I was like, holy cow, this next generation is good now. I feel like Claude code with 4.0, I think I was using 4.0, Claude 4. With that user interface, which is a terminal app basically, that kind of asks you questions, walks you through things, lets you kind of tab through options and then goes out and does stuff. It's kind of the right abstraction level, at least for my mind currently. And it was good. Remember how I was telling you, Gemini would write me a function. I'd be like, this function sucks. And I go rewrite it. This is the first time I've been like, not too shabby, Claude. I'm just like, that's kind of how I would have written it or maybe different, but just as good. And it works first try. I basically one-shotted it, as the cool kids say, and it just writes a script. And I'm like, well, let me read this code. And I go through and I read it all. I'm like, yup, checks out, runs it. Great. Let's change this, changes it. I'm now doing what everybody does is like share their vibe coding experience. And so the next one I was like, all right, true vibe code. I'm not even going to read it. I'm just going to like tell what to do. Second script. Here's another thing. And blamo, you know, just like, now this is a script that runs on my computer and doesn't have to be QA'd or face the real world, all those kind of things. But I was like, man, I feel like it's finally good now. And maybe I'm just catching up because people have been using this for three, six, 12 months. But I've been, even Google's most recent model, which is the Gemini 2.5, whatever, pro flash experimental or whatever it's called, has disappointed me. But, and this is, I'm no stan for anthropic or anything, but I feel like, oh, this we're at a level now where it's like, okay, I can see what Steve is saying now."
+    },
+    {
+      "start": 1663.31,
+      "end": 1663.79,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 1663.79,
+      "end": 1734.18,
+      "speaker": "jerod-santo",
+      "text": "I also hit up quickly against token limits and stuff where I was like, oh, it's out for the day and I got to either go chug some more money into this or stop and wait till tomorrow. I go for stop and wait till tomorrow because none of this stuff is time sensitive. And so, yeah, the expense is massive, I think, but I can see now where if I had this thing let loose on three or four different tasks simultaneously, hopefully not stepping on itself, that could be pretty fun. Like the amount of fun he's talking about was where I couldn't get to because I haven't had any fun with him yet. Whereas I do have fun making chat, GBT, write poems and stuff, you know, or making turning you into a walrus, but this was fun. Cause now it's like, okay, if I don't have to actually QA you to death and like rewrite you, then I'm happier. So that was cool. Cause I'm like, now I've kind of changed my perspective and I'm thinking like, okay, what it changed me to be like, what else could I hand this thing and not have to think about it myself anymore? You know, yeah. And it wrote a little bit of the code that I put out into the, uh, the new perch request stuff."
+    },
+    {
+      "start": 1734.18,
+      "end": 1734.68,
+      "speaker": "adam-stacoviak",
+      "text": "What?"
+    },
+    {
+      "start": 1735.3,
+      "end": 1735.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1736.29,
+      "end": 1737.57,
+      "speaker": "adam-stacoviak",
+      "text": "Just like that, huh?"
+    },
+    {
+      "start": 1737.57,
+      "end": 1741.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I wrote a whole DNS module for me and elixir."
+    },
+    {
+      "start": 1741.89,
+      "end": 1745.73,
+      "speaker": "adam-stacoviak",
+      "text": "What was the script you had to write? I mean, what was the first one? The second one was the task."
+    },
+    {
+      "start": 1746.29,
+      "end": 1916.56,
+      "speaker": "jerod-santo",
+      "text": "The first one was given a markdown file. I want you to traverse the whole thing, find every link in the file and then go check and make sure that it is resolves and returns content. So like, doesn't 404. And so like, sometimes you miss type something or whatever and change log news. And I just want those to all be legit websites. And so that was like round one was that. So like, I'll give you an absolute path to a markdown file and you'll go extract all the links, make HTTP requests, make sure they actually return content. And that was just fast. And I was like, okay, done. Like, oh, okay. Now let's change it so that you're actually going to check the contents that they return against what I'm linking to them with. So now extract the title out of the anchor or the, you know, the text of the anchor and the URL, and then let's have a fuzzy match to make sure that they're not just returning content. They're returning the content that I want them to return. So I haven't linked to something wrong, which I do all the time. And people email me and they're like, hey, man, that link didn't resolve or, hey, man, you pointed to this, but it was actually that. And so that was the first script. And that took me maybe like, you know, 10 or 15 minutes, a couple, a couple of tries and that, you know, oh, it works. Now do it this way. And then the second script, which I had it right. And I haven't looked at the code at all is okay. Now, given a mark. So one of the things I do for the video after I produce an episode is I will create screenshots of the top five stories. Cause they're going to go in during the transitions in news and the video between segments. So I'm going to show you the actual content as a screenshot. And that's just a manual thing I do every week. You know, I go take five screenshots, I zoom them in. So they're bigger and make sure there are 16 by nine, blah, blah, blah, blah, blah. And that's this one. I was like, okay, do that. I was just told to write a script. This time I specified a Ruby script and use, this is a little bit of back and forth. Like, should it use, what should it use for the actual screenshot technology? And I was trying to use like a Mac OS built-in, which wasn't really working. And I said, use puppeteer-cli. So I pulled it, like basically shelled out to a node executable. And it's like, should I make sure the executable is on disk? I'm like, no, I'll make sure it's on disk. Just leave that stuff out. It's like, all right, cool. And then it just works. And I was like, I haven't looked at the code. I'm living the life now. I'm with you guys. I caught up. Now I'm still a single agent though. And I need to go multi-agent, but I ain't got enough money for this. I'm not, I'm not made of money over here. You know, we're selling $15 tickets to our show."
+    },
+    {
+      "start": 1916.56,
+      "end": 1920,
+      "speaker": "adam-stacoviak",
+      "text": "Come on now. Free of you if you go a different direction."
+    },
+    {
+      "start": 1921.04,
+      "end": 1921.28,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1921.28,
+      "end": 1923.76,
+      "speaker": "adam-stacoviak",
+      "text": "You just told me we're not trying to make money here too."
+    },
+    {
+      "start": 1923.76,
+      "end": 1927.2,
+      "speaker": "jerod-santo",
+      "text": "So I forgot we're going to need money if I'm going to live this life."
+    },
+    {
+      "start": 1928.08,
+      "end": 1932.16,
+      "speaker": "adam-stacoviak",
+      "text": "Actually, this is where I'm at. This is a money-making venture. We need to pay for our agents."
+    },
+    {
+      "start": 1932.16,
+      "end": 1932.64,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 1938.51,
+      "end": 1963.71,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, it's all about faster builds. Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay. So Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 1963.71,
+      "end": 2036.24,
+      "speaker": "jerod-santo",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is if you think about a CI provider, it is in essence, a lowest common denominator generic VM. And then you're left to your own devices to essentially configure that VM and configure your built pipeline, effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast, making them fast, making them secure, making them cost-effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features and a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes their builds more cost-effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top level entity inside of generic CI providers."
+    },
+    {
+      "start": 2036.24,
+      "end": 2069.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Okay, friends, save your time, get faster builds with depot, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo and more. Depot is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depot.dev. Get started with a seven day free trial. No credit card required. Again, depot.dev. Okay, so what was the total spent roughly?"
+    },
+    {
+      "start": 2069.86,
+      "end": 2071.54,
+      "speaker": "jerod-santo",
+      "text": "Oh gosh, I don't know."
+    },
+    {
+      "start": 2072.34,
+      "end": 2074.26,
+      "speaker": "adam-stacoviak",
+      "text": "Cost of subscription kind of thing?"
+    },
+    {
+      "start": 2074.26,
+      "end": 2124.7,
+      "speaker": "jerod-santo",
+      "text": "Well, yeah. Well, that's why I don't understand. And I'm just like neophyte over here because I have the... So I pay OpenAI 20 bucks a month. And so I went, well, I'll just pay Claude or I'll play Anthropic for Claude AI the same. And I think I did like 200 bucks a year or something. And I was like, that gets me access to Claude code. But for some reason, that money doesn't translate into your actual API access either. So you have to go to like the Anthropic console and put more money in there. It's all very confusing. You get some use, but then it just like rate limits you. I don't have time for any of that. So I haven't gotten back to it since then, but I was just very excited. So I don't know how much it costs. I mean, I threw 200 bucks at them, but I don't think I've used that. But I also don't think I can use it because I think it has to do with like their web UI. Do you know the answers to these things?"
+    },
+    {
+      "start": 2125.5,
+      "end": 2125.98,
+      "speaker": "adam-stacoviak",
+      "text": "I don't."
+    },
+    {
+      "start": 2126.54,
+      "end": 2135.82,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I got like a year of Claude Pro or something. And I thought that was what I needed. But then it's like, you can use Claude code, but not too much. Not too much."
+    },
+    {
+      "start": 2135.82,
+      "end": 2137.58,
+      "speaker": "adam-stacoviak",
+      "text": "Use the Claude Pro then. Yeah."
+    },
+    {
+      "start": 2138.3,
+      "end": 2142.78,
+      "speaker": "jerod-santo",
+      "text": "And I was like, well, I just gave you 200 bucks. Can I use it a little bit more? They're like, no, you're going to need to give us more money."
+    },
+    {
+      "start": 2142.78,
+      "end": 2200.16,
+      "speaker": "adam-stacoviak",
+      "text": "I think I was the same. I was playing with the API key from OpenAI and my chat GPT subscription essentially. And I wanted to take the same API token that I was using with that and have access to my own OpenAI models, I suppose, through open web UI. This is a locally running via llama web UI. So I wanted to kind of like have one place to go, even for my already paid force. And it's actually not an extension to my knowledge, at least. And it's not an extension of chat GPT, your subscription. It's a whole separate API key that you fund differently, which I can kind of understand in one way, shape or form. But it's like, it sounds like you had to pay or it seemed like you had to pay a subscription to even get access to give them even more money for the specific API token."
+    },
+    {
+      "start": 2201.41,
+      "end": 2205.25,
+      "speaker": "jerod-santo",
+      "text": "Something like that. You can go in there and top it off and use it or something."
+    },
+    {
+      "start": 2205.25,
+      "end": 2210.93,
+      "speaker": "adam-stacoviak",
+      "text": "But it's a different payment system for some reason. I don't know why. Maybe it's the way they meter it. Maybe it's the way they pay for it."
+    },
+    {
+      "start": 2211.97,
+      "end": 2230.46,
+      "speaker": "jerod-santo",
+      "text": "It's like two different product teams is my guess. And like, they just don't, they're not simpatico. It's like the API product and then the chat bot product. And I thought I was buying access to everything. Cause they said, if you have Clod Pro, you can use Clod code. And I'm like, that's what I wanted to use. And it's like, yeah, but not very much. Okay."
+    },
+    {
+      "start": 2231.1,
+      "end": 2237.54,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So you had to have Clod Pro to get access. You paid for access to give them more money for more access."
+    },
+    {
+      "start": 2238.53,
+      "end": 2239.41,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 2239.41,
+      "end": 2257.49,
+      "speaker": "adam-stacoviak",
+      "text": "That checks out. I mean like a certain membership tier gets access to the special things. That makes sense to me. So you had to pay for that membership tier to get access to the special thing, but the access came with not giving them more money. You know, it wasn't like, here you go use the 200 books you already spent. It was, nah, we need some more."
+    },
+    {
+      "start": 2258.05,
+      "end": 2379.7,
+      "speaker": "jerod-santo",
+      "text": "Right. And so I haven't given them the more yet, but they'll still give me like the drip, you know, like you can get, you can't get the flow, but you can get the drip. And I'm like, well, I'll just write one script a day. Fine with me. You know, like I don't need, but in order to try to live the life that Steve is talking about, and then I go out and I see what people are paying for this stuff. So if we go into the comments section and read some of the commentary, of course, price was one of them. And in our comments, Brian Boosholes or Boocoles, not sure how you say it, Brian. He went and found out what Gene Kim is spending monthly on YouTube. Well, that's at least what the thumbnail looked like. Gene Kim is on the thumbnail. Maybe it's not him talking. I did not read it because I just took his takeaway, which says regarding monthly spend, found this on YouTube saying he, and I assume that he is Gene Kim, spends $300 to $500 a day. So that's $100,000 a year. And this is Brian's math. And it's like, okay, maybe worth it. If you're replacing, I mean, if you're basically the option, the other option is like hire an engineer. Now I know that's brutal and harsh and maybe inhumane, but I will say the experience that I had with one agent doing agent decoding for me was already better than experiences I've had telling humans to go do things. You know, the feedback loop is faster and there aren't opportunities to offend it. You know, like if you quit, like if you tell me my code doesn't look good, I might be offended. Now, maybe I'm not, I got thick skin, but I'm just having a bad day and it's something else. And you're like, Jared, that function is not right. I might just like go off on you. Right. Yeah. Like this thing's not going to, it's always going to be like, oh, you're right. And there's actually, there's something there. Like the fact that it's not a human sometimes doesn't mean mistreat it at it. I'm not saying mistreat it, but like, just don't worry about its feelings."
+    },
+    {
+      "start": 2380.64,
+      "end": 2381.84,
+      "speaker": "adam-stacoviak",
+      "text": "It doesn't have feelings."
+    },
+    {
+      "start": 2382.64,
+      "end": 2387.12,
+      "speaker": "jerod-santo",
+      "text": "It makes it more fun to delegate to it. Cause you're like, I just tell it what I want."
+    },
+    {
+      "start": 2387.12,
+      "end": 2389.6,
+      "speaker": "adam-stacoviak",
+      "text": "I don't have to like, I don't have to do the same."
+    },
+    {
+      "start": 2389.6,
+      "end": 2393.84,
+      "speaker": "jerod-santo",
+      "text": "What's the sandwich method, you know, like start with a compliment, then criticize, then give a compliment."
+    },
+    {
+      "start": 2393.84,
+      "end": 2394.56,
+      "speaker": "adam-stacoviak",
+      "text": "None of that."
+    },
+    {
+      "start": 2394.56,
+      "end": 2400.5,
+      "speaker": "jerod-santo",
+      "text": "I don't have to do any of that. I'm just like, yo, bro, this function is broken. And he's like, you're right. I should fix it. And he fixes it."
+    },
+    {
+      "start": 2400.5,
+      "end": 2404.9,
+      "speaker": "adam-stacoviak",
+      "text": "I'm like, yo, bro, this function is like, there is something to that where it's like"
+    },
+    {
+      "start": 2404.9,
+      "end": 2422.24,
+      "speaker": "jerod-santo",
+      "text": "a hundred K for a good engineer or a hundred K for like three or four of these all day every day. I'm not sure what that actually buys you. There's a point where it becomes a pretty easy decision for somebody like me who does not like to manage or micromanage humans."
+    },
+    {
+      "start": 2422.8,
+      "end": 2456.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. What you've uncovered is the removal of emotion and relationship in task delegation, which to human history thus far has not existed. Emotion has been there. Humanity and social norms and offense, all those things are in that scenario. And now it's possible to completely remove it and still, you know, explore in the dark, like you might with new hires."
+    },
+    {
+      "start": 2457.34,
+      "end": 2461.1,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Like you'd tell someone like, Hey, go try this out and come back to me and let me know how it goes."
+    },
+    {
+      "start": 2461.1,
+      "end": 2470.22,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Like, it's not like, you know what? That task didn't happen because I had a headache. Now it might say failed retry or something like that, which is maybe similar."
+    },
+    {
+      "start": 2471.02,
+      "end": 2472.86,
+      "speaker": "jerod-santo",
+      "text": "Yeah. API rate limited."
+    },
+    {
+      "start": 2472.86,
+      "end": 2477.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Those are different problems. That's money. You can solve that with more money."
+    },
+    {
+      "start": 2477.17,
+      "end": 2481.17,
+      "speaker": "jerod-santo",
+      "text": "You throw money at that. Right. You don't have to throw like interpersonal skills at it."
+    },
+    {
+      "start": 2481.17,
+      "end": 2531.7,
+      "speaker": "adam-stacoviak",
+      "text": "That's how I looked at it. When people were talking about how they spend their money or how certain people spend their money using these tools, I thought, well, they're just swapping out the same budget they had applied to solving the problem with humans. They just solved it with a singular human, or maybe a smaller team of humans with agents or tools, tooling. You know, it's, it's what we've been doing already. It's just now it's unfortunate. It's becoming literal humans in the loop that are not in the loop anymore. Or at least being competed against or tried against. Like you just said, you got better results. If I heard you right, you got better results with this than you would have or have had given the same task with human with maybe less moaning and complaining."
+    },
+    {
+      "start": 2532.45,
+      "end": 2535.01,
+      "speaker": "jerod-santo",
+      "text": "Or even just emotional overhead for me."
+    },
+    {
+      "start": 2536.38,
+      "end": 2536.62,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 2536.62,
+      "end": 2677.06,
+      "speaker": "jerod-santo",
+      "text": "Maybe there wouldn't be any moaning or complaining and everything would go fine, but I don't have to even care. You know, which is not a small thing. I mean, it actually, it's like, Oh, this is fun. It's like having a code rabbit. That's just like, I'm a rabbit. I don't have any, like, just give me the, give me the instructions. I'm going to go do it. Maybe I'll fail. Maybe I'll be correct. Like all the things you got to fix them, correct them. Things go wrong. They're dumb, et cetera. But no actual human in the loop there. Like just me and a bunch of little AI babies building this thing. I think it really, I do not think it's the near future for most people. I do think it's the medium term future for most people. And it's certainly, unless, unless something changes with these companies providing these services with regards to like copyright or whatever regulation that slows it down, I'm sure that capitalism squashes the costs eventually to marginal. And it's definitely a future now I can say, you know what? I wouldn't mind living in this future as a guy who makes software. I feel like I can make way more software if this all continues to trend the way it is. So that was my result after taking Steve's advice there with just go try it on some script you haven't written yet because you just don't want to, or it's too hard or whatever. Should we read some more comments from people? Cause there's just so many thoughts on this episode. For instance, Andrew O'Brien, the gig economy for programmers does not fill me with excitement. This was something that a lot of people took issue with. And Steve's analogy that you'll have this gig economy inside of enterprises where you just kind of rent a coder for a day or whatever it is, you know, like coders on demand in order to do code review or whatever it is you have to do. And Steve was saying, this is like a great new thing that's going to happen. And most people are like, that's not really something we want in our enterprises because I mean, the good economy has been both a blessing and a curse, right? Like there's been a lot of bad that's come from that."
+    },
+    {
+      "start": 2677.62,
+      "end": 2678.98,
+      "speaker": "adam-stacoviak",
+      "text": "I'd say so too. Yeah."
+    },
+    {
+      "start": 2678.98,
+      "end": 2715.6,
+      "speaker": "jerod-santo",
+      "text": "Mostly humans being marginalized, which again, that's where we are, right? That's what we just talked about. But I talked about it in a good way. Like I don't have to have a human, but I think everybody becomes the master of their own domain. I mean, I feel like for people who have, I mean, I think there's more agency, assuming it's affordable and works and et cetera. I feel like it gives more people more agency and removes the skill, which is what hurts for so much of us is like, yeah, the skill doesn't matter anymore. My skills don't matter, but your judgment now matters way more. Your taste matters way more. Your ability to communicate matters way more. So it's certainly a trade-off."
+    },
+    {
+      "start": 2716.46,
+      "end": 2722.3,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I was actually reading that one. You said the rise of judge. Well, you didn't say this is somebody else's title, but you wrote this for news. Yeah."
+    },
+    {
+      "start": 2722.3,
+      "end": 2723.5,
+      "speaker": "jerod-santo",
+      "text": "I wrote about that. Yeah. Yeah."
+    },
+    {
+      "start": 2723.5,
+      "end": 2741.02,
+      "speaker": "adam-stacoviak",
+      "text": "The rise of judgment over technical skill. And I think that's certainly going to become more of a decider for folks. It's like, I want to understand your judgment, not your skills. Cause you kind of, you can kind of learn most things for the most part. But do you have good taste? Does your taste align, your beliefs align with mine?"
+    },
+    {
+      "start": 2741.58,
+      "end": 2742.06,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 2742.06,
+      "end": 2776.14,
+      "speaker": "adam-stacoviak",
+      "text": "And the direction for this thing? You know, I, I cut, it's kind of cliche to come back to the Uber thing. Cause that's really where a lot of this gig economy stuff began. But I think about even simple things like our recent trips out of town, like the last three or four trips you and I have limed everywhere. And whereas before we would just not go and do much outside of the hotel, just within walking distance, unless it was like a nice hike or getaway. Like we would do that too, but like less."
+    },
+    {
+      "start": 2776.14,
+      "end": 2779.82,
+      "speaker": "jerod-santo",
+      "text": "Electric scooters for those who don't know, limes are electric scooters."
+    },
+    {
+      "start": 2779.82,
+      "end": 2787.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Limes are Uber accessible electric scooters. You can use the Uber app to reserve them and put them and pay for them."
+    },
+    {
+      "start": 2787.18,
+      "end": 2794.94,
+      "speaker": "jerod-santo",
+      "text": "It's a separate company, I believe, unless Uber bought the company, but it's like integrated. Yeah. I know they at least started as their own company."
+    },
+    {
+      "start": 2794.94,
+      "end": 2795.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2795.26,
+      "end": 2821.23,
+      "speaker": "jerod-santo",
+      "text": "But I think Uber either acquired them or integrated them in a smart way so that you can just, you don't have to have the lime app. Now I've done the same thing with bird, which is bird is another electric scooter company that is out there. Like it's been in Kansas city is where I've done it. And they kind of got, you know, beaten by lime in this way. It's like, well, now that I already have the Uber app, why would I want the bird app? I'm just going to use the limes cause they're in there. So, yeah, but you were making a bigger point. I was just pointing it out."
+    },
+    {
+      "start": 2822.11,
+      "end": 2873.23,
+      "speaker": "adam-stacoviak",
+      "text": "It's crucial to say that. Cause like, if you haven't traveled recently from your city to a different city, you appreciate the fact that when you do this next time, not only will you be able to Uber from the hotel or sorry to that, from the airport to the hotel. Once you get to your hotel, if you'd like to not Uber anywhere else, like get in the car and go somewhere, you can simply go to the nearest corner. In most cases, pull up in your Uber app and scan this QR code on the lime, the lime scooter, and just happily get on it and go wherever you want. Now, provided it keeps its charge and has power, it will take you wherever you want to go. And for the most part, safely, it's up to you. There's no helmet involved. You are suggested to ride on the roads. They don't, they tell you to stay off the sidewalks. Although I saw you on a sidewalk on a recent change on news."
+    },
+    {
+      "start": 2874.43,
+      "end": 2875.87,
+      "speaker": "jerod-santo",
+      "text": "Did you see me almost hit that guy?"
+    },
+    {
+      "start": 2875.87,
+      "end": 2877.79,
+      "speaker": "adam-stacoviak",
+      "text": "Uh, I saw something. I saw something."
+    },
+    {
+      "start": 2877.79,
+      "end": 2883.07,
+      "speaker": "jerod-santo",
+      "text": "Oh man, that FedEx guy or UPS guy hopped out of nowhere. I about took him out."
+    },
+    {
+      "start": 2883.07,
+      "end": 2883.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2883.79,
+      "end": 2887.23,
+      "speaker": "jerod-santo",
+      "text": "I slowed that down. I replayed it for people. So like, that's a good moment."
+    },
+    {
+      "start": 2887.23,
+      "end": 2956.83,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that was a good moment. Anyways, but, but that you can go somewhere now. So the reason why I bring this up is not to camp out on this sort of like, well-known known fact, which is Uber exists. And this is where gig economy began and marginalization began, but that we now have a new thing as individuals to go to a whole new city. And like you said before, this, it goes back to agency. We have the agency to step outside of our hotel. We could, we could flag down an Uber. We can rent a car. It's just less practical. Now, if we have a line, cause we can easily just hop on your lime and my lime and we just go and we scoot and we have fun and we stop and we get off and we leave it. You can just leave it wherever you want. Take a photo and then go into the store and do what you want or go into the restaurant for three hours and come back out. It might still be there or a new one is replaced that somebody else brought there. That's fully charged. And you just go again. Like to me, that agency in a city is how I compare this. Like that's a beautiful thing. Other things will be versions of that either in the agent world or in the physical world that are a result of that technology being available. Like that to me is just so cool, honestly."
+    },
+    {
+      "start": 2958.05,
+      "end": 3022.42,
+      "speaker": "jerod-santo",
+      "text": "Yeah, absolutely. And some of the stuff that Apple showed off at WWDC with the ability to call local models on your phone. And then basically like if vibe coding gets good enough where everyone can just vibe code their own little iPhone app for their one use case that no one else is going to use. Like that's pretty awesome. Like that's going to make a lot of people's lives a lot better. A lot of people who previously would have had to hire some team that's going to charge them a hundred grand to get their thing done. You know, like it's just never going to happen. One category is like, I have a business idea. I'm going to go fund it to build a thing. Like that becomes cheaper, of course. But like the, the even more generally usable thing is like, I have this annoyance that I don't like. I wish I could fix it. My life would be slightly better. And now it's like, Hey Xcode, why don't you do a thing that makes an app that does this? And it's like 10 minutes later, it's deploying your iPhone just for you. Like that is, that's pretty cool."
+    },
+    {
+      "start": 3023.22,
+      "end": 3026.34,
+      "speaker": "adam-stacoviak",
+      "text": "That is beyond pretty cool, man. Super cool. That's super cool."
+    },
+    {
+      "start": 3026.9,
+      "end": 3050.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it is beyond pretty cool. Returning to the comments section, J R W R E N Jr. Ren, not sure how to pronounce that handle says, I don't know what to say after listening to this podcast other than I just plain don't believe him. Not sure if he's lying intentionally or if his experience is some special niche or if I'm just straight up wrong. I like that comment."
+    },
+    {
+      "start": 3051.09,
+      "end": 3052.05,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 3052.77,
+      "end": 3057.73,
+      "speaker": "jerod-santo",
+      "text": "Because there's some like wiggle room in there. Like, well, maybe he's lying."
+    },
+    {
+      "start": 3057.73,
+      "end": 3059.89,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe I just don't believe him."
+    },
+    {
+      "start": 3059.89,
+      "end": 3062.61,
+      "speaker": "jerod-santo",
+      "text": "I just don't believe him. It's just hard to believe."
+    },
+    {
+      "start": 3062.61,
+      "end": 3072.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I think what he's not saying there, he's not saying that Steve is a liar. He's just saying that he's in disbelief that it's possible. Is that how you read that?"
+    },
+    {
+      "start": 3073.06,
+      "end": 3079.54,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Like he's not sure if he's actually lying or if it's just like, he's living in a world I'm not living in. It's hard for him to believe."
+    },
+    {
+      "start": 3079.54,
+      "end": 3090.14,
+      "speaker": "adam-stacoviak",
+      "text": "No, he does say in the second sentence, I'm not sure if he's intentionally lying or lying intentionally. So I guess he kind of answers my question. He's questioning himself whether or not this guy's lying or not."
+    },
+    {
+      "start": 3090.86,
+      "end": 3091.66,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Funny."
+    },
+    {
+      "start": 3091.66,
+      "end": 3109.01,
+      "speaker": "adam-stacoviak",
+      "text": "It very much is the future. I mean, it's very much a snapshot, not the future, the literal future coming, but a version of what's coming as a result of the future coming, I guess is a different way to say it. Like it's not a snapshot of what I think we'll do in the future. It's it's today's version of the snapshot."
+    },
+    {
+      "start": 3114.72,
+      "end": 3205.5,
+      "speaker": "jerod-santo",
+      "text": "Okay. Yes. Thank you. And then AJ Kerrigan replied to that response and agreement. I had that feeling too with regard to either him lying or just being wrong. I've been in a much tamer AI curious zone, more like baby steps than babysitting. Nice turn of phrase there and amps warning. That's the source graph coding agent about if you want your cost limited and predictable, don't use this effectively warned me off it. I feel like most people right now in mid 2025, this is too expensive for most of us in the way that some people are using it where they're spending $300, $500, a thousand bucks a day and really leaning into it. I just feel like it is too expensive. And it warned me off of it too. Like I just stopped and I was like, okay, I haven't even gotten to where Steve is. I haven't gotten two agents going at the same time yet. I'm like single agent status show title. So my experience slash appetite skill, we're all too far away from Steve's to practically relate still in a nursing show though. It's useful to see what people with a ton of resources and AI focus slash optimism are getting up to. Christopher Patty hops in and doubles down on how expensive it is. Infinite money. And of course, you know, source graph is one of the companies that's trying to capture some of that money. So there is that nuance to the conversation as well."
+    },
+    {
+      "start": 3205.5,
+      "end": 3219.66,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, they're trying to capture the money, but they're also been trying to solve the same problem for, it's not like they came out of the will work and like, let's create Cody and amp and source graph to just grab your money. And like, they've been solving a problem for developers for the better part of a decade."
+    },
+    {
+      "start": 3219.66,
+      "end": 3220.38,
+      "speaker": "jerod-santo",
+      "text": "Sure."
+    },
+    {
+      "start": 3220.38,
+      "end": 3223.98,
+      "speaker": "adam-stacoviak",
+      "text": "So they do have a financial upside, obviously, if you choose them, I get that."
+    },
+    {
+      "start": 3223.98,
+      "end": 3227.34,
+      "speaker": "jerod-santo",
+      "text": "A large one, like they'll make tons of money if, if amp becomes the way."
+    },
+    {
+      "start": 3227.9,
+      "end": 3228.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3228.7,
+      "end": 3231.82,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Which is fine. Like if it becomes the way that is every bunch of money, right."
+    },
+    {
+      "start": 3232.94,
+      "end": 3285.63,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I mean, everybody has agents though, right? And like everybody, every brand I can think of, you've got, I don't want to like toot too many horns, I suppose, indirectly. You got agent force from Salesforce. Not a sponsor, technically. Technically they are through Heroku on Salesforce. And we talked about agent force as part of that campaign just didn't land. It was spoken about in regards to Heroku being a better platform for application developers. Therefore agent force. Retool has agents out now. That's uniquely positioned to like take advantage of the existing retool internal tools you've built. So now the agents you build out will have access to these internal tools. I think that's the coolest thing ever, honestly. Great timing to be retool."
+    },
+    {
+      "start": 3286.43,
+      "end": 3286.75,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3286.75,
+      "end": 3403.46,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know how much different amp is compared to like a retool, like how these agents separate. Like what the difference is between Sourcegraph amp, for example, and retool agents. I'd imagine they're marginally different, but similar tasks, just not the same overall landscape of feel, what they can agent over, so to speak. Then you got agents like you were doing, which is in the command line. So they got file system access, stuff like that. It's a whole different scenario. You got agents in the cloud, agents on the desktop. I guess I just want this unpredictive AI, predictive AI, so to speak, to work for me in the future. And that's what agents are. You find places to put the work and they do the work. It is the best source of automation in so many ways. Like I don't have to write the business plan anymore because I just described the business and it writes the executive summary and all the models and all the math. Now provided the math checks out, that's why you have to run one against the other, which I've done multiple times because I'm always questioning business model ideas. That's different, man. That's different. It's crazy. I'm rambling here, but this world we're going to live in is really interesting. I think we are. Obviously, Steve was talking about the future. I mean, he literally gets paid to play with R&D. I mean, that's where he's at. His tale was not the tale of some randa who decided to investigate. It's somebody who's paid to R&D for a well-funded, I would say AI first now company called Sourcegraph. That's his job is to R&D for them and to dream. And so he's seeing a glimpse of what that dream is after being a 30 plus, 20 plus year veteran in software. It's a pretty substantial opinion to listen to."
+    },
+    {
+      "start": 3404.38,
+      "end": 3476.22,
+      "speaker": "jerod-santo",
+      "text": "For sure. Well, he also wrote the book on vibe coding, which the funny thing about that. And I think I said this to him afterwards, like, dude, that's not coming out till October. Isn't vibe coding going to be so different by October? Like, this feels like the kind of book that needs to be constantly updated, like in real time, because the state of the art continues to change at a rapid pace. Let's read a couple more comments. There's so many of them. We can't read them all. Of course, if you're not in our Zulip, what's wrong with you? Great conversations being had by interesting people. Join and converse with us. Tim Oukin, we've heard from Tim in the past. He's got the bear take here. Imagine a future where a generation of young men who are smart and energetic enough to learn to code can't get jobs. Imagine, in addition, those, there are a huge number of young men who are laid off and have nothing but time on their hands and are desperate to make a living. I'm not hopeful for the future. After listening to this, we all thought automation would go after unskilled positions and everybody could just skill up and get a better job. Now it's going after the highest skill jobs, coders, designers, creatives, writers, doctors, lawyers, engineers, financial analysts, stockbrokers, etc."
+    },
+    {
+      "start": 3476.22,
+      "end": 3484.42,
+      "speaker": "adam-stacoviak",
+      "text": "You know, let's scroll back up to that one. Let's camp out there for a second. So, I think about this a lot. So, let's pick out lawyers, right?"
+    },
+    {
+      "start": 3484.98,
+      "end": 3485.38,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3485.38,
+      "end": 3491.14,
+      "speaker": "adam-stacoviak",
+      "text": "We've paid lawyers before, right, Jeremy? We've paid lawyers generous sums to do things. Too much. Too much, in my opinion."
+    },
+    {
+      "start": 3491.14,
+      "end": 3492.1,
+      "speaker": "jerod-santo",
+      "text": "Too little. Just kidding."
+    },
+    {
+      "start": 3492.1,
+      "end": 3532.88,
+      "speaker": "adam-stacoviak",
+      "text": "I think they charge a crazy amount per hour. Does that mean they're not skilled? The workforce, I guess, society forces them to go to very expensive schooling at length. And so, they should be paid well. I get that. But there are so many things I've paid a lawyer 400 bucks an hour to do that they shell off to the person that doesn't get paid 400 bucks an hour that they still happily charge us 400 bucks an hour because, hey, that's our rate, okay? There's no discount for when we shell it off to the future me that only gets paid 100 bucks an hour, you know? I get it. Companies, margin, profits. I get it all. I get it all."
+    },
+    {
+      "start": 3532.88,
+      "end": 3534.32,
+      "speaker": "jerod-santo",
+      "text": "Lambos. I mean, you gotta get a Lambo."
+    },
+    {
+      "start": 3534.32,
+      "end": 3558.93,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. But there's just so much expenditure in that world where, like, there's room to siphon off some. And as a business person, I get to move faster because I have, again, agency to take control for certain things. And to me, that's a fun world to live in, you know? That's a fun world to live in. I like that world. What you showing off here? This comic here?"
+    },
+    {
+      "start": 3558.93,
+      "end": 3584.83,
+      "speaker": "jerod-santo",
+      "text": "I was just looking at a comic that somebody put in. I was trying to see if it was worth reading. It's basically just representing the fact that we're replacing all the fun things, like art and not plumbing. And it's like, we need robots for plumbing. Oh, we're working on robot plumbers. Trust me. I don't know that we are, but I know that we are. You do? And by we, I mean the human race. Someone's working on robot plumbers, aren't they?"
+    },
+    {
+      "start": 3585.39,
+      "end": 3587.87,
+      "speaker": "adam-stacoviak",
+      "text": "I think you might. So let me try and predict this."
+    },
+    {
+      "start": 3588.86,
+      "end": 3590.62,
+      "speaker": "jerod-santo",
+      "text": "OK, on the record."
+    },
+    {
+      "start": 3590.62,
+      "end": 3686.05,
+      "speaker": "adam-stacoviak",
+      "text": "I think there's definitely a prediction in the way buildings, large-scale buildings, will get plumbed. Like, why would a human do it when the AI can do all the downslope and angles perfectly, right? Why do all that math? A human shouldn't do all that math. At some point, software should learn that math, and the human should think about grand architecture and tasteful things. So that's probably one area, is design, plumbing design systems. Happily automate that away, unless I'm that person. I'm pissed because I just said that. Who does that? So I do feel for that person. But now they've got to move down to the via chain, right? Now they've got to figure out, OK, was it implemented right? Until maybe the AI can do that. Move up the via chain. Yes, thank you. Then I think about maybe there's some sort of autonomous robot that can build certain configurations and turns and U shapes that maybe the on-site plumber doesn't have to do that. They can just hand the task really fastly to this thing. They can hammer out this intricate whatever. And all they've got to do is plug it into the thing. And I know I probably sound very vague when I say that. But imagine this complex configuration of plumbing that just gets automated by the robot and the human sort of puts it into position or knows where it should go. That, to me, is probably pretty common. An actual person getting replaced by a robot under the sink, though, in the traditional sense of a plumbing behind the toilet, replacing the toilet. That doesn't be a human's job for a while."
+    },
+    {
+      "start": 3686.93,
+      "end": 3688.53,
+      "speaker": "jerod-santo",
+      "text": "Yeah, at least a few months."
+    },
+    {
+      "start": 3689.65,
+      "end": 3789.54,
+      "speaker": "adam-stacoviak",
+      "text": "At least a few months. Honestly, if you're just getting, you know, a friend of mine. Let me see if I pull up the text real quick. A friend of mine just share this with me. And this kind of fits into here. And he was talking about this idea of lifestyle entrepreneurship. And I'll just read a couple sentences of it, because he says lifestyle entrepreneur builds a business designed to support their desired lifestyle, prioritizing personal freedom, flexibility and fulfillment over maximizing revenue or company size. So if I'm the person who does that kind of plumbing and I can step into a role that not a lot of people want to do, I do it pretty well. I do it when I want. That's a lifestyle entrepreneur opportunity. You can be a great plumber and do that kind of work on the simple home scenarios or the grand scale remodel or complex enterprise scenario, maybe less that. But more so the one the other one where I'm like, I can go in and plumb. I could do a job. A robot probably can't do it for a long time. They could do some of it. They can assist me. They can assist me on slope or which, you know, which size, I don't say which size plumbing, which size pipe to use, you know, and help me on all the adapters. Like play all that for me. And I just do the hard, I just do the work. The part that the human can do and should do pretty much forever, which is like precise precision, no leaks, check it, water pressure. Okay, cool. It works. Robot, nah, for a while. Planning it, designing it. Yes, robots. Give it to me right now."
+    },
+    {
+      "start": 3790.16,
+      "end": 3792.72,
+      "speaker": "jerod-santo",
+      "text": "I might take the complete opposite side of that."
+    },
+    {
+      "start": 3792.72,
+      "end": 3793.22,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 3793.84,
+      "end": 3860.98,
+      "speaker": "jerod-santo",
+      "text": "I think the human has to be involved in the planning and the deciding. Of course, they're AI assisted because that's where the judgment is. That's where the discretion and the wisdom can be applied. But the robot can do the precision motions and perhaps even lift heavier things and fit into places. These are of course our humanoid robots, which they're working on. And I think, you know, backbreaking work, every plumber I've ever known and I've known a handful of them by the time they're 40, 50 years old, you know, their knees are shot, their back is jacked up. They wish they didn't spend the last 30 years plumbing underneath a sink or underneath the toilet. And so I feel like the human needs to be in the loop where the judgments are made and the robot should be doing like, like, you know, bender from Futurama, like bend, bender bends things, you know, I don't know who knows what it's going to look like."
+    },
+    {
+      "start": 3860.98,
+      "end": 3865.46,
+      "speaker": "adam-stacoviak",
+      "text": "I can see here planning it and doing the intricate bends and stuff."
+    },
+    {
+      "start": 3866.42,
+      "end": 3872.98,
+      "speaker": "jerod-santo",
+      "text": "Well, you said the humans there with the precision and the in placing it in place. Right."
+    },
+    {
+      "start": 3873.12,
+      "end": 3878.4,
+      "speaker": "adam-stacoviak",
+      "text": "Because I mean, what autonomous robot can easily maneuver into places?"
+    },
+    {
+      "start": 3879.04,
+      "end": 3881.6,
+      "speaker": "jerod-santo",
+      "text": "Well, not right now, but they're working real hard on this."
+    },
+    {
+      "start": 3881.6,
+      "end": 3901.52,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, they are there. Now we watch a lot of Boston Dynamics, my son and I, my youngest and I like for entertainment. And so I would say I'm pretty schooled on their abilities and it's, it's mostly boring, weird enterprise things that they carry. Well, you start with the easy stuff right there, you know, it's."
+    },
+    {
+      "start": 3901.52,
+      "end": 3939.75,
+      "speaker": "jerod-santo",
+      "text": "But I mean, specialized machinery is only a step away from like robots, right? I mean, they are machines that build things like the precision tooling inside of a car manufacturer, for instance. I know Tesla has like what they call a robot that's doing this, these, these precision motions now, one that can do arbitrary tasks like they're working on. But yeah, I think it's probably pretty far away, but specialized robots, you know, flipping hamburgers, not very hard, whole bunch of teenagers not going to be able to get their job flipping hamburgers, because why, why would you deal with a teenager when you have a robot that all it needs is some WD-40 and you know, a kick in the back and it's good to go."
+    },
+    {
+      "start": 3939.75,
+      "end": 3945.19,
+      "speaker": "adam-stacoviak",
+      "text": "It'd be kind of cool to walk up to a burger shop and it's just not so much a robot, specifically"
+    },
+    {
+      "start": 3945.19,
+      "end": 3948.55,
+      "speaker": "jerod-santo",
+      "text": "like, like a, a, a humanoid robot."
+    },
+    {
+      "start": 3948.55,
+      "end": 3953.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Humanoid kind of thing, but it's like just, it's just a robot that acts kind of like a"
+    },
+    {
+      "start": 3953.99,
+      "end": 3955.03,
+      "speaker": "jerod-santo",
+      "text": "human, but isn't one."
+    },
+    {
+      "start": 3955.03,
+      "end": 3967.62,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's just automation. You see it in motion. I mean, they've been doing that with like donuts for a while, right? Yeah. For sure. The donut rides on Laverne and Shirley showed us that in the eighties in Milwaukee."
+    },
+    {
+      "start": 3968.96,
+      "end": 4000.92,
+      "speaker": "jerod-santo",
+      "text": "Lucille Ball. Right. I love Lucy. She had her, she had her assembly line. Yeah. You know, I feel like that's not too far away, especially with how hard it is to hire these days and how, you know, with minimum wages going up, you just push small businesses to automate. They'd rather, you know, have a capital expenditure on a robot. Then hire more people at that wage. So yeah, it gets to be pretty dicey for humans. Like Tim's talking about, you know."
+    },
+    {
+      "start": 4001.56,
+      "end": 4072.63,
+      "speaker": "adam-stacoviak",
+      "text": "Tim's so right. I think we're all a version of right though. I mean, we're unintentionally, we're questioning the value of humanity, right? Like we're not really trying to question it, but we have to, because I think it's pretty common for someone to say, I would prefer to not deal with a teenager and their emotion. And so if that's the case and you can choose an autonomous robot like thing, whether it's automation robots or like a literal humanoid robot, you're probably going to make some version of a pragmatic choice. The pragmatic choice says this route, you know, less error, no emotion, all precision, happily happy to mess up and say they'll fix it and then fix it. Or I came in late, I've got entitlements, you know, whatever these kids these days are. I don't know what they're saying. I'm leaving early. Now at the same time, I've met some really good kids taking care of me at restaurants and places like that. So, you know, it's such a... Oh yeah, there's always good kids and there's always, you know, good for nothings."
+    },
+    {
+      "start": 4072.63,
+      "end": 4073.27,
+      "speaker": "jerod-santo",
+      "text": "There always has been."
+    },
+    {
+      "start": 4074.15,
+      "end": 4146.39,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, building multi-agent software is hard. Agent to agent and agent to tool communication is still the wild, wild west. So how do you achieve accuracy and consistency in non-deterministic agentic applications? That's where the agency, A-G-N-T-C-Y comes in. The agency is an open source collective building the internet of agents and what is the internet of agents? It's a collaboration layer where AI agents can communicate, discover each other and work across frameworks. For developers, this means standardized agent discovery tools, seamless protocols for inter-agent communication and modular components to compose and scale multi-agent workflows. You can now build with other engineers who care about high quality multi-agent software. Visit agency.org and add your support. That's A-G-N-T-C-Y dot org."
+    },
+    {
+      "start": 4152.18,
+      "end": 4158.1,
+      "speaker": "jerod-santo",
+      "text": "That being said, I've been watching Alone again. Have you ever seen the show Alone?"
+    },
+    {
+      "start": 4159.01,
+      "end": 4160.13,
+      "speaker": "adam-stacoviak",
+      "text": "I don't think so."
+    },
+    {
+      "start": 4160.13,
+      "end": 4196.26,
+      "speaker": "jerod-santo",
+      "text": "Okay, so this is a survivor competition show where they drop, you know, 10 people, 12 people, however many it is in the middle of nowhere. They'll pick a location that's difficult. These are survivors, like they're professional survivor kind of people. And their job is to stay alone in that location and survive. They do all their own survivoring, of course, that should go without saying, but I said anyway, they do all their own survivoring and see this level of redundancy. And then they also do their own recording. So like they have GoPros and they do like, there's no one there with cameras. There's no camera guy or gal."
+    },
+    {
+      "start": 4196.26,
+      "end": 4196.98,
+      "speaker": "adam-stacoviak",
+      "text": "Wow."
+    },
+    {
+      "start": 4196.98,
+      "end": 4265.92,
+      "speaker": "jerod-santo",
+      "text": "They're alone. Now, like once every couple of weeks, this like a crew comes out and does a health check with them on ways to make sure they're not like actually dying and then leaves. That's their only contact with humanity. And so it's fun to watch because you got to survive. They're cold, they're whatever, mosquito bites. They got to get there. Most of them are starving. Like they have to find food, very difficult. They have to have shelter. But most of them, most of them end up going crazy and quitting. Like you can also tap out whenever you want. Like you just phone in and like, I'm officially tapping out or whatever you say. And they come and get you. Almost all of them lose because, not because they're starving or they are bored. It's because there's no humans. It's because they're alone. It's because they're lonely. And the more tied they are to, it's almost like the better life they have, but it's more tied they are to people back home. Like if you've got kids, you're done. You're smoked. Like I, the first episode was fun because I go through and I like know which ones are not going to make it. It's like, I got a two year old. It's like, you're smoked. You know, you might as well just quit today. And then there's other guys, like I brought a picture of my kids. I'm like, you are so done. Like, there's no way you're going to look at that picture for like six hours and then be out of here."
+    },
+    {
+      "start": 4266.48,
+      "end": 4268.08,
+      "speaker": "adam-stacoviak",
+      "text": "It's your weakest moment. You're turning around."
+    },
+    {
+      "start": 4268.92,
+      "end": 4330.13,
+      "speaker": "jerod-santo",
+      "text": "But there's a gal in the most recent one. This is the Australia version, which Australians are surprisingly wimpy. I'm just putting that out there for the universe, dude. These people gave up so quick. It's in, it's in Tasmania, but they're all pretty much Australians. And I thought they would be tougher than this. So take that Australia. But a couple of them last long time and there's one gal who's like, her daughter died at a young age and she's divorced and she's kind of, she didn't have much to go back to, you know? And I'm like, she's got a good shot. Anyways, the whole point is we talk about not needing the value of humans, right? We talk about the value of humans and do we need them and what value do they bring? But in a world where like everything we do, like you go get your coffee in the morning, it's a robot. You know, you go through, you go to work and you work with AI robots. And then you go out for lunch and you're sitting there with a robot serving you food or whatever. The value is the humanity itself, right? Like we're going to, it'd be, that'd be a lonely world. Don't you want the humans in there?"
+    },
+    {
+      "start": 4330.13,
+      "end": 4330.63,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4331.73,
+      "end": 4333.17,
+      "speaker": "jerod-santo",
+      "text": "I think we're going to want the humans in the loop."
+    },
+    {
+      "start": 4334.05,
+      "end": 4338.45,
+      "speaker": "adam-stacoviak",
+      "text": "There's a hundred percent value to the human connection, obviously."
+    },
+    {
+      "start": 4339.09,
+      "end": 4339.65,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 4339.65,
+      "end": 4374.84,
+      "speaker": "adam-stacoviak",
+      "text": "And I think that's where we're all clawing for is like, where will society be okay with removing and where will society be zero okay with removing a human? And I think that's, that's probably the struggle of the next 10 years of humanity is where that will be the next 10 years of tension in humanity is like, where are we okay with removing and not removing a human in the loop? Because you're right. When I go to pick your favorite coffee shop, I want to walk in there and I want to see other humans and they're doing their thing."
+    },
+    {
+      "start": 4374.84,
+      "end": 4375.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah, totally."
+    },
+    {
+      "start": 4375.4,
+      "end": 4424.42,
+      "speaker": "adam-stacoviak",
+      "text": "Sitting down, drinking their stuff, hanging with friends, meeting with people, the classic coffee scene. And I don't want to go to a counter where I got to push a button or it already knows my order. Like even if it was better coffee, I like talking to Sally or John or Bob or whoever's behind the counter. Cause that's what life's about, right? They're, they're my neighbor. They go to church with me. They, I see them in HEB, the grocery store, you know, I see them, you know, at jujitsu class with my kid or whatever, or baseball or pick your thing. You know, that's the fabric of society. And I think that's gonna be the challenge of humanity is like keeping or not keeping certain fabrics as we kind of go forward. You know, where are you okay with removing that now? Hey, let's talk about car washes. Okay."
+    },
+    {
+      "start": 4425.06,
+      "end": 4426.26,
+      "speaker": "jerod-santo",
+      "text": "Let's talk about it."
+    },
+    {
+      "start": 4426.26,
+      "end": 4434.42,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Last time I went to a car wash, a kid or a version of a young adult checked me in. To my order."
+    },
+    {
+      "start": 4434.42,
+      "end": 4434.98,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 4434.98,
+      "end": 4439.86,
+      "speaker": "adam-stacoviak",
+      "text": "They pushed a button and told me, follow these people. And there was a, you know, a line of cars."
+    },
+    {
+      "start": 4439.86,
+      "end": 4440.34,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4440.34,
+      "end": 4455.38,
+      "speaker": "adam-stacoviak",
+      "text": "I went through this system. They maybe did some like wheel scrubbing and maybe some extra applications, some things that are like bonuses. Maybe they're bonuses because humans did them. The robots did everything else. Okay. My car and my truck came out. Yeah."
+    },
+    {
+      "start": 4455.38,
+      "end": 4457.3,
+      "speaker": "jerod-santo",
+      "text": "I mean, average, average."
+    },
+    {
+      "start": 4457.3,
+      "end": 4462.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I mean, it was, it was not a human done job, but do you need that? You know, I don't know."
+    },
+    {
+      "start": 4463.46,
+      "end": 4509.86,
+      "speaker": "jerod-santo",
+      "text": "Like what's good enough. I feel like on that. So we have the same things here where it's like rocket car wash or Tommy's express or whatever. And it's like 99% machine and there's like a human there. And you know, some 16 year old kid is bored out of his mind. He's just waving you through, you know, we have the one where they're supposed to spray you for like, to get the bugs off, but the kid just like, whatever guys, he just kind of like spraying the water wherever. Sprayed in the wrong place. He's been there for like nine hours and he's bored out of his mind. And, and yet the car wash is always just like humming suitable. He died. Oh yeah. It's busy. But I'm saying like the end result, you're just kind of like, man, like it'd be so much better if a person actually did this, but not worth it for the price. Like for the price you're like, yeah, but you know, 10 bucks. Yeah."
+    },
+    {
+      "start": 4509.86,
+      "end": 4513.7,
+      "speaker": "adam-stacoviak",
+      "text": "You're narrowing it that from a human will never do that job for that being said, like"
+    },
+    {
+      "start": 4513.7,
+      "end": 4534.28,
+      "speaker": "jerod-santo",
+      "text": "a human at the front and then at the end, like doing the dry off and like the touch up work or the finishing. That that's a good combo is like human in the front, you know, the human sandwich, human AI, and then a human. There's a show title again."
+    },
+    {
+      "start": 4535,
+      "end": 4536.36,
+      "speaker": "adam-stacoviak",
+      "text": "Human AI, human."
+    },
+    {
+      "start": 4536.36,
+      "end": 4539.36,
+      "speaker": "jerod-santo",
+      "text": "That's a human sandwich. I'm full of them."
+    },
+    {
+      "start": 4540.24,
+      "end": 4542.16,
+      "speaker": "adam-stacoviak",
+      "text": "You are, you did a good job today."
+    },
+    {
+      "start": 4542.16,
+      "end": 4544.8,
+      "speaker": "jerod-santo",
+      "text": "You guys are in there and everything is whiskey, you know?"
+    },
+    {
+      "start": 4545.52,
+      "end": 4552.84,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah. I forgot you're sipping on that whiskey. See, as a sober person, it's so strange because I'm never not sober anymore."
+    },
+    {
+      "start": 4552.84,
+      "end": 4556.2,
+      "speaker": "jerod-santo",
+      "text": "I'm also sober. Just cause I figured you were and I'm not sober."
+    },
+    {
+      "start": 4556.2,
+      "end": 4560.12,
+      "speaker": "adam-stacoviak",
+      "text": "You don't lose it on a podcast, but you might be a little bit more tipsy than I am. I guarantee you are."
+    },
+    {
+      "start": 4560.12,
+      "end": 4562.68,
+      "speaker": "jerod-santo",
+      "text": "Well, definitely have more alcohol in my body than you do."
+    },
+    {
+      "start": 4562.68,
+      "end": 4563.72,
+      "speaker": "adam-stacoviak",
+      "text": "That's true. That's true."
+    },
+    {
+      "start": 4563.72,
+      "end": 4565.08,
+      "speaker": "jerod-santo",
+      "text": "So I'll give you that much."
+    },
+    {
+      "start": 4565.08,
+      "end": 4569.8,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. You know, just keep the humans, you know, just keep the humans."
+    },
+    {
+      "start": 4570.44,
+      "end": 4571.88,
+      "speaker": "jerod-santo",
+      "text": "We're here. We're humans."
+    },
+    {
+      "start": 4572.85,
+      "end": 4582.05,
+      "speaker": "adam-stacoviak",
+      "text": "We want to work. Oh, I don't even like laughing about this. I'm going to get slapped in the face by humans and robots at some point in my life for my comments."
+    },
+    {
+      "start": 4582.05,
+      "end": 4584.77,
+      "speaker": "jerod-santo",
+      "text": "We're going to go out to our feed and Tim. You can's going to come here."
+    },
+    {
+      "start": 4585.65,
+      "end": 4588.61,
+      "speaker": "adam-stacoviak",
+      "text": "Transcribed. We're all souls in the microphone."
+    },
+    {
+      "start": 4588.61,
+      "end": 4593.41,
+      "speaker": "jerod-santo",
+      "text": "I think he might be from Australia. So this is the double whammy. He's in New Zealand or Australia."
+    },
+    {
+      "start": 4593.41,
+      "end": 4594.85,
+      "speaker": "adam-stacoviak",
+      "text": "I think Tim is from Australia."
+    },
+    {
+      "start": 4594.85,
+      "end": 4605.83,
+      "speaker": "jerod-santo",
+      "text": "Take that Tim. Your people are weak. Go watch alone in Australia and drop like flies out there. It's very surprising. Okay."
+    },
+    {
+      "start": 4605.83,
+      "end": 4607.27,
+      "speaker": "adam-stacoviak",
+      "text": "Is it better than naked and afraid?"
+    },
+    {
+      "start": 4607.91,
+      "end": 4611.59,
+      "speaker": "jerod-santo",
+      "text": "I haven't actually watched naked afraid because I just don't have any interest in the naked part."
+    },
+    {
+      "start": 4612.76,
+      "end": 4615.56,
+      "speaker": "adam-stacoviak",
+      "text": "I don't either. It's always blurred out. Like it's not why you watch it though."
+    },
+    {
+      "start": 4615.56,
+      "end": 4617.08,
+      "speaker": "jerod-santo",
+      "text": "Isn't that just a stupid gimmick?"
+    },
+    {
+      "start": 4617.08,
+      "end": 4648.52,
+      "speaker": "adam-stacoviak",
+      "text": "I don't think it is. Now, let me tell you why I don't think it is. Cause like a lot of people will come to that show and you'll see it, the comments, where's the version without the blur. There is no version without the blur. You weirdo. That's not the purpose of the show. It's literally to strip the person down from something to nothing and live the 14 or 21 days or whatever it is. And I think there's a little bit cause they always pair a guy and a girl together. And so there may be some of that in the relationship part of it."
+    },
+    {
+      "start": 4648.52,
+      "end": 4650.44,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Like we're both naked. Yes."
+    },
+    {
+      "start": 4650.44,
+      "end": 4657.16,
+      "speaker": "adam-stacoviak",
+      "text": "And like, you're like, how far will they go with their own separate lives and they're commingling to like make it work? That's part of the struggle."
+    },
+    {
+      "start": 4657.16,
+      "end": 4657.4,
+      "speaker": "jerod-santo",
+      "text": "Sure."
+    },
+    {
+      "start": 4657.4,
+      "end": 4675.72,
+      "speaker": "adam-stacoviak",
+      "text": "So I think that's maybe the edge of the naked and afraid part of it, but I've never personally watched it because I'm like, you know, trying to get a glimpse of the blur. It just doesn't make any sense. No, the fact that they did go from like, I came here clothed and I had to be vulnerable and take my clothes off."
+    },
+    {
+      "start": 4675.72,
+      "end": 4676.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4676.2,
+      "end": 4684.47,
+      "speaker": "adam-stacoviak",
+      "text": "And then be literally what God gave me to survive out here. Like that to me is a really compelling show."
+    },
+    {
+      "start": 4684.47,
+      "end": 4686.23,
+      "speaker": "jerod-santo",
+      "text": "Is there a time limit though? It's like two weeks."
+    },
+    {
+      "start": 4687.11,
+      "end": 4689.35,
+      "speaker": "adam-stacoviak",
+      "text": "I think it's 21 days if I remember correctly."
+    },
+    {
+      "start": 4689.35,
+      "end": 4740.71,
+      "speaker": "jerod-santo",
+      "text": "That's the big difference here with alone is there's no time limit. You can just survive as long as you can survive and you don't know if the other people have dropped off or not because you have no contact. So maybe you're like, it's two people. Maybe there's a bunch of them still going. Maybe the other person is starving to death and you're doing great. You have no idea what's happening. So that's, that's the difference. Also, don't you think like the naked and afraid, if the prerequisite for the show is like, look, here's what you're signing up for. You're going to strip down naked and then whatever happens next. Doesn't that really limit like the pool of humans that you could possibly recruit? Like you already guarantee that some probably crazy people are coming on, which is good for TV, but for me, like I like the survival style. Like I like seeing how smart and resourceful they are and stuff. And I just feel like naked and afraid doesn't invoke that style of show to me. It's like somebody trembling behind a tree."
+    },
+    {
+      "start": 4742.39,
+      "end": 4754.63,
+      "speaker": "adam-stacoviak",
+      "text": "You know, once they don't even, they don't even care anymore. Like, like once it's gone, like past that first close off moment, it's kind of like not even part of the show anymore."
+    },
+    {
+      "start": 4754.63,
+      "end": 4755.83,
+      "speaker": "jerod-santo",
+      "text": "What's the afraid part?"
+    },
+    {
+      "start": 4756.66,
+      "end": 4796.79,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think the fact that they're in Tanzania or some random places. Okay. Not only was I dropped off in Tanzania, but I'm dropped off in Tanzania during storm season. Right. So I know today it's dry. I got to get over to the Hill. And if I do, I can get to the place where I can create my shelter. And if I don't, I'm spending a half day through those thistles and the rain. And you'd be cold by the time you get there. So it's strategic thinking, you know, and the fact that they're naked. That means there's no shoes either. So everywhere they're literally barefooted, right? They're exposed as extremely as you can be to the elements."
+    },
+    {
+      "start": 4796.79,
+      "end": 4799.43,
+      "speaker": "jerod-santo",
+      "text": "Do any of them fashion clothes for themselves or anything?"
+    },
+    {
+      "start": 4799.43,
+      "end": 4806.79,
+      "speaker": "adam-stacoviak",
+      "text": "They do. Yeah. I mean, those there's versions of the show that are like, they call them naked and afraid XL."
+    },
+    {
+      "start": 4806.79,
+      "end": 4811.59,
+      "speaker": "jerod-santo",
+      "text": "I believe it's like extra large, like the, I'm not part of this crew."
+    },
+    {
+      "start": 4811.75,
+      "end": 4867.94,
+      "speaker": "adam-stacoviak",
+      "text": "We got these names and it's like multiple teams. You would get dropped off by yourself and you will have to find your people. And then you will have like this four person squad and there'll be multiples of those. So there might be like three or four, four person squads. And then it's all competing, but individually too. Cause you kind of are on this team and I want me and Jerry's team to win. Obviously, you know, I want to survive, let's just say, but then there's times where like, you know, I may, I may tap out and you may continue and you join somebody else's team, you know? So now you got like team changes and stuff like that happening as a lot of like unexpected things, or you got this dude who's like, oh, you know what? I'm going to eat this alligators eyeballs because they're great for protein, but they're also really great for parasites. And this dude like basically has to get out, which is something that happened on one of them before he ate the alligators eyeballs. And then he regretted eating the alligators eyeballs."
+    },
+    {
+      "start": 4869.54,
+      "end": 4869.78,
+      "speaker": "jerod-santo",
+      "text": "Wow."
+    },
+    {
+      "start": 4869.78,
+      "end": 4880.21,
+      "speaker": "adam-stacoviak",
+      "text": "He didn't make it past the day after that. He was gone. Yeah. He's gone, you know? And you're like, Hey, that dude eats some really weird stuff. Let's not eat what he eats. Okay. Cause he eats some really weird stuff."
+    },
+    {
+      "start": 4880.21,
+      "end": 4885.81,
+      "speaker": "jerod-santo",
+      "text": "Well, I'm glad the XL was referring to the team size. I thought it just meant like plus size people, you know?"
+    },
+    {
+      "start": 4885.81,
+      "end": 4890.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. No, they, they, everybody's, you know, and they invite the, the legends too."
+    },
+    {
+      "start": 4890.45,
+      "end": 4894.37,
+      "speaker": "jerod-santo",
+      "text": "They invite the legends back to, you know, this is a deep catalog."
+    },
+    {
+      "start": 4894.37,
+      "end": 4899.09,
+      "speaker": "adam-stacoviak",
+      "text": "It really is. I mean, it's, I mean, it's probably 15 seasons deeper more I'm guessing. Wow."
+    },
+    {
+      "start": 4899.09,
+      "end": 4900.37,
+      "speaker": "jerod-santo",
+      "text": "People must like the show."
+    },
+    {
+      "start": 4900.37,
+      "end": 4914.29,
+      "speaker": "adam-stacoviak",
+      "text": "At least, at least. I mean, honestly, like, I don't know what other people feel about naked and afraid or the naked part of being naked and afraid, but it's always been the hoot to be like, seeing that person in the comments, where's the version without the blur at 39."
+    },
+    {
+      "start": 4914.29,
+      "end": 4916.53,
+      "speaker": "jerod-santo",
+      "text": "Just every episode has one."
+    },
+    {
+      "start": 4916.53,
+      "end": 4927.57,
+      "speaker": "adam-stacoviak",
+      "text": "Unfortunately, it's just part of the name, but I think it's God's great premise, which is why I like Alone. I like the idea of Alone. I think actually it might be more fun with a prepared survivalist, fully clothed."
+    },
+    {
+      "start": 4927.57,
+      "end": 4927.89,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4928.53,
+      "end": 4951.04,
+      "speaker": "adam-stacoviak",
+      "text": "Potentially. But then there's also some excitement about somebody who's like, you know what? I've seen some people survive where I'm like, there's no way he or she is surviving. And they're the one who thrives. You're like, how did that person who was skinny as all get out, no fat at all in their body to lose, you know, they're going to be a skeleton afterwards. How do they survive?"
+    },
+    {
+      "start": 4951.04,
+      "end": 4952.56,
+      "speaker": "jerod-santo",
+      "text": "21 days you can just starve."
+    },
+    {
+      "start": 4953.4,
+      "end": 4953.72,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4953.72,
+      "end": 4979.6,
+      "speaker": "jerod-santo",
+      "text": "That's where I think like with Alone, like to win Alone, I've watched enough seasons. You got to go at least two months. Like no one's going to win without 60 days. And that's like serious, you know, like you got to really survive. You can't, well, one guy did just put on a bunch of weight and kind of just outlasted everybody else, but you got to find food, man. Whereas 21 days you could just survive and just suffer through it. Probably. I don't know how you actually win then. Who wins and why?"
+    },
+    {
+      "start": 4980.32,
+      "end": 4987.24,
+      "speaker": "adam-stacoviak",
+      "text": "So this is, these are all great questions. These are all great. This is a full show."
+    },
+    {
+      "start": 4987.24,
+      "end": 4989.56,
+      "speaker": "jerod-santo",
+      "text": "They get afraid of interview here."
+    },
+    {
+      "start": 4989.56,
+      "end": 4993.08,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So typical show is a pair of people. It's usually guy and a girl."
+    },
+    {
+      "start": 4993.08,
+      "end": 4993.58,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 4994.36,
+      "end": 5029.08,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know if they've ever been guy guy or not, or girl girl. I'm not really sure, but it's always been like a gender swap pair kind of thing. And you win by literally surviving. So you either tap out and you don't win and it's, or you don't and you get to the, you know, the, what they call extraction points. You have to literally traverse to an extraction point. So you might go somewhere and camp for the 21 days, but the extraction point might be a mile or two or three or four East. And you got to camp somewhere and then extract elsewhere."
+    },
+    {
+      "start": 5029.72,
+      "end": 5035.8,
+      "speaker": "jerod-santo",
+      "text": "So you got to, that makes the premise quite a bit different than alone. I think you might like, I think both have their reasons to exist. Yeah."
+    },
+    {
+      "start": 5035.8,
+      "end": 5105.22,
+      "speaker": "adam-stacoviak",
+      "text": "Now XL version is the same thing. It's just survival. You've got to last the days and those who last the days are part of the team that wins is there's no like I win over you or you win over me. It's just, we all win. If we're there at the end, we've all won. So that's how winning and losing is chosen there. But it's like, you're really a team. Like the individual show is when we land, if we don't team up and we fight or we have disbeliefs or we don't align, we're probably going to fail, you know, just because that's how it's going to work. You have to band together to make it through. And those who don't tend to not survive. Those who do tend to survive pretty easily. And in fact, some of them are like, this is really fun to watch because not only they're not dying, they're thriving. Like, wow. They were able to get a snake and a, you know, a Cayman or whatever it might be. And next thing you know, they're eating snake and Cayman. They've got, they've smoked it. Now they've got like Cayman jerky. It's like, you know, they're eating like kings kind of thing. It's kind of, it's kind of wild. And the ones who are sucking, you're like, dang, they're really like, they're eating poop, you know, like they're eating the wrong stuff. You know, they're eating this fruit. You should not eat, you know?"
+    },
+    {
+      "start": 5105.94,
+      "end": 5106.66,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 5106.66,
+      "end": 5112.66,
+      "speaker": "adam-stacoviak",
+      "text": "Or eating a lot of banana. Unread banana. Could you imagine eating only banana for three weeks? Oh gosh, no."
+    },
+    {
+      "start": 5112.66,
+      "end": 5121.22,
+      "speaker": "jerod-santo",
+      "text": "I'd rather starve. I think, I think there's actually some virtue to the starvation strategy. If you only have to go 21 days, then eating a bunch of bananas, you know."
+    },
+    {
+      "start": 5121.94,
+      "end": 5122.98,
+      "speaker": "adam-stacoviak",
+      "text": "Tell me this, how do we get here?"
+    },
+    {
+      "start": 5122.98,
+      "end": 5126.42,
+      "speaker": "jerod-santo",
+      "text": "You can shut your metabolism down, you know, after a couple of days of not eating."
+    },
+    {
+      "start": 5126.42,
+      "end": 5126.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 5126.9,
+      "end": 5130.02,
+      "speaker": "jerod-santo",
+      "text": "And last quite a ways, as long as you have some reserve fats."
+    },
+    {
+      "start": 5130.02,
+      "end": 5134.02,
+      "speaker": "adam-stacoviak",
+      "text": "But how do we get here though with, with this, how does this relate back to."
+    },
+    {
+      "start": 5134.02,
+      "end": 5178.68,
+      "speaker": "jerod-santo",
+      "text": "Okay. Let's tie it all back together. So we've all gotten this far. We've all survived. You know, if you've made it this far, you're with us still. We are the winners. We survived. How are we going to survive this coming AI apocalypse? Well, Adam said it earlier. We have to band together. You know, we have to team up with your fellow humans and promote each other and help each other and equip each other. And we have to leverage the tools that we have. Otherwise they will simply squash us like the cockroaches that we are. And so I'm going to be out there grabbing on some agents and tell them to do things, you know, boss them around before they start bossing us around dog. Damn it. What do you think? Is there any more than that?"
+    },
+    {
+      "start": 5180.2,
+      "end": 5187.27,
+      "speaker": "adam-stacoviak",
+      "text": "Well, for now I have a job, Jared. For now I have a job."
+    },
+    {
+      "start": 5187.83,
+      "end": 5235.22,
+      "speaker": "jerod-santo",
+      "text": "There you go. And we just finished our job. Let's call it a show. See you in Denver. If not, what's wrong with you? If you can't make it to Denver in July, obviously there's lots of reasons why you might not be able to, but if you can, please do. We love to meet up with as many folks as possible. We're going to have fun with or without you, but more fun with you. So please do come and yeah, exactly. Thanks again to our new friend, Kendall Miller and his Friday deployment spirits. Pretty good whiskey gin. You know, if you like gin, maybe it's good. I can't tell, but I do appreciate him sending us out some spirits and anything else or just say goodbye friends and hang up."
+    },
+    {
+      "start": 5235.78,
+      "end": 5293.78,
+      "speaker": "adam-stacoviak",
+      "text": "I think change on the comm slash live is the place to be. I'm excited about July 26 in Denver. It is a big deal to launch pipe Lee. It's so much work going into this. I think we're underplaying it like a little bit because we want to boast too much, but like I'm going to boast just for a second. If you don't mind, like, okay, go for it. Please come here. We want to, if you can, if you can spend the money to fly and hang the ticket is of course, super inexpensive. We're on a hike. We're in a live podcast. We're on a launch, something cool. We're in a meet up. We want you there. Come see us. Change.com slash life has all the details. It's super easy to come and we're basically made it free for the most part. You know, if you want to throw some membership to get it free, you can, if not just pay the actual fee and we want to see you there. So I know I do. I'm excited to see you and Gerhard and Aaron Dowd's coming back. Jason's coming. Our editor, of course, the whole team's going to be there."
+    },
+    {
+      "start": 5293.78,
+      "end": 5295.78,
+      "speaker": "jerod-santo",
+      "text": "Breakmaster cylinder will be there."
+    },
+    {
+      "start": 5295.78,
+      "end": 5300.18,
+      "speaker": "adam-stacoviak",
+      "text": "New beats potentially. We'll see. I'm guessing like, why would he not bring new beats?"
+    },
+    {
+      "start": 5300.18,
+      "end": 5302.74,
+      "speaker": "jerod-santo",
+      "text": "I think fresh beats are on order for sure."
+    },
+    {
+      "start": 5302.74,
+      "end": 5310.69,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, for sure. And the mystery guests, you know, we just don't know. We just don't know yet, but if you come, you will know."
+    },
+    {
+      "start": 5310.69,
+      "end": 5311.33,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 5311.33,
+      "end": 5313.16,
+      "speaker": "adam-stacoviak",
+      "text": "You will know. That's it."
+    },
+    {
+      "start": 5313.97,
+      "end": 5314.37,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 5315.17,
+      "end": 5315.97,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends."
+    },
+    {
+      "start": 5315.97,
+      "end": 5316.53,
+      "speaker": "jerod-santo",
+      "text": "Bye friends."
+    },
+    {
+      "start": 5317.17,
+      "end": 5364.37,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that's it. This show's done. Thank you for tuning in. Friends is over back on Monday. We will see. We will see. I will tell you one thing though. I look forward to seeing you in Denver live changelog.com slash live. Go there. Get a ticket. Come and see us live show in Denver. IRL. All the things. Come on. I want to see you there. You should also be in our community in Zulip changelog.com slash community free to join. Get there right now. Hang out with people. Make some friends. All the good stuff. Okay. That's it. This show's done. We'll see you next week."
+    }
+  ]
+}

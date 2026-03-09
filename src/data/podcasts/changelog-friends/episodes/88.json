@@ -1,0 +1,1330 @@
+{
+  "title": "Proud pod parents",
+  "description": "Richard Moot from Square discusses launching a developer podcast with Changelog, the evolution from Square to Block, and the excitement around MCP (Model Context Protocol) servers and their implications for AI integration.",
+  "links": {
+    "YouTube": "https://youtu.be/C3COppsIS04",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "richard-moot"
+  ],
+  "segments": [
+    {
+      "start": 15.18,
+      "end": 33.74,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about AGI Hypotheses. Thanks as always to our partners at Fly.io, the public cloud built for developers who ship. If you ship like we do, you should ship where we do. Check out Fly.io. Okay, let's talk."
+    },
+    {
+      "start": 33.74,
+      "end": 60.61,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I'm here with a good old friend of mine, Terrence Lee, cloud native architect at Heroku. So Terrence, the next gen of Heroku called Fur is coming soon. What can you say about the next generation for Heroku?"
+    },
+    {
+      "start": 60.61,
+      "end": 175.67,
+      "speaker": "richard-moot",
+      "text": "Fur represents the next decade of Heroku. Cedar lasted for 14 years and more, still going. And Heroku has this history of using trees to represent ushering in new technology stacks and foundations for the platform. And so like Cedar before, which we've had for over a decade, we're thinking about Fur in the same way. So if you're familiar with Furtree's at all, Douglas Furs, they're known for their stability and resilience. And that's what you want for the foundation of a platform that you're going to trust your business on top of. We've used stacks to kind of usher in this new technology. And what that means for Fur is we're replatforming on top of open standards. A lot has changed over the last decade. Things like container images and OCI and Kubernetes and cloud native, all these things have happened in this space. And instead of being on our own island, we're embracing those technologies and standards that we help popularize and pulling them into our technology stack. And so that means you as a customer don't have to kind of pick or choose. So as an example, on Cedar Today, we produce a proprietary tarball called Slugs. That's how you run your apps. That's how we packed them. On Fur, we're just going to use OCI images, right? So that means that tools like Docker are part of this ecosystem that you get to use. So with our cloud native build packs, you can build your app locally with a tool called Pack, and then run it inside Docker. And that's the same kind of basic technology stack we're going to be running in Fur. So you can run them in your platform as well. So we're providing this access to tools and things that developers are already using and extensibility on the platform that you haven't had before. But this sounds like a lot of change, right? And so what isn't changing? And what isn't changing is the Heroku you know and love. That's about focusing on apps and on infrastructure and focusing on developer productivity. And so you're still going to have that Git push Heroku main experience. You're still going to be able to connect your applications and pipelines up to GitHub, have that Heroku flow. We're still about abstracting out the infrastructure from underneath you and allowing you as an app developer to focus on developer productivity."
+    },
+    {
+      "start": 175.67,
+      "end": 215.19,
+      "speaker": "adam-stacoviak",
+      "text": "Well, the next generation of Heroku is coming soon. I hope you're excited because I know a lot of us, me included, have a massive love and place in our heart for Heroku. And this next generation of Heroku sounds very promising. To learn more, go to Heroku.com slash changelog podcast and get excited about what's to come for Heroku. Once again, Heroku.com slash changelog podcast. Well, friends, we're here with one of our potentially oldest friends, not quite the oldest, but pretty old Richard. Not I don't think I'm that old."
+    },
+    {
+      "start": 215.19,
+      "end": 216.19,
+      "speaker": "jerod-santo",
+      "text": "How old is he?"
+    },
+    {
+      "start": 216.19,
+      "end": 227.85,
+      "speaker": "adam-stacoviak",
+      "text": "Not an age, but an age of relationship. We met... Do you remember this? We met him back with Shannon at the booth, at the square booth at OSCON. Yes."
+    },
+    {
+      "start": 227.85,
+      "end": 238.45,
+      "speaker": "jerod-santo",
+      "text": "OSCON. Yes. Forever ago, basically. Forever ago. I remember Shannon more than Richard, if I'm being honest, but I'm sure Richard remembers you more than he remembers me."
+    },
+    {
+      "start": 238.45,
+      "end": 239.45,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe."
+    },
+    {
+      "start": 239.45,
+      "end": 244.94,
+      "speaker": "jerod-santo",
+      "text": "I don't know. I do remember that. That was forever ago. I mean, OSCON, it's not even real anymore. I know."
+    },
+    {
+      "start": 244.94,
+      "end": 251.08,
+      "speaker": "adam-stacoviak",
+      "text": "People don't even know what it is. The open source convention or conference."
+    },
+    {
+      "start": 251.08,
+      "end": 254.6,
+      "speaker": "jerod-santo",
+      "text": "All those good O'Reilly conferences used to be so much fun."
+    },
+    {
+      "start": 254.6,
+      "end": 263.4,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. They rolled them all. They closed the whole section down. It was as soon as COVID hit, OSCON got canceled, but not just OSCON, but O'Reilly events like"
+    },
+    {
+      "start": 263.4,
+      "end": 267.24,
+      "speaker": "jerod-santo",
+      "text": "the entire wing of their business just gone forever."
+    },
+    {
+      "start": 267.24,
+      "end": 271.28,
+      "speaker": "adam-stacoviak",
+      "text": "Do we miss it? I miss it."
+    },
+    {
+      "start": 271.28,
+      "end": 275.28,
+      "speaker": "jerod-santo",
+      "text": "I miss it. I do. I do miss it. I do."
+    },
+    {
+      "start": 275.28,
+      "end": 276.28,
+      "speaker": "adam-stacoviak",
+      "text": "I do."
+    },
+    {
+      "start": 276.28,
+      "end": 280.54,
+      "speaker": "jerod-santo",
+      "text": "Yeah. But all things open has stepped up in my opinion."
+    },
+    {
+      "start": 280.54,
+      "end": 283.46,
+      "speaker": "adam-stacoviak",
+      "text": "And Raleigh though, but Raleigh, is Raleigh a comparable city?"
+    },
+    {
+      "start": 283.46,
+      "end": 285.46,
+      "speaker": "jerod-santo",
+      "text": "No offense, Raleigh. Raleigh is cool."
+    },
+    {
+      "start": 285.46,
+      "end": 302.76,
+      "speaker": "adam-stacoviak",
+      "text": "Raleigh is cool. It's got the best dig house, right? It's not as weird. Sullivan's all day at Sullivan's. Anyways, let's lament later for other things. Okay. So Richard, we produced a podcast together."
+    },
+    {
+      "start": 302.76,
+      "end": 304.1,
+      "speaker": "richard-moot",
+      "text": "We sure did."
+    },
+    {
+      "start": 304.1,
+      "end": 317.36,
+      "speaker": "adam-stacoviak",
+      "text": "And you know, I got to say, this is like a game with the years. This is years in the making. How long, how far back was it when I was like, y'all need to do a developer podcast for Square? How long ago was that?"
+    },
+    {
+      "start": 317.36,
+      "end": 322,
+      "speaker": "richard-moot",
+      "text": "Oh, geez. That's definitely gotta be like years at this point."
+    },
+    {
+      "start": 322,
+      "end": 327.96,
+      "speaker": "adam-stacoviak",
+      "text": "I'd say four. That's what I'm thinking. Four. He asked the question, but he already knew the answer."
+    },
+    {
+      "start": 327.96,
+      "end": 328.96,
+      "speaker": "richard-moot",
+      "text": "Yeah."
+    },
+    {
+      "start": 328.96,
+      "end": 329.96,
+      "speaker": "adam-stacoviak",
+      "text": "I'm guessing it's four."
+    },
+    {
+      "start": 329.96,
+      "end": 346.5,
+      "speaker": "richard-moot",
+      "text": "I don't even know. Yeah. I think you're probably right. I remember talking about that. I remember talking about it with Shannon a little bit. And I think we weren't, we just weren't ready to pull the trigger on that, but I'm so glad that we finally came around. You were able to convince us."
+    },
+    {
+      "start": 346.5,
+      "end": 382.09,
+      "speaker": "adam-stacoviak",
+      "text": "What do you think held you back? You know, we know like be specific with what's a large team, a large platform like Square. How do you think about new content like that that brings in people and it was not a sales mechanism. I know Markham was involved in it and that's always a good thing because you want their blessing and involvement obviously, but how difficult was it to like think about creating a new content piece that you had to nurture and sell inside? Like what were the holdbacks from you?"
+    },
+    {
+      "start": 382.09,
+      "end": 502.85,
+      "speaker": "richard-moot",
+      "text": "I think like, you know, it was difficult to come around on it because, so when I joined Square I kind of like dove straight into taking over content for the blog and like revamping like how we were going to be writing content, switching from like really short blog posts, a longer form in depth, like really trying to like build some meat for developers to chew on when they're coming to like learn about the platform. Then when we launched the YouTube channel, you know, doing that zero to one, it was a lot of stuff that we had to learn in the process. And I think it just made us like a little bit hesitant. We had a small team to like figure out how do we actually like scale up a podcast? And I guess, you know, at the time I probably should have just like understood that I could have leaned on you all a little bit more because that was actually essential to getting this up and running was like trying to just, you know, go with experts who can actually tell us like what we should do, what we shouldn't do. Because when we were doing that for the YouTube channel, it was like we were just flying blind. Like we did a lot of things wrong, but eventually got things right. And so I think like that, and then the combination of that was like trying to like sort of understand like what is the overall story? I think I would admit I was a little bit like hesitant to like think that I could source all of the guests like frequently enough to like have a constant pipeline of episodes going out. So I think that's kind of like what held me back. And looking back, it's like I should have just started way earlier. Like I mean, I should have been thinking about like blog content. The best time to start a blog is, you know, five years ago, the second best time is right now. And I think like the same can be true of a podcast. Just start making the content you're going to learn, you're going to find like the right grades, you're going to find what works. And we're already seeing like, you know, quite a few people inside the company, a few people outside the company who really like what we already produced with some of these episodes."
+    },
+    {
+      "start": 502.85,
+      "end": 584.59,
+      "speaker": "adam-stacoviak",
+      "text": "Lots of vote of confidence, for sure. Yeah, I think you're spot on with when should you start because I feel like, you know, a lot of brands reach out to us because we have a great megafun to developers across the globe. And for good reason, right? We come every week, every day, bringing great content. You know, we're in the trenches and we can help brands reach these developers in meaningful ways. But we can only go so far with that. And I think there's a story that brands have to tell. I think that's the thing that I recall most is like Square has a developer story you're not telling. And if I have to repeat that more than once, I'm like, Richard, Square has a developer story you are not telling. And the way, one of the many ways you could do it, obviously, is via a long form authentic conversation aka a podcast. So I was a big proponent of that. And now if you think about block, you know, the block level, like y'all have this larger, I don't even know how to describe block really, I don't even know how to describe block compared to Square. I just know you have a big, big mission, Jack Dorsey is a big personality to even have at the helm. So that's one thing. But then big vision, big dreams, big ideas. And ultimately, our idea, or at least your idea, my idea was to, how can we not just do that for Square, but for block as well?"
+    },
+    {
+      "start": 584.59,
+      "end": 587.89,
+      "speaker": "richard-moot",
+      "text": "So yeah, that's the dream, isn't it?"
+    },
+    {
+      "start": 587.89,
+      "end": 591.85,
+      "speaker": "adam-stacoviak",
+      "text": "What's the what's the square block relationship? I don't even know it."
+    },
+    {
+      "start": 591.85,
+      "end": 695.24,
+      "speaker": "richard-moot",
+      "text": "It's kind of funky, because I think like most people think of as as like, separate companies, and I think they were kind of operated functionally that way. But like, it's all, as far as like, I've understood this is like, it's all block and that like, each one of these other things are like brands that are part of block. But you know, I've I joined before we became block. So it's like, I still have this like, thing, burn right brain, you know, I work for Square. Recently, that's changed a little bit. So I work on all block products doing developer relations now. So yeah, like the the relationship is like, you know, each one of these divisions kind of focused on a different audience in the economy, you know, Squares focused on businesses and like trying to like run small businesses, midsize businesses, we even have some enterprises. And then cash is all about consumers, like trying to give financial tools to people who like, hey, I want to go invest in Bitcoin, or I want to go buy stocks, or I want to send money, you know, to my barber, like it really helps, like, essentially act as like a consumer banking product. And so that's kind of like where there's like a little bit of, you know, getting both sides of the counter is kind of like what we talked about. And then we have like our other brands like title with streaming. And that's like, kind of like focused on artists, and we're trying to figure out like, what ways can we like enhance artists because like they they kind of operate like their own business. And then we got like some of like the more out there things like, you know, spiral doing Bitcoin grants and open source Bitcoin trying to really transform Bitcoin into like the digital currency of, of the internet. And so yeah."
+    },
+    {
+      "start": 695.24,
+      "end": 704.84,
+      "speaker": "adam-stacoviak",
+      "text": "So it's the Square Developer Podcast was their conversation with you all about like, should this be the block podcast? Oh my gosh, Square podcast. Richard is opening up the name."
+    },
+    {
+      "start": 704.84,
+      "end": 711.76,
+      "speaker": "richard-moot",
+      "text": "Oh, man. He's like trying to find out what I know some of this is BTS. How can we get Richard potentially in trouble?"
+    },
+    {
+      "start": 711.76,
+      "end": 713.84,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, no, I don't want to do that."
+    },
+    {
+      "start": 713.84,
+      "end": 810.8,
+      "speaker": "richard-moot",
+      "text": "But it's not gonna it's not that won't happen. No, definitely. That was like what I was when I was originally talking to Adam, that's really what I want to do. And that's still in the back of my mind, I still want to be able to do like that type of a podcast. So it's not out of the realm of possibility, because I feel like there's a lot to tell in terms of developer stories. And I don't want it to just be focused on like stuff that we're doing inside a block. I want to talk to people about like, you know, how are people leveraging AI with AI clients or building MCP servers, or connecting different tools to one another? Or, you know, implementing Bitcoin dashboards, you know, like, I think we just recently launched our own like open source framework to like show your holdings as a company. And so, yeah, that was like what I originally was like wanting when talking to Adam about this podcast. But in terms of like how we were actually going to be able to get a podcast started, it looked like it was going to make the most sense doing it for Square. Because we ended up finding we had like a lot of stories of sellers, what we like to call like seller developers, people who are like, hey, like they're tech savvy, they start their own business, but then they start finding our API's and building their own stuff for themselves, and really extending things. And so I think that's kind of like where we wanted to sort of like get the foot in the door of like, let's get a podcast started to show that this has legs. And then my hope is that we can sort of, you know, capitalize on that and do something a little bit bigger, a little bit more expansive."
+    },
+    {
+      "start": 810.8,
+      "end": 815.6,
+      "speaker": "adam-stacoviak",
+      "text": "I thought your question was more around the name, Jared, because like, we put that was"
+    },
+    {
+      "start": 815.6,
+      "end": 819.48,
+      "speaker": "richard-moot",
+      "text": "a long debate. That's part of it much longer than it should have been."
+    },
+    {
+      "start": 819.48,
+      "end": 846.34,
+      "speaker": "adam-stacoviak",
+      "text": "How much can you share about that part of it? I know that was a, I would say a point of contention. I would say that lightly from my side, just because I'm so passionate. It's not because y'all I know, it's just because I'm so I'm like, we cannot have had a five year, four year sales cycle, let's just say, you know, of me suggesting something to you all you finally decide to do it. We start doing it. And it's like, Whoa, hang on a second, we can't call it that."
+    },
+    {
+      "start": 846.34,
+      "end": 971.65,
+      "speaker": "richard-moot",
+      "text": "I don't want to sell anybody down down the river on this. But that was frustrating. Like I would definitely say that. And I was like, definitely in your camp on this of like, I wanted to have a more fun, better name. I think I remember you were really pushing on square dev.fm. Still, and I thought, I mean, I still think that's a great name. I feel like I say that and somebody's gonna like go snag that domain or like, Oh, well, we'll bleep it out. We'll bleep it out. Yeah. For sure. Don't let them figure it out. Read my lips. But that was definitely like a front runner. I just, you know, I can't really go into all of the details of like, why that one wouldn't work. It's mostly having to do with like domains and trying to like acquire domains and going through some sort of internal process. I wasn't, I'm actually quite happy with the square developer podcast. I know it's like very on the nose. It's very straightforward. It is what it is. And I think that that works for developers. My original, this is what I don't know if I would get in trouble for, but whatever. I originally wanted to call it local host cause I like, we, we have like a big push on like trying to build like local tools for sellers to be able to connect with cash users to be able to give local offers so that you can like sort of see your coffee shop down the street. They have an offer in cash app that if you go over here and use cash, like you can, you know, get 10% off your latte or something. I just love being able to tell these stories of like, this is like the local host hangout to talk about sellers and developers and what, what people are building on square. That did not fly well with, I mean, once you, once you get all the other folks involved who want to sort of like put their little touch on it. It went through a very lengthy review process trying to see like, is this going to conflict with some other copyright trademark, whatever. And so it like eventually we came all the way back down to square developer podcasts."
+    },
+    {
+      "start": 971.65,
+      "end": 977.98,
+      "speaker": "adam-stacoviak",
+      "text": "Gotcha. Well, now I feel bad cause I feel like that was me. I pushed against that. Wasn't that me?"
+    },
+    {
+      "start": 977.98,
+      "end": 994.56,
+      "speaker": "richard-moot",
+      "text": "But against the square developer podcast originally, I mean, I, I see valid arguments against it. I thought it was fun, but I could also see how like, it's not really self-evident. Like what is this podcast about, you know, I think it's a cool name for a podcast, but"
+    },
+    {
+      "start": 994.56,
+      "end": 1004.12,
+      "speaker": "jerod-santo",
+      "text": "not for a podcast from square, you know, like if Adam and I were starting something about networking, maybe like local hosts would be cool."
+    },
+    {
+      "start": 1004.12,
+      "end": 1055.82,
+      "speaker": "jerod-santo",
+      "text": "But even for changelog, like one of the things that we had was all these shows and different brands, JS party and go time and practical AI and the changelog. And every time that you come up with a new show, you want to like be like, it's still us from the changelog, but now we have a new name and there was people that don't even know like JS party was you guys, you know? And one of the reasons for our simplification back down, it's like, we're just the changelog now, like everything's changelog. Yeah. We have changelog and friends. We have changelog news, but it's all changelog. And so that's just more straightforward. And I think for square, if it's like square has a developer podcast now, yeah, it's not as creative, but so much easier to find, like there's just, it just connects the dots for people. And so I think it's the right choice, even though probably Richard, deep down inside of these meetings, I would have been on the local host side. It is just cooler and more interesting."
+    },
+    {
+      "start": 1055.82,
+      "end": 1072.36,
+      "speaker": "adam-stacoviak",
+      "text": "And when you zoom out to, so we haven't gotten to this part of the story yet, but there is the, the bottom line, which I believe is an online publication by square, which is essentially the, I would probably describe this as like the media hub, right? It's blog content. It's written content. It's video contents."
+    },
+    {
+      "start": 1072.36,
+      "end": 1076.56,
+      "speaker": "jerod-santo",
+      "text": "That's a good name. Bottom line for a transactions focused, you know?"
+    },
+    {
+      "start": 1076.56,
+      "end": 1077.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1077.56,
+      "end": 1082.56,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Running the business. Yeah. Focused on the bottom line. The bottom line."
+    },
+    {
+      "start": 1082.76,
+      "end": 1088.44,
+      "speaker": "adam-stacoviak",
+      "text": "So that's kind of a umbrella over the top of this. Is that right? Over the top of the square developer podcast."
+    },
+    {
+      "start": 1088.44,
+      "end": 1091.08,
+      "speaker": "richard-moot",
+      "text": "Like is the bottom line is yeah, yeah."
+    },
+    {
+      "start": 1091.08,
+      "end": 1093.22,
+      "speaker": "adam-stacoviak",
+      "text": "So it's one of, yeah."
+    },
+    {
+      "start": 1093.22,
+      "end": 1116.28,
+      "speaker": "richard-moot",
+      "text": "So the bottom line is kind of focused on like everything for square sellers or, you know, it's basically like our, you know, very large publication that has like all different kinds of stuff and it, they have other podcasts on there that were like, say like more business focused or SMB focus. I think there's one that was like called tipped. I cannot remember any of the other ones for the life of me right now. I live over in development."
+    },
+    {
+      "start": 1116.28,
+      "end": 1117.28,
+      "speaker": "adam-stacoviak",
+      "text": "Paying it forward."
+    },
+    {
+      "start": 1117.28,
+      "end": 1144.68,
+      "speaker": "richard-moot",
+      "text": "Yeah. Paying it forward. You know? And so they've had these other podcasts and so this kind of gets folded in with that umbrella. I think part of the idea is that rather than like having this just on like our technical blog, we wanted to have this in a place where like more sellers can be familiar with like, Hey, we have a lot of solutions outside of, you know, what you might see in an app marketplace or you can hire people to build stuff or you can build stuff yourself. So I think that's kind of like the idea that it would be a lot more exposure over there."
+    },
+    {
+      "start": 1144.68,
+      "end": 1217.54,
+      "speaker": "adam-stacoviak",
+      "text": "I'm a big fan of like content that you discover as an individual and you get inspired by. So I just imagine someone who is building the beginnings of their business and they're thinking, gosh, taking payments is one thing. But then it's like, well, how can I dream about the future of this business? I have a background in software. I have a friend who's in software and they want to be my co-founder. Whenever it plays out, I feel like they can, someone in this world could discover the Square Developer Podcast and pick it up as a business owner and figure out how to dream with Square. That's what I always envisioned. Not just like, let's just feed developers more developer content, but more like how can we inspire new ways to think about the future of commerce leveraging Square and people discover that content and those who are doing it. And that's what the show, you know, kind of capitalizes on. I was like dreaming for that kind of thing, not just, you know, let's nerd out, which is always cool. But at the same time, like let's nerd out and also bring somebody into the fold that may not have normally found this content or saw how this franchise business, you know, is pretty scrappy with their tech, but like really polished with Square."
+    },
+    {
+      "start": 1217.54,
+      "end": 1391.69,
+      "speaker": "richard-moot",
+      "text": "I mean, like that's spot on. I mean, like I couldn't have imagined like what we would end up talking about on the podcast from the beginning to like when I actually got to like sit down and, you know, interview these folks. There's one that like Ray Alano is a great one where, you know, they were just like, Hey, this started out in a garage. I just wanted to be able to like sell stuff to expanding into like 120 franchises. I mean, like, and it's just building on like the scrappiest way possible. And they were able to build stuff completely on their own. The other one that like really impressed me, I don't think the episodes come out yet, but it's a, this company called head pins. They're like a family entertainment center in Southwest Florida. And they only started using Square during COVID. They like started using like our Square Online product to basically do like curbside pickup to be able to like, Hey, we need to be able to keep the lights on here. We're going to do curbside pickup. Nobody can come in here and do bowling, but we have food. And so we're going to be able to sell food through Square using their online offering. From there, it like, they just started using, like, they found out that we had like APIs, SDKs. They were like, Hey, you know, we want to build this like kiosk solution. So somebody can come in, buy arcade value, put loaded up on a card and pay for it using a Square terminal. And so like they started just expanding and like trying out all these different new things. And at the end of it now, they're like, just diehard Square users. And they say like, Square is like the source of truth. Like if we can't push the data back into Square in some way, we're just going to use a different product. And I was just like, I would, I never would have found out about these stories until like I sit down and I talk to them because I think like the way that we ended up getting in touch with them is like somebody within our company recorded like a promo thing that was completely devoid of like the developer story here. They just happened to like find out like, Oh, they're working with this like one API. Let's go put them in touch with Richard and like see if he wants to talk with them. And I was like, Yeah, of course. And so getting to like service these stories has been really great because talking to people in our community like they're, they just even are eager to understand like how are other people building on this platform. And I feel like this is like a much better way to be able to get people to understand how this is working. I can definitely say like doing DevRel, I could sit here and talk about all the different ways that you can use a developer can build on this platform. It's only going to go so far. When I actually have somebody who's like, no, like I've actually built this business on here, you can go see it, you can go try it. Like that is just 10 times more powerful. And like the podcast is like a way to basically be that vehicle to let people tell that story."
+    },
+    {
+      "start": 1391.69,
+      "end": 1491.7,
+      "speaker": "adam-stacoviak",
+      "text": "The Headpin story is a great example because I, you know, we edited all these shows, but I'm also mastering the shows and I'm listening to them and I'm chattering them and I'm in these details. And I recall this part, like I didn't listen to every episode end to end, but this Headpins one I was actually really impressed with. And I think it was closer to the end if I recall correctly. They were saying something like, once we realized how data flows through Square and how it works and all this stuff essentially, I'm paraphrasing of course, they were just thinking like, how can we get all the data in there? If it can't go through Square, we don't want, like it was, it was as if it was this layer that helped them ensure all the data was correct, could be accessible via an API, et cetera. And it became where they wanted all the data to go through Square and it was its source of truth. And I was like, that's, you can't get that kind of story just randomly talking to people. How do you expose those kinds of ideas and that truthfulness and that honesty with how they leverage a platform? Like you can't, you can't pay for that. So that's not something that you go and do a case study on or something like that. Or it's the, you get sort of these great customer stories that are inspirational and spark curiosity for others. And they're trapped in these weird, I don't know, like a content silos where it's like, it's in this case study, but the case didn't have any life. It's only this printed documents only via PDF kind of thing, or this one single webpage, which almost nobody ever goes and reads. And you got these great stories out there and I'm like, wow, this head pins one was an example of what we dream for, for this conversation, for this podcast."
+    },
+    {
+      "start": 1491.7,
+      "end": 1549.1,
+      "speaker": "richard-moot",
+      "text": "Yeah. And I would even add to that, like, you know, there's, it wouldn't work if I went out there and I told people like, you should be using Square as like your source of truth, because I feel like anybody hearing that would be like, yeah, of course you would say that. That like, kind of like puts me into this position of like, now I'm just entirely reliant on Square. Yeah. And like, you know, there's probably instances where I wouldn't recommend that some people use Square as their single source of truth, but I would like for people to know that like, some people have done this and it's been wildly successful for them. They have simplified like all of their analytics, all of their like understanding of like how the business is being run. Like their marketing department can now say like, Hey, how do we get people to like, you know, book racing while booking, like waiting for their bowling appointment and like doing more arcade? Like what kind of promos can we mix together? They now have access to like this full customer experience. Every time somebody like sets foot inside of one of those headpins locations."
+    },
+    {
+      "start": 1549.1,
+      "end": 1567.47,
+      "speaker": "adam-stacoviak",
+      "text": "How do y'all come to these interviews in terms of what's your, obviously you found that one because somebody inside of Square had already connected with that customer, but is there an editorial aim that you're shooting for and then how do you execute on it, et cetera. Asking for a friend."
+    },
+    {
+      "start": 1567.47,
+      "end": 1645.02,
+      "speaker": "richard-moot",
+      "text": "Yeah. I wish I could tell you that we had like a really good process. It's very much like us getting together with a bunch of folks and saying like, all right, who do we know that would we can, and we just kind of like blasted out feelers to a bunch of people who we know were, you know, building something, working on something you know, Being part of the developer community for Square, you know, I've built relationships with a few people over the years. And so, you know, first round is like going through those people and be like, Hey, would you like to be on the podcast to talk about like, you know, how you built, you know, your kiosk for Shake Shack or like how you built out like the whole ordering system for Chase Center you know, and then kind of like just going from there, once we had like a few people into the book, then we can kind of at least use that as like the, Hey, we already have these folks bought in but yeah, the sourcing was kind of all over the place, just trying to like send out a bunch of messages to people that we knew in the community or partners. And so, yeah, it was kind of all over the place. I was glad that we were able to get as many folks as we did. I feel like once it's out there, maybe we have a little bit better chance of getting people to want to be on it."
+    },
+    {
+      "start": 1645.06,
+      "end": 1660.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, totally. Once you have a reputation, it's much easier. We have a much easier time nowadays getting guests than we used to when they'd be like, excuse me, who are you? You know, Square already has the name, so that helps, but they're like, Square has a podcast? Okay."
+    },
+    {
+      "start": 1660.7,
+      "end": 1678.54,
+      "speaker": "richard-moot",
+      "text": "You know? I mean, you could imagine there, I remember vividly the, the puzzled look of the first one or two guests that I had on and had to like be clear with them, like, yeah, you're the first one. This is, and they're like, Oh, okay, I have no idea how this is going to go. And I'm like, mean, me neither, but we're going to figure it out."
+    },
+    {
+      "start": 1678.54,
+      "end": 1707.99,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, before the show, I'm here with my good friend, David shoe over at retool. Now David, I've known about retool for a very long time. You've been working with us for many, many years. And speaking of many, many years, Brex is one of your oldest customers. You've been in business almost seven years. I think they've been a customer of yours for almost all those seven years to my knowledge, but share the story. What do you do for Brex? How does Brex leverage retool and why have they stayed with you all these years?"
+    },
+    {
+      "start": 1707.99,
+      "end": 1813.29,
+      "speaker": "richard-moot",
+      "text": "So what's really interesting about Brex is that they are a extremely operational heavy company. And so for them, the quality of the internal tool is so important because you can imagine they have to deal with fraud, they have to deal with underwriting, they have to deal with so many problems. Basically they have a giant team internally, basically just using internal tools to stay in a day out. And so they have a very high bar for internal tools. And when they first started, we were in the same YC batch actually, we're both at winter 17 and they were, yeah, I think maybe customer number five or something like that for us. I think DoorDash is a little bit before them, but they were pretty early. And the problem they had was they had so many internal tools they needed to go and build, but not enough time or engineers to go build all of them. And even if they did have the time or engineers, they wanted their engineers focused on building external physics software, because that is what would drive the business forward. The Brex mobile app, for example, is awesome. The Brex website, for example, is awesome. The Brex expense flow, all really, really great external software. So they wanted their engineers focused on that as opposed to building internal crud UIs. And so that's why they came to us. And it was honestly a wonderful partnership, but it has been for seven, eight years now. Today, I think Brex has probably around a thousand retool apps they use in production, I want to say every week, which is awesome. And their whole business effectively runs now on retool. And we are so, so privileged to be a part of their journey. And to me, I think what's really cool about all this is that we've managed to allow them to move so fast. So whether it's launching new product lines, whether it's responding to customers faster, whatever it is, if they need an app for that, they can get an app for it in a day, which is a lot better than, you know, in six months or a year, for example, having to schlep through spreadsheets, et cetera. So I'm really, really proud of our partnership with Brex."
+    },
+    {
+      "start": 1813.29,
+      "end": 1852.84,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Retool is the best way to build, maintain and deploy internal software, seamlessly connect to databases, build with elegant components and customize with code, accelerate mundane tasks and free up time for the work that really matters for you and your team. Learn more at retool.com, start for free, book a demo, again, retool.com. Even the interviewing process is a journey to learn. Can you talk about becoming a host of a podcast, what it takes to before, during and after?"
+    },
+    {
+      "start": 1852.84,
+      "end": 2007.12,
+      "speaker": "richard-moot",
+      "text": "I think that you kind of set me up pretty well in understanding, I think like from a few times when we had sort of informally recorded some things, had some conversations, it kind of gave me a little bit of understanding. What I found worked really well for me is so we would set up like a pre-production call with anybody that was going to be a guest. I'm going to like sort of let it out that like, that was also the point where I was trying to figure out, is there a story here or do we need to like kindly say like, Hey, this isn't probably a good fit. Let's find somebody else. I don't think there's actually anybody that we ended up having to say no to which was great. But it's just like, there was like that pre-call to just sort of have an explanation, exploration of like, what are you using? How are you using it? Tell me about the business. Those were all like pretty essential because I would sort of build out my themes of conversation to fall back on as we were talking. And so it was definitely like a very, very much a learning process because I think my first few recordings I was too self-conscious of like trying to like keep the conversation flowing. And I think as time went on, I got more comfortable of like letting the conversation meander. There's probably one or two episodes in there. I'm not going to call out which ones, but I'm sure, you know, from having listened to some of them, but like they were like way too square heavy. And I, in retrospect, I'm like, I really wish that we talked about more than just that. As I think like some people even coming onto the podcast, we're just like, assuming like, Oh, I should just talk about square stuff. Cause you know, I'm a partner of square, I'm using square. I should just like talk about square stuff. And so I eventually started trying to push the conversation out into other directions just to keep it a little more variety, help them sort of relax more. But yeah, I've definitely found that like what you said originally, it took me a while to actually come around to it of like being like less planned, more organic. I think the one thing that I did take to heart before it was like, I would sit in these pre-production calls and people would ask, they were like a larger company. They're like, can you please send us a list of the questions that you're going to ask on the podcast? And I had to be like, I was like, no, there's no list of questions. This is just going to be a conversation. It's going to sound really weird and really canned if we send you questions ahead of time. Cause I don't even know if I'm going to ask all those questions."
+    },
+    {
+      "start": 2007.12,
+      "end": 2016.66,
+      "speaker": "adam-stacoviak",
+      "text": "Well, we get that question once a week. I'm sure I have, I mean, I got text expander answers for that one, but it's a nice way."
+    },
+    {
+      "start": 2016.66,
+      "end": 2046.43,
+      "speaker": "richard-moot",
+      "text": "It's always a nice way of saying no. I can give some, you know, some people just want like a idea of where we're going to take it. And so I can provide a couple of like, well, here's some things that I think are interesting, but I can't give you questions cause I haven't written any yet nor will I have by the time the show starts. I'm going to go ahead and just think some thoughts and then do what I think the best podcasters do. And I try to do, and Adam does as well as listen, like that's the key as a host is to"
+    },
+    {
+      "start": 2046.43,
+      "end": 2055.11,
+      "speaker": "adam-stacoviak",
+      "text": "listen and react versus like, my next question is, and then read it off of a next card. Yeah. That sounds like no one wants to listen to that."
+    },
+    {
+      "start": 2055.11,
+      "end": 2083.23,
+      "speaker": "richard-moot",
+      "text": "I did find that like one thing that was like also super helpful is like clarifying to people ahead of time. Like we're not here to make it look bad. Like we want to have, we want this to be good. We want this to be enjoyable, right? We want to look good. We want you to look good. If you say something that you didn't like, I would always tell them like, just stop. Tell me that you want to resay that differently and pick it back up. Like there's, you know, you don't have to be like worried, like, Oh my God, I'm going to say something that's going to get me in a lot of trouble. Like it's, it's not that big of a deal."
+    },
+    {
+      "start": 2083.23,
+      "end": 2136.16,
+      "speaker": "adam-stacoviak",
+      "text": "I'm like a happy parent over here right now, like preaching right back to the choir here. I mean, sounds like something that we say to the world and graduated and succeeded, you know? Like, yeah. I mean, everything he's saying is literally things we say for sure as a script, but it's not a script because it's become what we share with people, which is just like, just what you said. It's so cool. I love that. It makes me feel like the literal years of investing into it has paid off, you know, cause I've always cared for you, Richard, and our relationship with Square and working with you and Shannon and others there, Mary Elise and others, and just an awesome team behind Square over many years. And to now be at a point where we can go to the bottom line, we can go there and listen to all the shows and all the episodes we can go to. I really wish there was a domain though for the podcast, cause I can't say it right now."
+    },
+    {
+      "start": 2136.16,
+      "end": 2138.08,
+      "speaker": "richard-moot",
+      "text": "Even if it just redirected, it would be cool."
+    },
+    {
+      "start": 2138.08,
+      "end": 2141.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I know. I've told Richard this."
+    },
+    {
+      "start": 2141.76,
+      "end": 2146.88,
+      "speaker": "richard-moot",
+      "text": "I'll go start this like secret mission in front of me. Well, you just gotta be able to say it on the air and have people end up waiting to"
+    },
+    {
+      "start": 2146.88,
+      "end": 2152.8,
+      "speaker": "adam-stacoviak",
+      "text": "go. Put it to this chapter right here. Adam tried to describe our podcast and couldn't send people to it directly because there is no URL."
+    },
+    {
+      "start": 2152.8,
+      "end": 2163.6,
+      "speaker": "richard-moot",
+      "text": "Okay. Go to squareup.com slash US slash EN, but only if you're of course in the United States. EN the dash bottom dash line slash podcast slash the dash square dash developer dash podcast."
+    },
+    {
+      "start": 2163.6,
+      "end": 2165.6,
+      "speaker": "adam-stacoviak",
+      "text": "Easy. Too easy, Jared."
+    },
+    {
+      "start": 2165.6,
+      "end": 2174.28,
+      "speaker": "richard-moot",
+      "text": "Rolls off the tongue. That's what I said. I said to the entire team, I was like, this will roll off the tongue when I, when we read this out."
+    },
+    {
+      "start": 2174.28,
+      "end": 2246.48,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Uh, it's so good. Anyways, the point is, is the child's grown up and I love that. I mean, I think when you have these conversations, it's so impossible to say here's the questions. It's so much, in my opinion, so much easier to produce and to listen to when you know it's a real conversation. It's formed in sort of topics, of course, just like this, our topics are, let's talk about the show we produced and let's talk about AI and MCP and APIs cause you, you thrive in that world. Yeah. That's our two bullet points for what to talk about during this change and friends. And so you can't, you can't just like tell people, here's the questions. Let's go down one by one. That's not a podcast. A podcast is an authentic conversation that is just long form. You can't hide behind the answers. You can't, you know, I guess be a hidden, I suppose not that we're trying to not expose anybody, but even with them, like you give them room to talk about their own tech stack even with head pins in particular. And many of them where they were just like gushing about their own stuff and it was cool. I love it."
+    },
+    {
+      "start": 2246.48,
+      "end": 2400.96,
+      "speaker": "richard-moot",
+      "text": "Yeah. In fact, you just now reminded me like when asked earlier, what was like, sort of like the determining factor when we figured out that we wanted to do a podcast, it was okay. So I'm going to run you through this like fluke of events that happened. Is it, so you had participated in this one year, like you remember our unboxed event, we had you come in, uh, interview Jack and have that whole conversation. It's one of our better performing, uh, things that's on our YouTube channel is cause everybody loves hearing from Jack. Um, so one of the years wouldn't and you, of course, I mean, like, you know, you were able to poke and prod him about rust and get him to like sort of geek out. So yeah, it's, uh, what ended up happening was one of the years we were running them unboxed, um, as I, I won't go into too many details, but it's a kind of chaotic getting set up for like a large event like that. And so a lot of things changed last minute. Um, and so originally we were supposed to be like filming something else the day or two before unboxed with some of our partners, some of the dev rel team, um, and then tons of things started falling through. And so we had to completely change what we were filming. And so it turned into me just doing interviews with several of our like community developer friends and like, I think we call these, I'm going to butcher this, like dev chat sessions or something like that. If somebody goes to square dev on YouTube, you can find the dev chat sessions. That to me was the first step towards like doing a podcast because when I sat down and did the interview, I actually just had like very loose questions. And basically like it was in a podcast like format. But we just had like a full film crew there filming it like it's, you know, some sort of partner interview. And I think like when we saw how well that was received, even within square and from the partners who participated, um, that to me was like the, okay, I'm a hundred percent convinced like we can actually just do a podcast because the podcast is actually like, I don't want to like say it's easier, but it can't, it's easier in terms of like, Hey, I'm in my home office studio type thing. They can be anywhere. We're not having to fly everybody into a single like location. And so, yeah, I, that, that is like actually what totally convinced me, um, that we should be doing the podcast and like, this is what the content should be. Um, so that was like, kind of like my, my revelation gotcha."
+    },
+    {
+      "start": 2400.96,
+      "end": 2404,
+      "speaker": "adam-stacoviak",
+      "text": "So now you're on the other side. You have a season in the can."
+    },
+    {
+      "start": 2404,
+      "end": 2430.56,
+      "speaker": "jerod-santo",
+      "text": "I think episodes are coming out weekly, four years later or whatever, and you've successfully created and branded and shipped a podcast. So being where you are now, can you speak to anybody who might be back where you were a few years ago thinking maybe we should have a podcast? Like what were the hard parts? What was expected unexpectedly easy? Is it, is it all worth it for like another platform company to go through the building"
+    },
+    {
+      "start": 2430.56,
+      "end": 2435.32,
+      "speaker": "adam-stacoviak",
+      "text": "process and the creation process? What are the hard parts, what are the easy parts, et cetera?"
+    },
+    {
+      "start": 2435.32,
+      "end": 2631.65,
+      "speaker": "richard-moot",
+      "text": "I would say like the hard part, I mean, Adam, Adam, and you became familiar with some of the hard parts of, you know, I would say that like the, my number one recommendation is like, just start small, like, and I, and when I say small, I mean like with a small team, like don't try to get too many cooks in the kitchen. Yeah. Just too many cooks in the kitchen. Everybody wants to go in a different direction. And I think that like, really just start doing it. Even if so, like, even when we first started doing the podcast here, I think one thing that helped a lot and I want to, I'm nearly positive this is that like Adam's recommendation is that we actually just interviewed, like brought in somebody internally to like run like a kind of like test episode or two. And I think like, it's just, if you go and you do that, like you can just build at least the tiny bit of confidence that you need that like this can work and you can hammer out all like those little things that you might be worried about ahead of time. The other thing that I would just say that is, it's actually a lot easier than anybody might be making it out to be like, you just got to start, like, just sit down, have a conversation and record it. It might not be great the first time, but like when you just sit down, you have the conversation, you record it, you can have a sense of like what went well and what didn't go well. And it's weird that I'm saying this now because we ran into the same exact thing when we launched our YouTube channel is that, you know, when we first recorded episodes of the YouTube, we like, you know, overproduced way too much and we realized like, okay, we can like throw out like half of the work here. Like we were, we were way overthinking it. And I think even before doing this podcast, we were way overthinking it. So like, like the thing that I just can't help but like continually think is like, should have just like listened to Adam and trusted him more about it that, you know, just start it, you know, the format will start to like make sense. And I think like the only part that I think I would still, I still got hung up on was like what, what like the content is going to look like. And I think in retrospect, like you just need to start inviting like a few guests and start recording because the content will start to make more sense as you start making it. Because you might think, Oh, this is like what I want the content to be about. You start having the conversations and the interviews with people and then you realize like it keeps going in this other direction. And this other direction is actually like not what I thought originally, but it's working. And so like you, I always think of this analogy. A lot of the time I've said it to my team, I don't know if it works well. But I always say like the map is not the territory. So like the map is an abstraction of where it is. So like there's a very big difference between reading on a map of where you're going and actually walking the path. And so like in actually walking the path, you can see like, Hey, there's a tree fall in here or Hey, there's like, you know not a lot of cover through your maps don't tell you these things. They can kind of just tell you an idea of like, Oh, I can get from here to here, but it's very different actually going and walking that path. And I think like when you actually go and make the podcast, that is very different than like when somebody tells you like how to make a podcast."
+    },
+    {
+      "start": 2631.65,
+      "end": 2639.11,
+      "speaker": "jerod-santo",
+      "text": "There's a lot of analogs to software too there. It's like, you can't really know until you're in there, what, what actually needs doing,"
+    },
+    {
+      "start": 2639.11,
+      "end": 2661.68,
+      "speaker": "jerod-santo",
+      "text": "what's not going to work. Like you have to get real to just to go back and borrow some 37 signals, getting real, which was a good book title, the territory is the reality, right? The map is the abstraction. And so it's a helpful tool, but until you're actually in the real world out there where that tree is, you know, the map didn't have the tree on it. I missed something you don't actually know. And so you have to just get going."
+    },
+    {
+      "start": 2662.04,
+      "end": 2663.06,
+      "speaker": "jerod-santo",
+      "text": "It's not full fidelity."
+    },
+    {
+      "start": 2663.08,
+      "end": 2679.27,
+      "speaker": "jerod-santo",
+      "text": "It's just that's right. And then you actually create the thing and then you're like, Oh, well, that wasn't very good, but I got some ideas for my next try. And you just iterate and shine and, you know, don't go back and listen to our early episodes, please. All the people do that. And I'm like, what are you a glutton for punishment? You know?"
+    },
+    {
+      "start": 2680.35,
+      "end": 2770.66,
+      "speaker": "adam-stacoviak",
+      "text": "I think too, with, with you, Richard, that we had a, so our audience is aware of this. Our ad styles are uniquely different than I think other ad styles are where we really go inside of a company and have deep, authentic conversations and pull clips from that and produce them around a story. So that's how we do it. And, uh, you and I've had many conversations, you know, across, you know, we don't just sit down for 20 minutes and hammer out the content. We'll obviously have various conversations throughout, and sometimes we'll have an hour long session and 20 minutes recording. But I had learned enough about you and learned enough about how you operate to have confidence and what I think your potential was. And so my, my idea wasn't just, Oh, Square should have a podcast. It was like, no, Square needs you to produce the podcast because you have all these unique insights into DevRel and what Square is and this evolution from Square to Block. And, you know, I don't know what your, what your title is on the inside around APIs. I know that your title is mainly around DevRel, but I think you've also been in charge of the API or APIs generally for many, many years now. So you kind of don't tell yourself, so you had this depth and background and ability to talk to people and share stories that I just was like, man, you are an under utilized asset that can do some cool stuff for Square. Let's make it happen. And so I had complete confidence in you from back, back in the day."
+    },
+    {
+      "start": 2771.26,
+      "end": 2905.36,
+      "speaker": "richard-moot",
+      "text": "Well, it's just so very warm to hear that. Cause I feel like I spend, I spend so much time just like steeped into these like, you know, ridiculous conversation. I mean, they're not ridiculous or important, but they feel ridiculous. So conversations around like API design API. Yeah. I just, so the, yeah, that dual title is like, I lead our, it's called API working group. Um, I kind of like externally to say it's like an API design team. They kind of like set the standards guide teams on like how to build APIs in a cohesive, like consistent manner. And yeah, I think that actually spurred from, uh, like we, our dev rel team just kind of got frustrated at times, I guess, the nicest way of putting that, where we would have an API, make it all the way out to being shipped into, put into the developer's hands and then like the developers, like this doesn't work or like this isn't like well-designed and, you know, we were just like, this doesn't make sense. Like why, why are we putting this in their hands? And so then the, the design group at that time would consult with us pretty regularly and it eventually got to a point where we're like, okay, one of us needs to actually be a part of this group and helping you make these decisions rather than just, you know, being consulted every once in a while. Um, and so we ended up, uh, I mean, eventually I ended up leading it as things changed over. Um, and so we've kind of like formalized this into like a, a company-wide group, um, in terms of like API design, cause cache actually has like their own APIs now and they decided to adopt a standard. And so, yeah, it's something that I don't talk about up until recently more publicly. And I'm hoping to actually talk a lot more about like API design, um, especially after, like, uh, I participated in, like, we had this like sort of hack week internally, um, where we started building, everybody just went crazy on building MCP servers. Um, and the light bulb like kind of clicked for me when we built an MCP server for some of Square's stuff. And I was like, Oh, this is like, this can be so powerful, but you kind of have to have that foundational layer in order for it to like be capitalized on."
+    },
+    {
+      "start": 2906.28,
+      "end": 2911.96,
+      "speaker": "jerod-santo",
+      "text": "Well, let's unpack that. So model context protocol, it's all the rage, everyone's shipping servers."
+    },
+    {
+      "start": 2911.96,
+      "end": 2934.46,
+      "speaker": "jerod-santo",
+      "text": "I saw GitHub's official MCP server is hitting the top of GitHub trending. I saw Shopify, MCP Amazon, MCP servers. You're on LinkedIn talking about MCP. So what's all the hype and excitement about, is it seems like a new style API."
+    },
+    {
+      "start": 2934.46,
+      "end": 2942.14,
+      "speaker": "jerod-santo",
+      "text": "I haven't actually looked into it. I know it's for LLMs to get context, but why do we need something new? Why can't we just use the APIs that are already out there?"
+    },
+    {
+      "start": 2942.74,
+      "end": 3008.1,
+      "speaker": "richard-moot",
+      "text": "You know, that is like the, the great question that I feel like, um, there's many people asking the same question. Like, why can't you just, you know, hand like a bunch, like say, here's an open API spec, hand it to your LLM and say, like, go like, build this thing for me, like, and look at it. And, um, part of it is because the, the LLM clients need some way to like know how to call tools. And so like, this is kind of trying to standardize what the tool calling is. Um, so like the way that I sort of describe MCP is like, it's like the SDK for robots. And so like you have these well-formed ways of saying like, Hey, this is how you call the payments endpoint, or this is how you call the catalog endpoint. And rather than, cause you could, I tried this before you can sort of just like hand an open API spec to the LLM. Usually it's like too large or unwieldy for it to like really kind of parse out. The right things for the particular context. And so MCP kind of like formalizes the way that you want the LLM to interact with your platform."
+    },
+    {
+      "start": 3008.54,
+      "end": 3008.98,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3009.18,
+      "end": 3049.86,
+      "speaker": "richard-moot",
+      "text": "And so like, and, and it also is trying to like formalize like things beyond like say just rest APIs. Um, so I've seen some folks who actually just use it for like. Tapping into like snapping, like visual elements out of a computer and sort of using that to interact. I saw a demo of somebody actually like having it work with an Android app using some sort of indirect visual, like reasoning where it's basically taking a snapshot of the UI, um, and then figuring out where to like, Oh, press this button and then like gives an instruction to like, press a different button so like it can go well beyond just like, you know, traditional like rest APIs."
+    },
+    {
+      "start": 3049.9,
+      "end": 3053.66,
+      "speaker": "jerod-santo",
+      "text": "Yeah. It seems like on the face of it, except for that beyond stuff, it's kind of"
+    },
+    {
+      "start": 3053.82,
+      "end": 3103.12,
+      "speaker": "jerod-santo",
+      "text": "delivering on what the promise of rest was, at least with the Hadios stuff, where it's like, you should be able to give a single end point to a programmer and the programmer can through, uh, tooling discover the entire entirety of their abilities. And it never really worked out. It always ended up being like a spec or go read the docs. I'll make the docs really good, which was going to step up from bad docs. Um, but still, it was never like, you're still just basically reading URLs and finding nouns and like, okay, now I got to add this and nest that. And then I get what I want and then I can post, et cetera. And that was never what we wanted it to be, but it was better than, I guess, an RPC end point with a list of methods you could call, and this seems like it's maybe taking that concept and saying, well, when the LLMs need their context,"
+    },
+    {
+      "start": 3103.36,
+      "end": 3111.04,
+      "speaker": "jerod-santo",
+      "text": "we're going to give them everything they need to actually do that without a human reading the docs or without an LM, even having to read the docs or scrape the site."
+    },
+    {
+      "start": 3111.48,
+      "end": 3204.88,
+      "speaker": "richard-moot",
+      "text": "Yeah. I think like, uh, what, what you touched on there is like, I've been thinking about Hadios, like a lot recently that like for people who built their APIs in that way, I feel like they're definitely advantaged when trying to integrate or adopt, uh, AI because it's, it's self-documenting like it can figure out how, like how things are linked together, you know, I feel like they, they just have an easier time with, with integrating this type of stuff. One thing I would actually, uh, we had this like, uh, argument, uh, well, not, I'm not really an argument, slight disagreement and like how to view APIs going forward was, uh, somebody within our company said like, Oh, we should design our APIs to work better, uh, for robots. And I was just like, well, I, I, I, here's where I would disagree on that. And mainly that all of the AI LLMs have been trained on like A APIs, SDKs documentation, that's all designed for people. So like it is trained to try to understand it in the human-like way. And so I feel like trying to design your API to work in a more robotic way, makes it less human, less usable, less useful overall. And I think that like, it just means that you should build better, more well-defined and like clearer APIs going forward, because if we eventually hit this dream of AGI, like you don't need to have a robot specific API, you can have like a human API. So either a human or a robot can use it."
+    },
+    {
+      "start": 3205.48,
+      "end": 3212.44,
+      "speaker": "jerod-santo",
+      "text": "Interesting. So what does an MCP server look like? Describe it to us."
+    },
+    {
+      "start": 3212.92,
+      "end": 3282.26,
+      "speaker": "richard-moot",
+      "text": "Sure. Um, so at the base level, um, an MCP server will first like sort of define all the available tools that you want to give to it. Um, and so like, you know, in the case of like, say square, like an example, like you might say like, Oh, there's a catalog customer, a payment tool. Um, and then it sort of describes like how these can be used in different contexts. Um, and so like when you ask your LLM, Hey, can you like, go build me a menu for a talk area, uh, in my square account, it's going to go to the MCP server and say, like, list all the tools and then figure out like, okay, of these tools, which one of these kind of matches with something that they're asking me. And then it'll go call the tool. And then the tool will sort of give an additional description of like, what else can you do with this? And then it kind of figures out from there, like, you know, how to actually accomplish the task that you want. So the, the thing that I always think about like MCP servers is like, it's like actually ridiculously simple and in what they actually enable, because you're just sort of like creating this like tiny little abstraction layer of like, saying like, Oh, here's all the things that we're giving you access to."
+    },
+    {
+      "start": 3282.94,
+      "end": 3291.49,
+      "speaker": "jerod-santo",
+      "text": "And it's all just a Jason at the end of the day, or in terms of actual interchange formats, it's like typical stuff. There's no special sauce."
+    },
+    {
+      "start": 3292.09,
+      "end": 3332.69,
+      "speaker": "richard-moot",
+      "text": "Uh, essentially. I mean, like, so like, I think there's two, there probably is three. So like, this is the part where I'm like, I've only sort of worked with like server sent events is one format. So like that's when you can have like a remote MCP server. Um, and then you also have like command line ones. So like you might have like a command line tool that it's, you know, I've seen a lot of them are just like calling NPX and then whatever, like this, basically it's like a CLI app that's like sort of packaged together for it to call in and get all those different tools. And so those are kind of like the two main ways, but, um, I think the most common interchange format is probably Jason, the people are, you know, sending stuff back to the LLM with,"
+    },
+    {
+      "start": 3333.09,
+      "end": 3337.65,
+      "speaker": "jerod-santo",
+      "text": "And how do you plug these into your clients then? Does it depend on the client maybe?"
+    },
+    {
+      "start": 3338.21,
+      "end": 3401.29,
+      "speaker": "richard-moot",
+      "text": "Uh, yeah, it does depend on the client. So like when we were building an MCP server for square during this hack week, goose is our main, uh, open source AI client that we've created here at block. And it has basically like sort of the standard config and I think it was originally YAML. It might be in Jason now. Um, that basically just sort of says like, this is the name of your extension. This is, you know, the interchange format, is it going to be, you know, service and events or is it to be command line? Um, and then you just kind of like say, here's the command. I've seen versions of this where like people actually are just like running a Docker container locally on your system. And like, that's actually what it's communicating with. Um, and so I think Claude has like a, its own standard config file. Um, but for the juice goose desktop client, we have like a way for you to just like do a deep link URL. So you just like click that button and it immediately starts pre-configuring that into your, your desktop client and installs the extension for you."
+    },
+    {
+      "start": 3402.21,
+      "end": 3443.41,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I am here with a new friend of mine, Scott Deaton, CEO of augment code. I'm excited about this augment taps into your team's collective knowledge, your code base, your documentation, your dependencies. It is the most context aware developer AI. So you won't just code faster. You also build smarter. It's an ask me anything for your code. It's your deep thinking buddy. It's your stand flow antidote. Okay, Scott. So for the foreseeable future, AI assisted is here to stay. It's just a matter of getting the AI to be a better assistant. And in particular, I want help on the thinking part, not necessarily the coding part. Can you speak to the thinking problem versus the coding problem and the potential false dichotomy there?"
+    },
+    {
+      "start": 3443.65,
+      "end": 3495.81,
+      "speaker": "richard-moot",
+      "text": "A couple of different points to make, you know, AIs have gotten good at making incremental changes, at least when they understand customer software. So first and the biggest limitation that these AIs have today, they really don't understand anything about your code base. If you take GitHub copilot, for example, it's like a fresh college graduate understands some programming languages and algorithms, but doesn't understand what you're trying to do. And as a result of that, something like two thirds of the community on average drops off of the product, especially the expert developers. Augment is different. We use retrieval, augmented generation to deeply mine the knowledge that's inherent inside your code base. So we are a copilot that is an expert and that can help you navigate the code base, help you find issues and fix them and resolve them over time. Much more quickly than you can trying to tutor up a novice on your software."
+    },
+    {
+      "start": 3496.09,
+      "end": 3503.33,
+      "speaker": "adam-stacoviak",
+      "text": "So you're often compared to GitHub copilot. I got to imagine that you have a hot take. What's your hot take on GitHub copilot?"
+    },
+    {
+      "start": 3503.57,
+      "end": 3565.97,
+      "speaker": "richard-moot",
+      "text": "I think it was a great 1.0 product. And I think they've done a huge service in promoting AI, but I think the game has changed. We have moved from AIs that are new college graduates to, in effect, AIs that are now among the best developers in your code base, and that difference is a profound one for software engineering in particular, you know, if you're writing a new application from scratch, you want a webpage that'll play tic-tac-toe piece of cake to crank that out, but if you're, you're looking at, you know, a tens of millions of line code base, like many of our customers, Lemonade is one of them. I mean, 10 million line monorepo as they move engineers inside and around that code base and hire new engineers, just the workload on senior developers to mentor people into areas of the code base they're not familiar with is hugely painful, an AI that knows the answer and is available seven by 24, you don't have to interrupt anybody and can help coach you through whatever you're trying to work on is hugely empowering to an engineer working an unfamiliar code."
+    },
+    {
+      "start": 3566.33,
+      "end": 3601.45,
+      "speaker": "adam-stacoviak",
+      "text": "Very cool. Well friends, Augment Code is developer AI that uses deep understanding of your large code base and how you build software to deliver personalized code suggestions and insights. A good next step is to go to augmentcode.com. That's A-U-G-M-E-N-T-C-O-D-E.com. Request a free trial contact sales, or if you're an open source project, Augment is free to you to use. Learn more at augmentcode.com. That's A-U-G-M-E-N-T-C-O-D-E.com. Augmentcode.com."
+    },
+    {
+      "start": 3607.2,
+      "end": 3710.93,
+      "speaker": "jerod-santo",
+      "text": "I'm thinking back to the early days of web 2.0 and rest APIs, or let's just call them web APIs and the spirit of innovation and discovery and creativity with open, not open API, the spec, but like open web APIs. Specifically around like Twitter and Flickr and Foursquare and that group of social cool tech companies. It was really the heyday for mashups and trying new things. And it was really fun. And I feel like some of that excitement right now is I'm getting flashbacks to that with MCP servers, cause there's a lot of cool demos right now. You can plug it into darn near anything. You got an MCP server. You know, I saw a guy who just like plugged into Postgres and of course his LLM can speak SQL, but it's just better. It seems like you can just, it can just do better with not having to write SQL just to hit the MCP server. And, you know, you can just talk to your Postgres database and then I'm curious about like, well, what happened the last time was the good old days got old and then they, the companies grew up and they needed to make money and they shut things off and they locked out third party developer and it just got very hostile eventually. Sometimes out of necessity, sometimes you don't know, but it happened. And I'm curious for thoughts on that parallel, cause it seems like MCP and like letting your LLM talk to X where X is not the social network, but X is all of the things that have MCP servers is like really cool right now and could produce some really interesting use cases and like let some awesome hacks out."
+    },
+    {
+      "start": 3710.97,
+      "end": 3717.06,
+      "speaker": "jerod-santo",
+      "text": "And then I'm wondering if, is there a plan for when that spirit of openness changes? What are your thoughts?"
+    },
+    {
+      "start": 3717.5,
+      "end": 3847.77,
+      "speaker": "richard-moot",
+      "text": "No, I think it's like, uh, so yeah, what you touched on, I think Angie Jones, my, my new manager who leads, uh, blocks DevRel just gave a talk on this kind of like mashups, like it's very reminiscent of the mashups of the heyday of 2.0. And, uh, I think what was the example they had? Like, it was like Google maps and Craigslist. And then like that actually was what spurred Google to create open API platforms for the maps product. And, you know, so like, there's a lot of like very interesting innovations that like ended up coming from this. But yeah, I think when the way that I view it now is like, we're kind of in like the peak of the hype cycle. Like you're seeing this like massive explosion and people just like producing all of these various things and the recoil, I'm sure that we're going to be seeing is like all of the anti-patterns that were probably anti-patterns before, but we just decided to like, do them again in this new way. Um, so like, I think one, one thing that you talk about is like, it's probably useful for somebody to be able to talk directly with a Postgres database. I'm sure that there's some people that find a lot of value in that, but. It's also very quickly gonna, you're going to realize like, well, should I enable other people to talk to my Postgres database and that's when I would say like, no, there's a reason that we had these abstraction layers created. Cause we don't think that, you know, everybody should just be talking directly to each other's Postgres databases. That's why we created those interfaces. Um, and so I think that like, that's what we're going to see start happening. And I think we saw like some early signs of this, like where, uh, you know, people identifying security vulnerabilities with MCP servers, you know, it's probably something that's not well-defined within the protocol. Um, but I mean, like that's, you know, I think that's been true of a lot of standards as they've been developed. I think even like, And like the first version of OAuth, there were security vulnerabilities within the format for sure. And, you know, it unlocked a lot, but you know, there's, there's always going to be like ways that people are going to find like why it's not going to quite do it or should do everything that we, we want it to, right."
+    },
+    {
+      "start": 3848.83,
+      "end": 3858.27,
+      "speaker": "jerod-santo",
+      "text": "And the stakes are higher, of course, with auth, the stakes are high, but now when it's like plug an LLM into your life, every facet of your life, whether it's"
+    },
+    {
+      "start": 3858.27,
+      "end": 3912.23,
+      "speaker": "richard-moot",
+      "text": "your bank account or your four square account or whatever your square account, there's a lot, you know, when there is a vulnerability, there's just so much opportunity for bad actors that we're definitely, we'll see some, some trouble. Like this is a brand new thing. I mean, I think Anthropic came out with it back in November. And of course they had the task of getting other people besides Anthropic to actually adopt the protocol, which was open and I think designed to be not an Anthropic thing from the start, which is a great way to get it going. But here we are in April and it seems like, will it be the protocol to rule them all and then this next age of agentic things? Not sure, but right now it seems like it's got a lot of momentum behind it and quite possibly might be. And so it's going to be vulnerable until it gets robust. I mean, that's what happens."
+    },
+    {
+      "start": 3912.23,
+      "end": 3913.87,
+      "speaker": "jerod-santo",
+      "text": "You have to face the real world for awhile."
+    },
+    {
+      "start": 3914.6,
+      "end": 3914.8,
+      "speaker": "richard-moot",
+      "text": "Yeah."
+    },
+    {
+      "start": 3914.84,
+      "end": 3918.8,
+      "speaker": "jerod-santo",
+      "text": "Find all the obvious things and work out the kinks."
+    },
+    {
+      "start": 3919.82,
+      "end": 4022,
+      "speaker": "richard-moot",
+      "text": "And that's part of the reason why, like I still, you know, when I was writing about it on LinkedIn that like, I think that the platforms that are going to be able to leverage this the most, but also like last and survive some of like the downsides a little bit better are the ones that are already invested in really good API platforms. Like if you already have that built in, like with OAuth authentication, permissioning, like if you have that basis and then you're wrapping that, your MCP server around that, you have a lot of the safety guards already put into place. Um, my concern is for the people who just like, haven't done that like base level of work and they're just like, Hey, we're just gonna like stand up an MCP server. It talks to a Postgres, it talks to like this other thing with inside or internal things. Um, that's, I think, going to be a recipe for disaster in the longterm. Um, you might see some initial short wins, but I think over, over time, like it becomes just a huge exploit. Like, I think that we'd, we'd debated this inside with a couple of other engineers, my company, like, Hey, like, you know, it's really cool that we built an MCP server that can talk to squares APIs, but why, why stop there? Why not like have it talk to some of our internal services? And I had to like, point out to folks, I'm like, well, if we create an LLM agent that can talk to squares, internal services that effectively makes them public because now I can go in, like, I'm sure somebody could end up doing some sort of prompt engineering to basically like dissect what are all the different tools that's calling internally and be like, great, I'm now going to go use those to write my own program on top of those. I don't need the LLM to do it for me."
+    },
+    {
+      "start": 4022.68,
+      "end": 4055.04,
+      "speaker": "jerod-santo",
+      "text": "How about this as an idea, what if AGI is essentially a self-building MPC server that the AP, that the LLM talks to, to discover what it needs. It doesn't have what it needs. So it makes new stuff and it calls the same MPC server to discover more of itself. So it's like, it needs to do something. Can't do it, builds it, can do it, builds it, needs to do something, can't build, can't do it. It's like this constant talk between the LLM and the MPC server."
+    },
+    {
+      "start": 4055.4,
+      "end": 4086.72,
+      "speaker": "richard-moot",
+      "text": "Well, I think like, it isn't like that new, I haven't, I'm going to be perfectly honest here. So I'm like kind of just shooting a shot in the dark of like with Google's new agent to agent protocol that they're trying to propose, like one of the theories could be that you can have your agent go to this hub of agents and be like, Hey, they're asking me to do this thing, I don't really know how to do it, but I'm going to ask all of these other agents in here, can any of you solve this problem? And then like one of them goes, Oh yeah, I can, maybe that's the way that you have this, like this agent to agent hub, it's like upwork for agents, you"
+    },
+    {
+      "start": 4086.72,
+      "end": 4092.8,
+      "speaker": "jerod-santo",
+      "text": "know, like, Hey, I'm looking for a designer looking for this function. Can't do this function."
+    },
+    {
+      "start": 4093.8,
+      "end": 4097.4,
+      "speaker": "jerod-santo",
+      "text": "It's like fiber for agents. Exactly. Like throw the bids out there."
+    },
+    {
+      "start": 4097.52,
+      "end": 4099.52,
+      "speaker": "jerod-santo",
+      "text": "I'll do it for five tokens, right?"
+    },
+    {
+      "start": 4099.52,
+      "end": 4107.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Race to the bottom. I'm trying to hack this square MCP server. Can somebody help me? I got an agent that does that."
+    },
+    {
+      "start": 4108.44,
+      "end": 4120.84,
+      "speaker": "jerod-santo",
+      "text": "What's the race, you know, given MCP and what's happening and what is the, what is the next arms race when it comes to that layer of the implementation? Like who's next? What's the next big thing?"
+    },
+    {
+      "start": 4121.2,
+      "end": 4123,
+      "speaker": "jerod-santo",
+      "text": "The past MCP or with it?"
+    },
+    {
+      "start": 4123.56,
+      "end": 4137.28,
+      "speaker": "jerod-santo",
+      "text": "Well, I mean, if it's, if it's burgeoning, what is the, you know, what is it going to enable? What's the next big thing? I mean, you kind of touched on it with web 2.0 and, uh, access to APIs that had freedom and innovation."
+    },
+    {
+      "start": 4137.28,
+      "end": 4183.12,
+      "speaker": "jerod-santo",
+      "text": "Well, that's why I was concerned that like the providers may change their heart about the thing. Obviously, Richard, you are one. So that's why I was throwing it to you because you know, the spirit of innovation openness and like, you know, square, obviously it'd be more useful if I could plug my agent into it and get information ad hoc and like have it do things for me without having to like code it up myself, et cetera. However, it is leads to the, the agent gets super, the client gets super powers. And so whatever, whoever controls the client and right now open AI very much controls the client because chat GPT has hundreds of millions of users. And, you know, like it's starting to become the Google of this era in terms of just the default choice."
+    },
+    {
+      "start": 4184.2,
+      "end": 4192.4,
+      "speaker": "jerod-santo",
+      "text": "And then square becomes this thing that plugs into chat GPT and now open AI holds your interface and you're just commoditized. Like that's a concern, isn't it?"
+    },
+    {
+      "start": 4192.76,
+      "end": 4287.29,
+      "speaker": "richard-moot",
+      "text": "I mean, it is a concern, but I think like, you know, we're seeing, I mean, I, I want to believe always that open source will find a way to win. Um, and I think like the open sourcing of models, the trying to incentivize folks to releasing like the weights and like their measurements and sort of like insisting on the transparency so that we can like have confidence. Cause I think like that's a precarious relationship to be managing. Like if you don't open up a little bit and build that transparency, because I think that you can end up like triggering like a huge defensive move from everyone where they go, Oh, like at first signal, like that, you know, we realize like they're exploiting our relationship or our data, you know, everyone that's going to be like, all right, we're cutting off, we're pivoting over and we're going to like either do it in house or we're going to go pick a different provider. We're going to do it, you know, open source. Um, and so I think. It's a tough thing to manage over time. Cause I think, I mean, one thing that is benefiting us all right now is at least there's a market of LLMs for you to be able to select from, um, some work better in certain contexts, you know, chat GBT is like really great for like sort of general purpose, you know, and Tropic is really building stuff that's like super awesome for developers. Um, and we were just hoping that like these, these open models can actually do more and more. Um, so I mean, I've definitely been dabbling and trying to run an LLM locally on an old gaming laptop, it's fun, but it's not practical yet. Um, I'd have to have a way, way more powerful machine and I don't really want to spend that much money on it."
+    },
+    {
+      "start": 4287.57,
+      "end": 4303.62,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah. I mean, Adam and I have been doing some local stuff as well. And the, what I call it, Adam, the gravitational pull, the tractor beam that I think chat GBT has is their product design and it's the old, it's"
+    },
+    {
+      "start": 4303.62,
+      "end": 4485.49,
+      "speaker": "richard-moot",
+      "text": "the old open source versus proprietary, you know, capitalized company. Who's laser focused on just like what they're doing so well is they're rolling all the latest advancements in to the, to a product and what all these other things are, is there models that you can use with a chat app UI built by one dev to scratch their own itch. Obviously you can also have capitalized companies that use the open stuff to create a competing product and that's happening as well. And I just think that I agree with you a hundred percent that it's great. They were having a diversity of options. And I think when it comes to models, they're being commoditized. I do not think open AI will hold a lead over the open source world. That's meaningful for very long. Um, all the llama for just dropped and it's disappointing. So, but deep seek is really good. You know, like there's, there's things happening right now. Metas seems to be not impressing with their latest efforts, but anyways, that I think open source wins, but that's implementation. Interface is what matters. The end of the day, like how people are going ahead and using these things, which is why Apple's so seriously dropping the ball right now, because they have the interface to everything and it's terrible, it's called Siri and they can't ship intelligence in it. Um, it is like, think about the opportunity they had with Siri. They were so far ahead. When they have, they have the device, right? Like they literally have the interface. They have a five year lead. I mean, Alexa was the next one that got some penetration, but Siri was there and they got millions of people talking to Siri and then Siri was just sucking over and over again for years and it could have been so much better. And then like, they'd have, I'm glad kind of that that happened. Cause they'd have lock on everything. Like you would just be, everyone would be talking to Siri, at least now it's a separate company with chat GPT being the new Google. I mean, I have people in my life who just, and there's are not techies who are like, did you chat GPT? It is the new Google. And so there, I think open AI right now, even though in their technology and their models and stuff is not really going to hold a moat, but in their product and their momentum. And so all these people create an MCP servers might just be making chat GPT you know, the muscle, the superpower client. And so that's why I feel like, as well as a liking it back to that previous decade where everyone's like, yeah, mash up our API with everybody else's. And then people started doing it and they're like, wait a second. You're not coming to our website anymore. Cause you're just using our data to create better products or different things. And so now we're going to have to charge you for that. Um, obviously you don't represent square and the entire company or block these, you represent a small portion of it. But I think when it comes to MCP servers, there has to be some trepidation and allowing, you know, the full, not the full, but a, a lot of functionality"
+    },
+    {
+      "start": 4485.49,
+      "end": 4494.57,
+      "speaker": "jerod-santo",
+      "text": "that you provide to be used by people who have maybe don't even know what square is. You know, they're just using it through their chat GPT."
+    },
+    {
+      "start": 4495.05,
+      "end": 4567.27,
+      "speaker": "richard-moot",
+      "text": "Yeah. I mean, like, I know that, like, you know, for a lot of what we've been doing, you know, we have like safeguards in place. There's a lot of folks out there who like, you know, they use AWS bedrock to like do hosted models, be more confident that their data isn't being like shared elsewhere. Um, and in trying to like have some of these protections, but I think, yeah, over time, like the one thing I think about, like what gives open AI, I'm trying to, I'm not super confident in this that like, that they actually. A lot of their moat right now is definitely like their LLM model. But the interesting thing to me has been recently, like with these smaller, I mean, essentially like smaller updates that are just enough to cut out features that you find in other, like essentially like, you know, chat GPT rappers, like when they like say in their desktop client, like, Hey, we're going to actually like apply code directly into your, your vs code and you're like, yeah, that's clearly like a cutout for cursor and like, you know, it's like, Oh, the more you just bridge the little gap, like they can just choose to like solve little parts of the problem. It's like, well, we're preventing them from like eating too much of our lunch."
+    },
+    {
+      "start": 4567.63,
+      "end": 4567.99,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4568.03,
+      "end": 4588.91,
+      "speaker": "richard-moot",
+      "text": "But we're going to continue to like, I mean, it's in a place where they don't even necessarily need to be front running everything that you can actually let open source and all these other things kind of front run things and then pick and choose the things that go, Oh, people really like this piece of that. Uh, puzzle, like let's actually just go like bake that into a chat GPT."
+    },
+    {
+      "start": 4588.95,
+      "end": 4597.15,
+      "speaker": "jerod-santo",
+      "text": "Yeah. They can Sherlock the industry as Apple would always do it. They're third party developers. Yeah. I think they're very well positioned to do that. And I think that they've shown competency in that."
+    },
+    {
+      "start": 4597.47,
+      "end": 4623.79,
+      "speaker": "jerod-santo",
+      "text": "I say that from my personal experience, because I've been trying to leave chat GPT and the product keeps pulling me back in most recently, the image generation stuff, which is a different, you know, it's a different thing altogether. Like it's multimodal now. And so there's Dolly involved in, I don't even have to care about that. It's like, it pulls me back in and while I'm here, I'm just starting on talk to it again. And I'm like, Oh, it's better than it was last time I was here. And so it makes it harder and harder for me to use what I had been using, which"
+    },
+    {
+      "start": 4623.79,
+      "end": 4634.95,
+      "speaker": "jerod-santo",
+      "text": "was llama, and I've been trying deep seek and I'm, I'm using, you know, Google's Gemini for coding and like trying out all these different things. But at the end of the day, it's like, Chad GPT just keeps getting better and better and better."
+    },
+    {
+      "start": 4635.15,
+      "end": 4648.01,
+      "speaker": "jerod-santo",
+      "text": "I feel like they're running like that, like that Netflix or HBO kind of playbook, where it's like, as soon as, as soon as the season's about to be over and you're like, all right, I don't need to be subbed to this anymore. Oh, wait, we rolled out the hot new thing back in."
+    },
+    {
+      "start": 4648.13,
+      "end": 4655.05,
+      "speaker": "jerod-santo",
+      "text": "Yeah. They're dragging us back away. Totally. So I don't know. Obviously we don't know what's going to happen with all these MCP servers."
+    },
+    {
+      "start": 4655.05,
+      "end": 4680.03,
+      "speaker": "jerod-santo",
+      "text": "And I think it's like similar to, um, Google search back in the day where it's like, you have to be there. Like you can't not be there cause then you're irrelevant. And I obviously open AI is not the only people that will be using these MCP servers, so it'll serve. All the needs of everybody. Um, and so I think it's smart, at least for now to be like, like"
+    },
+    {
+      "start": 4680.03,
+      "end": 4687.31,
+      "speaker": "jerod-santo",
+      "text": "what squares approach right now. You guys have the hackathon, you tried some stuff. Is there going to be an official thing shipped or, you know?"
+    },
+    {
+      "start": 4687.47,
+      "end": 4699.43,
+      "speaker": "richard-moot",
+      "text": "Oh, I mean, well now you're asking the things that I can't, can't, can't quite. So, so the thing I can say, uh, cause I mean, I did work on this. I know that, um, from the DevRel side, we're definitely going to be pushing for, for getting this out there."
+    },
+    {
+      "start": 4699.51,
+      "end": 4699.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4699.87,
+      "end": 4825.48,
+      "speaker": "richard-moot",
+      "text": "Um, there, somebody from our goose team actually did like a first version of a square MCP server. Um, in fact, when we were going to do this hack week, we, we looked at that and we were like, yeah, this is great. But like, you know, it's only covering like a very small portion. Um, and then somebody, uh, on our team had like a really innovative idea on like how to do this and like basically cover the entire service area in a single shot and so we definitely want to get that out there and get people using it. Um, the thing that I still keep in mind and like, you know, this isn't like reflective of, of what everyone else thinks within block. Um, I think it still requires a certain level of care and I don't want to be like, sort of like a, the doomsayer of like what ends up happening, but I can't help, but like, think like when you enable MCP servers for all of these different API platforms, so like I think of, this is probably, I'm going to ballpark a metric from a long time ago, but like say like the global number of developers was like 13, 15 million people in this number I'm pulling from years ago, so it's probably wrong. When you enable this MCP server to collect, connect into like clod, desktop, chat, GPT, desktop, plugging into anything else, the number of how you viewed developers before has just exploded totally like a hundred X like it's now. And that's just like thinking about like how a regular person can now go enable this stuff. But that's also not accounting for like the very savvy developer who goes, well, why spin up one agent when I could spin up 20 agents to go do work for me. And so like the, it's just going to be this like exploding problem. And so like, the thing I keep thinking about is like, can, can all of us handle the volume of a bunch of bots going around, calling all of these things? Like, are we just going to see like a huge influx of DDoS and like, I mean, it's, it's hard to understand like what the second order effects of this are when you have just tons and tons of agents being spun up everywhere."
+    },
+    {
+      "start": 4826.48,
+      "end": 4830.76,
+      "speaker": "jerod-santo",
+      "text": "Well said, good thoughts, exciting times, interesting times."
+    },
+    {
+      "start": 4831.2,
+      "end": 4836.6,
+      "speaker": "jerod-santo",
+      "text": "I'm not sure exactly how it's all going to shake out, but that's what makes it exciting and interesting, right?"
+    },
+    {
+      "start": 4837,
+      "end": 4929.2,
+      "speaker": "adam-stacoviak",
+      "text": "The question I think about is where's the toll booth. That's where you make the money at, right? It's like, you got a need and you want to create your own version of a toll booth and to get access, you have to pay X. I suppose if you're thinking about that from a commercial standpoint or an enterprising standpoint, it's like, what is the next toll booth when it comes to this scenario, you know, like you've got agents that are going to go and spawn, let's just say like you had just described and that, that work was normally an individual opening up a book or going to the library or talking to so-and-so from, you know, the County about how regulations work, like whatever, however, these MPC servers, MCP and PC, gosh, anyways, anyways, these MCP servers act because you got agents are going to go out there and scour the whatever to figure out information and it may not be, it may just be a dead thought, or it may be a new thought that spawns a new thing. That's now this next layer of whatever. And it's so hard to even describe it. So if you're lost, I'm also lost. The point is, is like, you've got all this traffic happening on the internet, all this API traffic, all this database traffic that is kind of probably not from a paid user, but it's like data that's important to the world, really hard to see where the toll booth is going to be at for this one though. I can't, uh, I can't personally see where it's going to be yet. I'm thinking about them."
+    },
+    {
+      "start": 4930.52,
+      "end": 4996.93,
+      "speaker": "richard-moot",
+      "text": "I mean, it's interesting. I think you make a good point. Cause like, uh, the one thing I was like thinking about, I used to be like very allergic to this still kind of am like, uh, when you, I mean, I'm not opposed to like monetizing APIs, but I feel like when you monetize APIs, you have to kind of go about it in the right way because otherwise developers will never use it, but now with MCP servers, I kind of go, well, it's not like developer. It costs almost nothing for the developer to now go use your APIs. So, because they can just have an agent go do it for them and call them for them. And they're not, you know, the barrier to adopt adoption is like much, much lower. And so it does sort of beg the question of like, okay, if we're going to have like say 10 X more traffic, do we need to actually put monetization in here in some way or, you know, go to the chat GPT approach, I guess, is like, you know, we, we pitch our remote MCP server. Um, and it's, you know, five bucks a month and like, you know, you get near unlimited calls or something, um, to connect to any of your other AI tools."
+    },
+    {
+      "start": 4997.15,
+      "end": 5005.15,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah. I think that seems somewhat feasible and likely, but can't see the future."
+    },
+    {
+      "start": 5005.57,
+      "end": 5008.22,
+      "speaker": "richard-moot",
+      "text": "I got some agents work on that though. Yeah."
+    },
+    {
+      "start": 5008.9,
+      "end": 5052.23,
+      "speaker": "jerod-santo",
+      "text": "Nice line. I, uh, I heard somebody say recently and tell me if this is how you all feel. They said, if you take chat GPT away from us right now, we are dead in the wall. I'm paraphrasing, but it's a version of like just doom. We don't, we don't know how to work anymore. We, we have learned how to work because of the speed of trial and error and the speed of access to information and the speed of the, the user experience of asking and getting in this sort of volley back and forth, I heard someone say recently that they said, if you took this away from us, we would be, we wouldn't know how to work anymore. Is this how you all feel in any way, shape or form? No, no."
+    },
+    {
+      "start": 5053.03,
+      "end": 5079.45,
+      "speaker": "richard-moot",
+      "text": "I think that, I think it would be, it would suck. I mean, it would definitely suck. Cause I think that there's like many ways that like, you know, it has accelerated us, but I don't think I, I would argue that we're not quite at a point where like, we would be like, Oh my gosh, like we can't, we can't function. There might be some companies that might not be able to function because they let too many people go thinking that AI was going to automate everything. But I think there's still quite a few of us who'd be like, yeah, I still know how to write code by hand."
+    },
+    {
+      "start": 5080.76,
+      "end": 5086.6,
+      "speaker": "jerod-santo",
+      "text": "So you're only doing the code context though. And that's the, that's the, I'm not, I'm doing the whole life context. I'm answering the whole life."
+    },
+    {
+      "start": 5086.72,
+      "end": 5131.38,
+      "speaker": "richard-moot",
+      "text": "My answer is still no, because I just fall back to where I was a couple of years ago, which was just Google and stuff and looking at YouTube videos, you know? Like for me so far, and I've used it extensively aside from the joy aspect of the image generation, which for me is pure joy and I love it and I don't want to go back to a life before I could turn someone into a walrus if I want to, you know, aside from that, I can just go back to Google and stuff. Like it's mostly just speeding me up. Like it's answering my questions, but I'll find the same answers. Maybe it'll take me a half an hour versus 30 seconds. So I don't want to go back, but I don't feel like I'd be dead in the water or I would be a fool or whatever they does. I couldn't do my job. Yeah, no, it's not that groundbreaking question. Okay."
+    },
+    {
+      "start": 5131.38,
+      "end": 5152.02,
+      "speaker": "adam-stacoviak",
+      "text": "Same question, but different because this is actually a good analogy. I think potentially. Okay. So you're going from your house, let's just say into town, wherever into town is for you. Sure. Sure. Sure. From your house into town, the old way was these back roads, right? Stop sign and so-and-so's house. Right. And you arrived at in town."
+    },
+    {
+      "start": 5152.28,
+      "end": 5152.66,
+      "speaker": "richard-moot",
+      "text": "Sure."
+    },
+    {
+      "start": 5152.68,
+      "end": 5161.23,
+      "speaker": "adam-stacoviak",
+      "text": "Then you learned about this new thing called the highway. Right. And fast. And, and you went there so much faster."
+    },
+    {
+      "start": 5161.39,
+      "end": 5161.67,
+      "speaker": "richard-moot",
+      "text": "Yeah."
+    },
+    {
+      "start": 5161.83,
+      "end": 5198.92,
+      "speaker": "adam-stacoviak",
+      "text": "This is how I liken it. And I don't, I don't disagree with what you're saying. I just wonder how truthful it is or how truthful you're letting yourself be. Because once you've gone from your house to in town, the highway way, sans traffic, okay. Just bear with me here. Okay. Well, don't put all the worst stuff in there. The speed version of it, the direct access. They get off the, the wherever and you're not in town. When you go from here to there, the old way, the scenic route, the 30 minute route versus the 10 minute route via the highway, and then you have to go back to that old way. It does hurt. I don't care if you can still do it."
+    },
+    {
+      "start": 5199.36,
+      "end": 5199.68,
+      "speaker": "richard-moot",
+      "text": "Yeah."
+    },
+    {
+      "start": 5199.92,
+      "end": 5202,
+      "speaker": "jerod-santo",
+      "text": "I said that in my answer. I said, I would suck."
+    },
+    {
+      "start": 5202.04,
+      "end": 5203.36,
+      "speaker": "richard-moot",
+      "text": "I don't want to go back."
+    },
+    {
+      "start": 5203.52,
+      "end": 5203.92,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 5204,
+      "end": 5271.65,
+      "speaker": "richard-moot",
+      "text": "I like the fast way more. I would say like, here's, here's a different kind of analogy where I think it would, I want to sort of like tweak, tweak what you had there. Like in the transition from, you know, a horse and buggy to a car, there was a transition period where like, people were like, just not getting horses anymore and like, they're like, everyone's like getting cars, but imagine that like some sort of key failure, like all of a sudden we have no more fuel for cars. So we have all these like hunks of junk everywhere. And like, now we're in this state of there's not enough horses for people to be able to get from point A to point B, and now everyone is like extremely disconnected and so you can't get from where you are, like going from San Francisco to LA now takes like, you got to hike because you have no way of like really getting there and you can only take what you can carry, I think like there will be a point in time where we might get to that point where like we rely on AI for so many different components that if you suddenly shut it down, that like getting from point A to point B might actually be like, essentially impossible because it would take too long."
+    },
+    {
+      "start": 5272.09,
+      "end": 5285.01,
+      "speaker": "jerod-santo",
+      "text": "It becomes impossible, not because it's true impossibility, but because it's like, gosh, no, I'm never going that way again, you know, like I went the 30 minute route to end town and that was no fun, okay, I'm just never going back there again."
+    },
+    {
+      "start": 5285.39,
+      "end": 5289.29,
+      "speaker": "jerod-santo",
+      "text": "It's like five years from now, I want to go check my square dashboard."
+    },
+    {
+      "start": 5289.29,
+      "end": 5292.79,
+      "speaker": "jerod-santo",
+      "text": "And they're like, we don't have dashboards anymore. We're just the MCP server, you know?"
+    },
+    {
+      "start": 5292.79,
+      "end": 5325.75,
+      "speaker": "richard-moot",
+      "text": "Exactly. Yeah. You were literally describing what, what I think can happen. Cause like, that's what people are proposing is like AI has like created a, like, so, you know, like everything is just like voice chat. So you're just going to be like, use a super whisper to say like, Hey, all right, you know, go ahead and update my business hours for the upcoming holiday and then like, Suddenly you turn off AI and it's like, wait, how do I actually go update my business hours? There's nothing in the dashboard here for me to go do this. Like, you know, we could end up in that, that format where like, As soon as, you know, somebody doesn't have access to AI, it's like, I don't actually have an interface."
+    },
+    {
+      "start": 5326.11,
+      "end": 5329.79,
+      "speaker": "jerod-santo",
+      "text": "And we have to have, we have to keep the ejection, you know, I have to be able to eject."
+    },
+    {
+      "start": 5330.37,
+      "end": 5330.59,
+      "speaker": "richard-moot",
+      "text": "Yeah."
+    },
+    {
+      "start": 5331.15,
+      "end": 5336.74,
+      "speaker": "jerod-santo",
+      "text": "Think about automatic cars, you know, there's a way of doing things manually. I don't know."
+    },
+    {
+      "start": 5336.74,
+      "end": 5360.07,
+      "speaker": "jerod-santo",
+      "text": "Maybe there's not anymore. Uh, who's I just talking to where there's a, Oh, like, uh, if a car's battery is out for instance, and it has an electric start, there has to be a way to start the car without the battery, or at least to shift the gears. Sorry to shift the gears, like to get it into neutral. So we had like, we had somebody stuck in reverse, you know, and their car died."
+    },
+    {
+      "start": 5360.35,
+      "end": 5362.79,
+      "speaker": "jerod-santo",
+      "text": "And it's like, wow, this is for real."
+    },
+    {
+      "start": 5362.93,
+      "end": 5397.5,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And it's like, well, you gotta be able to, and there's like, and then a car guy came along and you see this little patch right here, you take this panel off and you stick a screwdriver in and you turn it and you can shift the gears manually. There's gotta be a way to do it without the battery, even though a thousand times out of a thousand, you're just going to use the battery to start the car. And so I think we have to do that with these things. We can't go all agentic, you know, even though they're going to be the way in 10 years or whatever it is, because the agents will fail, you know, like something's going to go wrong and there has to be an injection process that square has to still have a dashboard. Richard, you can't just get rid of it."
+    },
+    {
+      "start": 5397.78,
+      "end": 5409.71,
+      "speaker": "adam-stacoviak",
+      "text": "Let me ask you a question, Jared, or Richard too. You can, you can both answer this question. Okay. Let me think of a person. Do either of you have aunts or uncles, both of you, right?"
+    },
+    {
+      "start": 5410.78,
+      "end": 5411.3,
+      "speaker": "richard-moot",
+      "text": "Yes."
+    },
+    {
+      "start": 5411.34,
+      "end": 5412.1,
+      "speaker": "adam-stacoviak",
+      "text": "Just say yes."
+    },
+    {
+      "start": 5413.14,
+      "end": 5417.46,
+      "speaker": "richard-moot",
+      "text": "Just say yes. Of course you've got somebody. Why don't you just answer for me then? Yeah, we do."
+    },
+    {
+      "start": 5417.46,
+      "end": 5422.46,
+      "speaker": "adam-stacoviak",
+      "text": "Genealogy, right? Okay. Tell me your uncle's number, your uncle's phone number."
+    },
+    {
+      "start": 5423.44,
+      "end": 5425.24,
+      "speaker": "richard-moot",
+      "text": "Good. Five Oh five Oh five Oh five."
+    },
+    {
+      "start": 5426.07,
+      "end": 5427.91,
+      "speaker": "adam-stacoviak",
+      "text": "You do not know. Do you really know your uncle's number?"
+    },
+    {
+      "start": 5427.91,
+      "end": 5429.19,
+      "speaker": "richard-moot",
+      "text": "That's actually his phone number."
+    },
+    {
+      "start": 5430.46,
+      "end": 5435.46,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. So a different uncle memorized because it's some sort of special number."
+    },
+    {
+      "start": 5435.74,
+      "end": 5446.62,
+      "speaker": "richard-moot",
+      "text": "He isn't the best phone number in history. Can you imagine that he had his phone number was, and he's passed away now. So it was five Oh five Oh five Oh five. I mean, he didn't even pick that. It just came to him. Isn't that amazing?"
+    },
+    {
+      "start": 5446.62,
+      "end": 5447.42,
+      "speaker": "adam-stacoviak",
+      "text": "That's a cool number."
+    },
+    {
+      "start": 5448.6,
+      "end": 5450.8,
+      "speaker": "richard-moot",
+      "text": "Anyways, aside from that, yeah, I wouldn't know it."
+    },
+    {
+      "start": 5451.48,
+      "end": 5492.29,
+      "speaker": "adam-stacoviak",
+      "text": "The point is, is like you forget to remember phone numbers because your phone has them in the context. Like you have it in the context. So there's no point of you've, you've now just obliterated the need to ever remember. Now my wife's phone number. I know, uh, my brother's phone number. I don't know by heart. Who else's phone number do I know by heart? Not that many. I mean, a small few, like some parents, my wife, right. That's about it. And the reason why is because the phone or the thing or the cloud holds the data and it's so accessible. And like you said, a thousand of a thousand times, you're reaching for the phone to get the number because it has the information."
+    },
+    {
+      "start": 5492.53,
+      "end": 5494.81,
+      "speaker": "jerod-santo",
+      "text": "But how would you get your brother's number if you didn't have the phone?"
+    },
+    {
+      "start": 5495.57,
+      "end": 5501.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly. Yeah. How are you calling anybody with that? I'd be like, I'm like, okay, where'd that phone go?"
+    },
+    {
+      "start": 5501.45,
+      "end": 5503.05,
+      "speaker": "jerod-santo",
+      "text": "We're driving to Pennsylvania, right?"
+    },
+    {
+      "start": 5503.09,
+      "end": 5530.37,
+      "speaker": "adam-stacoviak",
+      "text": "Or wherever, like, where's the, where's the internet. So I can get access to this, this contact card because I have not personally remembered the phone number in my own brain. I've relied on a different brain, my second brain or whatever brain or whatever access to data. I mean, we're going to be like that at some point, right? Like what would you think is going to be the case is that there's just certain things you just don't have to remember anymore. Because for the most part, it's going to be there. Like there's my phone."
+    },
+    {
+      "start": 5531.73,
+      "end": 5532.21,
+      "speaker": "jerod-santo",
+      "text": "Cool."
+    },
+    {
+      "start": 5532.53,
+      "end": 5536.01,
+      "speaker": "jerod-santo",
+      "text": "Call brother. No, I stopped that from happening."
+    },
+    {
+      "start": 5537.17,
+      "end": 5582.58,
+      "speaker": "richard-moot",
+      "text": "I'm sorry. I can't do that. Here's what I found on the web for call brother. Would you like me to call chat GPT thing? Sure. When it comes to memory, I think you're right. When it comes to functionality, there are certain things that you're going to have to be able to do. You know, like you can file your taxes manually with paper still, even though no one's doing that. So I think there's for mission critical things in life. Of course, if you lost your phone and you need to get hold of your brother, you'd probably find somebody between him and you who knows his phone number and you'd say, Hey, can you get me his phone number? And then you'd have it. So there's like, there are ways, but yes, we are going to probably forget a bunch of stuff and just ask LLMs. And then when they, if they don't have the answer for us, we're going to be like the people in idiocracy, you know, it doesn't exist anymore."
+    },
+    {
+      "start": 5583.54,
+      "end": 5602.7,
+      "speaker": "adam-stacoviak",
+      "text": "It's no longer true. Like that's yeah. Like if the agent can't find it, like I'm thinking of this thing now, like, gosh, can you, do you think we're heading to a point where you have an agent, I have an agent and everyone has a small army, proper word to use of agents that we just now command a host of agent do it."
+    },
+    {
+      "start": 5602.98,
+      "end": 5605.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Your agent talked to my agent. We'll do lunch."
+    },
+    {
+      "start": 5605.38,
+      "end": 5616.27,
+      "speaker": "adam-stacoviak",
+      "text": "Right. And it's not a human agent. It's just some, it's what you refer to as your agent. It might actually have some humans behind it, but like, generally it's not a human. It's some sort of software."
+    },
+    {
+      "start": 5616.55,
+      "end": 5623.55,
+      "speaker": "jerod-santo",
+      "text": "I mean, I look forward to having a personal assistant. What I don't look forward to is my personal assistant learning exactly how I do my job and then replacing me."
+    },
+    {
+      "start": 5624.79,
+      "end": 5632.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Like, Oh, I'm just your agent for now. I'm shadowing you, Richard. I'm learning all your, Oh, Richard's not needed anymore."
+    },
+    {
+      "start": 5632.95,
+      "end": 5667.33,
+      "speaker": "richard-moot",
+      "text": "That reminds me of my latest galaxy brain meme that I don't think I actually shared with anybody. You guys know the galaxy brain one where it's like a progression of smarter, smarter, smarter, smarter. So the first one, which is like the small brain was I program the computer. And then the bigger brain is the computer helps me program it. Okay. The next bigger brain is I help the computer program itself. And then the galaxy brain is the computer programs me. That's where we're heading. That's where we're heading, man."
+    },
+    {
+      "start": 5667.33,
+      "end": 5672.97,
+      "speaker": "adam-stacoviak",
+      "text": "And that's the truth too. Let me tell you how that happens. Okay. Algorithms. When you go to the four you page, that's called programming."
+    },
+    {
+      "start": 5673.45,
+      "end": 5675.37,
+      "speaker": "jerod-santo",
+      "text": "Oh, that's true. It already is programming."
+    },
+    {
+      "start": 5675.41,
+      "end": 5701.16,
+      "speaker": "adam-stacoviak",
+      "text": "That's the way the computer's programming. It's it's a larger agents that are human potentially. Potentially putting out things, you know, deciding what content makes sense to you and you're in the bubble you've put yourself in. And it's usually the world, man, this is getting doom and gloom, man. The world seems to be opt in, but it's mostly by force only. I mean, like, I mean, it's for the most part."
+    },
+    {
+      "start": 5701.6,
+      "end": 5714.12,
+      "speaker": "jerod-santo",
+      "text": "And only the privilege get to opt out. You know, it, you have to be, it's true. You gotta be in a position to be able to opt out. All right. Well, let's close on this. Then if, if the algorithms are programming us, I think it might be time to pull the plug. This might be it."
+    },
+    {
+      "start": 5714.44,
+      "end": 5717.48,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, by the way, we're producing podcasts that serve this. I'm just kidding."
+    },
+    {
+      "start": 5721.36,
+      "end": 5726,
+      "speaker": "jerod-santo",
+      "text": "We're part of the problem around here. Oh man. Did we just get like deplatformed off YouTube from this?"
+    },
+    {
+      "start": 5726.12,
+      "end": 5744.6,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe, maybe at least be monetized. I'm gonna throw out a couple of URLs. You can at least go to youtube.com. Slash at square dev. I don't know if that's case sensitive. Let me check it because we've had some instances where case sensitive was wasn't needed for."
+    },
+    {
+      "start": 5744.64,
+      "end": 5747.36,
+      "speaker": "richard-moot",
+      "text": "Yeah. Just search for square dev and YouTube. You'll get there."
+    },
+    {
+      "start": 5747.72,
+      "end": 5769.83,
+      "speaker": "adam-stacoviak",
+      "text": "Even searching just youtube.com slash square dev works as well. So all the pods are there videos that Richard mentioned, are they on YouTube? Even that infamous, uh, conversation I had with Jack Dorsey is a scroll or two back sitting at 18,000 views. Let's get that out. Come on now. Yeah, that's not, it's an interesting conversations."
+    },
+    {
+      "start": 5769.87,
+      "end": 5770.99,
+      "speaker": "richard-moot",
+      "text": "It's still relevant today."
+    },
+    {
+      "start": 5771.39,
+      "end": 5807.85,
+      "speaker": "adam-stacoviak",
+      "text": "It still is relevant today. You know, there was some more to that story, but we'll let it go for now. Samuel Jackson, call Siri and get us some directions to our favorite restaurant. Please. It ain't going to happen. It's been fun. It's been fun, Richard. Thanks for giving us the chance to help produce the square developer podcast. I think it's a super cool show. I'm glad that, um, we finally got to a point where we can do it. I'm glad to have the season, you know, rolling out as we speak a lot of good stuff on there. I'm very proud of you and the team behind the scenes, make it happen. Could not be happier. It could not be happier. Thank you so much, Matt."
+    },
+    {
+      "start": 5807.85,
+      "end": 5818.17,
+      "speaker": "richard-moot",
+      "text": "Thank you. I mean, really appreciate all the help that you've given us through this. And I got to say, it's also, it's fun being a guest. I mean, I want to try this out a little bit more."
+    },
+    {
+      "start": 5818.21,
+      "end": 5825.77,
+      "speaker": "adam-stacoviak",
+      "text": "It's almost more fun than being a host almost, almost, almost, almost. Well, that's it. All right, friends. Bye friends."
+    },
+    {
+      "start": 5826.65,
+      "end": 5891.36,
+      "speaker": "jerod-santo",
+      "text": "Bye. That is change log for this week. Thanks for friendsing with us. Do check out the square developer pod links are in the show notes. There's no way I'm going to try to say that URL another time and let us know what you think about MCP, AGI, chat GPT versus the world of open source options or anything else on your mind in our totally free, totally rad changelog Zulip community. Join right now. If you haven't yet at changelog.com slash community, one more mention of our awesome partners at fly.io to our sponsors of this episode, Heroku retool and augment code and to our beat freaking residents, the one, the only, the break master cylinder next week on the change log news on Monday, Anthony Eden founder of DN simple on Wednesday and Mr. Ahoy himself. It's Nick Nisi on friends on Friday. Have a great weekend. Like subscribe five star review us if you dig it and let's talk again real soon."
+    }
+  ]
+}

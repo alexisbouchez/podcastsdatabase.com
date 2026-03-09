@@ -1,0 +1,1353 @@
+{
+  "title": "Saltiness about frostiness",
+  "description": "Justin Searls joins Jerod Santo following Apple's WWDC 2025 keynote for in-depth analysis of the major announcements. The hosts discuss the new Liquid Glass design language, Apple Intelligence's understated presence, and deep dives into iOS, macOS, and other platform updates.",
+  "links": {
+    "YouTube": "https://youtu.be/AJprbRYvgLA",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "justin-searls"
+  ],
+  "segments": [
+    {
+      "start": 15.02,
+      "end": 34.7,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about concentricity. Big thanks to our partners at Fly.io, the public cloud built for developers who ship. We love Fly. You might too. Check them out at Fly.io. Okay, let's talk."
+    },
+    {
+      "start": 42.61,
+      "end": 112.61,
+      "speaker": "justin-searls",
+      "text": "Well friends, Retool Agents is here. Yes, Retool has launched Retool Agents. We all know LLMs. They're smart. They can chat. They can reason. They can help us code. They can even write the code for us. But here's the thing. LLMs, they can talk, but so far they can't act. To actually execute real work in your business, they need tools. And that's exactly what Retool Agents delivers. Instead of building just one more chat bot out there, Retool rethought this. They give LLMs powerful, specific, and customized tools to automate the repetitive tasks that we're all doing. Imagine this. You have to go into Stripe. You have to hunt down a chargeback. You gather the evidence from your Postgres database. You package it all up and you give it to your accountant. Now imagine an agent doing the same work, the same task in real time, and finding 50 chargebacks in those same five minutes. This is not science fiction. This is real. This is now. That's Retool Agents working with pre-built integrations in your systems and workflows. Whether you need to build an agent to handle daily project management by listening to"
+    },
+    {
+      "start": 112.61,
+      "end": 125.41,
+      "speaker": "jerod-santo",
+      "text": "standups and updating Jira, or one that researches sales prospects and generates personalized pitch decks, or even an executive assistant that coordinates calendars across time zones. Retool"
+    },
+    {
+      "start": 125.41,
+      "end": 160.35,
+      "speaker": "justin-searls",
+      "text": "Agents does all this. Here's what blows my mind. Retool customers have already automated over 100 million hours using AI. That's like having a 5,000 person company working for an entire decade. And they're just getting started. Retool Agents are available now. If you're ready to move beyond chat bots and start automating real work, check out Retool Agents today. Learn more at retool.com slash agents. Again, retool.com slash agents. Here we are post WWDC as we record"
+    },
+    {
+      "start": 160.35,
+      "end": 177.71,
+      "speaker": "jerod-santo",
+      "text": "about 24 hours-ish since the end of the big keynote. I'm joined by Justin Searls back again for another WWDC hot takes show. What's up, Justin? Hello, Jared. Yeah, this is, you know,"
+    },
+    {
+      "start": 177.71,
+      "end": 210,
+      "speaker": "justin-searls",
+      "text": "as an Apple. Well, I guess I show my hand if I say I'm an Apple fan, but as a as a as a close follower of the as a journalist at justin.searls.co. This is a semi-annual, you know, this is one of the two poles of the of the calendar year, right? This is the software holiday. And then in September, we have the hardware holiday. And then everything else, you know, that gets sprinkled throughout the different quarters is a bonus. So so yeah, it's a big deal. There's a lot to talk about. Yeah, and as a software guy,"
+    },
+    {
+      "start": 210,
+      "end": 296.78,
+      "speaker": "jerod-santo",
+      "text": "I've always thought this was the best not this year's but in particular WWDC was my favorite event because it seemed to focus more on the things that I am interested in. I care about I mean Mac OS gets its own section, you know, and you just don't get that very often. Of course, when they're releasing new Macs or iMacs, they'll do some Mac stuff. But so much of the last decade plus has been the iPhone and then they're pushes into new directions kind of stealing the show and at dub dub. It seems like things that I like steal a show. This year, the show stealer if there is one is or the headliner is the new design, but they actually started with sort of addressing Apple intelligence. We're going to take this in order and you are a thorough person. So you started even with the intro here the f1 teaser now full disclosure. I did not watch this thing live. I was doing changelog news. And so I got to watch it post-facto yesterday afternoon and some this morning, which means that I got to kind of skip around a little bit. I didn't have to sit through every last second. So when things happen like Craig Federighi jokes, you know, sometimes I'm here for him and other times I'm like, I got to get past this. So your takes on the f1 trailer or what's it called teaser? Yeah, well, you wanted I will just say kind of funny, kind of cool."
+    },
+    {
+      "start": 296.78,
+      "end": 354.11,
+      "speaker": "justin-searls",
+      "text": "Obviously, they're pushing a movie, but they're there. I think that Craig and Tim and the whole kind of cadre of, you know, white middle aged dad. Yeah. Senior vice presidents at Apple have enough self-awareness that it can be endearingly cringy. You know, they know how cringy it is. It's not accidental. And it's almost like, well, I guess like whenever stuff shifts domains. So like, you know, for example, that Apple has amazing hardware and software capabilities. That's their bread and butter. And so to them, that's they're very serious about. But the fact that they also own one of the most successful now Hollywood studios on the planet in terms of production budgets and visual effects and like the cadre of contractors that work underneath them and stuff that to me, like that whole f1 teaser just feels like that's just them showing off. That's them having fun at work. Right. Right. And so that's what I was thinking. This is Craig's way of"
+    },
+    {
+      "start": 354.11,
+      "end": 363.63,
+      "speaker": "jerod-santo",
+      "text": "driving one of these fast cars and expensing the entire thing. Exactly. Yeah. So good for him. And it just shows how much money they have to float on these kind of videos. You know, like they just got"
+    },
+    {
+      "start": 363.63,
+      "end": 377.41,
+      "speaker": "justin-searls",
+      "text": "so much money. I'm sure I'm sure somebody, some bean counter somewhere internally was like, well, we've already built all of these models and these assets for the film itself. We could reuse some of this. And I'm sure approximately none of it actually did get reused. And it was probably a"
+    },
+    {
+      "start": 378.05,
+      "end": 450.59,
+      "speaker": "jerod-santo",
+      "text": "$20 million. Right. Intro, but we'll see. It looked expensive. I'll say that much. But aside from that, I think we should get to the heart of the matter, which is we were wondering like, was Apple intelligence going to go completely unmentioned? Of course, they've had this egg on their face, this failure to ship last year's features, this marketing push, even, you know, advertisements like actual shot and shipped commercials with features that never came to fruition and may never, I mean, maybe eventually they will, but they had to like issue a mea culpa so to speak. I mean, there's been a lot and a lot of confidence lost in the ability of the company to deliver and Siri is an embarrassment. And what would they do with Apple intelligence? It seems like they approached it. They didn't completely shy away from it. They didn't completely ignore it, but they obviously it's not the point this year. It's just kind of sprinkled in across all of their things. What's your take on how they handled this, given all that we know about how precarious of a spot they're kind of in with their image being like, they're falling way behind."
+    },
+    {
+      "start": 450.99,
+      "end": 573.06,
+      "speaker": "justin-searls",
+      "text": "Yeah. They, I mean, they, they, you could say they had to clear the table, except that Apple has such a history of just memory holding anything that isn't on brand. A lot of people, I think, sort of cynically expected that there'd be absolutely no mention of Apple intelligence whatsoever. Or if there was, it would just be like, our, our customers love Genmoji so much, and then they'd move right along. And Craig Federighi, if you didn't watch the keynote, starts with this whole, well, if you didn't watch this keynote and you're, and you're choosing to listen to this instead with, with the same amount of time, roughly, then that's a decision you can make, but I think it's a good one. I think it's a great decision. And I think all the sponsors appreciate me calling that out first thing. So Craig, Craig starts, he doesn't equivocate and he doesn't back away from it, but he also doesn't roll in the mud and ask for our forgiveness either. I think that internally, they're probably really, really angry about the optics. And I'm sure that there's a lot of people in Apple marketing and PR who are just, you know, walking around, darting in the hallways and trying not to end up in the bathroom as any of these guys at the same time for fear of just sort of like the hell that they've caused them over the last year. So, so there's, you know, I think that he had to clear the table, but then to move past it by, by talking about, you know, like basically we're going to show a lot of great stuff today. You're going to see sprinkles of this Apple intelligence stuff, but just stay tuned for the, for the big things. And that I think was probably, you know, no one at Apple has the reality distortion effect the way that Steve Jobs did. But, but when you're talking to developers, I think the messenger you want for that is Craig Federighi because he's likable. He's like, quote unquote, one of us, because he's very technical. And so it's hard to hate the guy. And when he gives the message, I think that developers are more likely to at least nod along to it. And that's what they needed to do. And they didn't then, then they could move on"
+    },
+    {
+      "start": 573.06,
+      "end": 628.56,
+      "speaker": "jerod-santo",
+      "text": "to, you know, the other stuff. Right. Yeah. I tend to agree. I think that they didn't shy away from it. They didn't do, I mean, I feel like they just kind of returned a form and act like none of that really happened. They were talking about this stuff, every single keynote for the last five years, they've had machine learning, like we're doing it with machine learning and like they're, they've been sprinkling in, you know, model based features into their platforms for years. And then they just felt last year, I think, I think because of Siri and how stagnant it has become, they felt the pressure of like really going for the gusto. And they probably didn't have to do that, even though we were, I was saying they should do it. Like we've all been saying, you need to revamp Siri and give it actual, you know, AI features. And now they just kind of returned to form to a certain extent, you know, they, they acknowledge it's like, it's kind of like a reference acknowledged moment, but not like we're going to make a big deal out of this, which"
+    },
+    {
+      "start": 628.56,
+      "end": 714.88,
+      "speaker": "justin-searls",
+      "text": "is probably the best possible way. I totally agree. I think, I think what happened, if you look back on it last year, you know, we, we talk about in recent history, even in COVID sometimes entire like year long periods are like, man, that feels like a fever dream in hindsight. Like, I think the whole post-chat GPT, just maelstrom over Silicon Valley of all the companies that gotten flat-footed, you know, caught off guard by it. Apple was the least prepared of any of them for that. And so Apple under Tim Cook is an extremely, you know, other than Tim's one line of, I don't care about the bloody ROI, they are extremely responsive to the care and feeding of their large institutional investors and the fact that it had gotten into, they don't care that Jared's calling for them to have an AI story. They care that like CNBC and the wall street journal are calling for them to have an AI story. And so last year, I think that they just needed to put some lipstick on the pig and come up with really big, audacious customer facing, you know, competitors to what the vibe of chat GPT and all these things would be. But if you, if you look at last year's keynote and you look at this year's keynote and you watch last year's state of the union, which I accidentally did yesterday, I got 45 minutes into the state of the union video. And then I was like, I was like, wait a second, this is last year state of the union. And then"
+    },
+    {
+      "start": 714.88,
+      "end": 718.72,
+      "speaker": "jerod-santo",
+      "text": "I started this one. I was like, okay, I thought you did it. Okay. It was an accident. Boy,"
+    },
+    {
+      "start": 719.12,
+      "end": 842.13,
+      "speaker": "justin-searls",
+      "text": "that's depressing. But, but you, you, you look at the two and it's so obvious that last year they were sort of aping at what somebody told them AI was, and it was very much just like, what can we throw together in a hurry? And this year, especially if you look at the state of the union, like the, you know, the real story here, the thing that we're going to remember from this segment isn't like the optics. It's that Apple for the first time is letting us call through to their models on device and not in some baby dinky way where you've got three functions, like you've got a translate function and a summary function. You can call them. It's like, Nope, you're starting a real session. And not only can you, can you have the sort of back and forth chat dialogue and in a sort of semi stateful seeming way, but like you can, you can take any struct in your whole app and annotate it as generable. And it can, you know, whereas in all these other environments, we're just suffering with Jason and untyped, you know, sort of like MCP tools. This is all strictly typed. And it's all of a piece where, where, where you can just imagine a world where a year from now they, they plug in private cloud compute, and then you can pay a premium to get like more and more access as a developer to like, really harness these LLMs locally. It becomes a tremendous advantage for their, for their platforms over other platforms. Cause the story of the last seven years has been like, why would I use any of these iOS native APIs if, if the web is the better story? Well, now every web-based, every, every AI based tool comes with an unbounded upper bound of cost to how the, the more power users, the whales, the people who get the most value out of my app, they could cost me hundreds or thousands of dollars a month in open AI API fees. Whereas if this is happening on device, it's an all you can eat thing. Like suddenly me as a developer, especially as a solo guy, I'm like, I'm, I'm championing at the bit. I can't, I can't wait to start using this. And only this is the way that I expose AI features to my users. Cause it doesn't cost me anything. I can give, give the app away for free. And I don't have to worry about"
+    },
+    {
+      "start": 842.13,
+      "end": 916.22,
+      "speaker": "jerod-santo",
+      "text": "waking up to some huge bill. Yeah. Very well said. I think it's ironic one more point on Siri, and then we should move on to the design because the design really was the most talked about aspect and cross cutting thing in the entire keynote. It's kind of ironic that all of the pressure around Apple to do AI, whatever that means really culminated around Siri because they had this chat bot already, this voice assistant sitting in the phone for a decade and so much missed opportunity there. And it just so happens that like where all of this, you know, people like me and maybe the wall street journal, I don't know, probably on the same level are calling for them to like revamp Siri with AI. And it just so happens to be what appears to be their most dysfunctional business unit in the entire organization. Perhaps. I mean, they haven't done anything with Siri for a decade. It's been so dysfunctional and all of a sudden, all this pressure to revamp that sucker. It was like probably other teams, if it had been in a different area of the ecosystem, could have perhaps pulled something off that impressed, but there's just no way the Siri team was going to get that done."
+    },
+    {
+      "start": 919.28,
+      "end": 1044.91,
+      "speaker": "justin-searls",
+      "text": "Okay. So in the world of VC backed tech, we've forgotten this, but most companies, most normal businesses in the world, they get really good at whatever makes them money. That is the feedback loop. Do a thing, make some money, do the thing more harder, better, wider, whatever, make a little bit more money. And Apple is, you know, that kind of traditional old school, quote unquote, legacy business. And so when you look at Siri and ask, why is Siri dysfunctional? Well, because it was a cost center. Like they, they, they sell zero marginal extra products because of Siri's existence, except for, you could probably argue the HomePod, which they were still selling the first batch of when they discontinued it five years later, like the, the services, you know, you could say like, well, remember like people forget this, but iPhone OS and the first several iPod touches, and I think the first iPad, maybe you wanted the software update in the fall, you had to pay 10 bucks because of the accounting shenanigans going on in terms of what was considered gap accounting at the time. And of course, Steve jobs didn't like it, but, but the truth was they didn't have a way to even conceive of how are we going to make all of our ongoing software investments worth it to us as a company? And the answer to that was ultimately services revenue, right? That's why we get the five gigabytes of iCloud. And so, yeah, sure. It's fun to complain about all of that sort of marginal services expense that we, that we have to accrue if we want to have the family iCloud photos, but ultimately like the reason that like, that it keeps getting better is because we keep paying more money for it. Siri has none of that. And so, so that competitive instinct, that drive, that hunger isn't, doesn't have a reason to be there institutionally. And so then it wasn't. And so that's, that's how stuff gets ignored or a blind eye turned to when the guy at the top of the organization, Tim Cook is how can, how can I tighten this machine even harder to get like, you know, six days of, of inventory instead of seven, he's not thinking about how do I make, you know, Siri slightly more conversational"
+    },
+    {
+      "start": 1044.99,
+      "end": 1145.15,
+      "speaker": "jerod-santo",
+      "text": "so that people want, want to be friends with it. Right. Yeah. That's just the way businesses work. All right. Let's hit on the big topic of the new design is called liquid ass. Sorry. Liquid glass. Easy joke. Too easy. Low hanging fruit. Impressive in one way, at least for me, I'm not excited about this. I don't think it's going to be bad. I think it'd be fine. I think it's kind of bad right now because they are pushing the envelope on everything and it's betas and stuff. And so people are finding the edge cases where it looks bad, but I think it'll be fine as they continue to refine it. It's an interesting idea. It's not a super exciting idea to me. And it did. I totally thought of windows Vista when they first started talking about it, which is, I mean, windows, Vista's design was kind of cool. I, the reason why we have a bad connotation to that, at least I do is because the operating system was so bad, but there were some cool stuff going on in arrow, which there's arrow vibes here with liquid glass, but what's impressive to me is how pervasive they're rolling this thing out. They've rethought everything. I mean, they really have like each of their platforms is getting liquid glass. It seems like in 2026 or in version 26, as they say. And that's just a huge undertaking with how many platforms they have. And now I wonder how much of that code is shared and whatnot. But I mean, think about the app icons alone. It's just a huge undertaking anyways, liquid glass. This was the big announcement. It's kind of gotten mixed reviews online. Some people are into it. Some people aren't. I'm kind of just waiting and seeing, I want to try it. I think there's some cool ideas into it, but it's not like, wow, I'm excited. I can't wait to use it. I'm also thinking like, it's going to be, it's going to be pretty good by the time they ship it. What do you think?"
+    },
+    {
+      "start": 1145.87,
+      "end": 1166.27,
+      "speaker": "justin-searls",
+      "text": "Well, well, the thing people forget about Vista is that the arrow scheme, you know, like the, the theme with the frosted glass and the transparency and translucency, the reason that like people look back on that with disdain as like the butt of a joke is that that operating system, you know, snout to tail wrote all kinds of checks that it couldn't cash."
+    },
+    {
+      "start": 1166.83,
+      "end": 1169.31,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. I said the OS sucked. It was not a good OS."
+    },
+    {
+      "start": 1169.31,
+      "end": 1433.42,
+      "speaker": "justin-searls",
+      "text": "Your hardware didn't have a GPU in it necessarily. Right. And so like, I remember I installed Vista excitedly on my Dell Inspiron, whatever the hell. And it ran like absolute trash. And so I was just, you know, everyone was going back to XP cause it was faster. A big part of the story. And in my opinion, if you look at like, if you look at liquid glass, the reason it's boring for somebody who likes boring stuff, right? Like the reason it's boring is like a big part of the story is, and they set it themselves in the keynote. We have the Apple Silicon. We have the hardware that allows us to get away with this. And this is, and what was left unsaid I think is that this is in a sense, the purest manifestation of a lot of what the same stuff they were talking about with the iOS 7, iOS 7 was also, if you go back to that announcement, Oh, I remember that the layering, right? It's like, we want to have this idea that you, yes, the design is flat because you have the control center swiped up on top of that. There's, there's multiple dimensions that you're dealing with. There's like the Z index, the entire UI scheme, and that's still there, except now you have a story and some, some graphical pizzazz to kind of turn that into, from a concept that you could kind of, you know, move around with some smoke and mirrors to kind of make it look like a frosted glass control center. And now it's like, no, we were actually introducing this brand new element made out of unobtainium that, that moves and has, has an emotional, you know, valence and kind of feels like a Pixar character or something. And that's to me as somebody who's really excited about consistency and about having that sort of conceptual through line all the way through to implementation, it looks phenomenal. And so like for, for, for, for anyone who's looking at this thinking this is really boring, or I don't really get it. If you switched from the traditional home button iPhone to the iPhone 10 era iPhone, where you've got the face ID and the swipey bar at the bottom, like for, for years that was running as effectively a separate fork of iOS's user interface, right? Like the animations throughout the system are wildly different depending on which of the two of those systems that you're using, even if you have like the iPhone SE third generation with the home button. So what I, what I really look forward to with this is that I think it's going to feel a lot like the final culmination of the promise that we had with iOS seven and with the iPhone 10 in that, you know, in terms of just how things feel and look and touch like the, the, the liquid glass thing I think is going to be the, you know, delivery of that promise. And then to your point about consistency right now, like, again, like, you know, I think only about myself cause I'm a selfish asshole. The, as a, as a solo developer who wants to deliver an application to four of the five or six Apple platforms, there was no hope of that working if it's not all Swift UI, if the controls aren't the same in all of these environments. And as recently as yesterday, the, the story of using Swift UI on macOS was like, you're going to get, like, you're going to get the settings app, basically. You're going to get like all of these controls that look totally out of place in the Mac. And we knew that wasn't sustainable. And so I don't think there's ever been a better day to start working on an Apple app. If you plan on taking it multi-platform because now like look at the new iPad, right? Windowing isn't a mode windowing is just how it works or we'll get to that, but like it looks like some of these screenshots side by side, it looks a lot like macOS, right? And, and, and you can sort of see how that whole UI scales up and down the stack so much more gracefully. So sure, you know, like stuff's not readable. There's cases where the glass really kind of obscures the content beneath it and, and Twitter X and, and well X more than the other ones, cause X is full of those kinds of people, but, but are, are making fun of this and, and calling out every single screenshot that looks ugly. But to be honest, you know, if I'm a designer, my job is to absolutely swing for the fences with beta one and see how much I can get away with in terms of the purity of the vision. And yeah, I'm going to go zero frosting on the glass and, and, and then back it off over the course of the subsequent betas to, to, to dial it into, okay, so what are people actually able to"
+    },
+    {
+      "start": 1433.42,
+      "end": 1497.02,
+      "speaker": "jerod-santo",
+      "text": "accept? Yeah, because, and they clearly have done that, which is why I said, I think it'll end up being fine. There are some you know, on the subreddit programming horror, you know, they're having a field day because there's some screens where it's like, especially control center. If, you know, with the translucent glass, especially if you have like a, a bright background, like as your, your wallpaper, like a reddish background, and then you bring the control center down. I mean, it looks like a hot mess at the moment. And because like you said, no frosting, no, like they just haven't really dialed in all the different settings to increase the contrast and make it more legible. You know, the borders could use some use. It's hard to tell where the thing stops and starts. I think the animations will probably made a little more subtle over time, but iOS seven was the same way. It was like, Whoa, they're really going for it. They've kind of like gone too far. And then like, you see them progressively hone in on what is kind of the top notch settings, you know, the perfect settings. I mean, those iOS seven, we were like, what's the"
+    },
+    {
+      "start": 1497.02,
+      "end": 1505.98,
+      "speaker": "justin-searls",
+      "text": "button? What, what can I click here? What's just yellow text? That's a header. And what's yellow text? It's just like a new note, you know, like, yeah, exactly. No, it was just like a"
+    },
+    {
+      "start": 1505.98,
+      "end": 1517.23,
+      "speaker": "jerod-santo",
+      "text": "straight up text. There was no like, give us an underline at least like we get in the web, you know, show us that we can click on it. And they figure that all out. And of course, you know,"
+    },
+    {
+      "start": 1517.23,
+      "end": 1544.91,
+      "speaker": "justin-searls",
+      "text": "we, we, we saw all this coming, you know, if you looked at that recent invites app, if you looked at the sports scores app, if you have a vision pro that the vision OS, a whole UI motif looks exactly like this, and it fits right in, I felt bad for the guy, a fella named Justin, who was showing off the tvOS segment, because he was like, and check out this new liquid glass, user interface and tvOS. And I'm squinting and I'm like tvOS already looks like this, man. I know, I couldn't"
+    },
+    {
+      "start": 1544.91,
+      "end": 1549.87,
+      "speaker": "jerod-santo",
+      "text": "tell what the difference was really is like, giant posters. And then like, it's a hard sell."
+    },
+    {
+      "start": 1550.43,
+      "end": 1556.67,
+      "speaker": "justin-searls",
+      "text": "Yeah, glassy, you know, big. It already is that. But okay, I think as a direction, though, it's not"
+    },
+    {
+      "start": 1556.67,
+      "end": 1604.64,
+      "speaker": "jerod-santo",
+      "text": "really like for me personally, it's not really a direction that I'm interested in UI going, I'm kind of ready for it. I've already, I think I've said this to you, I've said it to others, like, I'm kind of ready for a move back to skeuomorphism and like, go back to like, comfortable, real, like plush things just for like, you know, as fashion swings back and forth, like let's go back in the other direction. I'm excited by the Airbnb direction with their new style. And they're like really going for like bright and colorful and real ish, but not like you don't have to have the leather kind of design, but just like icons that look very rich and real. And this is kind of more like slick and translucent and glassy and cold, I would say to a certain extent. And so it's not the direction that I like to see them go. But you"
+    },
+    {
+      "start": 1604.64,
+      "end": 1726.35,
+      "speaker": "justin-searls",
+      "text": "know, I'm here for it. We'll see how it goes. I wonder to how, whether or not the advances in silicon, the fact that like GPUs are so powerful now that you can get away with an operating system layer like this, and we're not talking about how it's going to slow all of our apps down, which was the story whenever, originally, we're not afraid of that, are we? I'm not afraid of it. No. And so when you look at this, whether it was Airbnb is new, kind of, you know, they're taking physicality in a totally different direction. Yeah. This liquid glass thing felt inevitable to me because it is Apple's brand made manifest, right? Like their buildings are just curved glass, you know? Their ideal iPhone is very obviously a glass puck. And my dream of it, and like ever since I had this thought, I haven't been able to shake it, that like, you know, the iPhone 20th anniversary or whenever they're able to do the all glass iPhone is going to be not just using this liquid glass, but like basically a translucent device, just like VisionOS, right? Like you're going to look through it and you're going to see the thing behind you. And instead of having an AR mode, you'll just hold up your magic rectangle to the universe and it'll annotate the world around you, right? Like, I think that's what they're going for. And so Apple as a company constitutionally, that's like who they are really. Like, it's like what they encode into their buildings and everything about how they talk. They're just that austere minimalist company that want to decorate our universe with stuff. I don't think they can go in another direction, but somebody like Airbnb has the same lack of constraints. They can go in their own. So we'll see. You know, honestly, my favorite thing about liquid glass is that I don't think that Google and other platforms are going to chase it. We might actually start to see a little bit more daylight between this and the other platforms in terms of them each establishing their own brand identity. So if anything, now it's the pressure should be on Google, Samsung, Microsoft to come up with their own design instead of just copying whatever Apple's doing."
+    },
+    {
+      "start": 1726.35,
+      "end": 1797.14,
+      "speaker": "jerod-santo",
+      "text": "Hard to believe this is the same company that shipped that game center design with the green felt poker table thing going on. I mean, that's just wild. I mean, because you're right. And this is not a surprising direction. Of course, like you said, we've seen it coming. VisionOS is clearly the inspiration for this move across all the platforms. And you've been living that life as a vision OS beta tester, uh, for a while now. So let's get into these specific platforms. iOS took the majority of it and that's because it's their best at their biggest, most important platform they have. Of course. Um, gosh, I don't know if we can cover all this. Justin, I don't think we can. We might have to hit the high notes. Yeah, there's just too much. And I definitely want to get into, uh, the Mac OS stuff and the developer stuff. I know you want to talk vision OS. I will listen to you talk about it. And tvOS is important to both of us, I guess, because we are users. I want to hit each platform, right? I just know we can't spend all day on iOS. Um, so take, take me vertically through it and, uh, talk about the stuff that you think is interesting and I'll just interject as we go. Well, you know, uh, anyone who"
+    },
+    {
+      "start": 1797.14,
+      "end": 1933.41,
+      "speaker": "justin-searls",
+      "text": "listens to the change, the login has heard me on any of your shows before knows how hard it is to clip anything I say into one of your 60 second reel solo pod. So I it's true. Yes. Uh, if you want my full on, uh, unabridged takes, you can check out breaking change a podcast production where it's just me and you and all afternoon. You can probably do this exact same podcast with your same outline without me. I'll take the same notes and I'll just be like, it'll be a little longer, but you know, more cohesive. Uh, so, so, you know, iOS, we started talking, um, let's see, I think the lock screen is interesting because the biggest change that jumped out at me with the lock screen was the usage of spatial scenes, I think is the term that they termed it so that if you've got a photo and you've got that depth effect, now they're going to use machine learning to kind of spatialize the photo the same way that you've been able to on a onesie twosie basis and vision iOS and the photos app, you can go and take any photo and spatialize it as if you took it in that spatial photo mode with an iPhone. And it's a very cool effect. It's very believable. And the thing that you can do on an iPhone that, uh, well, you can do it on an iPhone if you're Apple, but you can't do it if you're a web developer. Cause they took away the gyro APIs. If you recall, like we used to be able to rotate the phone and then get that sort of highlighting look. I remember they took it away, uh, because the, the nasty meta and the Google and the ad tracker people were using it to, to identify who was who, and they just couldn't figure out a way to keep that API working. So yeah, as a result though, now the, the, the entirety of liquid glass appears to be this way, but they specifically called it out during the lock screen demo of you're rotating your phone and you're actually seeing behind the, the depth effect of whatever it is you're looking at the, like, you know, picture your spouse. It was weird how Craig's talking about like all these pictures of our loved ones on our lock screens. And the two examples are a dog and a kangaroo. I'm like, do you just live in the office, dude? People love their dogs. A private person. Um, the, uh, the, the other, do you have anything to say about the lock screen?"
+    },
+    {
+      "start": 1933.41,
+      "end": 1937.89,
+      "speaker": "jerod-santo",
+      "text": "I think it was pretty one and done. No, I think it was good. I guess in the home screen, you can"
+    },
+    {
+      "start": 1937.89,
+      "end": 1943.49,
+      "speaker": "justin-searls",
+      "text": "make all your, your, your icons clear. You're going to make your icons clear. Yeah. And they"
+    },
+    {
+      "start": 1943.49,
+      "end": 1964.22,
+      "speaker": "jerod-santo",
+      "text": "had themeable, you know, they had themes last year and now it's like, transparent is a theme. Of course you can also change to like orange tinted everything and all that custom tint. Right. And of course clear, which I would never do, but I'm sure some people are going to do it and enjoy it. Are you going to go translucent across the board? I don't know. There's been a recent trend,"
+    },
+    {
+      "start": 1964.22,
+      "end": 1983.82,
+      "speaker": "justin-searls",
+      "text": "right? To kind of go back to that sort of Game Boy pocket with the sort of translucent, you know, hardware design where you can sort of see the battery underneath it and stuff. I'll try it for a day. Honestly, like I don't use my home screen at all anymore. I I'm just always launching via spotlight, pretty much anything that I need. Yeah. I have,"
+    },
+    {
+      "start": 1983.82,
+      "end": 1988.46,
+      "speaker": "jerod-santo",
+      "text": "how many home screens do you have? Like, have you swiped? Do you have a lot or you have one?"
+    },
+    {
+      "start": 1988.46,
+      "end": 2026.54,
+      "speaker": "justin-searls",
+      "text": "I have, I have five and all of them were accidentally created by accidentally dragging something out of the app library other than the first one. And the first one is just my, my photos widget because I want to see the daily photos. Otherwise I would never look at my photos and, you know, I find that delightful. And like map and I don't know my ring a lot, like the stuff that I absolutely need to be able to hit in a touch. Anyone waiting for them to kind of rethink how to make the home screen useful. This isn't the year for you. No, no. And the squirkels are the same shape as, as they always were despite what rumors were saying. Yeah. My use is very"
+    },
+    {
+      "start": 2026.54,
+      "end": 2054.06,
+      "speaker": "jerod-santo",
+      "text": "similar. I think I only have two though, but I would, I have like photos widget. Cause yeah, when it pulls up things out of the year past, like that's a delightful moment in your day. And then like weather just for a glanceable thing and then calendar and then everything else, I just swipe down and start typing basically to just launch. Cause I'm sure there's just thousands of things down in there and I can just summon them by swiping down. So no gone are the days where you swipe sideways, sideways, sideways, looking for that one particular icon. You know,"
+    },
+    {
+      "start": 2054.06,
+      "end": 2128.75,
+      "speaker": "justin-searls",
+      "text": "the next thing up here is camera and we talk about swiping. They redesigned the camera app. The camera app looks nice. There's just two tabs now for video and photo, which is nice. Cause currently it's like, you know, you're basically forcing your users to remember the cinematic mean video does, you know, panoramic panoramic video. Nope. Nope. That's a, that's the photo thing, right? He said, quote, all your controls are just a tap away. But the thing is then he shows a swiping gesture of some mystery meet navigation that you have to swipe left to right to like change the type of thing you're looking at. And then another swipe up for the controls themselves, like your F stop and whatnot. And so what they've done is they've made it look really pretty, but I think that like, they've really just hidden a lot of the complexity because most people don't need it. You know, like the, the, the, the camera team's first and foremost job is to make it so that you can't take a bad photo. You just pointed at a thing. Their job is to figure it out. And, you know, I liked how you put it in your newsletter where it's like, you know, the skill needed to take a great photo is asymptotically approaching zero. I think that's true. And that wasn't true when this previous iteration of the camera app was being developed. So I'm kind of curious your take on the camera. I think simplified as much"
+    },
+    {
+      "start": 2128.75,
+      "end": 2179.15,
+      "speaker": "jerod-santo",
+      "text": "as you can, you know, the nerds are going to nerd out and they'll find they'll tap and swipe. And so many people are now camera aficionados as it become like the way that you share and the way that you do everything influence, so to speak, that if you can just simplify the UI and just make it dead simple for those of us who are just trying to take a picture. And then, like you said, do all of the fancy software stuff in order to make sure that my picture looks good. I don't want to care about F stop or shutter speed, or is the flash on auto or not. I just wanted to know what to do in order to optimize this picture. And for those of us who are like, yeah, that picture was suboptimal. I'm going to go ahead and like do the thing. Yeah. They'll, they'll swipe and they'll figure it out. So I think it's a good move. And I think it's funny that you say it's a, it's a tap away when it's not a type of way, but you know, words are hard."
+    },
+    {
+      "start": 2180.05,
+      "end": 2210.69,
+      "speaker": "justin-searls",
+      "text": "Well, you know, we talk about Sherlocking in these, in these keynotes all the time. It was like, oh, this app just got Sherlocked by Apple's new feature. Well, when Apple hides stuff or takes away complexity for the sake of, like you said, streamline, make it simple for the masses, you know, I think this was a great day for Halide. Like if you want that extra control, you can still get it. And, and there's an app for that. And, and that I think is actually probably appropriate and probably a good thing overall, just based on what you're saying."
+    },
+    {
+      "start": 2210.69,
+      "end": 2235.09,
+      "speaker": "jerod-santo",
+      "text": "Yeah, no, I agree with that. I agree with that. Make room for the apps to do their special things for the power users. Like, you know, cover the 80% case the best you can, and just don't worry so much about the 20% case. Cause you have an ecosystem for that. And you know, there's developers who can make good livings by providing that software. And then eventually Apple decides they're going to take it away and do it themselves. And then they get mad. But that's the life."
+    },
+    {
+      "start": 2235.09,
+      "end": 2294.77,
+      "speaker": "justin-searls",
+      "text": "There's a curve here, right? It's like, you know, like you're, you're the company Halide that like starts doing stuff that like Apple can't do yet in their camera app. So you're at the leading edge. Then Apple figures out how to do it and they do it. And then they realize that's too much. And then they pull it back and now you're the only app where people can do it. Right. I think, I think you get Sherlock when you come up with a great idea first, and then Apple recognizes it's a great idea. You know what, what, what Apple, I think more recently is aware of much more, especially on the, on the iPhone and iPad is like, they're doing this for the masses. Like they're, you know, you work in Apple design, your mom and your grandma are going to call you when they get mad at you. And in fact, the next thing that they talk about is the photos app. And we didn't get an apology with Apple intelligence. The closest we got to an apology in the entire keynote is this, is this line from Craig. Many of you missed using tabs in the photos app. Really Craig, what happened to my tabs? Where did those? Oh, right. Last year you announced"
+    },
+    {
+      "start": 2294.77,
+      "end": 2303.65,
+      "speaker": "jerod-santo",
+      "text": "that you were taking my tabs away. It sounds like, like some, they just mysteriously disappeared and they've brought them back. You know, it's like the passive voice comes back again. Exactly. Yeah."
+    },
+    {
+      "start": 2303.65,
+      "end": 2380.02,
+      "speaker": "justin-searls",
+      "text": "Somehow those tabs disappeared. So there's now two tabs. There's library and collection. Honestly, I'll be happy with this new photos app. If I take a photo and then I launched the photos app, and then my photo is in the photos app, that would be wonderful because right now I have to wait 15 seconds for cloud things to happen or yes. Or image signal processing to finish or, you know, deep fusion to occur. I'm not sure to get all the threads in the sweater, you know, perfectly coiffed. But that's a recognition. I think that people were upset about the photos app. Otherwise there's not a lot new there other than this new spatial photos thing. And based on my experience with vision iOS, it is really cool. But like, if you have to tap, I want to spatialize each and every single individual photo and then wait for five seconds for the computer to do its thing. No one's going to really do that. It would need to be a sort of modal interface where you just, I'm, I'm, I'm in spatial mode now and I want to see artificial 3d video game looking versions of all my family long since past. It's probably a, you know, like a lot of these apps, it's a, it's a, a light year for new features. But a lot of little kind of paper cuts"
+    },
+    {
+      "start": 2380.02,
+      "end": 2408.9,
+      "speaker": "jerod-santo",
+      "text": "have been touched up throughout. Well, I think that will be much appreciated with how dramatically they changed photos last year. And I mean, it actually prompted, I don't know what you call the people who don't upgrade like holder backers. I don't know. Like it prompted people like, yeah, I'm not going to upgrade. I'm going to wait, which that's not what Apple wants. Like they want everybody running the latest. They do not want to have a subculture of people running, you know, a previous version of iOS and somehow dodging updates as long as they can, just because they"
+    },
+    {
+      "start": 2408.9,
+      "end": 2412.5,
+      "speaker": "justin-searls",
+      "text": "hate it. And, and, and, and the photos thing in particular became like a TikTok trend,"
+    },
+    {
+      "start": 2412.5,
+      "end": 2439.58,
+      "speaker": "jerod-santo",
+      "text": "didn't it? Well, I think it even made like late night TV. I can't remember if it was like Colbert or, um, the British fellow whose name is Alidmi right now, last week tonight, John Oliver, somebody did like a whole segment on it. Like how mad they were about it, just sucking. And it's like, that's when it starts to like permeate everybody is when it's on late night TV. And so maybe that's why I got the shout out from Craig. What's up nerds. I'm here with Curt Mackey,"
+    },
+    {
+      "start": 2439.58,
+      "end": 2462.62,
+      "speaker": "justin-searls",
+      "text": "co-founder and CEO of Fly. You know, we love Fly. So Curt, I want to talk to you about the magic of the cloud. You have thoughts on this, right? Right. I think it's valuable to understand the magic behind the cloud because you can build better features for users. Basically, if you'd understand that you can do a lot of stuff, particularly now that people are doing LLM stuff, but you can do a lot of stuff if you get that and can be creative with it."
+    },
+    {
+      "start": 2462.62,
+      "end": 2472.22,
+      "speaker": "jerod-santo",
+      "text": "So when you say clouds aren't magic because you're building a public cloud for developers, and you go on to explain exactly how it works, what does that mean to you?"
+    },
+    {
+      "start": 2472.22,
+      "end": 2575.42,
+      "speaker": "justin-searls",
+      "text": "In some ways it means these all came from somewhere. Like there was a simpler time before clouds where we'd get a server at Rack Shack and we'd SSH it or telnet into it even, and put files somewhere and run the web servers ourselves to serve them up to users. Clouds are not magic on top of that. They're just more complicated ways of doing those same things in a way that meets the needs of a lot of people instead of just one. One of the things I think that people miss out on, and a lot of this is actually because AWS and GCP have created such big black box abstractions. Lambda is really black boxy. You can't pick apart Lambda and see how it works from the outside. You have to sort of just use what's there. But the reality is Lambda is not all that complicated. It's just a modern way to launch little VMs and serve some requests from them and let them pause and resume and free up physical compute time. The interesting thing about understanding how clouds work is it lets you build features for your users you never would expect it. And our canonical version of this for us is that when we looked at how we wanted to isolate user code, we decided to just expose this machines concept, which is a much lower level abstraction of Lambda that you could use to build Lambda on top of. And what machines are is just these VMs that are designed to start really fast or designed to stop and restart really fast or designed to suspend sort of like your laptop does when it closes and resume really fast when you tell them to. And what we found is that giving people those primitives actually, there's like new apps being built that couldn't be built before specifically because we went so low level and made such a minimal abstraction on top of generally like Linux kernel features. A lot of our platform is actually just exposing a nice UX around Linux kernel features, which I think is kind of interesting. But like you still need to understand what they're doing to get the"
+    },
+    {
+      "start": 2575.42,
+      "end": 2597.1,
+      "speaker": "jerod-santo",
+      "text": "most use out of them. Very cool. Okay. So experience the magic of Fly and get told the secrets of Fly because that's what they want you to do. They want to share all the secrets behind the magic of the Fly cloud, the cloud for productive developers, the cloud for developers who ship, learn more and get started for free at fly.io. Again, fly.io."
+    },
+    {
+      "start": 2602.08,
+      "end": 2658.96,
+      "speaker": "justin-searls",
+      "text": "I'll skip ahead a little bit just to say that like, you know, the phone app got a huge redesign for the first time since. Yes. You know, the last time the phone app was designed at all was back when the iPhone couldn't make phone calls because it was on AT&T's like edge network. And like, you know, it was useless for that purpose as well. But like the phone app really hasn't changed at all since 2007, 2008, other than to handle like the larger screen real estate. This new phone app, this unified call history list, and just one nice little tidy homepage is opt in. You know, Apple is not forcing change on people in that way anymore. And honestly, I think that there's probably a world where a lot of the people who got really angry about the photos app would have been totally fine with it if it had been an opt in thing. They might have even discovered it and then suddenly thought that it was kind of cool and different. But as soon as you move somebody's cheese and tell them like, nope, this is just how it is now, then you invite"
+    },
+    {
+      "start": 2658.96,
+      "end": 2750.99,
+      "speaker": "jerod-santo",
+      "text": "the backlash. As a total aside to the phone app where it's related, but it's not in the feature list. There's a new generation and like my, you know, my kids are one of them now. My, my 15 year old son just got a phone number for a while. He's had the phone, but it's just been wifi only. He's got a phone number. They have no idea what it was like to make a phone call on the plain old telephone system, like pots landlines. They've only ever used these things. I just am thinking this because I had the first phone call with it. I'm like, he has no idea how to even use a phone. But aside from that, like they don't know how crystal clear and like latency free the phone system was like when you just like called somebody and like, you know, the cord was going into the wall compared to the way these things work now. Like it was like, you're in the room with them. It was so good. At least in the nineties when I was using, I'm sure it started off bad and we've kind of just lost that. I mean, it's never coming back. I don't think there's just too many environmental factors for them to care about that. I don't know what your thoughts are on that. Why it is that the quality of the sound and the latency of the voice on the other end of just, we're talking about the phone app is just so bad and continues to be bad ever since they, it was AT&T and you couldn't even get the connection through for a while there, but it's just not good. I know they've, they've released features over the years saying it's going to sound better now. And I haven't had a phone call on my iPhone that sounded like quick and vibrant and like full fidelity ever. And I just think it's gone."
+    },
+    {
+      "start": 2751.71,
+      "end": 2797.95,
+      "speaker": "justin-searls",
+      "text": "Well, I think, I think because whenever the carrier is involved in the transmission, yeah, it means that there is your 1990s cordless, you know, phone, their RCA phone that, you know, you got for $20 at Radio Shack is involved somewhere in some switch. Some nerd listening to this is excited because that switch is running Erlang. That is the reality, right? Like even if you're using, you know, your Wi-Fi calling or whatever, it's like your wife, your end isn't the problem. You're like your end isn't the reason this sounds like trash. It sounds like trash because it's not end to end. And so that's why whenever possible, I just use FaceTime audio. And then I'm always amazed at how good it sounds by comparison. Yeah. You know, it does sound a lot better."
+    },
+    {
+      "start": 2797.95,
+      "end": 2826.03,
+      "speaker": "jerod-santo",
+      "text": "It's just like a thing where I guess FaceTime audio feels like a step or like a, I'm sure there's a toggle or just like always use it if I'm calling an iPhone, but it just seems like it's not being used most of the time in my life. And so I'm never having good quality. Like I'm just mad when someone's talking to me on the phone, regardless of what they're saying, you know, like content aside, I'm still angry because it's so hard to hear them and like have a high fidelity conversation. Anyways, just ranting now."
+    },
+    {
+      "start": 2826.59,
+      "end": 2890.91,
+      "speaker": "justin-searls",
+      "text": "Let's move on. Well, for what it's worth, it may be that that step is starting to be obfuscated a little bit because they also announced a new home screen for the FaceTime app. And the thing about the phone screen home screen, the phone screen unified timeline that they showed is that the phone app also shows your FaceTime calls now, just like FaceTime app on like your Mac or whatever would also show your normal phone calls because there hadn't been a phone app, although there's a phone app now on the Mac and the iPad. So the fact that these are separate apps for basically, you know, FaceTime is the app that you use if you want it to not sound like a bucket of assholes. And the phone app is what you use if you want it to, you know, have to engage with the world outside of our carefully tended garden of an ecosystem. And it really does feel like this should be you're basically creating two entirely different user interfaces that people have to learn when the only difference is the protocol underneath and people shouldn't have to care about what protocol they're using. They don't understand it. They don't like your son doesn't"
+    },
+    {
+      "start": 2890.91,
+      "end": 2915.87,
+      "speaker": "jerod-santo",
+      "text": "have any clue, right? Yeah. It'd be like if they had like an SMS app and then like a messages app and you have to pick the one that you wanted when they unified them, you know, they made the green bubble, blue bubble, whatever. And maybe that's enough to let you know, hey, this is a FaceTime call. This is a regular call, but we shouldn't have to think about these things. It should just sound better and be better when it can be. And hopefully that happens eventually. Well, any,"
+    },
+    {
+      "start": 2915.87,
+      "end": 2974.37,
+      "speaker": "justin-searls",
+      "text": "any good feelings that we had about the opt-in nature of this new phone, phone app, I'll opt into it because I'm just a sicko and I opt into all the things like you have to hold me back from putting developer beta one on my phone. And I was going to ask you, I have a rule that I try to keep with myself as I don't install betas while I'm overseas. Cause I, I need my devices to keep working. So, so not yet, but the minute that I get back to America, I'm just turning over all of my, everything, whatever, all my iClouds are going to be completely, they're going to be corrupted as hell to all of the bugs of, of the, and that's the thing I don't understand is like, you know, when you install these betas, the, the, your iCloud, if you're logged, if you're logged into your iCloud account and you're running this beta software and it was super buggy, like all you're just doing is inviting a whole bunch of cockroaches to infest all of the key value stores across all"
+    },
+    {
+      "start": 2974.37,
+      "end": 2979.41,
+      "speaker": "jerod-santo",
+      "text": "these applications. Right. And you're doing that. You're going to do it. And I'm well, you know,"
+    },
+    {
+      "start": 2980.53,
+      "end": 3009.57,
+      "speaker": "justin-searls",
+      "text": "why stop now when you get back? Yeah, exactly. But, but, but that to say like, you know, I don't think that the changes that we saw on Safari are opt in. I think that this is a pretty significant change to how Safari looks and feels and behaves. And I don't know if it's once people start using it, if it's going to invite the same kind of backlash that like the compact tabs interface did a few years ago, or what were your thoughts as you, as you looked at the new liquidy"
+    },
+    {
+      "start": 3009.65,
+      "end": 3054.19,
+      "speaker": "jerod-santo",
+      "text": "glassy Safari, just like a trepidation mostly. I mean, it's like my favorite app Safari, and it's my most used app probably on my phone. Maybe next to messages. I think Safari messages are probably my two. If I was going to check my screen time settings, well, maybe YouTube. I don't know. I'm going to, I don't have to go through the whole list of things I use, but it's just one of my favorite apps. And, you know, I don't know, I'm going to withhold judgment, but I'm have a little bit of trepidation, you know, I feel like they're moving my cheese, but maybe I'll like the new cheese better. You know, I'm, I'm open to change. I'm not, I'm not resistant. I just a little trepidatious. What do you think?"
+    },
+    {
+      "start": 3055.07,
+      "end": 3180.02,
+      "speaker": "justin-searls",
+      "text": "The, the thing that they always say about these changes to Safari, whenever they try to make the controls hidden or the control smaller is that you have more room for your content. And I think as nerds, we react to that by saying, no, you're saying is we have less room for our buttons and our controls and our functions and our utilities. And so I think that's one reason why there tends to be resistance, but the truth is if I'm looking at a webpage, I don't want to see the buttons. I know, I know that there's a thing that I can tap to go and do another thing. As long as I know how to do that, I'd rather just see another paragraph or sentence worth of text. And as you're scrolling the new Safari does the thing that a lot of websites do it where they will, you know, minimize or hide or allied some of the menu bar and the website and stuff to kind of make the content pop out. And because now all of Apple's devices, when iOS seven came out, the screen was a rectangle, right? And with iPhone 10, now the, the edges of your device are, are round wrecks. And even I'm looking at my, you know, MacBook pro right now, and all four edges of the operating system are round wrecks. You know, they use, they use the term concentricity, I think multiple times to describe that we're going to have round wrecks within round wrecks now. And Safari is the same way where we're now, if you, if you use CSS, if you're a web developer and you're familiar with those safe inset zone variables to, to make sure that your content doesn't get too close to any of the edges, if you're not using those, I suspect that the footers and the headers are going to look real goofy with just how much more space to roam there is because you're going to have controls that are kind of floating over stuff now. So it'd be really interesting to see how those variables function because it's just so much more space than it, than it used to be. That's probably the only thing that's going to throw people off, but we'll, we'll have to see. And then again, if they get the liquid"
+    },
+    {
+      "start": 3180.02,
+      "end": 3228.3,
+      "speaker": "jerod-santo",
+      "text": "liquid glass dialed in correctly, so that it's not, so it was kind of, I think muddy would be what I would say. It's unclear to me, depending on what's behind those specifically like the address bar and the back button and the dot, dot, dot, those three buttons that are kind of in the lower third. Now what's going on behind there, you know, like it just kind of obfuscates things and it's not always clear where it stops and starts. And so it's just a little bit like it needs to be polished still, but again, that's why I'm, I am withholding judgment and I do want more space for the websites. So, you know, I'm not against it in principle. We'll just see if I'm against it in practice. And then if they're, if I am, you know, what choice do I have? It's just, it's the way it goes. I just got to launch."
+    },
+    {
+      "start": 3229.15,
+      "end": 3252.1,
+      "speaker": "justin-searls",
+      "text": "You're going to, you're going to move to Europe and then, and then, and I'll have a real browser choice in Europe. Yes. I, I don't need to just get away from this UI. I need a whole new rendering engine just to kind of have a taste in my mouth from this crap. You know, they're going to back away. They're going to, they're going to frost it to the extent needed. I know, I know, I know."
+    },
+    {
+      "start": 3252.1,
+      "end": 3255.86,
+      "speaker": "jerod-santo",
+      "text": "That's why I'm having a little bit of trepidation, you know, what if they don't frost it to my extent"
+    },
+    {
+      "start": 3255.86,
+      "end": 3279.14,
+      "speaker": "justin-searls",
+      "text": "needed safari is still going to safari and everyone's going to use it a bunch. And if it's bad enough, they'll fix it. I think the the, the kind of sleeper hit of the, I suppose it was the iOS section still that they're doing this was CarPlay. Like there's a lot of CarPlay stuff in this. It was a big, big user. Are you a CarPlay guy?"
+    },
+    {
+      "start": 3279.14,
+      "end": 3294.58,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. Now does this, I'm a CarPlay guy, but I'm not really sure how it works because I haven't paid close attention. Does it run off the phone? Meaning like it ships with the new iOS or does my car have to have something to do with it? How did it actually work? I got one question for"
+    },
+    {
+      "start": 3294.58,
+      "end": 3312.13,
+      "speaker": "justin-searls",
+      "text": "you. Do you drive an Aston Martin? No, I don't. Oh, in that case then, then it absolutely runs on your phone. If you, if you, if you, if you drive a brand new Aston Martin, there is some Apple code somewhere. That's the CarPlay ultra. Some stuff has to run. And they're the other ones"
+    },
+    {
+      "start": 3312.13,
+      "end": 3316.13,
+      "speaker": "jerod-santo",
+      "text": "about, they said there's a, there's a lot more cars coming, but they didn't say they didn't list"
+    },
+    {
+      "start": 3316.13,
+      "end": 3385.52,
+      "speaker": "justin-searls",
+      "text": "any brand partnerships or anything. The only mainstream makes to my knowledge that have announced CarPlay ultra support other than I think Porsche might be the other, other one that previously analysis is Honda IKEA Genesis like that, that the Korean trio those makes are all supposedly coming to CarPlay ultra, but, but if we, first of all, just to close the loop on CarPlay ultra, they just showed this off like two weeks ago, they had the top gear guy, you know, like do the demo of the CarPlay ultra and the Aston Martin. And they did all that with the UI that they knew they were going to throw away two weeks later. Like I'm not sure that UI is actually shipping to a single car. Like that's commitment to the bit right there is that they, you know, they had to get that out the door and they're like, all right, well, this is going to be totally rewritten. Well, it took them two years to get a car, didn't it? I mean, they first announced it a couple of years ago. Yeah. And it was supposed to be the end of 23 and then the end of 24. And here we are halfway through 25 and they nailed it. So, so look forward to that Apple intelligence series sometime in mid 28. There you go. Well, for the regular CarPlay"
+    },
+    {
+      "start": 3385.52,
+      "end": 3411.44,
+      "speaker": "jerod-santo",
+      "text": "users like myself, I just update my phone and my car updates sounds like, and that's amazing because I can't really trust the GM to do anything time sensitive with regard to software updates, unless they want to send me into a dealer, which they is one of their favorite plans. Like you need a firmware update, go into the dealer. I'm like, I am not going into my dealer unless this CarPlay feature is very compelling in which case you can have a car mechanic who doesn't, who doesn't"
+    },
+    {
+      "start": 3411.44,
+      "end": 3477.87,
+      "speaker": "justin-searls",
+      "text": "really understand how software works or exactly what USB is. Yeah. So to answer your question, for anyone who's confused about CarPlay in their lives, your phone runs it. And then when you plug in or when you're wirelessly connected, it's literally like a sidecar display. It's like a second screen. And so it's all just projection. And so, yeah, for anyone playing the home version of this game, CarPlay has gotten a complete redesign. It looks all glassy. It's the first time it's ever really gotten a new design. There's a 3D looking all full screen map view for navigation that they showed off. That looks pretty cool. It also picks up your live activities. So that live activity is going everywhere was something we knew was happening because it was on the watch last year. When you're in the smart stack, you'd see your live activities. It's going to show us up in the menu bar now in the Mac OS, and it shows up in CarPlay. So you can see this very, very tiny little progress bar of how your friend's flight is progressing while you're driving. And they literally show that off and said, helps you stay focused on the road,"
+    },
+    {
+      "start": 3477.87,
+      "end": 3483.31,
+      "speaker": "jerod-santo",
+      "text": "which I hit. I did laugh at that. I was like, I was staring at this tiny little icon. Like,"
+    },
+    {
+      "start": 3483.31,
+      "end": 3498.51,
+      "speaker": "justin-searls",
+      "text": "what does that say? Oh man. Talk about no one, no one at Apple has the reality distortion effect capability, but they're all striving for it. Like they keep going back to the wall. Like, well, as long as I say, it's helping you stay focused on the road. You know what it really helps me stay"
+    },
+    {
+      "start": 3498.51,
+      "end": 3547.14,
+      "speaker": "jerod-santo",
+      "text": "focused on the road. And I think this is like saying the quiet part out loud for all of us, regular people who like to watch sports and you just can't wait until you get home to actually watch the game is if they would just put AirPlay in the CarPlay and just let me send whatever sporting event is currently on my phone up to the giant screen in my dash and just accept the reality that we want to watch sports in the car while it's moving and my kids are trying to watch it. It's actually safer if it was right there in a big screen in the dash, then it is floating around on my phone as it's passed around person to person throughout the car. So that's a feature that I'm sure regulators will never allow, but actually I think it's going to make a lot of us more safe if we could just throw that on the big screen versus trying to watch it on our phones"
+    },
+    {
+      "start": 3547.14,
+      "end": 3583.55,
+      "speaker": "justin-searls",
+      "text": "while we're driving because we know that's what people are doing. Here in Japan, it is a, I don't know, very poorly kept secret that like it is extremely easy to jailbreak your car display to show live TV broadcast over like an antenna broadcast basically. And so when you're driving around or whatever, or in somebody else's car, it is very common for them to be using that massive screen to play broadcast television as they're driving around. And it is extremely unsettling. I would say, like, I don't know if you really want this wish to come true, Jared, once you"
+    },
+    {
+      "start": 3583.55,
+      "end": 3596.51,
+      "speaker": "jerod-santo",
+      "text": "factor in other people's driving. The more unsettling thing is somebody on there, you know, that they're 10 and they're two and they're holding their phone up there and they're just glancing back and forth between the phone and the road because the screen is so small. That's what"
+    },
+    {
+      "start": 3596.51,
+      "end": 3601.31,
+      "speaker": "justin-searls",
+      "text": "people in the States are doing. So, well, Jared and I both live in red States, so I want to be"
+    },
+    {
+      "start": 3601.31,
+      "end": 3606.99,
+      "speaker": "jerod-santo",
+      "text": "clear. That's true. I'm in the Midwest, so, you know, your mileage may vary and your accidents"
+    },
+    {
+      "start": 3606.99,
+      "end": 3622.16,
+      "speaker": "justin-searls",
+      "text": "may vary. We got to keep this rolling, Jared. I need to ask you a question. Okay. How do you feel about background images in your text threads? I feel I've never been asked that before."
+    },
+    {
+      "start": 3624.14,
+      "end": 3630.54,
+      "speaker": "jerod-santo",
+      "text": "Trepidation, I think is the word of the day. I just, I couldn't possibly care less about that."
+    },
+    {
+      "start": 3630.54,
+      "end": 3640.22,
+      "speaker": "justin-searls",
+      "text": "How do you feel about like, are you in WhatsApp groups or do you use any other messaging apps that have tacky ass background images that make it difficult to read people's texts?"
+    },
+    {
+      "start": 3640.22,
+      "end": 3649.09,
+      "speaker": "jerod-santo",
+      "text": "I have WhatsApp, but I don't use it very often. I haven't seen this in the wild, if that's what you're asking, but apparently you have some PTSD."
+    },
+    {
+      "start": 3649.09,
+      "end": 3755.76,
+      "speaker": "justin-searls",
+      "text": "Yes. So, so when people talk about Apple's messages, apps being behind, the two things that they tend to call out are, oh, you can't do custom background images on threads, which to me is good because every time I've been in line or in WhatsApp or any sort of third-party messenger, it just looks so tacky and the images themselves are ugly. And it reminds me of using ICQ, you know, like way back in the nineties and you'd have sort of like the era of win app skins. Like it was, it was cute that we could do it then, but it makes it less readable now. I don't really know what app I'm in. I just feel uncomfortable. And then now if you're in a group threads, anybody at any time control anybody by changing the background image, Apple added that. So Apple relented and they added it. And I really, of all the things that I hope that there's a setting for in this OS, I really hope I can just turn that off. Well, just get new friends, you know, I, I might, I have left groups, their threads over less. So there's that one. The other one is typing indicators and group threads, which honestly, to me, I don't love the typing indicator generally, but when I'm typing to a group, it's actually like, I feel a little bit, I feel a sense of calm that I know that they can't know that I'm typing into the group. You know, I can, I can think about the reply and then like, yeah, you know, I'll respond to that later, but now giving people a reason just to stare even more at, at these group threads or, or see the Apple equivalent of several people are, are, are typing. I'm not sure that's a, a net win, but that is something that people point to and say, Hey, the messages app is behind. Right. Yeah. I feel like that feature,"
+    },
+    {
+      "start": 3755.76,
+      "end": 3766,
+      "speaker": "jerod-santo",
+      "text": "if you extrapolate law of large numbers and go across all of the users, think about how much wasted human time there is just watching those dots, waiting for it to come through."
+    },
+    {
+      "start": 3766,
+      "end": 3880.46,
+      "speaker": "justin-searls",
+      "text": "You know, I, I, I, yeah, I, I think Slack eventually added a way that you could just turn off your own ability to see the people are typing indicator. Cause I I'm a total dummy and I'll just stare at the chat. If somebody's like, all right, I guess I'll just stop working. I guess they're going to say something. I'm just going to stare at it like a dog, you know, waiting for a bone. The other group chat change is that you finally have group cash. So if you've got like, you know, one person who goes and buys a bunch of drugs for the group, everyone else can ship in and pay their portion of the cocaine bill, you know, using the, the Apple cash, which is still because they don't do the IRS reporting, like, you know, Venmo and stuff. If you're going to deal drugs and you're fortunate enough to be in America and you can't use real cash, Apple cash seems to be the best way to go. And now you can do that in groups. So check, check. Oh, so you, oh, I see. So you're totally okay with driving while watching NFL games and crashing into other people. But when it comes to figuring out how to split the bill on your fentanyl. Yeah. I just, I'm just a generous person. I just always pick up the tab, you know? Oh, there you go. See, good site. Not a problem that I have. The, the other feature that they added is, and I don't know if this shows up as just a iMessage apps. Remember the iMessage app store that you can build apps for. I remember that. I don't know if Apple does, but there's still that plus button where you can, you can do stuff and they've, they've basically because doodle dropped the ball and became this extremely confused company that charges you for everything. I think there might've been another app called straw poll, but they, they finally built polls, group polls into, into iMessage. So you can, you know, if the question is when can we all hang out? You can finally get that answered."
+    },
+    {
+      "start": 3880.46,
+      "end": 3890.38,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah. That's cool. I mean, catch up game, right? Maybe 80% solution makes sense."
+    },
+    {
+      "start": 3891.02,
+      "end": 3914.9,
+      "speaker": "justin-searls",
+      "text": "Polls are common. Roll it in. A lot of these are little touches. Yes. Sure. Like doodle. Doodle earned it. They absolutely did. The, the, the big one in terms of, and, and they didn't use the term Apple intelligence here, but this is exactly the kind of machine learning feature that you'd been talking about is that they have the the spam detection, right? Right."
+    },
+    {
+      "start": 3914.9,
+      "end": 3918.26,
+      "speaker": "jerod-santo",
+      "text": "And that's great. I mean, I'm here for it. Too much of my stuff is spam."
+    },
+    {
+      "start": 3919.38,
+      "end": 3925.86,
+      "speaker": "justin-searls",
+      "text": "I block and report everything. And it does no good ever. It does no good. I know it's doing no"
+    },
+    {
+      "start": 3925.86,
+      "end": 3928.82,
+      "speaker": "jerod-santo",
+      "text": "good. And yet I'm just going to do it anyways, because I'm mad at them. You know, I'm like,"
+    },
+    {
+      "start": 3928.82,
+      "end": 3955.54,
+      "speaker": "justin-searls",
+      "text": "I'm reporting. So sometimes I, I, I insist that this is it being inconsistent and me not just failing to remember the order that you're supposed to do this in. But when I get an SMS that I don't want, I very often will want to type, stop at it to make it go away and also report it as junk. But if your report is junk right away, it goes away. And if you type stop, sometimes the report junk button goes away. So I genuinely don't know which one I'm supposed to do."
+    },
+    {
+      "start": 3956.5,
+      "end": 3966.82,
+      "speaker": "jerod-santo",
+      "text": "But the slime ball on the other side will actually take my stop message and do anything with it. All they'll do is confirm that yes, I am a live human and they're definitely going to email, you know,"
+    },
+    {
+      "start": 3966.82,
+      "end": 3976.82,
+      "speaker": "justin-searls",
+      "text": "text me next time. I think the carrier intercepts the stop. I think that's one of the last vestigial thing. Somebody write in, I would love to know about that. If that's true, I'll start to do it,"
+    },
+    {
+      "start": 3976.82,
+      "end": 3980.9,
+      "speaker": "jerod-santo",
+      "text": "but I actually don't do it. I just delete and report as junk every time. Jared, Jared,"
+    },
+    {
+      "start": 3981.14,
+      "end": 3991.78,
+      "speaker": "justin-searls",
+      "text": "how about you text me after the show and I'll respond, stop. And then you let me know if you saw the stop, but I won't know that cause I won't be getting your texts anymore. Doesn't it have to"
+    },
+    {
+      "start": 3991.78,
+      "end": 4002.02,
+      "speaker": "jerod-santo",
+      "text": "be, doesn't it have to be like a specific kind of thing? Cause it couldn't you just like, I tell you too many funny jokes and you just tell me stop and then they can't just intercept that and block."
+    },
+    {
+      "start": 4002.85,
+      "end": 4009.25,
+      "speaker": "justin-searls",
+      "text": "There has to be more to it. Can't they? I don't know. I don't, I don't use SMS on purpose."
+    },
+    {
+      "start": 4009.25,
+      "end": 4012.77,
+      "speaker": "jerod-santo",
+      "text": "They're like, this guy just blocked you for too many funny jokes. That's just not right."
+    },
+    {
+      "start": 4013.33,
+      "end": 4060.29,
+      "speaker": "justin-searls",
+      "text": "Well, anyway, all that to say they're, they're, they're adding spam detection to iMessage. And they're basically, you know, it's exactly like you've seen probably in any social network where you've got your other messages bucket of just all of the junk, all the crap. And so that gets all ferreted away over there. And Apple's promise to you is that any sort of time sensitive thing that you actually want is going to be presented still in the main view, which strains credulity. When you look at the priority notifications and the stuff that kind of gets through there, you know, their example was your table is ready at yada yada restaurant. But the problem is like now every spam messages is going to start with your table is ready at the whatever. Hey, have you thought about signing up for a new healthcare plan? You know, like, I don't, I don't know if their models are smart enough."
+    },
+    {
+      "start": 4060.29,
+      "end": 4080.54,
+      "speaker": "jerod-santo",
+      "text": "Right. That's the problem with like Apple's world, like their demos and their everything is always this like pristine version of life that doesn't actually exist. And I wonder if their models just reflect that. And so they won't be able to handle the real world. Who knows, but Holy cow, we're still on iOS, man. We're getting deep into it."
+    },
+    {
+      "start": 4080.54,
+      "end": 4119.18,
+      "speaker": "justin-searls",
+      "text": "Yeah. We got to figure some, we've got to move along here. Genmoji still exists. You can remix things. That's great. Moving on image playgrounds. They realize it's bad. So now it's chat GPT. Yeah, exactly. They're like postage stamp sized images. They are good at it. They use the phrase elegant to describe an oil painting that it made, which was a choice. When you think about how much these scripts get reviewed, like sometimes you anyway translation, live translation everywhere. So I'm here in Japan. I speak Japanese. I spent 20 years of my life now traveling here, trying to learn this fricking language. That was all"
+    },
+    {
+      "start": 4119.18,
+      "end": 4133.66,
+      "speaker": "jerod-santo",
+      "text": "a waste of time. Jared. I think so. You know, procrastinators when again, and I have, which I am one. Yeah. I mean, who needs to learn languages, just live, translate that sucker and communicate with the whole world. You know, you sent,"
+    },
+    {
+      "start": 4133.66,
+      "end": 4169.5,
+      "speaker": "justin-searls",
+      "text": "you send an iMessage now. And what that looks like is they'll see the actual text you wrote as well as it's basically annotated with the, their preferred language, which I think is a good way to do it. You wouldn't want it just to kind of instantly convert just in case like, you know, the translation misses some nuance or something. It's also built into FaceTime with subtitling, which I think is very nice and tasteful. But then they showed the, we can also, they built a call API to do audio translation for audio calls like phone. Did you watch this demo?"
+    },
+    {
+      "start": 4169.5,
+      "end": 4189.98,
+      "speaker": "jerod-santo",
+      "text": "YouTube is doing that as well now. They have, they had the transcript feature where they would translate your transcript and that becomes the subtitles in the translated language. But now they've added dubbing, which is pretty new. It's in beta. We're like, actually, they're going to dub your voice and you can opt in, opt out, et cetera. And that's what this is, right? It's basically dubbing your voice into a new voice,"
+    },
+    {
+      "start": 4189.98,
+      "end": 4248.22,
+      "speaker": "justin-searls",
+      "text": "I guess, or it's a clone of your voice. So the call API, as far as I could tell, is more like lying translation where you say your line on the phone and you are heard. And then a Siri sounding stilted crappy voice, that's nowhere near as good as chat GPT's advanced Scarlett Johansson voice. Right. Well, yeah. Right. Oh, they didn't pay her anyway. Don't worry about it. Ask for forgiveness, not permission. But then, then that voice will speak in the other language. Right. And then the other person will speak and then it'll translate again. So now, you know, what had been two exchanges of audio becomes four. And so these conversation, and then on top of it's slower. So like, these are going to be various stilted, painful conversations when you're just on the phone or, and then, and then, and then that demo is so awkward and, and suboptimal in my opinion. Then they followed it up and said, oh, and now it's an API that you can use with any of your other calling apps. So I I'll be curious to see"
+    },
+    {
+      "start": 4248.22,
+      "end": 4265.34,
+      "speaker": "jerod-santo",
+      "text": "what the uptake on that is. Yeah. I mean, the panacea, or I guess the, the end goal here would be live dubbing as we talk. So, you know, it comes out my, my mouth in English, it goes in your ear immediately in Japan, in Japan, in Japanese and the hitchhikers guide, babble fish,"
+    },
+    {
+      "start": 4265.34,
+      "end": 4268.86,
+      "speaker": "justin-searls",
+      "text": "you know, just sort of translates in and out for you. Isn't that the end game? I mean,"
+    },
+    {
+      "start": 4268.86,
+      "end": 4272.62,
+      "speaker": "jerod-santo",
+      "text": "you don't want to wait on a translator if you don't have to. The best part is I would never"
+    },
+    {
+      "start": 4272.62,
+      "end": 4276.86,
+      "speaker": "justin-searls",
+      "text": "actually have to hear your real voice and you wouldn't have to hear mine. It'd just be two"
+    },
+    {
+      "start": 4276.86,
+      "end": 4281.02,
+      "speaker": "jerod-santo",
+      "text": "robots talking to each other. I can just have Scarlett Johansson talking to me when God intended"
+    },
+    {
+      "start": 4281.02,
+      "end": 4353.47,
+      "speaker": "justin-searls",
+      "text": "that does sound better. I'm not going to lie. All right. Moving on. That sounds cool. Speaking of translation, lyrics. Now I, I, as part of my Japanese study, I started listening to J-pop a lot. Oh wow. I'm not proud of it. Now I don't have to go and check lyric definitions outside the app because it translates inside. It even has pronunciation guides. You know, I think the popularity of K-pop and stuff and people wanting to be able to sing along to songs that they didn't, you know, can't even read the characters for totally legit. I think it's a great feature. The, the other thing that they announced that's new is auto mix. So this is like, like a DJ is playing, like you start a song and then you start auto mix. And I feel like how many WWDCs and how many software keynotes have they announced this exact feature? You know, it was like, remember the smart shuffle and then the genius playlists and then like, you know, the stations, like this is, they even had the playlist where you could like, you know, have AI generate what the next thing in the playlist should be even just a year ago, I think. I'm"
+    },
+    {
+      "start": 4353.47,
+      "end": 4362.03,
+      "speaker": "jerod-santo",
+      "text": "curious how auto mix is different or better. New name, probably new name, same feature."
+    },
+    {
+      "start": 4362.75,
+      "end": 4366.91,
+      "speaker": "justin-searls",
+      "text": "Same underlying mediocre ability to detect what the next song should be."
+    },
+    {
+      "start": 4366.91,
+      "end": 4370.67,
+      "speaker": "jerod-santo",
+      "text": "And then skip so that you get to one that you actually like, you know, skip three times and"
+    },
+    {
+      "start": 4370.67,
+      "end": 4403.95,
+      "speaker": "justin-searls",
+      "text": "they'll find one for you. And unlike Spotify will have nothing in the back end, actually learning from what you skip, you will just keep skipping. Oh no, they'll give it right back to you soon. Map sap, you know, the only real new thing is that maps is four square now. So it remembers the places that you visited and you can search the places that you visited, which is actually kind of nice. I mean, so much of the time I'll leave a restaurant review just so that I can find it again later because that I did navigation directions to it isn't enough."
+    },
+    {
+      "start": 4403.95,
+      "end": 4445.63,
+      "speaker": "jerod-santo",
+      "text": "There's so much low hanging fruit to make maps just way easier and way more useful that like that. Like for instance, when we were just in Seattle, like I enter the hotel's address in and I get directions to it so that it's in there. And then I go to search and like, I have to go find that later on in the trip, like you go back to your hotel three or four times, whether you're on an Uber or a lime or whatever. And it's like, just keep my most recent places in there. Like there's even a recent, like there's a section for it, but like the fact that I'm staying at the hotel all week, you can't seem to get that figured out. And like, I want to go cut, like pin it or whatever I got to do, mark it as a favorite to come back to it, but it's not really a favorite."
+    },
+    {
+      "start": 4445.63,
+      "end": 4454.43,
+      "speaker": "justin-searls",
+      "text": "I'm not going to go to this hotel again. Marking it as a favorite is kind of just, it's just a, it's a suggestion, right? It's like, it just increases the odds by 20% that the searches"
+    },
+    {
+      "start": 4454.43,
+      "end": 4464.77,
+      "speaker": "jerod-santo",
+      "text": "can actually show the thing. It's like, why can't you just do these little low hanging fruits better? So hopefully that's what you're talking about here. I don't know. That's what I'm talking"
+    },
+    {
+      "start": 4464.77,
+      "end": 4481.89,
+      "speaker": "justin-searls",
+      "text": "about. We'll see how it, how it gets implemented. You know, again, this is opt-in because of course, you know, a lot of people are having extramarital affairs and they saw this and they started freaking out. So then Apple had to follow up immediately. Be like, whoa, it's opt-in. You can delete any single thing from your history. And this is all on device. Your secret's safe with us."
+    },
+    {
+      "start": 4483.01,
+      "end": 4508.72,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I don't really like when Apple like enables degeneracy, you know, like the, what's the app where it's like hide it from everybody. It's like, basically there's your porn app hidden from the world and they're just going to like help you do your secret things in secret. It's like, let's just let people get caught with that stuff. If that's what, if they're going to be idiots about it, I don't know. I'm not down with this kind of stuff. It's like, Hey, you're having an affair. We got your back. It's like when, when, when Craig was on"
+    },
+    {
+      "start": 4508.72,
+      "end": 4523.52,
+      "speaker": "justin-searls",
+      "text": "stage announcing the the hidden app feature, I was disappointed that he didn't. Sprinkle in any sort of euphemistic dad jokes into that. They played it straight. I can't even remember what they say."
+    },
+    {
+      "start": 4523.52,
+      "end": 4533.44,
+      "speaker": "jerod-santo",
+      "text": "The use case is for that. Cause I can only think of one, like most people can only think of one use case for the hidden apps. Like when would you have like a, a non shameful, so to speak"
+    },
+    {
+      "start": 4533.44,
+      "end": 4572.56,
+      "speaker": "justin-searls",
+      "text": "hidden app use case, like to be honest, the, the one case that I've always wanted Apple to do, cause only they could do it with their platforms is a plausible deniability mode. Like I would love to be able to put my like, like type in a pin code, for example, that would put it into a very boring ass looking home screen with nothing in it. And with none of my data there that I could then, if I was ever under duress and had to hand it over to a security person, right. Yeah, exactly. Yeah. The phone is unlocked here. You're playing with it. And there's, because the it's on an encrypted disc, there's no way for them to be able to attest like, Oh, that's not really there. That is the mode you'd want. But of course, you know,"
+    },
+    {
+      "start": 4572.56,
+      "end": 4577.04,
+      "speaker": "jerod-santo",
+      "text": "like that has a useful use case for all humans, like some privacy against oppression. Right."
+    },
+    {
+      "start": 4577.12,
+      "end": 4581.52,
+      "speaker": "justin-searls",
+      "text": "But not like would any, would any country on the planet allow Apple to continue selling"
+    },
+    {
+      "start": 4581.52,
+      "end": 4586.56,
+      "speaker": "jerod-santo",
+      "text": "iPhones if it could do that, but they're totally down with the hide your hide your porn app folder,"
+    },
+    {
+      "start": 4586.56,
+      "end": 4681.6,
+      "speaker": "justin-searls",
+      "text": "hide your porn apps, hide your kids, hide your wife, hide your, hide your porn apps. So anyway, that's the maps app. I don't know, man. We'll see how that plays out. Hopefully the wallet app, they, they bragged about how car key adoption is getting picked up. And then they bragged about how the exact same nine U S States that have driver's licenses still have driver's licenses. And that seems to have totally stalled. The big announcement for the wallet app from, from the ID perspective though, is that digital ID for U S passport holders is coming. And that's now it's not a state by state thing. It's it's that'll work at TSA checkpoints supposedly, which is kind of all most people wanted out of the, you know, they were clear to say it was not a replacement for your physical passport. I don't know if that means like you still have to have it in your bag or something, but it'd be really, especially with the real idea, real ID fiasco in U S airports. If, if I have to imagine TSA checkpoints would be expedited if us one dozen nerds who figure out how to find and enable this feature start using this. Yeah. I'm I'm excited. The additional talk about Sherlocking. I don't know if you use Flighty, but Flighty is a, an app that's a popular iOS app that you can share, you know, the little progress bar of your flights. You can do a lot of really cool stuff with Flighty. They basically Sherlocked it in the form of now your boarding pass will both have indoor maps of the airport at the gate where you're landing. So you can navigate there as well as a shareable interface that becomes like a live activity for any friends and family to watch the progress of your flight,"
+    },
+    {
+      "start": 4681.6,
+      "end": 4688.86,
+      "speaker": "jerod-santo",
+      "text": "which I think is neat. It seems pretty cool. Yeah. I will use that. And I think other people"
+    },
+    {
+      "start": 4688.86,
+      "end": 4694.94,
+      "speaker": "justin-searls",
+      "text": "use that too. What else we got games? There's a games app and, and it's just game center."
+    },
+    {
+      "start": 4694.94,
+      "end": 4701.42,
+      "speaker": "jerod-santo",
+      "text": "And I don't think anyone cares. Yeah. They just came centers games. Okay, cool. We got,"
+    },
+    {
+      "start": 4701.42,
+      "end": 4738.38,
+      "speaker": "justin-searls",
+      "text": "we got places to be. This isn't a three hour podcast, Justin. That's right. Although it's looking like one. So we got to move. Yeah. We got to hustle visual intelligence. So that's the button, the camera control. If you're in a, I just realized yesterday that in I'm in Japan mode. And so I don't have visual intelligence here. So I, when I hit the camera control button, it just opens my camera, which is weird, but actually kind of welcome because of how useless visual intelligence is. If you press and hold the camera control, it opens visual intelligence. So you can take a picture of a poster and have add that posters event to your calendar, which has happened"
+    },
+    {
+      "start": 4738.38,
+      "end": 4760.54,
+      "speaker": "jerod-santo",
+      "text": "zero times outside of a demo. Yeah. I can't imagine and use that in the real life for this in the keynote. They're re they're rebranding it. They're like, if you're at a store and you see like a, a plate that you like, and you can like take a picture of the plate and then visual intelligence will show you how you can buy that plate online or something. It's like,"
+    },
+    {
+      "start": 4760.54,
+      "end": 4825.6,
+      "speaker": "justin-searls",
+      "text": "yeah. A decade of Google lens being not used by anyone for anything wasn't enough to dissuade Apple from taking a stab at this feature, but visual intelligence has been effectively rebranded this time around. Now it's, it's getting added to the screenshot UI. So you take a screenshot, you know, if you first of all, it looks a lot nicer now. It's not, that's a better box. Totally right. Like there's the you might be familiar with at the top of the screenshot. If, if the site or app supports it, you can choose between rasterized screenshot and full page where it's like a scrollable thing. It'll kind of come out as a PDF. That's basically now getting an additional functionality where you can do a visual intelligence search based on whatever's in the screenshot. And it's much more likely you're going to take a screenshot of something and then want to turn that into a calendar event. And so that's the, that's kind of what they're going for. And it makes sense in that sense too, because like, if you want your computer to do something for you based on how something visually appears, taking a screenshot is the most natural action that people"
+    },
+    {
+      "start": 4825.6,
+      "end": 4835.2,
+      "speaker": "jerod-santo",
+      "text": "know how to do. People do it all the time too. They're like, they know how to take screenshots. They do it all the time. And so this is as an extension of that, I think we'll make it get way"
+    },
+    {
+      "start": 4835.2,
+      "end": 4859.47,
+      "speaker": "justin-searls",
+      "text": "more use. I've been taking a ton of screenshots and then just sending using the share button, just send that to chat GPT to ask about it. So, so I think that having a built-in at the OS level makes a lot of sense. All right, let's be done with iOS. That was people are saying this was a boring keynote, but if you, if you sweat the small stuff, I think there's a lot of stuff in here. There was certainly a lot discussed. I mean,"
+    },
+    {
+      "start": 4859.47,
+      "end": 4902.83,
+      "speaker": "jerod-santo",
+      "text": "they went 90 minutes and we're sitting at almost 80 minutes here, just talking about their first 30 minutes. So watch OS, I'm not a user. I'm not interested in watch OS. I lost my watch two years ago. I've never felt better. I didn't buy a new one and I feel freedom from closing rings and having notifications go to my wrist. And like, I couldn't be happier to not have a watch, not have an Apple watch. I want to never have an Apple watch again. Although I did watch the watch OS segment and a few things that made me think, Oh, I should get an Apple watch. But that's how they do, you know, the workout stuff is cool, except for, I don't know if this is jumping the gun, but the buddy, the workout buddy, is that the watch OS segment? And was"
+    },
+    {
+      "start": 4902.83,
+      "end": 4910.11,
+      "speaker": "justin-searls",
+      "text": "that the work? I was wondering is, yeah, yeah, it's work. I was, uh, is he extended about workout buddy? Is he going to be the person let's talk about workout buddy, and then let's skip the"
+    },
+    {
+      "start": 4910.11,
+      "end": 4936.59,
+      "speaker": "jerod-santo",
+      "text": "rest of watch OS. Cause there's just too much to talk about. I think workout buddy is so creepy. Like the voice is bad and the cringiest. Oh my God. It's so bad. I mean, I understand conceptually why it might be cool. And I think, I think the Nike app has something similar. Like there are workout things that have, but they might be real human voices. This is like straight up Siri voice or their new version of Siri voice. And it couldn't be less. It's like, this is a, this is a,"
+    },
+    {
+      "start": 4937.74,
+      "end": 4945.1,
+      "speaker": "justin-searls",
+      "text": "a voice in my head. I am motivating you right now. You did a great workout. I believe in you."
+    },
+    {
+      "start": 4945.66,
+      "end": 4980.03,
+      "speaker": "jerod-santo",
+      "text": "Exactly. Who are you? What is this? There's a, there's a workout app that we, that I, my sister and I use sometimes that it's a real person, but she does a stock like 30 minute, whatever. And she walks you through stuff at the end. She always says, good job. You crush that workout. And I always say, you don't know that. Like, you don't, we, maybe we just phoned it in. And it's just funny because there's a disconnect in the reality of it. And it's like, this thing is so not real that I couldn't possibly motivate a single human to think that like you did a great workout today is going to be like, feel that it's not going to feel good. Thanks"
+    },
+    {
+      "start": 4980.03,
+      "end": 5019.15,
+      "speaker": "justin-searls",
+      "text": "workout buddy. I wanted to give up halfway through, but man, thanks to you. Watching that bit of the keynote. So I, you know, I, we've talked about this, but I built an app last year for my wife called, uh, build with Becky. It's a subscription program for strength training. It's got lots of videos of Becky in all sorts of doing all the movements and, and each program has got a little video explain it. And she has always gone out of her way to not make like value statements or make assumptions about what's going on on the other side of the screen with somebody. And I ha I have a new found respect for her professional restraint. That's a great way to"
+    },
+    {
+      "start": 5019.15,
+      "end": 5052.05,
+      "speaker": "jerod-santo",
+      "text": "approach it because even this gal, I'm not, I don't know who she is and she does a good job with her app. But when she says great job, you absolutely crushed that crush that workout, which she says at the end of every single session, I'm just like, I roll every time. And if you could just skip that part, you're going to get credibility with me at least. And workout buddies, the opposite, like it's just your little motivational speaker in your ear. And it's not even like the voice doesn't even convince you. Like it's, they could have got better voice actors or something. I don't know. The whole thing seems like cringe to me there. Well,"
+    },
+    {
+      "start": 5052.05,
+      "end": 5057.01,
+      "speaker": "justin-searls",
+      "text": "maybe there's somebody who works at Cupertino who is actually motivated by workout buddy."
+    },
+    {
+      "start": 5057.01,
+      "end": 5062.94,
+      "speaker": "jerod-santo",
+      "text": "I'd like to meet that person. That's so what I, they probably be motivated by lots of stuff,"
+    },
+    {
+      "start": 5062.94,
+      "end": 5072.3,
+      "speaker": "justin-searls",
+      "text": "you know, like it's just very easily motivated if you're yeah. Hey, so you said you were looking forward to something about watchOS again, but then we talked about workout buddy."
+    },
+    {
+      "start": 5072.3,
+      "end": 5089.34,
+      "speaker": "jerod-santo",
+      "text": "It wasn't workout buddy. It was just like the advancements in the workout app and kind of the new design of it and the way just like, they just continued since I, it's been a few years since I've used the workout app because my watch broke and I never got a new one. And so I just quit using the workout app. I quit using the health app. I just like, I live life like a"
+    },
+    {
+      "start": 5089.34,
+      "end": 5093.5,
+      "speaker": "justin-searls",
+      "text": "normal person. You're way more mindful now, now that you don't have the mindfulness app to worry"
+    },
+    {
+      "start": 5093.5,
+      "end": 5127.14,
+      "speaker": "jerod-santo",
+      "text": "about. Exactly. I don't have to stand up when it tells me to, I don't have to breathe when it tells me to, it's like, I'm not a minion to this thing. And so I'm just happy. But when I do see kind of like the advancements in the workout app and it just looks like, you know, they know that that's what people are using the watch for. And so they've made it really good. And so that makes me think, Oh, that might be good. Cause you know, that you still have that feeling of like, Oh, tracking myself would be cool again. But it was just a momentary weakness. And I remembered, no, that's, that's a life of hell. Just live your life and go ahead and just exercise when you want"
+    },
+    {
+      "start": 5127.14,
+      "end": 5193.81,
+      "speaker": "justin-searls",
+      "text": "to. I will say in terms of what got me excited about it is the liquid glass design. I think it is the, makes the biggest improvement to watchOS over all of the other OSs. And it might be because the background of watchOS is black. And so the glass is like legible. As it exists, like the little, the newer watchOS designs where all of the controls are on the corners, as opposed to all these scrollable UIs, those buttons are really tiny. They can sometimes be hard to spot. And now you can clock those liquid glass buttons way more clearly because they're glossy and there's like a little bit of momentum around the pushing of them. So I'm actually kind of excited because as you're scrolling through the watch, like there's just more physicality there. And like, there's way more, it's a, it's the only OS that has, is now higher contrast thanks to the existence of liquid glass compared to all the others. And so that's, yeah, that's worth something. And, you know, messages gets backgrounds on watchOS too, which is terrible. Oh, but watchOS has the notes app now, finally. So you can take notes."
+    },
+    {
+      "start": 5194.69,
+      "end": 5197.09,
+      "speaker": "jerod-santo",
+      "text": "Do you need to talk to it or how do you take a note?"
+    },
+    {
+      "start": 5198.05,
+      "end": 5199.81,
+      "speaker": "justin-searls",
+      "text": "They didn't get to that part, but they're there."
+    },
+    {
+      "start": 5199.81,
+      "end": 5202.05,
+      "speaker": "jerod-santo",
+      "text": "Okay. All right. Well, we'll see."
+    },
+    {
+      "start": 5202.05,
+      "end": 5219.97,
+      "speaker": "justin-searls",
+      "text": "And I'm excited about it because I go for my run with my watch every day and I don't take a phone with me. And so I'm just adding reminders constantly using Siri, which fortunately, at least that usually works. But being able to append to a note or something, hey, I'll take it. TVOS, it is."
+    },
+    {
+      "start": 5220.85,
+      "end": 5226.05,
+      "speaker": "jerod-santo",
+      "text": "They mostly just talked about new stuff coming out. They're like content, content, content."
+    },
+    {
+      "start": 5226.05,
+      "end": 5267.49,
+      "speaker": "justin-searls",
+      "text": "I think that they actually organized the show a lot better this year because instead of starting with a totally out of place Apple TV teaser of trailers and stuff, they just moved it to the TVOS section because the TVOS is really about the content. They talked about two of our most popular apps. One is the TV app that you have to use for basically every function of the device. And the other one is music, which I don't think anyone actually uses on purpose on their Apple TV. I've never used it on the TV, I don't think. But well, now you can do karaoke and your phone can be a microphone. And you can sing into your phone. You can sing into your phone. I'm not on board with that until it's ready to score me and teach me pitch. Me being louder isn't the thing anyone in my family needs. Yeah."
+    },
+    {
+      "start": 5267.49,
+      "end": 5271.17,
+      "speaker": "jerod-santo",
+      "text": "I just wanted to live dub me with Whitney Houston's voice, you know, then I'll be on board."
+    },
+    {
+      "start": 5271.17,
+      "end": 5310.69,
+      "speaker": "justin-searls",
+      "text": "Yeah, I want I want I want you pretending to be Whitney Houston to be my workout buddy, Jared. No, that would motivate. I'd be motivated to do something. Mac OS. So so yes, finally, we start this section. And Craig is driving again. Yeah. And the little scooter. And I I noticed maybe for the first time that just like Jaws and previously Phil always claims the iPhone Pro announcement segment that Craig always reserves the Mac OS piece for himself. And I kind of like that he clearly loves the platform the way that you do. So I think I'll"
+    },
+    {
+      "start": 5310.69,
+      "end": 5346.75,
+      "speaker": "jerod-santo",
+      "text": "hand it off to you and you can share your opinions. Oh, I mean, I'm just really excited that spotlights gone steroids now. I mean, I feel like for me as a lifetime spotlight user now I did start off like every Mac nerd on Quicksilver. And I've tried out Fred. Yeah, Quicksilver was what got me into it. Yeah, Quicksilver. But I'm also a minimalist. And so as soon as Apple offers an 80% solution, I just kind of turn into an 80% user versus continuing to power use. And I find that my life is simpler that way. And and so when Yeah, we're not going to install Halide, we're"
+    },
+    {
+      "start": 5346.75,
+      "end": 5351.79,
+      "speaker": "justin-searls",
+      "text": "going to use the new camera app. And we're just going to be absolutely happy. One of the masses,"
+    },
+    {
+      "start": 5351.79,
+      "end": 5398.56,
+      "speaker": "jerod-santo",
+      "text": "you know, that being said, of course, I get feature envy of the Alfred's and now the raycasts and all the other things. And I have to defend myself against Adam and Nick and apparently yourself, who's also a raycast user. And just like all the way spotlight is good enough for me, but not as good as those other things. And they just really revamped spotlight and added so much functionality to it that I'm like a, I might even install the beta just to get in on this thing. And I'm not a beta installer myself. So that's, that's the biggest thing for me. There's tons of little things, of course, as we go, but that's what probably the one thing that truly got me excited was like, Oh, yeah, spotlight, biggest update ever. Let's roll. Yeah, the spotlight demo,"
+    },
+    {
+      "start": 5398.56,
+      "end": 5513.2,
+      "speaker": "justin-searls",
+      "text": "I didn't catch the name of the person who was delivering it. But he wrapped his demo by saying, and that's how it boosts my productivity. He actually talked in the first person, which I'm sure he's getting taken back to the woodshed afterwards because that's not according to the corporate speak. But I think, I think it was coming from a play. They probably let it slide because it was genuine and authentic. Like it was clear that, cause he starts the demo saying spotlight's gotten its biggest update ever. And immediately my eyes glazed over because that's the 30th time they've said that about spotlight. And then like, then I installed the beta or I installed the release and then spotlight still can't find Safari. Like it spins the, you know, the, the wheel and whatnot and can't open apps effectively and can't find any of my files. And so that's typically, I think the most, the biggest reason that Quicksilver and all these other things became popular was Safari was just so slow and its index was so poor. Now, you know, Safari, you use Safari every day. Like it can launch apps, you know, quickly. It can it can find files, but what they've added this time is it can do, it can, it can basically execute any single app intent. So any app that you have installed that has intents, which is the same UI mechanism that feeds into shortcuts that feeds into what will later be called Apple intelligence. Again, like if you want to create a, it basically can create a mad libs multi input interface. So like if creating an email as a function call, and it's got a, you know, a dressy and a subject and a body, you can type in the quick keys for mail, whatever, like, I don't know, I'm making it up empty space, and then it'll, it'll fill it the mad libs. And then you can actually just tab through and fill in all of those different pieces of the function. That UI looked slicker to me than anything that you can do in Raycast even."
+    },
+    {
+      "start": 5513.68,
+      "end": 5520.32,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it does look really cool. Now would I actually use it? Probably not, but Hey, it's got clipboard history. So let's rock and roll."
+    },
+    {
+      "start": 5520.32,
+      "end": 5523.6,
+      "speaker": "justin-searls",
+      "text": "There you go. Clipboard history, man. That's the other thing. That's that's,"
+    },
+    {
+      "start": 5523.6,
+      "end": 5527.04,
+      "speaker": "jerod-santo",
+      "text": "that's a white whale. I'm a simple man, Justin. I'm a simple man."
+    },
+    {
+      "start": 5527.86,
+      "end": 5579.62,
+      "speaker": "justin-searls",
+      "text": "I'll be interested to see how clipboard history interacts with security, like whether or not the passwords app, when you copy something there, like there's there, they're probably being pretty smart about aligning that. And the other thing that's really nice is that this is the first time I can remember that spotlight's really meaningfully customizable. So those quick keys, like the two letter acronyms to go and, you know, launch one of those app intents or to launch a particular app. That's, that's kind of why I use Raycast. I have been using it for the AI stuff until AI just became everywhere and chat GPT had their own Mac OS app. But look, the quick keys in, in Raycast are like, I hit G and then I hit tab and now I'm Googling, well, I'm cogging the web really, really quickly wherever I am. So, yeah, this, this really seems to catch up spotlight with most of the reason most people would be installing some third party command"
+    },
+    {
+      "start": 5579.62,
+      "end": 5629.68,
+      "speaker": "jerod-santo",
+      "text": "space bar dingus. Yeah. And the Raycast CEO whose name is escaping me right now. We've had him on the show prior, uh, took two X and probably LinkedIn as well. I didn't check other places to write today. I think a big, I don't know, is a diatribe a bad thing? It's not a bad thing. It's a response to a certain extent, but it's like, you know, he didn't save the 280 characters. He went full, like, is it a post? I don't know. It's a long thing for a social media platform kind of responding to them being Sherlock. Like he's basically like, I think we just got Sherlock, but you know, here's where we're going to go from there because they really did catch up in a lot of ways to the Raycasts value proposition. So I think that let's just push Raycast to do new, interesting things. That's the hope either that, or they're going to go away and they don't want to go away. So I think they'll, and if it's"
+    },
+    {
+      "start": 5630.56,
+      "end": 5651.14,
+      "speaker": "justin-searls",
+      "text": "I think a lot of Sherlock apps do this where it's like, cool. Now I get to lean even more into my niche, right? Like if you have a niche, you've got a reason to exist. Now I can get even more 20% re you know, and, and that, that can be a great thing for the power users who probably are the early adopters of the app in the first place. Yeah, exactly. So spotlight updates are"
+    },
+    {
+      "start": 5651.14,
+      "end": 5669.46,
+      "speaker": "jerod-santo",
+      "text": "cool shortcuts coming to macOS. That is big, not as big for me because you know, I can write bash scripts and stuff, but like, I think this'll bring that kind of opportunity to weigh more people. And of course, shortcuts does have hooks into apps and stuff that bash can't necessarily get at. So"
+    },
+    {
+      "start": 5669.46,
+      "end": 5781.7,
+      "speaker": "justin-searls",
+      "text": "there's some stuff. So Mac OS has had the shortcuts app, but the thing that it hasn't had is the automations tab. And that is finally there. And like, it was three weeks ago that I had to go and do that dance where you figure out how to add a new launch D agent to a computer and I had to do it so I could run this backup shell script. And do I know if it's running or not? I don't know. And so then I had to add to that script something that would literally email me upon success or failure to know that my backup was running because there's just no observability until like launch D from in user space, right? Like I'm trying to write to a log or something and then shell into my computer from here. But like, now that you actually have real, that automations tab and kind of have it be triggered by stuff. You remember like really old apps, like was it Marco Polo was the app where you could like have your network settings all change based on what network interface you were using and connecting. This is like 2005, 2006. Like you can now have a shortcut run based on which network you join, right? Certain apps launch certain times a day. So having shortcuts automation running on the Mac, which is probably the most likely computer you have that's on 24 seven, especially if it's a desktop version. So if you've got any sort of household server kind of tasks, now shortcuts can be that place for you. And the other big feature is one of the actions that any of those shortcuts can take is you can ask chat GPT or, you know, local LLM or private cloud compute to do stuff for you. And I think you can actually, it will try to massage it into a structured response based on where you plan on that thing going. So if you've got it iterating over whatever the results are, it kind of gets the clue that like, Hey, I want to be asking the model for a list of items, which I think is super duper clever. Yeah. Yeah. The demo that he showed was like,"
+    },
+    {
+      "start": 5781.7,
+      "end": 5832.14,
+      "speaker": "jerod-santo",
+      "text": "he highlighted some texts he had in some stupid document he was making for some stupid reason. And he's like, I want a new tagline for this. And so he highlighted the text. He's he launched spotlight, which launched a shortcut or something that handed off to chat GPT. I believe, unless it was an on-device model. I can't remember, but it's handoff to an LLM that said like, generate me some taglines that are better than this one. And it came back with like three different options that he could actually then tab through. So it's like some sort of list structured data that he could like select one of those and automatically either copied a clipboard or just like replace it in his pages app. That's fuzzy to me as well, but it's, it seems like there's some nice seams there to make it pretty useful versus just like blobbing out random crap. And you have to deal with it."
+    },
+    {
+      "start": 5832.78,
+      "end": 5906.86,
+      "speaker": "justin-searls",
+      "text": "I think there's a ton of apps right now that are charging 10, 20 bucks a month that are basically wrappers around open AIs API key. And they do like one thing. And now anyone for free can basically create a shortcut action that is effectively a low code, no code AI app. And they don't have to around with API keys and, and they have a decent enough interface that they can navigate that. So I think this is going to be something that a lot of users are going to take to. And, and it's a net, really a big win. Like if you're a developer, you know, you do get access to the models, but only the local LLM. Like you don't get to talk to private cloud compute. You don't get to talk to chat CPT, not for free. You got to go and get your API keys for that. So if you're just an end user using a shortcuts though, you, you do get to talk out to the cloud and you'll, you'll get, you know, potentially like better responses than, than, than, than a developer would. Now there's going to be a story for that over the course of the next few years, but I was impressed that like Apple actually went for it and lets you, you know, call through to the models in the same way that, you know, knock on wood, the, the, the context aware, you know, Siri eventually will be able to. Yeah, I think it's going to be super"
+    },
+    {
+      "start": 5906.86,
+      "end": 5917.5,
+      "speaker": "jerod-santo",
+      "text": "useful. And I think a lot of people who'll have access to these things who otherwise wouldn't without some serious vibe coding chops, you know? Well, moving on, do you have any other"
+    },
+    {
+      "start": 5917.5,
+      "end": 5919.98,
+      "speaker": "justin-searls",
+      "text": "macOS takes before we move on to your favorite operating system?"
+    },
+    {
+      "start": 5920.85,
+      "end": 5948.21,
+      "speaker": "jerod-santo",
+      "text": "I will give you a, first of all, continuity is amazing. And I love anytime they add continuity features, which they've done not very much of, but still some, I think the cotton I'll just reuse their word. The continuity between devices is one of the reasons why I still appreciate these platforms working well together. And the more they can make my phone and my Mac continuous, the happier I am. You got, I give you five minutes on vision, OS, and then we're"
+    },
+    {
+      "start": 5948.21,
+      "end": 6069.9,
+      "speaker": "justin-searls",
+      "text": "cutting you off. Yeah, that's fair. Yeah. Start the timer. I I'm going to go back to macOS and just say that the, the, the, the biggest continuity feature in macOS is actually the concentricity of the content, the sidebars. Uh, you know, I just imagine John Syracuse, a cringing real hard when the sidebar became a floating round wrecked on top of a round wrecked. Oh, I know. Um, but they did, they did a separate video and they explained why that is. And I think it makes a certain sort of internal sense, even if visually it's going to take some getting used to, uh, over in vision OS land, you know, not a lot has changed. Although I think more should have, if you're, if you're going to jump 23 major versions in one year from, from, uh, good point three to 26, uh, you should expect more than this, but the, um, persistency, I guess of widgets and windows was the biggest thing, as far as I could tell. Um, you know, personas look a lot better. There's, uh, some enterprise features that probably don't apply to anyone on this call or anyone, but the two enterprises that have adopted vision pros, uh, there's a Jupiter environment. That's great. Uh, but really like the existence of widgets as things that you can place in your space, you can kind of just draw a straight line to what Apple's end game is, is like, why would you buy one of those crappy displays that has a wifi connection to one gigabyte of your photos, right? That you put on a mantle when you could just have one of our glasses that you wear and you have placed your real photos on there and it's in high resolution and it's always updating and it's always in the same place. Or like you can put a clock on the wall, right? I'm a guy who's got a six bedroom house and I have nothing on any of the walls. I I'm, I'm, I'm real minimalist. So the idea that I could like put crap up with my vision pro and then have it all be there in the exact same spot forever. Honestly, that doesn't appeal to me very much,"
+    },
+    {
+      "start": 6069.9,
+      "end": 6076.62,
+      "speaker": "jerod-santo",
+      "text": "but I could do it in theory. You can't be excited about that then. Yeah, I'm not. In fact, I'm,"
+    },
+    {
+      "start": 6076.62,
+      "end": 6119.84,
+      "speaker": "justin-searls",
+      "text": "I'm kind of worried because the other thing that's persistent now is all of your windows also are always in the same place, but like I use my vision pro from like five different spots in my house and I move around a lot and all I did was remind me of that one version of Mac OS. It was probably 10 years ago at this point that whenever you reboot the computer now, like now, then, and now, like it by default will relaunch all of the apps that you had been using, put the windows in the same place. So basically like, why do I, why does Justin restart his computer? It's because my computer is getting slow and it's too bogged down with too many things running. So I reboot the computer and then it's like, great. Now I'm just as slow and all the app state is also all incorrect. So I've, I've, I've created one box though, right? There's a box"
+    },
+    {
+      "start": 6119.84,
+      "end": 6124.08,
+      "speaker": "jerod-santo",
+      "text": "you can check that says don't do that. There's a box you can check, but it actually only does it"
+    },
+    {
+      "start": 6124.08,
+      "end": 6167.76,
+      "speaker": "justin-searls",
+      "text": "some of the time in certain circuits. Like basically I got into this dance where I hit command shift W to close all the windows in every app and then command Q across every single app, just to clear the deck of my whole computer. And then I reboot blank slate. So now with vision OS where you have even less control and you don't have a keyboard in front of you, I'm worried it's going to just, you're going to boot up and it's going to be like, hold on. It's going to stiff arm you for like 90 seconds while it boots all your crap and it's in place. But as somebody who uses vision pro from an Eames chair at that sort of reclined state, the fact that the Eames chair got highlighted in their demo was that made me happy. I got a moment. I don't even have five, look, I don't even have five minutes of content. They don't, they don't have a lot of show."
+    },
+    {
+      "start": 6168.48,
+      "end": 6186.29,
+      "speaker": "jerod-santo",
+      "text": "I don't. Yeah. Um, I appreciate that. I guess I don't know what the future of vision OS looks like. I think it's a longterm play for them. So they'll continue to invest in it, but they sure didn't have much to show over the last 12 months of investment."
+    },
+    {
+      "start": 6186.29,
+      "end": 6223.65,
+      "speaker": "justin-searls",
+      "text": "The biggest hint that there is new hardware coming in my opinion is that they, that they're shipping the feature where two people in the same room, both wearing vision pros can watch a movie together because what's going to happen is they're going to release new hardware and then a lot of spouses are going to receive handing down vision pros. That's right. And so as soon as that happens, they're going to get calls off the hook being like, Hey, how do I watch a movie with my wife or whatever? And I think they're just preempting that. So I suspect that probably not by the end of this year, but maybe the March next year, we're going to get vision pro too."
+    },
+    {
+      "start": 6224.51,
+      "end": 6253.47,
+      "speaker": "jerod-santo",
+      "text": "All right. Quick aside in order to round out your five minutes, what do you think of Johnny Ive joining Sam Altman to build some sort of hardware device for open AI or with open AI or whatever's going on there? Uh, what do you think that is? What do you think they're making? It's obviously not an answer to vision pro, but it's going to be a competitor to whatever Apple's putting out next, et cetera. What are your thoughts on that? I mean, we don't have enough time to dive into"
+    },
+    {
+      "start": 6253.95,
+      "end": 6456.02,
+      "speaker": "justin-searls",
+      "text": "the psychiatric analysis of that Sam and Johnny video that they put out. I will say that the fact that like the Lorraine Powell jobs interview with financial times, like, and the admission that like there have been quote unquote dark uses to the iPhone and to a lot of the inventions that Johnny Ive had a hand in and that they both have a sense that like there are bad externalities with the phone, which is something I've been talking about since I, the very first day I got my iPhone edge, I was like out to dinner with Becky and I was like ignoring her so I could watch the New York times.com page load over the course of three and a half minutes on the edge network. And I was like, this, this augurs poorly for humanity was my sense in 2007. And that did come to pass. Right. And all sorts of terrible things have happened. But the idea that like the solution to that is like, let's, let's give the keys to the kingdom to this guy who basically wants to make Skynet is I suspect that even if they come out with the perfect device and this device is truly, all it does is increase girls' self-esteem and, you know, help, help people who are addicted to sports gambling on their phones, find a, find a, find a healthier, happier way to live. Like, even if all it does is solve a lot of these problems that Johnny Ive helped create, then what's going to happen is they're going to cash out. They're going to retire. They're going to move on to the next thing. And 10 years from now, this same product line is going to reach the same point of maturity where they have to squeeze more blood from the stone. And you're going to wind up in the exact same situation that Apple kind of finds itself now painted into this corner where like most of their money comes in from Google search referral money and from, you know, candy crush whales is most of the services revenue. Right. So those perverse incentives I think are just sort of a inevitability of basic capitalism when you're trying to chart quarter over quarter growth. And so rather than fight it, I think being cognizant of that's the reality we live in, let's design devices based on, you know, what that end game looks like. Coming in like, you know, eyes wide open makes more sense to me. So to answer the question of what do I think it's going to be? I think it's, I think it's basically going to be a humane AI pin with a better back end and still no real solution to the fact that they don't have a platform that like they can't talk to the iOS the same way. Like I think it's going to be, it's going to come with a pitch to also, yeah, maybe they'll put out an Android phone, you know, to go with it or really, really top tier Android integration, sort of like the pebble group are trying to do. But I'm, I'm skeptical, you know, and they've said that it's not going to be a wearable per se. It's not going to be a watch. It's not going to be glasses. It's not going to be a pin. So, so then people already are imagining it's going to be like one of those like little like personal AC cooler things that kind of goes around your neck or a pendant that maybe is like a, you know, multi form factor. It can sit on your desk or you can wear it like a necklace. And I don't, I don't know how you solve the platform problem. Like you've got this device in your pocket. That's got a huge fricking battery and a great cellular connection. Always connected. Like any smaller thing without a screen isn't going to have those things. And maybe it'll have, I don't know. We'll, we'll just have to see. All right. What do you think?"
+    },
+    {
+      "start": 6456.82,
+      "end": 6536.32,
+      "speaker": "jerod-santo",
+      "text": "I like the pendant idea. I think that they've kind of ruled out like everything else. It's like, well, what is it invisible or something like that? What other things are there earrings? I don't know. I agree with you. They certainly have. I mean, if, if the platform is voice, meaning the UI, if the interface is voice, then I think they're, I think they're well positioned to make that a compelling, as compelling of an interface as anybody else is. But I just don't think that that on its own is a compelling device. And so I think there has to be a screen, but I don't know. I don't know what it's going to be. I like the idea of a little necklace. Maybe you can put it down. Maybe it can cast onto the wall. Like those things are cool. I don't think there's been a cool one yet, but like the idea of like a tiny projector that you can push onto something, or maybe the the old, the old Star Wars, help me Obi-Wan Kenobi kind of moment with the, the hologram. Holograms would be rad. Like something that captures our imagination a little bit and just is out there and different. I don't think that's Johnny Ive style, but I don't know. Neither one of us know. I just thought I'd hear what you think."
+    },
+    {
+      "start": 6537.6,
+      "end": 6574.4,
+      "speaker": "justin-searls",
+      "text": "Yeah. We'll just, we'll, we'll just have to see. I think, you know, Sam Altman showed the hand a little bit and said, like, we, we could imagine you, you get hardware periodically as part of your GPT subscription subscription. So if it's already a hardware subscription business, then maybe whatever connectivity it needs is also rolled into that. And so they've sort of got a, you know, a cellular backbone kind of built into that same subscription model. So it's not like the humane pin where you got to go and get a T-Mobile sidecar for 25 bucks a month just for this device. But there's, there's a lot of real fundamental problems that they have to solve that they wouldn't have to solve if they were able just to get unfettered access the same way the Apple watch"
+    },
+    {
+      "start": 6574.4,
+      "end": 6584.32,
+      "speaker": "jerod-santo",
+      "text": "does. Yeah. To the phone. So. Which they won't have. And that's, they're going to have to work around that, you know, Amazon kind of did that with a Kindle and their whisper net. So that's"
+    },
+    {
+      "start": 6584.32,
+      "end": 6595.04,
+      "speaker": "justin-searls",
+      "text": "like very minimal amount of data. I almost said whisper net, but then I thought there's no way I get to talk to Scarlett Johansson over the whisper net. It's not, not enough bandwidth."
+    },
+    {
+      "start": 6595.04,
+      "end": 6609.6,
+      "speaker": "jerod-santo",
+      "text": "It's gotta be a full throated conversation. Okay. Let's do what Apple did and say the last six minutes for developers. I'm skipping. You can't skip all of iPadOS. iPad is finally,"
+    },
+    {
+      "start": 6609.6,
+      "end": 6612.96,
+      "speaker": "justin-searls",
+      "text": "you can finally do development on iPad. It's got a pointier pointer."
+    },
+    {
+      "start": 6615.04,
+      "end": 6624.08,
+      "speaker": "jerod-santo",
+      "text": "There's a, there's a show title. It's got a pointier pointer. It does. And so look, all right. Just to say, good Lord. I feel like"
+    },
+    {
+      "start": 6625.28,
+      "end": 6629.28,
+      "speaker": "justin-searls",
+      "text": "I was the one who suggested we order things in this order and, and now I'm regretting it. So"
+    },
+    {
+      "start": 6629.28,
+      "end": 6636.7,
+      "speaker": "jerod-santo",
+      "text": "like look multitasking, cause this is your most excited moment. And I'm, I'm a modal editor guy."
+    },
+    {
+      "start": 6636.7,
+      "end": 6759.34,
+      "speaker": "justin-searls",
+      "text": "I use VIM. I believe in modes, you know, however, stage manager as a mode that you go in is like, what mode do I want my iPad to be in? Do I want it to be in single tasking usually works most of the time mode or do I want to be in a stage manager multitasking? Nothing works pretty much for sure. All the time mode. The only time stage manager works better than non stage manager mode is when you're on an iPad in landscape mode and you need to access a, an app that only works in portrait orientation, because then it'll let you kind of get away with like windowing it into something smaller. But otherwise the fact that these are different modes has really just been an admission that stage manager sucks. And the new iPad multitasking seems like a ground up rewrite where everything is windowing by default. You can, you can, you can drag from the little vision OS style grabby do in the corner and start using multiple windows right out of the box and having gestures like expose where you can swipe up once and you can see your, your, your desktop and add another app to it. So you're not typing into spotlight to try to figure out how to add some app that doesn't happen to be on your dock into your multitasking interface. And then if you swipe up a second time, everything gets shunted away, right? So then you can get back into single tasking mode without having to do anything fancy. Like this is a, this is a multitasking mode that you could actually explain to a real human in under 10 minutes, which is something that wasn't true before it lets you actually move the windows around. It has real tiling. It has the, the traffic signals of the, you know, the, the X and the minus and the plus, and they're hidden behind triple dots. I think probably because if you accidentally close something, it's really hard to unclose a thing. But so, so, so there's a little bit of indirection there, but overall, I'm very excited to, to muck around with iPadOS, you know, it's got better files app, yada, yada. So there, that's"
+    },
+    {
+      "start": 6759.34,
+      "end": 6770.7,
+      "speaker": "jerod-santo",
+      "text": "probably three minutes. Let's talk about developers at the end. Okay. Well, I mean, you are, you are going to do development on your iPad is the story though. So there's a developer story there, right?"
+    },
+    {
+      "start": 6771.5,
+      "end": 6816.7,
+      "speaker": "justin-searls",
+      "text": "Sure. And, and by development, we just mean not X code and also nothing that has an on-device compiler. We, we mostly mean the VS code web interface or maybe a terminal app that works sometimes, but you can, you can imagine the future. Now you can imagine I, before I could not imagine them launching X code on iPad. And now I can, the other thing that they put out is the back long running background tasks. So they launched final cut pro a year or two ago, and you couldn't do exports from it unless you kept final cut pro in the foreground. Now it can do that. And it has like a sort of a permanent, you know, a little banner notification explaining why your battery is running down so fast. Gotcha. I didn't know that they didn't have"
+    },
+    {
+      "start": 6816.7,
+      "end": 6829.58,
+      "speaker": "jerod-santo",
+      "text": "background mode. I have not, I haven't followed iPadOS because I haven't owned an iPad for a long time. And so I just don't, I don't care very much. And so I, I know they had final cut for iPad,"
+    },
+    {
+      "start": 6829.58,
+      "end": 6847.74,
+      "speaker": "justin-searls",
+      "text": "but I didn't know that you couldn't. I thought you liked continuity. You're robbing yourself of so many continuity opportunities by not wearing the watch or the, you gotta, you gotta go in and get, you don't have vision OS. You gotta get all these platforms shared. Think of how much continuity would be in your life. You see, I have kids and so I can only"
+    },
+    {
+      "start": 6847.74,
+      "end": 6857.65,
+      "speaker": "jerod-santo",
+      "text": "have so much continuity. You know, you've got all the, you know, the spare funds to purchase all the devices. I only have so much pro is my child. There you go. There's some continuity"
+    },
+    {
+      "start": 6857.65,
+      "end": 6984.24,
+      "speaker": "justin-searls",
+      "text": "for you developers, six minutes developers, developers, developers, icon composer. Hey, you got to compose these three D physicality liquid glass icon somehow. That's right. They did a demo of it in state of the union and it looks legit. Pretty cool. It basically, you can pull in any SVG and it will automatically get the layering right. And then for each layer in that SVG, you know, by default, because it has to work in clear mode, you'll see those just outlines and you can set how much blur on each level of the layering that you want to kind of give it the sort of sense of like, you know, what kind of glass are we talking at each of the levels? They were pretty upfront and said, Hey, four layers is about the max. You probably don't want more than that. And then you can apply tint to each of those layers as well. So you can kind of give it your blessed color combo, right. For, for each of the things like the weather apps got the yellow sun, for example, it looks completely reasonable icons. I've always been something where it feels like, yeah, I'm an iOS developer, but from my icon, I go and hire this other person or your icon factory as a business, right? Like it was a totally different function. This, I could totally see myself, you know, I can get dangerous in Figma and SVG editors and vector editors. Like I could totally imagine myself building my own serviceably okay icon using icon composer. And not only knowing that it's, it produces a single artifact instead of the striped 45 different outputs that you used to need when you were submitting an app. It can also create marketing images, like rasterizations that are appropriate for like brand, brand books and stuff and screenshots for, for, for, for the app store. So I think it's, it's pretty slick. Xcode of course also gets like V1 edition of GitHub co-pilot is what it looks like. Which, you know, it worked, it worked in the demo."
+    },
+    {
+      "start": 6984.24,
+      "end": 6986.72,
+      "speaker": "jerod-santo",
+      "text": "It's like function level auto-complete."
+    },
+    {
+      "start": 6986.72,
+      "end": 7042.72,
+      "speaker": "justin-searls",
+      "text": "Yeah. I mean, they've got the on device predictive tab complete, but they also finally got the sidebar. Now it's not called swift assist as far as we can tell, cause that just never really happened. It's probably not, I don't, I didn't see any evidence that it was agentic. But in the state of the union, they did show that like, you can pull in your own API keys and use in addition to chat GPT, you can use Claude, you can use other models. They're trying to embrace as much as they can and, and understanding that they're not going to be the solution to every single problem. Personally, as somebody who, you know, wants to be learning Swift, the idea that I would have to do that in an IDE that had no AI assistance whatsoever. You know, when the one thing that it's really good at is teaching you the basics, I was a little bit concerned. So, so that, that Xcode has this as I'm about to start diving in for serious can only be a good thing. And of course there's tons of stuff for developers"
+    },
+    {
+      "start": 7042.72,
+      "end": 7081.84,
+      "speaker": "jerod-santo",
+      "text": "that didn't make the keynote and even the state of the union. And so they have like more videos coming out all week. I always am interested in what's going on. Over a hundred sessions. Yeah. I'm always interested in what's going on in WebKit specifically as a web developer. And they have sessions coming out about that. I didn't have the time to watch our old friend Saran Yedbarak is at Apple now, at Apple now working on the Safari team. And she actually recorded the video for the new stuff. Oh, Saran is at Apple? Yeah. Which was, I didn't, I'm like, that looks like Saran. And I clicked on the video. I'm like, sure enough. There she is recording the video for what's new on WebKit and Safari, whatever,"
+    },
+    {
+      "start": 7081.84,
+      "end": 7157.73,
+      "speaker": "justin-searls",
+      "text": "whatever. Like that's cool. Man, everything I've heard, heard from Saran lately is about her toddler. I should follow up. That's pretty incredible. Yeah. The other stuff that's exciting. I mean, a lot of these APIs that they've announced over the last couple of years seem like they're really maturing. This liquid design thing has clearly forced them to catch up on SwiftUI. So SwiftUI didn't have a way to do a rich text editor. Now it does. And so you have rich text editing in a SwiftUI way, and it saves as an attributed string. So you can have your gen mojis in there as well. Additionally, Swift data supports attributed string now too. And so you can just sort of see that they're now, like I said, now seems like a really, really good time to start version one of an iOS app. If you've got an existing one and you've already got a lot of duct tape and rubber bands holding together and bridging all of these gaps that had previously existed, you probably are in for a very busy summer is my guess. But if you're willing to start as iOS 26 is the first version, it seems like Apple finally is pulling together a lot of"
+    },
+    {
+      "start": 7157.73,
+      "end": 7178.8,
+      "speaker": "jerod-santo",
+      "text": "this stuff. And how many developers are going to come along for the redesign ride? And that'll be the question. Well, we have the, I don't think uncanny valley is the right word, but like the middle ground, the double A limbo mode where you're just like half the apps have updated and look like the new stuff. And then other ones haven't. And you're like, Oh,"
+    },
+    {
+      "start": 7179.82,
+      "end": 7213.54,
+      "speaker": "justin-searls",
+      "text": "they were clear that, that when you build in the new Xcode Xcode 26, so Xcode also gets to jump this time, 10 versions. When you do hit build, you're going to get liquid glass. And then when you realize that breaks everything, you get a check box and you can check the stay on the old, UI controls, but they were clear in the same sentence. It was like, basically this will be removed in the next major release. So you, you get one year moratorium on that check box. So you can keep working on your app and keep shipping it. But yeah, this is this highway only goes in"
+    },
+    {
+      "start": 7213.54,
+      "end": 7226.14,
+      "speaker": "jerod-santo",
+      "text": "one direction. It looks like, yeah. I also read that the new Mac OS Tahoe, which there, and now it's still Mac OS 26, but also Tahoe, or is it just Tahoe? It's Mac OS 26. And they're"
+    },
+    {
+      "start": 7226.14,
+      "end": 7231.9,
+      "speaker": "justin-searls",
+      "text": "still naming them for some reason. Okay. So I'll refer to it as Tahoe. Yeah, Tahoe is fine."
+    },
+    {
+      "start": 7231.9,
+      "end": 7240.62,
+      "speaker": "jerod-santo",
+      "text": "Or 26, I guess if I say 26, it's ambiguous as to which platform, but Tahoe will be the last Intel supporting operating system. That's what I read today."
+    },
+    {
+      "start": 7241.42,
+      "end": 7304.18,
+      "speaker": "justin-searls",
+      "text": "It's true. And it makes, it makes you wonder whether or not that means that they're going to have a Mac pro for us. That looks anything different. The 29 Mac pro 2019 Mac pro redesign is looking along in the tooth. Yeah. Is that still the most recent Mac pro is 19? No, that's the design was in 19. They've got the most recent one. It has an M2 ultra in it, which of course, you know, like you go and buy a Mac studio and you get either an M4 max or an M3 ultra. The rumors that like they had a Hydra or a M4 extreme kind of Mac pro in the offing that didn't materialize. So one hopes that if they're going to kill Intel max next year at WWDC, they would do it with the pizazz of saying, Hey, look, this is an extremely expensive computer that can't play PC games, even if you really want it to. But I'll have the games app. So I'll have that going for it. Yeah. You'll have the games app to play. Let's see, what do they show?"
+    },
+    {
+      "start": 7305.06,
+      "end": 7318.3,
+      "speaker": "jerod-santo",
+      "text": "Very few games. Yeah. And there was like four or six. Yeah. As has always been the case. All right. Let's wrap two hours. We're just, we're killing it, man. We went so fast through the last,"
+    },
+    {
+      "start": 7318.3,
+      "end": 7327.9,
+      "speaker": "justin-searls",
+      "text": "did I, did I exhaust you? You look, you looked, it is, I, we started this at 5 AM my time. It's only 7 AM here. I could go all day, man. You're still waking up and I'm going to sleep. So"
+    },
+    {
+      "start": 7328.46,
+      "end": 7347.5,
+      "speaker": "jerod-santo",
+      "text": "it's not that time here, but it is just like dinner time pretty much. So yeah, I'm ready to go to w to wait on those betas. You know, I think I might install a Mac OS beta, not early beta, but maybe like late summer, just to get that spotlight action going. Other than that, I'm just going to wait till fall. I think all these OSs come out in the fall, basically. Right."
+    },
+    {
+      "start": 7347.5,
+      "end": 7377.63,
+      "speaker": "justin-searls",
+      "text": "Or they should. Yeah. Yep. And if they don't ship by 2026, like we got a problem from a version numbering perspective. Now they'll, they'll all come September, October. And, and honestly, I, honestly, I, I'm looking forward to it, but I think it's going to be a long summer of people complaining about contrast issues and readability and we're all going to be negotiating how frosty do we need our glass? And that'll, that'll be exhausting. We'll get, we'll be salty about the"
+    },
+    {
+      "start": 7377.63,
+      "end": 7405.22,
+      "speaker": "jerod-santo",
+      "text": "frosty. There you go. There I go. All right. The, if you want the unabridged version of this conversation in which I have been dubbed out and it's just Justin talking to himself, I'm sure he's probably going to stop this recording and start his fresh one as his, his thoughts are already on topic. Check out Breaking Change. Where else should I point these fine folks? I think Searles.co is where you live, right? Yeah. Searles.co is the, the master"
+    },
+    {
+      "start": 7405.22,
+      "end": 7471.68,
+      "speaker": "justin-searls",
+      "text": "domain, my blog, my website, which I've spent way too much effort for, for, for just an individual blog is Justin.Searles.co. That's right. It's a static site. It's like a Hugo site. You'll be interested to know Jared, cause we've talked about my posse adventures in the past and stuff is I've added an enhancement script now so that whenever I post anything to it, it actually goes and fetches the OG images from all the sites I linked to and creates little webcards in a GitHub action and then decorates it back into the site. Oh man. It's a, if, if you're another child, yes. Vision Pro is my firstborn. No. So I love talking about the blog because like, if you're a programmer who on a weekend has ever built a blog or over-engineered the shit out of your blog, only to then write exactly one blog post ever. I think that you could find a lot to love in, in the obsessive care that I've taken over a lot of the stuff in this website that truly does not matter. So if you're, if you're interested, check it out,"
+    },
+    {
+      "start": 7471.68,
+      "end": 7478.77,
+      "speaker": "jerod-santo",
+      "text": "please. Justin.Searles.co. So what happens if you just go to Searles.co? Oh, it says Augurs"
+    },
+    {
+      "start": 7478.77,
+      "end": 7489.65,
+      "speaker": "justin-searls",
+      "text": "of Accidental Applications. Yeah. So that's a Searles LLC. Me and my brother, we are, his name's Jeremy. We're co-CJOs of a, of a thriving software enterprise. That's just the"
+    },
+    {
+      "start": 7489.65,
+      "end": 7514.98,
+      "speaker": "jerod-santo",
+      "text": "two of us. Gotcha. Cool. Well, I'll let you get back to your, your day there in Japan. And I will end my day here in the Midwest. I assume people know where to find you. They've already found me. If they're listening to this right here, right now, they've already found me. They're in the right, they're in the right feed. That's right. Appreciate you all your time, all your takes, the hot and spicy and otherwise"
+    },
+    {
+      "start": 7516.62,
+      "end": 7544.3,
+      "speaker": "justin-searls",
+      "text": "anything you'd like to say before I let you go? No, I mean, by the time this comes, our, our friend of the show, Adam Lizagor and Sandwich Vision are helping to put on John Gruber's talk show. Are they going in the Vision OS again? Tonight, my time, tomorrow your time. And they're doing the Vision OS thing with theater. And of course, by the time you're hearing this, this will have already aired. So we'll get to know who John's mystery guests are, but yeah, I don't, I don't know. I don't know yet what's going to happen there, but I'm"
+    },
+    {
+      "start": 7544.3,
+      "end": 7612.62,
+      "speaker": "jerod-santo",
+      "text": "looking forward to it. I think it'll be great. Very cool. All right. That's our show. We'll talk to you all on the next one. See you. Have you heard? We are doing a live show in Denver, Colorado at the end of July. Saturday, July 26th at the Oriental Theater in Denver to be exact. Join us there for the entire weekend if you want. We'll be meeting up at a local pub Friday night, recording live on stage on Saturday morning, hiking red rocks Saturday afternoon and who knows what else? It's going to be a blast. Get all the details at changelog.com slash live and join us if you can seriously do it. Seriously do it. Do it. Thanks to our sponsors at fly.io and retool.com and to Breakmaster Cylinder. We love those sweet, sweet beats. Next week on the pod news on Monday Carson Gross, the CEO of HTMX joins me on Wednesday and Adam and I analyze all the recent software moves on Friday. Have a great weekend. Tell your friends about our show if you want to help out and let's talk again real soon."
+    }
+  ]
+}
