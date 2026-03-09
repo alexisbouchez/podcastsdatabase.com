@@ -41,7 +41,7 @@ export default async function PodcastPage({
     <>
       <Breadcrumbs
         segments={[
-          { label: "Podcasts" },
+          { label: "Podcasts", href: "/podcasts" },
           { label: podcast.title, href: `/podcasts/${slug}` },
         ]}
       />

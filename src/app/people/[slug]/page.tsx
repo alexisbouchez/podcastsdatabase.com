@@ -64,7 +64,7 @@ export default async function PersonPage({
 
   return (
     <>
-      <Breadcrumbs segments={[{ label: "People" }, { label: person.name }]} />
+      <Breadcrumbs segments={[{ label: "People", href: "/people" }, { label: person.name }]} />
 
       <header className="mt-6 flex items-center gap-4">
         {(() => {
