@@ -1,0 +1,1184 @@
+{
+  "title": "Bourbon and better software",
+  "description": "Adam chats with Robert Ross about bourbon, building FireHydrant, scaling teams, and the future of incident management software.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "robert-ross"
+  ],
+  "segments": [
+    {
+      "start": 14.77,
+      "end": 102.8,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about bourbon and better software. Thank you to Fly.io, the home of Changelog.com. Launch apps, near users, too easy. You can do so for free at Fly.io. Okay, let's talk. Yes, let's talk about Sentry's launch week, March 18th through the 22nd, 2024. They are ready for liftoff. They'll be showing off new features and products all week long, so get comfy. Tune into Sentry's YouTube channel and Discord daily at 9 a.m. Pacific Standard Time to hear the latest scoop. And if you're too busy, no problem. Just enter your email address at sentry.io slash events slash launch dash week. That'll be in the show notes as well. And you'll receive all the announcements afterwards and win swag along the way. The agenda includes introducing metrics for developers, troubleshooting performance problems, fixing smarter with AI, break production less, and make debugging fun, maybe. The next step is to go to sentry.io slash events slash launch dash week. Again, that link is in the show notes. It's been a bit since we've talked. It's been May of 2022 and is now 2024."
+    },
+    {
+      "start": 104.8,
+      "end": 105.82,
+      "speaker": "robert-ross",
+      "text": "It's been that long."
+    },
+    {
+      "start": 105.82,
+      "end": 114.04,
+      "speaker": "adam-stacoviak",
+      "text": "It's been that long. What have you done? With your life even, not just like your business, but your life. How's life?"
+    },
+    {
+      "start": 114.04,
+      "end": 115.78,
+      "speaker": "robert-ross",
+      "text": "I mean, all of it's great."
+    },
+    {
+      "start": 115.78,
+      "end": 117.04,
+      "speaker": "adam-stacoviak",
+      "text": "Are you working too much?"
+    },
+    {
+      "start": 117.04,
+      "end": 137.74,
+      "speaker": "robert-ross",
+      "text": "Oh yeah, I mean, it's really funny because I wear an Apple Watch every day and in the heart app you can see my resting heart rate going like up. It's like on a slope right now. So I'm like, ooh, I should go on a run or fast-paced walk at this point. Yeah. But yeah, no, I'm good. Life's good."
+    },
+    {
+      "start": 137.74,
+      "end": 149.34,
+      "speaker": "adam-stacoviak",
+      "text": "Well, what do you do when you're not working? What's fun for you? I see you on LinkedIn, I think, posting about maybe Twitter, X, about your evening drinks when you're celebrating. That's what I see of you."
+    },
+    {
+      "start": 149.34,
+      "end": 150.18,
+      "speaker": "robert-ross",
+      "text": "Yeah."
+    },
+    {
+      "start": 150.18,
+      "end": 152.36,
+      "speaker": "adam-stacoviak",
+      "text": "That seems to be like Robert Funtime."
+    },
+    {
+      "start": 152.36,
+      "end": 173.56,
+      "speaker": "robert-ross",
+      "text": "It is. So I've got, it's out of view right here, but I've got a pretty nice little liquor cabinet that I like to keep stocked with. Nice stuff and I like making it old-fashioned and we've got some really cool fire hydrant-branded booze material. We've got like a nice scotch glass. But yeah, no, I honestly."
+    },
+    {
+      "start": 173.56,
+      "end": 179.02,
+      "speaker": "adam-stacoviak",
+      "text": "How would one acquire one of these scotch glasses? Is it a Snifter or is it a scotch glass?"
+    },
+    {
+      "start": 179.02,
+      "end": 180.68,
+      "speaker": "robert-ross",
+      "text": "I guess it's not technically a scotch."
+    },
+    {
+      "start": 180.68,
+      "end": 184.04,
+      "speaker": "adam-stacoviak",
+      "text": "Or a Glen Caron. I guess a Glen Caron is a glass that you would use for scotch."
+    },
+    {
+      "start": 184.04,
+      "end": 198.92,
+      "speaker": "robert-ross",
+      "text": "It's like, I guess it's more of a bourbon glass, but it has like an incident started line and an incident resolved line on it. Nice, oh my gosh. But we might have a couple, let me know. We might have a couple still in stock."
+    },
+    {
+      "start": 198.92,
+      "end": 211.16,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I'm a scotch guy. Well, I'm more of a bourbon guy personally. Do you know about the sniffing your arm tactic whenever you're doing flights? Like if you're tasting multiple bourbons and you're sort of comparing and contrasting, do you know about that process?"
+    },
+    {
+      "start": 211.16,
+      "end": 212.92,
+      "speaker": "robert-ross",
+      "text": "No, what is that?"
+    },
+    {
+      "start": 212.92,
+      "end": 257.83,
+      "speaker": "adam-stacoviak",
+      "text": "So you're, I don't know how you do it, but a friend of mine who's really into it, who's gotten me more into it, he taught me the true bourbon experience. And it goes like this. You know, you're not meant to get drunk. It's not trying to get twisted. It's just enjoying the bourbon for what it is. You talk about the mash bill, you talk about how it's made. You know, if it's a port finish, if it's a single barrel, if it's a selection, all these things go into like what makes the bourbon that you're tasting taste different. You know, it's age obviously is a key component to that. Where in the world it was aged. Here in Texas, things age differently. Our bourbon actually ages, in a two year bourbon in Texas is like a five year bourbon because of the-"
+    },
+    {
+      "start": 257.83,
+      "end": 258.67,
+      "speaker": "robert-ross",
+      "text": "It's like humidity."
+    },
+    {
+      "start": 258.67,
+      "end": 260.79,
+      "speaker": "adam-stacoviak",
+      "text": "Drastic swings in temperature in the cask house."
+    },
+    {
+      "start": 260.79,
+      "end": 262.39,
+      "speaker": "robert-ross",
+      "text": "Yeah, it makes sense."
+    },
+    {
+      "start": 262.39,
+      "end": 305.3,
+      "speaker": "adam-stacoviak",
+      "text": "The Rick house is open usually, un-air conditioned. So you get the full spectrum of the air. But anyways, you pour up a flight, could be three, could be five, about an ounce each. And then, you know, you sniff it for like a good minute or two before you even drink it. It's just all about like all the components of it. The sniffing, obviously the tasting, but in between those to clean your nose palette cause your nose and your taste buds are so connected. You sniff your, I'm sniffing for the audience by the way. You sniff your non-watch hand and it cleanses, it changes out your nose palette so that when you sniff the next one, you kind of get a new sniff. You get a new sniff palette."
+    },
+    {
+      "start": 305.3,
+      "end": 315.98,
+      "speaker": "robert-ross",
+      "text": "You know, if it wasn't 1.53 in the afternoon on a Wednesday, I'd be tempted to give it a shot. Got a couple of nice things. No, it's interesting, I've never once heard that."
+    },
+    {
+      "start": 315.98,
+      "end": 348.62,
+      "speaker": "adam-stacoviak",
+      "text": "The best way to do it though is with friends. You know, with one or two friends over hours comparing, like we just lined up all the Elijah Craig's he had. It's like, okay, here's a port finish. Here's the 10 year, here's the whatevers. And he just lined them all up. Here's my selection. He went to, you know, to specs and it was their specs selection. He's also gone and selected the barrel himself. That means you taste different, I guess, different samples from each barrel and you say, okay, that's the barrel I want. And you get a full pour into your bottle from that barrel."
+    },
+    {
+      "start": 348.62,
+      "end": 349.54,
+      "speaker": "robert-ross",
+      "text": "Oh my gosh."
+    },
+    {
+      "start": 349.54,
+      "end": 352.32,
+      "speaker": "adam-stacoviak",
+      "text": "So anyways, the bourbon experience is what it's about."
+    },
+    {
+      "start": 352.32,
+      "end": 357.74,
+      "speaker": "robert-ross",
+      "text": "So can you use this smell technique like with your friends if they're there too? Can you just smell their wrists or is that too weird?"
+    },
+    {
+      "start": 357.74,
+      "end": 370.66,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, if you want to smell a friend's wrist, I mean, it might be a unique nose palette cleansing process. I would sniff only my wrist. If you sniffed my wrist, I wouldn't be upset about it, but I might be like, well, you know, you got your own."
+    },
+    {
+      "start": 370.66,
+      "end": 376.88,
+      "speaker": "robert-ross",
+      "text": "Yeah, that makes the 10 year smell different. Anyways, we should change the subject before this gets way too weird."
+    },
+    {
+      "start": 378.3,
+      "end": 396.32,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, well, the good thing, I think, is just that you got some cool stuff for Firehydrant. I think that's pretty cool to have swag that isn't just a t-shirt, you know? I see you're wearing the Firehydrant hat. You know, it's not just the t-shirt. It's not just the thing that seems to be like the, in quotes, developer swag."
+    },
+    {
+      "start": 396.88,
+      "end": 469.52,
+      "speaker": "robert-ross",
+      "text": "It's a bit more unique. Yeah, I've been to so many conferences and I've gotten so much swag in my days that one day, this was years ago, like Firehydrant had just raised like some money in. I was like, I want to make a shirt. I feel like cool companies have cool shirts. And I was at Digital Ocean and I had like all these old cool Digital Ocean shirts. And then what I did is I laid out all the shirts, all my tech shirts that I wore all the time and I put the ones that I didn't wear but had like on the side. And I was just kind of like feeling them, looking at them and I was on the ground in my apartment. And I was like, you know what? Every shirt that I wear is the American Apparel tri-blend, super comfy, doesn't make me feel like a NASCAR driver or like advertisement. And like that's the kind of shirt that I want. So we've got a bunch of shirts that don't say Firehydrant on the front at all. It says it like on the back of it in really small print but it says like DevOps engineer or simply restart everything. And I just like, I like having cool tech shirts. I think that those are fun."
+    },
+    {
+      "start": 469.52,
+      "end": 488.33,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I agree with that. Or even your other one which is Better Incidents which I think is a cool name for what might be your media hub that you're growing. I've seen that you've got a podcast out there, congratulations. Articles out there, it's a destination on Firehydrant's website now. I think Better Incidents is a cool name."
+    },
+    {
+      "start": 488.33,
+      "end": 491.69,
+      "speaker": "robert-ross",
+      "text": "Yeah, maybe we should make some shirts for that one."
+    },
+    {
+      "start": 491.69,
+      "end": 505.37,
+      "speaker": "adam-stacoviak",
+      "text": "Especially if you want it to be seen more as a brand. I think the last time we talked actually the name of the podcast, the title is enabling a world where all software is reliable. So really it was about better software, right?"
+    },
+    {
+      "start": 505.37,
+      "end": 544.05,
+      "speaker": "robert-ross",
+      "text": "Yeah, we were, the thing that like I like about software is making cool software that helps other software. Like developer tools, right? Like that's the better way to say that. Yeah, and I think Better Incidents is like the community of people talking about how can we make better software, right? It's not about, it's about Better Incidents and managing them better but you know, is there a world where we just don't have incidents, right? And I think that's just a cool world to chase after is no incidents. How can we do that? It's impossible, right? There's always gonna be incidents but can they?"
+    },
+    {
+      "start": 544.05,
+      "end": 549.47,
+      "speaker": "adam-stacoviak",
+      "text": "Right, software always has bugs, always has issues, there's always crashes, there's always a mess up somewhere."
+    },
+    {
+      "start": 549.47,
+      "end": 557.43,
+      "speaker": "robert-ross",
+      "text": "Yeah, yeah. And I think that community is definitely start talking about that more and more as time goes on here."
+    },
+    {
+      "start": 557.43,
+      "end": 621.59,
+      "speaker": "adam-stacoviak",
+      "text": "The cool thing I think that you've, you know you had some pain when you were DigitalOcean so that made you think, okay I should do this for real and you've created Firehydrant, that's the TLDR for those who didn't know how you did it. But you know, there's always gonna be issues in software, right, so you've put yourself in a place where you can help people do better over time but it's not like you'll eventually have a, there's no done state to Firehydrant. There may be a mostly done state at some point but at some point all software kinda still has issues whether it's a retrospective or a post-mortem or an on-call situation, there's always something to help developers really just focus on the vital few versus the trivial many which is like half the battle, right, as an SRE or someone that's in ops or in charge of an application or a system being up or mostly up or reliable, you know that's, you're always gonna have something going wrong in that situation which is good for your business, right? There's no shortage of new customers."
+    },
+    {
+      "start": 621.59,
+      "end": 623.23,
+      "speaker": "robert-ross",
+      "text": "For Firehydrant, that's for sure, yeah."
+    },
+    {
+      "start": 623.23,
+      "end": 624.07,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 624.23,
+      "end": 681.99,
+      "speaker": "robert-ross",
+      "text": "You know, I think that software is kind of this interesting, there's like two sides of it I think for reliability. There's the software engineer's point of view, the person that built it, their perspective of its reliability and then there's like the customer's perspective of its reliability and I've said this in various forms but you know, I was at DO for a year and a half, right, like not super long but we had some insane incidents while I was there and while I was on call and then my next gig, I was at namely HR and our incidents were really different actually because we were a payroll company and our software could be fine but maybe there was an operations mistake and then the perspective from the customer was holy crap, this is the worst thing ever. We actually had an outage or excuse me, not an outage, we had a day where our payroll software didn't pay an entire company."
+    },
+    {
+      "start": 682.87,
+      "end": 683.71,
+      "speaker": "adam-stacoviak",
+      "text": "That's bad."
+    },
+    {
+      "start": 683.71,
+      "end": 765.15,
+      "speaker": "robert-ross",
+      "text": "That's bad. That's a catastrophe. That's a catastrophe and for sure and the reason wasn't because our software messed up actually, it's because we had like payroll experts on the side, there was just a human, just like a very casual, not a big deal mistake where it didn't hit submit, you know, simple mistake, right, like but to the customer, they were like your software didn't pay us and we're like, we didn't push submit to say we need to do the ACH transfers on our side and so our CEO actually got a keg of beer, it was a local company in New York City and they went to their office with a blank checkbook and said I will pay people here and now if you need it today. That incident always kind of stuck with me because that wasn't a software outage, but it was an incident and kind of like lends to the fact of like, you know, these perceptions are, there's a lot of challenges to where the outage really is occurring, is it on the software side, is it on the customer side, is it the customer maybe accidentally misconfigured the software and it's doing something that they're not expecting and they're calling it an incident, but it's you saying no, it's misconfigured, so I don't know, I think that software reliability just has so many different like angles to it, but at the end of the day, the only opinion that matters is the people using it, what's their perception of reliability?"
+    },
+    {
+      "start": 765.19,
+      "end": 834.73,
+      "speaker": "adam-stacoviak",
+      "text": "Right, I guess that basic question is at what point does an incident go from the software layer to the business layer? I mean, I don't think they're necessarily synonymous, but in a lot of cases, the business is powered by the software, so if it's a software issue, it's a business issue, but you know, in this case, it was a human error, so there wasn't like a century alert, right, or some sort of error that bubbled up that creates something else that says okay, this was born in software, it was born really in probably the realization of the CEO and his employees or his or her employees that hey, what happened, why don't we get paid, where did things go wrong? So like the alert was the human error and the human probably saying hey, this didn't actually work out, so at what point does an incident or a platform that helps companies really reliably deal with software incidents transcend that one particularly into the business realm, like is that, how do you do that? Do you track that into something like Firehatch and is it equipped for that kind of level of a business incident?"
+    },
+    {
+      "start": 834.73,
+      "end": 958.69,
+      "speaker": "robert-ross",
+      "text": "I think that if you're calling it an incident, it's almost certainly a business incident. I mean, I think that every incident erodes trust either externally or internally and you have to, if you're counting it as an incident, it's also an admission that there's business impact, I think is maybe one way of saying it and on the notion of human error, there's a lot of debate on is there such thing as human error, there's references on it and things like that, I don't know, I'm kind of in the camp of yes, there is, but it's not like ill-intentioned, if someone doesn't push the button when they're supposed to, yeah, that's an error, it's by a person, I don't know how else to how else you could argue that. I think that what we should get better at is making software prevent, like be better at preventing those types of mistakes. I think that's really what matters more. But yeah, I mean, from the way that I also think about incidents nowadays, I used to be in the camp of like never let a customer report an incident to you and man, that's just like so false. You can't, it's not possible, right? If you think about it, all these systems like a Sentry error, Datadog monitor, say another tool, Chronosphere maybe is a new one, if that's alerting you to a problem, do you know why it alerted you? Because a user triggered an error that sent a log line or something into the observability tool and then it notified you. It's hard to know about an incident before a customer does because the customer is the one that triggers you to even know that there's an incident. I was at a conference and it was this great analogy of like, if I'm on a bridge and the bridge collapses, I'm gonna know before you. So like this idea of like trying to get the incidents before people is just like not possible."
+    },
+    {
+      "start": 958.69,
+      "end": 991.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm falling here, so that makes sense. What you're talking about with the button pushing, for example, in payroll, I would imagine is an idea of grace period, right? Every month, well, every 30 days, I suppose February is the anomaly, but every 30 days-ish, there's a grace period of this thing should run and that thing is called payroll. And if it didn't run, that should trigger some sort of awareness to somebody saying, hey, payroll didn't run, why?"
+    },
+    {
+      "start": 991.09,
+      "end": 1080.19,
+      "speaker": "robert-ross",
+      "text": "Yeah, because then you can fix it, right? Like you have a window of opportunity to address the situation. You can do a wire transfer if you really need to and fix it that way. Yeah, I think that that is the answer for a lot of these problems. I think grace periods, retries is how software is gonna have to start having this next iteration on it. Software used to, and still mostly is, I would say, is pretty unforgiving. Like you tell it to do something, it's gonna do it. And if you don't tell it to do something, it's not gonna do it. And there's this new kind of middle ground where software, what's happening is software is getting better at reminding you that you haven't done something. You can see it kind of all over the place. If you left something in your shopping cart, that's more of a marketing reason, but if you leave something in your shopping cart, sometimes you'll get an email saying, you didn't click submit. And that has saved me a couple times, honestly. Amazon has sent me emails saying, you didn't click submit. I'm like, oh, that's why I don't have any paper towels. Like, right, and I think that's kind of like the middle ground that we're gonna have to start building into our software for our users is gentle nudges, reminders that, hey, our software won't do anything until you tell us to do it, which I think is a fine middle ground between us and the human. We can't predict what humans actually want. Maybe they wanted to abandon their cart."
+    },
+    {
+      "start": 1080.19,
+      "end": 1125.24,
+      "speaker": "adam-stacoviak",
+      "text": "Not yet, man. This AI stuff is quite compelling. And it's only getting better. I actually just pushed submit on the latest Practical AI podcast, which is one of the shows here on the Change All Network and the title of it, it's a fully connected episode. So Chris and Daniel are the hosts of that show. And it was about computer vision being in quotes alive and well. And they were just seeing how, you know, everyone's hyped about generative AI, but meanwhile, you're sort of looking at that lens of artificial intelligence. It's this whole other area that researchers are working on, and it's actually very practical to look at computer vision and its advancements. And so that's a pretty interesting thing. Like it gets to be predictive based upon what it sees."
+    },
+    {
+      "start": 1125.24,
+      "end": 1132.21,
+      "speaker": "robert-ross",
+      "text": "Yeah, what do you think's gonna happen with all the computer vision stuff and advancements?"
+    },
+    {
+      "start": 1132.21,
+      "end": 1182.06,
+      "speaker": "adam-stacoviak",
+      "text": "Oof, I would say listen to the episode. Yeah, that's good. I would say something I saw recently, and it was kind of like, this is where I like, so I'm wearing actually the T-shirt right now. We were at a conference called That Conference in February. It was late, you know, it was like early February. And I had a conversation there with two folks around ag tech, so agricultural tech, around, you know, farming and plants and growing and food production and the whole food system, et cetera. And the one cool thing that I've learned recently about computer vision is they have this thing that just like, I don't know, a vehicle or something that like goes over the plants and it uses computer vision to determine what is the plant that needs to keep growing and what is the weed. And it zaps it with a laser."
+    },
+    {
+      "start": 1182.06,
+      "end": 1182.9,
+      "speaker": "robert-ross",
+      "text": "It's crazy."
+    },
+    {
+      "start": 1182.9,
+      "end": 1198.1,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, it's industrial scale level, but at some point that will be available for my backyard. And I'll be so excited because I will stop doing pre-emergence. Yeah, I get to zap them in their tracks with my RoboLaser all-in-one lawnmower, you know?"
+    },
+    {
+      "start": 1198.1,
+      "end": 1237.8,
+      "speaker": "robert-ross",
+      "text": "It'll be like a post in the middle of your yard that like just does it all day, all night without you need to do anything. Might be an eyesore, but yeah, I think that's so cool that the computer vision stuff is really awesome. And I think the next iteration of it too is like the embeddings that you can create, like the vectors that you can create from images and do like similarity searches on images now is just mind-boggling to me how good it is and how fast it is too. It's like math that I didn't pay enough attention for that kind of math."
+    },
+    {
+      "start": 1237.8,
+      "end": 1277.3,
+      "speaker": "adam-stacoviak",
+      "text": "Does that make you wish you had chosen a company direction that was more physical than, not safe, ephemeral, but it's in the, we can't see what your company prevents. It's all in the, it's in the mist. You know, it's behind the scenes. It's hidden, you know, in the digitals, the ones and zeros, the bites, you know? Whereas like if you were an agricultural technologist, so to speak, then you could be creating or working with that kind of thing. You know, I mean, even, I guess it's interesting to even think about like incidents in there. Like, oh my gosh, we're zapping the wrong plant. That's an incident, right? Like raise the flag, right?"
+    },
+    {
+      "start": 1277.3,
+      "end": 1288.38,
+      "speaker": "robert-ross",
+      "text": "We zapped our strawberries instead of the weeds. And that would 100% be an incident, right, for a farm. That would be. Maybe we should figure out this ag tech company and reach out to them, but."
+    },
+    {
+      "start": 1288.38,
+      "end": 1302.5,
+      "speaker": "adam-stacoviak",
+      "text": "It's so booming, like whatever's happening there. Cause somebody's gotta be alerting that stuff, right? It's not a cloud stack that you're worried about or a trace to a front end or a replay to worry about. It's like legitimately in the physical real world."
+    },
+    {
+      "start": 1302.5,
+      "end": 1333.84,
+      "speaker": "robert-ross",
+      "text": "Yeah, and I've seen this video and it is wild how like close these weeds are to the actual, you know, vegetable or agriculture they're farming. So it does make you wonder, like, does it miss? What's the SLO for a weed laser? Like, is it supposed to be 90% accurate? Is it supposed to be 10% accurate? Like what's the SLO on it? And at that point, I think it goes back to the farmer is definitely the one reporting that incident. Probably not the machine itself."
+    },
+    {
+      "start": 1333.84,
+      "end": 1348.44,
+      "speaker": "adam-stacoviak",
+      "text": "Although it could have a second camera that, that, you know, one camera is computer vision to say what to target. And the next camera is after the fact of saying checks and balances, you know, like almost a garbage collection in a way, you know, in the same way."
+    },
+    {
+      "start": 1348.44,
+      "end": 1351.22,
+      "speaker": "robert-ross",
+      "text": "Real user monitoring, you know, rum monitoring."
+    },
+    {
+      "start": 1352.14,
+      "end": 1355.06,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Did we zap the right thing or not?"
+    },
+    {
+      "start": 1355.06,
+      "end": 1356.4,
+      "speaker": "robert-ross",
+      "text": "Yes or no."
+    },
+    {
+      "start": 1356.4,
+      "end": 1377.94,
+      "speaker": "adam-stacoviak",
+      "text": "I'd imagine my SLO if I were targeting would be like anything above letting these weeds go rampant or using substances or chemicals that prevent them, you know, what's the, you know, what's the delta between the other options essentially. Like as long as it's, you know, above or below that, like below that threshold in that case, I'd be like totally happy."
+    },
+    {
+      "start": 1377.94,
+      "end": 1378.78,
+      "speaker": "robert-ross",
+      "text": "Yeah."
+    },
+    {
+      "start": 1378.78,
+      "end": 1379.7,
+      "speaker": "adam-stacoviak",
+      "text": "As a farmer, you know?"
+    },
+    {
+      "start": 1379.7,
+      "end": 1439.43,
+      "speaker": "robert-ross",
+      "text": "Yeah. That was a lot of waste I'm sure too, unfortunately. What's your question around like what, would I like to do something physical? I think that what we are doing has physical impact. Is it a thing I can hold and, you know, touch? No, right? That's why we make cool shirts. But instead, like, I don't know, I can't say the companies, the really big ones that use us, but every single day I'm using a product that fire hydrant helps them with incidents. From streaming services for a few folks to some, you know, other big, big companies. And I kind of look at that as a major win. Like that's the physical component that we have. Yeah. It's like, oh, this software that I use every day is working right now. And if it stops working, I know that they have a tool that's gonna help them get it going faster again. So that's how I find my joy with our product in the physical world."
+    },
+    {
+      "start": 1439.43,
+      "end": 1452.79,
+      "speaker": "adam-stacoviak",
+      "text": "I'll concede that for sure. While you don't specifically work in the physical, you enable brands, services, products that do have a real world physical impact."
+    },
+    {
+      "start": 1452.79,
+      "end": 1453.71,
+      "speaker": "robert-ross",
+      "text": "Yeah."
+    },
+    {
+      "start": 1453.71,
+      "end": 1473.71,
+      "speaker": "adam-stacoviak",
+      "text": "That's pretty cool. I mean, software that's useful that actually manifests itself into the real world, that's what software's for, right? It's not just like a dev tool in that case, which I don't mean as a pejorative, just a dev tool, but like a dev tool is kind of in the bites and the bits, not so much in the physical. It's a tool that helps with the tools be better, you know?"
+    },
+    {
+      "start": 1473.71,
+      "end": 1518.23,
+      "speaker": "robert-ross",
+      "text": "I think that's because we sell to businesses, right? We're B2B and some companies are B2C. And I think it's rewarding. You have to like search for that, I think, as a founder or employee of a company selling B2B software. It's like, what is the secondary effect of our software? And we have to look at our customers and go, their customers are getting a benefit by using our tool. And in that scale, like it's hundreds of millions of people that have a secondary effect from fire hydrant. You know, that's what makes me happy. And once I like had that realization, I was like, oh yeah, this is cool. Like we don't need 10,000 customers. We can have a pretty small set and have a massive impact on the world."
+    },
+    {
+      "start": 1519.59,
+      "end": 1548.11,
+      "speaker": "adam-stacoviak",
+      "text": "I suppose speaking of that notion, I mentioned that it's been a couple of years since we spoke. I'd imagine that you've learned some things. I'd imagine that the company has grown. I'd imagine that you've improved and added things. Take me down a journey. What have you learned? How have you grown? How have you personally grown in your own skillsets as a leader? Have you gotten better, worse? How would you grade yourself? Wherever you wanna go."
+    },
+    {
+      "start": 1548.11,
+      "end": 1549.83,
+      "speaker": "robert-ross",
+      "text": "Oh, wow."
+    },
+    {
+      "start": 1549.83,
+      "end": 1551.83,
+      "speaker": "adam-stacoviak",
+      "text": "Do you grade yourself? Do you give yourself a score?"
+    },
+    {
+      "start": 1551.83,
+      "end": 1553.95,
+      "speaker": "robert-ross",
+      "text": "I do, yeah. I'm very critical of myself."
+    },
+    {
+      "start": 1553.95,
+      "end": 1554.87,
+      "speaker": "adam-stacoviak",
+      "text": "Are you hard on yourself?"
+    },
+    {
+      "start": 1554.87,
+      "end": 1765.05,
+      "speaker": "robert-ross",
+      "text": "I am. I don't know what like dial I wanna put this out right now. Like 11 or maybe like a seven. I'll put it at a seven. I think that for the last two years, the company has matured in a lot of ways. When Firehedrant started, I was 28, 27 maybe. Actually, I think I was 27. 27 is pretty young, right? Like you have a lot of life ahead of you. And there's certain experiences you just haven't had yet. And so when you're starting a company and you haven't had those experiences yet, this is why second time founders always get better terms in their companies. And actually the most successful companies, Harvard Business did a review on this. They said that companies with founders that start in their 40s actually have a way higher success rate. And the reason for that is experience. So in the last two years, I would say that that experience has been very material. I've learned a lot. I've gotten better at certain things. There's still a list of things I wanna get better at. But I would say that the one that I've really settled into is being yourself is important and not sacrificing the things that give you a lot of joy in the company just because, I don't know, the broader environment would suggest that you should. Like it feels faux pas for the CEO to be in the code writing code still. But like, oh yeah, there's still features I build. And I love that. And if you take that away from me, you're actually just taking away a part of me, something that makes me happy. And about a year and a half ago, two years ago maybe, I said, I'm gonna stop writing features. I'm gonna stop. I'm gonna remove myself from the code base. I actually had IT revoke my access in Okta. It lasted a month. I was so depressed. I was sick. I gotta write code. And that was when I realized like, I just gotta make sure I continue doing the things that make me happy. Cause then the negative impacts impact the whole company. I have to reign it in. And I have to be careful with what I build and what autonomy am I accidentally stripping away from other engineers in the company. So now I try to pick up like smaller things that I see. Like maybe a bug or a little mini feature that I think would make a customer happy. Like I'll go do those things. And it's a nice balance that we have to strike. I think that another thing that like has helped a lot is being clear in what you're doing on a more shorter term basis. I think it's common for founders to speak too big, at least for me. Like I'm really pie in the sky, really magical thinking. But not giving the steps to get there one by one, quarter by quarter, brick by brick, like is detrimental. It means that your company and the people in it won't feel like they have a path to walk down. And they're like walking through a swamp, hacking down thickets to try to get somewhere. And they don't even know if they're going in the right direction. So I'd say in the last year and a half, especially the company has gotten a lot better at that. With me just saying, we're gonna do this revenue number this quarter. We're gonna do a hundred product improvements and XYZ. And it's quarter by quarter, gets reminded every single company update. And that has been a very material change in the business. And it was a super easy low lift thing for me to do. I just had to learn to do it."
+    },
+    {
+      "start": 1766.05,
+      "end": 1812.06,
+      "speaker": "adam-stacoviak",
+      "text": "What's up friends. This episode is brought to you by Image Proxy. Image Proxy is open source and optimizes images for the web on the fly. It uses the world's fastest image processing library under the hood, LibVeeps. It makes websites and apps blazing fast while saving storage and SaaS costs. And I'm joined by two guests today, Sergei Alexandrovich, author, founder and CTO of Image Proxy and Patrick Byrne, VP of engineering at Dribbble, where they use Image Proxy to power the massive amounts of images from all of Dribbble.com. Sergei, tell me about Image Proxy. Why should teams use this?"
+    },
+    {
+      "start": 1812.06,
+      "end": 1835.26,
+      "speaker": "robert-ross",
+      "text": "Everyone need to process their images. You can just take an image and just send it to user's browsers. Cause usually it's a megabytes of data. And if you have lots of images like Dribbble does, you need to compress and you need to optimize your images and you need them in the best quality you can provide. That's where Image Proxy shines."
+    },
+    {
+      "start": 1835.26,
+      "end": 1839.36,
+      "speaker": "adam-stacoviak",
+      "text": "Very cool. So Patrick, tell me how Dribbble is using Image Proxy."
+    },
+    {
+      "start": 1839.36,
+      "end": 1843.6,
+      "speaker": "robert-ross",
+      "text": "Being a design portfolio site, we deal really heavy in all sorts of images"
+    },
+    {
+      "start": 1843.6,
+      "end": 1892.22,
+      "speaker": "adam-stacoviak",
+      "text": "from a lot of different sizes, levels of complexity. And when we serve those images to the users, those really have to match exactly what the designer intended. And the visitors need to receive those images in an appropriate file size and dimensions, depending on whatever their internet connection speed is or where their device size is. And that was just a constant struggle really to really thread that needle throughout the course of the platform, using a handful of different tools in maintaining that right balance of a high degree of fidelity, high degree of quality without sacrificing the visitor's experience. And when we were exploring using Image Proxy, we were able to spin up using the open source version of the product, a small ECS cluster, to just throw a few of those really tough cases that went through our support backlog, looking at some of the cases people were reporting and almost to a T, we aced every one of those cases."
+    },
+    {
+      "start": 1892.22,
+      "end": 1894.34,
+      "speaker": "robert-ross",
+      "text": "Wow, so it seems like Image Proxy"
+    },
+    {
+      "start": 1894.34,
+      "end": 1918.48,
+      "speaker": "adam-stacoviak",
+      "text": "was really impressive to you. Yeah, Adam, I just have nothing but positive things to say about using Image Proxy. The documentation is crystal clear, out of the box, it does everything you need it to. Tweaking it to meet your specific needs is incredibly easy, it's wicked fast, it deploys real simple, and our compute costs have gone down over the open source tools that we've used in the past, even including the Image Proxy Pro license,"
+    },
+    {
+      "start": 1918.48,
+      "end": 1929.78,
+      "speaker": "robert-ross",
+      "text": "it still costs us less to use and gives our visitors a better experience. So as an engineer, I like using it, and as an entering manager, I like what it does to our bottom line."
+    },
+    {
+      "start": 1929.78,
+      "end": 1999.02,
+      "speaker": "adam-stacoviak",
+      "text": "So Image Proxy is open source and you can use it today, but there's also a pro version with advanced features. Check out the pro version or the open source version at imageproxy.net. The one thing I love so much about this is that no matter which you choose, the open source route or the advanced features and the pro version, you use the same way to deploy it, a Docker image, one that is from Docker Hub that everybody can use, it's open source, or one that's licensed differently for those advanced features, that's the same delivery mechanism via Docker Hub. It's so cool. Once again, imageproxy.net, check out the demo while you're there, and check out the advanced features for the pro version. Once again, imageproxy.net. How is the company led? Is it led fully by you? Not so much that every decision is made by you, but the direction, are you the rudder? If you say go left, everything goes left. Is there any red tape, board, anything that's preventing you from casting vision and helping your team give that path to apply?"
+    },
+    {
+      "start": 1999.02,
+      "end": 2096.87,
+      "speaker": "robert-ross",
+      "text": "I think it's a little bit of both. I think that as a CEO, I do have a board. I have three board members, all investors in the company. We've raised a good amount of money, and you wanna make sure that everyone is aligned to a big bet before you make that bet. You wanna make sure that everyone, and you need to be able to explain why you wanna make that decision, and it's a good forcing function, honestly. For me, about a year ago, I said we need to build on-call. That's where the market's going. I wanna be the first there, and I had to do a lot of work to get people onto that page. It's like on-call, you've got this big incumbent out there, publicly traded, there's a couple of others. How are you gonna do it? And it was a lot of work, but ultimately, it was me saying, I wanna do this. I think it's the right thing. I'll do my best to build the trust into why I think this is the best thing, but ultimately, it is the CEO's job to make the call, and sometimes that call needs to be made faster, and luckily, we did this so fast a year ago that it was easy to get the conviction to go that direction. So I would say a little bit of both, and sometimes I have to restrain myself. There's things I wanna do that you don't have time or capacity or really a clear enough picture even to make that call, and I did that early on at the company. I think that four years ago, I was kinda shooting from the hip on more things and built some things that I would take back. Honestly, I would un-ship them if I could."
+    },
+    {
+      "start": 2096.87,
+      "end": 2103.8,
+      "speaker": "adam-stacoviak",
+      "text": "Interesting. Can you name any of these un-ship things that you might un-ship? What would it be? Is it big?"
+    },
+    {
+      "start": 2103.8,
+      "end": 2163.62,
+      "speaker": "robert-ross",
+      "text": "Is it small? No, there's a couple of small ones. We have some stuff that is just kinda confusing in our product that I would probably either decide, do we wanna reinvest in this idea? Did this idea have merit? Or is it just code that's in our way to building something else right now? I'll say one. We have service dependencies in Fire Hydrant. You can actually link services to each other. I would say we went 50% of the way with that. It's not automated. It doesn't link into a service mesh, so it automatically creates those links for you. There's a UI for it that you kinda have to do it. And it's just missing things. So again, you have to just decide, do we wanna invest in this thing that's sitting there? Is it a house that's in disarray that no one's lived in for three years and we're trying to buy it and fix it? Or do we level it and clear that land for something else on top? You just gotta make that call. We have a few of those around our app. We've been around over five years."
+    },
+    {
+      "start": 2163.62,
+      "end": 2181.22,
+      "speaker": "adam-stacoviak",
+      "text": "For sure. Can we talk about, I suppose, then to now? Again, back to talking two years ago, scale. What size was the company then? What size is the company now? What's the challenge to managing the current scale? How have you learned to manage the current scale?"
+    },
+    {
+      "start": 2181.22,
+      "end": 2292.82,
+      "speaker": "robert-ross",
+      "text": "Our scale a few years ago, we were in the good amount of revenue. And we had, I wanna say, 45ish employees two years ago. We've got 63 today, and so we've had some modest growth. We were impacted by some of the conditions and did have to let go of a few amazing folks in the past. But that is always challenging. But I think that the learning from that is don't grow too fast with your head count. Stay super focused. Pick a mountain to climb and don't stop until you climb it or until you don't have a good reason to climb it anymore. And I think that comes with the scale of Fire Hydrant at this point is we service, we have a lot of people that use our products. We have a lot of massive companies that use our product. And when you're operating in that segment, the scale that you have to operate has to change. You have to have people that have been there, done that. You can't have a team that hasn't worked with a multinational, publicly traded, multi-billion dollar company. You have to have people that have worked with that type of client. And I think that we have gotten really good at finding and knowing that we should be building that type of team. We've gotten clarity on that. I think in the past, I don't think you can scale without clarity. And I think three years ago is when I would say we needed to get better at it then. And we've gotten, I would say, really good at it lately. Our team has been crushing a lot of features. I mean, we built an on-call product. We launched that when GA recently and we did not focus on anything else. We only focused on that for months. And I think a payout is obvious and now we don't want to build anything differently. Like we want to use that same method moving forward."
+    },
+    {
+      "start": 2292.82,
+      "end": 2305.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Describe clarity. How do you get to clarity? What exactly, in quotes, is clarity? I mean, I get it, but when you say that, help me understand how things became less opaque and more clear for you."
+    },
+    {
+      "start": 2305.56,
+      "end": 2404.76,
+      "speaker": "robert-ross",
+      "text": "Early on, Fire Hydrant was a lot, I mean, before it was even a company, Fire Hydrant was a side project. And for me, it was a, wouldn't it be cool if, and that was kind of like the product motto. Like, wouldn't it be cool if we did this? And the clarity comes from when you start asking that question paired with what problem are you trying to solve? Are you trying to solve a, are you trying to innovate something? Are you trying to offer a product that's better for a better price? That was our choice. And you need to pick the problem, be really clear on that, or you're not gonna clearly solve it. You're gonna build something that's really nebulous. I think of it like a noble gas. Noble gas will expand to the space that it's in. And if you have a really giant, let's use like a football stadium, like a covered football stadium, the gas will expand to the whole space. So you need to pick like, are you trying to fill a football stadium? Or are you trying to fill like a little tiny box? Because you don't have that much gas to go in with in the first place as a startup. So if you're gonna concentrate on something, like you need to pick the space that you want to fill out. And I think that that clarity is extremely necessary. Or you will suffer from things taking too long. Really trying to do too much has a confusing, like an identity problem. Like if you build a feature that's trying to do too much, it has an identity problem. So I think that you just have to get super clear on something. What is the problem you're trying to solve? And every once in a while, it's okay to say, wouldn't it be cool if, but you should pair it with something else."
+    },
+    {
+      "start": 2405.67,
+      "end": 2433.76,
+      "speaker": "adam-stacoviak",
+      "text": "What do you do to keep everyone so focused? Like at your scale, 60 some people in the company, you cast a vision, you laser focus for months, you ship it, you're happy with that. You want to keep rinsing repeating that process again. What are some of the like literal tools behind the scenes? Like do you guys just use a ton of Google docs? How do you keep people informed? How does communication happen? That kind of stuff."
+    },
+    {
+      "start": 2433.76,
+      "end": 2521.88,
+      "speaker": "robert-ross",
+      "text": "Yeah, I mean, our tool chain is probably similar to what others have. We have Jira, Slack, Zoom. We have Google docs for a lot of stuff. We have, you know, the normal tool chain. I would say we don't use email. Fire Engine doesn't use email really. It's used for some stuff with different teams. My role in keeping the trains on time is honestly more in having just a kick-ass like team around me. There are limitations to what a single person can do. And having the executive team at Fire Engine that we do now has been like life-changing for me. Like I don't think about sales. I don't think about marketing. I'm a new VP of engineering. That like lets me not think about engineering a lot. And that means that I can go focus on, because the next obvious question is, well, what are you thinking about? You know, I'm thinking about making, yeah. So, you know, it kind of frees me up to think about, well, what's Fire Engine in two years, not two days? What is our financing? Like, what's that look like? What do we, we need to do XYZ or something bad will happen. Like, those are the things that I can focus on now. And the only way you can achieve that is by having an awesome fricking team. So for any founder listening to this, like build a great team. That's the only way you can scale. That's the only way you can manage beyond like 50 people."
+    },
+    {
+      "start": 2521.88,
+      "end": 2559.92,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, that seems like obvious advice to some degree, but at the same time, it's not obvious. And then the next question is, how do you pay for it? Right? I mean, you obviously raised money, so that's one way to pay for it. And then I think, I can't recall if when we talked before, you said you were cashflow positive. I don't know. You can share if you are or not, but I know you were winning good contracts and multi hundreds of thousands of dollars in contracts, I think you said in the conversation, if I recall correctly. To build a team, you have to be able to afford a team. So that's gonna have the battle sometimes too. It's like, I know where I wanna go, but I gotta have money to get there and I gotta sustain."
+    },
+    {
+      "start": 2559.92,
+      "end": 2564.36,
+      "speaker": "robert-ross",
+      "text": "Yeah, money is commonly a limiting factor for any startup, right?"
+    },
+    {
+      "start": 2564.36,
+      "end": 2565.2,
+      "speaker": "adam-stacoviak",
+      "text": "Absolutely."
+    },
+    {
+      "start": 2565.2,
+      "end": 2574.02,
+      "speaker": "robert-ross",
+      "text": "I think it's a good one though, because again, that forces clarity. Like, okay, if we can only build one thing, which one are we building? And you gotta be really clear on it."
+    },
+    {
+      "start": 2574.02,
+      "end": 2574.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2574.86,
+      "end": 2673.63,
+      "speaker": "robert-ross",
+      "text": "I don't know. Maybe this is what the question is really asking, but I think that compensation policy for me is like, it should be worth it. It should be worth paying people great salaries. Otherwise, why would you try to get a really good person for like a cheapskate compensation? That doesn't make sense to me. You're not gonna get that person. Really good people will know that they're really good and will know their value and they will ask for more money. But you have to ask yourself, okay, if I think that this person is going to do, let's use a salesperson. If I think this salesperson who has a quota of, let's just use a million dollars for sake, their quota is a million dollars a year. And I think that they are gonna have a better odds of achieving it, 50% better odds of achieving it if they get paid $20,000 more a year. Why would you not do that? Why would you ever nickel and dime to that degree if you have 50% better odds of achieving a million dollars? And I think that you need to apply that logic across a lot of facets of the business. I think you need to think that way with every department. And we have had great salaries and compensation at Fire Hatred since the beginning. We have always aimed at paying people very fairly. We do not have regional salaries. If you are in Oklahoma, you get paid the same for the same title and the same job as someone in New York. And that's just a policy we've had since day one because we pay for the work. I think that's the philosophy that I'm actually pretty proud of that we've maintained that."
+    },
+    {
+      "start": 2673.63,
+      "end": 2688.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, for sure. Well, for somebody who likes to be in the code so much, you're certainly not in the code as much given that you're focused on two years. I suppose that could be somewhat code-related but not actually building features."
+    },
+    {
+      "start": 2688.09,
+      "end": 2690.05,
+      "speaker": "robert-ross",
+      "text": "It was Robert after dark is the joke."
+    },
+    {
+      "start": 2690.05,
+      "end": 2691.43,
+      "speaker": "adam-stacoviak",
+      "text": "Was that, what's the joke?"
+    },
+    {
+      "start": 2691.43,
+      "end": 2702.31,
+      "speaker": "robert-ross",
+      "text": "It was Robert after dark. That's when I crack a bourbon open or a scotch and watch it, sit on the couch and write something."
+    },
+    {
+      "start": 2703.27,
+      "end": 2705.06,
+      "speaker": "adam-stacoviak",
+      "text": "You have any hobbies?"
+    },
+    {
+      "start": 2705.06,
+      "end": 2714.08,
+      "speaker": "robert-ross",
+      "text": "Writing code. No, I do, I have a photography hobby. I love skiing. I actually have all of my camera lenses on my desk right now."
+    },
+    {
+      "start": 2714.94,
+      "end": 2717.26,
+      "speaker": "adam-stacoviak",
+      "text": "Nice, are you Sony or Canon?"
+    },
+    {
+      "start": 2717.26,
+      "end": 2726.62,
+      "speaker": "robert-ross",
+      "text": "I'm Sony, I have a Sony A74R. It's a great camera, it's super versatile, can do so much with it."
+    },
+    {
+      "start": 2727.68,
+      "end": 2734.24,
+      "speaker": "adam-stacoviak",
+      "text": "I think mine is an A7R III, I wanna say. It's about four years old, three years old maybe. Marilis is my way."
+    },
+    {
+      "start": 2734.24,
+      "end": 2735.08,
+      "speaker": "robert-ross",
+      "text": "Marilis is great."
+    },
+    {
+      "start": 2735.08,
+      "end": 2739.04,
+      "speaker": "adam-stacoviak",
+      "text": "I'm a big fan of Sony. I'm actually looking to a Sony A6400, I believe."
+    },
+    {
+      "start": 2739.04,
+      "end": 2748.08,
+      "speaker": "robert-ross",
+      "text": "The A6400 is one I wanna maybe grab just to have as a webcam too. It's lightweight, it's got a great camera body on it, great resolution."
+    },
+    {
+      "start": 2748.08,
+      "end": 2749.08,
+      "speaker": "adam-stacoviak",
+      "text": "It does."
+    },
+    {
+      "start": 2749.08,
+      "end": 2751.56,
+      "speaker": "robert-ross",
+      "text": "And I can use all my lenses with it too."
+    },
+    {
+      "start": 2751.64,
+      "end": 2759.56,
+      "speaker": "adam-stacoviak",
+      "text": "I think I'm using a 24 mil, it's an APS-C sensor, so it's a 30 mil equivalent full frame."
+    },
+    {
+      "start": 2759.56,
+      "end": 2765.72,
+      "speaker": "robert-ross",
+      "text": "Do you have the Grandmaster, the 24 millimeter 1.4, this one?"
+    },
+    {
+      "start": 2765.72,
+      "end": 2776.8,
+      "speaker": "adam-stacoviak",
+      "text": "No, this is just a Zeiss, it's a tiny one. No, not a Grandmaster. That's a big one, that's heavy. It's a Sony, but it's a smaller one, it's not the GM."
+    },
+    {
+      "start": 2776.8,
+      "end": 2779.76,
+      "speaker": "robert-ross",
+      "text": "Zeiss though, that's a nice brand."
+    },
+    {
+      "start": 2779.76,
+      "end": 2797.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, for sure. Yeah, I love cameras too. I'll just ask you that because when you, I'm talking about clarity, and sometimes you get clarity by sort of stepping away to get unstuck. Sometimes we're stuck and we're not even, we don't even know we're stuck. Do you ever feel stuck?"
+    },
+    {
+      "start": 2797.84,
+      "end": 2798.76,
+      "speaker": "robert-ross",
+      "text": "Yeah."
+    },
+    {
+      "start": 2798.76,
+      "end": 2805.02,
+      "speaker": "adam-stacoviak",
+      "text": "In this vision casting, is it pretty clear for you to be visionary, to be a futurist?"
+    },
+    {
+      "start": 2807.16,
+      "end": 2890.72,
+      "speaker": "robert-ross",
+      "text": "Let me be opening myself up here, but I need to step away, I need to think. For me to think clearly, I need to disconnect. And that's why we have a policy at Firehedron, a minimum time off. You have to take at least three weeks off a year. It's something that we push. And I'm not excused from it, actually. And it's freaky for people, I think, that there's this hustle culture, especially in America, of if you're not working 80 hours a week as a startup founder, you're screwing up. And I take a more scientific view here. There's plenty of studies that say if you do that, you're eventually only working the equivalent of 40 hours a week anyways, or less. So why do that? Because you're so inefficient. You're so inefficient, right? So I've stepped away, I've done long ski trips before. I've done, in the duration of Firehedron, I did a trip to Argentina for two weeks in the early days. I've done trips to Scotland by myself. I've done, I mean, I did a really long working on the road, road trip, and had a couple days here and there. And honestly, at the time, it felt odd. I felt weird doing that. But I do not think that we would've been as successful if I hadn't. And it's a hard thing for founders to admit. It's an image thing, I think."
+    },
+    {
+      "start": 2890.72,
+      "end": 2900.32,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Do you hang out with other founders? What do you do to get some osmosis going on from other folks that are walking your walk?"
+    },
+    {
+      "start": 2900.32,
+      "end": 2952.94,
+      "speaker": "robert-ross",
+      "text": "I do, yeah. There's actually a weird cohort of people that were at DigitalOcean with me that are all founders. And I'm not kidding, it's not just one. It's like six, six of us that all work together, that all have companies. And all of them are doing oddly well. So DEO, back in the day, was like a breeding ground for founders, it felt like. Yeah, it was. Yeah, so we had like, yeah, I still have convos with conversations with folks. I went to meet up for a company called Vantage, cloud cost optimization tool here in New York City. Both the founders are awesome. And yeah, I like to stay in touch with those folks. It's really the only group that kind of understands some of the other hidden stresses of the job, I would say, that can actually kind of commiserate and be empathetic."
+    },
+    {
+      "start": 2952.98,
+      "end": 3016.14,
+      "speaker": "adam-stacoviak",
+      "text": "Do you get stressed out a lot? Do you stay pretty? How do you de-hulk the Hulk, so to speak? Do you do breathing tests? Do you control yourself? I know every night with my son, because I got a four-year-old, and my wife and I, we swap out. We have a seven-year-old going on eight. I might as well say he's eight, because tomorrow he's eight. But so we have an eight and a four-year-old in our house, both boys, and one son, one I'm with the other. And my one son doesn't like to do it necessarily. I think he does, but I don't know. It's a thing I've done with the other son, basically, is the long story short here. But it's a breathing thing. And since he's four, we take four good breaths. Okay, deep breath in. Hold it, hold it. And we just do four of those, because he's four. And for kids, obviously, if you take more oxygen into your body, it's easier for you to have a better brain, because it literally has more oxygen to feed itself, and to survive, and to thrive. I'm curious, what do you do to maintain your stress levels?"
+    },
+    {
+      "start": 3016.14,
+      "end": 3076.5,
+      "speaker": "robert-ross",
+      "text": "Yeah, I mean, there's a couple things I've done. And I've tried to get on the meditation train. Honestly, I struggle with just remembering to do it. But the one thing that I'm very consistent about is I go to a lot of concerts. And I mean a lot. And I'm a big pop punk fan, so I go to shows with like mosh pits and crowd surfing. It gets a little crazy, but it's a good release. You get to go listen to this angsty music, and that's just kind of my choice. And last year, I saw 24 concerts, and it's just a lot of shows, a lot of festivals. So I have, this year, I have five music festivals lined up all across the US, and one in England. And I have multiple shows that I already have tickets for. Like my Ticketmaster has a scroll bar of shows, so that's what I do is I go to a lot of concerts, yeah."
+    },
+    {
+      "start": 3077.42,
+      "end": 3087.26,
+      "speaker": "adam-stacoviak",
+      "text": "You ever come here to Texas, to Austin for ACL, or even South by Southwest? I know South by Southwest is mostly film and stuff like that. There's a lot of music around that, too, in that festival."
+    },
+    {
+      "start": 3087.26,
+      "end": 3103.64,
+      "speaker": "robert-ross",
+      "text": "I haven't been to that one, but I did go to Dallas last year for a music festival called So What Music Festival and a small little festival in Dallas. Had a bunch of bands that I love, and I said, yeah, why not? So my girlfriend and I, we flew down to Dallas for a few days and tried not to get injured."
+    },
+    {
+      "start": 3103.64,
+      "end": 3105.96,
+      "speaker": "adam-stacoviak",
+      "text": "There you go. Wow."
+    },
+    {
+      "start": 3105.96,
+      "end": 3107.8,
+      "speaker": "robert-ross",
+      "text": "It was hot, too. It was 116."
+    },
+    {
+      "start": 3107.8,
+      "end": 3173.48,
+      "speaker": "adam-stacoviak",
+      "text": "Very cool, man. I love that it's good to, it seems trivial in a way, but I think to test a leader is to also test how they take care of themselves and how aware they are of what they need to do to take care of themselves. And I always find myself, like I know, I have a saying that I've learned from other people, but it's, Adam, what are you optimizing for? If I know what I'm optimizing for, if I have clarity on what that goal is, whether it's specifically in one lane or just generally in my life, I know what I'm trying to do. I know how much time I'm trying to enable myself to have for the things I know I need to have to recharge and recoup and reconnect with people, with myself, et cetera. Like, I feel like you can really tell a leader, a good leader based on how aware they are of what they know about themselves to take care of themselves. And I think maybe 27-year-old Robert may have been less in tune with that, and I'm not sure how old you are now, but you're probably more in tune with that."
+    },
+    {
+      "start": 3173.48,
+      "end": 3221.32,
+      "speaker": "robert-ross",
+      "text": "33 as of a few days ago, actually, but yeah, I think I think- My birthday. Thanks. I think that that's, I think it's right. I mean, your body is, you do have to think of your body as a machine. What you put into it is what you'll get out of it. If you put crap in, you're gonna get crap out just in the way that data analytics works. Crap in, crap out. Same thing with Salesforce hygiene and marketing data and software. Like, it's always the same. If you put crap in, you're gonna get crap out. So you have to make sure that you put the good stuff in. You gotta put fulfilling things in. You gotta put good food in. You gotta exercise. You have to put exercise into your body. It's not exertion. You gotta put the exercise in. And that's been something that's definitely clearer to me now than I would say when I was 27."
+    },
+    {
+      "start": 3222.2,
+      "end": 3254.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's certainly true. I do wanna zoom back out again to the fire hygiene. Can we talk more about the state of better software, the state of incident management? Like, what opinions do you have? I know you're kinda obviously biased, but how do you feel about the state of tooling available for developers? And how do you feel? Like, if we're measuring, I suppose, success, or just, you know, judging ourselves, how do you feel fire hygiene is doing in that mission to help enable better software to be out there?"
+    },
+    {
+      "start": 3254.24,
+      "end": 3340.19,
+      "speaker": "robert-ross",
+      "text": "You know, I think there's a long but rewarding road ahead. We're really focused on the end-to-end experience right now with our software. Like, we really want people to have a one-stop shop, no swivel chair experience for incidents on call, retrospective status pages, tracking change events, all that good stuff. And we're well along the path, but there's a long ways to go. Ultimately, my kind of adjusted phrase is, the best incidents aren't ones that don't happen. And whatever we can do to accomplish that, we've got years ahead of us to build those things. And then, I think the state of the developer tools market is seeing something similar right now. I think that you need to have a platform play. Like, I think the era of small niche tools is hard to justify right now, just from a spend perspective, for the businesses that are purchasing them. And I think that for the larger tools that want to become big businesses with great returns, us being one of them, you kind of have to focus on solving multiple problems and solving them very, very well. So, on-call is our answer to that. That's the beginning of multiple other answers that we'll have throughout this year. We've got a lot of exciting stuff queued up."
+    },
+    {
+      "start": 3340.19,
+      "end": 3341.91,
+      "speaker": "adam-stacoviak",
+      "text": "So, more big features like this?"
+    },
+    {
+      "start": 3341.91,
+      "end": 3344.51,
+      "speaker": "robert-ross",
+      "text": "Some big ones in the bag, yeah. Yeah? Yeah."
+    },
+    {
+      "start": 3344.51,
+      "end": 3347.57,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. On-call's a big one for you guys. I mean..."
+    },
+    {
+      "start": 3347.57,
+      "end": 3379.13,
+      "speaker": "robert-ross",
+      "text": "On-call is not easy to build. It's tough. And I'm so proud of my team for building that functionality and built it with really good tech, really good testing, really good reliability, really good design. And we built an iPhone app and an Android app. That's pretty sweet too. So, that's not a small feature. There's a lot to do. But some of the next stuff I think is also just super exciting. We're on a mission here, right? Like, a world where software is reliable by default, that's, we gotta build a lot of things to get there."
+    },
+    {
+      "start": 3379.13,
+      "end": 3407.63,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Fans of Jelly, we had Nora on the podcast a while back. I was always a fan of her thinking. I suppose as you talk about the literal tools having to be not small anymore but come to a platform play, they were acquired by PagerDuty. Were you surprised by that? I'm not suggesting you have ill wishes, of course, but what are your thoughts, I suppose, on the acquisition of PagerDuty and Jelly?"
+    },
+    {
+      "start": 3407.63,
+      "end": 3492.03,
+      "speaker": "robert-ross",
+      "text": "Yeah, I mean, I think that Nora was the right person to build Jelly with that team. It had a lot of people that were very passionate about the space and the problem. We think that that's good for them to be acquired and I congratulate them. I think our play is just a little bit different, if I'm honest. I think that we wanna control our own destiny there. I do think that acquisitions are interesting for businesses. They can go really well or they can go really badly. There's companies that are really good at M&A. There are companies that are really bad at M&A. And candidly, PagerDuty just doesn't have enough for us to note yet. The only notable acquisition that I can think of from PagerDuty was Rundeck and Jelly was kind of the next one and that was years later. So I think that time will tell. I think that can you integrate Jelly into PagerDuty effectively in an amount of time that works really well for the business and the outcomes and the sales team is probably itching to get it because I can see from my perspective that there's a lot of people paying PagerDuty and a lot of people paying us at the same time. So you're gonna see a very interesting market because of that acquisition, not only from us but also our competitors too. So what do you do as well? You gotta go build something else as well, right? You gotta play the game. You gotta build a really awesome kick-ass on-call tool but there's a lot of other things that we'll have to build in the future to remain competitive and I think that that's obvious."
+    },
+    {
+      "start": 3492.03,
+      "end": 3696.37,
+      "speaker": "adam-stacoviak",
+      "text": "What's up, friends? This episode is brought to you by one of my good friends, one of my best friends actually, one of our good friends, Tailscale. And if you've heard me on a podcast, you've heard me mention Tailscale several times in unsponsored ways because I just love Tailscale and I reached out to them and said, hey, we're talking to a lot of developers. I love Tailscale. I'd love to have you guys sponsor us and they reciprocated. So what is Tailscale? Well, Tailscale is a programmable networking software that is private and secure by default which makes it the easiest way to connect devices and services to each other wherever they are. You get secure remote access to production, databases, servers, Kubernetes, VPCs, on-prem stuff, anything. It's fast, like really, really fast and you can install it anywhere. Windows, Linux, BSD, Mac OS, iOS, Android. It is an easy to deploy, zero config, no fuss VPN. It is zero trust network access that every organization can use. So what can you do with Tailscale? You can build simple networks across complex infrastructure. They have ACL policies to securely control access to devices and services with their next gen network access controls. You can replace legacy VPN infrastructure in just a few minutes. You can use device posture management to granularly restrict access to resources based on a wide range of attributes like OS version, user location and more. You can save time with a trusted and proven networking solution that just works. You can transform networking security with a modernized set of solutions built on revolutionary protocols designed for today's mobile and multi-cloud era. You can securely connect to anything no matter what operating system, hardware type or configuration is in place, such as your GitHub runner to a database on-prem. You can authenticate without authentication using Tailscale's app connectors. You can send files securely to any node on your tail net using tail drop. You can code from your iPad even with Tailscale and VS Code Server. There's just so much you could do with Tailscale. Like the limits are literally limitless and that's why I love Tailscale. I've got 28 machines personally that I manage on my tail net. And if you've heard me talk on the podcast, you've heard me mention Tailscale at least once or twice, but today you can try Tailscale for free up to 100 devices like me and three users for free at tailscale.com. No credit card required. Again, it's free up to 100 devices and three users all for free at tailscale.com. No credit card required. Have fun. What are your thoughts on, will you always build your own features? Do you think you have this? I suppose that level is not necessarily just build versus buy. It's build versus acquire, which is sort of buy, of course. But are you more in the camp of let's let us examine our hypotheses about X and then go build X? Or is it let's examine our hypotheses and go acquire? What are you feeling for your future?"
+    },
+    {
+      "start": 3696.37,
+      "end": 3863.43,
+      "speaker": "robert-ross",
+      "text": "We've thought about some small ones in the past. We've written them down as ideas, but the idea behind controlling your own destiny, I think is, I like building software that is yours. I think that acquisitions, again, like it can go a bunch of different ways. I've seen companies that try to fill a gap in their product by acquiring another one and it does not go well. It feels like, it still feels like two different products. It still behaves and is designed as two different products. And ultimately it becomes interesting, do you have a oil and water situation with the people that built that product and your team as well? Do they build software in the same way? And they may not have any animosity towards each other, but they're not interchangeable. So a good example is Namely. Namely has changed a lot since then. There was a merger into a larger company about a year ago. And we actually licensed the software for our payroll. It was not part of our Ruby on Rails app. It was a Ruby on Rails app. And then there was this other payroll software that was written in C-sharp and it ran on SQL server. And it was, we bought the code base and we used it for our payroll. And we suddenly Namely had payroll. But payroll was on Namelypayroll.com. And the HRIS system was on Namely.com. And our customers felt it, our engineers, it was like speaking different languages to each other, literally C-sharp and Ruby. And it took a very, very long time to finally start integrating those tools together like it was a multiple year project just to combine the authentication for those two tools together. So I had that experience. I've seen it a bunch of other times at other companies that I prefer if we can build it and we can build a good version in a year, it's likely more worthwhile, this is my perspective, it's likely more worthwhile to do that than to buy a company that air quotes fills a gap for you for a few years, but it's gonna rear its head at some point. I think a couple of companies have nailed this though. Datadog has some awesome, awesome acquisitions in the past that are integrated into Datadog that you wouldn't even notice. Like their logging tool, they bought a company that years ago that did logging, they didn't have it. They also, another company does as well as Salesforce, right, like Salesforce has a bunch of acquisitions. They buy multiple companies a year, but they have a muscle and energy to do that. So again, it really depends on the organization. I think for us, for the time being, we don't have an acquisition team, we don't have the muscle to do it. Probably a bad idea for us to try to mix in something just to cover off a gap when we could probably just go build it in some amount of time."
+    },
+    {
+      "start": 3863.43,
+      "end": 3878.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Any possible tease of the next big thing for you? I mean, I know since you're always, since you have an executive team that lets you have that freedom to think about two years from now, what is, what's two years from now, a version that you can share of it?"
+    },
+    {
+      "start": 3878.24,
+      "end": 3900.92,
+      "speaker": "robert-ross",
+      "text": "Yeah, I think the vision, the version of it is we help incident responders do a whole lot of things. We help them declare incidents, we help them get paged now, we help them do retrospectives, and something that we wanna do is like help the responder do more during the incident. And I'll say, we're gonna make it a lot easier during the heat of the fire."
+    },
+    {
+      "start": 3900.92,
+      "end": 3912.48,
+      "speaker": "adam-stacoviak",
+      "text": "I like it. I like how secretive you are of it, you almost have this, no one sees your face, I see your face, you have this confidence, but yet you don't wanna share too much. You're like, you know what, this is my secret. I'm not sharing all this."
+    },
+    {
+      "start": 3912.48,
+      "end": 3916.64,
+      "speaker": "robert-ross",
+      "text": "It's a competitive market right now, man. I've got competitors, they're gonna listen to this."
+    },
+    {
+      "start": 3916.64,
+      "end": 3926.8,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, they are. Can we talk about that? Do you mind like going one more layer? I mean, you just mentioned on-call because that's what you all built. Sure. Someone else just built on-call as well."
+    },
+    {
+      "start": 3926.8,
+      "end": 3928.34,
+      "speaker": "robert-ross",
+      "text": "Couple others built on-call."
+    },
+    {
+      "start": 3928.34,
+      "end": 3931.88,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know who all the others are, I only know of one other than the other incumbent."
+    },
+    {
+      "start": 3931.88,
+      "end": 3997.88,
+      "speaker": "robert-ross",
+      "text": "Yeah, yeah, yeah. I mean, look, I actually really respect those folks and I'll say it's incident.io, there you go. Steven and Evan and all those guys, Lawrence. Look, I think that's a great team. I think they've got a good product. I like competing with them. This is a big, big market. This is a multi-billion dollar market. By our math, this is a $20 billion market that we're going after right now. If each of us comes away with 3% of it, we'll come away with five and we'll come away with 10 at some point. I don't think anyone's gonna be mad about the outcome. So it's competitive, it's gonna keep being competitive for a long time. I think at some point, you're gonna see like a really clear distinction between the tools. But I mean, honestly, PagerDuty left this castle-sized gate down over their moat and you have us and a couple others sprinting across it to claim the land. That's been a little long in the tooth, a little asleep at the wheel. So that's what's gonna happen for the next year. It's gonna be very, very interesting."
+    },
+    {
+      "start": 3997.88,
+      "end": 4012.95,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. What do you think happened there to leave this castle-sized gate down over their moat, as you had said, to quote you back? What do you think happened there to like let that, who's letting that guard down? I mean, that's a guard down situation, right?"
+    },
+    {
+      "start": 4012.95,
+      "end": 4060.35,
+      "speaker": "robert-ross",
+      "text": "You know, it's hard to speculate and I don't have any ill wishes. I mean, that company, it's publicly traded. You can see all of it. It's hard to slander a company that's doing $450 million in annual revenue, right, worth billions of dollars. I do think that there is about to be a very tough moment where people are gonna start asking a question. I get asked that all the time and I'll be honest, I don't know, I really don't. I don't have an answer. I've written a blog post about this. People ask me why didn't PagerDuty build this and I just cheekily say like why didn't they build anything else? It wasn't just incident management. It was a lot of other things for years. Like status pages that only recently came out. Like status page IO came out and like obliterated the market that everyone had status page.io."
+    },
+    {
+      "start": 4060.35,
+      "end": 4062.51,
+      "speaker": "adam-stacoviak",
+      "text": "And Atlassian acquired them. And then Atlassian bought them."
+    },
+    {
+      "start": 4062.51,
+      "end": 4065.47,
+      "speaker": "robert-ross",
+      "text": "Probably eight years ago, right? Yeah, like five years ago, I think."
+    },
+    {
+      "start": 4065.47,
+      "end": 4066.31,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 4066.31,
+      "end": 4106.5,
+      "speaker": "robert-ross",
+      "text": "And the folks that built that tool like made out like bandits, they did a great job. And then you see tools like change events aren't being tracked for up until like last year. And fire engines had all those things for five years. So I don't really know. There's a lot of phrases I think that innovators dilemma probably is the most like apt one to use there. But I think at some point I would love to sit down and ask like what happened here? Was it technical debt? Like you just couldn't move? You're in a tar pit? Was it limitations of cash? I don't think it's that. Like I don't know. They really don't have a good answer here."
+    },
+    {
+      "start": 4106.5,
+      "end": 4109.42,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe I should get their CEO on a podcast."
+    },
+    {
+      "start": 4109.42,
+      "end": 4126.42,
+      "speaker": "robert-ross",
+      "text": "And Jen is great. And she's like honestly, she's great in person. She's great on all the things that she does. So I don't know. It's interesting. I mean, I think that us and the other folks that are kind of clamoring for this incident management space right now, it'll be interesting to see what happens in the next year."
+    },
+    {
+      "start": 4126.42,
+      "end": 4129.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, she may even have different opinions too. She may think that."
+    },
+    {
+      "start": 4129.66,
+      "end": 4133.34,
+      "speaker": "robert-ross",
+      "text": "She might come on and say Robertson. She may have a different vision, right?"
+    },
+    {
+      "start": 4133.34,
+      "end": 4134.82,
+      "speaker": "adam-stacoviak",
+      "text": "And she's like, you're behind."
+    },
+    {
+      "start": 4134.82,
+      "end": 4159.82,
+      "speaker": "robert-ross",
+      "text": "Yeah, right. You'll see. Look, I mean, again, you gotta look at the scoreboard. So 450 million in revenue. That's a lot. If one of us goes and gets 20% of that amount, like we're not complaining. So it's all about perspective. But I do think the next, again, I'll say it again and again and again. The next year or two, you're gonna see something change pretty quickly, I bet."
+    },
+    {
+      "start": 4159.82,
+      "end": 4184.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Maybe this is, I suppose, somewhat, I don't know how to describe it, I suppose, but at what point are you personally done with this mission? Like, what is done for you? The pie is baked. It's all over. Folks are, I don't know. I can't come up with an eating analogy that's any good, but let's just say it's done. The thing is done, right?"
+    },
+    {
+      "start": 4184.82,
+      "end": 4220.44,
+      "speaker": "robert-ross",
+      "text": "I don't think it's a goal. I don't think it's a target. I've been asked in the past, like, what is the, what's the goal here? Like, what's the acquisition or IPO? And my standard answer is I can't aim at either of those things. Those are the results of execution. So I just have to keep executing and one of those things will happen. And then beyond that, I don't know. I think it's a feeling. I think that you can see other founders and they'll write their departure blog posts and commonly you'll see the line, it's time. Like, it's just time, you know? You know when you know. I'm far from that, got a lot of gas in the tank and just want to keep going."
+    },
+    {
+      "start": 4220.44,
+      "end": 4222.56,
+      "speaker": "adam-stacoviak",
+      "text": "Do you enjoy being CEO?"
+    },
+    {
+      "start": 4222.56,
+      "end": 4247.4,
+      "speaker": "robert-ross",
+      "text": "I do, yeah. I mean, I think it's great when you have an awesome team to run up a hill together with. I think it's a fun space that I understand and experienced myself. It's fun working with the types of companies that we do, these massive companies, huge logos, paying a substantial amounts of money. Like that's fun. I want to keep doing that. So yeah, being the CEO of Firehydrant is really fun."
+    },
+    {
+      "start": 4247.4,
+      "end": 4260.52,
+      "speaker": "adam-stacoviak",
+      "text": "Do you watch much television, by any chance? Like TV episodes? It's not called TV anymore unnecessarily because it's not TV, but it's like episode stuff. Shows, I suppose, not movies. Do you watch much?"
+    },
+    {
+      "start": 4260.52,
+      "end": 4271.56,
+      "speaker": "robert-ross",
+      "text": "I just watched, I just got obsessed with a very subpar show, honestly, but it's Halo on Paramount. I played a lot of Halo as a kid. I played Xbox."
+    },
+    {
+      "start": 4271.56,
+      "end": 4281.2,
+      "speaker": "adam-stacoviak",
+      "text": "I'm looking forward to the movie. The movie trailer looked pretty good. And I'm a non-trailer watcher person. I don't like to watch trailers, but it ruins it for me. But what I did see looked pretty cool."
+    },
+    {
+      "start": 4281.2,
+      "end": 4304.48,
+      "speaker": "robert-ross",
+      "text": "I played so much Halo, man. So I started watching the series and it's, like I said, it's pretty subpar, but it's cool to see this world that I was so immersed in as a teenager come to life, right? And I think that's why I've spent, I was up until 3 a.m. two nights ago finishing it. Wow. Yeah, that's kind of what I watched."
+    },
+    {
+      "start": 4304.48,
+      "end": 4306.12,
+      "speaker": "adam-stacoviak",
+      "text": "Last watch to the end."
+    },
+    {
+      "start": 4306.56,
+      "end": 4314.52,
+      "speaker": "robert-ross",
+      "text": "And also Next Level's chef, Gordon Ramsay. Oh, you beautiful genius. That's like the best dumb food reality TV show. That's so good."
+    },
+    {
+      "start": 4315.48,
+      "end": 4334.86,
+      "speaker": "adam-stacoviak",
+      "text": "Wow, let's check that out. I asked that question to see if you'd, just by happenstance, mention Silicon Valley, the TV show. Because as we have this conversation and you look at your incumbents and the market share, et cetera, I just think to myself how if you, one, I suppose, did you watch that show ever?"
+    },
+    {
+      "start": 4334.86,
+      "end": 4338.76,
+      "speaker": "robert-ross",
+      "text": "I never actually watched Silicon Valley. I'm actually scared to."
+    },
+    {
+      "start": 4339.82,
+      "end": 4346.66,
+      "speaker": "adam-stacoviak",
+      "text": "No, you should watch it. What gives you this fear? We hear this often. I always mention Silicon Valley, it's my thing."
+    },
+    {
+      "start": 4346.66,
+      "end": 4353.02,
+      "speaker": "robert-ross",
+      "text": "I'm afraid it would hit too close to home. I don't know if that's true, I've never seen it, but I don't know."
+    },
+    {
+      "start": 4354.3,
+      "end": 4386.08,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think it would hit close to home. I'm not sure I would say, maybe it would be too close to home. I guess it depends on what you're guarding yourself from. But I think it's pretty comical in a way. The satire was just so on point and talking to somebody who hasn't watched it, it's kinda hard to explain it without potentially, not ruining it, but revealing a little too much. One, I would say a prescription for me if I'm your doctor. Dr. Adams says go, Robert and binge. Whatever binge is for you."
+    },
+    {
+      "start": 4386.08,
+      "end": 4389.24,
+      "speaker": "robert-ross",
+      "text": "What is it on, is it on HBO or where is it?"
+    },
+    {
+      "start": 4389.24,
+      "end": 4428.52,
+      "speaker": "adam-stacoviak",
+      "text": "It's on HBO. You can also purchase the discs, which is what I've done. And I put it on Plex, and so I have it on repeat on Plex. The conversation we've had and the direction you're going and how you're competing and how you even have that happy competition between you and Incident as an example and Steven and the team there, to me, seems a lot like the overarching thing that happens throughout the six seasons of Silicon Valley. And I think it's, I mean, I don't know, I think it's kind of enjoyable. It's almost like art imitates life. I think you'd enjoy it. I'm actually curious, if you watch at least season one."
+    },
+    {
+      "start": 4428.52,
+      "end": 4435.04,
+      "speaker": "robert-ross",
+      "text": "I'll tell you what, I'll take my prescription and I'll watch an episode tonight. I'll do that."
+    },
+    {
+      "start": 4435.04,
+      "end": 4449.21,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, how about this? If you end up liking it and go beyond one episode and you watch seasons or all the seasons, let's come back and pod just about Silicon Valley and your perspective on it and what you think about it. The show is just so spot on."
+    },
+    {
+      "start": 4449.21,
+      "end": 4451.05,
+      "speaker": "robert-ross",
+      "text": "A 15 minute one."
+    },
+    {
+      "start": 4451.05,
+      "end": 4506.45,
+      "speaker": "adam-stacoviak",
+      "text": "It's an absolute masterpiece, in my opinion, of art. And given what we do in our business, I mean, we've been doing this as a podcast for, I've been podcasting almost 20 years. 2005 is when I started a podcast. So in like a couple of years, next year is 20 years of podcasting for one. This show has been on the air for 15 years. We're in our 15th year as a podcast. We've watched the trend in your DO days before it was even viral hydrant for you. So we've watched the trend lines and we've seen this play out. And so that's why I personally enjoy the show so much because it does satire a lot of what we experience day to day. And nothing else can match that. There's no other show ever that matched its level of clarity, of accuracy, and I suppose just like phenomenal humor. There's just so many details in there. You have to watch it a thousand times to get every single one of them."
+    },
+    {
+      "start": 4507.01,
+      "end": 4511.25,
+      "speaker": "robert-ross",
+      "text": "That's how I feel about it. Like I said, I'll watch it. I'll watch at least one tonight."
+    },
+    {
+      "start": 4511.25,
+      "end": 4517.37,
+      "speaker": "adam-stacoviak",
+      "text": "What else is on your mind? What else is in your purview that we can share before we call this friends of friends?"
+    },
+    {
+      "start": 4517.37,
+      "end": 4563.31,
+      "speaker": "robert-ross",
+      "text": "Look, we have covered so much. You know, I think the last thing that made me kind of chat through here is for any founder on this past, present, future, the hard times of venture capital are getting better. The hard times of sales cycles, elongating and procurement taking their time on signing contracts are getting better. And I think that my kind of unique perspective right now is that we're definitely seeing things kind of come back to life. It's been two years of pretty rough times and I don't know, maybe just trying to offer hope to people that are out there listening to this as they watch customers or sales cycles get harder. It's getting better for sure."
+    },
+    {
+      "start": 4563.31,
+      "end": 4613.75,
+      "speaker": "adam-stacoviak",
+      "text": "I'm glad you said that because I feel that pain as well. I mean, yeah, the last two years have been challenging and I see this year already changing dramatically in a lot of cases back to not so much, you know, the best of times, as we've said here in tech, but better times, you know, where people just have, I suppose, more hope in the market, you know, more opportunities coming up, people loosening up and doing more what they had to do. They realize they got a market to developers. You got to talk to people, you got to share your ideas and you can't just stay in a vacuum and post on LinkedIn. That has measure of success, but it's not the only way to do things, you know? And so I feel you on that. I'm glad you said that because it's good to hear you say that because I need to hear that too, you know, that things are getting better and there is hope to be had, so to speak."
+    },
+    {
+      "start": 4613.75,
+      "end": 4627.03,
+      "speaker": "robert-ross",
+      "text": "And look, I mean, we went through a pandemic. We went through some of the worst startup financing environments since 2008, 2001. So it's definitely coming back to life. So you'll feel it soon, I'm sure."
+    },
+    {
+      "start": 4627.03,
+      "end": 4657.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, yeah, for sure. Well, Robert, I call you a friend. That's why we had you here on Change Looking Friends. Thanks for having me. It's cool catching up with you, diving deep into some details, catching up with some bourbon tactics, the way you think about different things and whatnot, what you do to recharge, and obviously how you're leading, you know, fire hydrant. I love what you do over there. I think you're doing great. And I love a lot of the, even the new design, I think is super awesome that you guys put out there. It's spot on. I like the colors. I like a lot of the way you think. That's why I invited you back. Even if you don't call me a friend, Robert, I call you a friend. You know what I'm saying?"
+    },
+    {
+      "start": 4657.45,
+      "end": 4671.71,
+      "speaker": "robert-ross",
+      "text": "So. Oh, I call you a friend. Yeah. Call you a friend, Adam. No, that new design, I cannot. That is not me. That is the stunning marketing team and design team that we have. So, you know, that's their work, not mine."
+    },
+    {
+      "start": 4671.71,
+      "end": 4694.93,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that's good. It's good and I like it. So very, very well done. Tell them I said very well done if they don't listen on this podcast. Tell them personally for me. And man, get a merch store and put those bourbon glasses on the merch store, man. I'm sure you'll have some. I have thought about it. Fire hydrant fans out there. I mean, put them on there for like cost if you're not wanting to try to make money, but like, that's so cool. I love the idea of that line going down."
+    },
+    {
+      "start": 4694.93,
+      "end": 4709.01,
+      "speaker": "robert-ross",
+      "text": "I was thinking like a credit system, like resolve a hundred incidents on fire hydrant, get a shirt, resolve a thousand incidents on fire hydrant, get a bourbon glass, you know, like make a reward system for our most prolific incident commanders."
+    },
+    {
+      "start": 4709.17,
+      "end": 4736.45,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. That would be cool. And I like that idea. Like the unique swag to me is super cool, especially if it, you know, you as a founder, CEO, like that's one of your, you know, personal passions to enjoy is bourbon. And so there's a connection there, you know, we're not just connected to companies through its usefulness. We're connected through relationship. Yeah. You know, I'm far more loyal when I like the people behind the thing, not just the thing itself. Totally. As a buyer. You know what I'm saying?"
+    },
+    {
+      "start": 4736.45,
+      "end": 4741.29,
+      "speaker": "robert-ross",
+      "text": "And it comes through right too. It comes through all, every aspect of the business. So awesome."
+    },
+    {
+      "start": 4741.29,
+      "end": 4744.73,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. All right, Rob. Well, thank you so much. Bye friends."
+    },
+    {
+      "start": 4744.73,
+      "end": 4750.76,
+      "speaker": "robert-ross",
+      "text": "Thanks for having me."
+    },
+    {
+      "start": 4750.76,
+      "end": 4905.52,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you'll be happy to know that after the show, Robert did in fact tell me that we are friends. And so that makes me happy because yeah, you know, making friends is cool. I'm a fan of Robert. I'm a fan of his story. I'm a fan of fire hydrants. They got a good team over there. I talked to many of them and I'm really just a big fan of the way he leads, the way he thinks about growing a company. And there's a lot to learn from Robert. So I was happy to have him here on Teams, loving friends, digging into his hobbies, his practices and his bourbon. You know, I personally would love to have one of those bourbon glasses. And so I hope that one day it will be gracious enough to send me one. And if they did, I'd say thank you. And I'm gonna give another shout out to our sponsors for this episode, Sentry.io and their launch week. So much cool stuff happening at Sentry, Sentry.io. The link up, the launch week on their homepage, I'm sure. So check that out, Sentry.io. And use the code CHANGEWELL to get $100 off a team plan for three months. That's cool too. Imageproxy.net is awesome. Real-time processing for your images, for your front end web. So cool. Launch it as a Docker image. It is open source and they also have a pro version for more advanced features. Again, imageproxy.net. And last but not least, my favorite, Tailscale. I'm proud to say I have a large tail net. Everything, every machine, every Mac, every iPhone, every Linux box, a gaming PC, anything I would ever build or run would run Tailscale, if it could. And by the way, they all can. So I do. Check them out at tailscale.com. And of course, our fan favorite, Fly.io, the home, the home of changelog.com. That's where we live. You can launch that for free at fly.io. Okay, those BMC beats bang because BMC is a banger. Yes, the beats bang because, how many times can I say beats bang with Breakmaster? It's kind of like a tongue twister, but not really. It's kind of fun. Anyways, Breakmaster, you're awesome. And I hear that Breakmaster's coming back on Changelog and Friends to discuss the album Dance Party. Have you listened yet? Are you dancing right now? You should be. If not, go to changelog.com slash beats. That's it, Friends is done. We'll see you next week."
+    }
+  ]
+}

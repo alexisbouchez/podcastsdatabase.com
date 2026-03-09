@@ -1,0 +1,1616 @@
+{
+  "title": "Rug pull, not cool!",
+  "description": "Jerod and Adam discuss HashiCorp's cease and desist letter to OpenTofu, Redis forking, Boston Dynamics' new electric humanoid robot, and debates around Firefox and Zed editor adoption.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo"
+  ],
+  "segments": [
+    {
+      "start": 15.18,
+      "end": 39.53,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about emotional software choices. Big thanks to our friends at Fly. Launch your app as close to your users as possible for peak performance, and Fly makes it easy. Learn how at fly.io. Okay, let's talk."
+    },
+    {
+      "start": 39.53,
+      "end": 175.09,
+      "speaker": "adam-stacoviak",
+      "text": "Well, Cloudflare's developer week is over, but there is so much to cover from that week, and I'm here to give you a roundup, so here we go. Their fully distributed serverless database, D1, went GA. It now supports 10 gigabytes of data, and they added new exporting solutions and insight tools. HyperDrive, which accelerates your Postgres and MySQL databases, also went GA. You know that monthly workers' pay plan they offer? How much does that cost? $5? Yeah, $5. And how much does it cost to completely speed up your database operations using HyperDrive? Zero. Yeah, zero dollars. With queues, you can now send and acknowledge messages from any HTTP client. They also added the ability to add delays. Yes, they added delays. Workers Analytics Engine, which provides analytics at scale, flipped the GA switch, too. They launched a brand new AI playground that lets you explore all the hosted models on workers' AI, which, by the way, also went GA. That's right, production-grade global AI inference that you don't need to deploy, all available seamlessly in workers or directly from a REST API call. They also announced a partnership with Hugging Face, so you can now quickly deploy an app using these models. And fine tunes are here, y'all. That's right, they offer LoRa support, upload your fine tunes from Wrangler and apply them to their most popular LLMs. There are so many ways for you to build with AI using Cloudflare, it's awesome. And Cloudflare doesn't support Python? Wrong, they do now. Python Workers is here. From the same command using Wrangler, you can now launch a worker that can fast API, LangChain, NumPy, and more. R2 got event notifications, you can get notified now when an object is created, changed, or deleted and handle that event in your worker. And who says you can't spell SDK without SDK? Craig did, and that means they have new SDKs for you to use, TypeScript, Go, and Python. And that is just a few announcements from Cloudflare's Developer Week. Check it all out for yourself at cloudflare.com slash developer week. Once again, cloudflare.com slash developer week."
+    },
+    {
+      "start": 178.22,
+      "end": 181.28,
+      "speaker": "jerod-santo",
+      "text": "Well, Adam, it's just the two of us."
+    },
+    {
+      "start": 181.28,
+      "end": 183.82,
+      "speaker": "adam-stacoviak",
+      "text": "As it should be, as it should be."
+    },
+    {
+      "start": 183.82,
+      "end": 185.3,
+      "speaker": "jerod-santo",
+      "text": "Changelog without friends."
+    },
+    {
+      "start": 185.3,
+      "end": 188.82,
+      "speaker": "adam-stacoviak",
+      "text": "I would actually call this Changelog News Extended Edition."
+    },
+    {
+      "start": 188.82,
+      "end": 189.7,
+      "speaker": "jerod-santo",
+      "text": "Oh."
+    },
+    {
+      "start": 189.7,
+      "end": 192.02,
+      "speaker": "adam-stacoviak",
+      "text": "With the both of us, not just you in the short form."
+    },
+    {
+      "start": 192.02,
+      "end": 194.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the news discussed."
+    },
+    {
+      "start": 194.74,
+      "end": 195.56,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 195.56,
+      "end": 227.98,
+      "speaker": "jerod-santo",
+      "text": "We did have a Changelog and friends lined up for this week. We were hoping to get our new friend from OpenTofu, Josh Padnick, who we had on the show last year, back on the show, and Josh wanted to come back on the show. However, because the matters between OpenTofu and HashiCorp are of the legal variety, Josh has been advised not to talk about such things right now. So we're not having Josh on the show this week, but he's gonna come on later in the year, hopefully after the dust has settled, and talk OpenTofu then. That's why it's just the two of us."
+    },
+    {
+      "start": 228.82,
+      "end": 240.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, it is just the two of us. And I think the place to begin might be this massive cease and desist letter. Like, did you read and click through to the the actual cease and desist?"
+    },
+    {
+      "start": 240.14,
+      "end": 287.48,
+      "speaker": "jerod-santo",
+      "text": "No, I did scroll OpenTofu's 46-ish page analysis of the source code origin. I didn't read the whole thing, but I scanned it and looked at different headlines. But I did not read the entire cease and desist. So catching everybody up, for those who don't listen to Changelog News, this has been an ongoing issue of the last week or two between HashiCorp and OpenTofu, the fork of Terraform, around did OpenTofu, in their desire to retain feature parity with Terraform as a fork, did they copy HashiCorp's now BUSL licensed code on a new feature into the fork? So the cease and desist, Adam, what you're going to say about it, it's massive."
+    },
+    {
+      "start": 287.48,
+      "end": 347.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I went ahead and assumed everybody was caught up. So thank you for clarifying the catch up quickly because you're good at that. And I missed that note. But I don't really have any deep analysis aside from the fact that it's long. And if you've ever spent any money with a lawyer, anytime you see a ton of red lines and note-taking and all this stuff that's in this document, like I'm just wondering, I mean, obviously HashiCorp has the money or any corporation might have significant profits, potentially. There's a lot of redlining in here. There's a lot of redlining in here going through things and just a lot of detail for a lawyer to draft this letter on their behalf because that's obviously what's going to happen there. So there's been 104 additions, 120 deletions, 19 moves, or move from, and then 19 move to. And that's basically the document tracking of how this document changed. And this is prior to being sent to OpenTofu."
+    },
+    {
+      "start": 347.52,
+      "end": 353.4,
+      "speaker": "jerod-santo",
+      "text": "So this is the version control on the letter to OpenTofu. This is not on the source code in question."
+    },
+    {
+      "start": 353.4,
+      "end": 354.98,
+      "speaker": "adam-stacoviak",
+      "text": "This is like- Right, this is like-"
+    },
+    {
+      "start": 354.98,
+      "end": 360,
+      "speaker": "jerod-santo",
+      "text": "That's kind of cool. So they published the whole letter that you can read, even the revisions. You think they'd want to strike stuff."
+    },
+    {
+      "start": 360,
+      "end": 365.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I don't know why they would give the full, I think it's a legal thing to provide all of the-"
+    },
+    {
+      "start": 365.76,
+      "end": 366.6,
+      "speaker": "jerod-santo",
+      "text": "Transparency."
+    },
+    {
+      "start": 366.6,
+      "end": 386.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, they call them changes, I believe, or track changes is a terminology. There's 262 total changes in this document prior to being released to the accused, which is AKA OpenTofu. And so just pointing it out, how much money and time was spent in prep for this?"
+    },
+    {
+      "start": 386.16,
+      "end": 424.36,
+      "speaker": "jerod-santo",
+      "text": "Oh, I know, it's serious matters. These are serious things, which is why it was like- Right. I think any lawyer would say, yeah, going on a podcast and just talking about something while it's in the process, because I mean, okay, so the cease and desist came out, and then OpenTofu issued an official response, which also had a lawyer's written letter. And now it's kind of in HashiCorp's court, right? Like the balls in their hands, they might take them to court, they might drop it. I don't know what they're going to do next, but it's very much an ongoing thing. And so the smart thing to do with ongoing legal matters as an individual involved is just not to talk about it and let the lawyers do all the red lining and the green lining and all the official words."
+    },
+    {
+      "start": 424.36,
+      "end": 475.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, a lot of pages, a lot of pointing to different files in here. And I really wish I'd taken the time to do this audience full on justice and have had a straight up analysis of this document, but it's linked to from OpenTofu's response. So feel free to dig in yourself, but there's lots of pointing to particular files, dates. There's a lot of redactions in there too, in terms of, I guess, probably just like sensitive information, maybe names and stuff like that, addresses potentially. This is not the NSA's document. This is simply a document from a lawyer to another lawyer. And they also, I noticed they misspelled copyright. They dropped the T at some point in their MPL 2.0. Yeah, in the Mozilla public license, they had a misspelling of copyright, but whatever."
+    },
+    {
+      "start": 475.18,
+      "end": 476.32,
+      "speaker": "jerod-santo",
+      "text": "It's copy wrong."
+    },
+    {
+      "start": 476.32,
+      "end": 477.16,
+      "speaker": "adam-stacoviak",
+      "text": "Copy wrong."
+    },
+    {
+      "start": 477.16,
+      "end": 483.7,
+      "speaker": "jerod-santo",
+      "text": "Well, let's move from that drama to the other rug pull drama. So Redis now."
+    },
+    {
+      "start": 483.7,
+      "end": 488.62,
+      "speaker": "adam-stacoviak",
+      "text": "Well, let's also mention that we're going to have a deeper conversation on this, while we're not going super deep here."
+    },
+    {
+      "start": 488.62,
+      "end": 509.54,
+      "speaker": "jerod-santo",
+      "text": "Good call. So next week on the show, scheduled, Adam Jacob, our good friend who's been on multiple times, will be back for a grab bag of topics. He has strong opinions on many things. And one thing we'll ask him about is this particular drama, but also the term open source under fire. I'm sure our conversation with Scott Chacon, I thought was very interesting."
+    },
+    {
+      "start": 509.54,
+      "end": 510.36,
+      "speaker": "adam-stacoviak",
+      "text": "I agree."
+    },
+    {
+      "start": 510.36,
+      "end": 715.42,
+      "speaker": "jerod-santo",
+      "text": "Regarding his stance on open source, what it means, what it should mean. And one of the things I appreciate about Scott's stance is they came out business source, was it business source? Functional source. Functional source, yeah. Right, they came out non-open source from the start. And he specifically says they wanted to avoid a rug pull. And it seems like that's really the offenses when things change on you. And now Redis having its license changed has caused quite a splash and many forks. Many forks. So we have a post here, which we'll link to from Vicky Boykus called Redis is forked. And yes, she's using that tongue and cheek to talk about the condition of the Redis project in light of this re-license and what's all going on. The skinny is forks are abounding and people are looking elsewhere for their Redis needs. Specifically, there are two major forks. One's called Valkey, which is licensed under the BSD license and led by previous contributors to Redis from AWS and other companies. So Valkey is a big one. And then another one called Redict or Redict. I don't know how you pronounce that one. That one's actually GPLed. It's led by an open source coalition headed up by none other than Drew Devault, who we had on the show recently. So two major forks, both vying for your eyeballs. I don't know, your user-ish to be their users for your contributions, of course. And I don't know if anything has really shook it out, shaked out hard time with verbs today in terms of like what's gonna be what everybody goes and uses. But in addition to that, there's also not just forks, but people start to look elsewhere for Redis compatible things. So not Redis forks, but just things where they can keep their API client code, all everything that talks to Redis and swap in some other data store in the backend. Two that are interesting, one from Microsoft called Garnet, G-A-R-N-E-T, which is in C-sharp and obviously has Microsoft pedigree. Supposed to be very fast. And then another one I thought was pretty cool, which got my attention is called REDKA, R-E-D-K-A. That is a, not a Redis per se, but it's a Redis compatible Go program written by a fellow who's been on Change.News a handful of times recently. I'm thinking about getting him on an interview show, Anton Zianov. And so he's built REDKA in Go, which is Redis with a SQLite backend. So pretty cool relational database under the covers. Gonna be slower. He says it is slower than Redis. Two to six times in his benchmarks, but still pretty fast. So lots of, I guess, activity in the wake of this one. And people are trying to get out there and replace a Redis. They do not want a non-open source Redis, it seems."
+    },
+    {
+      "start": 715.42,
+      "end": 752.47,
+      "speaker": "adam-stacoviak",
+      "text": "One thing that Vicki says that I thought was kind of notable is I think, okay, there's details here, but then what's the trajectory of Redis? And those that intend to be the official fork or the new fork or the new Redis, whatever it is. And she says, the old Redis was for developers. The new Redis is for enterprise sales and for generative AI. It's true that it's not yet entirely clear what all this means for the future of Redis software. So I think that's what I think about is like, okay, great. Rug pull, not cool. You can put them on a t-shirt."
+    },
+    {
+      "start": 752.47,
+      "end": 753.71,
+      "speaker": "jerod-santo",
+      "text": "Rug pull, not cool?"
+    },
+    {
+      "start": 753.71,
+      "end": 755.83,
+      "speaker": "adam-stacoviak",
+      "text": "That's right, rug pull, not cool."
+    },
+    {
+      "start": 755.83,
+      "end": 758.15,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I like that. It's an off rhyme. It is an off rhyme, it's a slant rhyme."
+    },
+    {
+      "start": 758.15,
+      "end": 789.57,
+      "speaker": "adam-stacoviak",
+      "text": "I rap, but I'm not good at it. Yeah. That's cool that it's not cool to rug pull. It's your prerogative. Go ahead and do that if you want to. But where does it go from here? Like does it simply, can someone rewrite, like you said in Go, is there a re-implementation? Is it a fork and a takeover or is it, how does it live on? Should it live on? Should it be re-manifested in a new way? Cause there's ideas here that Redis did for caching amazingly, but is the state of the current software the best implementation of it?"
+    },
+    {
+      "start": 789.57,
+      "end": 889.28,
+      "speaker": "jerod-santo",
+      "text": "Right, and the cool thing about Redis, I mean, what is Redis's innovation? You know, what is its legacy? And the answer to that was it was a cache store that was more robust and useful than a typical key value store, where you put a key in and you get a value back out and maybe you namespace it. Redis has rich data types, but not very many of them. So few, in fact, that Anton Zianov could re-implement quite a bit of it, at least the API, on his own in what seems to be a short amount of time. I didn't check the history of his repository, but that's what people love. It's like, give me a fast data store that has these rich data types, strings, sets, lists, maps, et cetera. And that was cool and it was well-written and it was steady as software, it was very reliable. And that was Redis's thing. And that thing is awesome and brought a lot of joy to a lot of us, but it's not that hard to do again with a different backend. Maybe a faster one, maybe a slower one, maybe a simpler one, maybe a more complicated one. And so I expect Cambrian explosion of Redis-like projects to come out of this and then we'll see what happens. Certain ones survive or the ones don't. In the wake of Redis, perhaps, something better comes out that developers love for years to come. So I'm kind of putting a fork in it, no pun intended there. Like I think it's- Nice one. I think Redis as a thing, I'm kind of thinking about it now and in a past tense way, like it was awesome, but no longer."
+    },
+    {
+      "start": 890.57,
+      "end": 891.41,
+      "speaker": "adam-stacoviak",
+      "text": "No longer."
+    },
+    {
+      "start": 892.97,
+      "end": 899.29,
+      "speaker": "jerod-santo",
+      "text": "There you go. What's next? That's what I'm thinking."
+    },
+    {
+      "start": 899.29,
+      "end": 934.47,
+      "speaker": "adam-stacoviak",
+      "text": "Our friends at Fire Hydrant offer modern engineering teams less stress from ring to retro, full end-to-end incident management, alerting, on-call, and of course, streamlining every aspect of your incident process from webhook to alert trigger to notifications to incidents open to retro task to meantime to X analytics. Everything is inside Fire Hydrant for modern engineering teams. And what you're about to hear are real reactions from PagerDuty users when seeing signals from Fire Hydrant for the first time."
+    },
+    {
+      "start": 934.47,
+      "end": 951.33,
+      "speaker": "jerod-santo",
+      "text": "PagerDuty, I don't want to say they're evil, but they're an evil that we've had to maintain. I know all of our engineering teams, as well as myself, are interested in getting this moving the correct direction as right now, just managing and maintaining our user seats has become problematic."
+    },
+    {
+      "start": 951.33,
+      "end": 986.97,
+      "speaker": "adam-stacoviak",
+      "text": "That's really good, actually. This is a consistent problem for us in teams is that covering these sorts of ad hoc timeframes is very difficult. Putting in overrides and specific days and different new shifts is quite onerous. Oh, and you did the most important piece, which is didn't tie them together, is that's half the problem with PagerDuty, right? Is I get all these alerts and then I get an incident per alert. And generally speaking, when shit goes sideways, you get lots of alerts because lots of things are broken, but you only have one incident."
+    },
+    {
+      "start": 986.97,
+      "end": 1004.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I'm super impressed with that because being able to assign to different teams is an issue for us because the one alert fires for one team and then it seems like they have to bounce around and it never does, which then means that we have tons of communication issues because people aren't updated."
+    },
+    {
+      "start": 1004.25,
+      "end": 1035.38,
+      "speaker": "adam-stacoviak",
+      "text": "No, I mean, to be open and honest, when can we switch? Okay, the next step is to go to firehydrant.com slash signals, assemble the team and work the problem without a single swivel of the chair. Firehydrant delivers end-to-end incident management and on-call learning for the modern software teams. Get started for free. Once again, firehydrant.com slash signals."
+    },
+    {
+      "start": 1035.38,
+      "end": 1036.7,
+      "speaker": "jerod-santo",
+      "text": "What's next in the news?"
+    },
+    {
+      "start": 1036.7,
+      "end": 1041.7,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I got an Instagram DM from my wife."
+    },
+    {
+      "start": 1041.7,
+      "end": 1043.1,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1043.1,
+      "end": 1068.9,
+      "speaker": "adam-stacoviak",
+      "text": "About a new humanoid that moves like no other robot we've ever seen before. Yes. And you put it on your list and I was like, okay, this is great crossover because ours technically covered this. I have not read this yet, but I will dig in with you because, wow, that thing stood up so amazingly. Yeah. And I was actually quite scared when I saw it do exactly that, so I was like, worst dream ever, cue suspenseful horror music for movie kind of thing."
+    },
+    {
+      "start": 1068.9,
+      "end": 1269.23,
+      "speaker": "jerod-santo",
+      "text": "Exactly. So this is Boston Dynamics' latest humanoid. If you recall, they had their Atlas robot, which was this big bulky hydraulic-based thing that was really cool and did a lot of impressive demos. You know, it could even do flips. It could traverse difficult gymnastics. Parkour. Yeah, it could do parkour. And so it was like a favorite thing of the internet. You know, we like to watch these little videos of Atlas. Now they have a new Atlas and it shares the same name as the old Atlas, but that's about it. So instead of it being hydraulic-based, it's entirely electric, which makes it lighter and removes a lot of the constraints of Atlas. So when you're pushing hydraulics through a system, you know, you got all these cables and the cables have certain lengths. You don't want it to be too long, too short. And so that really limited how Atlas could actually move. It could only move in certain ways, but this new Atlas, which they've demoed, and there's like a 30-second video out there of it standing up from a laying down position is A, very impressive, but B, super creepy. Like it, actually I should read the artist's Technica explainer because it actually says specifically how it stands up and it does a better job than I would off the top of my head. Let me read this. All right, so here's their explainer. So the body is lying face down and the legs swing up into the air backward and get placed down to the left and right side of the robot's butt in a crazy contortionist's pretzel position. You really gotta watch the video. Both feet get placed flat on the floor and the robot completes the deepest squat you've ever seen with the hips rotating something like 270 degrees. From there, the robot's body is facing away from the camera. We're not worrying about the head just yet. And then it does the wildest robot turnaround you've ever seen. Just below the hip joint, there's another 360 joint in the thigh with no human analog, allowing each leg to longitudinally spin around. So without moving the hips or robot body at all, the right leg does a 180 spin in place and goes from knees and toes pointing away from the camera to knees and toes pointing at the camera. And then the left leg does the same. Then the whole torso does a 180 and suddenly the robot is facing a different direction. It's a zero radius turnaround, but even that doesn't seem like an adequate description. It's crazy. I mean, I watched it like five times, but it very much, I mean, in our last show with BMC, I mentioned Terminator 2, right? One of the best, one of the best sci-fis. Yes. And the T-1000 could do things that humans couldn't do. Of course, he could like melt through stuff and do all kinds of crazy contortionists. And this doesn't give me T-1000 vibes, but it gives me Terminator vibes. Like the way it moves is so powerful and interesting. Like, yeah, humans couldn't do it because it has that turn radius. It's like, you know how some people can like make their arms go out of socket and like rotate them all the way around and it looks so wrong when they do that? That's just the way this thing's built."
+    },
+    {
+      "start": 1269.23,
+      "end": 1281.39,
+      "speaker": "adam-stacoviak",
+      "text": "I think about all the software involved and just, I would say probably sensors is the basic generalization of how to balance this thing."
+    },
+    {
+      "start": 1281.39,
+      "end": 1282.23,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1282.23,
+      "end": 1287.03,
+      "speaker": "adam-stacoviak",
+      "text": "Like when it stands up, it begins to walk at you before it fully turns around."
+    },
+    {
+      "start": 1287.03,
+      "end": 1287.85,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 1287.85,
+      "end": 1369.89,
+      "speaker": "adam-stacoviak",
+      "text": "Like it starts taking steps at you. And then just imagine, as you said, Terminator, a future where maybe we no longer have the control over this thing and it has, you know, whatever the future of generative AI is there, the new Redis is powering its cash, of course. Of course. All these things, that to me is just like, wow. I mean, inside of our household, Jared, I don't know if I told you this before, but you know I still have a four year old son, right? So I go to bed with him every night. Well, Heather and I share, we switch. And I will often do like interesting lookups. And my son loves, loves Boston Dynamics. We have watched that parkour video and we call the other one the water one where spot goes through, it's a spot ad. It's a fantastic ad, because it's not at all an ad. We love that, right? Ads that aren't ads. And it's just amazing what they've done with the old generation. And if this is the new generation, I just think about all the software, all the sensors, all the things that went into making this kind of thing realistic. Like it stands and uses gravity to its best benefit. It doesn't wobble one little bit. Now, could this be a Devin situation? I sure hope not. I don't think Boston Dynamics is a Devin like folks, because they've proven it before."
+    },
+    {
+      "start": 1369.89,
+      "end": 1373.01,
+      "speaker": "jerod-santo",
+      "text": "You're referring to the fake demo. Yeah, Devin's fake demo."
+    },
+    {
+      "start": 1373.01,
+      "end": 1392.88,
+      "speaker": "adam-stacoviak",
+      "text": "How true is this? But it didn't waver, is what I'm trying to say. Like all the things that went into like standing up naturally, using gravity towards its best advantage, there was no clunkiness. Whereas like old Atlas does have a little clunkiness to it. While it is and was state of the art, this new Atlas is uncanny."
+    },
+    {
+      "start": 1392.88,
+      "end": 1418.41,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and it's a full on replacement. Like they're just done with the old one now. They're like, this one's better in every way. And they say this provides them a path towards commercial viability, because it's battery-based. It's so much smaller and lighter, of course it'd still be prohibitively, prohibitively, I can't say that word, still prohibitively expensive. You know what I was trying to say."
+    },
+    {
+      "start": 1418.41,
+      "end": 1419.57,
+      "speaker": "adam-stacoviak",
+      "text": "I'm feeling you."
+    },
+    {
+      "start": 1419.57,
+      "end": 1421.89,
+      "speaker": "jerod-santo",
+      "text": "But it's getting there. It's getting there."
+    },
+    {
+      "start": 1421.89,
+      "end": 1428.04,
+      "speaker": "adam-stacoviak",
+      "text": "How would you think the batteries weigh? Just a guess. I don't even know. I'm asking what you think they might be."
+    },
+    {
+      "start": 1428.04,
+      "end": 1430.72,
+      "speaker": "jerod-santo",
+      "text": "In the realms of like 20, 40 pounds. I don't know, something like that."
+    },
+    {
+      "start": 1430.72,
+      "end": 1434.16,
+      "speaker": "adam-stacoviak",
+      "text": "No way, gosh. Gotta be like two, three, 400 pounds minimum."
+    },
+    {
+      "start": 1434.16,
+      "end": 1436.56,
+      "speaker": "jerod-santo",
+      "text": "The batteries, I said, the whole thing?"
+    },
+    {
+      "start": 1436.56,
+      "end": 1462.92,
+      "speaker": "adam-stacoviak",
+      "text": "I could be wrong. I'm basing this on what I know about batteries for solar, and I'm also basing this on the recent thing I watched where they were talking about how basically impossible it is for these batteries to replace semi-trucks on the highway. That the battery, a single battery is like 8,000 pounds. So a battery to power this, I suppose it depends on the longevity of the battery too. But my guess is a couple hundred pounds."
+    },
+    {
+      "start": 1462.92,
+      "end": 1501.4,
+      "speaker": "jerod-santo",
+      "text": "I would say overall the entire robot I would put in the 400 pounds range, just by watching it, I could be totally off on that. But yeah, it's getting there. It's got these big old meat hooks. I mean, it'll be useful pretty soon. They do say, and maybe we can end with this. The official blog post from Bosso Dynamics says that in the months and years ahead, they're excited to show what the world's most dynamic humanoid robot can really do in the lab, in the factory, and in our lives. So they wanna bring this to a home near you, or to your home even, if you have enough money."
+    },
+    {
+      "start": 1501.4,
+      "end": 1505.28,
+      "speaker": "adam-stacoviak",
+      "text": "So I'll stand corrected. I did Google this right yourself."
+    },
+    {
+      "start": 1505.28,
+      "end": 1506.12,
+      "speaker": "jerod-santo",
+      "text": "Fact check yourself."
+    },
+    {
+      "start": 1506.12,
+      "end": 1515.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it says Atlas, the prior version, weighs 89 kilograms, which is roughly 195 pounds, give or take."
+    },
+    {
+      "start": 1515.76,
+      "end": 1516.58,
+      "speaker": "jerod-santo",
+      "text": "Oh wow, that's light."
+    },
+    {
+      "start": 1516.58,
+      "end": 1521.76,
+      "speaker": "adam-stacoviak",
+      "text": "So this is a fraction of that, Jared, as you said. I mean, well, as they said, you said, they said. Somebody said this."
+    },
+    {
+      "start": 1521.76,
+      "end": 1522.6,
+      "speaker": "jerod-santo",
+      "text": "Someone said it."
+    },
+    {
+      "start": 1522.6,
+      "end": 1531.92,
+      "speaker": "adam-stacoviak",
+      "text": "Right, if it's a fraction, and it says this, it's a fraction of the size and weight of a hydraulic version, so if that's the truth, then let's just say a fraction is 20%."
+    },
+    {
+      "start": 1531.92,
+      "end": 1534.08,
+      "speaker": "jerod-santo",
+      "text": "Half? Yeah, I mean, okay."
+    },
+    {
+      "start": 1534.08,
+      "end": 1539.66,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, a fraction, I'm trying to give them, maybe 33%, okay, to do thirds."
+    },
+    {
+      "start": 1539.66,
+      "end": 1540.62,
+      "speaker": "jerod-santo",
+      "text": "Sure."
+    },
+    {
+      "start": 1540.62,
+      "end": 1543.84,
+      "speaker": "adam-stacoviak",
+      "text": "So what is that? It's like 70 pounds?"
+    },
+    {
+      "start": 1543.84,
+      "end": 1549.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so then the battery's gotta be half that probably-ish. I mean, it's got a frame and everything. I don't know what that is."
+    },
+    {
+      "start": 1549.76,
+      "end": 1553.76,
+      "speaker": "adam-stacoviak",
+      "text": "I could be wrong on that part too. I'll admit that as well, geez. Anyways. These batteries weigh a lot."
+    },
+    {
+      "start": 1553.76,
+      "end": 1566.48,
+      "speaker": "jerod-santo",
+      "text": "Smaller and lighter. I mean, at less than 100 pounds, you could carry that sucker around, you know, throw it in your trunk. Oh, could you imagine, you know, you open your back trunk and that thing unfolds out of it and starts walking towards you."
+    },
+    {
+      "start": 1568,
+      "end": 1577.4,
+      "speaker": "adam-stacoviak",
+      "text": "So I got a little plus plus treat for folks I'll mention right here at the part of the show. And you can even leave for this, Jared, unless you want to stick around for it, but I have a story that I had Chad TPT write my son."
+    },
+    {
+      "start": 1577.4,
+      "end": 1578.56,
+      "speaker": "jerod-santo",
+      "text": "Oh, you're not gonna read it, are you?"
+    },
+    {
+      "start": 1578.56,
+      "end": 1592.16,
+      "speaker": "adam-stacoviak",
+      "text": "This is the prompt. This is the prompt. I said, I need a story for an awesome four-year-old that includes Boston Dynamics and the coolest robot dog ever called Robotron and it wrote me a story. And so the plus plus for the show will be me reading you that story."
+    },
+    {
+      "start": 1592.16,
+      "end": 1593,
+      "speaker": "jerod-santo",
+      "text": "You're gonna read it?"
+    },
+    {
+      "start": 1593,
+      "end": 1594.68,
+      "speaker": "adam-stacoviak",
+      "text": "I'll read it, yeah."
+    },
+    {
+      "start": 1594.68,
+      "end": 1595.76,
+      "speaker": "jerod-santo",
+      "text": "Awesome."
+    },
+    {
+      "start": 1595.76,
+      "end": 1597.92,
+      "speaker": "adam-stacoviak",
+      "text": "Cause we're talking about Boston Dynamics, you know, why not?"
+    },
+    {
+      "start": 1597.92,
+      "end": 1603.04,
+      "speaker": "jerod-santo",
+      "text": "Love it. All right, what is next? Let's run through some more news."
+    },
+    {
+      "start": 1603.04,
+      "end": 1606.76,
+      "speaker": "adam-stacoviak",
+      "text": "Last time I checked, Jared, Zedd is not dead. It's very much alive."
+    },
+    {
+      "start": 1606.76,
+      "end": 1608.2,
+      "speaker": "jerod-santo",
+      "text": "Zedd is very much alive."
+    },
+    {
+      "start": 1608.2,
+      "end": 1609.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1609.28,
+      "end": 1610.92,
+      "speaker": "jerod-santo",
+      "text": "Are you a daily driver now?"
+    },
+    {
+      "start": 1610.92,
+      "end": 1615.8,
+      "speaker": "adam-stacoviak",
+      "text": "As I'm a driver when I code. Which is not daily. I call myself daily."
+    },
+    {
+      "start": 1615.8,
+      "end": 1616.64,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah, yeah."
+    },
+    {
+      "start": 1616.64,
+      "end": 1627.52,
+      "speaker": "adam-stacoviak",
+      "text": "Fair enough. It is the only editor I use. Okay. Although I do go back to Sublime Text for option mousing selections. You ever do that?"
+    },
+    {
+      "start": 1627.52,
+      "end": 1639.64,
+      "speaker": "jerod-santo",
+      "text": "I use Sublime Text for a few things still as well and it has to do with text selection with multi-cursors and the way you can do stuff. So yeah, Zedd's not quite there yet for me. I think there's ways to accomplish it but they're more cumbersome."
+    },
+    {
+      "start": 1639.64,
+      "end": 1659.04,
+      "speaker": "adam-stacoviak",
+      "text": "So I felt that pain too and that's why I keep Sublime Text installed. That's why it's not gone. Same. It still has use. Only in that regard though. Although my needs are not deep, I do find Zedd pretty fun. And then our friend, Torsten Ball, shared a post from VIM to Zedd. He'd been a 20-year user of VIM."
+    },
+    {
+      "start": 1659.04,
+      "end": 1660.04,
+      "speaker": "jerod-santo",
+      "text": "That's a long time."
+    },
+    {
+      "start": 1660.04,
+      "end": 1666,
+      "speaker": "adam-stacoviak",
+      "text": "And now works at, what's the name of the company? Something Industries?"
+    },
+    {
+      "start": 1666,
+      "end": 1668.4,
+      "speaker": "jerod-santo",
+      "text": "Zedd Corp, I don't know, Zedd, Zedd Inc."
+    },
+    {
+      "start": 1668.4,
+      "end": 1670.24,
+      "speaker": "adam-stacoviak",
+      "text": "Is it Zedd Industries? I thought it was something different than that."
+    },
+    {
+      "start": 1670.6,
+      "end": 1671.76,
+      "speaker": "jerod-santo",
+      "text": "Zedd Industries, maybe?"
+    },
+    {
+      "start": 1671.76,
+      "end": 1673.64,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it is Zedd Industries, geez."
+    },
+    {
+      "start": 1673.64,
+      "end": 1679.88,
+      "speaker": "jerod-santo",
+      "text": "Nice call. Sorry about that. So did Torsten switch to Zedd because he got a job there or did he get a job there because he switched to Zedd?"
+    },
+    {
+      "start": 1679.88,
+      "end": 1701.82,
+      "speaker": "adam-stacoviak",
+      "text": "Well, that thing was the question was he had addressed that. He says, some friends have asked me about the switch, quote, now that you now work at Zedd, are you using Zedd instead of VIM, end quote. And so he wrote about it. So I think you would want to start using the editor you work for. Yeah, totally. So it would totally make sense."
+    },
+    {
+      "start": 1701.82,
+      "end": 1702.66,
+      "speaker": "jerod-santo",
+      "text": "Totally."
+    },
+    {
+      "start": 1702.66,
+      "end": 1756.08,
+      "speaker": "adam-stacoviak",
+      "text": "But I gotta imagine he used Zedd before. It wasn't like, oh my gosh, let me go work somewhere else. Oh, by the way, they make an editor, I should probably use it. I don't think that's Torsten's thought process. Just how I know him. Prior to this, he worked at Sourcegraph. He's been on Go Time a couple of times. He's written compiler books. Very well done in his career and very, I would say a very thorough thinker. I like the way Torsten thinks, honestly. And so he kind of covered some things he likes about Zedd in regards to coming from VIM. And obviously VIM mode is the easy one. VIM proficiency, he said he's used VIM professionally, intensely, admiringly, loudly. Loudly. Loudly for the past 13 years. So I would imagine the opinions he shares are pretty thick and pretty on point given that rich history."
+    },
+    {
+      "start": 1756.08,
+      "end": 1756.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1757.08,
+      "end": 1757.96,
+      "speaker": "adam-stacoviak",
+      "text": "What are your thoughts?"
+    },
+    {
+      "start": 1757.96,
+      "end": 1949.69,
+      "speaker": "jerod-santo",
+      "text": "Well, I can definitely see it. And I've never been a fan of VIM mode myself, having deep VIM roots, but also enjoying nice, pretty GUIs editors. I've always turned VIM mode on for a few minutes and then it's been uncanny valley and there's stuff missing. And so I ended up turning it off and eventually I just got used to the way Sublime Text worked and I was happy with that. So I wouldn't use VIM mode myself inside Zedd. I do not use VIM mode inside Zedd, even though I use VIM in a terminal throughout the week as well. But I can see how it would help people cross that chasm, and keep some of the speed they're used to by being keyboard-based nav. I mean, if you have all of VIM's keyboard shortcuts internalized, there's no faster moving than that. And so to use an editor like Zedd, where you're tempted to take the mouse and point it at a spot and click on it, you're gonna slow yourself down doing that. So I understand why they need to have VIM mode for adoption. I also understand why VIM users would wanna have VIM mode. I've just never personally liked it enough. It's always kind of left me hanging or it doesn't support my particular nav. That's the thing about VIM is you can create your own style of navigation based on whatever combination of keyboard strokes that you like and people navigate in different ways. And so if it supports all of VIM's motions, which I doubt it, then it'd be fine, but there's always some lacking and that was frustrating for me. But I am still to this day, Zedd daily driver. There are some things that bug me about it, but I do love how often it's updating like a couple of times a week sometimes where you launch and see what's new and they're adding stuff that I want. So Emmet was recently added as a built-in extension, first party supported extension. Emmet for those who don't know is the HTML text expander library where you can type div.title and it'll be div class equals title and you can say X3 and it'll do three divs class equals title and you can get real fancy with it. I just use it for basic HTML text expansion, but then there's things that bug me like it only works if your document's set to HTML, which in cases that you have a templating language, you have it set to something else. And so Emmet's not available, it's just early days. I also don't like how it doesn't seem to detect multiple languages in the same file. So if I have an HTML document and I have some script tags in there and I'm just writing some JavaScript inside the script tags, it's not syntax highlighting them correctly because it assumes this is an HTML document I assume, I don't know. Stuff like that where it just like needs the polish and what we know Nathan and his team, like they're gonna polish this sucker up. And so every day is getting better and I love that. So I'm still using it, still excited by it, still using Sublime Text for a few things. I would love to sit Nathan down with my Sublime Text used and be like, if Zed could handle this kind of stuff, then I'd be super happy camper."
+    },
+    {
+      "start": 1949.69,
+      "end": 1953.59,
+      "speaker": "adam-stacoviak",
+      "text": "Well, maybe we can arrange that at a YouTube near you or something like that."
+    },
+    {
+      "start": 1953.59,
+      "end": 1956.31,
+      "speaker": "jerod-santo",
+      "text": "He did implement your feature, didn't he? Didn't he implement your feature request?"
+    },
+    {
+      "start": 1956.31,
+      "end": 1994,
+      "speaker": "adam-stacoviak",
+      "text": "I requested it, I don't know if he got implemented. I think he may have, I don't know. One thing I'm actually noticing is that Torsten did say, I work at Zed because I used Zed and found it very interesting. So this switch from Vim to Zed is obviously part of his decision to work there. No mystery there really, but he says he does still use Vim, but probably like I do, which is like I've SSH'd into a machine, I'm not gonna use anything else. Vim is there, edit config, you know, WQ, out, see ya. Done, you know?"
+    },
+    {
+      "start": 1994,
+      "end": 1994.84,
+      "speaker": "jerod-santo",
+      "text": "Totally."
+    },
+    {
+      "start": 1994.84,
+      "end": 1999.02,
+      "speaker": "adam-stacoviak",
+      "text": "So there you go. Zed is awesome, I use that, I like it."
+    },
+    {
+      "start": 1999.02,
+      "end": 2103.01,
+      "speaker": "jerod-santo",
+      "text": "Up next, let's talk about something that Justin Searles is using that most people are not using. And that's the Apple Vision Pro. Justin recently wrote a post titled, the Vision Pro was a better deal than my Mac studio. So he is all in on Vision Pro. I know many people have moved on, like it was, it made a splash, you got all the reviews and you got all the memes and the people walking around, you know, Times Square, stopping in the middle of the street and like doing some sort of Vision Pro motion and then keep walking. And they're like, this is what life's gonna be like now. And then that kind of the luster wore off and many people are now writing their posts about how they're not using their Vision Pro anymore and it's a failure. And Justin is, however, the voice of one crying in the wilderness here, he's saying he's still using his Vision Pro. It was a better deal than his Mac studio. And he says he's been using it for no other purpose than Mac virtual display. And he uses it for that for four to eight hours a day, seven days a week. So he's spending four to eight hours, even on a Sunday with this thing on his face. He says, meanwhile, my brand spanking new M2 ultra equipped Mac studio and 32 inch 6K monitor are collecting dust. This sounds a little bit like a humble brag coming from Justin with the gear that he has. More than that, he says, I'm getting more done than at any point in my career. And he's more productive now, he thinks, with this thing strapped to his face than he was with any other setup in his life. What do you think about that, Adam?"
+    },
+    {
+      "start": 2103.09,
+      "end": 2117.9,
+      "speaker": "adam-stacoviak",
+      "text": "I ain't mad at it. As my good friend says that runs me church, Matt Pittman. It's something he says every time he makes something good and he tastes it, he's like, ain't mad at that. Ain't mad at it. You know, it's like, it tastes good. It's the response, right?"
+    },
+    {
+      "start": 2117.9,
+      "end": 2118.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2118.74,
+      "end": 2173.97,
+      "speaker": "adam-stacoviak",
+      "text": "So I don't disagree. He's a good taste maker. So I'm concerned about his neck, but I'm looking at the Mac virtual display video that's on the docs page that he links to. And I think it looks pretty cool. So I think if this was a scenario, I can't imagine, I can agree, I suppose, that this looks pretty cool that you could do certain gestures and you've got this virtual display. He talks about not having ADHD as a diagnosis, but talks about his ability to focus. And so I think that that's pretty spot on. I think with a less distracting display, because I find myself doing that. I mean, geez, I'm like, I gotta go to my email to get this information. And then on my way there to my email, I see a different email and then I'm chasing this thing cause like that was an urgent thing or something that caught my attention or something I should do."
+    },
+    {
+      "start": 2173.97,
+      "end": 2174.79,
+      "speaker": "jerod-santo",
+      "text": "Sure, happens all the time."
+    },
+    {
+      "start": 2174.79,
+      "end": 2208.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And then I'm like 20 minutes in and I'm like, what's that doing again? And that's just the email. But I suppose that can happen on a virtual display as well if I'm still virtually displaying my email. It looks pretty cool. Whether or not the Mac Studio will continue to collect dust, I don't know. I'm not sure I can, having not been a user nor owner of this, four to eight hours a day, seven days a week seems excessive. I would shorten it by at least two days and maybe two to three hours per those days you do give yourself."
+    },
+    {
+      "start": 2208.78,
+      "end": 2209.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2209.62,
+      "end": 2213.42,
+      "speaker": "adam-stacoviak",
+      "text": "But maybe he's excited. He's a new kid in the candy store. He's got a new toy to play with."
+    },
+    {
+      "start": 2213.42,
+      "end": 2253.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it sounds like he certainly is. Certainly is. He's doing it since February. So now it's April 18th as a record. That's a decent amount of time to continue something. He does say he has this, like you said, Mac Studio very fancy monitor, which is five feet away from him. And he says he's barely touched it over the last two months. Instead, I'm lounging in my knockoff Eames chair and typing with my MacBook Air on my lap as I gaze straight ahead at a massive screen and sip my coffee. So he's painting a pretty nice picture. He says this helps with posture. And like you said, focus, even though he doesn't have ADHD, of course, he has the same thing we all have, which is the ability to easily get distracted."
+    },
+    {
+      "start": 2253.45,
+      "end": 2255.97,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, distractibility is out there."
+    },
+    {
+      "start": 2255.97,
+      "end": 2288.01,
+      "speaker": "jerod-santo",
+      "text": "So hard to beat. And so the overall gist is now he says he's sitting as, instead of sitting on his computer for six hours and getting a few hours of work done, he's getting six really great hours of work done with this device versus in the other world. I can't argue with it because I never worn one. I never tried it. Maybe he's living in the future. And we just haven't arrived there yet. Maybe he's just the only one who likes this thing and everybody else is back to their, I mean, a 6K display is pretty nice if you ask me."
+    },
+    {
+      "start": 2288.01,
+      "end": 2302.08,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think my hinge for this is not its usefulness. I just worry about until it gets a smaller form factor. I think he's probably spot on with the usefulness. It's the ergonomics. It's pretty heavy."
+    },
+    {
+      "start": 2302.08,
+      "end": 2324.18,
+      "speaker": "jerod-santo",
+      "text": "I couldn't imagine wearing that for eight hours. Even my headphones, you and I wear big studio headphones when we record and when we edit, I take them off in between. If I'm not recording or editing, they're off my head because I just did not want something on my head for that long. And I couldn't imagine even if it's in front of your eyes, but I don't know, works for some folks, I guess."
+    },
+    {
+      "start": 2324.18,
+      "end": 2337.98,
+      "speaker": "adam-stacoviak",
+      "text": "Well, good on you, Justin, for writing this up and taking the plunge. I'm not sure I can embrace your feelings, literally feelings of it on your face, in your head, but I can embrace your productivity. So good for you."
+    },
+    {
+      "start": 2338.82,
+      "end": 2361.99,
+      "speaker": "jerod-santo",
+      "text": "Well, quick teaser for Justin in the future. Apple's next WWDC keynote is June 10th, I believe. And Justin is scheduled to join us on the show June 11th. So the day after we will have him on for Apple reactions. And of course we can discuss this with him at that time as well. What's next?"
+    },
+    {
+      "start": 2361.99,
+      "end": 2425.98,
+      "speaker": "adam-stacoviak",
+      "text": "I think what is next is how hard it's getting to use and recommend Firefox. This is what somebody said. And I think, I don't have much to say about this, but I kind of concur and agree. Cause like every time we try to use certain applications, especially like Riverside, we're in Riverside right now, you got to use a chromium based application. You have issues with it. There's like video lag and issues. And I understand what Firefox has stood for. We've talked with Nick Nisi on this subject at least twice on a podcast. And we've expressed our love for Safari as Mac users. I don't choose it because it's the default browser. I choose it because I think it's the simplest, most cleanest, least distracting browser. Sure, it can be improved. We've tried Arc. He's tried Arc. I think he's tried it for more than a few days. He may even be an Arc user at this point. I don't know, but I am concerned about the free web. Yeah. In regards to what they say that Firefox represents that it doesn't have the market anymore as a browser. That's a bummer."
+    },
+    {
+      "start": 2425.98,
+      "end": 2435.26,
+      "speaker": "jerod-santo",
+      "text": "I guess in a certain way, I feel guilty for not using Firefox. I don't know about you. Have you ever heard Bill Burr's take on feminists and the WNBA?"
+    },
+    {
+      "start": 2435.26,
+      "end": 2484.16,
+      "speaker": "adam-stacoviak",
+      "text": "Dude, look at the WNBA. Dude, nobody in the WNBA got COVID. Nobody. They've been playing in front of three to 400 people a night for a quarter of a century. Not to mention it's a male subsidized league. We gave you a league. None of you showed up. Where are all? That place should be packed, feminists. Painted wearing jerseys, going nuts like the guys do in the upper deck with their big beard titties. Am I on the jumbotron? Am I doing it?"
+    },
+    {
+      "start": 2484.16,
+      "end": 2502.51,
+      "speaker": "jerod-santo",
+      "text": "None of you, none of you went to the games. None of you. You all, you failed them. Not me. Not men. Women failed the WNBA. Ladies, ladies, name your top five all-time WNBA players of all time."
+    },
+    {
+      "start": 2502.51,
+      "end": 2511.89,
+      "speaker": "adam-stacoviak",
+      "text": "Come on. Let's hear it. Name five WNBA teams. Name the WNBA team in your city. You can't do it."
+    },
+    {
+      "start": 2511.89,
+      "end": 2540.93,
+      "speaker": "jerod-santo",
+      "text": "And to a certain extent, I feel like that with Firefox. It's like I'm pro open web, indie software. I mean, Firefox is not indie software. Like it's roots where it's big now, but it is, you know, the last third-party rendering engine and represents privacy and security and open source and all these things. And these are all things that I like. And yet I don't use it."
+    },
+    {
+      "start": 2540.93,
+      "end": 2597.06,
+      "speaker": "adam-stacoviak",
+      "text": "See, these are, this is the classic example of the what, not the why. The why I think is challenging because it's not the what. It has the privacy. It has the focus. It has the various things, but it's the why, should you use it? That really, I think Chrome, the Chrome dev team, Safari's team even in a lot of cases have led the way with new and burgeoning web standards. I don't know if Firefox is innovating on those levels like Chrome has, which is why applications like Riverside and others that leverage like newer technology for the web, they're gaining steam and adoption. I can also say that Google is much bigger than Mozilla has been ever. So how can you be this, they're an incumbent really. I mean, they conquered over in Explorer, became, didn't they have way more market share before Chrome came about? And then that all went."
+    },
+    {
+      "start": 2597.06,
+      "end": 2598.42,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Chrome took a lot of their market share."
+    },
+    {
+      "start": 2598.42,
+      "end": 2607.38,
+      "speaker": "adam-stacoviak",
+      "text": "Right, but they had a lot of it though. Didn't they have like a major resurgence for Firefox? It was the most used browser at one point, wasn't it?"
+    },
+    {
+      "start": 2607.38,
+      "end": 2756.98,
+      "speaker": "jerod-santo",
+      "text": "No, it was a large minority. Like I would put it in the 20%, maybe 15 to 20% of worldwide usage. This is off the top of my head about history. And now it's back down to like 3% to 5%, I think. But it got enough of a hold that it needed to be taken seriously and supported by websites writ large. And so that really broke the stranglehold of Internet Explorer, or as we used to call it, Internet Exploder. So it's significant, and it's definitely lost a lot of market share since then, but it never got to a majority. And I disagree about their support for burgeoning web standards. I feel like Firefox has always been right there with people in the game, writing the specs, implementing the features. Of course, different browsers have different priorities. Safari, there are certain things that Safari team just doesn't want to build for business reasons. There are other places where Safari has been the first one to implement things, especially there are things that Apple likes, like font loading and performance things and security things. So that's a tough one for me to really make strong claims about. I think Firefox, Mozilla as a corporation in the last 10 years has gotten distracted from Firefox and hasn't funded its development, even though it's the cash cow of the organization, by pulling in that Google money for search. And so they've gotten distracted with the mobile OS, Firefox OS, was it, VPNs, other things, other products that haven't got the usage that Firefox has. And so for that reason, I feel like Firefox has definitely got to where it wasn't. It used to be like nimble, fast, private, with extensions and tabs. And that's what got it to where it was. And it still has tabs and it still has extensions. And it still has privacy as far as I can tell, but it got kind of memory hungry, kind of slow. It's always been at least on Mac OS, in my opinion, an ugly looking piece of software, no offense to the people that work on it. Much respect for you all. It just hasn't spoken to my sensibilities. And I don't know, but it definitely stands for a lot of the things that I believe in and yet I don't use it."
+    },
+    {
+      "start": 2756.98,
+      "end": 2841.01,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, well, let's say, let's let that invite down one more time. Mitchell Baker, you are welcome here. We agree with the health of the internet being very important. That's why you exist. We don't disagree with that. And we'd love to talk to you about your mission-driven company focused on privacy and the health of the internet and all that good stuff. Well, I think the one caveat that I can mention for this person that wrote the post, let me get their name in place. What is their name? The blog is called Technically a Blog. Person's name, I don't know yet. Nicole, it's Nicole. She says, I'm a software engineer and I run Fedora on my personal laptop. So that might be potentially the problem. I love Linux, but sometimes video things and audio things, as we know Jared, on Linux can be challenging. She says, this particular bug that she was referencing on why this was an issue, and you can go back and read the post, of course, was on the latest version and by running a bleeding edge distribution, I got cut. I didn't have the same issue on my work laptop running an LTS version of Ubuntu. So in some ways it's a problem of my own making and there was a workaround. So the reason for this post could have been potentially avoided. But I think the premise of the post is essentially that there are show-stopping bugs that keep surfacing for folks on Firefox that make them have to choose a different browser. And that's the challenge."
+    },
+    {
+      "start": 2841.01,
+      "end": 2869.7,
+      "speaker": "jerod-santo",
+      "text": "Agreed. Side note, Mitchell Baker is still involved, but no longer CEO there. Yeah, she stepped down. I think she's like in charge of AI, internet safety and AI. And they named Laura Chambers, who was already a board member, as the interim CEO. I definitely reached out to Laura Chambers and asked her to come on the show. I don't think she said anything back, but open invitation, we'd still take, we'd still love to talk to Mitchell on the show. I'm not saying we, for that reason, we don't want to talk to Mitchell."
+    },
+    {
+      "start": 2869.7,
+      "end": 2870.54,
+      "speaker": "adam-stacoviak",
+      "text": "For sure."
+    },
+    {
+      "start": 2870.54,
+      "end": 2871.82,
+      "speaker": "jerod-santo",
+      "text": "I'm just saying we'd also, open invitation."
+    },
+    {
+      "start": 2872.34,
+      "end": 2873.18,
+      "speaker": "adam-stacoviak",
+      "text": "Invite resend it, Mitchell."
+    },
+    {
+      "start": 2873.18,
+      "end": 2875.38,
+      "speaker": "jerod-santo",
+      "text": "Invite resend. Yeah, just take it all back."
+    },
+    {
+      "start": 2875.38,
+      "end": 2880.86,
+      "speaker": "adam-stacoviak",
+      "text": "I should have noted this too, because on the homepage it says executive chair of the board now, not CEO. So that's my bad."
+    },
+    {
+      "start": 2880.86,
+      "end": 2886.14,
+      "speaker": "jerod-santo",
+      "text": "And I'm not sure how long the interim is gonna last for Laura, but we'd love to have you on the show as well."
+    },
+    {
+      "start": 2886.14,
+      "end": 2901.24,
+      "speaker": "adam-stacoviak",
+      "text": "I would say whoever's leading Mozilla, that wants to talk about Mozilla and its direction, and to lay a guilt trip just heavily upon us to make us use Firefox or whatever again, please come on and lay it on us. We will welcome that. And we might argue a little bit, but we'll have fun doing it."
+    },
+    {
+      "start": 2901.52,
+      "end": 2903.12,
+      "speaker": "jerod-santo",
+      "text": "We'll argue from our emotions probably."
+    },
+    {
+      "start": 2903.12,
+      "end": 2903.96,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 2903.96,
+      "end": 2914.68,
+      "speaker": "jerod-santo",
+      "text": "That's how we choose software a lot of times. Isn't it emotional? I mean, I feel like it's so emotional. Are you utilitarian, like the best tool for the job every time? Analyze them, break them down."
+    },
+    {
+      "start": 2914.68,
+      "end": 2921.92,
+      "speaker": "adam-stacoviak",
+      "text": "No, I mourn a little bit. I think the one morning I did not do very much was Alfred to Raycast."
+    },
+    {
+      "start": 2921.92,
+      "end": 2922.74,
+      "speaker": "jerod-santo",
+      "text": "Quick switch."
+    },
+    {
+      "start": 2922.74,
+      "end": 2943.63,
+      "speaker": "adam-stacoviak",
+      "text": "Because I resisted Raycast from Alfred. I'd bought a lifetime license. I never needed to spend any money again. I was good to go. My long-term investment was secured. I had the application. All things were well. And then I tried Raycast. I was like, wow, this is just so much better in almost every way. Take my money."
+    },
+    {
+      "start": 2943.63,
+      "end": 2945.57,
+      "speaker": "jerod-santo",
+      "text": "How does that happen to Alfred?"
+    },
+    {
+      "start": 2945.57,
+      "end": 3062.6,
+      "speaker": "adam-stacoviak",
+      "text": "That's an interesting question. It's not on our list, but I'll give you that. So I would say, I kind of brought it up, so I'll dig in with you. Okay. My hypothesis is, and maybe this is actually yet to be seen if Raycast will be successful long-term. So in the short-term they are. I would say Alfred seems to be a single developer with not really a business model. There's no funding that I'm aware of. Great UI, great UX, maybe a couple of people on the team. I have no idea really. My assumption is that because there's no story painted. And I think you mentioned being emotional. I think we get emotional because we buy into the story of what the software is. Not just what it does for us, but who's behind it and why they exist and why it exists and why I use it. And I think for Raycast they have a team. I just had Thomas on the podcast, so go back a couple, you'll see it there. They started out with a different idea at YComm Enter. Laid into it. Out the other end came Raycast. Stories on the podcast, go listen to it. And they have a great team behind it. They are focused on being productive on a Mac. And they are writing native code to make sure it's super fast and so all the intention, all the focus is on the most productive tool for someone who wants to be productive on a Mac. From launching applications to doing conjuring, to doing Windows centering, to using Obsidian, to creating a new note, to all the things. I mean, all the things. Clipboard history. So I think what may have happened with Alfred is just that it was, because I don't want to say this like it puts down a single developer or an indie dev, because that's not what I'm trying to say. But I think if you have, and I think this is a challenge we might face at some point. I've said this a couple of times. We like this business because it affords us the ability to have fun and enjoy our lifestyle. And it doesn't make us have to become some sort of media conglomerate, right? If a media conglomerate came around that was more indie than we are, with more funding, they may destroy us. So in this-"
+    },
+    {
+      "start": 3062.6,
+      "end": 3064.16,
+      "speaker": "jerod-santo",
+      "text": "More indie with more funding."
+    },
+    {
+      "start": 3064.16,
+      "end": 3067.76,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know, Jared. I mean, maybe they find ways to make more money."
+    },
+    {
+      "start": 3067.76,
+      "end": 3068.6,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3068.6,
+      "end": 3070.28,
+      "speaker": "adam-stacoviak",
+      "text": "Right? To have more funding-"
+    },
+    {
+      "start": 3070.28,
+      "end": 3071.48,
+      "speaker": "jerod-santo",
+      "text": "Better at it than we are."
+    },
+    {
+      "start": 3071.48,
+      "end": 3074.4,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, maybe they're better at the funding model than we are. I don't know."
+    },
+    {
+      "start": 3075,
+      "end": 3085.84,
+      "speaker": "jerod-santo",
+      "text": "Like if somebody comes by and just gets better at it than us, I mean, I'm not fine with it personally. Like I want to compete, but like that's just how you, like maybe Raycast is just better right in software than Alfred folks are."
+    },
+    {
+      "start": 3085.84,
+      "end": 3117.68,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe. All their extensions are MIT open source too. So they have a single repository on GitHub. So every extension, other than the native extension, I believe, live in this repository. And so all contributions are MIT licensed. So you can go today, Jared, and from our API, create a changelog extension that says, show me the latest episodes. And you can down arrow to it, click it, and it can open up in Spotify or music or on our website. And they can choose that kind of stuff. And it would be open source."
+    },
+    {
+      "start": 3117.68,
+      "end": 3123.52,
+      "speaker": "jerod-santo",
+      "text": "What? Who's building this? You are. I just gave you the task. Me? No, I'm not? I didn't even know I could do that. Oh, this is an assignment."
+    },
+    {
+      "start": 3123.52,
+      "end": 3124.34,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 3124.34,
+      "end": 3220.49,
+      "speaker": "jerod-santo",
+      "text": "This is an assignment. Well, I'm not a Raycast user, but you're definitely, you're talking to me. Yeah. I do like to limit the amount of installed software I have. And I've always just, I had a Raycast. I used it for a little bit. I liked it. It just inserted itself too many times in ways where I was like, I'm just trying to get, specifically I remember the address book. Like if I just hit command space and type Adam Stokoviak, maybe I just want to get your phone number and to copy and paste it or something. It doesn't do that anymore. Like the spotlight just gets you to the contact card. Raycast has this like interstitial thing and now I'm clicking over here and I'm just like, get out of my way. Give me what I want. So that's just one case where, and it didn't provide me enough value for me to basically, I think I had it installed. I think it's still installed, but I just unmapped it from command space, which is how I use Spotlight. Cause with Spotlight, I can just do my app launching. I can do my math, you know, this plus that, this times this. And that's what I use it for. I do like, I have a clipboard history tool and I have a window moving around resizing tool. The clipboard history tool is called Maccy, M-A-C-C-Y. And the window management tool is called Rectangle and they're both great, but I would be happy to replace those with one thing that does everything great. I just, I have solutions. So I'm not looking for a solution to that problem. But I was never a big Alfred guy either. I mean, I tried it. I liked Quicksilver back in the day, but I was much younger back then. I was way into like super optimizing everything I did with shortcuts and workflows. And I don't really like to do that anymore. I'd rather just use what's there."
+    },
+    {
+      "start": 3220.49,
+      "end": 3222.65,
+      "speaker": "adam-stacoviak",
+      "text": "Which makes me old, I think, and..."
+    },
+    {
+      "start": 3222.65,
+      "end": 3255.76,
+      "speaker": "jerod-santo",
+      "text": "Sadness. Prodigy, yeah. Anyway, so that's why you picked Raycast over Alfred. I like, one thing I love about open source, which has become more apparent to me now, I like to know, or at least be able to watch and know of the people who write the software that I use. I think it's cool. Like I'm using A2N nonstop now, like I'm a complete convert. Yeah. And I think it's cool that we know Ellie and she's an interesting person and she makes that. And it just feels, it's almost like the whole mom and pop shop kind of."
+    },
+    {
+      "start": 3255.76,
+      "end": 3257.04,
+      "speaker": "adam-stacoviak",
+      "text": "Personal software."
+    },
+    {
+      "start": 3257.04,
+      "end": 3258.48,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's so neat."
+    },
+    {
+      "start": 3258.48,
+      "end": 3261.32,
+      "speaker": "adam-stacoviak",
+      "text": "That's why it's so emotional whenever the thing changes."
+    },
+    {
+      "start": 3261.32,
+      "end": 3304.52,
+      "speaker": "jerod-santo",
+      "text": "And it's not like I'm gonna therefore like hit her up and ask for questions, ask for features and like, I'm not gonna like use that or anything. But just being able to know, even if you don't know personally, know who that person is. Louis Pilfold, who is coming on the changelog next week, who we just interviewed yesterday. People really support him on GitHub sponsors. And the reason seems to be because people like him. Like he's a likable person. He couldn't come out and say that, but I can say that. Like people like the guy and he's building gleam and it's cool and he's cool. And it's fun to be part of it, it seems like. And I think that's just like, there's something about that. And maybe the Alfred folks didn't have an emotional connection for you, a personal connection, emotional connection. So it was easy to swap them out for something else when it came along."
+    },
+    {
+      "start": 3304.52,
+      "end": 3339.68,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think that's the lack of morning was lack of connection. Great tool, like phenomenal software, really, I like it. And whoever's behind it, it's probably amazing. No diss whatsoever. Like I just think that there was just no emotional connection. So I think if you're gonna build something, you have to tell your story, you have to be personable. People like this changelog when you and I are on the podcast, Jared. Now there's times when you go off and do your own thing and they still like it and same with me. They still like it, but they even guess it. I would rather reschedule if Adam or Jared can't be there. Can we, that's a thing. And because they like us both, people like us both."
+    },
+    {
+      "start": 3339.68,
+      "end": 3340.76,
+      "speaker": "jerod-santo",
+      "text": "It's like peanut butter and jelly."
+    },
+    {
+      "start": 3340.76,
+      "end": 3351.54,
+      "speaker": "adam-stacoviak",
+      "text": "That's right, man. That's how it works. But I'm a fan of Raycast, as you know. And the one thing I think you might like as well is as a single pane of glass to all the LLMs."
+    },
+    {
+      "start": 3351.54,
+      "end": 3354.85,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's cool. I just use chat GPT in a tab."
+    },
+    {
+      "start": 3354.85,
+      "end": 3358.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, and I did too, until."
+    },
+    {
+      "start": 3358.09,
+      "end": 3359.09,
+      "speaker": "jerod-santo",
+      "text": "And now you don't."
+    },
+    {
+      "start": 3359.09,
+      "end": 3362.17,
+      "speaker": "adam-stacoviak",
+      "text": "So it's not there yet. It doesn't fully replace it."
+    },
+    {
+      "start": 3362.17,
+      "end": 3363.01,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3363.01,
+      "end": 3457.9,
+      "speaker": "adam-stacoviak",
+      "text": "So here's an example. I'll share some of my laziness with the audience here. I shared a prompt with the AI chat GPT-4 inside of Raycast and said, go to this post and give me 10 notable highlights with direct quotes from each highlight. Raycast AI failed and it was chat GPT-4 so it wasn't like a lesser model. And it said, I can't go browse the internet. And I'm like, nah, I know that chat GPT can browse the internet because I do it all the time. So I went to legit chat GPT in my tab and said, do this and it did it. So there was a failure there in that one case. And that's an AI thing, but I think there's UX challenges on their side as well because it's an application. It's a sub application here. You know about this, sub shows, you know? Sub shows can't really shine very well. We know that. Now they can actually. We proved my initial hypothesis wrong. But it's a sub application of Raycast. This is by no means deep on Raycast, but jeez, this is how it works, okay? And so I find myself in the AI chat, but it doesn't have all the same features as an application. So I think they have possibilities. So I'm sticking around, not because it's amazing at everything I wanted to do now, it's because I know the people behind the thing is dedicated to getting where I want it to go, right? And they're also willing to hear this gripe. I have the same gripe. When I go and I search J-E-R and I don't find you in my list, I'm upset. I've gotta then go to contacts and then say search those contacts. That's just dumb. That's the dumbest thing ever. So I'm with you on that."
+    },
+    {
+      "start": 3457.9,
+      "end": 3459.22,
+      "speaker": "jerod-santo",
+      "text": "Let's get that on our list."
+    },
+    {
+      "start": 3459.22,
+      "end": 3463.18,
+      "speaker": "adam-stacoviak",
+      "text": "I wanna change it today. If I could write the code, I would. I would just go like boom, here's the code."
+    },
+    {
+      "start": 3463.18,
+      "end": 3467.46,
+      "speaker": "jerod-santo",
+      "text": "Is there an extension that says like remove this feature? An extension that takes another one out."
+    },
+    {
+      "start": 3467.46,
+      "end": 3468.3,
+      "speaker": "adam-stacoviak",
+      "text": "So I think."
+    },
+    {
+      "start": 3468.3,
+      "end": 3469.26,
+      "speaker": "jerod-santo",
+      "text": "That'd be cool."
+    },
+    {
+      "start": 3469.26,
+      "end": 3492.06,
+      "speaker": "adam-stacoviak",
+      "text": "I think what it could be is it seems silly that you should have to go to a search prompt for contacts. Alfred, Spotlight, even Quicksilver indexed the contacts directly. And they were first class citizens in the index. You didn't have to go to a subset to search only those things. So I'm sure there's a tweet behind the scenes you could do to make that a thing. I don't know why it's like that, but it's dumb."
+    },
+    {
+      "start": 3492.06,
+      "end": 3564.62,
+      "speaker": "jerod-santo",
+      "text": "It's difficult when you have like a single prompt or a single pane of glass that tries to provide so many different sub programs is that it has to then say, hey, okay, here's my query, but which sub program were you targeting this query to? Was it an LLM? Was it the OS? Are you trying to launch an application? And so they have trade-offs there. They have to decide like what gets the bare query, you know, the empty one where it's just a word or just a phrase versus like, I'm sure you can, you can put a little prefix there with a colon or whatever and like use a sub part of Raycast or something. I'm just talking completely hypothetically. I don't use it, but that's a challenge as a UX designer is like, well, what gets top level search and what doesn't? And because macOS Spotlight really is an operating system level thing and nothing else, it's just like, it's gonna search its built-in Apple apps and that's usually just what you need. So, but I do feel like that particular use, like, hey, this is just a name of a, you know, just like pass it off to the contacts app automatically. Why not? All right, we've beat this horse dead."
+    },
+    {
+      "start": 3570.9,
+      "end": 3740.53,
+      "speaker": "adam-stacoviak",
+      "text": "What's up, friends? I wanna share an awesome new announcement from our friends over at Crab Nebula. Crab Nebula is the official partner of Towery. For the uninitiated, Towery is a toolkit that helps developers make applications for the major desktop platforms using virtually any front-end framework in existence. The core is built with Rust and the CLI leverages Node.js, making Towery a genuinely polyglot approach to creating and maintaining great apps. So building applications with Towery has always been an incredibly joyful experience. However, once the applications are built, distributing them and rolling out updates has always been cumbersome. This is why we are thrilled to be part of this announcement from our friends at Crab Nebula on their latest product, Crab Nebula Cloud. The problem really is the cost of distributing applications, the security, and the feedback and analytics. Just thinking about cost alone to distribute new applications at scale, it can get very expensive when bundle sizes compound with the number of users, which further compounds with frequency of application updates. Always be shipping, right? A 500 meg application distributed across 500 users with nightly updates leads to a total of around 7.5 million megabytes. That's 7.5 terabytes transferred in a single month. Now, based on popular cloud pricing, this could easily lead to a bill in the ballpark of around $90,000. That's a lot of dollars. More so, distributing updates requires complex cryptography to ensure that an update is the original safe artifact for users to download, install, and execute, and then collecting meaningful analytics is more challenging with desktop applications compared to web-based services, impacting the ability to make informed updates and improvements. So at the heart of Crab Nebula Cloud is a purpose-built CDN ready for global scale, ensuring seamless integration with a CI-CD pipeline and first-class support for GitHub actions. And security updates are a first-class citizen. Leveraging the power of Tauri Updater, Crab Nebula Cloud provides an out-of-the-box update server that any application can call to check for signed updates and, if the update is available, immediately download and apply it in an instant over the air. And of course, Tauri is open source and Crab Nebula is a company born out of open source and they're giving back to the open source community by giving steep discounts and subsidies to open source projects built with Tauri. To learn more, get started, and check out the docs, go to crabnebula.dev slash cloud. That's crab, C-R-A-B, nebula, N-E-B-U-L-A, dot dev slash cloud. Once again, crabnebula.dev slash cloud."
+    },
+    {
+      "start": 3740.53,
+      "end": 3791.86,
+      "speaker": "jerod-santo",
+      "text": "Beeper no longer indie. I don't know if it was indie before. It was probably a startup. It's now part of Automattic. So this is April 9th. Beeper's CEO, Eric Michikovsky, now the automatic head of messaging, writes, \"'I'm excited to announce that Beeper has been acquired \"'by Automattic. \"'This acquisition marks the beginning \"'of an exciting new chapter.'\" That's what they always say. \"'As we continue our mission to create \"'the best chat app on earth.'\" So if you haven't heard of Beeper before, this really made its name because it unified the green bubbles and the blue bubbles on iOS. So you could be an Android user, install Beeper, and chat over iMessage with a blue bubble. Yes."
+    },
+    {
+      "start": 3791.86,
+      "end": 3792.68,
+      "speaker": "adam-stacoviak",
+      "text": "You could masquerade."
+    },
+    {
+      "start": 3792.68,
+      "end": 3863.66,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it was called Beeper Mini. You can't anymore because Apple said no. Apple basically kicked them out for it. They found a very good technical way of getting it done. I don't remember the details. I feel like there was a Beeper middleman, like a Beeper server somewhere in the mix, but they found a way of bridging the TLS and stuff. I don't know. But it was seamless to the end users that you could be on an Android, and as long as you're using Beeper, which is a universal chat app, like bring all your chats into one place, you could chat on iMessage and nobody would know you as a green bubble. And that got tons of users, like right away, bam. That was called Beeper Mini, briefly available. It was a briefly available app. And so Apple basically put the kibosh on that, and now Beeper still is this universal chat app, but with only 115,000 users, which, you know, nothing to shake a stick at, but not massive by today's startups. And so very much an uphill battle for them, and now Matt Mullenweg and company decided to buy them out, and it's part of automatic. What do you think?"
+    },
+    {
+      "start": 3863.66,
+      "end": 3901.59,
+      "speaker": "adam-stacoviak",
+      "text": "Well, a couple of questions. I guess one is an observation, then a couple of questions. First observation is on the homepage of Beeper. I think it's super cool. They've got this announcement, one, that they're being acquired, but the interface of showing off Beeper to display what it is, they have, you know, like notifications, I would say, in the UI, in the above fold, this hero image, so to speak. And in the little announcement, it says Beeper is doing automatic. I just think that's so cool. Like the subtle love and detail, like it's part of the marketing, but it's also like embedded. That to me is, you know, a good touch. It's a thoughtful touch."
+    },
+    {
+      "start": 3901.59,
+      "end": 3920.17,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I think the reputation was that they were, I'm using past tense that they don't exist anymore, but Beeper as a company is no longer standalone. The reputation was very good, and it was like software that worked really well with those touches and had solved this huge problem of the green bubble, blue bubble, social stratification."
+    },
+    {
+      "start": 3921.17,
+      "end": 3931.3,
+      "speaker": "adam-stacoviak",
+      "text": "And I would say equally observation, there's no mention of Beeper on the automatic homepage yet. So like, who's winning here?"
+    },
+    {
+      "start": 3931.3,
+      "end": 3932.42,
+      "speaker": "jerod-santo",
+      "text": "Who's winning?"
+    },
+    {
+      "start": 3932.42,
+      "end": 3938.72,
+      "speaker": "adam-stacoviak",
+      "text": "Right, like who's updating their homepage faster? Like Beeper made it. I mean, that's probably big news for them, but I think if you acquire-"
+    },
+    {
+      "start": 3938.72,
+      "end": 3940.42,
+      "speaker": "jerod-santo",
+      "text": "It's probably a bigger deal for them."
+    },
+    {
+      "start": 3940.42,
+      "end": 3991.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, but at the same time, their whole entire homepage for automatic is a list of all the things they do. Gravatar, Newspack, Akismet, I mean everything, Jetpack, WordPress.com of course. Maybe not everything, I could be wrong. I mean, they probably have more than this potentially, but it's not there. So that's just an observation. I think my question is, is like what exactly will automatic not acquire and what is their purpose? Do you know much about what their goal is as a company? Are they an investor? Are they a buy it and take over and make it amazing? Cause like, I don't know about Tumblr these days. That was amazing back in the day. I mean, Tumblr was revolutionary to change the entire way social blogging worked. And maybe a lot of today's social media is inherited from the progress made with Tumblr."
+    },
+    {
+      "start": 3991.18,
+      "end": 3995.8,
+      "speaker": "jerod-santo",
+      "text": "Sure. Yeah, by the time they bought it though, it was basically a shadow of itself."
+    },
+    {
+      "start": 3995.8,
+      "end": 3996.7,
+      "speaker": "adam-stacoviak",
+      "text": "It was."
+    },
+    {
+      "start": 3996.7,
+      "end": 4002.54,
+      "speaker": "jerod-santo",
+      "text": "They got Tumblr in a fire sale from Yahoo. It was a Yahoo, I think."
+    },
+    {
+      "start": 4002.54,
+      "end": 4003.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 4003.38,
+      "end": 4069.02,
+      "speaker": "jerod-santo",
+      "text": "And so Matt said like, he came out and said they wouldn't have bought it unless it was affordable. And it was. And I think they, I couldn't find the quote, but I feel like he recently said that Tumblr was a mistake or that they haven't been able to do with it what they thought they would be able to do with it. And they had layoffs recently at Tumblr last in December, like a big portion, like 100 plus people of a small organization laid off. And I think Matt has said they've been unable to find a way of having Tumblr make money. So I think Tumblr was a bad buy, but he's bought a bunch of stuff and done really well with some of it. I mean, Pocket Casts, for instance, is thriving. And they open sourced it and they've left it pretty much alone, but Automattic owns Pocket Casts, which is a great podcast app. And they seem to support things that are open and webby. And I don't know what the exact mission of Automattic or like what they say their investment philosophy is, but it seems like they like to buy different webby things and run them, I don't know, like WordPress."
+    },
+    {
+      "start": 4069.02,
+      "end": 4077.74,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I just wonder, is this amazing news for, I suppose in quotes, any acquisition is a good news. Maybe that's not true."
+    },
+    {
+      "start": 4077.74,
+      "end": 4079.44,
+      "speaker": "jerod-santo",
+      "text": "Probably not. Probably not."
+    },
+    {
+      "start": 4079.44,
+      "end": 4092.96,
+      "speaker": "adam-stacoviak",
+      "text": "But it's probably a good news for Beeper because they're proclaiming it, right? They put a blog out there about it. We haven't even talked about the announcement post yet, but I guess you did allude to some of the user base based on what they said in there too, 115,000 users."
+    },
+    {
+      "start": 4092.96,
+      "end": 4149.71,
+      "speaker": "jerod-santo",
+      "text": "What about Beeper as a piece of software? So it's a universal chat app. So you use one app to send and receive messages on 14 different chat networks, which I think is a real problem that we have. I don't know about you, Adam, but like certain people in my life use certain chat apps and not the other ones. And so I basically, like I have a WhatsApp because I have a few friends who use WhatsApp only. And I have iMessage, of course, that one's built in. You know, I use, I don't use Facebook Messenger, but I find myself using LinkedIn messaging now, somewhat, mostly for work. But it's like all these different chat apps and then there's Telegram and there's a Discord, then you got Slack, then you got, it goes on and on and on. Right. And so we all have all these apps on our phones and all these accounts to manage. And we have to know, you have to think about certain friends like, oh, this person's over here. Totally. And this person I talked to in Slack, this person I talked to in iMessage."
+    },
+    {
+      "start": 4149.71,
+      "end": 4150.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yup."
+    },
+    {
+      "start": 4150.55,
+      "end": 4153.81,
+      "speaker": "jerod-santo",
+      "text": "So that's, I mean, I kind of like it on the idea, like let's unify all that into one place."
+    },
+    {
+      "start": 4153.81,
+      "end": 4198.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I think the idea is great. I really do. And I just wonder if it's possible to do it well. Cause like every unique application scenario has a unique application UX. And that's both good and bad. Like we've talked about LinkedIn. I think it's not the best. I talked to a lot of people there in long form and realistically only there. And it might as well be my email thread with them because that's how much we talk there. And I don't find the experience to be amazing. Would it be simplified or better if it was in Beeper? I don't know, maybe. Right. I think trying to unify all the crazy chat worlds is a challenge. Maybe they did it well. And as a non-user, I can't say for sure."
+    },
+    {
+      "start": 4198.89,
+      "end": 4209.75,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. I haven't used it either. I was just giving you what I've heard people say. It's like, they do like to use it. I used Pigeon back in the day. Did you ever use Pigeon? P-I-D-G-I-N. This was an open source."
+    },
+    {
+      "start": 4209.75,
+      "end": 4210.87,
+      "speaker": "adam-stacoviak",
+      "text": "I did not."
+    },
+    {
+      "start": 4210.87,
+      "end": 4222.67,
+      "speaker": "jerod-santo",
+      "text": "Okay. So Pigeon was a very similar thing. Only ran on your desktop and it would bridge like Jabber. So if you had some XMPP things going on, it would bridge G chat. Is that what it was called inside of Gmail?"
+    },
+    {
+      "start": 4222.67,
+      "end": 4223.51,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4223.51,
+      "end": 4227.17,
+      "speaker": "jerod-santo",
+      "text": "Google chat. That was actually a thing. People were using that."
+    },
+    {
+      "start": 4227.17,
+      "end": 4228.31,
+      "speaker": "adam-stacoviak",
+      "text": "Did it support Piper chat?"
+    },
+    {
+      "start": 4228.31,
+      "end": 4231.21,
+      "speaker": "jerod-santo",
+      "text": "I don't know what Piper chat is. What's Piper chat?"
+    },
+    {
+      "start": 4231.21,
+      "end": 4232.81,
+      "speaker": "adam-stacoviak",
+      "text": "That's from Silicon Valley."
+    },
+    {
+      "start": 4232.81,
+      "end": 4234.39,
+      "speaker": "jerod-santo",
+      "text": "Oh gosh."
+    },
+    {
+      "start": 4234.39,
+      "end": 4241.31,
+      "speaker": "adam-stacoviak",
+      "text": "We almost made it. We almost made it to the end. I baited you, man. We were. You teed that one up. I had to."
+    },
+    {
+      "start": 4241.31,
+      "end": 4246.99,
+      "speaker": "jerod-santo",
+      "text": "This episode was pure. Now it's been soiled. Bonjour IRC. So you put IRC in there."
+    },
+    {
+      "start": 4246.99,
+      "end": 4247.83,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yes."
+    },
+    {
+      "start": 4247.83,
+      "end": 4250.95,
+      "speaker": "jerod-santo",
+      "text": "AIM. So your instant messenger, your AOL instant messenger."
+    },
+    {
+      "start": 4250.95,
+      "end": 4254.11,
+      "speaker": "adam-stacoviak",
+      "text": "I just feel bad for the developers. They have to support all these like protocols."
+    },
+    {
+      "start": 4254.31,
+      "end": 4255.97,
+      "speaker": "jerod-santo",
+      "text": "I know. And they were open source."
+    },
+    {
+      "start": 4255.97,
+      "end": 4260.39,
+      "speaker": "adam-stacoviak",
+      "text": "You guys are reading them off. I'm like, gosh, IRC support and a messaging app. Like, wow. Oh yeah."
+    },
+    {
+      "start": 4260.39,
+      "end": 4262.21,
+      "speaker": "jerod-santo",
+      "text": "ICQ. If you remember ICQ."
+    },
+    {
+      "start": 4262.21,
+      "end": 4263.05,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 4263.05,
+      "end": 4300.3,
+      "speaker": "jerod-santo",
+      "text": "You could do all those inside of Pidgin. And I used it and it was cool. And I couldn't believe it was free software. It was one of the reasons why I fell in love with open source cause like who writes this for free? So the beeper reminds me of that. And that being said, I haven't used beeper just cause I don't know. I don't mind having multiple apps. It's not, it's a thing, but it's not like a serious thorn in my side. I think if I was on Android and I wanted the blue bubble, like that's what brought all the kids to the yard. It was like, can I have blue bubbles on Android please? And when that got shut out by Apple, that's when I think beeper probably would have said, okay, we need a, we need a sugar daddy. Get us there."
+    },
+    {
+      "start": 4300.3,
+      "end": 4310.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. WhatsApp, Facebook messenger, Twitter, Android SMS, Google messages, telegram, signal, matrix, Slack, Google chat, Instagram, IRC, discord, LinkedIn."
+    },
+    {
+      "start": 4310.86,
+      "end": 4311.94,
+      "speaker": "jerod-santo",
+      "text": "That's a lot."
+    },
+    {
+      "start": 4311.94,
+      "end": 4319.72,
+      "speaker": "adam-stacoviak",
+      "text": "That's what they say when it says, which networks can be used with beeper. So that's, that is like, that's most of what I use. Instagram's in there."
+    },
+    {
+      "start": 4319.72,
+      "end": 4327.28,
+      "speaker": "jerod-santo",
+      "text": "Would you want to manage all those integrations? I mean, I just think of the headache of that software. I would not. I would never want to be a beeper engineer."
+    },
+    {
+      "start": 4327.28,
+      "end": 4331.24,
+      "speaker": "adam-stacoviak",
+      "text": "If you're a beeper engineer out there and you love your job, please email us."
+    },
+    {
+      "start": 4331.24,
+      "end": 4332.08,
+      "speaker": "jerod-santo",
+      "text": "Yeah, we'd love to talk to you."
+    },
+    {
+      "start": 4332.08,
+      "end": 4334.08,
+      "speaker": "adam-stacoviak",
+      "text": "Editors at changelog.com."
+    },
+    {
+      "start": 4334.08,
+      "end": 4335.98,
+      "speaker": "jerod-santo",
+      "text": "We'd love to hear about how it all gets wired together"
+    },
+    {
+      "start": 4335.98,
+      "end": 4338.64,
+      "speaker": "adam-stacoviak",
+      "text": "and works. We're not talking smack. We're just trying to have empathy."
+    },
+    {
+      "start": 4338.64,
+      "end": 4383.53,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. Well, hopefully automatic and Matt Mullenweg can help them get somewhere awesome. I think if anybody can, I don't know, why not Matt Mullenweg? They do say in the post that automatic has deep relationships at Apple, Google, et cetera. And they implied that that's going to help them get maybe better support from Apple. And I just find that to be completely baseless and hopeful. I just can't imagine a world in which Apple says, sure, let's go ahead and let the green bubbles masquerade as blue bubbles and ruin our stranglehold on iMessage. I just don't think Apple's ever going to let that happen unless the governments of the world force them to. Which could happen."
+    },
+    {
+      "start": 4383.53,
+      "end": 4428.25,
+      "speaker": "adam-stacoviak",
+      "text": "I suppose one more note too for this is what Eric says at the end. Eric is the former beeper CEO, now automatic head of, I almost said head of engineering, head of messaging. He says at the end of the post, this is a big bet. Automatic is doubling down on chat after their acquisition last year of texts.com, a messaging app with a similar mission. So doubling down, I mean, literally by buying two, right? And if you go to texts.com, it still is a standalone app. Eric says they're merging worlds. He's now head of messaging for automatic. So maybe they have a big mission here where they will have the best end all be all, all in one chat app."
+    },
+    {
+      "start": 4428.57,
+      "end": 4453.47,
+      "speaker": "jerod-santo",
+      "text": "Hmm. Well, let me put one prediction out there just based on recent history. Open source beeper coming soon, maybe within the next couple of years. I think they might go ahead and maybe it'd be called something else, but the open source pocket casts, that was cool. Matt loves open source. And so if they're trying to build one messaging app to rule them all, why not open source that sucker and get the goodwill that comes along with it."
+    },
+    {
+      "start": 4453.47,
+      "end": 4457.35,
+      "speaker": "adam-stacoviak",
+      "text": "He does say they're staying under the beeper brand. Okay. He's just going to take a little bit of time."
+    },
+    {
+      "start": 4457.39,
+      "end": 4461.78,
+      "speaker": "jerod-santo",
+      "text": "Open source beeper, I'm staking my claim. I think that's going to happen."
+    },
+    {
+      "start": 4461.78,
+      "end": 4497.58,
+      "speaker": "adam-stacoviak",
+      "text": "Well, let's put out another invite. Eric, you are welcome on the show as well. Come share the future mission of beeper. I think it's the coolest absolute name ever for a unified app. I mean, if you didn't grow up in the eighties and nineties and think about your, well, it was probably more like nineties, right? Nineties was the era of the beeper. But if you grew up in that era and you literally had a beeper, you know how cool the name beeper is. And if you're a wannabe that was born in the 2000s or the 2010s and you think beeper is cool because what's old is new again. Well, hey, you're welcome here too, but beeper is a cool name."
+    },
+    {
+      "start": 4497.58,
+      "end": 4498.72,
+      "speaker": "jerod-santo",
+      "text": "A hundred percent."
+    },
+    {
+      "start": 4498.72,
+      "end": 4508.68,
+      "speaker": "adam-stacoviak",
+      "text": "Is that it? That's it. My gosh. Well, in closing, let's mention markdown. That thing you found, that Vercel app. I think that's pretty cool. Go check that out. Did you mention that news yet?"
+    },
+    {
+      "start": 4508.68,
+      "end": 4513.84,
+      "speaker": "jerod-santo",
+      "text": "I don't even know. I think I just found it. I think it's probably going to come out in news. Probably be in next week's news."
+    },
+    {
+      "start": 4513.84,
+      "end": 4526.26,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know much else besides it. I mean, I've been using a turndown for so long, which is now at mixmark-io.github.io slash turndown. I've been using turndown forever."
+    },
+    {
+      "start": 4526.26,
+      "end": 4528.78,
+      "speaker": "jerod-santo",
+      "text": "Does it do the same thing or is it doing something slightly different?"
+    },
+    {
+      "start": 4528.78,
+      "end": 4551.57,
+      "speaker": "adam-stacoviak",
+      "text": "It's kind of more full featured. You have a left side is the HTML. So you paste the markdown. You don't get a chance to paste the URL. You have style changes. You can determine the heading style, the horizontal rule style, the bullet style, the code block indent style. So you have a lot of control over it. So I guess maybe in many ways this is better than that."
+    },
+    {
+      "start": 4551.57,
+      "end": 4552.41,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4552.41,
+      "end": 4557.53,
+      "speaker": "adam-stacoviak",
+      "text": "But you can't point at a URL. You have to have the HTML. And in most every case, I've got the HTML."
+    },
+    {
+      "start": 4557.53,
+      "end": 4606.05,
+      "speaker": "jerod-santo",
+      "text": "So you are talking about turndown, the one that I'm linking up. So this is a cool tool that I found this week. Markdown down is what it's called. Double down. As you mentioned, it's on the Vercel platform just as a subdomain web app. Convert any webpage to a clean markdown with images downloaded. And so I'm looking at turndown now for the first time. Yeah, I think it's more full featured in terms of you can control the output a little bit better. This one has a few options, but you can just paste the URL to this sucker and it'll actually go out there and fetch the HTML and all the images and everything. And it will separate them out and turn that into markdown. I just find that to be very useful and something that I haven't, I just found it. So I'm probably gonna be certain using it because how many times do you want some HTML and just turn it back into markdown?"
+    },
+    {
+      "start": 4606.05,
+      "end": 4606.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4606.89,
+      "end": 4609.09,
+      "speaker": "jerod-santo",
+      "text": "So cool tool, we'll link that one up in the show notes."
+    },
+    {
+      "start": 4609.09,
+      "end": 4617.69,
+      "speaker": "adam-stacoviak",
+      "text": "One quick plug for this fella. Asad Maman, I'm gonna assume that's how you say his name. His Twitter bio says build something people don't want."
+    },
+    {
+      "start": 4617.69,
+      "end": 4618.53,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 4618.53,
+      "end": 4634.37,
+      "speaker": "adam-stacoviak",
+      "text": "But it also links up what he does in his Twitter bio from his homepage. And he is making something called Playroom. Join Playroom.com. So check that out. It's build multiplayer games in minutes. Don't know much more than that, but check it out. Let us know if you like it."
+    },
+    {
+      "start": 4634.37,
+      "end": 4643.84,
+      "speaker": "jerod-santo",
+      "text": "All right, that's that. Thanks for hanging out with us, everyone. Next week, we will be back with more changeloggy goodness. Any final words, Adam?"
+    },
+    {
+      "start": 4643.84,
+      "end": 4646.56,
+      "speaker": "adam-stacoviak",
+      "text": "I can't wait. I'm so excited. Let's do it."
+    },
+    {
+      "start": 4646.56,
+      "end": 4647.38,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 4647.38,
+      "end": 4648.22,
+      "speaker": "adam-stacoviak",
+      "text": "Bye, friends."
+    },
+    {
+      "start": 4648.22,
+      "end": 4650.72,
+      "speaker": "jerod-santo",
+      "text": "Bye, friends. Stick around for Adam's story. Plus, plus, people."
+    },
+    {
+      "start": 4650.72,
+      "end": 4656.53,
+      "speaker": "adam-stacoviak",
+      "text": "Here it comes."
+    },
+    {
+      "start": 4656.53,
+      "end": 4729.02,
+      "speaker": "jerod-santo",
+      "text": "All right, that is changeloggin' friends for this week. Thanks for hanging out with us. Subscribe now if you haven't yet. And if you're a longtime subscriber, I'm trading free sticker packs for five-star reviews, but only for a limited time. So head to Apple Podcasts or Spotify and leave us a thoughtful note. Send the evidence to Jared at changelog.com. That's J-E-R-O-D at changelog.com alongside your mailing address. And I'll send you some stickers ASAP. I'd also accept a blog post of the same nature. Thanks once again to our partners at Fly, to Breakmaster Cylinder, and to Sentry. Don't forget to use code changelog when you sign up for a Sentry team plan. That'll save you 100 buckaroos, and it'll help us retain Sentry as a sponsor. Next week on the changelog, news on Monday, Louis Pilfold, the creator of the Gleam programming language on Wednesday, and changeloggin' friends with Adam Jacob on Friday. Have a great weekend. Leave us a five-star review if you want some stickers. And let's talk again real soon."
+    },
+    {
+      "start": 4729.02,
+      "end": 4741.08,
+      "speaker": "adam-stacoviak",
+      "text": "Once upon a time in a bustling town not too far from the sea, there was a magical workshop known as Boston Dynamics. This was no ordinary workshop. It was a place where dreams were built."
+    },
+    {
+      "start": 4741.08,
+      "end": 4743.28,
+      "speaker": "jerod-santo",
+      "text": "King quack quack."
+    }
+  ]
+}

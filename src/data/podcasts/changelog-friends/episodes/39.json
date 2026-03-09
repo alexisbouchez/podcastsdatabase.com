@@ -1,0 +1,1677 @@
+{
+  "title": "More BMC goodness",
+  "description": "The mysterious Breakmaster Cylinder returns to discuss the Dance Party album, deconstructing its nostalgic DJ-style mix and breaking down favorite tracks.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "breakmaster-cylinder"
+  ],
+  "segments": [
+    {
+      "start": 14.8,
+      "end": 75.5,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about repeating spider mysteries. Big thanks to our partners at Fly, the home of changelog.com. Launch your app as close to your users as possible for peak performance. Fly makes it easy. Learn how at fly.io. Okay, let's talk. Yes, let's talk about our friends over at Firehydrant real quick. They have a brand new on-call feature called Signals. And what you're about to hear are real reactions from PagerDuty users when seeing signals from Firehydrant for the first time. PagerDuty, I don't want to say they're evil, but they're an evil that we've had to maintain. I know all of our engineering teams, as well as myself, are interested in getting this moving the correct direction. As right now, just managing and maintaining our user seats has become problematic. That's really good, actually. This is a consistent problem for us in teams,"
+    },
+    {
+      "start": 75.5,
+      "end": 111.02,
+      "speaker": "jerod-santo",
+      "text": "is that covering these sorts of ad hoc timeframes is very difficult. Putting in overrides and specific days and different new shifts is quite onerous. Oh, and you did the most important piece, which is didn't tie them together, because that's half the problem with PagerDuty, right? Is I get all these alerts and then I get an incident per alert. And generally speaking, when shit goes sideways, you get lots of alerts because lots of things are broken, but you only have one incident. Yeah, I'm super impressed with that, because being able to assign to different teams"
+    },
+    {
+      "start": 111.02,
+      "end": 149.74,
+      "speaker": "adam-stacoviak",
+      "text": "is an issue for us, because the one alert fires for one team, and then it seems like they have to bounce around, and it never does. Which then means that we have tons of communication issues, because people aren't updated. No, I mean, to be open and honest, when can we switch? So you're probably tired of alerting tools that feel more like a headache than a solution, right? Well, Signals from Firehydrant is the alerting and on-call tool designed for humans, not systems. Signals puts teams at the center, giving you the ultimate control over rules, policies, and schedules. No need to configure your services or do wonky workarounds."
+    },
+    {
+      "start": 149.74,
+      "end": 196.72,
+      "speaker": "jerod-santo",
+      "text": "Ingest data seamlessly from any source using webhooks, and watch as Signals filters out the noise, alerting you only on what matters. Manage tasks like coverage requests and on-call notifications effortlessly within Slack. You can even acknowledge alerts right there. But here's the game changer. Signals natively integrates with Firehydrant's full incident management suite. So as soon as you're alerted, you can seamlessly kick off and manage your entire incident inside a single platform. Learn more or switch today at firehydrant.com slash signals. Again, firehydrant.com slash signals. So what I was about to say, and I'll say now. Okay."
+    },
+    {
+      "start": 196.72,
+      "end": 222.24,
+      "speaker": "adam-stacoviak",
+      "text": "Is that some of our ship it listeners are onto us. Oh. You know what I'm talking about? The sample in the theme? Oh no, you mean the, what you've done with the theme. Both. Oh. And, and the outro theme. Do tell. Do you know that one? I mean, you, you wrote it. You made it. We got two samples. Oh, you don't know. We're using that for an outro now. That's probably why you're so confused. Is it one of the punny ones?"
+    },
+    {
+      "start": 222.8,
+      "end": 224.56,
+      "speaker": "breakmaster-cylinder",
+      "text": "It's one of the punny ones. Yeah. Okay."
+    },
+    {
+      "start": 225.12,
+      "end": 231.7,
+      "speaker": "adam-stacoviak",
+      "text": "So we're using the new theme sample as the new theme."
+    },
+    {
+      "start": 231.7,
+      "end": 249.1,
+      "speaker": "jerod-santo",
+      "text": "And then we've replaced the old outro music with the other one. And our ship it listeners in the channel there. They're pretty smart people. They are smart people. Like, wait a second. I know what you guys are trying to do to me."
+    },
+    {
+      "start": 250.06,
+      "end": 261.79,
+      "speaker": "adam-stacoviak",
+      "text": "Do to us. So that's kind of cool about that. It's nice to have a secret, you know, like in plain sight, but it's also nice when that secret kind of slips out for insiders, you know?"
+    },
+    {
+      "start": 261.79,
+      "end": 262.27,
+      "speaker": "jerod-santo",
+      "text": "Indeed."
+    },
+    {
+      "start": 262.27,
+      "end": 273.47,
+      "speaker": "adam-stacoviak",
+      "text": "I like an Easter egg. Yeah, that's cool. Yeah. Well, here we are. We are hanging out with the mysterious break master cylinder, our beat freaking residents,"
+    },
+    {
+      "start": 273.47,
+      "end": 276.83,
+      "speaker": "jerod-santo",
+      "text": "our beat master. What else do we call you? BMC."
+    },
+    {
+      "start": 276.83,
+      "end": 285.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. That's pretty much it. Surely don't call me Shirley naked gun. That's eighties."
+    },
+    {
+      "start": 286.43,
+      "end": 302.03,
+      "speaker": "jerod-santo",
+      "text": "It's going back even further than our ship. It samples, which we will not name. We'll let other people figure them out. Oh, I was wondering. Okay. We're here to talk about dance party. This is our newest album out for a few months now by a change log beats and break master"
+    },
+    {
+      "start": 302.03,
+      "end": 308.03,
+      "speaker": "adam-stacoviak",
+      "text": "cylinder, a collab as we do. We've been collabing for years. And this one's cool."
+    },
+    {
+      "start": 308.03,
+      "end": 318.03,
+      "speaker": "jerod-santo",
+      "text": "Basically, we're like, Hey, BMC, take all of the songs that you've made for us that are danceable or they're just like rave-able or that you could hear them potentially in"
+    },
+    {
+      "start": 318.03,
+      "end": 318.59,
+      "speaker": "adam-stacoviak",
+      "text": "a club."
+    },
+    {
+      "start": 318.59,
+      "end": 327.55,
+      "speaker": "jerod-santo",
+      "text": "You can imagine them being played loudly at night and put them onto an album. I can be loud at night. And you did it. And I did it."
+    },
+    {
+      "start": 327.55,
+      "end": 328.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 328.75,
+      "end": 330.59,
+      "speaker": "jerod-santo",
+      "text": "Is that it? That's it."
+    },
+    {
+      "start": 330.59,
+      "end": 332.11,
+      "speaker": "adam-stacoviak",
+      "text": "That's the show. Yes."
+    },
+    {
+      "start": 332.11,
+      "end": 334.35,
+      "speaker": "jerod-santo",
+      "text": "Thank you for doing that. You're welcome."
+    },
+    {
+      "start": 334.35,
+      "end": 348.27,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I don't know if we want to go track by track because there's 21 tracks that we might be here a while. Maybe we can talk about, I love to talk about the mix overall because this mix is different than our other albums that you've done intentionally."
+    },
+    {
+      "start": 348.27,
+      "end": 353.95,
+      "speaker": "jerod-santo",
+      "text": "So people may be wondering if it was an accident or intentional, and this was very much intentional."
+    },
+    {
+      "start": 353.95,
+      "end": 355.23,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So I want to talk about that."
+    },
+    {
+      "start": 355.23,
+      "end": 358.99,
+      "speaker": "jerod-santo",
+      "text": "Adam, what's on your agenda to tease out of BMC."
+    },
+    {
+      "start": 358.99,
+      "end": 362.67,
+      "speaker": "adam-stacoviak",
+      "text": "I almost said once once once, but he be asking for it."
+    },
+    {
+      "start": 362.75,
+      "end": 364.21,
+      "speaker": "jerod-santo",
+      "text": "But he beat me to it. So."
+    },
+    {
+      "start": 365.39,
+      "end": 366.83,
+      "speaker": "adam-stacoviak",
+      "text": "So we already got that one checked off."
+    },
+    {
+      "start": 367.87,
+      "end": 374.27,
+      "speaker": "jerod-santo",
+      "text": "How do you spell by the way? I don't know. Like ounce, maybe. I don't know if you do the double over. I would do like O O N T Z."
+    },
+    {
+      "start": 375.31,
+      "end": 375.81,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 375.81,
+      "end": 418.19,
+      "speaker": "jerod-santo",
+      "text": "Yeah, maybe that's right. How about you? Yeah, that's a good one. Yeah, I agree with the mix of this one was different. And you put like extra sprinkles of sugar on top of this one, I think, too, in terms of the detail in the mix in comparison to others, the fading and the mixing and. All that stuff. Tell us about it. Tell us about it is in the nineties, when I listen to a lot of trance CDs or things like that, you can hear the DJ trying to switch between tracks. And sometimes it goes really well. And sometimes it's a little clunky. You can hear them do it. And I found that endearing. So I made it deliberately sound like I was trying to get from one to the other and do it as best as I can, but it wouldn't be totally perfect."
+    },
+    {
+      "start": 418.91,
+      "end": 422.35,
+      "speaker": "adam-stacoviak",
+      "text": "And the beats aren't like off from each other or anything, but like trying to get"
+    },
+    {
+      "start": 422.43,
+      "end": 425.47,
+      "speaker": "jerod-santo",
+      "text": "one song that's in one key into another one."
+    },
+    {
+      "start": 425.47,
+      "end": 428.32,
+      "speaker": "adam-stacoviak",
+      "text": "That's in a different key. You know, it'd be creative."
+    },
+    {
+      "start": 429.04,
+      "end": 434.32,
+      "speaker": "jerod-santo",
+      "text": "I don't know. It just sounds good. It feels good. You press play and then the whole thing doesn't stop until the end. Right."
+    },
+    {
+      "start": 434.32,
+      "end": 434.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 435.68,
+      "end": 493.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I like that. And it's like, what happens is tell us how it works. So during one track, the next track overlays it for the last end seconds and it fades from one to the other. And then if you just start from track three, for instance, it's just normal. But if you start at the end of track two, there's like, it's not its own song, right? It's got some part of the other song into it. It has some part to allow for that smooth fade. Some track three at the end of track two. Right. I was just listening to it. I guess some of them have little pieces of the previous, but not too obviously, hopefully. Very little. Yeah. Yeah. There's a couple that are very, very deliberate where it comes in with it. And I like that. Honestly, I dug how that worked out. I dug the detail put in there, you know? I like details, but also it was like a nostalgia thing for me. I don't know if that's going to mean a lot to too many other people, but. Right. Yeah. I'm jumping the gun a little bit, but I'm really concerned about Paul."
+    },
+    {
+      "start": 493.98,
+      "end": 497.66,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, you're just jumping to the end of the album, dude. I wouldn't be concerned about Paul."
+    },
+    {
+      "start": 497.66,
+      "end": 502.46,
+      "speaker": "jerod-santo",
+      "text": "I'd be concerned for Moby. And also I did not come up with his name."
+    },
+    {
+      "start": 502.46,
+      "end": 505.02,
+      "speaker": "adam-stacoviak",
+      "text": "This was literally the request for the song."
+    },
+    {
+      "start": 505.02,
+      "end": 507.42,
+      "speaker": "jerod-santo",
+      "text": "You were like, make it sound like this. Right."
+    },
+    {
+      "start": 507.42,
+      "end": 508.54,
+      "speaker": "adam-stacoviak",
+      "text": "I feel like I should clarify."
+    },
+    {
+      "start": 508.54,
+      "end": 511.5,
+      "speaker": "jerod-santo",
+      "text": "What are you talking about? I don't even know what you're talking, what you guys are talking about."
+    },
+    {
+      "start": 511.5,
+      "end": 511.98,
+      "speaker": "adam-stacoviak",
+      "text": "No idea."
+    },
+    {
+      "start": 512.86,
+      "end": 533.79,
+      "speaker": "jerod-santo",
+      "text": "We could wait then. Let's let it, let's let it be a teaser. Okay. A cliffhanger for those who are thinking, gosh, just share the best. And we're not going to do it until the end. Well, I thought we would start with the start because, you know, I'm not Tarantino. I'm more traditional. So I thought, you know, this, you guys hear this? Yes. We stole this."
+    },
+    {
+      "start": 533.79,
+      "end": 534.75,
+      "speaker": "adam-stacoviak",
+      "text": "This is different."
+    },
+    {
+      "start": 534.75,
+      "end": 545.09,
+      "speaker": "jerod-santo",
+      "text": "Did you? Yeah. Well, internally stole it. We stole it from you. We stole it from ourselves. So you put this crowd noise in at the beginning of the album."
+    },
+    {
+      "start": 545.09,
+      "end": 545.73,
+      "speaker": "adam-stacoviak",
+      "text": "He's like, what?"
+    },
+    {
+      "start": 545.73,
+      "end": 591.72,
+      "speaker": "jerod-santo",
+      "text": "I made that. Are you kidding me? Yeah. Who, what? He's like, well, yeah, what did I, I got friends together. First of all, did you actually make all those noises or is that like, uh, one of those things where you get some wave files? No, I just found a bunch of crowds. It's like three different ones kind of blended together to keep it from, to make them all like roar with approval at the right moment. Right. And then fade out in a way that doesn't sound too bad. Yes. And a lot of detail in there too, to get that right. Cause you're right. It does naturally perfectly fade. And then about two ish seconds into the crowd coming up, there's like a sort of a, a swell. Yep. Like as if the track began and the track got good and everybody got excited about the track coming into play. Like as if you're live at the DJ. Okay. I pictured it like the DJ finally walked out on stage."
+    },
+    {
+      "start": 591.72,
+      "end": 593.32,
+      "speaker": "adam-stacoviak",
+      "text": "Like they're all kind of waiting."
+    },
+    {
+      "start": 593.32,
+      "end": 602.52,
+      "speaker": "jerod-santo",
+      "text": "They're like, they, they hear it coming and they're like, oh, there they are. It's that guy. Yeah. It's like, oh, we're getting started. It's called party star lights came on."
+    },
+    {
+      "start": 602.52,
+      "end": 603.24,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 603.24,
+      "end": 603.88,
+      "speaker": "jerod-santo",
+      "text": "Kind of thing."
+    },
+    {
+      "start": 603.88,
+      "end": 604.2,
+      "speaker": "breakmaster-cylinder",
+      "text": "Yeah."
+    },
+    {
+      "start": 604.2,
+      "end": 605.24,
+      "speaker": "jerod-santo",
+      "text": "And it's like, it's time."
+    },
+    {
+      "start": 605.24,
+      "end": 606.2,
+      "speaker": "adam-stacoviak",
+      "text": "It's time."
+    },
+    {
+      "start": 606.2,
+      "end": 607.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah, for sure."
+    },
+    {
+      "start": 607.16,
+      "end": 608.28,
+      "speaker": "adam-stacoviak",
+      "text": "And then we stole it from you."
+    },
+    {
+      "start": 608.28,
+      "end": 613,
+      "speaker": "jerod-santo",
+      "text": "So now we just put it in random places at the top of the change log, for instance, you"
+    },
+    {
+      "start": 613,
+      "end": 617.96,
+      "speaker": "adam-stacoviak",
+      "text": "know, we kind of figured that, I don't know, Adam, do you just think people would naturally be excited?"
+    },
+    {
+      "start": 617.96,
+      "end": 684.2,
+      "speaker": "jerod-santo",
+      "text": "They'd be clapping for us if we came out on stage. You know, honestly when these, when these albums come out, I like to reuse a lot of the music we use in them, obviously like interstitials and I'm like, why? I want to just pay homage to what's been released. So that when people go and listen to it, it sounds familiar in a way. And so I kind of borrowed it temporarily and now it's kind of stuck. So I like it. I think we need to have different variations of it at some point. Like having a crowd begin kind of feels a bit like truly world-class in my opinion. But initially it was just to give a nod to the album out there and have similarity. Yeah, exactly. It could be delusions of grandeur. It could be a little bit of that. No way. Have you done any live shows ever? People would cheer. I mean, we've been on stage and done some stuff, but not some clapping. I don't know if I would say to cheers. We've had claps. I don't think we've ever had cheers, but I would love, you know, if we could like work in like, I love you. I could totally do that. Oh my God. Stayed way away from the microphone."
+    },
+    {
+      "start": 684.2,
+      "end": 686.76,
+      "speaker": "adam-stacoviak",
+      "text": "We could just imagine it into existence."
+    },
+    {
+      "start": 687.32,
+      "end": 688.2,
+      "speaker": "jerod-santo",
+      "text": "Do you have nicknames?"
+    },
+    {
+      "start": 688.76,
+      "end": 691.24,
+      "speaker": "adam-stacoviak",
+      "text": "Like the stack? The stack."
+    },
+    {
+      "start": 691.24,
+      "end": 698.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah, we could definitely do some nicknames. Some people call me stack. Some call me stacks with an S at the end, plural."
+    },
+    {
+      "start": 698.76,
+      "end": 700.76,
+      "speaker": "adam-stacoviak",
+      "text": "Change it to an X and there's your DJ name already."
+    },
+    {
+      "start": 701.4,
+      "end": 738.26,
+      "speaker": "jerod-santo",
+      "text": "There you go. Yeah. I don't know if Skrillex would allow it. It's too close. Stacks, Skrillex. Yeah, he'd come for you. No, he's in Vegas doing something. Clapping is like cheering of the hands. That's on the way. Yeah, I think we're on our way. Here's what I think would happen actually. You know, if we ever did do, cause we hint and we tease and we talk about a conference, a party, a meetup, a show, a hangout. We've never done any of these things, but every time we're talking about it, behind the scenes, we're like, do you think BMC would come and DJ that thing live?"
+    },
+    {
+      "start": 738.26,
+      "end": 740.66,
+      "speaker": "adam-stacoviak",
+      "text": "You know, and Adam's like, oh, I'm sure."
+    },
+    {
+      "start": 740.66,
+      "end": 758.5,
+      "speaker": "jerod-santo",
+      "text": "And I'm like, I'm not sure, but I've already asked him. Oh yeah. We already got a yes. So that's where we, I think we would get our cheer for the first time is like when you drop the beat initially live for Changelog listeners and friends, that's when I think our claps are going to turn into cheers for the first time. That would be an honor."
+    },
+    {
+      "start": 758.5,
+      "end": 760.74,
+      "speaker": "adam-stacoviak",
+      "text": "I would cheer. Oh, thanks."
+    },
+    {
+      "start": 760.74,
+      "end": 760.9,
+      "speaker": "breakmaster-cylinder",
+      "text": "Yeah."
+    },
+    {
+      "start": 760.9,
+      "end": 771.86,
+      "speaker": "adam-stacoviak",
+      "text": "I would have to join the party and cheer as well. From peer pressure. Yeah. Well, pure joy, really. Pure joy. Pure joy. That's good. Tapped right into my intravenous vein there."
+    },
+    {
+      "start": 771.86,
+      "end": 776.26,
+      "speaker": "jerod-santo",
+      "text": "It's just like, got it. The joy is in there. Oh, intravenously."
+    },
+    {
+      "start": 776.26,
+      "end": 776.42,
+      "speaker": "breakmaster-cylinder",
+      "text": "Wow."
+    },
+    {
+      "start": 776.42,
+      "end": 784.42,
+      "speaker": "jerod-santo",
+      "text": "The BMC has entered the building and that's how it goes. That's awesome. But, uh, the way this album opens up is like the truly good beat though."
+    },
+    {
+      "start": 784.42,
+      "end": 786.82,
+      "speaker": "adam-stacoviak",
+      "text": "And you got the party started, Jared, you kind of played that."
+    },
+    {
+      "start": 786.82,
+      "end": 792.18,
+      "speaker": "jerod-santo",
+      "text": "There's like what, 20 seconds of cheer. And then, yeah, you know, that beat drops."
+    },
+    {
+      "start": 792.18,
+      "end": 808.5,
+      "speaker": "adam-stacoviak",
+      "text": "And then we dropped the bump on a log. Yeah, I do like these for openers. That bass is like sparse and Mr. Oizo-ish if you ever heard this song in a long time ago."
+    },
+    {
+      "start": 809.81,
+      "end": 833.01,
+      "speaker": "jerod-santo",
+      "text": "That's my favorite part. What do you call that though? It's a synthesizer. It's a little atonal. I mean, it has pitch, but it's like not notes necessarily. Is it? I don't know. That's what I've always loved about electronic music is the layers, right? Like you're just layering on more sounds over time."
+    },
+    {
+      "start": 833.01,
+      "end": 835.01,
+      "speaker": "adam-stacoviak",
+      "text": "That's like the move, isn't it? Yeah."
+    },
+    {
+      "start": 835.01,
+      "end": 838.04,
+      "speaker": "jerod-santo",
+      "text": "You're supposed to be thinking about like, how many sounds can a"
+    },
+    {
+      "start": 838.04,
+      "end": 840.2,
+      "speaker": "adam-stacoviak",
+      "text": "listener like really process at once?"
+    },
+    {
+      "start": 840.2,
+      "end": 904.13,
+      "speaker": "jerod-santo",
+      "text": "I'm going to stop that so we can talk to each other, but man. Yeah. They're just like, it just starts simple. And then it just like more and more and more and it's very mathematical. Right. Like it has to be timed out. Right. Otherwise it's weird. I like weird man stuff. I mean, that one isn't an example of it, but I like, you know, instruments with different length patterns kind of overlapping. Gotcha. Yeah. That's some of your taste there, but yeah. Yeah. Starts off with a banger bump on a log. I think the other one that we potentially considered was bass is the place to start it out. Yeah. And prior to that, you had something entirely different and I was like, it has to start with a banger. Remember that? Yes, you were right. What were you starting with? Do you remember? I don't know. Four to the floor, one of these, uh, Halton catch fire songs, maybe. Right. Which there are many. They're good, but they're not bumping a log. Right. This is way more, more amped."
+    },
+    {
+      "start": 904.13,
+      "end": 909.57,
+      "speaker": "adam-stacoviak",
+      "text": "I agree. It was a good choice. Oh yeah. The way it comes in is, is like, this is a party."
+    },
+    {
+      "start": 909.57,
+      "end": 941.68,
+      "speaker": "jerod-santo",
+      "text": "Oh, it's a party. And, uh, you had better dance or else. Yeah. Dancing is mandatory. For sure. I mean, whenever I, whenever this officially dropped on Spotify and was listenable to the world, I think actually it might've been the drop box version of it before we actually, it was out there. I played at my living room for my kids and they love the dance. We always have dance parties. We literally have dance parties already. And so we'll throw various types of music like this onto the speakers, bump"
+    },
+    {
+      "start": 941.68,
+      "end": 961.2,
+      "speaker": "adam-stacoviak",
+      "text": "it to 75, 80, whatever the number is, like basically almost a hundred. Yeah. And, uh, we just rock it out. And these kids literally danced the entire album. Oh, sweet. The whole album. I mean, I skipped over some of the middle parts to get to the, cause I was actually thinking like, I'm queuing this, like, how does this sound on real"
+    },
+    {
+      "start": 961.2,
+      "end": 966.4,
+      "speaker": "jerod-santo",
+      "text": "speakers, really loud as if I'm a listener out there enjoying it in my living"
+    },
+    {
+      "start": 966.4,
+      "end": 971.68,
+      "speaker": "adam-stacoviak",
+      "text": "room on my big banging speakers. And I'm just, I'm just going at it basically."
+    },
+    {
+      "start": 971.68,
+      "end": 976.64,
+      "speaker": "jerod-santo",
+      "text": "Sweet. I skipped a little bit, but for a, you know, the whole album, dancing it out the whole way."
+    },
+    {
+      "start": 976.64,
+      "end": 982.48,
+      "speaker": "adam-stacoviak",
+      "text": "No kids reactions is perfect. They were loving it. They had showers afterwards and went right to bed directly."
+    },
+    {
+      "start": 983.44,
+      "end": 990.4,
+      "speaker": "jerod-santo",
+      "text": "You warm out VMC. This album will warm up your children. Okay. Yeah. Cool. That's high praise. That's super high praise."
+    },
+    {
+      "start": 990.4,
+      "end": 994.72,
+      "speaker": "adam-stacoviak",
+      "text": "And, uh, the speakers, just to be super nerdy, the speakers I had them on were"
+    },
+    {
+      "start": 994.72,
+      "end": 1004.24,
+      "speaker": "jerod-santo",
+      "text": "Klipsch Pro 250 RPW LCRs. Okay. Just so you know, this have dual five and a quarter ceramic metallic woofers in them."
+    },
+    {
+      "start": 1004.24,
+      "end": 1009.28,
+      "speaker": "adam-stacoviak",
+      "text": "A one inch titanium dome tweeter matted to a composite coded hybrid cross"
+    },
+    {
+      "start": 1009.28,
+      "end": 1020.48,
+      "speaker": "jerod-santo",
+      "text": "section, Tractrix horn. Just so you know. Just off the top of your head, huh? Just so you know, top of your head and probably about a hundred Watts, at least per speaker, maybe one 50 per speaker."
+    },
+    {
+      "start": 1020.48,
+      "end": 1021.68,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. That's a decent beat."
+    },
+    {
+      "start": 1021.68,
+      "end": 1026,
+      "speaker": "jerod-santo",
+      "text": "You know, that's a decent bump. Do you know what he's talking about? Cause I know Klipsch is beyond that."
+    },
+    {
+      "start": 1026,
+      "end": 1031.51,
+      "speaker": "adam-stacoviak",
+      "text": "I just remember skull candy head buds. I mean, earbuds. Yeah. I know those."
+    },
+    {
+      "start": 1032.39,
+      "end": 1047.27,
+      "speaker": "jerod-santo",
+      "text": "No, I'm kidding. That's what this is designed to sound good on. Yeah. Right. Well, he knows Dr. Klipsch. I vaguely should. But I, now that I know that I please listen to all the music and tell me how it bumps. Cause that's going to be just the best possible system."
+    },
+    {
+      "start": 1047.27,
+      "end": 1057.19,
+      "speaker": "adam-stacoviak",
+      "text": "That's where I test things at. I test things in that living room or in the theater with similar speakers, but Klipsch, Dr. Klipsch was made famous."
+    },
+    {
+      "start": 1057.19,
+      "end": 1072.79,
+      "speaker": "jerod-santo",
+      "text": "The Klipsch horn is this old school back in the fifties, sixties invented this like furniture style speaker. And it's just magnificent to look at as a speaker. And all the tech that Klipsch has today has come from his original."
+    },
+    {
+      "start": 1073.43,
+      "end": 1074.23,
+      "speaker": "adam-stacoviak",
+      "text": "He's a physicist."
+    },
+    {
+      "start": 1074.23,
+      "end": 1134.1,
+      "speaker": "jerod-santo",
+      "text": "You know, he's, he's all about sound design and whatnot. And he designed some amazing speakers. And so Klipsch is my brand. That's what I love. Excellent. Well, speaking of playing it for your kids, this reminds me of the initial go time theme song, which we made years and years and years ago together. You made most of it. We gave you feedback. And I remember playing it for Ezra when he was two. Almost 10 now. So that'd be eight years ago. And I remember you sit at the kitchen table. I had a video of this and I remember sending it to you. Yes, I do. And he just goes crazy with the head bumps and then it finally ends. And he goes, he's like, will you play that again for me, dad or something real cute? And I was like, he was just that go time theme song. That's all I want to listen to. Excellent."
+    },
+    {
+      "start": 1134.93,
+      "end": 1138.21,
+      "speaker": "adam-stacoviak",
+      "text": "That's awesome. So you rate highly with the youth."
+    },
+    {
+      "start": 1138.21,
+      "end": 1148.77,
+      "speaker": "jerod-santo",
+      "text": "I care about that. I really do. It sounded sarcastic, but I think no, no, no sincere. They'll tell you if something's terrible. That's true. Or they'll just like walk away and be like, you know."
+    },
+    {
+      "start": 1148.77,
+      "end": 1151.33,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, when they're dancing, it's all out of pure vibes."
+    },
+    {
+      "start": 1151.33,
+      "end": 1153.57,
+      "speaker": "jerod-santo",
+      "text": "Like they're not, there's no putting on airs, right?"
+    },
+    {
+      "start": 1153.57,
+      "end": 1158.93,
+      "speaker": "adam-stacoviak",
+      "text": "Totally. Yes. And they don't want to dance. They're not going to. They're like, I don't, the song isn't moving me."
+    },
+    {
+      "start": 1158.93,
+      "end": 1254.13,
+      "speaker": "jerod-santo",
+      "text": "No. So that is a high praise. No, it's, it's always been like, yeah. What's up friends. This episode is brought to you by one of my good friends. One of my best friends, actually, one of our good friends, tail scale. And if you've heard me on a podcast, you've heard me mentioned tail scale several times in unsponsored ways, because I just love tail scale. And I reached out to them and said, Hey, we're talking to a lot of developers. I love tail scale. I'd love to have you guys sponsor us and they reciprocated. So what is tail scale? Well, tail scale is a programmable networking software that is private and secure by default, which makes it the easiest way to connect devices and services to each other, wherever they are. You get secure remote access to production databases, servers, Kubernetes, VPCs on-prem stuff, anything. It's fast, like really, really fast. And you can install it anywhere. Windows, Linux, BSD, Mac OS, iOS, Android. It is an easy to deploy zero config, no fuss VPN. It is zero trust network access that every organization can use. So what can you do with tail scale? You can build simple networks across complex infrastructure."
+    },
+    {
+      "start": 1254.13,
+      "end": 1343.67,
+      "speaker": "adam-stacoviak",
+      "text": "They have ACL policies to securely control access to devices and services with their next gen network access controls. You can replace legacy VPN infrastructure in just a few minutes. You can use device posture management to granularly restrict access to resources based on a wide range of attributes like OS version, user location and more. You can save time with a trusted and proven networking solution that just works. You can transform networking security with a modernized set of solutions built on revolutionary protocols designed for today's mobile and multi-cloud era. You can securely connect to anything, no matter what operating system, hardware type or configuration is in place, such as your GitHub runner to a database on prem. You can authenticate without authentication using tail scales app connectors. You can send files securely to any node on your tail net using tail drop. You can go from your iPad even with tail scale and VSCode server. There's just so much you could do with tail scale. Like the limits are literally limitless. And that's why I love tail scale. I've got 28 machines personally that I manage on my tail net. And if you've heard me talk on the podcast, you've heard me mention tail scale at least once or twice. But today you can try tail scale for free up to 100 devices like me and three users for free at tailscale.com. No credit card required. Again, it's free up to 100 devices and three users all for free at tailscale.com. No credit card required. Have fun."
+    },
+    {
+      "start": 1344.21,
+      "end": 1371.16,
+      "speaker": "jerod-santo",
+      "text": "So take us through the Halt and catches because this was Halt and Catch Fire inspired music. Is there four of them?"
+    },
+    {
+      "start": 1371.16,
+      "end": 1380.4,
+      "speaker": "adam-stacoviak",
+      "text": "Halt and Catch Fire, Halt and Do Not Pass Go, Halt and Catch a Cold, which is awesome."
+    },
+    {
+      "start": 1380.4,
+      "end": 1383.6,
+      "speaker": "jerod-santo",
+      "text": "And then my favorite Halt and Catch a Tori, which I had to look up."
+    },
+    {
+      "start": 1383.6,
+      "end": 1385.68,
+      "speaker": "adam-stacoviak",
+      "text": "That's like a pasta dish or something."
+    },
+    {
+      "start": 1385.68,
+      "end": 1386.24,
+      "speaker": "breakmaster-cylinder",
+      "text": "Pasta dish."
+    },
+    {
+      "start": 1386.8,
+      "end": 1405.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Halt and Catch a Tori. Halt and Catch a Tori, not catch a Tori. Right. It's all one word. This is an Italian word. I think Adam was bugging you for some Halt and Catch Fire inspired stuff. And it must have went on for a while because you ended up with a lot of tracks. Yeah. He super was. You super were. Right, right. Well."
+    },
+    {
+      "start": 1407.04,
+      "end": 1407.92,
+      "speaker": "jerod-santo",
+      "text": "Is there more? Yeah."
+    },
+    {
+      "start": 1407.92,
+      "end": 1416.8,
+      "speaker": "adam-stacoviak",
+      "text": "If you ever listen to it, it has really, really specific sound to it. Yeah, it does. Yeah, so early 90s, maybe 80s kind of vibe."
+    },
+    {
+      "start": 1416.8,
+      "end": 1451.96,
+      "speaker": "jerod-santo",
+      "text": "BMC, what's your favorite of these four? We'll play a few seconds from it here. The first one's my favorite. Halt and Catch Fire. All right. That's probably the first one we did too. So it's a little closer to the, yeah. Oh yeah. This was at the top of the changelog. Still is, isn't it? Yeah. Adam uses this one as his intro. Yeah, I like that broken up little synth thing that's like barely appearing. There's a gate on it. So it kind of crackles if that means anything. Why is it crackle?"
+    },
+    {
+      "start": 1451.96,
+      "end": 1497.24,
+      "speaker": "adam-stacoviak",
+      "text": "Because there's a gate on it. That because it will only play when it's reached a certain volume level and then everything under that gets cut off immediately. So it's a slow, I mean a fast attack, fast release. And that's kind of cool. You can make things sound really electronic, like anything. I do this with cellos and things or flutes or whatever. It will just crackle into existence and then it'll disappear because whatever was before it was not quite loud enough. Yeah, gotcha. That's interesting. Sounds techy. I actually go between those two. I don't, I don't always do that one. I do a couple of the others. So basically all the Haltons, Catch Whatevers I've used for intros. Dig those ones, of course. What else do I use for intros?"
+    },
+    {
+      "start": 1497.24,
+      "end": 1499.08,
+      "speaker": "jerod-santo",
+      "text": "I don't even know the name of it. It's not really sound."
+    },
+    {
+      "start": 1499.72,
+      "end": 1528.6,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, the titles meet them. Yeah, the titles are meaningless, which is why sometimes you're like, I have to hear it first to even know what you're talking about. You can say the name. Yeah. Like impetuous loggers for change. I can't even imagine what that sounds like right now. No. How many titles can I put log in? Yeah, you've done a pretty good job with that. Of the titles though, of the Halt titles, I have to admit Halt and Do Not Pass Go is just chef's kiss."
+    },
+    {
+      "start": 1528.6,
+      "end": 1536.23,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. Yeah. Glad. Yeah. I think it was Tetris Smetris, which is jumping the gun a little bit, but we can go there."
+    },
+    {
+      "start": 1536.23,
+      "end": 1641.89,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah, Tetris Smetris. That's for the documentary you saw about Tetris, right? The Tetris, the movie. Tetris, the movie. Which I got all excited about and I never watched it. It's kind of what I do. It's nonfiction, right? I mean, it's a documentary. It's not like blocks from space. It's a dramatic fiction of a true story. Got it. Yeah. What do you call those? Dramatization. Yeah, a dramatization of a true story, which was interesting particularly to us because Adam actually interviewed the guy in which it was dramatizing. Really? Hank Rogers, yeah. It was really interesting to watch that considering the conversation and I guess how old that conversation is in comparison to, I guess, just the entropy of Tetris, really. You can't stop Tetris, you know? I mean, the film is evident in that. I won't ruin it for anybody, but it gets out. It can't be stopped. It can't stop the signal. Yeah. Licensing couldn't stop it. Governments couldn't stop it. And it's really interesting how the game began. It began as a programmer's love to program, but then to program a game. And that to me was like the beautiful part of it was the connection between Hank Rogers and the fellow that created it, I think his name is Sergei, if I recall correctly, was based on programming, like what language, how was it written, you know, all this stuff. It wasn't like it was the game too, but then it was also how was the game written to change it to be more playable and change the rules of the game. That's so cool. It's pretty wild. So you watched it. I think it was like on Apple TV Plus or something. And then you said this music is good. Yeah. You being Adam. Right. And then he said, BMC, Tetris, Metris, please."
+    },
+    {
+      "start": 1642.53,
+      "end": 1657.49,
+      "speaker": "breakmaster-cylinder",
+      "text": "I said, okay. Well, I don't know if it came, like, I think I was like, what did I say to you BMC? I was just like this album, all the music in this entire film is amazing. Go watch the film and be inspired. That's probably what I said, some version of that. Yeah."
+    },
+    {
+      "start": 1657.49,
+      "end": 1676.85,
+      "speaker": "adam-stacoviak",
+      "text": "Because the, the music does have, or sorry, the movie does have phenomenal, you know, a phenomenal soundtrack. It's really well done. Yeah. And so I was like, you know, I think that's the beauty of what we do is, is in this version of podcasting Jared is that we, we can sort of like be influenced by the world and share"
+    },
+    {
+      "start": 1676.85,
+      "end": 1690.21,
+      "speaker": "jerod-santo",
+      "text": "that back with BMC and say, please make similarities. Right. You know, be inspired by X and let's bring that into this. I feel like that's the ultimate way to remix the world. Like everything's just a remix anyways."
+    },
+    {
+      "start": 1690.21,
+      "end": 1699.33,
+      "speaker": "adam-stacoviak",
+      "text": "And I think it's less about let's have what they have, but more like, man, that's so cool. Let's do versions of that to spread that version more into the world."
+    },
+    {
+      "start": 1699.33,
+      "end": 1706.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah. They're using techniques or sounds or things that you can, for sure. Remix the world. Yes. I love it."
+    },
+    {
+      "start": 1707.73,
+      "end": 1728.69,
+      "speaker": "adam-stacoviak",
+      "text": "So BMC, did you go actually watch Tetris or you just go listen to some of the music and then say Tetris, Metris? No, I didn't watch it. Although I'm watching it in my head overlaid over everything right now. Cause all you have to say is Tetris and I'm like trying to get lines together. Wow. No, but I listened to the theme song. I played it a lot. That's what I did. And then this came out the other end right here."
+    },
+    {
+      "start": 1731.54,
+      "end": 1751.09,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah. You definitely use this one. Just begs for someone to start talking right there. Doesn't it? Oh yeah. Okay. I think so. It's good to know stuff."
+    },
+    {
+      "start": 1751.09,
+      "end": 1810,
+      "speaker": "adam-stacoviak",
+      "text": "The second one is off by one beat, right? It's on the up. Yeah. Right. You end up. Yeah. It was at the second 16th if you want to be. The second 16th item. Yeah, exactly. Sorry about that. No, I'm not correcting you. I knew it was on the up though. At least you noticed it at all. I think the theme song uses the same sounds and definitely at the same BPM. That's like the first thing you can do to make a song sound like another song is don't deviate from the BPM. The tempo. Love that one. Love that one. Good. Yeah. And it's kind of chill too. So it is begging for someone to talk over the top of it. I mean, some tracks where you're like, I love this track, but I couldn't use it as a, as a bed during a read because it's just too much going on. Like you're just going to be fighting with it. But especially the first part of that is just very melodic and simple and doesn't have a"
+    },
+    {
+      "start": 1810,
+      "end": 1812.24,
+      "speaker": "breakmaster-cylinder",
+      "text": "lot of craziness to it."
+    },
+    {
+      "start": 1812.24,
+      "end": 1817.22,
+      "speaker": "jerod-santo",
+      "text": "And so you can just talk right over the top of it. I'll write more of that about. It's good."
+    },
+    {
+      "start": 1817.22,
+      "end": 1819.22,
+      "speaker": "adam-stacoviak",
+      "text": "As BMC would say, I like it."
+    },
+    {
+      "start": 1819.22,
+      "end": 1951.97,
+      "speaker": "jerod-santo",
+      "text": "Maybe you would like it too. I do like it. I'm glad you like it too. I was very happy with that track though. Very, very happy with that track. When I, when I heard it, I was like, you, you, you, you knocked it out of the park. Oh my gosh. This is, this is absolute fire. Give me more. Turn it up. Go, go, go, go, go, go. Excellent. Yeah. For real. Like I, you know, I'll pause for a second and just gush for one second. Jared, do you mind if I gush just a brief moment? As long as we can clean up afterwards. Seriously. Working with you is so freaking awesome. It really is. Just being able to like be inspired by something and share that with you. And then like something cool comes out the other end that is not just like mostly good. It's like really good to me is the absolute magic of some of the stuff we do. Like you're of the secret sauces. You're like, like I close the curtain and I immediately shake the bottle you're in. Right. And I pour you out all over the stuff we do. And then it's just amazing. Okay. Stop gushing. It's getting weird. Oh, little BMC. It's like BFF. You're like the BFF, man. You're the BMC BFF. It's just so good. So good. It's hard to know how to respond to that specifically, but that's really nice. That's just very nice. I don't have anything to say about my sausiness per se, but. Yeah. I mean, the fact that you didn't just hang up and leave is, you know, it says a lot. It speaks volumes. BMC is still here after that. Feeling uncomfortable and needs more space. You got to illustrate things, you know, you got to give people a mental picture. Oh, agreed. Agreed. Agreed. That was a picture. Yeah, absolutely. Some pictures you don't have to give to people though. You could give other pictures, but BMC is still here. So he's here for it. Oh, I'm here. Speaking of making things extra special and sprinkling. Wouldn't you say? I don't even know what you said. I tuned it out once it started getting weird, gushing. Just sprinkle you all over. Sprinkle. Yes. Well, in fact, I said, shook the bottle and pour you all over."
+    },
+    {
+      "start": 1951.97,
+      "end": 1953.17,
+      "speaker": "adam-stacoviak",
+      "text": "Right. It wasn't sprinkle."
+    },
+    {
+      "start": 1953.17,
+      "end": 1954.29,
+      "speaker": "jerod-santo",
+      "text": "That's why I stopped myself."
+    },
+    {
+      "start": 1954.29,
+      "end": 1996.61,
+      "speaker": "adam-stacoviak",
+      "text": "Did you say draw the blinds first though? I said close the curtain in the shower, BMC. He's taking a shower. No, it's the magician. It's the great Oz. You can't see what's happening back here. My magic potions. Oh, I thought you were taking a shower and you're like, like the shampoo was just being seen. You were just spraying it. No, this is like, this is like the great Oz closing the curtain. You can't see what's back here. I've got magic things happening and BMC is one of the bottles I grab and I shake and I pour onto our podcasts. Okay. So when, when you said paint a picture, you had painted a different picture in my head than you thought you were painting. Well, that's cause you got a dirty mind. I can't help that. No, I was, I have a clean mind. I thought you were taking a shower cause you close the curtain"
+    },
+    {
+      "start": 1996.61,
+      "end": 2067.22,
+      "speaker": "jerod-santo",
+      "text": "and then you grab the bottle and you start spraying it. I figure you're just lathering up. Okay. So let's get into this. Am I more shampoo or conditioner? Neither. Be brutally honest with me. Brutally honest. I would say you're conditioner. Yeah. Cause you go on second and make it all silky smooth. You know, you're the three in one. You're the body wash or the conditioner. Let's get back to the music. Okay, guys. I think we're still talking about the music. You made me, you made me remember that we haven't spoken to you since state of the law. Weren't you on the show prior to, or was it after before? I think it was before, because people enjoyed that episode last year. Yeah. So we had Jamie Tana on the show and he had been a benefactor of your remixes. And so we talked about you and with him and what it felt like to receive a remix. But we haven't talked to you about what, I mean, you took stay in the log till the next level. That was fun. It was, it was probably like three times better than usual. And we're going to have to have you do it every year. Yeah, exactly. I want to do that. Let's do it every time you're talking about cutting up people's messages into music. Yeah."
+    },
+    {
+      "start": 2067.22,
+      "end": 2124.9,
+      "speaker": "adam-stacoviak",
+      "text": "The voicemails. So cool. That was cool. That's like old school. When I was like a little kid and I had radio and a double tape deck and I just record certain words and then mash them together on the second tape and make, you know, the Muppets say horrible things or something. Right. Yeah. That was amazing. That's just fun. So much so that I've been reusing those as transitions sometimes, especially like enjoy the drop and a few other phrases that people said that you then put music to. Well, yeah. And they also said a bunch of perfect stuff. Yeah. They were really nice. Couldn't have been happier. Yeah. I almost want to do more states of the logs just so we can have more voicemails, more remixes, but you know, too much of a good thing can be. Your listeners are cool. Too much. Yeah, they are. All right. Back to dance party though. All right. A couple of these tracks have names. Like they could be on a different album of ours, perhaps our next level album because we have Tetris. Of course, there's Rainbow Toad Club."
+    },
+    {
+      "start": 2124.9,
+      "end": 2157.33,
+      "speaker": "jerod-santo",
+      "text": "That sounds like it's a video game inspired track. Ridley gonna Ridley. I believe that's based off of Metroid. Cause Ridley's a character in Metroid, right? That's a pretty old one for us. I think it is several years old. Same with Sentient Refrigerator. Oh yeah. Cause everyone knows what that sounds like. Sounds scary to me. So remind me BMC, why are some of these tracks on this track are on this album and not on next level, our video game theme inspired ones? You said why they're not? Yeah."
+    },
+    {
+      "start": 2157.33,
+      "end": 2161.97,
+      "speaker": "adam-stacoviak",
+      "text": "Like wouldn't those fit well over there? Do you remember why we didn't put them in that one?"
+    },
+    {
+      "start": 2161.97,
+      "end": 2168.05,
+      "speaker": "jerod-santo",
+      "text": "Because next level was largely, although not entirely trying to use just sounds from like"
+    },
+    {
+      "start": 2168.05,
+      "end": 2184.93,
+      "speaker": "adam-stacoviak",
+      "text": "a video game thing. Like if it was a Nintendo Castlevania level, which you love Castlevania levels, Adam loves Castlevania levels. I didn't want to add like beats to it necessarily. Like modern beats. It was just writing the whole thing using that. Plus I guess we had Dance Party in mind even when we were making that one."
+    },
+    {
+      "start": 2184.93,
+      "end": 2196.85,
+      "speaker": "jerod-santo",
+      "text": "So I kept most of the four to the floor. I kept that for later. Well, I have to say my two favorite tracks on this one are the 80s."
+    },
+    {
+      "start": 2196.85,
+      "end": 2215.3,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know. Miami Bytes 1984 and Pole Reposition. Which I think was based off of Pole Position. That was a video game one, but very much sounds like it belongs in an 80s car chase or something."
+    },
+    {
+      "start": 2215.3,
+      "end": 2245.2,
+      "speaker": "jerod-santo",
+      "text": "You know? Yeah. I'm confused about that because it's a video game, right? But the original song has like rocking studio guitar kind of. No, wait, what do I mean? Not studio. Yeah. Let's play a little bit of it here. In-house musicians. Oh, I'm on the highway to the danger zone already. Yeah, there's a little highway to the danger zone there, which brings me to the 80s."
+    },
+    {
+      "start": 2248,
+      "end": 2259.84,
+      "speaker": "adam-stacoviak",
+      "text": "Now, this does feel like a video game like F-Zero or some sort of racing game. But even more so like Knight Rider, maybe Knight Rider vibes."
+    },
+    {
+      "start": 2263.43,
+      "end": 2283.75,
+      "speaker": "jerod-santo",
+      "text": "David Hasselhoff just makes me think of David Hasselhoff as many things do. The level of cheese. Yeah, I thought there was a guitar solo in this. Yeah, this track is just awesome. I'll turn it off now because I could listen to the whole thing, but."
+    },
+    {
+      "start": 2283.75,
+      "end": 2290.07,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so there was several renditions of that on YouTube and I found one where,"
+    },
+    {
+      "start": 2290.07,
+      "end": 2295.03,
+      "speaker": "jerod-santo",
+      "text": "and I think this is the one you actually was inspired by, was one that actually had like"
+    },
+    {
+      "start": 2295.03,
+      "end": 2297.67,
+      "speaker": "adam-stacoviak",
+      "text": "multiple instruments, I suppose."
+    },
+    {
+      "start": 2297.67,
+      "end": 2339.51,
+      "speaker": "jerod-santo",
+      "text": "Like the same person playing multiple instruments of the pole reposition or pole position. One of those like videos with all the mini screens inside it where they're playing everything. Yeah, exactly. We're like. That's cool. Yeah, I think it was something like that. And so pole position was a popular game on Atari, I believe. Was it Atari? I thought it was an NES, but. It's old. I can picture it. Let me see. It was definitely color graphics. I think it was Atari. Like the Joust days. Yes, released by Namco in 82 and licensed to Atari Inc. That would have been really advanced then if it was the same time as Joust around there. This is way more advanced."
+    },
+    {
+      "start": 2339.75,
+      "end": 2346.72,
+      "speaker": "adam-stacoviak",
+      "text": "Atari 2600 was the original, and I think it probably got remade onto other things. Yeah."
+    },
+    {
+      "start": 2346.72,
+      "end": 2348.4,
+      "speaker": "jerod-santo",
+      "text": "But yes, you got it right, Atari."
+    },
+    {
+      "start": 2348.4,
+      "end": 2369.65,
+      "speaker": "adam-stacoviak",
+      "text": "And I was just like, let me just go back in my repertoire of like games from old. And what were the themes? Qbert was one of them. Yeah. This one obviously, and several others, Metroid and Castlevania. Original original Donkey Kong. Sonic and all the things. Yeah. Donkey Kong Country. A lot of those. Yes."
+    },
+    {
+      "start": 2369.89,
+      "end": 2371.17,
+      "speaker": "jerod-santo",
+      "text": "I love doing the Sonic ones though."
+    },
+    {
+      "start": 2371.17,
+      "end": 2390.2,
+      "speaker": "adam-stacoviak",
+      "text": "Those are too much fun. I found the virtual instrument that is the same as the sound card they use for the Genesis, and it's just too good. Oh, nice. Yeah, it's awesome. I dug the theme remixes based on those. Yeah. Those were cool. Yeah. And those are on our theme songs album."
+    },
+    {
+      "start": 2391.48,
+      "end": 2458.32,
+      "speaker": "jerod-santo",
+      "text": "The second half of the theme songs album is all the Sonic remixes of the original theme songs. Yeah, which is almost more fun to listen to than the originals. Not that they're not good, they're just so much fun to listen to that second half. It's got nostalgia. There's just no end to the goodness. The sauce just keeps coming. Are you guys interested at all in what the listeners are listening to? Yes. Absolutely. Well then. Taylor Swift. Let me sign into our account and see what... Oh no, two-step authentication? What happened here? Okay, BMC, stall for us. Oh. Was that the bonus stage with the big sphere where you had to jump over the... It doesn't matter. But I am stalling. I am stalling. This sentence proves it as well. All right, Adam, stall for us."
+    },
+    {
+      "start": 2458.32,
+      "end": 2465.97,
+      "speaker": "adam-stacoviak",
+      "text": "I was thinking about Take On Me. Wow. As a remix in the future."
+    },
+    {
+      "start": 2467.49,
+      "end": 2501.73,
+      "speaker": "jerod-santo",
+      "text": "It might be my favorite song ever. Really? Oh yeah, if that song comes on, I'm happy. Sure, but that's the only one? Well, there's many more of course, but that's a really solid song. There are songs that just, you're never sorry to hear it ever. Yeah, and that's one of them. I'll listen to it by Weezer. I'll listen to it by the original band. Aha, of course. There's been many versions. There's an acapella version of it. It's probably 20 years after the original recording. It's just phenomenal. And the lyrics are not... It's not just a good song. It's good lyrics too, in my opinion."
+    },
+    {
+      "start": 2503.68,
+      "end": 2504.48,
+      "speaker": "adam-stacoviak",
+      "text": "They have meaning."
+    },
+    {
+      "start": 2505.92,
+      "end": 2513.44,
+      "speaker": "jerod-santo",
+      "text": "And then of course, back in the MTV days, I grew up in the 80s, 90s. So I want my MTV basically."
+    },
+    {
+      "start": 2514.56,
+      "end": 2525.38,
+      "speaker": "adam-stacoviak",
+      "text": "But the original music video, gosh, was quintessential of course. It was this real life photography video mixed with cartoon."
+    },
+    {
+      "start": 2526.61,
+      "end": 2528.05,
+      "speaker": "jerod-santo",
+      "text": "So cool. I like that stuff."
+    },
+    {
+      "start": 2528.05,
+      "end": 2530.85,
+      "speaker": "adam-stacoviak",
+      "text": "You've seen it? No, I'm picturing a different video."
+    },
+    {
+      "start": 2531.57,
+      "end": 2567.4,
+      "speaker": "jerod-santo",
+      "text": "Oh my gosh, BMC. We have to steep you in my tastes. Yeah, please. I'm gonna keep using cooking metaphors and verbs to describe things. I love cooking metaphors for music. You know what I learned to do is saute tomato paste on its own before you use it in something. That's really good. That's the mix. Maybe like spaghetti? Yeah, or Indian food particularly, but it transforms it a bit. Way better. Thank you. How much do we have to stall here, Jared? Oh, we're still stalling. Oh, you guys are stalling?"
+    },
+    {
+      "start": 2567.4,
+      "end": 2574.68,
+      "speaker": "adam-stacoviak",
+      "text": "I thought you were just talking. I was stalling. You know what version of that I've heard most recently?"
+    },
+    {
+      "start": 2574.68,
+      "end": 2608.6,
+      "speaker": "jerod-santo",
+      "text": "Is a kid on Spotify replacing the lyrics to make it about Minecraft and like practically swallowing the microphone. Like it's just so distorted and that's immediately what I think of when you say take on me and that's probably a shame. Oh, well that's sad. Yeah, I'm sorry. We'll have to fix that. All right, let's stop stalling. It's getting sad. Okay, so on Spotify, at least our most popular song, which maybe this is good timing for you to go there, Adam, is Paul Oakenfold fights Moby in the alley behind a Pan-Asian restaurant."
+    },
+    {
+      "start": 2609.4,
+      "end": 2613.56,
+      "speaker": "adam-stacoviak",
+      "text": "That's our top song on Spotify. I'm just saying. Over the last month, not of all time."
+    },
+    {
+      "start": 2613.56,
+      "end": 2617.8,
+      "speaker": "jerod-santo",
+      "text": "They're all time stats that seem to be not working for me, so that's why. Totally makes sense to me."
+    },
+    {
+      "start": 2619.56,
+      "end": 2621.72,
+      "speaker": "adam-stacoviak",
+      "text": "Were you suggesting that Moby would win?"
+    },
+    {
+      "start": 2622.68,
+      "end": 2646.56,
+      "speaker": "jerod-santo",
+      "text": "Because I just don't know. Was I suggesting? Yeah, at the beginning you're like, you know, sorry for Paul. Let's feel sorry for Paul, but I feel like Moby's a vegan. Well, you know how I feel BMC, because my original title was Paul Oakenfold beats up Moby. Oh, that's true. Yeah, I tried to soften it. So you changed it to be more politically correct. How do we always end up almost blasting Moby?"
+    },
+    {
+      "start": 2646.56,
+      "end": 2647.92,
+      "speaker": "adam-stacoviak",
+      "text": "This happened in the last interview too."
+    },
+    {
+      "start": 2648.56,
+      "end": 2654.08,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that was like a therapy session. Tell us why you don't like Moby. Well, this is why I think you came up with this was because of that."
+    },
+    {
+      "start": 2655.28,
+      "end": 2662.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, this came out of our last episode together because we were talking about how we would give you ridiculous requests and you would fulfill them."
+    },
+    {
+      "start": 2662.72,
+      "end": 2670.8,
+      "speaker": "jerod-santo",
+      "text": "And then shortly thereafter, and we also talked about your disdain for Moby. That's tongue in cheek. I feel like I avoided, because I could, no."
+    },
+    {
+      "start": 2670.8,
+      "end": 2677.68,
+      "speaker": "adam-stacoviak",
+      "text": "And then afterwards you're like, hey, maybe we should put a few new tracks on Dance Party. Like maybe we should make some more songs."
+    },
+    {
+      "start": 2677.68,
+      "end": 2697.12,
+      "speaker": "jerod-santo",
+      "text": "Definitely. And you took requests. And I just try to think of the most ridiculous thing I could. You did, yeah. Because I was trying to challenge you. You did very well. And the other one I requested didn't actually get made. I can't remember what it was, but it had something to do with Andre 3000. But this one got made and I just said, I want you to write a song called Paul Oakenfold"
+    },
+    {
+      "start": 2697.12,
+      "end": 2701.52,
+      "speaker": "adam-stacoviak",
+      "text": "Beats Up Moby in the Alley Behind a Sushi Restaurant."
+    },
+    {
+      "start": 2702.45,
+      "end": 2713.97,
+      "speaker": "jerod-santo",
+      "text": "Now you refuse to do that, but you agreed to write one that's very similar. No, you didn't refuse, but we just renamed it over time. I changed it to Pan Asian because it uses a lot of Shaw Brothers kung fu samples, which"
+    },
+    {
+      "start": 2713.97,
+      "end": 2717.33,
+      "speaker": "adam-stacoviak",
+      "text": "is not Japanese. Right. So very nice touch there."
+    },
+    {
+      "start": 2717.33,
+      "end": 2742.69,
+      "speaker": "jerod-santo",
+      "text": "Nice detail that I would have missed. Let's get it correct. And you also wanted to say Paul Oakenfold Fights Moby versus Beats Up Moby. Yeah, I don't know. Which I'm fine with. Not bad for Moby, I guess. Yeah, I think a lot of people pick on Moby. Right. I don't need to be, yeah. Like once Eminem did it, pretty much it was like open season on Moby. Don't you think, Adam? I didn't know Eminem did that, but I've always been a Moby fan, I guess."
+    },
+    {
+      "start": 2742.69,
+      "end": 2762.61,
+      "speaker": "adam-stacoviak",
+      "text": "Not like if you like Moby's music. Yeah, but like that album play. Yeah, agreed. That's pretty much the one that I know. But you don't remember that Eminem track when he dissed Moby? Oh, that's right. Yeah, I do recall that. And lyrically he dissed him, not in an interview. Yeah, it was a track. The way true rappers diss is via tracks. Yeah, exactly."
+    },
+    {
+      "start": 2762.61,
+      "end": 2772.13,
+      "speaker": "jerod-santo",
+      "text": "But he didn't just like call him a dweeb or something. He's like, nobody listens to Moby. Like he came out and said that like, no, you don't know when he listens to Moby. Was that the same one he was mentioning Britney Spears? I think so."
+    },
+    {
+      "start": 2772.13,
+      "end": 2772.69,
+      "speaker": "breakmaster-cylinder",
+      "text": "Yeah."
+    },
+    {
+      "start": 2772.69,
+      "end": 2780.77,
+      "speaker": "adam-stacoviak",
+      "text": "That was back when Eminem could do nothing but drop Fire, every album, every track. I think it was real Slim Shady as the track. Quite possibly."
+    },
+    {
+      "start": 2780.77,
+      "end": 2786.85,
+      "speaker": "jerod-santo",
+      "text": "Because that was the one he was like, yeah, I think so. Yeah. Anyways, so ever since then, people have been picking on Moby."
+    },
+    {
+      "start": 2786.85,
+      "end": 2789.57,
+      "speaker": "adam-stacoviak",
+      "text": "I do like some of Moby's music. I don't have any problem with the guy."
+    },
+    {
+      "start": 2789.57,
+      "end": 2814.12,
+      "speaker": "jerod-santo",
+      "text": "Don't even know him. But I thought it'd be funny to have Paul Oakenfold beat him up in a song title. That's all. That's all. Regardless, this is what came out. So from that request, I didn't give you any more information. I just gave you that. Oh yeah. And you went and came up with this. That's the Paul Oakenfold bit for sure. That's definitely has Paul Oakenfold written all over it."
+    },
+    {
+      "start": 2814.12,
+      "end": 2818.36,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, the Moby bit is it uses the line from Porcelain."
+    },
+    {
+      "start": 2819.84,
+      "end": 2831.19,
+      "speaker": "jerod-santo",
+      "text": "And this is goodbye. This has the little like four dots. So that's a nod to Moby. And then there's like kung fu noises. Love that stuff."
+    },
+    {
+      "start": 2834.39,
+      "end": 2836.39,
+      "speaker": "adam-stacoviak",
+      "text": "That's it. Yeah, I like that. I like that."
+    },
+    {
+      "start": 2836.39,
+      "end": 2843.51,
+      "speaker": "jerod-santo",
+      "text": "This is goodbye. This is a good song. Thanks. In fact, when I first listened to it, I thought"
+    },
+    {
+      "start": 2844.96,
+      "end": 2865.12,
+      "speaker": "adam-stacoviak",
+      "text": "he's doing the kung fu noises because of the song title. But I wonder if it just doesn't even need them. And maybe they're distracting. But then I got used to him and I like him now. So I kind of got over it. But I wonder what other people think. See, I like him now."
+    },
+    {
+      "start": 2865.12,
+      "end": 2867.17,
+      "speaker": "jerod-santo",
+      "text": "But at first I was like, huh?"
+    },
+    {
+      "start": 2868.45,
+      "end": 2869.57,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it could be too far."
+    },
+    {
+      "start": 2869.57,
+      "end": 2875.27,
+      "speaker": "jerod-santo",
+      "text": "I mean, like, it makes it very... But it makes me actually visualize a fight."
+    },
+    {
+      "start": 2875.91,
+      "end": 2879.16,
+      "speaker": "adam-stacoviak",
+      "text": "This just sounds good. It's punctuation."
+    },
+    {
+      "start": 2879.72,
+      "end": 2885.46,
+      "speaker": "jerod-santo",
+      "text": "I don't know. It's nice rhythmically. But it doesn't fit with change look in any way."
+    },
+    {
+      "start": 2886.18,
+      "end": 2886.9,
+      "speaker": "adam-stacoviak",
+      "text": "True."
+    },
+    {
+      "start": 2886.9,
+      "end": 2888.34,
+      "speaker": "jerod-santo",
+      "text": "Thematically, I think."
+    },
+    {
+      "start": 2888.34,
+      "end": 2903.67,
+      "speaker": "adam-stacoviak",
+      "text": "And I don't think we use it for anything. Except for this. Because, yeah, I don't think I would put this in an episode necessarily. Yeah. Where are you going to find matching context for this?"
+    },
+    {
+      "start": 2906.36,
+      "end": 2909.4,
+      "speaker": "jerod-santo",
+      "text": "An outro. An outro or like something where..."
+    },
+    {
+      "start": 2909.4,
+      "end": 2913.96,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Where maybe a debate episode, you know? Okay, sure."
+    },
+    {
+      "start": 2916.55,
+      "end": 2923.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it definitely was just a fun diversion. And it's just here for the dance party. It's just here for the..."
+    },
+    {
+      "start": 2924.07,
+      "end": 2939.91,
+      "speaker": "adam-stacoviak",
+      "text": "I'm all about fun diversion. And the kids on Spotify seem to like it. More than our other stuff at least. Cool. Well, I have some good news about this track. Good news that you didn't even know. So what's that? This is brand new information straight from Spotify's API."
+    },
+    {
+      "start": 2940.79,
+      "end": 2944.31,
+      "speaker": "jerod-santo",
+      "text": "When you search for Paul Oakenfold under tracks, which is like,"
+    },
+    {
+      "start": 2944.31,
+      "end": 2982.42,
+      "speaker": "adam-stacoviak",
+      "text": "list the songs that reference or are attached to Paul Oakenfold. This track comes up as 2.34. Now I believe Moby has somehow gained the algorithm because it is nowhere in existence in Moby's search. Turns out lots of people do listen to Moby. Yeah. Is he still doing stuff? You know, I don't care. Anyway, it doesn't matter. You know, I don't care. Don't answer that. Is your shirt a Godfather thing? I can only see the very top, but the font looks Godfather-y. Me? Yeah. It's the change log. This is an old school change log. That's nice. The original. The OG."
+    },
+    {
+      "start": 2982.98,
+      "end": 3024.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Anybody got a favorite song? All for this album or overall? On this whole track? Yeah, this whole album? Well, I shared mine. Miami Bites and Pole Reposition are the two. I probably couldn't pick from those two. I mean, I think I like, I do like Bump on a Log. Yeah. I don't want to be boring, but I like the Orange Night. The Orange Night is so deep in the track list that I don't always get to it. Yeah. Yeah. Second to last. Yeah, this one could have been like where Bump on a Log is almost. Yeah, it could have opened up too."
+    },
+    {
+      "start": 3025.3,
+      "end": 3025.94,
+      "speaker": "adam-stacoviak",
+      "text": "Close."
+    },
+    {
+      "start": 3025.94,
+      "end": 3033.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Takes a little longer to get to it. I like Bump better. I do too, but. I don't know. This has got to be one you can't really talk over either."
+    },
+    {
+      "start": 3033.43,
+      "end": 3034.63,
+      "speaker": "adam-stacoviak",
+      "text": "Why do you let me keep doing this?"
+    },
+    {
+      "start": 3035.59,
+      "end": 3082.29,
+      "speaker": "jerod-santo",
+      "text": "A lot. Well, you know, some of them are just good and we can't stop you, honestly. Not all our music needs to be talked over either. Yeah, that's true. Not everything's a bumper, I realize, but. Yeah. I don't like to resist art, honestly. I like to just let it flow. I like that about you. My favorite is Dusk Under a Flaming Moon. Oh, that's a good one too. That's the same style as Jared's. It is. In particular, the middle section of it just like gets really good. You got to listen to it for a bit to get there. This is a longer track. It's almost three minutes. Yeah. I mean, it's just you could talk over this one. No problem. Yeah. This also feels like I'm driving at nighttime. Yes. It's an adventure."
+    },
+    {
+      "start": 3083.01,
+      "end": 3130.13,
+      "speaker": "adam-stacoviak",
+      "text": "Driving at nighttime and it's really saturated neon pink and purple. Yeah, exactly. In my head. Like Tron almost. Sure. I'm always thinking that movie Drive that had that song Night Call in it. Oh, yeah. Drive was a good movie. Yeah, this track is awesome. When this like guitar solo comes in, though, I'm just thinking like you just grabbed a guitar and did this somehow, but the strings made the solo coming up. Sorry, did you grab your guitar and make this happen right here?"
+    },
+    {
+      "start": 3133.25,
+      "end": 3134.13,
+      "speaker": "jerod-santo",
+      "text": "Oh, those noises."
+    },
+    {
+      "start": 3134.85,
+      "end": 3148.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, like this is an awesome solo. It's the only reason to listen to the whole song. Like this right here, this moment."
+    },
+    {
+      "start": 3148.79,
+      "end": 3150.23,
+      "speaker": "jerod-santo",
+      "text": "I don't know that that was guitar."
+    },
+    {
+      "start": 3150.23,
+      "end": 3156.29,
+      "speaker": "adam-stacoviak",
+      "text": "Honestly, it has that feeling, though, doesn't it? Like, yeah, it does."
+    },
+    {
+      "start": 3156.29,
+      "end": 3162.76,
+      "speaker": "jerod-santo",
+      "text": "I mean, if you think about it, I haven't thought about it that hard until now. It does feel like a guitar. Listen, crazy."
+    },
+    {
+      "start": 3167.03,
+      "end": 3173.59,
+      "speaker": "adam-stacoviak",
+      "text": "It was guitars. The absolute heck. I think if you did play our live show, you should probably do this one on the guitar."
+    },
+    {
+      "start": 3174.71,
+      "end": 3177.91,
+      "speaker": "jerod-santo",
+      "text": "I can't play guitar. What?"
+    },
+    {
+      "start": 3180.5,
+      "end": 3239.75,
+      "speaker": "adam-stacoviak",
+      "text": "I have a little bit. Sometimes I need like acoustic guitar chords. Don't ruin our dreams. Oh, sorry. No, no, no. I'll learn for you, obviously. Thank you. I'll learn for you. We're all. What is that? Finger sync it. Oh, gosh, that's the best track of the whole album, in my opinion. It's it. It is good. Well, what are you working on now? What do we what should we do next? What's what's cooking? What's popping? What's breaking and bopping? So many questions. It's all the same question. Yeah, it's true. How do I break this down between breaking? I was stalling. That is very good. What am I doing? That's a podcast theme. That's a podcast theme. That's the thing I really want to talk about, but cannot. Oh, oh, that's a podcast theme. You're making a podcast theme. Working on a video game where that teaches kids how to play piano, which is really cool. Nice. That's cool. Yeah. Writing a book, which is like. Writing a book? Yeah, which is like the most horrible thing someone can say to you."
+    },
+    {
+      "start": 3240.39,
+      "end": 3243.03,
+      "speaker": "jerod-santo",
+      "text": "Because you're like, no, you're not. You're really not."
+    },
+    {
+      "start": 3244.93,
+      "end": 3254.56,
+      "speaker": "adam-stacoviak",
+      "text": "You're like, I have to act like I'm interested in someone's book. But that's true. I'm interested that you're writing a book, not necessarily in the book, unless you tell"
+    },
+    {
+      "start": 3254.56,
+      "end": 3257.2,
+      "speaker": "jerod-santo",
+      "text": "me what it's about and I get interested, but that's interesting."
+    },
+    {
+      "start": 3257.2,
+      "end": 3282.64,
+      "speaker": "adam-stacoviak",
+      "text": "I won't do that to you, but that's really nice. Music theory? Beat matching? No, it's like Nancy Drew. If everyone was really worried, what was wrong with Nancy Drew? It's like Nancy Drew on drugs? Yeah, but not literally. But yeah, I was informed the other day that my main character is completely insane and I hadn't actually realized that. I thought she was just dedicated. And they're just dedicated."
+    },
+    {
+      "start": 3283.52,
+      "end": 3349.6,
+      "speaker": "jerod-santo",
+      "text": "Well, that's interesting. So who's reading this book of yours and giving you feedback? You know, people floating about. Okay. The mysterious. This is why we say the mysterious rape message cylinder. Oh my gosh. People floating about. Always a surprise with you. Is it? That could be, well, now I want to be more surprising, but I don't know. Yeah. Well, I mean, the fact that you're writing a book and you're just letting people who float about read it is a surprise. I mean, I know the people. Here, read this. I'm on street corners being like, hold on. Be surprised. Yeah. You're like, is this main character too dedicated or what do you think? Yeah, right. So it's a mystery. It's a series of mysteries. Oh, wow. Nancy Drew's a mystery. Well, I know I'm just trying to tease here. She goes around solving mysteries, but writes down details that have no bearing on anything and starts freaking out about spiders and has a group of first graders that she uses to do her detective work and run screaming through the streets and lies to everyone all the time. It's like the best book I've ever heard."
+    },
+    {
+      "start": 3349.6,
+      "end": 3402.48,
+      "speaker": "adam-stacoviak",
+      "text": "Now that I say that. Yeah, it doesn't sound bad, actually. No. What age is Nancy Drew in this book you're writing? Oh, 36. Wow. Okay. But none of this actually matters like it does, but there's an overarching thing. Oh my gosh. This is actually like a gold mine here. I kind of want to read this now. Me too. How do we float about in your area? You are floating about in my area. Let's get a manuscript. Oh gosh. Are you going to publish this? Yeah, actually I have someone who will read it and consider representing me. Awesome. Yeah. What's the time? What's your deadline? Uh oh. How does this work? Can you write? Do you have to get the rights to Nancy Drew, though, to publish a book about? Oh, it's not really Nancy Drew. It's just she saw his mysteries and is apparently insane."
+    },
+    {
+      "start": 3402.48,
+      "end": 3496.8,
+      "speaker": "jerod-santo",
+      "text": "She's characterizing it. Yeah, I was just trying to make a comparison. Well, that's actually interesting. I'm glad. In a way. Yeah, in a way. In a way. From some angle. What's interesting about it is that Nancy Drew was, you know, a teen, you know, in the book Sirius, right? I guess so, yeah. And she ultimately grew up and had things happen in her life when she went to college, and so the story arc of Nancy Drew follows Nancy Drew's growing up in a way. Like, I feel like you're just reading chat GPT responses to us. No, I'm not. I'm not. I'm very familiar with Nancy Drew. Very familiar. I'm not, honestly, but I get it. I just knew it was a female, a young female detective or mystery solver. That's as far as I went. Life is full of mystery. True. And then she's 36 now. That's, or 37, as you said. I mean, that to me is like, it's not actually Nancy Drew, though, Adam. He was just giving us something to hang our... I'm just trying to, like, pin back to Nancy. I mean, like, that's the hook. Yeah, man. Anything you know about Nancy Drew, like, it would probably just help me. Does this pin back to Nancy? You said so. It's like a Nancy Drew. It's a series of mysteries. There's a spider that keeps repeating. Like, why is the spider repeated? Is this, like, a real spider? Like, a monster? Is it? It's a real spider. It's repeating. So it's plausible fiction. Yeah, there's an actual reason for it, but everything appears supernatural. It's the case of the repeating spider. And then the mystery of the missing missing arm. And what's your intended audience age? Like, is this for adults? Is this for young adults? Is this for children? I swear a lot. A lot. Otherwise it would be, you know, kids could read it, but..."
+    },
+    {
+      "start": 3496.8,
+      "end": 3517.46,
+      "speaker": "adam-stacoviak",
+      "text": "Could you release two editions? One for everybody? Yeah, I've actually thought about that. Because I would enjoy reading this aloud to some kids. But just, no. So why is your protagonist an insane person? God, I didn't know she was insane. She's me to a very large extent. Okay, interesting."
+    },
+    {
+      "start": 3517.46,
+      "end": 3561.99,
+      "speaker": "jerod-santo",
+      "text": "I mean, I would definitely... I would read this. Okay, sorry. No, don't be sorry. Okay. Don't apologize yet. Wait till I read it. Yeah, I had to research social security fraud a lot for this. Does that... Don't give a sense, man. I want the mystery to be fresh. I don't want to have any sort of preconceived notions now. I can't imagine a world in which a repeating spider would have a natural explanation. So I'm very curious. Even better is this is something that happened to me. It's not even like... There was a repeating spider and I couldn't figure out why it was repeating. And then I found out and it blew my mind. Wow. I don't understand. Repeating spider, like literally? Yeah, I'm just being vague."
+    },
+    {
+      "start": 3561.99,
+      "end": 3579.03,
+      "speaker": "breakmaster-cylinder",
+      "text": "You kept seeing the same spider? There's a dead spider on the second floor of a building. And I flicked it down to the first floor. And then later it was there again. And I was like, spiders are not supposed to repeat. Oh, I see. Oh, did you think there was maybe a glitch in The Matrix? Maybe you just went back. And she really doesn't like glitches in The Matrix."
+    },
+    {
+      "start": 3579.03,
+      "end": 3614.95,
+      "speaker": "adam-stacoviak",
+      "text": "She wants everything to be orderly and make sense, or she loses her mind. And in this case, there's a reason. Love it. It could be The Mimic. What's The Mimic? And the blood from The Mimic. And the blood from The Mimic. That was the premise for Tom Cruise's movie with Emmy Blunt, Live, Die, Repeat. Oh yeah. Edge of Tomorrow. One of the best science fiction movies ever. I remember that one being really good, actually. Definitely up there in my list. Yeah? What other sci-fi movies do you like? Oh, gosh. Probably my favorite of all. Don't say Tenet. Don't say Prime. Prime? Primer? No, Prime. Oh, is it Primer?"
+    },
+    {
+      "start": 3615.67,
+      "end": 3625.19,
+      "speaker": "jerod-santo",
+      "text": "The low-budget time machine in a box. The low-budget time machine is called Primer, but it's spelled Primer. Oh, my bad. No, but you can answer the question."
+    },
+    {
+      "start": 3625.27,
+      "end": 3660.53,
+      "speaker": "adam-stacoviak",
+      "text": "We're just shouting bad movies. Yes. It's not even a bad movie. He's thinking. I mean, there's just a list. I mean, it's a non-stop list. Okay. Okay. Give us a five. Top five. Interstellar. That's one. Tenet. Two. Ready Player One. Three. Dune. What's the movie? There was a 2049, Blade Runner 2049. Oh, that was good. OG Blade Runner, of course. Five. Are you going to count that as one? Blade Runner. I mean, they're together, basically. Sure. I'm impressed. Anybody who could pick up that franchise and make a movie that could, that Dennis. Yeah."
+    },
+    {
+      "start": 3660.53,
+      "end": 3681.75,
+      "speaker": "jerod-santo",
+      "text": "That was a solid, solid film there. He also did the Dune movies you like. Same director. Yes. Well, basically anything Christopher Nolan does, I will watch. Yeah, but that was not the obviously director of that one, but I'll watch anything from him. Yes. And oddly enough, this is not science fiction. This is more horror. Well, that's just a different category. Yeah."
+    },
+    {
+      "start": 3681.75,
+      "end": 3690.87,
+      "speaker": "adam-stacoviak",
+      "text": "This is where they say they're all going to laugh at you in that funny voice from the movies."
+    },
+    {
+      "start": 3692.07,
+      "end": 3702.55,
+      "speaker": "jerod-santo",
+      "text": "Megan, honestly, it's a really interesting AI, you know, present day horror movie. I mean, it's an okay plot. Yeah."
+    },
+    {
+      "start": 3702.55,
+      "end": 3705.59,
+      "speaker": "adam-stacoviak",
+      "text": "You know what's an incredible sci-fi horror movie is Annihilation."
+    },
+    {
+      "start": 3705.59,
+      "end": 3749.16,
+      "speaker": "jerod-santo",
+      "text": "Oh my gosh. Yes. The best. The movie or the song in there from Hall of Notes in there though. I mean, like just stellar on point. Is there? Yeah, I think it's Hall of Notes. There's a lot of like folk music, like folk guitar, which is really unnerving for some reason and the ending music where I won't give anything away. Oh my gosh, the music is so good. The space melon. That will haunt me until I die. That is incredible. You'll have to come to my house and watch it because that's where it's the best. Right? You said theater. You have a theater? Yeah, I have a theater in my house and you'll, you'll love it. Hell yes. I'm trying to find the song. There's a song from, that I'm trying to think of what it is. It's worth it."
+    },
+    {
+      "start": 3750.2,
+      "end": 3780.2,
+      "speaker": "adam-stacoviak",
+      "text": "It's when he comes back and he's come up the stairs, that song and she's painting. Oh, in the beginning. Yes, that song. You know far more about Hall of Notes than I do. I don't actually think it's Hall of Notes. That's why I'm really curious if I'm wrong because I don't think it is. All right, well. But I'm a big fan of Annihilation. I own it on 4k. If I own it on 4k, I love the movie. Let me name a few sci-fi movies that didn't make your list, which maybe you'll have to, you don't have to add them as I say them. Because you left off some pretty good movies. Although, you know, you can't name just five."
+    },
+    {
+      "start": 3780.2,
+      "end": 3783.96,
+      "speaker": "breakmaster-cylinder",
+      "text": "Who can do that? But for instance, you left off Terminator 2."
+    },
+    {
+      "start": 3785.24,
+      "end": 3797.38,
+      "speaker": "jerod-santo",
+      "text": "You left off The Matrix. You left off Aliens. You left off the original Planet of the Apes. Are these the ones that just go without saying because they're just so... Kind of."
+    },
+    {
+      "start": 3798.02,
+      "end": 3821.4,
+      "speaker": "adam-stacoviak",
+      "text": "But I've said them. There's a few you left off the list. How about this one? Minority Report. That was an early movie obsession of mine. That was so good. Yeah, that was a good one. Spielberg. Yeah. Oh, gosh. I was so off. Sorry. Crosby, Stills, and Nash. Helplessly Hoping. I mean, the harmony. Sorry to interrupt, Jared."
+    },
+    {
+      "start": 3821.4,
+      "end": 3831.77,
+      "speaker": "jerod-santo",
+      "text": "The harmony of that, of those folks singing that track. They have good harmony. So good. What's the track called?"
+    },
+    {
+      "start": 3831.77,
+      "end": 3836.65,
+      "speaker": "adam-stacoviak",
+      "text": "It's called Helplessly Hoping. Pull it up on Spotify. Helplessly Hoping. And plan for us."
+    },
+    {
+      "start": 3836.65,
+      "end": 3837.29,
+      "speaker": "jerod-santo",
+      "text": "Murder Bear."
+    },
+    {
+      "start": 3837.85,
+      "end": 3838.97,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, give me a second."
+    },
+    {
+      "start": 3839.86,
+      "end": 3840.74,
+      "speaker": "jerod-santo",
+      "text": "Stalin BMC."
+    },
+    {
+      "start": 3841.54,
+      "end": 4017.82,
+      "speaker": "adam-stacoviak",
+      "text": "Stalin, okay. I tried to make it through that. That was... Gargling Solo. A for effort. Thank you. Oh, yeah. Right? That was so good. Such a good track. The harmonizing is where it's at, you're right. This is the only real track, real song in the whole movie. Everything else is made for this movie soundtrack. It's like acoustic guitar, which is totally opposite what's happening on screen. And it feels good. And then there's the space melon music, which is terrible. Space melon. Yeah, when Natalie Portman gazes into the melon. We have to have a... Actually, how about this? We'll come out of this show with a prescription. The prescription is to go rewatch Annihilation or pick your favorite scene. The ending scene when everybody gets enveloped. And make a space melon song for us. Those bass beats. Those bass notes. I mean, we'll have to suck in the audience into this one. That's what will happen. How terrifying does your show ever get though, really? It might have to get a little scary. Yeah. We're gonna start fear mongering. The AI is coming. I mean, people are kind of afraid right now, honestly. Are they really? I think so. Just in general or AI? Software developers. Our livelihoods are potentially at stake. People are getting laid off. They're getting told that they're gonna be replaced by machines. I mean, I think that if there was a time of fear in the software developer community, this is probably the highest it's been. Because there hasn't really been a reason to be afraid of anything besides maybe the Y2K bug. But not because of our podcast though. They're not necessarily scared because of our shows. Not yet. I wasn't suggesting you were causing the fear. Yeah. You discuss the fear. You don't actively terrorize people. We don't fear monger. No. Not yet. Not until you have the soundtrack. Oh, God. Well, so to go back, I did not mention The Matrix. I'm sorry. That is in my list on 4K. I was going with more modern, I suppose. No, it's all good. We'll put you on the spot. I mean, there's too many good movies that just name five. Yeah, gosh. I mean, just so many, so many good movies. But yeah, The Matrix and Minority Report, I guess they also were kind of coming out when I was coming of age. So those tick in my head as just like very... The Matrix is probably the most influential sci-fi movie I've ever seen, where I still think about it. Ex Machina. Ex Machina is good. I like that. That's the Annihilation guy too. Yeah. Everything he does is disturbing as heck."
+    },
+    {
+      "start": 4018.54,
+      "end": 4020.14,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that is disturbing."
+    },
+    {
+      "start": 4020.14,
+      "end": 4081.96,
+      "speaker": "adam-stacoviak",
+      "text": "I am a fan of The Matrix, obviously, and I'm a big fan of Minority Report. I think that was a movie ahead of its time, honestly, for sure. You know what was good was Looper. Did you guys see Looper? Yeah, that's a good one. I mean, not top five, but good. I mean, if there's a time travel movie out there, I'm going to watch it. And that's not like your typical time travel movie, but there's time involved. And it's really interesting. Yeah, I would say that I kind of get mad at time travel movies because it's so hard to do well and to do right. And there's always problems, but Looper actually has a pretty good consistency to it. Yeah, they don't bother explaining the mechanism too much, which I like. Yeah, exactly. It's not the main point. It's just there. It's like a small little story, really. Exactly. It also happens to be true that you can. Which you kind of have to do that because the more you make it about the time travel, the more you think about it, the more the concepts break down, you know? Yeah. There's still parts of Tenet I cannot understand to this day. Are we sure that's a good movie?"
+    },
+    {
+      "start": 4081.96,
+      "end": 4084.36,
+      "speaker": "jerod-santo",
+      "text": "Which to me is a sign of a bad movie."
+    },
+    {
+      "start": 4084.36,
+      "end": 4085.48,
+      "speaker": "adam-stacoviak",
+      "text": "Are we sure that's a good movie?"
+    },
+    {
+      "start": 4086.28,
+      "end": 4089.48,
+      "speaker": "jerod-santo",
+      "text": "This might be, I might pour you out into the trash."
+    },
+    {
+      "start": 4089.48,
+      "end": 4222.65,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, don't, don't speak against the tenant. I agree. I watched it. I did not understand it. And then I went through the podcast with our heavy spoilers friend and Adam, and we talked all about it. And I came out thinking I don't need to think about that movie ever again. Like it doesn't really, yeah, shame Jared. Nah, there's so many things to think about. Aren't there a lot of like plot twists that are obvious from the first second of the movie? That's what I seem to remember. Well, I'm not here to rag on your movie you like. It's too deep to go into. It's got a lot of layers. I'm not saying it's the best movie ever, but it's definitely, when you compare time travel movies of all time travel movies, in my opinion, that movie will go down in history as one of the most difficult to pull off and a masterpiece when compared to time travel movies. As a movie and plot, not absolutely the best movie ever, but really well done with time. Like you can't deny that from that movie. I value your opinion and assessment. Oh, it's solid. I mean, they did a great job with it. I'll watch it again. Cause if you like it, yeah. Even from a cinema, you know, a shooting standpoint, a cinematography standpoint, it's super well done. A lot of detail. Good filmmaker. I keep wanting something to top Inception, but I feel like that was. Inception was great. I feel like that movie gets ragged on a bit, but that was my favorite Nolan probably. I liked it a lot. Well, Memento for me is still his best, but talk about good execution on a good idea. I mean, that was a good idea. That's hard to pull off and he pulled it off. Well, seriously. Yeah. Yeah. That should be too hard to keep track of when you're watching it, but you could just barely hold the thread. Yeah. I mean, you can follow it though. They do a good job of like, just pulling you along. At the end though, there's no resolution. You know, like you kind of just like, you're like where you began in a way. Yeah. There's a realization. Yeah. No, I mean, no resolution. There's a realization. Of course you realize what's happening, but there's no resolution to the challenge that he's dealing with as a character."
+    },
+    {
+      "start": 4222.65,
+      "end": 4230.09,
+      "speaker": "jerod-santo",
+      "text": "Like you're just going to keep repeating and you kind of feel bad for him because like it's perpetual. It's not going to end. A spoiler alert, by the way."
+    },
+    {
+      "start": 4230.09,
+      "end": 4260.89,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I don't think we spoiled anything really. We just, you just totally screwed. You just said there's no resolution. He's going to continue to live on with it. That doesn't, that doesn't describe anything though. If you watch the first 15 minutes, now you know what the problem is. And then you remember what Adam said. Now you know what the solution doesn't happen, but you don't know the details. I'm going to drop the spoiler horn is my point. Okay. Drop the spoiler horn. I will. That's fine with me. That's all. We need a mini spoiler horn because they're not always big spoilers. BMC made our spoiler horn for us."
+    },
+    {
+      "start": 4260.89,
+      "end": 4287.77,
+      "speaker": "jerod-santo",
+      "text": "I know. Yeah, you did. You made a seven spoiler horns. Play that spoiler horn, Jared. Can you play it? I only use one of them like a klaxon or like a horn. No, we wanted it to be like a, uh, it's almost like here comes a steamboat. Like I actually can't play it right now because I'm, I'm dialed into a different soundboard, but you'll remember it when you hear it. It kind of sounds like here comes a giant freight boat."
+    },
+    {
+      "start": 4288.25,
+      "end": 4304.71,
+      "speaker": "adam-stacoviak",
+      "text": "You know, it's going to hit a, it's going to hit a bridge and there's like a stutter out like seven different versions. Yeah. Kind of like a foghorn. Okay. Yes. I remember this. I forgot that was the stutter outs. There's some non stutter outs. You just gave us different iterations."
+    },
+    {
+      "start": 4305.35,
+      "end": 4312.12,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that sounds right. Anyways, you made so much music and sounds in your life. You can't even remember, but you've never made a book."
+    },
+    {
+      "start": 4312.12,
+      "end": 4313,
+      "speaker": "adam-stacoviak",
+      "text": "Is this your first book?"
+    },
+    {
+      "start": 4314.36,
+      "end": 4319.64,
+      "speaker": "jerod-santo",
+      "text": "Yes. So exciting. What, what, what inspired you to write a book? Why did you decide to do this?"
+    },
+    {
+      "start": 4319.64,
+      "end": 4329.56,
+      "speaker": "adam-stacoviak",
+      "text": "Um, what the book is actually about is nothing I've hinted at. And I just had an idea like 10 years ago and it's just been mulling in my head."
+    },
+    {
+      "start": 4329.56,
+      "end": 4335,
+      "speaker": "jerod-santo",
+      "text": "And if I have an idea that sticks with me at least like three months, I will finally just do it."
+    },
+    {
+      "start": 4335,
+      "end": 4336.76,
+      "speaker": "adam-stacoviak",
+      "text": "And this was a little more complicated."
+    },
+    {
+      "start": 4336.76,
+      "end": 4347.96,
+      "speaker": "jerod-santo",
+      "text": "So it took like 10 years. Okay. It's just anything I'm obsessed with and I'm obsessed with it. I do this all the time. I can't focus on anything but it when I'm walking around. So it just happens."
+    },
+    {
+      "start": 4348.6,
+      "end": 4352.36,
+      "speaker": "adam-stacoviak",
+      "text": "Love it. It's like a repeat spider, you know, you can't get rid of it."
+    },
+    {
+      "start": 4352.36,
+      "end": 4353.24,
+      "speaker": "jerod-santo",
+      "text": "Yep. Yep."
+    },
+    {
+      "start": 4353.24,
+      "end": 4363.32,
+      "speaker": "adam-stacoviak",
+      "text": "Just keeps coming back. Can't flick it away. I know. All right, BMC. Well, if this episode of our podcast was an airplane in flight, I'm drawing, I'm drawing"
+    },
+    {
+      "start": 4363.32,
+      "end": 4489.42,
+      "speaker": "jerod-santo",
+      "text": "a picture now. Okay. How would you, as the, as the captain of said airplane, how would you land this plane gracefully? I don't know how to fly a plane. So sorry, both of you. Cause I fairly don't either. I don't notice. You just make music and books and you let us land podcast planes. Yeah. Let neuro-typical people. We're typical people? No, neuro-typical people. Let them end. Oh, I see. I couldn't. Conversations. Do your, do your audience identify as autistic? Would you say largely? Would our audience identify? Well, we can't identify a collective, you know? Fair. It's like, but I'm sure there's probably autistic people in our audience as there are probably. I feel like the people that I know who are programmers. There's definitely a higher percentage. I believe of overlap there. I think you're probably onto something. Cool. Adam, you're neuro-typical. I think, I don't know what that means exactly every time, but can you, can you land this podcast plane? I can and I will. Okay. I will land it by saying one, two, three, four. You are now in my trance and this is the end of the podcast. I'm just kidding. That was actually a good line. You have lyrics in this one. Drum and space. I'll leave with that. Cause that to me is probably one of the best recent beats you've made. Oh yeah. Yeah. Drum and space was pretty awesome. Have you seen this one yet, Jared? I think so. Does it say one, two, three, four? It's it does say that. Those are some lyrics, man. That is one, two, three, four. It took me about four seconds to write. I love that one. Yeah. I mean, it's just the best. I've been using that. So we're going to end it with that. Yeah. This is the new outro track for this track. At least we'll end this show with drum and space. There you go. Beautiful. So bye. Thank you BMC for being the mysterious Breakmaster Cylinder. The beats freak in residence, the ultimate beat maker of all time. The sauce I pour on all my favorite podcasts. The conditioner that we put on our episodes. You special three-in-one you. Oh my gosh. Shake you up and pour you out. Thanks everybody. Bye friends."
+    },
+    {
+      "start": 4489.42,
+      "end": 4490.22,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends."
+    },
+    {
+      "start": 4490.22,
+      "end": 4553.56,
+      "speaker": "jerod-santo",
+      "text": "Bye. If you dig the vibes, check out the new album by searching for changelog beats in your favorite music app and finding the dance party album. If you just search for dance party, there's a lot of results. So start with changelog beats. We are one of a kind. We do have a changelog plus plus bonus for those of you who like to make our shows even better. Adam continues to give BMC weird descriptives. I critique a Justin Timberlake song and BMC, BMC does what BMC does. If you haven't signed up for plus plus, now's a great time to directly support our work. Get yourself in on extended episodes like this one, make the ads disappear and more. Learn all about it at changelog.com slash plus plus. Thanks once again to our partners at fly.io and to our friends at Sentry."
+    },
+    {
+      "start": 4553.56,
+      "end": 4567.56,
+      "speaker": "adam-stacoviak",
+      "text": "We love Sentry and have been using it for years. When it's time for you to check it out, use code changelog, all one word and save 100 bucks off our team plan. Have a great weekend. Give us a five star review if you dig it and let's talk again real soon."
+    }
+  ]
+}

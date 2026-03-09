@@ -1,0 +1,2637 @@
+{
+  "title": "Kaizen! There goes my PgHero",
+  "description": "Gerhard shares CDN performance comparisons, while the team deploys PgHero for database monitoring and implements database forking via Dagger functions.",
+  "links": {
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "gerhard-lazu"
+  ],
+  "segments": [
+    {
+      "start": 14.93,
+      "end": 75.33,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to changelog and friends, a weekly talk show about pirates booty. Big thanks to our partners at Fly, the home of changelog.com. Launch your app as close to your users as possible for peak performance. Fly makes it easy. Learn how at fly.io. Okay, let's talk. Yes, let's talk about Cloudflare's developer week happening all this week. Literally right now, April 1st through April 5th, virtually. They also have a meetup here in Austin that I'll be at on Wednesday, April 3rd in their ATX office, check for a link in the show notes to register for that spots are limited. So secure your place right now. And I'm here with Matt Silverlock, senior director of product at Cloudflare. So Matt, what is this week for you, uh, launching for developers, a bunch of new tooling, a bunch of new things that gets the next year or the next several months revived and a resurgence for new things happening. What do you, what's that? What does that to you?"
+    },
+    {
+      "start": 75.45,
+      "end": 111.09,
+      "speaker": "gerhard-lazu",
+      "text": "Internally, we call them innovation weeks, which is kind of the way we think about it, which is how do we ship a bunch of stuff that is meaningful to developers, both getting some things over the line, getting some early things out, sharing some ideas, some things that maybe aren't actually fully baked, but kind of getting that out there and talking about it so that we can get earlier feedback, but it kind of comes back to like, how do we think about innovating? And I think candidly, what's really, really helpful is kind of setting those deadlines, setting that week to kind of rally the team and get things out actually helps us get things done, right? There's always that tweaking for perfection, you know, another week here, another month there. It's nice when you set an immutable date, you get things out, gets into the hands of the developers much faster."
+    },
+    {
+      "start": 111.41,
+      "end": 148.89,
+      "speaker": "adam-stacoviak",
+      "text": "Well, we're diehard R2 users. We had an S3 build that just set us absolutely on fire. It kept growing and growing. And I was like, this can't happen anymore. Uh, we've had an affinity and a love for Cloudflare, you know, from afar in a really, a lot of cases until we're like, you know what, R2 is pretty cool. We should use R2, you know? And so we did. And I think I tweeted about it about a year ago, and then over time, a relationship between us and Cloudflare has budded, which I'm excited about, but you know, why are developers, you know, we're opting for it, but for R2 in those cases, but why are developers opting for Cloudflare products over Amazon web services or other providers out there?"
+    },
+    {
+      "start": 149.25,
+      "end": 197.09,
+      "speaker": "gerhard-lazu",
+      "text": "There's a lot of answers to this, but I think the one that I find kind of connects with a lot of folks is we're building a platform that makes it easy to deploy, you know, reliable distributed services without being a distributed systems engineer, because it turns out if I want to go and build something really reliable on sort of an existing cloud, I want to build it across regions. When I've got to egress across regions, got to pay for that. I need to make sure I'm spinning up shadow resources, right? When you deploy to workers, for example, we just call that region earth, right? We take care of actually deploying all of those instances, keeping them reliable, spinning them up where they need to be spun up. If you've got users in Australia and we spin one up there for you without asking you to think about it, without charging extra to kind of do that. That ends up being really, really powerful. You get your compute closer to users. You don't have to think about that kind of coordination in practice. This is really, really hard to do that on existing providers. So we find a lot of teams coming to us so they can build applications at scale like that."
+    },
+    {
+      "start": 197.45,
+      "end": 227.38,
+      "speaker": "adam-stacoviak",
+      "text": "There you go. Celebrate live in Austin with us on Wednesday, April 3rd. Again, check for a link in the show notes for registering to that spots are limited and I'll be there otherwise enjoy Cloudflare developer week all week long from April 1st through April 5th, go to cloudflare.com slash developer week. Again, cloudflare.com slash developer week. Well, should we Kaizen? Do we need a pregame at all?"
+    },
+    {
+      "start": 227.66,
+      "end": 229.38,
+      "speaker": "gerhard-lazu",
+      "text": "I'm prepared. You never know."
+    },
+    {
+      "start": 229.74,
+      "end": 234.82,
+      "speaker": "adam-stacoviak",
+      "text": "I'm always ready. I was born ready. I came out of the womb and I was like, Kaizen!"
+    },
+    {
+      "start": 239.74,
+      "end": 248.36,
+      "speaker": "gerhard-lazu",
+      "text": "See, studio wise. That's why we are recording. That's right. You cannot make this stuff up. That doesn't have to be a wasted joke."
+    },
+    {
+      "start": 249.2,
+      "end": 261.58,
+      "speaker": "adam-stacoviak",
+      "text": "I kind of did just make it up, but I know what you're trying to say. Ah, that wasn't true, Gerhard. I didn't actually say that out of the womb, but really, that was true. So you can make this stuff up is my point."
+    },
+    {
+      "start": 261.62,
+      "end": 262.46,
+      "speaker": "gerhard-lazu",
+      "text": "Yes, of course."
+    },
+    {
+      "start": 263.42,
+      "end": 270.82,
+      "speaker": "adam-stacoviak",
+      "text": "But you can't make it up twice. And so good thing we hit record. All right, Gerhard, take us on a journey. Take us on a ride. Tell us where we're headed."
+    },
+    {
+      "start": 271.02,
+      "end": 276.54,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I want to start. I want to start with a question and an answer as well. I'm going to answer it. Sweet."
+    },
+    {
+      "start": 276.98,
+      "end": 284.98,
+      "speaker": "adam-stacoviak",
+      "text": "I love it. I always feel like I'm like coming to an interview quiz or a test. Yeah, or like, this is going to be more painful for us than it is for him kind of a thing."
+    },
+    {
+      "start": 285.02,
+      "end": 296.26,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, this is going to be good. This is going to be good. So do you remember what was the question that we asked or the proposal? Actually, yeah, that was a question that we asked in the last one, in the last episode."
+    },
+    {
+      "start": 296.34,
+      "end": 298.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. It was like goals for the year."
+    },
+    {
+      "start": 298.9,
+      "end": 301.26,
+      "speaker": "gerhard-lazu",
+      "text": "Yes. So we started with that. Yes. There was something else."
+    },
+    {
+      "start": 301.46,
+      "end": 310.54,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, shoot. Adam, you remember that? I do. Yes. What was it? It was, uh, what do you want to do this year? Something like that. No, it's something else."
+    },
+    {
+      "start": 310.54,
+      "end": 312.26,
+      "speaker": "gerhard-lazu",
+      "text": "It's not the episode, dammit. All right."
+    },
+    {
+      "start": 312.66,
+      "end": 314.3,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, should we start a CDN?"
+    },
+    {
+      "start": 314.3,
+      "end": 316.02,
+      "speaker": "gerhard-lazu",
+      "text": "Should we build a CDN? That was the question."
+    },
+    {
+      "start": 316.06,
+      "end": 321.3,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Yes. I'm a little aware. I've been marinating here on this, on this topic for a bit. Okay."
+    },
+    {
+      "start": 321.3,
+      "end": 327.34,
+      "speaker": "gerhard-lazu",
+      "text": "Should we build a CDN? So the followup to that is did we build a CDN? Did it happen?"
+    },
+    {
+      "start": 327.46,
+      "end": 328.46,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, did we build a CDN?"
+    },
+    {
+      "start": 328.46,
+      "end": 329.62,
+      "speaker": "gerhard-lazu",
+      "text": "Did we build a CDN? Yes."
+    },
+    {
+      "start": 330.9,
+      "end": 332.54,
+      "speaker": "adam-stacoviak",
+      "text": "And you want us to answer that question?"
+    },
+    {
+      "start": 332.58,
+      "end": 335.98,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I think I can answer it. The answer is no."
+    },
+    {
+      "start": 335.98,
+      "end": 339.3,
+      "speaker": "adam-stacoviak",
+      "text": "I didn't build a CDN. Adam, did you build a CDN? I tried."
+    },
+    {
+      "start": 340.66,
+      "end": 341.82,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, no, we didn't."
+    },
+    {
+      "start": 341.86,
+      "end": 343.02,
+      "speaker": "adam-stacoviak",
+      "text": "Gerhard, did you build a CDN?"
+    },
+    {
+      "start": 343.02,
+      "end": 343.54,
+      "speaker": "gerhard-lazu",
+      "text": "I tried."
+    },
+    {
+      "start": 346.88,
+      "end": 349.6,
+      "speaker": "adam-stacoviak",
+      "text": "You both tried, but I have a feeling Gerhard tried a little harder than Adam."
+    },
+    {
+      "start": 349.64,
+      "end": 353.88,
+      "speaker": "gerhard-lazu",
+      "text": "Thank you, Jared. I had some help. Just a feeling. I had some help. It wasn't just me, by the way."
+    },
+    {
+      "start": 354.04,
+      "end": 355,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, let's hear about it."
+    },
+    {
+      "start": 355.12,
+      "end": 358.76,
+      "speaker": "gerhard-lazu",
+      "text": "Do you know, uh, someone called James A. Rosen?"
+    },
+    {
+      "start": 358.84,
+      "end": 362.72,
+      "speaker": "adam-stacoviak",
+      "text": "And we do because he's been instrumental in our community lately."
+    },
+    {
+      "start": 362.72,
+      "end": 363.92,
+      "speaker": "gerhard-lazu",
+      "text": "Our CDN saga."
+    },
+    {
+      "start": 364,
+      "end": 366.24,
+      "speaker": "adam-stacoviak",
+      "text": "We're name dropping him just constantly."
+    },
+    {
+      "start": 366.28,
+      "end": 374.52,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. So he was, uh, very kind to, uh, give me an hour of his time, maybe, maybe a bit longer. And we tried building it."
+    },
+    {
+      "start": 375.52,
+      "end": 376.12,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, okay, cool."
+    },
+    {
+      "start": 376.12,
+      "end": 386.92,
+      "speaker": "gerhard-lazu",
+      "text": "And, uh, so yeah, so we did have a go at that and we stopped when we realized that we cannot terminate TLS in varnish without something called hitch."
+    },
+    {
+      "start": 387,
+      "end": 387.44,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 387.8,
+      "end": 414.8,
+      "speaker": "gerhard-lazu",
+      "text": "What that means is that if we build a CDN built on varnish, we also need hitch so that hitch is the component that connects to fly tour fly app, because that puts up TLS and we need that component before we can do even like the simplest varnish config. And our app has a HTTP disabled. So it only serves HTTPS. And for that we cannot do it without hitch. So that's where we stopped."
+    },
+    {
+      "start": 414.8,
+      "end": 416.8,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. So you ran into a hitch."
+    },
+    {
+      "start": 416.8,
+      "end": 419.88,
+      "speaker": "gerhard-lazu",
+      "text": "We ran into a hitch. There you go. Yes, that's exactly."
+    },
+    {
+      "start": 419.88,
+      "end": 422.24,
+      "speaker": "adam-stacoviak",
+      "text": "So why didn't you just put a hitch in there? Why don't you just go grab a hitch?"
+    },
+    {
+      "start": 422.24,
+      "end": 424.24,
+      "speaker": "gerhard-lazu",
+      "text": "Well, it took us an hour to get to that point."
+    },
+    {
+      "start": 424.48,
+      "end": 428.24,
+      "speaker": "adam-stacoviak",
+      "text": "I see. So you said, if I can't build a CDN in an hour, I'm not doing it."
+    },
+    {
+      "start": 428.28,
+      "end": 434.92,
+      "speaker": "gerhard-lazu",
+      "text": "I'm trying something else. I did promise. I'm not going to spend a lot of time on that. So, you know, that was true."
+    },
+    {
+      "start": 435.2,
+      "end": 435.56,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 435.56,
+      "end": 465.8,
+      "speaker": "gerhard-lazu",
+      "text": "We're just trying to see how far we can get a serious talk now. We went with varnish. James was there. You know, we had a couple of like the feedbacks through the last episode was really good. We had a bunch of people basically get back to us. I'm reading some names here. Matt Johnson. I think he's the one that wrote the most. Well, thank you, Matt. You know, I went through all, all of your comments. I thought about them. I also replied to them. I don't have a lot of time, but I did make time for that. Those are some very good comments. So thank you, Matt. That was Lars Zwickman."
+    },
+    {
+      "start": 466.08,
+      "end": 466.64,
+      "speaker": "adam-stacoviak",
+      "text": "Of course."
+    },
+    {
+      "start": 466.68,
+      "end": 471.68,
+      "speaker": "gerhard-lazu",
+      "text": "I still don't know how to pronounce his name. Let me try again. Lars Zwickman. There you go. That's closer."
+    },
+    {
+      "start": 471.92,
+      "end": 472.36,
+      "speaker": "adam-stacoviak",
+      "text": "Closer."
+    },
+    {
+      "start": 473.24,
+      "end": 478.8,
+      "speaker": "gerhard-lazu",
+      "text": "His actually idea was on point. Like, Hey, have you heard of bunny? And I was thinking I haven't."
+    },
+    {
+      "start": 479.76,
+      "end": 480.2,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, right."
+    },
+    {
+      "start": 480.24,
+      "end": 483.4,
+      "speaker": "gerhard-lazu",
+      "text": "I haven't heard of bunny CDN, but Easter is coming."
+    },
+    {
+      "start": 485.08,
+      "end": 486.04,
+      "speaker": "adam-stacoviak",
+      "text": "Well, it's not about the bunny."
+    },
+    {
+      "start": 486.76,
+      "end": 493.48,
+      "speaker": "gerhard-lazu",
+      "text": "You're right. It is not. I was expecting you to say that. However, changelog has a bunny. What does that mean?"
+    },
+    {
+      "start": 493.6,
+      "end": 497.2,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, I had no idea. Gosh. Is this a mascot or something?"
+    },
+    {
+      "start": 497.2,
+      "end": 502.27,
+      "speaker": "gerhard-lazu",
+      "text": "Try this. In your browser, bunny.changelog.com."
+    },
+    {
+      "start": 503.03,
+      "end": 504.75,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my goodness. Bunny."
+    },
+    {
+      "start": 505.07,
+      "end": 506.99,
+      "speaker": "gerhard-lazu",
+      "text": "Bunny.changelog.com."
+    },
+    {
+      "start": 507.19,
+      "end": 508.03,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it loads."
+    },
+    {
+      "start": 508.31,
+      "end": 510.91,
+      "speaker": "gerhard-lazu",
+      "text": "Lars Zwickman. Thank you very much. We tried it."
+    },
+    {
+      "start": 511.03,
+      "end": 512.55,
+      "speaker": "adam-stacoviak",
+      "text": "It loads. So it loads our website."
+    },
+    {
+      "start": 512.59,
+      "end": 533.86,
+      "speaker": "gerhard-lazu",
+      "text": "Yep. So it's a temporary CDN that sits in front of changelog. It's just there so that we can compare it. The comparison was let's do synthetic probes, synthetic HTTP requests. As we used to remember, we had Pingdom and then we stopped using Pingdom. Okay."
+    },
+    {
+      "start": 534.22,
+      "end": 534.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 534.62,
+      "end": 544.5,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I'm trying a new service called Hyperping. Hyperping IO. Okay. Lots of name dropping. It's going to be a fun one. Yes. And I tried it. And I liked it."
+    },
+    {
+      "start": 544.5,
+      "end": 545.62,
+      "speaker": "adam-stacoviak",
+      "text": "Hyperping. What do you like about it?"
+    },
+    {
+      "start": 545.62,
+      "end": 552.66,
+      "speaker": "gerhard-lazu",
+      "text": "Hyperping.io. The whole idea, there's like a single person behind it. Leo. Hang on. Give me a second. I have to find his surname."
+    },
+    {
+      "start": 552.86,
+      "end": 553.46,
+      "speaker": "adam-stacoviak",
+      "text": "DiCaprio."
+    },
+    {
+      "start": 555.74,
+      "end": 591.62,
+      "speaker": "gerhard-lazu",
+      "text": "I don't think so, but that would be sick. But it's not Leo. What a surprise. Leo Becker. Get him on. B-A-E-C-K-E-R. Leo Becker. We got like a couple of emails back and forth. I like the whole story. It seems fairly simple and it works interestingly well, like surprisingly well. Much more than Pingdom. Having used Pingdom for many, many years myself, I went shopping and we used Grafana Cloud for a long time. I think we still have Grafana Cloud, by the way, and the synthetic monitoring. So I used quite a few over the years. Uptime Kuma. Big fan of Uptime Kuma. Again, all these things we've used."
+    },
+    {
+      "start": 591.7,
+      "end": 593.14,
+      "speaker": "adam-stacoviak",
+      "text": "Uptime Robot. Did you ever use that one?"
+    },
+    {
+      "start": 593.26,
+      "end": 606.78,
+      "speaker": "gerhard-lazu",
+      "text": "Yes, I even paid for it for like a whole year. Yes. So I pretty much went through most of them. So I liked Hyperping. And I tried it and I compared Fastly, Fly, Bunny, and Cloudflare."
+    },
+    {
+      "start": 606.98,
+      "end": 607.74,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my goodness."
+    },
+    {
+      "start": 607.78,
+      "end": 609.78,
+      "speaker": "gerhard-lazu",
+      "text": "And we have more than a month's worth of data."
+    },
+    {
+      "start": 610.3,
+      "end": 610.94,
+      "speaker": "adam-stacoviak",
+      "text": "Who wins?"
+    },
+    {
+      "start": 611.42,
+      "end": 612.14,
+      "speaker": "gerhard-lazu",
+      "text": "Do you want to guess?"
+    },
+    {
+      "start": 613.62,
+      "end": 617.62,
+      "speaker": "adam-stacoviak",
+      "text": "I think I know the answer because you're very excited about Bunny. So I'm thinking it's Bunny."
+    },
+    {
+      "start": 617.62,
+      "end": 617.9,
+      "speaker": "gerhard-lazu",
+      "text": "Yep."
+    },
+    {
+      "start": 618.14,
+      "end": 618.82,
+      "speaker": "adam-stacoviak",
+      "text": "I'm going to guess Bunny."
+    },
+    {
+      "start": 618.82,
+      "end": 621.34,
+      "speaker": "gerhard-lazu",
+      "text": "Yep, that's it. But by how much? That's the question."
+    },
+    {
+      "start": 621.5,
+      "end": 622.34,
+      "speaker": "adam-stacoviak",
+      "text": "That I don't know."
+    },
+    {
+      "start": 622.38,
+      "end": 628.94,
+      "speaker": "gerhard-lazu",
+      "text": "So should I share my screen? What do you think? Release the window so that we look at some numbers and we talk about that."
+    },
+    {
+      "start": 629.02,
+      "end": 630.98,
+      "speaker": "adam-stacoviak",
+      "text": "As long as you read them out loud for our listeners."
+    },
+    {
+      "start": 630.98,
+      "end": 632.7,
+      "speaker": "gerhard-lazu",
+      "text": "I will read them out loud. I will. Yes."
+    },
+    {
+      "start": 632.7,
+      "end": 636.18,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Who names their CDN Bunny, though? I mean, honestly."
+    },
+    {
+      "start": 636.18,
+      "end": 650.62,
+      "speaker": "gerhard-lazu",
+      "text": "I know. I wasn't like, when I heard the name, I was thinking, seriously, is this like a serious thing? And apparently it is. Well, Bunnies are fast. Bunnies are fast. Yes, you're right. I think that's the whole idea. Yeah. It's in there. We can see that."
+    },
+    {
+      "start": 650.62,
+      "end": 652.74,
+      "speaker": "adam-stacoviak",
+      "text": "So are rabbits, which is... Okay."
+    },
+    {
+      "start": 652.74,
+      "end": 659.58,
+      "speaker": "gerhard-lazu",
+      "text": "So I just clicked on this link, changed it up on Fastly, and it basically puts me right in Hyperping. This is the interface. Okay."
+    },
+    {
+      "start": 659.86,
+      "end": 660.18,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 660.22,
+      "end": 683.9,
+      "speaker": "gerhard-lazu",
+      "text": "So what we're looking at is the last 24 hours, Pings from all over the world, basically every single location that Hyperping supports, it's been running against changelog Fastly. This is changelog.com. The average response time across all continents, Europe, North America, Australia, Asia, Middle East, South America, and Africa, all of them."
+    },
+    {
+      "start": 683.94,
+      "end": 685.54,
+      "speaker": "adam-stacoviak",
+      "text": "That's not all the continents, but okay."
+    },
+    {
+      "start": 685.7,
+      "end": 687.9,
+      "speaker": "gerhard-lazu",
+      "text": "All the continents that Hyperping runs in."
+    },
+    {
+      "start": 688.78,
+      "end": 691.3,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. And you said all of them, so I just want to make sure."
+    },
+    {
+      "start": 691.3,
+      "end": 698.02,
+      "speaker": "gerhard-lazu",
+      "text": "All the continents that Hyperping has probes in, and the average response time is 422 milliseconds."
+    },
+    {
+      "start": 698.74,
+      "end": 699.7,
+      "speaker": "adam-stacoviak",
+      "text": "That seems slow."
+    },
+    {
+      "start": 699.78,
+      "end": 710.22,
+      "speaker": "gerhard-lazu",
+      "text": "It does, right? So what we see is that Europe and North America is fairly stable, right? So they're around 150 milliseconds. So fairly stable, fairly responsive, 150 milliseconds."
+    },
+    {
+      "start": 710.22,
+      "end": 711.5,
+      "speaker": "adam-stacoviak",
+      "text": "Where's our slow continent?"
+    },
+    {
+      "start": 711.58,
+      "end": 735.9,
+      "speaker": "gerhard-lazu",
+      "text": "So the slowest one is Middle East at 681 milliseconds. And it's fairly flat. You can see the line is almost like a flat line. Australia is 516 milliseconds and Asia, just about the same. So Europe and North America, 150, all the other continents are around 500 or more. Between 500 and 700 milliseconds. Okay."
+    },
+    {
+      "start": 736.1,
+      "end": 736.5,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 736.66,
+      "end": 739.06,
+      "speaker": "gerhard-lazu",
+      "text": "Average response time for the whole month?"
+    },
+    {
+      "start": 739.06,
+      "end": 739.94,
+      "speaker": "adam-stacoviak",
+      "text": "372."
+    },
+    {
+      "start": 739.98,
+      "end": 745.95,
+      "speaker": "gerhard-lazu",
+      "text": "372. So that's the number that we are comparing. Okay. So remember, this is Fastly."
+    },
+    {
+      "start": 746.23,
+      "end": 746.59,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 746.91,
+      "end": 757.99,
+      "speaker": "gerhard-lazu",
+      "text": "This is Fly. This is when we go directly to the app. So we're not going to the CDN. The average response time for the last 24 hours is 268 milliseconds."
+    },
+    {
+      "start": 758.31,
+      "end": 771.31,
+      "speaker": "adam-stacoviak",
+      "text": "This doesn't make sense to me because... I don't have to tell you why. Please explain. But you know why. Because Fly is, there's no caching at all there. I mean, it's literally running through Phoenix every time you hit it."
+    },
+    {
+      "start": 771.35,
+      "end": 783.47,
+      "speaker": "gerhard-lazu",
+      "text": "Not quite. There's a proxy in front and they have other fly proxy locations. So whenever you hit a fly endpoint, doesn't matter where you are, you will hit the edge location, which is closest to you."
+    },
+    {
+      "start": 783.67,
+      "end": 787.27,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. But how does the fly proxy know that we have stale data or fresh data?"
+    },
+    {
+      "start": 787.79,
+      "end": 791.51,
+      "speaker": "gerhard-lazu",
+      "text": "So as far as I know, it doesn't do any caching. And by the way, if someone from..."
+    },
+    {
+      "start": 791.51,
+      "end": 792.83,
+      "speaker": "adam-stacoviak",
+      "text": "That's my point. I said no cache."
+    },
+    {
+      "start": 792.87,
+      "end": 796.86,
+      "speaker": "gerhard-lazu",
+      "text": "Right. However, it's traversing the fly network."
+    },
+    {
+      "start": 797.3,
+      "end": 797.5,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 797.54,
+      "end": 801.62,
+      "speaker": "gerhard-lazu",
+      "text": "So we are traversing the Fastly network versus the fly network."
+    },
+    {
+      "start": 801.86,
+      "end": 809.98,
+      "speaker": "adam-stacoviak",
+      "text": "Right. And we don't have multiple fly hosts in multiple locations. So it's all going back to a singular location like Fastly is, correct?"
+    },
+    {
+      "start": 809.98,
+      "end": 810.78,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. Yes."
+    },
+    {
+      "start": 810.9,
+      "end": 811.22,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 811.34,
+      "end": 827.66,
+      "speaker": "gerhard-lazu",
+      "text": "So Fastly had... So in Fastly's case, we don't use the shield, right, for the app. We had that issue, remember? And we still don't have shielding. So if the edge location doesn't have the page cached, it will go to the origin."
+    },
+    {
+      "start": 828.1,
+      "end": 828.46,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 828.5,
+      "end": 833.42,
+      "speaker": "gerhard-lazu",
+      "text": "And the origin, you're right, is in a single region. It's in Ashburn, which is the fly origin."
+    },
+    {
+      "start": 833.46,
+      "end": 834.9,
+      "speaker": "adam-stacoviak",
+      "text": "Don't tell everybody. They're going to find it."
+    },
+    {
+      "start": 834.9,
+      "end": 839.1,
+      "speaker": "gerhard-lazu",
+      "text": "Right. We can edit that part out. Oh, good."
+    },
+    {
+      "start": 839.1,
+      "end": 839.38,
+      "speaker": "adam-stacoviak",
+      "text": "It's in..."
+    },
+    {
+      "start": 841.5,
+      "end": 848.34,
+      "speaker": "gerhard-lazu",
+      "text": "It's not like... This is everywhere. This has been versed in our repository for like at least six months, maybe even more. So, yeah."
+    },
+    {
+      "start": 848.42,
+      "end": 849.7,
+      "speaker": "adam-stacoviak",
+      "text": "Now you're telling them way too much."
+    },
+    {
+      "start": 849.7,
+      "end": 903.46,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. All right. All right. Because people can't read. TMI. Okay. So Fly will do the same thing. And the problem that we're getting here is the caching, right? The caching that doesn't seem to be working as we would expect it to on Fastly. I think this is basically the heart of the problem. Right. We are proving, we're using an external service, that the caching doesn't seem to work the way it should. We get a lot of misses, which means that there is a lot of... Like it enters through the Fastly network. It has to go to the origin. And the Fastly network from Hyperping, again, this is the perspective. The perspective is wherever Hyperping probes run, which is why we're using the same synthetic monitor to monitor all three destinations, all four destinations. So we're trying to do like for like to have as few variables as possible. Anyways, if we go to the last 30 days, 263. Okay. So we can see that North America..."
+    },
+    {
+      "start": 903.54,
+      "end": 909.1,
+      "speaker": "adam-stacoviak",
+      "text": "Almost like Europe or Iran or India, Middle East, Asia is high again."
+    },
+    {
+      "start": 909.1,
+      "end": 940.22,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, but it's lower than Fastly. We're looking at 400, between 300 and 400 milliseconds, not 600 to 700 or 500 to 700. So the average response time across all the probes, when we go directly to the app and basically we're going through the Fly network, it's 263 milliseconds. That is the average response time. So putting a CDN makes our app slower. That's what I'm trying. That's like the bombshell. Putting a CDN makes our app slower."
+    },
+    {
+      "start": 940.3,
+      "end": 961.49,
+      "speaker": "adam-stacoviak",
+      "text": "That is the bombshell. What an actual... That's a shame. Does that mean they're using like faster switches? Is there a hard... Is this a hardware thing or a software thing? Like what exactly do you think, what's your hypothesis on what impacts this seemingly small, but relatively big in the grand scheme of things, difference? 100 milliseconds or so is kind of a big deal."
+    },
+    {
+      "start": 962.37,
+      "end": 965.93,
+      "speaker": "gerhard-lazu",
+      "text": "Honestly, I don't think the network is as optimized as it could be."
+    },
+    {
+      "start": 966.17,
+      "end": 970.65,
+      "speaker": "adam-stacoviak",
+      "text": "Or, well, I just wonder how many pops they have. I mean, could Fly have more?"
+    },
+    {
+      "start": 970.65,
+      "end": 976.25,
+      "speaker": "gerhard-lazu",
+      "text": "I don't think so. I'm pretty sure Fastly has more. Yeah. Fastly is like a CDN, like first and foremost."
+    },
+    {
+      "start": 976.29,
+      "end": 981.25,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And they're a publicly traded company. Like they are, they are well deployed."
+    },
+    {
+      "start": 981.29,
+      "end": 993.01,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. And before this, we didn't have another CDN to compare, but now there's Bunny, right? bunny.changelog.com. So let's have a look at that CDN. Average response time."
+    },
+    {
+      "start": 993.01,
+      "end": 995.85,
+      "speaker": "adam-stacoviak",
+      "text": "Oh no, I'm seeing the numbers already. Gosh, this is a massacre."
+    },
+    {
+      "start": 997.94,
+      "end": 1005.34,
+      "speaker": "gerhard-lazu",
+      "text": "Like I'm literally reading the numbers. Okay. All I did was set up some monitoring. Let me draw it and let's see what the numbers tell us."
+    },
+    {
+      "start": 1006.88,
+      "end": 1008.28,
+      "speaker": "adam-stacoviak",
+      "text": "Say the number real quick. And then..."
+    },
+    {
+      "start": 1008.28,
+      "end": 1020.08,
+      "speaker": "gerhard-lazu",
+      "text": "53 milliseconds in the last 24 hours. Average across all the continents. Let's look at the last 30 days. 66, 66 milliseconds."
+    },
+    {
+      "start": 1020.12,
+      "end": 1022,
+      "speaker": "adam-stacoviak",
+      "text": "These are all from the same locations."
+    },
+    {
+      "start": 1022,
+      "end": 1025.92,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, exactly the same, same configuration, same everything."
+    },
+    {
+      "start": 1025.96,
+      "end": 1032.8,
+      "speaker": "adam-stacoviak",
+      "text": "So they're smoking on the high end, on the low end, like in terms of the fast ones are faster, the slow ones are faster."
+    },
+    {
+      "start": 1032.84,
+      "end": 1047.12,
+      "speaker": "gerhard-lazu",
+      "text": "Europe and North America are there like 20 to 50 milliseconds. Really fast. Australia, the same. Australia is about like 50 milliseconds. Asia is a little bit slower, like 60 milliseconds. Middle East and South America is 120 milliseconds."
+    },
+    {
+      "start": 1047.2,
+      "end": 1058.08,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Do these numbers give you pause, Gerhard? Do you know what I mean by that? Did you stop and think, can this be right? Because this is a massacre. And so then I turned to like, am I benchmarking? I did."
+    },
+    {
+      "start": 1058.76,
+      "end": 1072.52,
+      "speaker": "gerhard-lazu",
+      "text": "So I checked and I would really like to present these numbers to others. And I'd like to basically find what I'm doing wrong. Like we have been, we have been at this for years, literally years. This is not a data point."
+    },
+    {
+      "start": 1072.6,
+      "end": 1074.04,
+      "speaker": "adam-stacoviak",
+      "text": "And we're not complete idiots."
+    },
+    {
+      "start": 1074.08,
+      "end": 1131.57,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. So, so I mean, I was thinking how much, yeah, how much of our requests are cached versus not? So if I look at Fastly, okay, this is, this is, we're looking at Honeycomb now. We're looking at all, we're looking at all the logs as events that come from Fastly. We're looking at the homepage because that's the only one that the probes are going to. So they're going only to our homepage and not going to feeds. They're not going to any, like, it's just the homepage. So we're looking at the homepage and we're seeing that in the last day, the last 24 hours, we had just about the same amount of misses as we had hits. What that means is that our miss ratio is 50% today. So half of the requests do not get served from Fastly. Fastly is just in between. We still have to go to Fly and it has to come back."
+    },
+    {
+      "start": 1131.65,
+      "end": 1132.01,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 1132.05,
+      "end": 1134.73,
+      "speaker": "gerhard-lazu",
+      "text": "So of course it's going to be faster, sorry, it's going to be slower."
+    },
+    {
+      "start": 1134.77,
+      "end": 1138.05,
+      "speaker": "adam-stacoviak",
+      "text": "Right. Because it has to go through Fly. It's going to add Fly's time on top of its time."
+    },
+    {
+      "start": 1138.05,
+      "end": 1139.05,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 1139.25,
+      "end": 1139.73,
+      "speaker": "adam-stacoviak",
+      "text": "Roughly."
+    },
+    {
+      "start": 1139.97,
+      "end": 1148.09,
+      "speaker": "gerhard-lazu",
+      "text": "I was looking at this other dashboard, which is Bunny, right? You can see the top right, the cache hit rate is 99.89%."
+    },
+    {
+      "start": 1148.37,
+      "end": 1151.33,
+      "speaker": "adam-stacoviak",
+      "text": "And that's with the exact same headers and everything that we're sending back."
+    },
+    {
+      "start": 1151.33,
+      "end": 1152.77,
+      "speaker": "gerhard-lazu",
+      "text": "It's exactly the same configuration."
+    },
+    {
+      "start": 1152.77,
+      "end": 1158.45,
+      "speaker": "adam-stacoviak",
+      "text": "Everything is the same. It's not like we've configured this differently. Do you do any config on this sucker or?"
+    },
+    {
+      "start": 1158.45,
+      "end": 1166.49,
+      "speaker": "gerhard-lazu",
+      "text": "All I did serve stale. That was it. Basically serve from CDN and do go in the background and go and do fetches. That's it."
+    },
+    {
+      "start": 1167.22,
+      "end": 1169.46,
+      "speaker": "adam-stacoviak",
+      "text": "This episode brought to you by Bunny.net."
+    },
+    {
+      "start": 1171.14,
+      "end": 1177.18,
+      "speaker": "gerhard-lazu",
+      "text": "Hey, I'm paying for it. I'm paying for Bunny, by the way. And this is running on my account. So yeah, not sponsored."
+    },
+    {
+      "start": 1177.18,
+      "end": 1179.54,
+      "speaker": "adam-stacoviak",
+      "text": "Somebody at Bunny is pretty happy right now. Thank you, Gerhard."
+    },
+    {
+      "start": 1179.94,
+      "end": 1193.22,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it cost me a dollar for the last month. By the way, Gerhard.io is also on that same CDN. So yeah, like when I've seen this so large, thank you. You're a genius."
+    },
+    {
+      "start": 1194.18,
+      "end": 1195.66,
+      "speaker": "adam-stacoviak",
+      "text": "So where's Cloudflare in this mix?"
+    },
+    {
+      "start": 1195.86,
+      "end": 1253.49,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. So let's move on because I think we gave Bunny enough time. I think we should talk to them if they want more. So there is a epic, and I say epic issue. It's 4.8.6 and this is a public one. It's in our GitHub repository and you can see a bunch of things there. So I did like screenshots. I did like a lot of details. Not what we discussed today because I didn't have the data. My last comment was February 25th, but I captured a lot of details. So where's Cloudflare? Cloudflare, we need the enterprise account to be able to set the header override. Sorry, the host header override. Without that, we get infinite redirects. Fly redirects back to Cloudflare. Cloudflare goes to Fly. So we get like an infinite loop. So to be able to try Cloudflare, to compare Cloudflare to Fastly and Bunny, we need an enterprise account. So Adam, what are your thoughts there?"
+    },
+    {
+      "start": 1253.93,
+      "end": 1254.93,
+      "speaker": "adam-stacoviak",
+      "text": "I am working on it."
+    },
+    {
+      "start": 1255.73,
+      "end": 1256.09,
+      "speaker": "gerhard-lazu",
+      "text": "Amazing."
+    },
+    {
+      "start": 1256.09,
+      "end": 1288.09,
+      "speaker": "adam-stacoviak",
+      "text": "So hard, so hard. Literally worked on it this morning prior to the show, worked on it last week, worked on it weeks ago. We have a bunny relationship there, but that was not given to us yet to give this comparison, which is super unfortunate because I would have loved to had those average numbers in this mix. Because it would be nice to know how truly these like large behemoths compare to, you know, what was thought of as potentially as a joke by name, Bunny, like that. Bunny is funny and fast."
+    },
+    {
+      "start": 1288.09,
+      "end": 1288.69,
+      "speaker": "gerhard-lazu",
+      "text": "No joke."
+    },
+    {
+      "start": 1288.77,
+      "end": 1335.09,
+      "speaker": "adam-stacoviak",
+      "text": "You can use that tagline if you like it, Bunny. Bunny is funny and fast. Yeah, I wish we had the enterprise account too to make this comparison because obviously, you know, I guess within an hour you hit a roadblock of hitch to build our own CDN. Ultimately, my desire would not be to build our own software. I think we're not in the business of making software necessarily, although I think it makes sense when it makes sense. But as a media company, we're in the position to promote those who are trying to innovate. We're promoting the innovators, you know, and in some cases help them innovate by feedback loops and partnerships and usage like this. That's where I think we really fit in the mold of the grand scheme of developer tooling, right? So my desire really not to build a CDN."
+    },
+    {
+      "start": 1335.53,
+      "end": 1336.25,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I know."
+    },
+    {
+      "start": 1336.25,
+      "end": 1350.5,
+      "speaker": "adam-stacoviak",
+      "text": "I would like to use the best CDN and promote that phenomenal CDN because that's what we do. That's our main thing. Our main thing is delivering the singular object across the globe as fast as absolutely possible. That's the name of the game."
+    },
+    {
+      "start": 1350.7,
+      "end": 1359.26,
+      "speaker": "gerhard-lazu",
+      "text": "So building a CDN, again, it was a joke. We had a bit of fun. Okay. We weren't serious about it. I wasn't serious about it. Okay."
+    },
+    {
+      "start": 1359.5,
+      "end": 1360.82,
+      "speaker": "adam-stacoviak",
+      "text": "I was a little bit serious about it."
+    },
+    {
+      "start": 1360.82,
+      "end": 1363.06,
+      "speaker": "gerhard-lazu",
+      "text": "Well, we can do it, but there are other options."
+    },
+    {
+      "start": 1363.1,
+      "end": 1363.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 1363.42,
+      "end": 1372.64,
+      "speaker": "gerhard-lazu",
+      "text": "Right. And like in the heat of the moment, you're like, you continue the joke. But seriously, I mean, Adam is super adult about this and he's on point."
+    },
+    {
+      "start": 1373.63,
+      "end": 1374.79,
+      "speaker": "adam-stacoviak",
+      "text": "Adam, he's adulting."
+    },
+    {
+      "start": 1374.79,
+      "end": 1375.95,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. He's adulting."
+    },
+    {
+      "start": 1375.95,
+      "end": 1381.35,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I have to be. I have to keep it straight here, you know? Otherwise we'll just, you know, we'll be engineers and just have fun. Just nerds."
+    },
+    {
+      "start": 1382.03,
+      "end": 1383.71,
+      "speaker": "gerhard-lazu",
+      "text": "Doing nerdy things. Just nerds."
+    },
+    {
+      "start": 1386.58,
+      "end": 1406.58,
+      "speaker": "adam-stacoviak",
+      "text": "I like the idea of having like this 20 line varnish config that we deploy around the world. And it's like, look at our CDN guys. It's so simple and it can do exactly what we want it to do and nothing more. But I understand that that's a pipe dream because that varnish config will be slightly longer than 20 lines. And we run into all sorts of issues that we end up sinking all kinds of time into."
+    },
+    {
+      "start": 1406.66,
+      "end": 1408.54,
+      "speaker": "gerhard-lazu",
+      "text": "And then we need to become varnish experts."
+    },
+    {
+      "start": 1409.06,
+      "end": 1415.02,
+      "speaker": "adam-stacoviak",
+      "text": "I'm a nerd, but I'm an old nerd. You know, I've, I've made the mistakes and I was a little bit serious. I was hoping you would get further."
+    },
+    {
+      "start": 1415.06,
+      "end": 1452.18,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I mean, we still can. I mean, we spent, we can, we can, that's why I didn't want to spend too much time on it. You know, I timeboxed it, we talk about it and we figure out like, do we want to invest a bit more time? And that's fine. It's not a problem. We give it another hour or two and see how far we can get. I mean, it's not an insurmountable problem. It's just one that maybe want to sidestep. And I was excited about Adam's proposal to try Cloudflare. And I had a look at it, right? So we just basically keep, you know, picking at this problem from different perspectives and the solution, which is simplest. And it means that we have the least amount of work to do. That's what we would like to pick, please."
+    },
+    {
+      "start": 1452.5,
+      "end": 1452.86,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 1452.9,
+      "end": 1455.42,
+      "speaker": "gerhard-lazu",
+      "text": "Because we are not in the business of building CDNs, you know."
+    },
+    {
+      "start": 1455.58,
+      "end": 1496.92,
+      "speaker": "adam-stacoviak",
+      "text": "In the meantime, by the way, I'm kind of in a holding pattern because I have, you know, big things work in the works that I would like to roll out. But a lot of them specifically, I'm working on custom feeds are dependent upon CDN changes. And so I don't want to go make CDN changes inside of Fastly and then have to port those over to somewhere else. And, or our custom CDN as I was thinking about how you might roll something out. So kind of blocked in that regard. I have other stuff I can work on, so it's not like block, block, but I would love to have our CDN figured out here sooner rather than later. Go ahead."
+    },
+    {
+      "start": 1497.16,
+      "end": 1500.6,
+      "speaker": "gerhard-lazu",
+      "text": "So what is a good next step then, given that we want to solve this CDN problem?"
+    },
+    {
+      "start": 1501.24,
+      "end": 1527.04,
+      "speaker": "adam-stacoviak",
+      "text": "To me, the good next step is we have to compare Cloudflare. We have to truly give it a try to get the synthetics done right and feel good about that. And I think, you know, maybe as a group here, are we pursuing the fastest possible CDN? Like, is that the true benchmark? Is that what we want? Ultimately, we want speed. But is that, I guess, is 150 milliseconds down to 26 milliseconds in the North American region, just as an example."
+    },
+    {
+      "start": 1527.04,
+      "end": 1535,
+      "speaker": "gerhard-lazu",
+      "text": "Is that a big enough gap to pursue whoever gets to sub 50 milliseconds in North America? Is that the goal for us?"
+    },
+    {
+      "start": 1535.4,
+      "end": 1674.9,
+      "speaker": "adam-stacoviak",
+      "text": "I would say speed is obviously one of a handful of factors that we would take into consideration, and it's probably near the top of the list. I mean, because when you want to CDN, you kind of want to fast CDN, right? Not even kind of, but you do. There are other things like how hard is it to hold, for instance, because that's important. What does it cost? Do they have other offerings that are compelling? Like, there are kinds of things like, do they unlock stuff that we couldn't previously do or that we might want to do? Are there partnership opportunities, obviously, with our business? That's a huge aspect of it. And so I think that's not just a singular variable. And so I don't think we're just going to say, well, Bunny's the fastest CDN, so therefore we're going to use it. But it's certainly a high watermark and something that we wouldn't take lightly. I think slow is a problem, right? There's a fast enough, but then there's also a not fast enough. And at a certain point, like we need to be fast enough. Shipping MP3s around the world doesn't need to be the fastest thing in the world because people aren't waiting on them. Their apps are downloading them, generally speaking. Now, if you're on the website listening, the faster you can get to whatever that JavaScript event is, play through. There's an event in which it can continue to play the rest of the thing. So it's downloaded enough to start. You want that to be as fast as you can. But honestly, that's probably like one percent of our listens. So the MP3 shipping needs to be fast and we don't want anybody to be looking at their app and like watching it download seven percent, eight percent, nine percent. That's not good. But that does not have to be, you know, the only thing that matters. Of course, when our website to be as fast as possible, because that does matter. OK, friends, the on call scene is getting hot. Literally, our friends at Fire Hydrant have their new solution out there called Signals, which you're about to hear are real reactions from PagerDuty users after seeing Fire Hydrant's on call solution called Signals for the first time."
+    },
+    {
+      "start": 1675.78,
+      "end": 1692.38,
+      "speaker": "gerhard-lazu",
+      "text": "PagerDuty, I don't want to say they're evil, but they're an evil that we've had to maintain. I know all of our engineering teams, as well as myself, are interested in getting this moving the correct direction. As right now, just managing and maintaining our user seats has become problematic."
+    },
+    {
+      "start": 1692.58,
+      "end": 1701.58,
+      "speaker": "adam-stacoviak",
+      "text": "That's that's that's really good, actually. This is this is a consistent problem for us and teams, is that covering these sorts of ad hoc time frames is very difficult."
+    },
+    {
+      "start": 1702.06,
+      "end": 1708.5,
+      "speaker": "gerhard-lazu",
+      "text": "You know, putting in like overrides and specific days and different new shifts is quite onerous."
+    },
+    {
+      "start": 1708.66,
+      "end": 1727.9,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, and you did the most important piece, which is didn't tie them together, because that's half the problem with PagerDuty, right? Is I get all these alerts and then I get an incident per alert. And generally speaking, when shit goes sideways, you get lots of alerts because lots of things are broken. But you only have one incident."
+    },
+    {
+      "start": 1728.22,
+      "end": 1749.82,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I'm super impressed with that, because being able to assign to different teams is an issue for us, because like the one the one alert fires for one team. And then it seems like to have to bounce around and it never does, which then means that we have tons of communication issues because like people aren't updated. No, I mean, to be open and honest, when can we switch?"
+    },
+    {
+      "start": 1751.7,
+      "end": 1809.66,
+      "speaker": "adam-stacoviak",
+      "text": "So you're probably tired of learning tools that feel more like a headache than a solution, right? Well, signals from fire hydrant is the alerting and on call tool designed for humans, not systems. Signals puts teams at the center, giving you the ultimate control over rules, policies and schedules. No need to configure your services or do wonky workarounds in just data seamlessly from any source using web hooks and watch as signals filters out the noise, alerting you only on what matters. Manage tasks like coverage requests and on call notifications effortlessly within Slack. You can even acknowledge alerts right there. But here's the game changer. Signals natively integrates with fire hydrant's full incident management suite. So as soon as you're alerted, you can seamlessly kick off and manage your entire incident inside a single platform. Learn more or switch today at fire hydrant dot com slash signals again, fire hydrant dot com slash signals."
+    },
+    {
+      "start": 1812.38,
+      "end": 1817.34,
+      "speaker": "gerhard-lazu",
+      "text": "We could very smoothly and gently transition about neon tech Postgres."
+    },
+    {
+      "start": 1817.38,
+      "end": 1819.38,
+      "speaker": "adam-stacoviak",
+      "text": "Please smoothly and gently transition us."
+    },
+    {
+      "start": 1819.38,
+      "end": 1891.78,
+      "speaker": "gerhard-lazu",
+      "text": "So I would like to start by giving a shout out to Brandon Stevens from neon tech support. He spent, I think, at least two hours, maybe close to three. We were pairing on a very specific issue, which has to do with how to configure SSL certificates when connecting C a cert specifically in Phoenix when connecting to neon tech Postgres. A couple of things there. The documentation was almost correct, but not quite. So we went through a few things there. This is issue. I think this was the 1492. So this is the one that we covered at length in the last episode. But I added a couple of more things from the pairing session. Going through that last bit, we needed to do this so that we verify peers in the SSL options. Basically, we check that the endpoint that we're connecting to is a has a valid SSL certificate or TLS certificate. So that's, that's what this was about. That was fun. So thank you, Brendan. Funny thing, we used to work at pivotal slash VMware, never met, but we met in this context. So that was fun."
+    },
+    {
+      "start": 1891.9,
+      "end": 1892.66,
+      "speaker": "adam-stacoviak",
+      "text": "That's pretty cool, man."
+    },
+    {
+      "start": 1892.98,
+      "end": 1955.19,
+      "speaker": "gerhard-lazu",
+      "text": "That was pretty cool. And Stephen Berry. So if you hear your name, Stephen Berry, your name came up. He was also in the support org at pivotal slash VMware, doing rabbit MQ support. And I think Stephen was green plum, I think. Anyways, well, that was a good session. So pairing felt very natural at a good session, and we figured it out. So big shout out to Brendan, and he taught me a few things, interesting things about Postgres and extensions. So there's more that we can use to dig into. A cool thing that he mentioned is PG hero. I haven't heard about PG hero, but looked really interesting. So one of the things that we improved for this Kaizen, we deployed PG hero. We connected it to neon tech Postgres, and now we can have insights. This was pull request five Oh seven. We deployed it on fly, and it's available on our private network, so you can't access it. And if you can let us know so we can fix it. But no, you definitely can't access it. Did you have a chance to play with it? Jared?"
+    },
+    {
+      "start": 1955.51,
+      "end": 1958.91,
+      "speaker": "adam-stacoviak",
+      "text": "I did. I'm running it right now in any browser tab."
+    },
+    {
+      "start": 1958.91,
+      "end": 1960.11,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. What do you think?"
+    },
+    {
+      "start": 1960.23,
+      "end": 1995.31,
+      "speaker": "adam-stacoviak",
+      "text": "Very cool. It's showing me some duplicate indexes that we have. So things we can improve on overall, very green, not very much red. So I'm assuming that our PG is pretty well managed and handled. I haven't clicked through all the tabs. So PG hero provides an overview of your database and some, you know, best practice advice, that kind of stuff. As well as like checks on what's healthy. And then there's all kinds of tabs, queries, space connections, live queries, maintenance, et cetera, which I haven't dug into those yet. I just got it running and read the homepage. So tell me more."
+    },
+    {
+      "start": 1995.35,
+      "end": 2062.98,
+      "speaker": "gerhard-lazu",
+      "text": "Well, this was mentioned as something that we can use to basically get a dashboard into Postgres. And anyone can, by the way, it gives you a couple of things. If you haven't spent years and years tuning or learning Postgres, this is a quick way of at a glance seeing what is green, what is orange, what needs your attention. And yeah, I like it. I just clicked around, everything seemed very interesting. So if we do suspect any issues with Postgres, I think this would be the first place to start. Apart from the two orange things, which is 11 duplicate indexes, we will do that maybe too. I mean, it says here, indexes exist, but they are needed to remove them for faster writes. That's why we'll do that. And the other one was slow queries. We have two slow queries. What does that mean? It means that queries that take more than 20 milliseconds. We have one that takes the average time is 62 milliseconds, and we have 29,000, almost 29,000 times this was executed. And the other one was 29 milliseconds. So we have two slow queries, but we're talking milliseconds."
+    },
+    {
+      "start": 2063.26,
+      "end": 2063.66,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 2063.66,
+      "end": 2067.46,
+      "speaker": "gerhard-lazu",
+      "text": "Maybe we should dig into those. I don't know, but interesting."
+    },
+    {
+      "start": 2067.66,
+      "end": 2125.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I actually rewrote that first slow query as a part of something else that I was doing. It's not out there yet, but that one's not going to exist. And that only runs in background jobs anyways, but not in page requests. The second one is loading episodes by download count. And I think it's loading a lot of them. And I'm thinking that that is either our, it's tough because this doesn't tie it back to like what page is being requested or anything like that. That's either going to be our episode popularity page, which is public, or it could be a statistic in page that's inside our admin that shows downloads across multiple podcasts, in which case it's way less important. And the fact that it only has 6,300 calls versus the other one, which I think runs in the background and has, you know, 4x that makes me think that's probably an admin page. So maybe not even worth addressing, but cool to know. And definitely I'll go over those duplicate indexes for sure. Cause I'm a clean freak, you know?"
+    },
+    {
+      "start": 2125.86,
+      "end": 2157.22,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. And seeing like what else is going on here. So, you know, the queries that run, do we expect those to, again, it gives you like a good view. The space that's being used by various things, you know, what is unused, things like that. The connections, right? We're saying that we suspect connections. I'm not sure whether we will be able to see, and I'm clicking on that. It's, it's taking a while to load. Maybe we'll just see what the connections are doing. But if we suspect some connections that are terminating prematurely or, you know, hanging or anything like that, maybe this can help. I don't know."
+    },
+    {
+      "start": 2157.82,
+      "end": 2165.38,
+      "speaker": "adam-stacoviak",
+      "text": "What would it take for these queries to tie back to like a error trace kind of thing where it ties back to a page? Is that a config in this? Do you think it's an option?"
+    },
+    {
+      "start": 2165.42,
+      "end": 2167.38,
+      "speaker": "gerhard-lazu",
+      "text": "I haven't looked to be honest. I'm not sure."
+    },
+    {
+      "start": 2167.58,
+      "end": 2168.5,
+      "speaker": "adam-stacoviak",
+      "text": "I think as a human."
+    },
+    {
+      "start": 2168.78,
+      "end": 2169.46,
+      "speaker": "gerhard-lazu",
+      "text": "As a human."
+    },
+    {
+      "start": 2169.62,
+      "end": 2186.26,
+      "speaker": "adam-stacoviak",
+      "text": "I think that a human would have to do that. And I know nothing about PG hero, so I could be talking completely out of thin air here, but I just don't see how it being a general Postgres diagnostics tool would have hooks back into anything beyond that, that silo."
+    },
+    {
+      "start": 2186.58,
+      "end": 2194.26,
+      "speaker": "gerhard-lazu",
+      "text": "I see. I suppose when you call Postgres, you're not saying, here's the page I'm calling from or the URL structure I'm calling from. It's just simply a database call, right?"
+    },
+    {
+      "start": 2194.3,
+      "end": 2212.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, right. And this, this tool is basically talking directly to Postgres and it's using a bunch of Postgres's queries and tooling inside of it and exposing them via a web interface for you. You know, it's kind of just, you can get all this stuff with SQL queries basically. Is this like an open source tool that you could just use in any instance or is this like a neon thing?"
+    },
+    {
+      "start": 2212.86,
+      "end": 2245.1,
+      "speaker": "gerhard-lazu",
+      "text": "No, no. PG heroes open source is coming from I think Spotify or Shopify. I sometimes get them confused. Okay, I'm loading the page up. PG hero. So his GitHub username is Anne Kane, Andrew Kane. He's apparently the one that made the last commit. I'm not sure whether he's the one that has the most commits, actually contributors. Yes, he's first, which means he's the owner. There we go. So a performance dashboard for Postgres, he's in action, and it's battle tested at Instacart."
+    },
+    {
+      "start": 2245.26,
+      "end": 2262.1,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, I've seen a handful of these Instacart open source projects that aren't owned by Instacart proper, but they all have that little battle tested by Instacart thing on them. And so I'm guessing he was allowed to create this as part of his work and open source it under his own name, which is pretty cool if that's what they're doing."
+    },
+    {
+      "start": 2262.14,
+      "end": 2262.66,
+      "speaker": "gerhard-lazu",
+      "text": "Very cool."
+    },
+    {
+      "start": 2262.94,
+      "end": 2263.5,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 2263.5,
+      "end": 2284.86,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, big thanks to Craig Kerstens and Heroku for the initial queries and boots watch for the theme. So credits. So this project seems to have some history. Love this. Everyone is encouraged to help improve this project. Oh, yes. Oh, yes. Here are a few ways you get in there. Gearhart. That's very cool. Yeah, we can Kaizen it as well. If we don't have it up, Kaizen it to do on our end."
+    },
+    {
+      "start": 2285.22,
+      "end": 2288.46,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, MIT license as well, which is good. Yeah."
+    },
+    {
+      "start": 2288.78,
+      "end": 2295.26,
+      "speaker": "gerhard-lazu",
+      "text": "All right. So ready to move to the second one? Or do we still want to PG hero it?"
+    },
+    {
+      "start": 2295.58,
+      "end": 2296.58,
+      "speaker": "adam-stacoviak",
+      "text": "Let's do it. Let's do it."
+    },
+    {
+      "start": 2296.66,
+      "end": 2329.78,
+      "speaker": "gerhard-lazu",
+      "text": "Cool. So one of the things that I was very excited about when we transitioned to neon neon Postgres is the ability to create branches, database branches, where we can try things out. I think that's a killer feature. There's nothing to export. There's nothing to import. You just create a branch and off you go. So pull request 508, enable change.com devs to create prod db forks with a single command. Now that sounds very royal. It's just Jared. Let's be honest."
+    },
+    {
+      "start": 2330.42,
+      "end": 2333.66,
+      "speaker": "adam-stacoviak",
+      "text": "It is me. But I like how you roiled me. Yeah."
+    },
+    {
+      "start": 2334.58,
+      "end": 2338.78,
+      "speaker": "gerhard-lazu",
+      "text": "So what do we think about that? What do we think about that as an idea?"
+    },
+    {
+      "start": 2339.3,
+      "end": 2347.22,
+      "speaker": "adam-stacoviak",
+      "text": "Love the idea. Would love to see it working with a single command. And we merged this PR minutes before recording."
+    },
+    {
+      "start": 2347.22,
+      "end": 2349.06,
+      "speaker": "gerhard-lazu",
+      "text": "Right. So no time to test it."
+    },
+    {
+      "start": 2349.9,
+      "end": 2369.34,
+      "speaker": "adam-stacoviak",
+      "text": "It's live, baby. I don't know. Right. It looked pretty innocuous. I went through the files change and you know, there wasn't much that looked like it was any sort of danger. So went ahead and just merged that sucker. And, uh, I do have my wire guard all set up. I have dagger. Zero dot 10 dot three installed as, as you requested."
+    },
+    {
+      "start": 2370.5,
+      "end": 2370.94,
+      "speaker": "gerhard-lazu",
+      "text": "Okay."
+    },
+    {
+      "start": 2371.02,
+      "end": 2372.54,
+      "speaker": "adam-stacoviak",
+      "text": "I did all the things, you know?"
+    },
+    {
+      "start": 2372.62,
+      "end": 2373.5,
+      "speaker": "gerhard-lazu",
+      "text": "So you prepared."
+    },
+    {
+      "start": 2373.62,
+      "end": 2390.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yay. I'm ready for this to rock my world. I know last time you surprised me and I immediately started asking for more and you're like, please, please continue to be happy about this surprise. And so I felt bad, you know, and I want to, I want to really embrace what you've done for me here. Cool. So let's do it."
+    },
+    {
+      "start": 2390.9,
+      "end": 2417.93,
+      "speaker": "gerhard-lazu",
+      "text": "So in a nutshell, this builds on a recently released dagger, I'd say functionality, but it's almost like this is the third generation of dagger. Which enables anyone to write functions and then reuse those functions. So use each other's functions. You can think of it like the GitHub marketplace or Docker hub, but this is for functions that you could use in your pipelines and locally."
+    },
+    {
+      "start": 2418.13,
+      "end": 2419.17,
+      "speaker": "adam-stacoviak",
+      "text": "So more like NPM."
+    },
+    {
+      "start": 2420.49,
+      "end": 2457.77,
+      "speaker": "gerhard-lazu",
+      "text": "In some ways, yes. In some ways, yes. But so what's really cool about this is that, for example, I wrote a function that's called DB branch. And Jared is now going to run it for the first time. The only thing he did, he just installed the prerequisites. There's only two, really just one CLI, the dagger CLI for us, because I already configured an engine, a dagger engine, which is running on fly that we are connecting to Gantt privately. This is not exposed publicly, so he doesn't need to run Docker or any other container runtime, which is required for the engine. That's where all the operations run. So there's a changelog directory in the changelog repository. I'm assuming you're there."
+    },
+    {
+      "start": 2457.93,
+      "end": 2461.01,
+      "speaker": "adam-stacoviak",
+      "text": "Wait a second. There's a changelog directory in the changelog repository?"
+    },
+    {
+      "start": 2461.01,
+      "end": 2463.41,
+      "speaker": "gerhard-lazu",
+      "text": "In the changelog repository. That's right. changelog in changelog."
+    },
+    {
+      "start": 2463.41,
+      "end": 2466.05,
+      "speaker": "adam-stacoviak",
+      "text": "This doesn't get me excited anymore, Gerhard. I don't know about this."
+    },
+    {
+      "start": 2466.05,
+      "end": 2467.49,
+      "speaker": "gerhard-lazu",
+      "text": "It's changelog all the way down."
+    },
+    {
+      "start": 2467.97,
+      "end": 2468.73,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, my goodness."
+    },
+    {
+      "start": 2468.73,
+      "end": 2515.82,
+      "speaker": "gerhard-lazu",
+      "text": "So it is a bit meta. So the idea, the idea with this is that we will put any changelog related functions in this directory. The first one is DB fork. It doesn't matter how it's implemented. It's there. The next one, maybe I was thinking it could be fresh data. If you need it, right? So you want to pull fresh data in your local Postgres instance, and I could add it, but let's see first how this, how, how this works. The other idea, because you have dagger call, I was playing with this again. This is a joke is booty. Excuse me, dagger call booty. If you need to edit it, it's okay. But I thought it was funny. I don't know what it will do, but it was too good of an opportunity not to make the joke."
+    },
+    {
+      "start": 2517.29,
+      "end": 2524.45,
+      "speaker": "adam-stacoviak",
+      "text": "Let's just assume that you're referencing treasure, you know, like a pirate's booty and that's what you're calling. So that's good to me. That's rated G."
+    },
+    {
+      "start": 2524.45,
+      "end": 2525.33,
+      "speaker": "gerhard-lazu",
+      "text": "You make it safe."
+    },
+    {
+      "start": 2528.49,
+      "end": 2529.17,
+      "speaker": "adam-stacoviak",
+      "text": "I'm done with both."
+    },
+    {
+      "start": 2531.34,
+      "end": 2567.18,
+      "speaker": "gerhard-lazu",
+      "text": "All right. So back to DB fork. Okay. So DB branch, DB branch. So you're in that directory and you have wire guard running so that you can connect to the engine. And there's an Envar C, which by the way, is not hidden. You can just source it. All he does basically sets an environment variable, which tells it, Hey, the engine is running in this IP address. And because you have wire guard running, everything works. So the next thing that you could do is use netcat to check that you can connect to that port. It's a TCP port, and this is using wire guard and it's using that private IP address, sorry, private host name."
+    },
+    {
+      "start": 2567.54,
+      "end": 2575.26,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. So I'm in the directory and now I'm going to source Envar C. Yes. And I'm going to run NC. I haven't run netcat for years. Tell me the command."
+    },
+    {
+      "start": 2575.34,
+      "end": 2600.86,
+      "speaker": "gerhard-lazu",
+      "text": "NC, and then there's a dash, V4 for both, Z for, I can't remember what, and G capital G, which is a wait flag. And then you do one. So you want it to timeout in one second and then you give the name, sorry, the host name, which is dagger dash engine dash 2024 dash zero three dash 28. It's yesterday's date, right? It's not difficult."
+    },
+    {
+      "start": 2600.86,
+      "end": 2602.3,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Got it."
+    },
+    {
+      "start": 2602.38,
+      "end": 2608.1,
+      "speaker": "gerhard-lazu",
+      "text": "Dot internal, right? This is a convention, port 8080 and see if it works."
+    },
+    {
+      "start": 2608.3,
+      "end": 2613.98,
+      "speaker": "adam-stacoviak",
+      "text": "Missing host and port. So I'm not doing the command correctly. I put them as the same thing to do, like a dash P or something."
+    },
+    {
+      "start": 2613.98,
+      "end": 2620.14,
+      "speaker": "gerhard-lazu",
+      "text": "I'm just going to zoom in. I'm still screen sharing. Oh, you can see it right there. And by the way, this is an pull request as well."
+    },
+    {
+      "start": 2620.22,
+      "end": 2622.22,
+      "speaker": "adam-stacoviak",
+      "text": "So they wanted me to, okay, succeeded."
+    },
+    {
+      "start": 2622.5,
+      "end": 2633.5,
+      "speaker": "gerhard-lazu",
+      "text": "Nice. That's perfect. So that basically confirms that you're able to connect to the engine. Perfect. I should run dagger version locally. You should be able to see zero, 10, three. Want to confirm that's the case."
+    },
+    {
+      "start": 2633.58,
+      "end": 2634.22,
+      "speaker": "adam-stacoviak",
+      "text": "That's correct."
+    },
+    {
+      "start": 2634.38,
+      "end": 2645.1,
+      "speaker": "gerhard-lazu",
+      "text": "Nice. So the next thing is to run dagger functions. Dagger functions is a command that shows you all the functions which are available in that repository, in that path."
+    },
+    {
+      "start": 2645.42,
+      "end": 2647.34,
+      "speaker": "adam-stacoviak",
+      "text": "Dagger functions initializing."
+    },
+    {
+      "start": 2647.34,
+      "end": 2655.66,
+      "speaker": "gerhard-lazu",
+      "text": "Nice. So this is going to set up the connection to the engine. It's going to upload all the code and the engine will do the work. So very little runs locally."
+    },
+    {
+      "start": 2655.66,
+      "end": 2662.38,
+      "speaker": "adam-stacoviak",
+      "text": "All right. DB branch is the only one listed. And the description is create a DB branch on neon.tech and return the connection string."
+    },
+    {
+      "start": 2662.54,
+      "end": 2663.74,
+      "speaker": "gerhard-lazu",
+      "text": "That's it. Cool."
+    },
+    {
+      "start": 2663.74,
+      "end": 2664.14,
+      "speaker": "adam-stacoviak",
+      "text": "All right."
+    },
+    {
+      "start": 2664.14,
+      "end": 2672.3,
+      "speaker": "gerhard-lazu",
+      "text": "So the next step is to configure a neon API key environment variable. Because that's what's needed to be able to talk to neon."
+    },
+    {
+      "start": 2672.7,
+      "end": 2677.56,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Do I have one of those? I probably should. I've been I've been up in there."
+    },
+    {
+      "start": 2677.56,
+      "end": 2696.12,
+      "speaker": "gerhard-lazu",
+      "text": "You just log in, go to your account. I'm going to do the same thing now. Neon.tech, log in, then continue with Google. I haven't logged in. So let me go through the login now. Okay. I'm there. And you click on your username. You go to I think it's account settings and then you go API keys. There you go."
+    },
+    {
+      "start": 2696.12,
+      "end": 2701.16,
+      "speaker": "adam-stacoviak",
+      "text": "Count settings, API keys, create new API key. That's the one dagger branch."
+    },
+    {
+      "start": 2701.72,
+      "end": 2702.12,
+      "speaker": "gerhard-lazu",
+      "text": "Cool."
+    },
+    {
+      "start": 2702.12,
+      "end": 2703.48,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Copied."
+    },
+    {
+      "start": 2703.48,
+      "end": 2713.96,
+      "speaker": "gerhard-lazu",
+      "text": "Nice. So now if you go back now, I'm going to do an obviously export neon API key or all caps and then the value of the key that you copied."
+    },
+    {
+      "start": 2713.96,
+      "end": 2714.28,
+      "speaker": "adam-stacoviak",
+      "text": "Done."
+    },
+    {
+      "start": 2714.28,
+      "end": 2714.52,
+      "speaker": "gerhard-lazu",
+      "text": "Cool."
+    },
+    {
+      "start": 2715.08,
+      "end": 2717,
+      "speaker": "adam-stacoviak",
+      "text": "Rock my world, Gerhard. Rock my world."
+    },
+    {
+      "start": 2717.64,
+      "end": 2733.96,
+      "speaker": "gerhard-lazu",
+      "text": "Dagger will rock it. Dagger will rock your world. Dagger call. Not yet. We're still working on that to remember dagger call DB branch. And then you give it a single flag, which is dash dash neon dash API dash key."
+    },
+    {
+      "start": 2734.52,
+      "end": 2735,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 2735,
+      "end": 2742.97,
+      "speaker": "gerhard-lazu",
+      "text": "And the value is ENV colon. And the name of the environment variable for the neon API key. All right. Cool."
+    },
+    {
+      "start": 2742.97,
+      "end": 2747.37,
+      "speaker": "adam-stacoviak",
+      "text": "I think I've typed it correctly. I am now executing. It's connecting. It's initializing."
+    },
+    {
+      "start": 2747.93,
+      "end": 2748.49,
+      "speaker": "gerhard-lazu",
+      "text": "Nice."
+    },
+    {
+      "start": 2748.49,
+      "end": 2759.45,
+      "speaker": "adam-stacoviak",
+      "text": "Change log. Oh, is it done before starting the app? Run the following in order. That's it. It's done. It's done. That was fast. So this made a snapshot or it's made a new branch on neon."
+    },
+    {
+      "start": 2759.45,
+      "end": 2760.33,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 2760.33,
+      "end": 2762.41,
+      "speaker": "adam-stacoviak",
+      "text": "This is using like the neon API to do that."
+    },
+    {
+      "start": 2762.41,
+      "end": 2771.67,
+      "speaker": "gerhard-lazu",
+      "text": "So now you copy those values, the exports, paste them in your terminal, go level up, and then boot the app. Booty the app."
+    },
+    {
+      "start": 2774.34,
+      "end": 2780.74,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, my app's already booted though. So I'll come back. So this is, this will now connect my app to that snapshot."
+    },
+    {
+      "start": 2780.74,
+      "end": 2782.5,
+      "speaker": "gerhard-lazu",
+      "text": "That's exactly what it will do. Yes."
+    },
+    {
+      "start": 2782.5,
+      "end": 2783.7,
+      "speaker": "adam-stacoviak",
+      "text": "I'll believe it when I see it."
+    },
+    {
+      "start": 2783.7,
+      "end": 2787.86,
+      "speaker": "gerhard-lazu",
+      "text": "Is this the default way for all neon or is this like the way that we had to do it for"
+    },
+    {
+      "start": 2787.86,
+      "end": 2789.78,
+      "speaker": "adam-stacoviak",
+      "text": "our app because of circumstances?"
+    },
+    {
+      "start": 2789.78,
+      "end": 2814.74,
+      "speaker": "gerhard-lazu",
+      "text": "No, I mean, all of neon basically create a branch. You get a connection string and you connect to that branch. And that branch is a fork of your primary branch. And that's your production in our case. I think in everyone's case, like the primary one that you don't want to mess up. And then you work on your fork. And when you're happy, you basically delete the fork and then merge the code, do whatever you have to do, push it, and then it will use the main branch."
+    },
+    {
+      "start": 2814.74,
+      "end": 2818.02,
+      "speaker": "adam-stacoviak",
+      "text": "If you do like schema changes, how does that work?"
+    },
+    {
+      "start": 2818.02,
+      "end": 2831.94,
+      "speaker": "gerhard-lazu",
+      "text": "As far as I know, everything happens on the fork. It will not modify the main one. So the assumption is that you will have some code, maybe run the migration that when the app boots, by the way, that's our case, it will make the change on the main branch."
+    },
+    {
+      "start": 2832.9,
+      "end": 2836.26,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I don't want to pee in your pool, your yard, but it didn't work."
+    },
+    {
+      "start": 2836.26,
+      "end": 2846.34,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. What didn't work? And you can't because you're, we're not next door. But I like the expression. The proverbial pool. I like the expression."
+    },
+    {
+      "start": 2846.34,
+      "end": 2865.02,
+      "speaker": "adam-stacoviak",
+      "text": "Well, because you were, you're using the boy scout rule. And while you were doing this work, you also upgraded all of our dependencies. And so I pulled the code down and I don't have the correct OJS installed. So now I have to upgrade my OJS. Yes, yes, yes. Yeah. So it's going to work, but it's just going to."
+    },
+    {
+      "start": 2865.02,
+      "end": 2867.88,
+      "speaker": "gerhard-lazu",
+      "text": "I'm forcing you to stay update. I'm terrible."
+    },
+    {
+      "start": 2867.88,
+      "end": 2869.72,
+      "speaker": "adam-stacoviak",
+      "text": "You're just gonna have to wait a little bit longer, I guess."
+    },
+    {
+      "start": 2869.72,
+      "end": 2874.36,
+      "speaker": "gerhard-lazu",
+      "text": "Terrible. Keeping all those dependencies updated. I'll stop doing that. That's okay."
+    },
+    {
+      "start": 2875.64,
+      "end": 2879,
+      "speaker": "adam-stacoviak",
+      "text": "No, I like it. It's just not good for coding together."
+    },
+    {
+      "start": 2879,
+      "end": 2883.16,
+      "speaker": "gerhard-lazu",
+      "text": "I know. The changelog.com development team does not agree. I will comply."
+    },
+    {
+      "start": 2885.59,
+      "end": 2887.27,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. The app is now booting."
+    },
+    {
+      "start": 2887.27,
+      "end": 2887.91,
+      "speaker": "gerhard-lazu",
+      "text": "Nice."
+    },
+    {
+      "start": 2887.91,
+      "end": 2891.03,
+      "speaker": "adam-stacoviak",
+      "text": "And I'm now going to load the homepage."
+    },
+    {
+      "start": 2891.03,
+      "end": 2891.75,
+      "speaker": "gerhard-lazu",
+      "text": "Sweet."
+    },
+    {
+      "start": 2891.75,
+      "end": 2905.27,
+      "speaker": "adam-stacoviak",
+      "text": "And I'm going to expect to see today's episode. No, the most recent episode was in December of 23. So I'm still on old data. Maybe my app isn't configured to use the connection string or something to the snapshot."
+    },
+    {
+      "start": 2905.27,
+      "end": 2909.35,
+      "speaker": "gerhard-lazu",
+      "text": "So did you do the copy paste of the. Yeah, you need to do the copy paste."
+    },
+    {
+      "start": 2909.35,
+      "end": 2915.64,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, you know what I did, but I did it in a different tab. I got to do it again. When in doubt, copy paste."
+    },
+    {
+      "start": 2915.64,
+      "end": 2916.12,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 2916.12,
+      "end": 2917.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And then copy paste again."
+    },
+    {
+      "start": 2917.64,
+      "end": 2923.88,
+      "speaker": "gerhard-lazu",
+      "text": "And if it doesn't work, did you paste? And if you did try again, copy paste."
+    },
+    {
+      "start": 2924.94,
+      "end": 2940.42,
+      "speaker": "adam-stacoviak",
+      "text": "Take two. I'm booting the app and I'm loading the homepage. I'm expecting to see today's episodes. If I just ship to ship it. There it is. So Cal ship at 97. Just shipped today. So I got fresh data here."
+    },
+    {
+      "start": 2940.42,
+      "end": 2941.22,
+      "speaker": "gerhard-lazu",
+      "text": "No pee in the pool."
+    },
+    {
+      "start": 2942.26,
+      "end": 2946.58,
+      "speaker": "adam-stacoviak",
+      "text": "I say this is a pee-less pool. Only water. No pee. I got the fresh ones."
+    },
+    {
+      "start": 2946.58,
+      "end": 2949.14,
+      "speaker": "gerhard-lazu",
+      "text": "I'll have a drink to that. I'll have a drink to that. What?"
+    },
+    {
+      "start": 2951.67,
+      "end": 2982.39,
+      "speaker": "adam-stacoviak",
+      "text": "So that's cool. So I guess rewinding back to my question. So when anybody integrates with Neon and they want to do this kind of integration where they want to have DB forks to give devs this super power basically. Like this is a feature of Neon, but is it only living in the API and you've got to do your own coding in your application level to enable your devs to use this feature? Because that's kind of what you did here, right? You've had to add some variables and make the application use different strings. Is this what everybody has to do?"
+    },
+    {
+      "start": 2982.39,
+      "end": 3024.63,
+      "speaker": "gerhard-lazu",
+      "text": "So no. You can do it via the UI. Go in the UI. Click on the branch. Boom. It works. You could also use the Neon CLI to do the same thing. But for that you need node. You need a couple of things. You have to install it. Things like that. This, the function which I added, is an interface to the Neon API. And I'm using the Neon Go SDK, which by the way is a community contribution. And I'm looking for the name. Kistler DM. So Kistler DM. He's a community member and he's the one, a Neon community member. And he wrote the Go SDK for Neon. So it's not a..."
+    },
+    {
+      "start": 3024.63,
+      "end": 3025.59,
+      "speaker": "adam-stacoviak",
+      "text": "Dimitri Kistler."
+    },
+    {
+      "start": 3025.59,
+      "end": 3079.91,
+      "speaker": "gerhard-lazu",
+      "text": "Dimitri Kistler. That's him. So thank you, Dimitri. That's basically the SDK. And in the pull request, the 508 Jared, you can see exactly how I integrated it. I'm pulling it down. So again, it's an implementation detail. I could have used something else. I could have called, for example, the Neon CLI. But this seemed most elegant. The idea is that the implementation doesn't matter. And to be honest, it doesn't even matter whether you use Neon. In our case, that's what we do. But if we change, for example, back to fly Postgres, it's possible. One day, who knows? The idea is that this interface will not change. So you want to give simple, convenient interfaces to your developers. So that they do not worry about implementation details, which are Ops or Intra. All Jared cares is a fork for the database. And all he cares about is fresh data, which was what we discussed in the last episode."
+    },
+    {
+      "start": 3079.91,
+      "end": 3080.55,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 3080.55,
+      "end": 3082.39,
+      "speaker": "gerhard-lazu",
+      "text": "And I try to deliver. So..."
+    },
+    {
+      "start": 3082.39,
+      "end": 3104.07,
+      "speaker": "adam-stacoviak",
+      "text": "Well, this is... This shares the... Or shows off the relationship between Ops and Dev, right? Because as, in quotes, Ops, your role. You care about good DX. And the way you've given good DX is not necessarily the Neon way you've given the way you think our application should deal with this as an interface to any database provider that has forking as an option."
+    },
+    {
+      "start": 3104.07,
+      "end": 3104.55,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 3105.11,
+      "end": 3117.67,
+      "speaker": "adam-stacoviak",
+      "text": "Right? That's cool. Okay. I'm glad you highlighted that because that's important. It just shows off just the love for DX. And really, I suppose Jared did that pass the test. Are you a happy Dev that your Ops provided good DX?"
+    },
+    {
+      "start": 3117.67,
+      "end": 3120.07,
+      "speaker": "gerhard-lazu",
+      "text": "Absolutely. I would say, but..."
+    },
+    {
+      "start": 3120.95,
+      "end": 3125.59,
+      "speaker": "adam-stacoviak",
+      "text": "I don't like the folder changelog in my changelog. I just... We can call it something else."
+    },
+    {
+      "start": 3125.59,
+      "end": 3128.31,
+      "speaker": "gerhard-lazu",
+      "text": "That's okay. What would you like to call it?"
+    },
+    {
+      "start": 3128.31,
+      "end": 3131.75,
+      "speaker": "adam-stacoviak",
+      "text": "I don't... I can never be 100% satisfied. It just wouldn't be... No, no, that's good."
+    },
+    {
+      "start": 3131.75,
+      "end": 3136.31,
+      "speaker": "gerhard-lazu",
+      "text": "I mean, we are kaizen-ing on this, okay? It was just like my first step. So we're going to make it better."
+    },
+    {
+      "start": 3136.31,
+      "end": 3145.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, yeah, yeah. I know you're not tied to it. I just know that when you create folders, they live for years. So let's get this one right. I think Ops maybe. Is it Ops? Are these Ops?"
+    },
+    {
+      "start": 3145.35,
+      "end": 3149.67,
+      "speaker": "gerhard-lazu",
+      "text": "Sure. We can call it Ops. We can call it Functions. We can call it whatever you want. Ops is fine."
+    },
+    {
+      "start": 3149.67,
+      "end": 3155.91,
+      "speaker": "adam-stacoviak",
+      "text": "Because that's the kind of functions it is. We're going to put one in here called DB... What did you say it was going to be called?"
+    },
+    {
+      "start": 3155.91,
+      "end": 3162.47,
+      "speaker": "gerhard-lazu",
+      "text": "Fresh data. I was basically going off your name. You said you want fresh data. You do dagger call fresh data. Boom. You get fresh data in your local Postgres. Right."
+    },
+    {
+      "start": 3162.47,
+      "end": 3165.35,
+      "speaker": "adam-stacoviak",
+      "text": "And that one would actually pull it into my local Postgres."
+    },
+    {
+      "start": 3165.35,
+      "end": 3165.99,
+      "speaker": "gerhard-lazu",
+      "text": "Correct. Yes."
+    },
+    {
+      "start": 3166.63,
+      "end": 3169.19,
+      "speaker": "adam-stacoviak",
+      "text": "I probably would prefer that, but I'm happy with this."
+    },
+    {
+      "start": 3169.19,
+      "end": 3169.75,
+      "speaker": "gerhard-lazu",
+      "text": "Okay."
+    },
+    {
+      "start": 3169.75,
+      "end": 3171.83,
+      "speaker": "adam-stacoviak",
+      "text": "I just want to let you know that I'm super happy."
+    },
+    {
+      "start": 3171.83,
+      "end": 3174.87,
+      "speaker": "gerhard-lazu",
+      "text": "That makes me very happy. You being happy makes me very happy."
+    },
+    {
+      "start": 3175.59,
+      "end": 3177.11,
+      "speaker": "adam-stacoviak",
+      "text": "All right. Which makes Adam very happy. This is awesome."
+    },
+    {
+      "start": 3177.11,
+      "end": 3178.23,
+      "speaker": "gerhard-lazu",
+      "text": "I'm all very happy."
+    },
+    {
+      "start": 3178.23,
+      "end": 3240.79,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think this is... What I like too is this the, I suppose, care, right? Like we don't... We're kaizening, but I think there's a level of care here from one individual in the team to another individual in the team. And so, Gerhard, you have particular expertise and, you know, specificity when it comes to how you implement things. And you don't just get the job done. You think about the other person in the job roles. And that's what you've done here is let me think about and have empathy for Gerhard and the other devs who may join our team in the future to give them an elegant way to sort of like pull in fresh data as an example. That to me is kind of cool. You know, that I like to highlight that because we're humans making software for other humans using the software to enjoy podcasts to make more software. What a many layered onion there. But that to me is kind of cool that you've got this humanity in the process. That's a good kaizen episode there too. Like just a kaizen thought process that you care. And so, therefore, you put good DX in the processes, not just the work."
+    },
+    {
+      "start": 3240.79,
+      "end": 3242.63,
+      "speaker": "gerhard-lazu",
+      "text": "I appreciate that. Thank you very much."
+    },
+    {
+      "start": 3243.19,
+      "end": 3255.78,
+      "speaker": "adam-stacoviak",
+      "text": "Let me ask you about neon costs. If we had 10 devs doing this and they were all branching off of that one and they're all coding against it, aren't we paying more money than if it was running on their local Postgres as an org?"
+    },
+    {
+      "start": 3255.78,
+      "end": 3257.94,
+      "speaker": "gerhard-lazu",
+      "text": "I haven't looked at that, to be honest."
+    },
+    {
+      "start": 3257.94,
+      "end": 3282.26,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. I mean, that would be my next thought is like if I'm paying more money out of pocket in order to do this this way, I probably would just do the fresh data into my local and not run a branch. And I get it that it scales to zero, but that's when you're not using it. And maybe I go to lunch and leave my laptop on and my DB connection is still open. And so just that idea of like I'm paying money to use it on nonstop is a bit, it bugs me when I have so much raw horsepower just sitting here in this laptop."
+    },
+    {
+      "start": 3282.26,
+      "end": 3332.94,
+      "speaker": "gerhard-lazu",
+      "text": "Your DB connection being open during lunch, wouldn't that go idle? If there's no background jobs that perform any actions, yeah, if there's nothing running in the background, then I think it should be fine. But it's a good point, right? We have a lot of horsepower locally. The M1, the MI, they're beasts. So it would make sense to get that data running locally. The question is when we do that, how good are the connections of those devs? Do you want to pull all the data down? And if it's fine, then yes, we pull all the data down and it's running locally. How often do you do this? Do you have, locally you only have one, right? And if you want more than one branches, then you need to have multiple instances of changelog. I think in your case, the changelog database. In your case, I think you only work on one dev database."
+    },
+    {
+      "start": 3332.94,
+      "end": 3333.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3333.26,
+      "end": 3349.82,
+      "speaker": "gerhard-lazu",
+      "text": "You don't need multiple. So that's fine. I will, as a follow-up, this is exactly what I was going to ask. My primary worry is that it's not fast enough. That means you do like a lot of back and forth, back and forth. So you're always paying the penalty of the database not being local."
+    },
+    {
+      "start": 3349.82,
+      "end": 3401.61,
+      "speaker": "adam-stacoviak",
+      "text": "And that was the main feedback that we got on my point last Kaizen. When I said I'm excited about working this way, there was a handful of people, which probably represent a much larger group of people who are like, I would never do that because I work on airplanes. I live in the sticks. I go offline a lot. I want to code wherever I am. I don't want to be connected to a remote Postgres. And I was like, I totally get that. Where I'm mostly doing it, I have a fast internet connection. I'm wired in. I have gig internet. I'm not paying extra to use it. And I kind of like the idea of developing against something that feels more production speeds. So I was kind of like, I'm cool with it. That being said, the more that I thought about it, I was like, yeah, I probably would just want to develop against my local Postgres. Generally speaking, I just want fresh data all the time. And so I think that's a good point. And it's kind of a to each their own, you know."
+    },
+    {
+      "start": 3401.61,
+      "end": 3494.15,
+      "speaker": "gerhard-lazu",
+      "text": "I would like to emphasize an approach that was very dear to me when XP was still fun and young. And everyone used to love extreme programming. You always want to do just enough and keep asking, is this enough? Does this deliver on what you wanted? So rather than going and spending a lot of time on coming up with a perfect solution, do just enough that looks like it's just enough and ask, is it enough? So with that in mind, I think what we have now, this was very simple to implement. It embraces neon and the whole branching model. I can see some people wanting to use it. And it was easier to implement than the other option, which has certain requirements from Postgres that has to do checks. Like, am I importing in the same Postgres version? I running 16.2 or 16.1. I mean, we had issues in the past where even like small miners, they had like breaking changes between them. There was like one bad indexing, one which I remember. It's still somewhere in our issues. So it's a bit more complicated because we don't control the local environment. The other option, and I'm very glad that we are discussing this, we could spin up a Postgres in the Dagger engine. There is that option of running Postgres as a service, importing all the data. But then the question is, well, where is the Dagger engine running? Currently, it's fly. And you want it to be local. And to get it local, currently you need to contain the runtime. It means Podman or Docker or something like that. And I don't think you want that."
+    },
+    {
+      "start": 3494.15,
+      "end": 3495.11,
+      "speaker": "adam-stacoviak",
+      "text": "Don't do that to me."
+    },
+    {
+      "start": 3495.11,
+      "end": 3496.39,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, so I won't do that to you."
+    },
+    {
+      "start": 3496.39,
+      "end": 3517.75,
+      "speaker": "adam-stacoviak",
+      "text": "You don't have Docker on your machine, Jared? I don't run Docker on my machine. I have it on my machine, but I will only power it up in desperate scenarios. So you don't have the application launched? Okay. Correct. Just trying to understand, because I think that Podman or Docker seems to be a prerequisite for most dev environments, in some cases, shapes or forms, so that it's likely there. But is it running, I suppose is the next question."
+    },
+    {
+      "start": 3517.75,
+      "end": 3556.23,
+      "speaker": "gerhard-lazu",
+      "text": "I knew this, which is why I set up that remote engine, so that Jared could actually test this. So I knew that he doesn't have a container runtime locally, and that's fine. That's perfectly fine. So as long as you will run a local Postgres, which is the same version as a neon one, this will be very straightforward. Or more straightforward than if we have to do checks and ensure that it's the same one, then we have to do failures and things like that. So that's fine. No need for that. I will always assume it's the same version. I will pull the data down. I know that you have a gig internet, which will make it nice and fast, even if we compress. So next Kaizen. That's what I'm thinking. Cool. Fresh data. Are you still happy with fresh data?"
+    },
+    {
+      "start": 3556.23,
+      "end": 3557.43,
+      "speaker": "adam-stacoviak",
+      "text": "Or booty. Or booty."
+    },
+    {
+      "start": 3557.43,
+      "end": 3561.35,
+      "speaker": "gerhard-lazu",
+      "text": "I think fresh data. I think we'll go for fresh data. Dagger call fresh data. It is."
+    },
+    {
+      "start": 3582.14,
+      "end": 3615.18,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I'm here with my good friends over at Cinedia. Byron Ruth and David G. And as you may know, Cinedia is helping teams take NAS to the next level via a global multi-cloud multi-geo and extensible service fully managed by Cinedia. They take care of all the infrastructure, the management, the monitoring and the maintenance all for you. So you can focus on building exceptional distributed applications. But before we even get there, we have to understand exactly what NATS is. So Byron, when you get asked to describe what NATS is, what do you say? How do you explain it?"
+    },
+    {
+      "start": 3615.18,
+      "end": 3625.66,
+      "speaker": "gerhard-lazu",
+      "text": "It allows an application developer to adapt and evolve their application over time and scale it based on maybe the unknowns that they have at the time that they started the application."
+    },
+    {
+      "start": 3625.66,
+      "end": 3661.82,
+      "speaker": "adam-stacoviak",
+      "text": "How that manifests is really in infrastructure complexity, developer components that you have to bring in, whether they're streaming things, storage things, whether there's operational complexities about multi-tenancy and considering the security, a consistent security model around how your client components can talk to one another. And once you start evolving your system, scaling your system, you're inevitably going to have to, especially at the connectivity layer, bring in load balancers and proxies and network overlays and things like that. And NATS provides you the foundation that allows you to not need to introduce those"
+    },
+    {
+      "start": 3661.82,
+      "end": 3680.06,
+      "speaker": "gerhard-lazu",
+      "text": "additional things. You can Lego brick your NAT servers together to scale out to sort of a topology that you need or use a managed service that Cinedia offers, for instance. And you don't have to add primitives that are very common when building an application like KV and object store and streams and things like that. That's all baked into NATS."
+    },
+    {
+      "start": 3680.86,
+      "end": 3689.26,
+      "speaker": "adam-stacoviak",
+      "text": "What inevitably will happen is that you start out with something simple, simple request reply, and that's fine, but you're going to need to adapt and scale depending on your"
+    },
+    {
+      "start": 3689.26,
+      "end": 3701.1,
+      "speaker": "gerhard-lazu",
+      "text": "use case and your needs. If you start with NATS, I think it gives you a better foundation, not needing to introduce additional dependencies as you adapt and scale your system. I've got a total curveball one here."
+    },
+    {
+      "start": 3701.1,
+      "end": 3702.14,
+      "speaker": "adam-stacoviak",
+      "text": "A curveball?"
+    },
+    {
+      "start": 3702.14,
+      "end": 3703.02,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, total."
+    },
+    {
+      "start": 3703.02,
+      "end": 3703.98,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, let's hear it."
+    },
+    {
+      "start": 3703.98,
+      "end": 3750.78,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, please do. I'm not going to talk about NATS. I'm going to describe what NATS is. NATS is an intergalactic ready video conferencing system like your favourite sci-fi show and two ships pull up side to side. They open a hail channel, they talk. They might not know what the language is, but the channel opens, communication happens. So what happens when you open a video call? Two people might talk, multiple people might talk, the ships themselves might talk. So what we're saying here is NATS gives software the ability to have point to point and point to multi-point communications, irrelevant of where they are, irrelevant of how they're connected and irrelevant of what languages the connecting software is written in. It's a video phone system for software. And if you want voice recording, you can have that as well. We can add your ability to make sure things and conversations are recorded for playback."
+    },
+    {
+      "start": 3750.78,
+      "end": 3779.34,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, that is a curveball. Thanks, David. Well, there you go. Today's tech is not cutting it. NATS powered by the global multi-cloud, multi-geo and extensible service fully managed by Cineadie is the way of the future for application developers. Learn more at cineadie.com slash changelog. That's S Y N A D I A dot com slash changelog again. S Y N A D I A dot com slash changelog."
+    },
+    {
+      "start": 3784.1,
+      "end": 3797.14,
+      "speaker": "gerhard-lazu",
+      "text": "So I'd like to spend a little bit of time talking about your 55 commits and no pull request, Jared. What is lurking in those 55 commits that you've made since the last Kaiser?"
+    },
+    {
+      "start": 3797.14,
+      "end": 3802.57,
+      "speaker": "adam-stacoviak",
+      "text": "Like we're kind of like a yin and a yang, you know, we're kind of like opposites the"
+    },
+    {
+      "start": 3802.57,
+      "end": 3805.05,
+      "speaker": "gerhard-lazu",
+      "text": "way that's why it works so well, I think."
+    },
+    {
+      "start": 3805.05,
+      "end": 3823.53,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, because you document everything and create pull requests. It's ying and yang. And then what I said? No, you said yin and yang. It's ying and yang. I'm kidding. It's a Silicon Valley joke. Oh, yeah. I don't watch the show. It's a Silicon Valley joke. You're asking me what my last 55 commits did. That's a hard thing to answer."
+    },
+    {
+      "start": 3823.53,
+      "end": 3831.93,
+      "speaker": "gerhard-lazu",
+      "text": "Anything noteworthy in those 55 commits that we want to be Kaizen-ing? I'm sure there must be like a bunch of things that are noteworthy."
+    },
+    {
+      "start": 3831.93,
+      "end": 3836.73,
+      "speaker": "adam-stacoviak",
+      "text": "There were some things I saw in there. Well, I think one thing is that you pulled out. Pulled out turbo links."
+    },
+    {
+      "start": 3836.73,
+      "end": 3841.37,
+      "speaker": "gerhard-lazu",
+      "text": "Turbo links. Yeah, that's true. That's kind of like a big deal."
+    },
+    {
+      "start": 3841.37,
+      "end": 4006.2,
+      "speaker": "adam-stacoviak",
+      "text": "I suppose. So the reason for that wasn't because it wasn't working or anything like that. We are designing a new changelog news homepage landing page design, and we want to be able to do a clean break from our current assets, which is our CSS and whatnot. The weird thing about turbo links is when you are hopping back and forth between pages that have different styles or a page that supports turbo links and one that doesn't is you'll often have the wrong style sheet applied. Not often. That's not fair, but you will sometimes have either no style sheet applied or the wrong one applied based on whether the destination page supports turbo links or if it's navigated too directly. There's just this weird uncanny valley of page navigation. And the reason for turbo links was merely to allow for our player to run across the site with the idea of people reading our website. Like you would read a stumble upon style website with links and information and news back when you're posting a feed of news on the homepage. Maybe you're listening to a podcast. Maybe you're looking at the comments. You click over to this news item, you're going to read this story, et cetera. And we want that player to persist throughout. We've since simplified our website and moved away from that model for various reasons, which I could dive into if it's interesting, but we just don't think that we really need that anymore. And what we really want to be able to do is to navigate between different app layouts seamlessly. And in preparation for that, I just took turbo links out. It also reduces our overall page weight because there's a lot of JavaScript relative to how much JavaScript we use supporting the turbo links based navigations and forms emissions, et cetera. So that was one thing I did. And that was really just in preparation for this new news page. Everything else is just house cleaning. Our Twitter embed broke at one point. I thought it was just Elon that did it, you know, changes to the X API and stuff. And so I just left it from like, oh, great. They broke audio embeds. No, I broke audio at one point when I was upgrading our paths to the new way that Phoenix wants you to do verified routes. That's why I fixed that. A lot of house cleaning minor changes, you know, like putting our change on plus plus album art on the homepage as if it's another podcast. Why not? You know, like that's the kind of stuff I do as I'm just working on other stuff. I'm just constantly improving the big stuff that I'm doing, which also is not a pull request, but is could be more of a pull request because it's like one big feature. Is the custom feeds work that I referenced earlier. And that I think will land soon, but probably just for us to use internally and make sure it's all working right."
+    },
+    {
+      "start": 4006.2,
+      "end": 4006.92,
+      "speaker": "gerhard-lazu",
+      "text": "That's a good idea."
+    },
+    {
+      "start": 4006.92,
+      "end": 4017.51,
+      "speaker": "adam-stacoviak",
+      "text": "And cool. And then we'll roll it out as part of our change log plus plus revamp, which is pending. And that's all I got to say about that unless you have a specific."
+    },
+    {
+      "start": 4017.51,
+      "end": 4022.39,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, I was just wondering because I didn't look through all the 55 commits, but."
+    },
+    {
+      "start": 4023.03,
+      "end": 4081.67,
+      "speaker": "adam-stacoviak",
+      "text": "Right. Little things, you know, people write in, they say, hey, it'd be cool if this would happen or, um, the way you're sending, I mean, we have the nerdiest listeners and readers. I love it. So our conversations are always very technical and with advice, you know, like the way our plain text change log news. Email or rendering was suboptimal. And so we had a few back and forth and I realized we're taking markdown content and turning it into plain text to send a plain text email, which actually munches everything and puts everything on one line. And I don't know that cause I don't read plain text email. I'm a normal nerd, not a super nerd. You know, I just read HTML email like most people do, but the ones who have their plain text email, they're like, this is all one long line. And then I realized I was like, well, yeah, but I have to switch it to plain text. Then I was like, wait, markdown basically is plain text. Why don't I just send the markdown as plain text and it's going to be much better formatted for them. And so I did that and like two people were super stoked. So I felt good, stuff like that."
+    },
+    {
+      "start": 4081.67,
+      "end": 4084.07,
+      "speaker": "gerhard-lazu",
+      "text": "That's very cool. That's a real Kaizen Inc."
+    },
+    {
+      "start": 4084.15,
+      "end": 4086.23,
+      "speaker": "adam-stacoviak",
+      "text": "Just Kaizen Inc, man, just Kaizen Inc constantly."
+    },
+    {
+      "start": 4086.23,
+      "end": 4086.87,
+      "speaker": "gerhard-lazu",
+      "text": "Very sweet."
+    },
+    {
+      "start": 4086.87,
+      "end": 4094.15,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Well, before we go, I do want to mention there is one other CDN to consider."
+    },
+    {
+      "start": 4094.15,
+      "end": 4094.95,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, really?"
+    },
+    {
+      "start": 4094.95,
+      "end": 4222.38,
+      "speaker": "adam-stacoviak",
+      "text": "I've had a conversation with their CEO. They are deeply integrated with Fly. In fact, they're built on top of Fly. Some would say they listened to our episode before we even recorded it and shipped it. I'm sharing it in our shared Slack as we speak. So maybe as we circle back to this never-ending, seemingly never-ending CDN saga, as you've said in our PR with a TM, so we're trademarking that, is the pursuit of who is the holy grail, who has and holds the holy grail of CDN. So Tigress talked to their CEO. Really cool. Obviously, big fans of Fly, S3 compatible. They have some big ideas. Not all big ideas that we would totally embrace, but definitely big ideas for an S3 compatible object storage that is intended to be a CDN for developers. So I would add that to your list, Gerhard, as we continue down this path. I'll keep working with our friends at Cloudflare, which we've gotten closer, I should just say, with Cloudflare. We're now promoting their developer week happening April 1st through April 5th. There's a meet up here in Austin I want to invite everybody to. I can drop a link in the show notes. April 4th, I'll be there. It's in the Austin office here in Texas. So if you're in the area, come and say hi. There are limited seats. So I'm obviously pulling for Cloudflare because there's so much relationship investment there in terms of how you work, but no ink on paper, no enterprise plan in hand. So therefore, they haven't paid their deposit, basically, but they've definitely shaken the hand, let's just say, if that's a way to say it. So I'm leaning towards Cloudflare, and I'm hoping that there's no embarrassment whenever we do the testing with them as well, because that would totally suck, basically. Build all this up and not really any better than Fastly Performed or even fly with no real CDN, just simply the fly network. So anyways, I'll leave it there. Dig into that. Have you heard of Tigress before?"
+    },
+    {
+      "start": 4222.38,
+      "end": 4229.82,
+      "speaker": "gerhard-lazu",
+      "text": "I have, and I'll check it closely. I just heard about it. I haven't looked into it, but it's on my list. So thank you for that. I'll check it out."
+    },
+    {
+      "start": 4229.82,
+      "end": 4260.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I would add just to your curiosity list, don't go too deep unless you really want to. One hour. Yeah, whatever it takes. And hopefully, next time we come around to Kaizen, we'll have gotten our enterprise keys from Cloudflare, because we're using R2, and we just need to move to the CDN and do a true test before we really go deep on that relationship. I feel like we need to do that, and we're missing one thing. Otherwise, that would have been this test. What a shame. To be continued."
+    },
+    {
+      "start": 4260.09,
+      "end": 4291.13,
+      "speaker": "gerhard-lazu",
+      "text": "Indeed. The CDN saga, I like it. I like it. It's going to be amazing. Whatever comes out of it is going to be amazing. I'm going to add a couple more details in discussion 4.9.9 in our GitHub repository. If anyone wants to, for example, to set up some monitoring on our public endpoints to see how they perform, to look at them, to see if they spot anything interesting, different, unusual. Like, the more eyes on this, the better. But I'm going to share my results, and we'll see where we take it from here."
+    },
+    {
+      "start": 4291.13,
+      "end": 4305.37,
+      "speaker": "adam-stacoviak",
+      "text": "Discussion 4.9.9, by the way, is the one for the Kaizen 14. They don't put the 4.9.9, except for show page, of the discussion. They don't put it on the index. So when they're looking at the index, it's like, which discussion is 4.9.9? So that's why I clarified it."
+    },
+    {
+      "start": 4305.37,
+      "end": 4306.65,
+      "speaker": "gerhard-lazu",
+      "text": "Kaizen 14. Got it."
+    },
+    {
+      "start": 4306.65,
+      "end": 4306.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4307.69,
+      "end": 4312.02,
+      "speaker": "gerhard-lazu",
+      "text": "There's one more thing which I want to mention. And I want to say that Jared was right."
+    },
+    {
+      "start": 4312.02,
+      "end": 4312.5,
+      "speaker": "adam-stacoviak",
+      "text": "I like that."
+    },
+    {
+      "start": 4312.5,
+      "end": 4319.7,
+      "speaker": "gerhard-lazu",
+      "text": "The thing which I was telling in January, it shipped on February 29th. Jared was right. Oh, yes. It shipped on February 29th."
+    },
+    {
+      "start": 4319.7,
+      "end": 4320.26,
+      "speaker": "adam-stacoviak",
+      "text": "It did."
+    },
+    {
+      "start": 4320.26,
+      "end": 4321.06,
+      "speaker": "gerhard-lazu",
+      "text": "It did."
+    },
+    {
+      "start": 4321.06,
+      "end": 4323.78,
+      "speaker": "adam-stacoviak",
+      "text": "This was your life project."
+    },
+    {
+      "start": 4323.78,
+      "end": 4325.94,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. Yes. So..."
+    },
+    {
+      "start": 4325.94,
+      "end": 4330.58,
+      "speaker": "adam-stacoviak",
+      "text": "On your birthday, on your 10th birthday. On my 10th birthday. Not your fourth birthday. I did the math wrong. On your 10th birthday."
+    },
+    {
+      "start": 4330.58,
+      "end": 4335.62,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. On my 10th birthday, it went live. The name is Make It Work."
+    },
+    {
+      "start": 4335.62,
+      "end": 4336.5,
+      "speaker": "adam-stacoviak",
+      "text": "Make It Work."
+    },
+    {
+      "start": 4336.5,
+      "end": 4340.66,
+      "speaker": "gerhard-lazu",
+      "text": "Make It Work. And if you look for that, you may find it in Apple podcasts."
+    },
+    {
+      "start": 4341.46,
+      "end": 4342.02,
+      "speaker": "adam-stacoviak",
+      "text": "Oh."
+    },
+    {
+      "start": 4342.02,
+      "end": 4348.62,
+      "speaker": "gerhard-lazu",
+      "text": "But what you should do instead is go to video.gerhart.io. That should be the entry point."
+    },
+    {
+      "start": 4348.62,
+      "end": 4352.46,
+      "speaker": "adam-stacoviak",
+      "text": "Video.gerhart.io. Sends me to a YouTube channel. That's it."
+    },
+    {
+      "start": 4353.02,
+      "end": 4353.5,
+      "speaker": "gerhard-lazu",
+      "text": "Cool."
+    },
+    {
+      "start": 4353.5,
+      "end": 4358.3,
+      "speaker": "adam-stacoviak",
+      "text": "Make It Work. What exactly is this again? Give a one minute refresher."
+    },
+    {
+      "start": 4358.3,
+      "end": 4553.63,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. So it's a new content space that I created. You know, I was big on screen sharing. I was big on video. I was big on conversations that just go through all sorts of rabbit holes. So talking of holes, the square hole. We'll talk about that in a minute. So this is various conversations from various places. And some of it is audio only. Some of it is screen sharing. And I'm slicing and dicing it based on the format. So for example, with Eric, when we talked about BuildKit in the context of Dagger and Docker, we talked about how much of BuildKit is in Dagger, how does that relationship work, what is good about BuildKit, how did he discover BuildKit, things like that. So I think we talked for maybe an hour, I think, 45 minutes. Part of it was video and part of it was audio. And that is a format that many are familiar with. But what people are not familiar with is, for example, talks. Like how can you do like a talk only online? For example, the square hole was a talk that we submitted for KubeCon for EU that didn't make it through the CFP stage. So we thought, you know what, we will just go ahead and do it anyway and just put it online exclusive, not even rejects conf, like KubeCon rejects. So that was a talk that I was very excited about. I thought it was like a very good idea in terms of how it fits. And it was a bit of Argo, it was a bit of Dagger, it was a bit of Talos. It was a combination of all of it. And it's online only. It's on YouTube. So you can go and check it out. The other one was like when I was at KubeCon, I brought my 360 camera. I bought a new one. I was thinking, you know what, let's try how this would work. So I did some 360 recording. And we were in the booths of various companies, including Dagger's booth. And we were recording, having a conversation. We show the 360 video. I think it's cool. The idea is that this content space, I'm thinking of ONCE. Do you know ONCE.com? The idea, pay it once, own it forever. I'm thinking doing something similar for this. So makeitwork.gerhard.io. It's just a placeholder. People that want longer form content, it's basically the things that I go deep on. And it takes me a while to go through that. And then I condense that in maybe an hour or two. I'm thinking of publishing it there. And charging ONCE for it. And then you get access to all the content. So it would be paid content. But it would be more than a book or a course, because it's something that spans a long time. And again, I mentioned the project of a lifetime. I love producing a certain type of content. That includes screen sharing. That takes a long time to produce. And I had fun doing it. And AI is helping. I mentioned that. It's really helping with a lot of things. One day it could even edit the videos. Who knows? I don't think we're there yet. But I'm curious. It's definitely generating some great art. It's definitely doing some good summaries. Like a lot of heavy lifting that I used to do in the past. It's helping with. And I think it's only going to get better."
+    },
+    {
+      "start": 4553.63,
+      "end": 4630.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I agree. I mean, we have an AI feature inside of Riverside that does summaries of descriptions. And I don't take it verbatim. But I allow it to create my list of sorts. So that I'm like, OK, what do we actually talk about? Because it kind of creates the list for you. And it's essentially your AI brain to remind you what the conversation was about. And I'll pull that out and recraft it in my own way, in the human way, of course. But it's definitely helping me remember this table of contents we kind of put into podcasts that help write the description, voice the description, plan for the show, the publishing of it, whatnot. So I can definitely see that. And that's cool. I'm not sure if this is AI from Apple. But I'm still, I mean, sometimes I'll even come to tears for the videos they put together of September, last year kind of thing, whatever kind of tell they give you for your videos on the iPhone. And I'm like, wow, that had pretty decent music. It showed all the cool videos and clips and photos of me and my family. And here I am, a dad in tears, essentially. You know, I didn't edit that. They did that. That's amazing. So I imagine at some point it gets better and better. And then you just rely and trust, really, the edit, the editor, the AI editor."
+    },
+    {
+      "start": 4630.56,
+      "end": 4636.4,
+      "speaker": "gerhard-lazu",
+      "text": "Well, I still want to review it for sure. But at least it doesn't take 10 hours to get there. You get there like in an hour."
+    },
+    {
+      "start": 4636.4,
+      "end": 4646.64,
+      "speaker": "adam-stacoviak",
+      "text": "There's a certain level of trust that comes there, though, right? You just preview it. You're not actually in the details. No, no, no. The cut is here, not there. You know, you're more like, OK, that's good taste. That's it."
+    },
+    {
+      "start": 4646.64,
+      "end": 4646.96,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 4646.96,
+      "end": 4647.2,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4647.92,
+      "end": 4686.43,
+      "speaker": "gerhard-lazu",
+      "text": "Cool. I had to use this because of Kubernetes. I had to use this. Kubernetes, sorry, pod, right? You have to use pod. So there's like a pod.gerhard.io. And that's where just like the small or like the audio-only portions are. But some of this content doesn't fit audio. I say a lot of this content doesn't fit the audio format because screen sharing is very specific and you need to see things. And there's like a certain level of detail that you would miss in an audio-only conversation. So yeah. Every conversation which I do needs to have screen sharing because without it, I feel a lot of detail is lost."
+    },
+    {
+      "start": 4686.43,
+      "end": 4686.99,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm."
+    },
+    {
+      "start": 4686.99,
+      "end": 4698.33,
+      "speaker": "gerhard-lazu",
+      "text": "My perspective. And anyways, that was it. So Jared was right. It was 29th of February. That's when it went live. And we're exactly a month later, 29th of March."
+    },
+    {
+      "start": 4698.33,
+      "end": 4699.05,
+      "speaker": "adam-stacoviak",
+      "text": "Right on schedule."
+    },
+    {
+      "start": 4699.05,
+      "end": 4758.36,
+      "speaker": "gerhard-lazu",
+      "text": "There's a bunch of KubeCon conversations that will go live and including like the whole like pavilion, the whole like solutions showcase, like the whole like a 10-minute walkthrough like the entire thing. So it's video-only. Audio is just noise. If you were to listen to it, it's just lots and lots of noise. It was a noisy floor. But yeah, it was fun. KubeCon was amazing, by the way. This was my favorite one. I haven't been to more, I know, immersive KubeCon. There were like so many people. So many great conversations. My voice left me twice. Like in the span of three days, it was like full-on morning till evening and then parties. Luckily, I didn't stay up too late. I went like into my nice quiet hotel and just like had a bit of time to downtime. That was good. But it felt very personal. This KubeCon felt very personal in the sense that you weren't talking to vendors. You were talking to friends. There were 16,000 friends. Can you imagine?"
+    },
+    {
+      "start": 4758.36,
+      "end": 4759.32,
+      "speaker": "adam-stacoviak",
+      "text": "That's so many."
+    },
+    {
+      "start": 4759.32,
+      "end": 4762.76,
+      "speaker": "gerhard-lazu",
+      "text": "16,000. It was an amazing conference. So yeah."
+    },
+    {
+      "start": 4762.76,
+      "end": 4763.56,
+      "speaker": "adam-stacoviak",
+      "text": "That's awesome."
+    },
+    {
+      "start": 4763.56,
+      "end": 4769.63,
+      "speaker": "gerhard-lazu",
+      "text": "It was only a week ago. I literally came back one week ago. So yeah, it was a busy month."
+    },
+    {
+      "start": 4769.63,
+      "end": 4782.97,
+      "speaker": "adam-stacoviak",
+      "text": "Cool stuff. We'll link up to make it work. I don't know. Video.Gerhard. Pod.Gerhard. Just send us all the links. Gerhard will put them in there for folks so they can follow along with your life project."
+    },
+    {
+      "start": 4783.61,
+      "end": 4797.45,
+      "speaker": "gerhard-lazu",
+      "text": "Sounds good. Do we want to talk about the next Kaizen? Or is this the bombshell that you want to end on? I'm thinking Jeremy Clarkson. I still love the man. I still love the man. The artist."
+    },
+    {
+      "start": 4797.45,
+      "end": 4798.57,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know Jeremy Clarkson."
+    },
+    {
+      "start": 4798.57,
+      "end": 4800.17,
+      "speaker": "gerhard-lazu",
+      "text": "Jeremy Clarkson from Top Gear."
+    },
+    {
+      "start": 4801.13,
+      "end": 4801.93,
+      "speaker": "adam-stacoviak",
+      "text": "Kelly Clarkson."
+    },
+    {
+      "start": 4801.93,
+      "end": 4802.41,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 4802.41,
+      "end": 4804.65,
+      "speaker": "adam-stacoviak",
+      "text": "No, I'm not a Top Gear guy. You know I'm not a car guy, Gerhard."
+    },
+    {
+      "start": 4804.65,
+      "end": 4809.13,
+      "speaker": "gerhard-lazu",
+      "text": "I am. So yeah. Is Adam a car guy?"
+    },
+    {
+      "start": 4809.13,
+      "end": 4823.13,
+      "speaker": "adam-stacoviak",
+      "text": "I was when I was younger and I did watch Top Gear. But they were just such expensive cars. I was just like, forget it. I will never be able to do this. I grew up absolutely poor in a small town in Pennsylvania. My hope was very low."
+    },
+    {
+      "start": 4823.13,
+      "end": 4848.81,
+      "speaker": "gerhard-lazu",
+      "text": "I just love the silliness. I mean, you can be silly in any car and the fun of it. They have some good shows. Those are really bangers, as they call them. I think those were the most funny ones. And in some countries that you would maybe not even visit, because they're dangerous. Anyways, it was a funny show. So yeah, that's where the bombshell comes on. He always ends his shows on a bombshell. And I'm not Jeremy Clarkson. Far from it."
+    },
+    {
+      "start": 4848.81,
+      "end": 4850.89,
+      "speaker": "adam-stacoviak",
+      "text": "What exactly would you describe as a bombshell?"
+    },
+    {
+      "start": 4850.89,
+      "end": 4875.05,
+      "speaker": "gerhard-lazu",
+      "text": "A bombshell is something that you want to know more about. It's almost like, hey, you've said this thing. No, no, you can't stop here. Keep going. It's almost like, yeah. A cliffhanger? Yeah, cliffhanger. Yeah, I think so. Yeah, cliffhanger. Something unexpected. Something like, ooh, interesting. Okay. But we can end there as well."
+    },
+    {
+      "start": 4875.05,
+      "end": 4876.65,
+      "speaker": "adam-stacoviak",
+      "text": "I think we ended on the bombshell then."
+    },
+    {
+      "start": 4876.65,
+      "end": 4882.92,
+      "speaker": "gerhard-lazu",
+      "text": "We can end on the bombshell. It's called make it work. There you go. Yeah. Cool."
+    },
+    {
+      "start": 4882.92,
+      "end": 4884.76,
+      "speaker": "adam-stacoviak",
+      "text": "All right. Happy Kaizen, guys."
+    },
+    {
+      "start": 4885.8,
+      "end": 4886.52,
+      "speaker": "gerhard-lazu",
+      "text": "See you next time."
+    },
+    {
+      "start": 4892.62,
+      "end": 4950.78,
+      "speaker": "adam-stacoviak",
+      "text": "All right. This has been Kaizen 14. That means we've released 13 other Kaizens prior to this one. And you can find them all at changelog.com slash topic. We would love to hear your thoughts about this conversation and what we should do next. Let us know in the comments. There's a link in your show notes. Thanks once again to our partners at Fly.io, to our Beat Freakin' residents, Breakmaster Cylinder, and to our friends at Sentry. We love Sentry and have been using their service for years. If and when it's time for you to check it out, use code changelog. That helps us let Sentry know we're making an impact on their business. And it helps you because they'll give you a hundred bucks off the team plan. Once again, use code changelog, all one word. Next week on the show, news on Monday. Scott Chacon, co-founder of GitHub and now Git Butler on Wednesday. And Breakmaster Cylinder. Yes, BMC is coming back on Friends on Friday."
+    },
+    {
+      "start": 4950.78,
+      "end": 4954.54,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, I want to do that. I so badly want to do that."
+    },
+    {
+      "start": 4954.54,
+      "end": 4961.42,
+      "speaker": "adam-stacoviak",
+      "text": "Have a great weekend. Leave us a five star review if you dig the show and let's talk again real soon."
+    }
+  ]
+}
