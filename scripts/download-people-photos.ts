@@ -257,7 +257,7 @@ async function main() {
   }
 
   let downloaded = 0;
-  let failed: string[] = [];
+  const failed: string[] = [];
 
   for (const person of people) {
     process.stdout.write(`${person.slug} (${person.name})... `);
