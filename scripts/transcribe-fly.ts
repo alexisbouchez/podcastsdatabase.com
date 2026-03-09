@@ -114,7 +114,7 @@ interface MachineJob {
   title?: string;
 }
 
-const FLY_IMAGE = process.env.FLY_IMAGE || `registry.fly.io/${FLY_APP}:deployment-01KK96KPWA2Y5BHVXZ2P0FF7B7`;
+const FLY_IMAGE = process.env.FLY_IMAGE || `registry.fly.io/${FLY_APP}:deployment-01KK9EK6SM1A4PBSDQMP13W8Q9`;
 
 async function createMachine(audioUrl: string): Promise<MachineJob> {
   const image = FLY_IMAGE;

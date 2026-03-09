@@ -1,0 +1,645 @@
+{
+  "title": "Homelab nerds, unite!",
+  "description": "Techno Tim discusses homelab setup and philosophy, covering networking with UniFi gear, virtualization using Proxmox, containerization via Docker, ZFS storage solutions, Plex media servers, and building a portable travel router.",
+  "links": {
+    "MP3": "https://cdn.changelog.com/uploads/friends/9/changelog--friends-9.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "segments": [
+    {
+      "start": 15.31,
+      "end": 45.54,
+      "speaker": "SPEAKER_00",
+      "text": "This is change looking friends a weekly talk show about all things home lab today I'm joined by my new friend Techno Tim Thank you too fastly fly and also type sense for helping us ship awesome pods pretty much daily Okay, let's talk So we're here with Techno Tim Do people call you Tim or they call you Techno is Techno your first name and Tim is your last name? What what's the deal here?"
+    },
+    {
+      "start": 46,
+      "end": 92.98,
+      "speaker": "SPEAKER_01",
+      "text": "Oh, wow. Yeah. Wow tough questions first So people call me Tim, I think sometimes people call me Techno Tim Actually in college people called me just techno and it's a kind of a long story. But was that right? Yeah Yeah for in college. Everyone just called me techno. That was my name because in college I used to play electronic music really loud in my dorm, okay, and everyone said hey, you know that guy plays techno music and My RA always had a bullet point in our weekly meeting to say Tim turn your techno music down and then so my neighbor Gary hockey player was just started calling me techno Tim and ever since then that's what I went with and That was my handle for gaming and everything. So I when I started to channel I thought hey, why not?"
+    },
+    {
+      "start": 93.48,
+      "end": 136.14,
+      "speaker": "SPEAKER_00",
+      "text": "I'm a listener and watch I suppose of your YouTube channel I just for the first time today was like let me go back as far as I can this channel to be like When did this guy begin because I've been paying attention for a while I'd say at least about two years Maybe a year and a half to your content and I went back and I'm like this dude's a gamer Cuz like your earliest stuff is like gaming stuff For five years for like three you've been doing YouTube for like five years But like three of it has been just straight up just like gaming I don't even know if you talk on there or what you've done But I caught a couple just to kind of see what you were doing Now it makes sense why you're called techno Tim cuz that's been your handle and you were a Techno music player, which I like techno too, you know, it's good stuff EDM. Yeah. Yeah all that good stuff"
+    },
+    {
+      "start": 136.14,
+      "end": 147.68,
+      "speaker": "SPEAKER_01",
+      "text": "I've always liked electronics. So and you know back in the day I should say but everyone called everything electronic techno So, you know, that's what stuck but it was more just you know EDM just kind of chill out music to"
+    },
+    {
+      "start": 147.68,
+      "end": 167.46,
+      "speaker": "SPEAKER_00",
+      "text": "trance break beats house Yeah, yes, I don't know how old you are but those go that goes back to like my day, you know I was I was born in 79 Lived in Orlando for a little bit. So I got to be steeped in you know, some of the local folks there Digweed came to town."
+    },
+    {
+      "start": 167.8,
+      "end": 170.04,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, I haven't heard that name in a long time."
+    },
+    {
+      "start": 170.34,
+      "end": 199.48,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, Sasha digweed deep dish That's like my era. I'm just they're still around Yeah, they're just not like it's cool then it became like tiesto and stuff like that so there you go So home lab, let's get into the innards of home lab So, I mean, I think I have an idea of what home lab means to me now you obviously have a YouTube channel That's primarily focused on home lab II things. I think mostly home lab thing So, how do you define home lab? Like what exactly is home lab to you Tim?"
+    },
+    {
+      "start": 199.9,
+      "end": 288.58,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, it means so many different things to so many different people But for me, I try to bundle it all up into Having an environment whether that be virtual physical But just having an environment where you can tinker and play around with technology without the fear of Breaking things or taking down, you know a production environment a lot of people that get into home lab are in IT right and so they inherit this environment from their enterprise and they Inherit this architecture from their enterprise and they don't get to tinker much outside of that You know, you're playing in someone else's playpen so to speak Yeah And so with home lab you can build up this environment in this architecture and explore things in your own environment Without asking for permission or bringing anything at work So, you know, I've always bundled it up into you know This environment where you can play with stuff and then it's multifaceted like some people consider You know virtual machines on the desktop their home lab totally fine. I totally agree a virtual environment on your desktop. Sure Why not? Some people think it's you know, a server rack full of stuff Absolutely could be like the one behind me or just a couple of Raspberry Pis or even one Raspberry Pi Absolutely could be but really just an environment in it in it It has many tentacles from there. It could be networking could be focused on hardware. It could be focused on storage There's just so many ways to go"
+    },
+    {
+      "start": 288.58,
+      "end": 436.2,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, so I try to think about this ahead of time I was like, okay and what do I think because I agree with everything you just said too and I try to play it from my Perspective so software developer product manager now podcast or around software. I've been doing it for 14 years just on this channel alone, but really have been podcasting for almost 20 years. I've talked to Almost everyone in tech over the years not literally everyone but we've talked a lot of different angles around how softwares developed since 2009, you know, so we've really eat it all out and Over that journey. I primarily focused on software I've always had my own dev environment and that was always a version of not so much home lab stuff But like it was my single machine single node Environment that I had to mess with I've always been on a Mac in most cases. So that's homebrew. That's CLI stuff That's setting up Ruby back in the day. Then it's JavaScript and it's node .js then it's NPM Then it's web environments. Then it's elixir cuz our our stack for change .com is elixir based It's a Phoenix application You know, obviously github all those things have been like not home lab II stuff But like the software developer things, but then I was like, I really didn't get into home networking until around They got my unify setup. That was really got me What got me further into like just typical network gear was never easy to use. I was never a network person But for me it began how can I set up a better? Home network, my wife is upset because Wi -Fi sucks in the bedroom Okay, that was you know, I got into web development because my mom was like Adam you're really good at it You should just keep doing this stuff. I'm like mom. I just this is the hobby She's like no, you should just keep doing here. You're really good at it. And so now my wife is like hey Wi -Fi sucks Can you make it better? I'm like, well, I guess I can try I don't know how to do it I make software for a living and I build software for a living I'd run software podcasts But I don't know how it really works. And so I studied it now learned and so for me it was like a better network How can I make Wi -Fi suck less in our house? Now? I have multiple machines. I've got to move data around the house So now I've got to like understand true Ethernet based networking I understand put a cable into the wall you get internet from a modem but then I started to get really really curious and that's really kind of where the fun began for me as Someone who was steeped in software But then sort of like had to eek into the network world to some degree and then it was like Multiple machines and services and like oh my gosh. So yeah, as you said the tentacles."
+    },
+    {
+      "start": 436.32,
+      "end": 567.04,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. Yeah funny My story is the opposite. So I am a software engineer. I trade that's kind of my day job Things have changed a little bit. So I started out in infrastructure I mean the first time I ever learned about networking was trying to get my brother's PC connected to my PCs who we could play NBA live 98 or something over the network and I remember like oh my gosh, like static IPS. I have no idea what I'm doing I'm just you know, typing in whatever Yahoo told me to type in at the time and I Remember seeing on our hub the network lights flashing and we could play two players at the same time You know even though our bedrooms are right across from each other and I remember just like Almost welling up in tears because it was like oh my gosh, you did it But anyway, so I started out in infrastructure like I kind of have a background in infrastructure I would started out tech support its server administration did some networking stuff And so I built up that way and then I became a software engineer, you know within the last eight eight nine years so I kind of had that background and then I got into software development and I think that was That was a good play for me because it taught me a lot about networking Infrastructure like some of these core tenants of just running services and then later on to build software So I built apps I built websites that work for large companies startups and that taught me a lot about infrastructure And so after I became a software engineer, I started like missing like hey I used to tinker with this stuff all the time at home and I realized I wasn't doing that as much anymore That's really how I got back into homeland because I you know, I wanted to network stuff I mean, I've had a server in my closet quote unquote for a long time Whether it's running a small website or a media server. I've done it for a long time. Anyways getting back into Running services and software at home like at home now, I have a full kubernetes stack. I write my own code I deploy it. I build it in containers I ship it to my own kubernetes stack and it's all self hosted here at home in my home lab You know, you're kind of you know abusing the term home lab as soon as you get into self hosting production at home But a lot of people do it and still call it home lab But I still call it home if it's in the house. It's a home lab to him. All"
+    },
+    {
+      "start": 567.04,
+      "end": 625.74,
+      "speaker": "SPEAKER_00",
+      "text": "right. Yeah, I agree I'm there. I'm there with you. It's just more layers of sophistication in my opinion Like you can start small like I did like us trying to share my journey to some degree because it's about curiosity Yeah, you may not even really be like you were in infrastructure or even like I was more in software and then You know, I think for anybody it's usually the dad of the guy in the home It's like hey Wi -Fi sucks or at least that's my you know, stereotypical opinion. It may not be super accurate But it's like well, there's somebody that's curious about home automation as somebody who cares about like, okay For example in my home I can say You know living room on and the Apple TV will arc wake up my TV and turn on the living room TV or if the kids are upstairs in the family room and I'm like Hey kids, it's time for lunch or dinner or whatever if it's the weekend if it's dinner time and they're not listening I'm like, okay family room off and the TV turns off right that my watch party is gonna like start yelling at me here in a Second"
+    },
+    {
+      "start": 625.74,
+      "end": 626.56,
+      "speaker": "SPEAKER_01",
+      "text": "so it light up."
+    },
+    {
+      "start": 626.84,
+      "end": 740.98,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, so it's like that was like cool, you know And you kind of have certain things you want to do in your home or even like NFC stuff Or you want the temperature change because you're close to the thermostat or there's all sorts of like little things that I think are Home lab II, you know, like there's home Automation and smartness that I think is a blend of home lab May not be exactly that and then you've got things like Plex for me Plex was a big deal to get into home lab It was like I was working with 45 drives a couple years ago got an AV 15 that helped me learn a lot more about Linux a lot more about what everything about ZFS and then what it would actually take to like basically tear that machine down or rebuild it in a way that was more Plex friendly because it had a Xeon processor that did not have QuickSync and okay. I was like why in the world every time I transcode I've got this beefy Xeon processor Why does transcoding not work? I'm like I didn't understand it then I learned okay It really relies on QuickSync. And so you learn these things each Failure or a learning point along the way but Plex was a big deal learning ZFS was a big deal And then when I kind of got past that intimidation factor, I was like, okay. I don't know anything really about Linux I mean I've played with Linux I've deployed Linux servers I've got WordPress on Linux in digital ocean droplets and that's fun, but I followed a tutorial. I didn't learn Running Linux managing Linux keeping it updated keeping it secure Firewall all those fun things and selling over time I've learned little by little more and more through curiosity and so we kind of all come into this This in quotes home lab world from different areas. Do I need a rack of full of gear? No, not necessarily But if you have one, it's still a home lab if you've built your own Kubernetes high availability cluster and you do a plenty of software to it. That's still home lab to Tim"
+    },
+    {
+      "start": 740.98,
+      "end": 808.18,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, yeah. Thank you. Hi. Yeah, like I said, it means so many different things to so many different people I I think I think DIY in general like encapsulates a lot of home lab It doesn't mean DIY like I built a shelf from wood and I hacked an IKEA rack and now I'm putting servers I got you know from a secondhand market. It could be as simple as like, you know, hey I may have a unified switch totally fine But you know what? This is my DIY PC that I converted to you know a server and now I'm you know Installing and learning things about it. I think that I think anything, you know kind of DIY I'll do it myself or assemble it myself or even configure it myself is really what encapsulate a lot of home lab The spirit of home lab, I think you find a lot of people who like to save money like to Like to configure things like to adapt things like to bend things to their will and I just love it about it You know anytime I talk to someone who's using something I learn either A way that they're doing it that I haven't thought of before or they're doing something You know with it that I didn't think was possible which both are awesome"
+    },
+    {
+      "start": 809.04,
+      "end": 907.24,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, precisely and it's uh, you don't have to have a full rack of gear. I even like repurposing. I'm not Not trying to save money Necessarily, but you know, I want I tend to be the person who upgrades myself to him So if I go to buy a car, they don't have to talk me into like the nicest thing. I've already Pre -selected I'm actually coming to the lot to buy not to look in most cases So I'm that kind of person just generally but I like the idea even of like repurposing that old PC to some degree and and just finding out how to Truly, like you said bend it to your will and be able to do something with it Let's dig into The stack I suppose what's your chosen home lab stack? Like I mentioned Unify was my gateway drug to some degree I Literally bought some unify gear and it sat there for months like at least two or three months cuz I was just intimidated I'm like, I don't even know where to begin. I think I was watching crosstalk solutions and I'm like Thank God that guy told me how to set it up the first time cuz this is like four or five years ago Maybe I don't know four years ago or so. I mean, I don't even know what to do with it I got the boxes and that unifies notoriously not really good with like documenting how to do anything It's like here's the stuff. It's great. Just go figure out how to do it. And I'm like, I don't know what to do I've got this cloud key. I don't even know what PoE really means. I've got the USG I've got the cloud key and I've got a switch. Okay, that's what I need. I didn't even know I needed an access point I'm like an idiot really getting into this. So I mentioned unify was my gateway drug What is what is your home lab stack? Like where do you begin with your stack? Is it unify all the way up? I mean, how do you choose what your stack is?"
+    },
+    {
+      "start": 907.3,
+      "end": 1042.02,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, it's changed over time You know it first it was a lot of DIY solutions like PF sense I was like, oh I got an old PC I was really big of yeah upgrading myself and handing those things down to my home lab So that was a big part of my early days of home lab I'm gonna upgrade my current PC and then my old PC is gonna become a new home lab PC So I would basically hand me down this hardware to myself. And so I did that for a long time So I really got into PF sense for a long time I tried a lot of software firewalls, you know open source software firewalls for a really long time And then just recently I've been getting into unify stuff and don't feel bad about unify. I did the same things Yeah, I looked at crosstalk solutions paramount, right? Yeah this guy on YouTube It's my natural Cutler taught me how to do V lands. And so yeah, it's totally fine. And so yeah, I do like my network Core now is unify and it is a gateway and it is a black hole Because once you start realizing like oh like, you know right behind me here I have an old switch that was downstairs in my big rack And so I was like, you know, I upgraded that switch put this switch up here and then realized There's a bunch of these POE switches, you know, why would I want a POE switch? You know, I've thought I'd never need that and then I was like, oh I want V lands for the devices in my living room You know So I'll plug in a little mini POE switch that powers from my big switch and then I get three additional Switches to plug my xbox to plug my TV and plug everything else in so they can be on different V lands or cameras or What have you and so so my network core almost? Yeah, 100 % unify access points everything switches all the way down unify just because I like a single pane of glass to manage both the Network the firmware and then the other pieces of the ecosystem and so having one pane of glass for me is huge Don't get me wrong like I still run a version of PF sense in my home lab virtualized for testing But having an easy way to update my camera's firmware Awesome to update, you know any of my devices firmware totally awesome. Yeah, you don't waste your time, right? Keep it simple That's right and push out V lands and one can add a V land somewhere. It pushes it out to every device I don't even need to think about it And so"
+    },
+    {
+      "start": 1042.02,
+      "end": 1042.62,
+      "speaker": "SPEAKER_00",
+      "text": "yeah,"
+    },
+    {
+      "start": 1042.64,
+      "end": 1056.9,
+      "speaker": "SPEAKER_01",
+      "text": "you know that's become valuable to me huge time -saver and not to mention like their apps are so good like Their apps on iPhone Android everything tablets are so so good and even their web -based ones And so anyways has now to unify"
+    },
+    {
+      "start": 1056.9,
+      "end": 1122.12,
+      "speaker": "SPEAKER_00",
+      "text": "commercial, but I'm a huge fan of them. It is unified commercial demo I'll concur cuz I'm unify all the way down to from the cameras to the switches, too I mean I just for the same reason I watched your V land video and I'm like I should do V lands because Long story short I was building a new home And so I just recently moved into it and I'm like, well, I've got like three or four months until this thing is done So I've got my gear right here doing nothing cuz I'm not in the home now Now I should like set up my future network it should just be like when I get there just plug it in it works because what will often happen is you'll get to the Home or you know move somewhere if that's the case you're doing and then you'll be like now I should do all the setup I'm like I could do all this preparatory and then I saw your video on V lands and I'm like so intimidated by villains Like I don't even know how to do them or and I'm still stuck Honestly, I had to flatten it out cuz like I had one device they couldn't talk to the other I've got Sonos in my house and I'm like I wanted the Sonos to be on the IOT V land and then my app on My iPhone could not talk to it I was on my main, you know trusted network and it couldn't talk so I've sort of Abandoned the V lands temporarily until I figure out my firewall issues. I've got some pass -through concerns."
+    },
+    {
+      "start": 1122.14,
+      "end": 1127.84,
+      "speaker": "SPEAKER_01",
+      "text": "I know there's two settings I know what they are and there's two settings and DNS is one. Yeah, and that'll probably solve our"
+    },
+    {
+      "start": 1127.84,
+      "end": 1128.14,
+      "speaker": "SPEAKER_00",
+      "text": "DNS."
+    },
+    {
+      "start": 1128.3,
+      "end": 1130.24,
+      "speaker": "SPEAKER_01",
+      "text": "Okay, MD NS It's called. Yeah,"
+    },
+    {
+      "start": 1130.24,
+      "end": 1200.28,
+      "speaker": "SPEAKER_00",
+      "text": "okay, so I hit that brick wall, but I'm like I wanted to do V lands and have all this up I know I should do these things that I mean should and shouldn't it's about, you know Security and concerns. I think I'm okay for now, but long term I want to be better But yeah, same thing with the V lands like if my access points, which I currently only have to install But I'll eventually have four No I have three and I'll eventually have five access points throughout the house one of the back patio one kind of in the garage area I happen to have like a a workshop garage that just as in the Driveway area that just needs more Wi -Fi out there because I did a whole mapping and stuff like that I have one of my office and kind of two that serve the home and If you veal in like you said it just pushes those out to the access points and the access points serve up all The wireless networks you decide to create I'm like that to me is easy That's why I like unify because if I didn't use unify I'm sure it would be more manual and have to like copy the config and SSH into the actual device or something like that It would be not quite as software driven where unify really has nailed that so I don't mind being commercial cuz I love unify All right. Yeah. Yeah. Yeah, I wish they would pay us but"
+    },
+    {
+      "start": 1204.3,
+      "end": 1251.02,
+      "speaker": "SPEAKER_01",
+      "text": "But yeah, so and then you know just to touch more in unify too and because I used to do a lot of home security Stuff myself. I ran blue iris. I've run frigate or frigate I've run like lots of different solutions and you know at the end of the day I was using a lot of these no -name cameras with weird firmware with weird accounts I couldn't delete from who knows where and so that's why I Really decided to get into unify security to for a long time unify protect for cameras It's because now I have these devices that are updated and managed by unify by a company I trust and I don't need to go and search for firmware and have all these weird local accounts and stuff like that So yeah a huge fan of basically all of their product lines haven't tried them all yet Still want to try out their secure access stuff. But do you have a doorbell yet or do you something different? I do have a"
+    },
+    {
+      "start": 1251.02,
+      "end": 1282,
+      "speaker": "SPEAKER_00",
+      "text": "doorbell and I realized they released the peewee one now and I'm Guess what? I just got I have a new home. So I just got the peewee switch or the peewee doorbell It's not installed yet though. So don't feel good or bad for me. It's on next Wednesday my network people I'm gonna have somebody else installed because I Have stucco in the front and it needs to be kind of dug out and I'm like, it's a new home I want them to do it I'll manage the connection to the peewee and I'll adopt it but they can do the install of the actual hardware itself So my home stays safe."
+    },
+    {
+      "start": 1282.62,
+      "end": 1358.96,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah huge fan of peewee I feel like they've raised new life into a technology that's been around for I don't know 20 30 years probably more I mean, is that right? Peewee's been around for a really long time. I mean even cat 5e was I think supporting peewee and yeah I mean people have powered things over ethernet for a really long time and I feel like It was just this untapped market that you know unify is now like hey, we're gonna power LED lights cameras Like everything phones, you know and other companies have done it too, you know They've powered phones and stuff like that But I feel like they're expanding their line of things they support with peewee and it's just so cool to see because you know I have a 48 port peewee switch in my basement I went 48 port all peewee because I want to power more things over peewee and then on top of that That's on battery backup So if my power goes out in my home I can still run my peewee switch for two hours and that will still power access points You know, I don't have phones Well, I got a test phone back there But cameras like all of the things that I plug into that unify switch will still be powered switches everything So having battery backup, you know and not having the battery backup individual things and worry about my security cameras It's so nice such a relief to know that. Hey, my switch is powering all these things in my home So if something happens, they're still gonna be online. Okay,"
+    },
+    {
+      "start": 1359.08,
+      "end": 1403.22,
+      "speaker": "SPEAKER_00",
+      "text": "so we love unify. Let's put that down They know that unify call either of us. Well, we'll gladly find ways to work with you And we'll potentially even bend over backwards to do it. So big big fan I've given them lots of money probably too much but it's good gear and I like it. Okay, so let's go from network Probably cat six if you can choose it cat 5e unless you have an older home That's you know, you just couldn't choose the wiring Cat six will let you do 10 gigabit, which most people don't really need but it's future -proofing So if you can why not right, it's right and cat 5e will to over short runs, but yeah, right It's less reliable, right? It's possible but just not reliable because of interference. That's right"
+    },
+    {
+      "start": 1403.22,
+      "end": 1463.97,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, and then the long run to the long run is really what diminishes the the speed I run 10 gigabit on six cat six easily in almost all cases The switches I always choose SFP plus because I want the interconnectivity between an aggregation switch or the actual switch I happen to have the rackmount 10 XG I believe is it's the 16 port with all the SPFs or SFPs and then like the four RJ 45s I have that because I had a lot of a lot more 10 gigabit transferring and now I'm like You know what? I guess way a little longer I don't even it's more about transfer than it is I need the actual speakers. Like I'm really the only power user in our home. Everyone else is convenience They don't even like know what I'm probably the same for you. They don't even know what you've really built for them Right, they just my kids are like that. This is amazing. I love it. They never say that right? They just watch the TV. That's just watch whatever they just have their iPad and do whatever They really have no clue that no matter where they go in the home. There is amazing Wi -Fi, right? No"
+    },
+    {
+      "start": 1463.97,
+      "end": 1471.37,
+      "speaker": "SPEAKER_01",
+      "text": "news is good news when it comes to networking because you know, if you don't hear anything that means everything's working You hear when things don't work,"
+    },
+    {
+      "start": 1471.79,
+      "end": 1576.87,
+      "speaker": "SPEAKER_00",
+      "text": "right? And so from there I think you got to establish some small machine like for me piehole is An absolute in my network stack like I've got unifies the network protect obviously with cameras Those are sort of a given so assuming you've got your network settled V lens. No V lens. It doesn't matter You've got an established network that's strong with Ethernet or Wi -Fi and then you've got to establish some jeans So you got an actual Raspberry Pi or potentially some other smaller form factor machine that can run some sort of Linux I like Docker in most cases. I haven't ventured into the Kubernetes world yet I think maybe I'm waiting for you to release a Zero to Kubernetes video and maybe then I'll actually go into that world because I'm quite intimidated by it Proxmox if you like virtualization, obviously I like to virtualize and really thanks to you for explaining Proxmox because You really preached this hypervisor and I never really thought about I mean, I understood Docker I can do Containers and stuff like that. I never really considered Virtualizing from one good solid machine and having my entire stack kind of live mostly on that machine So for me that's you know in a lot of cases Thanks to you for like treading those waters for me and like saying hey, it's safe over here Come on over here to the Proxmox world and virtualize your Ubuntu servers and you know do this or do that And so I haven't mimicked literally everything you've done but you've sort of given me a map, you know It's like almost like a gamer, right? It's like imagine the map is dark and until somebody ventures into that room and now it's lit up for the map It's your Tim has done that for me. So I appreciate that. Yeah, no problem. Yeah fog of war. I like it So for me, that's a piehole Virtualized Docker that's my stack. Well, I think I'm mirroring your staff. But what about you?"
+    },
+    {
+      "start": 1576.87,
+      "end": 1814.55,
+      "speaker": "SPEAKER_01",
+      "text": "No, I like it Yeah, that that's my stack too. So first I start with a machine a hypervisor And so if you're not familiar with hypervisor most people are but if you're not, you know It's just really a machine that you can run virtual machines inside of there are different types of hypervisors But for all intents and purposes run machines inside of machines, my choice has been Proxmox It's been for a long time, you know, I used to run hyper V which was a Microsoft product I've run ESXi at home, which is a VMware product None of those gave me the flexibility that I needed at home without buying expensive licenses And so Proxmox, you know was there it was open source and early and its development and it hit all of those things that I you Know I wanted a web -based hypervisor that was performant That's Linux based that's open source and has some enterprise features if I want them. And so it's it's Proxmox from there. I usually Virtualize everything so everything's virtualized I try to virtualize everything just because it makes management and backups a lot easier Piehole is definitely one piehole is I have gone a little overboard I have three piehole servers two of them are load balance behind a load balancer with Yeah with a software load balancer not important, but then I run I run containers. I'll say I run containers I used to do a ton of Docker so I run Portainer Which is a web UI for Docker which makes Docker very approachable for someone who doesn't know Docker Gives you a nice web UI and so I would run a lot of containers a lot of containers in there You know, you name it Plex piehole you name it Heimdall like a lot of dashboard stuff And then since I did a lot of kubernetes at work, I decided to do kubernetes at home I will say that it takes a lot It takes a lot to grok kubernetes to understand kubernetes and then to run it at home and maintain it So I don't recommend it for the average home user. It's definitely not approachable There are some things that make it a little more approachable like rancher and even Portainer But for the most part not approachable, you know because it's you know, it's made to be you know This huge state machine for running high availability applications And so you need lots of machines lots of hardware and lots of resources you could minimize all of that But at the end of the day, it's gonna take you know, mostly three machines Which is like out of the question for most people. So yeah, I containerize everything. I always try to containerize everything Mainly because you know, I want to run multiple containers on one machine. So Docker containers on one machine I don't want to have to worry about global dependencies or all of that stuff that you worry about if you have a virtual machine you think about it like You know back in the day. I used to install WordPress on a machine and then I would install you name it some other You know software on a machine because I wanted one machine to do everything Well, you know at the end of the day when you start doing that you might say for WordPress need PHP 8 and my sequel 7 and then you install something else on that machine which requires my sequel 8 and now you have these broken Dependencies and so that's where Docker comes in and it, you know kind of keeps all of those in little containers and silos So you can run multiple things without them affecting each other. But but yeah, it's uh, you know, everything's containerized I run a ton of stuff. I run a ton of stuff at home uptime Kuma I monitor and log all of my services. I have a lot of custom code that I wrote a lot of websites that I write I mean, I do a ton of node .js. I do a ton of Docker do a ton of typescript So I build and deploy I have CI running in my my home lab. I write code I push it to my CI it runs my test to build containers and then it puts them in Kubernetes It used to put them in Docker But yeah, now it puts them in Kubernetes and that's all at home And I you know, I learned how to do all of that kind of in my home lab So but yeah, it's a lot of services. I yeah, probably too many some of them are for testing But some of them have stood the test of time like pile. I absolutely love it"
+    },
+    {
+      "start": 1814.55,
+      "end": 1867.45,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, Powell's a given for me and then really it just helped me learn more about how to Look at network ports things like that obviously which continue to use because there's a couple different flavors of Pylaw I think you can use you can use like I think Linux service version of it potentially and then Pylaw's direct version of it They manage and deploy Do you think that you would be as? Deep or as many services as you run at home if you didn't have your YouTube channel Do you feel like it's cyclical where you obviously have a persona and you have a channel that you? You know like to share what you learn, but you also learn so that you can create content I don't know really what your content creator journey has been or like what really makes you do it Does the channel feed the beast basically they are you having to do these things or? Feeling like you have to do these things because you have this channel"
+    },
+    {
+      "start": 1867.45,
+      "end": 1918.11,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, it is it is cyclical in the fact that you know I'll create content that will go out into the world People might recommend something else or an alternative and I feel like oh, maybe I should look at this Or why didn't I consider this and you know then I'll look into that and you know maybe create some content from that But it definitely is I never feel like it's work I mean you know there, I'm not gonna say that it's all roses You know sometimes editing you know takes a lot of time and writing being creative on demand is something different And so that takes a lot of time and energy not used to that being a software engineer So that's tough, but the content itself is definitely fun Definitely learn like I I get a lot of my best ideas from people's comments, too Because people will recommend alternatives or say what they did you know for a particular case or say how they solved the problem"
+    },
+    {
+      "start": 1918.11,
+      "end": 1918.69,
+      "speaker": "SPEAKER_00",
+      "text": "or?"
+    },
+    {
+      "start": 1918.81,
+      "end": 2059.01,
+      "speaker": "SPEAKER_01",
+      "text": "Some software that they use mm -hmm and so a lot of times I find out about things in the comments on some of the videos I release but it is it is cyclical there are times when I have to chase topics and there are other times Where I'm putting something out because it's something I've been interested in I try to treat My youtube channel almost like a almost agile or like a software project. You know I have things I in the backlog I prioritize them as things become either more popular in the world or It's time has come you know I'll prioritize that story or that You know video and work on it for a while I was going after a lot of different like services you can self host which was totally fun I learned so much in the first like two years about about self hosting in general about Docker about Docker compose You know even about kubernetes. I learned so much by teaching this to other people You know sometimes I miss those days just going out there and figuring out What's the latest from Linux server dot IO because they have all the cool containers? And you know a standard way of writing your compose and standard properties environment variables But I used to window shop Linux server dot IO all the time and say you know oh could I run this at home? Do I need this you know and how would I use this right and for a long time? And I guess still is even the case most of the things that you ever see on my channel are things I'm doing or that I believe in or that I'm using I mean That's how I started my channel my channel was always what projects am I working on right now I still ask that same question on my twitch channel. It's been that way for years You know we all talk about what we're working on this weekend or things were excited about in tech or projects We're working on and so my channel has always been like what I did last week And it's still to this day what I did last week. It's a Really focusing on you know home and home tech and home lab projects really focusing on projects I really done and really do mm -hmm most of the time. It's not something that I'm Exploring it's things that I've already done, and I think they're awesome And I want to share them with people and so I I don't know if that makes me different than anyone else But that's something that I've always taken kind of seriously like all the things are put out or things I either run in my home or services that I run to this day"
+    },
+    {
+      "start": 2059.51,
+      "end": 2087.95,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah reason I ask that because you said you've got a CI in your home lab Which is an anomaly not everybody's gonna do that that is not I mean that's home lab because it's in your home Tim But it's not common for somebody's home lab And then to have that build and test which is what CI does and deploy it somewhere And you could deploy it to the cloud right, but you choose to deploy it to your own locally host High -availability three node Kubernetes cluster, which is totally cool, but that's not normal"
+    },
+    {
+      "start": 2088.89,
+      "end": 2089.37,
+      "speaker": "SPEAKER_01",
+      "text": "And"
+    },
+    {
+      "start": 2089.37,
+      "end": 2320.58,
+      "speaker": "SPEAKER_00",
+      "text": "so like the reason why you do that is because you probably have this channel and you're also a software developer And you're also curious so you're you kind of have to eat your own dog food or drink your own champagne whichever Flavor of that phrase you like to use because that's why you do it now that you've said why and how you use Kubernetes I'm probably never gonna go and use Kubernetes. I'll probably just stick to Proxmox virtualized servers and Docker and call it a day because you know there's an end to my means like the reason why I do home lab stuff isn't Necessarily so I can tinker like I do enjoy the tinker process and the curiosity, but I have other priorities I've got a family. I've got kids. You know my time with them to me is way more important than Upgrading firmware. I know you like to upgrade firmware Oh, yeah, everybody looks upgrade firmware when it makes sense But like I don't want to live and die by this upgrade or whatever so I'd rather Powerties other things around me so really my joy in home lab is making it so that I don't have to interact with as much You know do some of the upfront work and maybe dig for two weeks on a project and then for the most part be off You know like my Plex server Took me a while to learn I literally took the AV 15 which I'm pretty sure you're familiar with because you have one from 45 drives I took that and I removed the super micro board replaced it with a Asus z70 because I wanted to have ECC RAM. I wanted to run the Intel 13 900k CPU like I wanted to max it out and Just have a beefy server And I wanted to have as much storage that 15 drives could give me in that machine and so I'd never built a machine ever in my life ever like I'd never like I Took everything out and put everything in and obviously I had a test board for a bit It wasn't in the machine the whole time and it took me a while to I tried to Proxmox this thing I could not get virtualization to work I couldn't I couldn't pass through the HBA to and I just hit brick wall after brick wall I'm like you know what I'm gonna install a boon to Right I just went to straight this machine is not virtualized in any way It's just a boon to with docker machines on it essentially But I did all that upfront work, and I learned everything I needed to to get to that point and now It's just simply change directory into the Plex directory spin down that thing and spin it You know do a new pull spin it back up, and you know prune the images and keep my disk clean or whatever That's the extent of like my Plex server now that board and RAM and well the RAM probably isn't because ZFS isn't Ram hungry it uses RAM very well. I wanted to have a lot of RAM I wanted to have a lot of disk space I wanted to have I just wanted to build a beefy machine, so it's underutilized right now So I do have more plans for it. I have no idea how I would use it more I mean if I put a home assistant on there it's not gonna really ping this CPU the most IP in the CPU really is during data transfers or so because it's a It's a ZFS server for the most part pretty much. I'm just storing things there I might do some 70 stuff so like we actually have 7z is what I meant to say so we have You know these podcasts when they're done. They may be like four five seven gigs of Data in a directory. I'll take that and rather than like store that four or five six or seven gigs of data I'm seven seeing that directory down. It's usually about 40 to 50 percent compressed and so I'll keep that as a single file Which is so much easier to transfer than 50 or 60 files in a directory So that's the extent like the CPU gets pinged quite heavily during that algorithm that compression But that's about it You know but I learned a lot so I did all this upfront work to build this machine to learn how it should work and now it's in my stack and I never really have to touch it aside from like keeping Linux updated, which is I've got security patches automatically implied I mean, that's pretty much it. It's pretty much hands -free"
+    },
+    {
+      "start": 2320.58,
+      "end": 2393.62,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, that's a good thing You know I tell a lot of people a lot of times like a lot of people want to go You know huge and enterprise and make it things as complicated as possible. I'm guilty of that totally guilty I rely on automation to help me out with some of the complexity and logging and all of that But a lot of people want to go all out and make everything complex, and that's totally fine And then you have people who basically you know want to set it and forget it or not worry about it Or you know it's a means to an end. I appreciate all of that You know I tell people all the time like do what you want to do because at the end of the day You're the one that's going to be supporting it, and do you want to support it a lot? Do you want to support it a little and you know I always lean towards Keeping things as simple as possible a little different for me because yeah I'm you know I have a channel and stuff And I have to do all of this crazy stuff all the time to try to keep abreast on the professional side For DevOps, but I totally appreciate keeping things simple I mean, that's you know a large reason why I simplified by network simplified a lot of things is because that's not where I want to Spend my time when like you said you want to spend time some family kids and hobbies and work Do I want to spend my time? You know on a particular problem that I created for myself not a lot of times not a lot of times"
+    },
+    {
+      "start": 2393.62,
+      "end": 2484.9,
+      "speaker": "SPEAKER_00",
+      "text": "Well, there is Netflix there is Apple TV, and there's other things you can stream from I choose Plex because I just prefer Well, I mean if for some reason culture doesn't care for this movie anymore Netflix And stop serving it and now I no longer have access to it or just not having to like leverage the cloud so much like Just not having to like put that kind of pressure on the backbone of Humanity really at some point. It's gonna be a bigger deal Yeah, you know if I own these discs or if I don't mind owning these discs it also blocks out commercials for my kids It's there's there's all sorts of reasons why people choose to use Plex I also happen to be a home theater geek so in my home. I have 120 inch screen a laser projector THX speakers in the wall because I'm just crazy like that because I really appreciate movies and so for me It's like I don't want to change discs anymore I don't want to have to like keep a rack of blu -rays 4k blu -rays Whatever pick your flavor and have to go swap them out. I'd rather just give me a lossless version of it It's all my network that gets served wherever I want whether it's a Restaurant for my children because they want to do something while we're sitting there waiting for food or whatever Or we're on a trip or something like that. We also have a travel trailer RV So like we will stream Plex from our home in our RV You know like we don't have to take all those discs with us You know this there's so much so many reasons why people choose and that's what's important to me and my family Not everybody really cares about movies and access to their Media library I do and I built this beefy service so I can make sure I can do it anywhere. Yeah,"
+    },
+    {
+      "start": 2484.9,
+      "end": 2508.88,
+      "speaker": "SPEAKER_01",
+      "text": "that's fantastic I'm a huge fan of Plex too. I do a lot of over -the -air TV recording too That's I love this free resource, you know called OTA TV and it's it's great You know I have a network tuner and I figured out the whole antenna thing and filtering out noise and it's so great to be able to Record, you know over there TV and use the commercial skip on it, you know all from Plex It's it's so awesome."
+    },
+    {
+      "start": 2508.98,
+      "end": 2595.96,
+      "speaker": "SPEAKER_00",
+      "text": "And my only concern really for the future is like what if Plex isn't around anymore? What if Plex stops being Plex like what if their business model changes to the fact that they no longer? Really prioritize the local media like it is changing already like they have streaming in Plex now And I can see some of their priorities shifting I just hope they always keep these legacy features in the forefront of their long -term vision because like if Plex I'm sure you have jellyfish and maybe you'll have others. Maybe something will come out instead of Plex an alternative But Plex is just really good like their application. Their iOS app is amazing for me. I'm an iOS user Their Apple TV app is just phenomenal. It's on most smart TVs It's pretty much wherever you want to watch TV. And so my only concern really is one I don't really do much over the air. So that's less concern for me, but I'm concerned for you now so I'll add you to my list of concerns is What happens when there's no more discs to rip what happens when media it's only streamed right you can't literally buy The physical copy to watch whenever you choose to watch it in your DRM player, of course, you know Like that's still a thing what happens when that changes? I guess at that point Plex would become on the road to obsolete for me because I mostly care about my local media But then if that does happen then obviously Plex will change their priorities because well physical discs are just not a thing anymore Yeah, it's good. What do you think about"
+    },
+    {
+      "start": 2595.96,
+      "end": 2606.02,
+      "speaker": "SPEAKER_01",
+      "text": "it? Definitely is for sure, especially when streaming companies, you know I've heard stories of them, you know removing media that people have already purchased on that streaming platform"
+    },
+    {
+      "start": 2606.02,
+      "end": 2671.94,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, no media safe unless you have a physical copy It's like I don't know if you're into Bitcoin at all But like, you know not your keys not your wallet kind of situation like hey not your media Like just cuz you own the discs to you you still have a license to use the disc You don't actually own it, but you can you know, you have way more freedom than streamed You know because you can find a way to change where it's you know stored at I don't think ripping is a is against the law sharing. I'm not sharing my content with you You know, I'm not torrenting my media library. That's not at all. Why do any of that stuff? It's really for convenience for me and my family The experience of swapping out discs is like caveman, right? It's like trying to create fire with sticks It's why would you do that? Right? Like if you if you have home labs sophistication or curiosities? Why would you not find a way to run Plex? Why would you not find a way to have a small NAS and run ZFS? Of course not BTRFS or anything else because nothing else exists besides open ZFS. I don't know about you Tim. That's how I feel Okay, I'm just kidding I'm not I'm a hater I do prefer but I'm not a hater"
+    },
+    {
+      "start": 2671.94,
+      "end": 2715.94,
+      "speaker": "SPEAKER_01",
+      "text": "I know I know I hear it a lot You know, there are pros and cons to both once the FS implements, you know the resizing of pools I think it might be a less argument for or against, you know BTRF or butter FS, you know, cuz that's I don't want to say the one but that's a huge feature that BTRFS going for it butter FS is that you know, you can j -bot discs You can add storage just by adding another disc, you know, or resize the pool and reshuffle everything around Where's the FS you can't you got to grow your pool, you know in a certain way either double discs or depending on how? You divide it up. It's tough. It's tough. I've been there you know, I had to move my old ZFS pool was a certain size and When I got my I watched you swap out"
+    },
+    {
+      "start": 2715.94,
+      "end": 2727.64,
+      "speaker": "SPEAKER_00",
+      "text": "discs, I couldn't believe how you grew that pause like this guy's ballsy, man He's growing is I mean like I was watching now just like sweating with you I'm just like, oh my gosh is his data gonna be there when he's done."
+    },
+    {
+      "start": 2728.08,
+      "end": 2756.1,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, so it's tough so then that's one of the challenges with ZFS and so I'm You know, I'm all for just having some flexibility to because ZFS is pretty awesome. I love a software raid I love you know, all the integrity checks that it does I love how quickly you can snapshot and back it up at the same time. It's pretty rigid for home You know, I want to be able to go buy a disc one disc or maybe two and add it to my pool and expand My pool and so that's that's not there yet and some versions of ZFS"
+    },
+    {
+      "start": 2756.54,
+      "end": 2834.42,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah I talked to Matt Aaron's about that and I think that was a coming feature when we talked about I can't recall if it was like landed in certain versions or it was coming and Even then like it wouldn't really resilver the whole entire pool But sort of like it would still be unbalanced to some degree but in the realm of ZFS Like your data would all be in the same, you know vdev or whatever it might be But it was still not gonna like rebalance the whole disc array That's right, which you know, just may be a technical challenge that it will never overcome But the reason why I like ZFS is it's so easy to use It is pretty secure in terms of copy -on -write and all sorts of the reasons that it it's just a good file system Backing up like I have a backup system I had chatgpt write me some scripts that I run their bash scripts They helped me do some cool stuff that that just like I'm just like just back up and it just like we'll back it up To it, you know I can learn those things and I can write those commands every single time and I can up arrow to my nth degree and Rerun the command but like who wants to do that right like I'm not gonna do that I hear you so I had chatgpt write me some stuff my my pair programmer. That's right Okay, let's get back to the stack Let's uh, so ZFS is in my home lab stack You've chosen Ubuntu Ubuntu Ubuntu pick your way to say it. I think it's a boon to actually I've chosen Ubuntu I'm curious why you chose Ubuntu."
+    },
+    {
+      "start": 2835.02,
+      "end": 2945.5,
+      "speaker": "SPEAKER_01",
+      "text": "Where do I go? So I've used Ubuntu since I want to say 4 .10 which would mean April of 2010. I so long ago Yeah, tell me about it. And I think that's the first time I like heard about it Like yeah, you know, I was Windows. I still I'm a Windows fan. I'm against Windows. I use Windows Mac Linux I use them all for different things and back then it was all Windows I was all Windows and I just didn't have a lot of experience with Linux and I heard about it And so I you know, that was the first approachable Linux for me was Ubuntu. It had a desktop It kind of felt like Windows. So that was my first foray into Linux really and then from there, you know They had the server version so I could as I used Ubuntu desktop I could open up a terminal and kind of you know And play around with Linux and copy and paste these commands into there and you know do things that people were doing on Linux server So eventually I got to the point where I was like well I'll use Linux headless now and basically the server version to where I don't need the UI And so I got really familiar with Ubuntu in general or Debian I guess I should say but more so Ubuntu and you know, I learned their package manager I learned all of the stuff about it And so I just kept using it and then being in infrastructure and then being a software developer a lot of people supported Ubuntu LTS for a lot of their stuff whether it's MySQL MongoDB or anything You could always guarantee that any software package or service was going to run on the latest LTS of Ubuntu So since the tech community considered it so stable I just stuck with it I still do and you know, I've tinkered with all different versions. So I'm a huge fan I've been using it for a long time and then with Microsoft now having WSL and running Linux on Windows and having Ubuntu kind of running on Windows too It's super nice to be able to to use for me approachable and accessible"
+    },
+    {
+      "start": 2945.5,
+      "end": 2946.52,
+      "speaker": "SPEAKER_00",
+      "text": "Stable"
+    },
+    {
+      "start": 2946.52,
+      "end": 2952.58,
+      "speaker": "SPEAKER_01",
+      "text": "and supported that's what it boils down to Okay, and I think everyone has their flavor of Linux that they like or"
+    },
+    {
+      "start": 2952.58,
+      "end": 2962.84,
+      "speaker": "SPEAKER_00",
+      "text": "yeah You got distro hoppers or you got some sort of hating, you know, like why do you like this trip? So did you explore all the distros ever or did you sort of like just land it Ubuntu and just stay there?"
+    },
+    {
+      "start": 2963.18,
+      "end": 3045.38,
+      "speaker": "SPEAKER_01",
+      "text": "No, I distro hopped. I think once you get kind of bitten by the Linux bug, I think then you're like, okay Well, what else is out there? You know, is this the best one? Am I on the best one? What's everyone else using? So I used to go out to distro watch all the time all the time and say hey What's Mate, you know, Ubuntu Mate or what's Fedora all about or you know Red Hat or you name it and hop around and try things arch, you know And then I did that too for my Linux firewall, so I ran a Linux firewall for a long time I ran smooth wall IP cop Untangle you have sense. And so that was part of my routine too was I'm gonna distro hop with my Linux firewall So I got to distro watch see what the top, you know network distribution was and hop that way too. Mmm at work I used Mac or Windows and at home I use Linux so I found you know Every time I went to switch to another Linux I felt like I'm paying some debt to keep learning something else and to keep trying something else and at the end of the day You know running Linux at home for me was kind of a means to an end for some things And so I started to be a little more pragmatic and say I just need this to work and I needed to run Because at the end of the day, I'm you know, I need to get Docker containers running on here I need to get kubernetes on here. And so, you know if it works, it's stable. It's supported I had to put my you know Pragmatic hat on and say I just need this to work. And so"
+    },
+    {
+      "start": 3045.38,
+      "end": 3045.84,
+      "speaker": "SPEAKER_00",
+      "text": "yeah."
+    },
+    {
+      "start": 3046.44,
+      "end": 3049.84,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah the answer your question though I have just dropped a lot a lot less lately. Okay."
+    },
+    {
+      "start": 3050.26,
+      "end": 3086.72,
+      "speaker": "SPEAKER_00",
+      "text": "Okay, so you stabilized to Ubuntu That's right. And since version 4 since you 4 .10, so I think I was 12 .10 was the first version I installed and I think that was around 2015 2016 maybe something like that and the first place I installed Linux myself was on a digital ocean droplet and it was to run a wordpress server All right, did the firewall all that good stuff and that thing was stable and ran without being rebooted for years I mean like it was either digital oceans good job or my good job or the tutorials good job I don't know or Linux itself"
+    },
+    {
+      "start": 3086.79,
+      "end": 3087.75,
+      "speaker": "SPEAKER_01",
+      "text": "So"
+    },
+    {
+      "start": 3087.75,
+      "end": 3276.21,
+      "speaker": "SPEAKER_00",
+      "text": "I was a fan of Ubuntu for a while And so when it came to you know about a year or so ago when I kind of got back into Linux I never really got out of it, but I never really tinkered with it day to day But then I kind of got more into my home lab stuff and was more concerned with which flavor of Linux I was running and I wanted to try them all want to try Debbie and I want to try Red Hat on to try rocket want to try all the different ones But what made me come back to Ubuntu was one the reasons we should you say which is support and stability But then I just recognized that it was always better resource efficient always better CPU efficient and Phenomenally better on RAM like in comparison to most distros like I always kind of gauged it on like okay if I install Basic a boon to get Docker running on it and spin a pie hole. What are the resource utilization on that? Well, basically nothing on the CPU, of course, because it's not really a CPU intensive application anyways, but the RAM was like 300 megs Maybe you know while I had four gigs or so on a small machine in most cases for that It was just super ram efficient and you could just add more and more I believe that was even inside of Proxmox now that I'm thinking about it so it was like Proxmox then a boon to as the Obviously having a machine to run it on and then Docker and then the actual container itself It was sitting inside that container at 300 megs, but you know, I would run HTOP on on Proxmox itself It was the resource utilization was just like basically nothing You know so if you add more and more to that PF sense or Plex or something else like you just have a lot and in the home lab the things you really care about And I think you've helped me understand this more because you always talk about like kilowatt usage and you know How much watt something is I'm like, why does that even matter? And I'm like, oh, yeah the power bill so that's important But then like when you're tinkering you're just curious you just learning so you're like I don't care how many watts as things take does this work and does it serve my use and then you're like Oh, how can I now make it more efficient CPU RAM? Watts etc. And the point I'm trying to make I suppose is just like that You know you start to care about Heat you care about noise and you care about wattage in home lab and you care about reuse So can I reuse something and does it sound X does it power X? Okay. No Let me spend some money. You were recently doing a video on Your mobile home lab forbidden travel router plus plus ultimate home lab thingy. I didn't see it like you did I thought was hilarious The times you said on that on that episode, but I'm like I need that for my travel trailer RV I need a version of that and I thought about like building a unified network But that thing you built was just way better because it's everything in one single device and it's quiet and it's low powered So like, you know, you sort of think about you know as we sort of you know Go up and down this home lab stack. What matters I think is you know power obviously and noise and you know Does it create a lot of heat because if you're in a small environment or even a closet in most cases Are you generating a lot of heat that you got to somehow exhaust, you know, these are things you got to worry about So talk about the protect Lee talk about you know This mobile home lab forbidden travel router plus plus ultimate home lab thingy that you built"
+    },
+    {
+      "start": 3276.85,
+      "end": 3287.01,
+      "speaker": "SPEAKER_01",
+      "text": "You nailed it. Yeah So I've had this idea for a while like every time I travel I bring devices with me I think a lot of people in tech do I almost"
+    },
+    {
+      "start": 3287.01,
+      "end": 3295.95,
+      "speaker": "SPEAKER_00",
+      "text": "never I would just bring a hotspot I'm the opposite. I would want to bring a lot of stuff I just didn't have anything to bring so I just bring my hotspot and hope hope for the best. Yeah,"
+    },
+    {
+      "start": 3295.97,
+      "end": 3525.97,
+      "speaker": "SPEAKER_01",
+      "text": "that's true But I guess I would I was bringing a lot of things that needed to connect to another Network and you know off the top of my head everything, you know a laptop but no it was a laptop a phone, you know tablet maybe a gaming device maybe Whatever and so those things grew and then if my wife traveled with me It was that times too. And so, you know, I always felt weird about like hey, we just got an Airbnb We're just gonna connect all our devices to their Airbnb. Like yeah, well 100 % trust this thing trust them Yeah, let's just trust them You know and I always felt weird about it and I was like there's got to be something better like I don't trust this and so for a while would bring like a little Raspberry Pi and I would plug it in and Broadcast the network. It didn't do the greatest but it did exactly what I wanted to do It's like this travel aversion of a network firewall that only our devices got Connected to if I wanted it could VPN back home and then get all the protection I wanted or if I wanted I'd run pie hole on it And so the the pie did kind of okay at that it did okay at that for a lot of different reasons Then I started looking at okay Well, I need something a little bit more powerful than a pie like yeah, I won't get too technical But you know, I need something that does AES encryption AES and I doesn't exist on ARM CPUs or at least You know the pie and it does on x86 processors So that's when I started looking for a small low power quiet devices that I could bring with me, you know small I'm talking about the size of you know, a phone a large phone and that's when I came across these protectively devices And then I started thinking okay, what are the things that I want to you know, take with me and it was it was that Same thing it was like hey, let's build a firewall So that I can connect only my devices to it Let's add an access point to this so that I don't have to connect to their access point I'll connect to this devices access point and they can uplink to their their router and Then you know at let's add pie hole to it because I want the same protection I have at home You know, why have everyone tracked me as soon as I walk out the door, you know, that's right And then I realize hey like prox mox is a great fit for this like these little devices I mean, there are a lot of them but this protectively device at the end of the day It's an Intel CPU that supports virtualization So I was like, well, why not just put prox mox on this and do exactly what I do at home Except for add an access point to it. And so that's kind of what I did and it works great. It's super complicated It is fun. But yeah, it's great for like if you're gonna travel somewhere I'd say for a week or more or or like your RV perfect for that Because it's something you could set up you could have everyone connect to and you can be sure that everyone's connected and safe also, you know I can run Plex on it and Because it has quick sync on that Intel CPU because it has an Intel Desktop class processor with an Intel iris it can do transcoding their local, too So, I mean obviously most people are gonna connect back home for Plex But I think if like you're on the actual road trip like road tripping, you know And all your kids want to connect to a device and you don't want to use data You could easily serve that out locally through that machine, too So there's just so many possibilities and you know, every time I traveled I thought there's got to be a better way And then you know network Chuck did something similar and I was like awesome this kind of ties together One piece that I was missing, you know, I was just like yeah noodling on this idea for a while And eventually it kind of came together But I think Proxmox made it so much easier than it was without Proxmox now There are tiny little travel routers to that You know, I'm gonna look into at some point, but it's super nice to be able to bring some things with you You know and to be able to tinker and to spin up stuff local services, whatever I want, you know Well,"
+    },
+    {
+      "start": 3526.03,
+      "end": 3665.17,
+      "speaker": "SPEAKER_00",
+      "text": "I like about it is that it can run Plex and I don't always want to phone home for Plex because the network isn't always There really, you know And so if I can actually have one like the reasons why I like it is for all the reasons you've said It can be the router for all the devices that I trust I can connect to LTE or a hardline to the local network if there is one available if it's an Airbnb or This you know RV place happens to support that sometimes they'll give you a router that connects to their network Which you can then run an Ethernet port out of to something else So you can still be you know their device but then protect yourself from there But the fact that I can run Plex and just run a mobile version of my Plex So that doesn't have to be my main version of it I can just pull over, you know, the kids directory for example Which is you know, they have their own directory all the stuff that the kids can watch is in the kids directory I can just clone that to this device now obviously if it's too big and it's 10 terabytes or whatever the number might be maybe I'm then choosy or It's a selection process but I can always take a mobile version of my Plex essentially, you know I wanted it for all the reasons. It's low power Intel CPU Virtualization can run Proxmox. So thank you for doing all the hard work Tim and then the relationship. I'm sure because they finding Hardware manufacturers that support open source the way that particularly seems to based upon what you've shared about them You know It's kind of hard if it weren't for folks like you and I think just YouTube in general or like content creators Either being approached by these brands or being curious and having these needs and be like, you know There's got to be a better way if it weren't for folks like you going and doing all that digging then people like me would not be able to just a piggyback off all your work and just you know, cuz I'm gonna go and figure out how to do that for myself cuz my idea was okay, I'm gonna get the that small square USG a PoE thing with a PoE access point like I was gonna do a small Version of a unified network and like that thing basically is all that in one plus it can run Plex Yeah, and also have I think it supports SATA SSDs I can you know, maybe doing an 8 gig or maybe I can plug in I think there's some USB port or something like that too. Maybe I can have an external device. That's just for the storage I don't know. I haven't thought that far cuz I've only recently just watched your video But that to me is like that's the better way to do it Yeah,"
+    },
+    {
+      "start": 3665.21,
+      "end": 3678.11,
+      "speaker": "SPEAKER_01",
+      "text": "it's tough because I thought the same thing like is there a you know a mini, you know Unify thing I can bring with me that auto connects me back home, you know, and I don't think that exists yet Or who knows they're"
+    },
+    {
+      "start": 3678.11,
+      "end": 3678.65,
+      "speaker": "SPEAKER_00",
+      "text": "listening. They'll"
+    },
+    {
+      "start": 3678.65,
+      "end": 3679.11,
+      "speaker": "SPEAKER_01",
+      "text": "make it"
+    },
+    {
+      "start": 3679.11,
+      "end": 3689.39,
+      "speaker": "SPEAKER_00",
+      "text": "after Really? Okay. Listen, they've really promoted unified the beginning and now they're there. They're not doing it anymore. They're building particularly stuff We've got a we've got to find a way they're"
+    },
+    {
+      "start": 3689.39,
+      "end": 3730.53,
+      "speaker": "SPEAKER_01",
+      "text": "gonna listen Thank you for calling that out about me doing research and making relationships with you know companies cuz that's kind of what it is You know and that's another tough part about content creation, you know, a lot of people think like oh They're just saying this because you know You're getting paid and it's like no I believe in this product and I either they approach me or I approach them but at the end of the day like I you know, I believe in this product and I want it to succeed and yes protect Lee Definitely has leaned into open source a ton. If you look at their documentation They have everything you can in possibly install on that device between open WRT Proxmox. You name it? They've done a ton of documentation on it and pretty cool device too."
+    },
+    {
+      "start": 3730.81,
+      "end": 3862.93,
+      "speaker": "SPEAKER_00",
+      "text": "I didn't know that existed the open WRT I didn't know it existed I didn't know I mean you're helping me discover these new things that are already out there and open source is just so bigly we've Been covering open source on the change log for I mean basically after the one year after GitHub's birth It was like maybe six months or so, you know, we just saw the trend of open source, you know moving faster And the name of the show became really because I was watching Open source change so often. I'm like, well, there's nobody talking about what happened between this version and this version Like nobody's reading the change log, right? And so then the show became called the change log because we were Chronicling, you know open source changing via our blog We had a blog back in the day that became our newsletter and newsfeed and then now just our news show We have a new show on on Mondays. It's a newsletter and a podcast in one. It's about eight or nine minutes It's a must listen basically if you want the top stories for that week and then the newsletter obviously gives you more details we have an email called change all nightly that literally comes out daily or technically nightly and Shows the trends on github repository wise sadly, there's so much github spam now that it's made that newsletter kind of suck a little bit and it's so hard to sort of Prune it and it leverages Google's BigQuery and some of it's out of our control. So all we can really do is filter We can't really change the queries much. But yeah, I mean the power of open source is amazing But I had no idea about open WRT and how you can leverage it So like, you know, really thank you for like being what I call in the trenches like you're in the you're a content creator But I think you're this person who's curious and you probably have these challenges and you're like what device is out there work okay, either they called you or you called them, but there's some sort of like Discovery process and then there's a software discovery process and then there's like well Actually this thing makes sense to run Proxmox. So like will it actually virtualize? Well, cuz sometimes you'll support I you know, IOMMU and maybe you can virtualize some things Like I think you had an issue with a via driver something like that with Windows like there's always Something finicky even though it's supported. There's always something and so it requires that You know, sometimes that person to go ahead of everybody else and sort of like recon Okay, the path is safe. Come on, you know come this way"
+    },
+    {
+      "start": 3863.41,
+      "end": 3898.51,
+      "speaker": "SPEAKER_01",
+      "text": "Totally a canary sometimes I feel like in a coal mine, but It's tough and I'm glad you recognize that. Yeah, because you know, you know, it starts with an idea sometimes But there's so much I realize for tech YouTube to at least for my what I am doing for tech YouTube It's there's a lot that goes into it Not only you know the writing the thumbnails the things you guys see but just yeah a lot of these are projects that I have To test ahead of time and usually I test them two or three times Because I don't want surprises as I'm recording so it's yeah a lot of work goes into it, but it's fun I I'd learn a ton and it's fun to share that stuff, too"
+    },
+    {
+      "start": 3898.51,
+      "end": 3940.07,
+      "speaker": "SPEAKER_00",
+      "text": "Can we since we're kind of on the subject and we're probably getting close to time Can we kind of talk about the business of being a youtuber to some degree? Do you mind? Yeah. No sure Is that an open subject for you? Yeah, so I noticed recently and because you mentioned protect Lee in this relationship I've noticed and I don't know if enough I noticed it You know before but I've noticed this phrase in the top left corner of some of your videos not all of them includes paid promotion, and I think you have to do something when you publish your video because there is some relationship and you have to be forthcoming with YouTube the platform about the dealings of business behind the scenes How does that work for you? Do you have dedicated sponsors? What is the business side of your your channel like how does it work for you"
+    },
+    {
+      "start": 3940.07,
+      "end": 3953.35,
+      "speaker": "SPEAKER_01",
+      "text": "good question? I feel like this was the question I was hoping for Because okay, there's so well I mean there a lot of people are always trying to figure out like is this person being genuine or is this person being paid? To say this"
+    },
+    {
+      "start": 3953.35,
+      "end": 3986.19,
+      "speaker": "SPEAKER_00",
+      "text": "you've always seemed genuine to me. Well, thank you It's either the way you talk which I think you have a unique way of delivering You have a pace with your with your voice either It's on purpose or just natural but you've always seemed without having to say so like Like you've gone on a journey and you're telling us the tale of the journey and why it made sense for you to go on So you've always seemed very trustworthy to me in terms of like, you know being truthful and you know honest with your dealings It's never felt like you had to over explain It just seemed the way you approach the topic and the subject matter just seemed naturally trustworthy to me personally."
+    },
+    {
+      "start": 3986.51,
+      "end": 3998.85,
+      "speaker": "SPEAKER_01",
+      "text": "Thank you Well, I really appreciate that. I sometimes I get bogged down by the comments, you know, it's one comment That's like he's just getting paid to say this and I shouldn't read the comments, but I do I can't don't read those comments Yeah, I know I can't help it though"
+    },
+    {
+      "start": 3998.85,
+      "end": 4003.43,
+      "speaker": "SPEAKER_00",
+      "text": "Well, every time you see that comment just imagine me going not true. All right, Tim, I believe in you."
+    },
+    {
+      "start": 4003.75,
+      "end": 4029.13,
+      "speaker": "SPEAKER_01",
+      "text": "All right. Thank you I appreciate it So let me explain this the best way I can without I'm not I'm not a lawyer or anything like that But YouTube has this checkbox. So when I create content YouTube has this checkbox and this checkbox says check this checkbox I'm paraphrasing if you received anything of value to create this video or Receive money so they kind of lumped them both into one. Mm -hmm"
+    },
+    {
+      "start": 4029.13,
+      "end": 4177.81,
+      "speaker": "SPEAKER_01",
+      "text": "and me. I'm like, I'm a rule follower I'm a rule follower. And so I read into a deeply and I think well, you know on my latest video rack Studs sent me a free pack of rack studs. They didn't pay me didn't say anything They just said I want you to have them use them in your videos. And so to me, I'm like, okay I'm posting this video. I received one thing for free in this video. I should probably check the checkbox So anyways, long story short that's up for almost every single one of my videos because one thing in my video was usually sent To me for free that I used so full disclosure. I tried to disclose that too in the video, too but there are times when you know I paid sponsors who want to sponsor the video or a Segment in the video and I'm pretty clear about that too And I usually have a segment in my in my videos It says like hey this video was sponsored by so -and -so and you know I'm very picky on who I work with them been fortunate enough to do that But I you know work with some really awesome brands and so I'm sticking with them but the business of YouTube, it's tough It's tough, you know, it's trying to balance this Well one it's it's being able to get paid for what you're doing that that is tough You have to have an audience that trust you, you know And then YouTube has a rev share with ads which isn't much and then there are brand deals and sponsorships Where brands can sponsor your videos for however much you charge for a segment on your video You know, it's done. Okay, like I'm a software engineer. So I in general I earn a pretty good wage recently that's changed I've been doing half and half kind of sort of been fortunate enough to dial back some of my software engineering stuff and contracts and do more of YouTube to try to give this a You know a shot to see if this is something I want to do for the next six months But I will say it's a it's a huge pay cut But at the same time I'm doing you know, three of five days. I'm doing exactly what I want to do It's trying to make a business out of YouTube and figuring out what that means don't have a lot of mentorship I actually have zero. I don't have anyone to talk to bummer. It doesn't seem like that from the outside. Oh, thanks But honestly, it's don't get me wrong. I've talked to other youtubers, but it never gets into like what's your business model? How do you charge like what do you you know, how do you make money outside of YouTube? It's been all this like trying to figure it out for myself, which is totally fine But at the end of the day like I have to figure out if this works for me Anyways, it's not meant to be a sob story. But what's"
+    },
+    {
+      "start": 4177.81,
+      "end": 4377.89,
+      "speaker": "SPEAKER_00",
+      "text": "the journey right? It's the journey that you're going on You're like, how do I and I think I understand if I'm reading between the lines and also having gone down I'm not on the YouTube path. We've been on Podcasting primarily. I feel like audio is the best type of content like video does I mean, I suppose I couldn't imagine you audibly talking about the things you talk about because you need a visual to it So there's some things that just don't fit the podcast method so to speak But we've chosen podcasts first audio podcast first and then video being a second -class citizen in all of our production but I can empathize because you're towing that line of like I want my listeners and The people I'm trying to cultivate as an audience the people I genuinely care about because I am one of them So in a lot of ways of what I produce is a mirror of what they desire in life Or what they're curious about and they don't know about it yet And I'm on this discovery path that we've talked about with you and you want to stay genuine to that But in order to do that, you know, you do have to make money. So I mean there there is a relationship that comes there so it's like well, how do I capitalize from a business and revenue perspective without You know squandering or just basically Removing that trust that they've given me because you want to tow that line And the only way I've been able to find out how to do that is just choose The brands that like you had said that you trust that you believe in that you would yourself Use if you had that problem in our case is a little bit different because we don't always have the problem every brand approaches us with Tail scale is a good example. I use tail scale. They're one of our sponsors. I chose tail scale because I like them I use them. I'm like, hey, I would love it If you all sponsored a podcast if you have any budget I'd love to talk about how these things work for us and those for us are super clear You can tell where there's an ad spot I just mentioned tail scale. They didn't pay me to do that. That's because I use them, you know, that's genuine and so you do have that blend and it's unfortunate for you because like you Yeah, it's kind of crazy. They lump both of those into one but you have that struggle of like I want my audience to trust me. I want them to know that when I've mentioned protect Lee or Raxus, I believe or what was the other the rack you just talked about today? Yeah, it's just racks. It's just racks I had it backwards. Did you buy that? Do you own that? Would you buy that if you had to buy it? Did they give it to you like all these questions come into play Like I personally had that question when I watched that I'm like, well Tim you have a big version of that Why in the world do you need a second small version of that Tim? Like what story you're not sharing here, you know And it's not that I'm thinking you're dishonest. It's just more like I know you're a you have to create a business around this But then you're like, well, did they give him this one and now he just cares that much And this is a small version of the big version, you know, what's the story here? It's so challenging to be Forthcoming with every detail without giving too much TMI and then also Just bloating your content with all the explanatory of explaining why people should trust you So for us, I always feel like every time I get a chance In a podcast naturally to mention how we deal with sponsors just daily we choose to work with them We don't just take money from anybody and it's because we truly trust and think that business is worth promoting because you Should know about this you should know about their brand story You should know more about the details and that's how we choose them. So I don't always preface every single ad with Here's how we're getting paid. Here's the business dealings. And by the way, here's the details about the business itself It's a challenge. So I empathize to the nth degree with the challenge."
+    },
+    {
+      "start": 4378.07,
+      "end": 4482.23,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. Thank you Yeah, I mean you hit the nail on the head, you know a lot of people wonder Yeah, every video I release, you know, and maybe it's just me like reading into stuff, but it's it's tough, you know it's like do I want to spend like 45 seconds in the beginning disclosing exactly how this product came to my house, you know, and I'm sure some people would be interested in that but other people may not be plus like the algorithm I mean I have to deal with the algorithm on YouTube too. So it's like that's tough, too You know YouTube analyzes everything you say and all the engagement with your stuff. Is that right? They're analyzing your words, too Oh, yeah, everything everything plays into you like you you could put a video out on YouTube with no title whatsoever and YouTube Everybody knows who your audience is and who's gonna click on it I mean, they'll analyze the thumbnail too. But how much time do I want to spend talking about how I got this item? Well, if I do that in the first 30 seconds, people are gonna click away. So that's gonna drop off So it's like okay, you know The first 30 seconds to your video is to captivate the audience not to talk about all your prerequisites and stuff like that It's it's tough. It's tough. So I you know, if you see that checkbox, it's most of the time it means that I received at least one thing for free in this video to make the video because That's the FTC saying they have to do it, too That's Google basically saying hey we have to do this for the FTC and so so I have to check that checkbox if I received one thing for free and Like I've heard a lot of people say like oh, well, they didn't give it to me for free it my money It cost time and so I'm this technically isn't for free and I don't want to play the game I'm just gonna check the checkbox almost every time Yeah If something in my video was free Then I'm gonna check the checkbox because I never want the FTC or Google coming after me for not doing it Have"
+    },
+    {
+      "start": 4482.23,
+      "end": 4554.37,
+      "speaker": "SPEAKER_00",
+      "text": "you considered doing a video that explains the phrase they put up there includes pay -per -motion like almost just do a whole standalone video That's just says it's the title is includes pay -per -motion. This is how it works for me I like it because you're gonna see this on almost every video and here's why and His is this is the path that things come to me. Sometimes I reach out to them Sometimes they reach out to me sometimes they just send things to me and I don't even know it's coming, you know Whatever the methodology is and this is you know, when you see that thing up there because I can't avoid it. I'm forthcoming I'm a genuine person I play by the rules all the reasons you just basically stated when you see that This is how my business here on YouTube kind of works so that when you see that this is how you can trust what I care about and why things end up on my video the Rack studs I bought mine. They didn't send me any and I heard about them from Tom Lawrence and I like them. I think they're pretty awesome. I like I didn't see the one you once you just mentioned before I think those are brand new kind of cool They don't hold a ton of weight so you can't I mean I think you put your UPS on it and it was a lighter version minus 75 pounds So it would not hold mine, but if it did it would stress test it and maybe break it But you know it those racks. Those are pretty cool. I like them. They"
+    },
+    {
+      "start": 4554.37,
+      "end": 4615.87,
+      "speaker": "SPEAKER_01",
+      "text": "are cool. They are super cool I'm not gonna lie. I was a little skeptical about them like you know I thought well cage nuts aren't that hard to use You know and they're plethora. They're everywhere. There's no shortage. Yeah, I like the stain that I had stainless steel ones and I was like yeah, they're pretty cool and shiny and Never have using them seeing on them on other channels. I thought well I think cage nuts are fine. You know and then as I'm this is exactly how I happen I'm working on this video for this new rack The I think it's the owner for rack studs reach out said hey, I watch a ton of your videos Give me your address. I want to send you some you know rack studs Do I said sure why not and then I decided to use them for this and I'm a believer in them now It's super nice to be able to just I don't know the 1u ones are awesome because you just clip them in and then you Could put your device there and screw them in but I also had to use the other ones, too And I was surprised at how much weight they can hold I'm surprised at how much weight and how steady they are I will say like if you ever put a screwdriver to him put it to it gently"
+    },
+    {
+      "start": 4615.87,
+      "end": 4630.11,
+      "speaker": "SPEAKER_00",
+      "text": "yeah I've only done it to get them off cuz like I would hand tighten them too tight And I've only had to use a screwdriver to get them off It's never to been to like I would just only hand tighten cuz it's plastic miss nylon of some sort I'm sure, but it's not metal. You know"
+    },
+    {
+      "start": 4630.11,
+      "end": 4644.89,
+      "speaker": "SPEAKER_01",
+      "text": "yeah. Yeah, they are pretty amazing and what they do So the 22 pound UPS is as far as I've taken it and this is a tiny little rack that I have behind me It's basically gonna. It's gonna house a couple of things that I have coming up basically studio stuff That's gonna be a rack mounted"
+    },
+    {
+      "start": 4644.89,
+      "end": 4677.49,
+      "speaker": "SPEAKER_00",
+      "text": "right so you have like that I don't know the map your house I think you have a basement, and I think your main rack is in your basement cuz that's what you've said That's right very colorful rack. You know, but you have a large I think a 32 you rack, which is that's a lot of stuff I mean, let's say I think the the 45 drives is probably for you You know so you've got what 28 to go from there, maybe you've got a few switches So maybe you've got down to 26 I mean you're not filling the whole thing are you the whole 32 you rack you got a little bit space level Maybe like four or five years something like that"
+    },
+    {
+      "start": 4677.49,
+      "end": 4691.99,
+      "speaker": "SPEAKER_01",
+      "text": "yeah I do and I have a disk shelf in there that I'm selling now, and so yeah things have evolved over time And I have some one -use servers in there. I even have an Intel neck not cluster in there So yeah things things have definitely evolved. It's not what are you using that for my Intel not cluster"
+    },
+    {
+      "start": 4691.99,
+      "end": 4692.97,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, is that"
+    },
+    {
+      "start": 4692.97,
+      "end": 4695.59,
+      "speaker": "SPEAKER_00",
+      "text": "your kubernetes cluster then that you're deploying to or is that something else"
+    },
+    {
+      "start": 4695.59,
+      "end": 4843.95,
+      "speaker": "SPEAKER_01",
+      "text": "it was so for a while It was for testing my kubernetes, so I built this thing in Ansible That's open source that helps you deploy a high availability kubernetes cluster, and that was my testbed for a long time Funny you mentioned power and heat and all this stuff. We were just talking about well. We're in a heat wave here in Minnesota I mean, it's really hot I mean we're talking is like 95 yesterday 94 today And I've been running these one -use servers in my basement in my server rack for a while and They get hot they're allowed and they use a lot of power, and I'll say you know I'll preface it with they're pretty efficient I mean they're pulling 140 watts each which is pretty efficient compared to if you look at other things are two three hundred watts a piece So they're already pretty efficient, but I thought you know what I wonder if I can run prox mocks on this Intel knock cluster and replace one -to -one replace one one -use server running six to nine virtual machines and move and migrate all of those virtual machines to one Intel knock and so I did it and I did this and Want to say I don't know a couple days ago. I was posting it on Twitter basically my Almost live tweets and what I found was I was able to migrate all of those virtual machines to an Intel knock And run them all there and shut down my one -use server, and I went from 140 watts to only 26 watts and Running the same exact workload, and then so I was like okay that worked out pretty well like it was like a non -event So then I was like oh, let's migrate the other one I migrated the other one nine virtual machines to another Intel knock and It's running same thing you know saved. I don't know around 100 watts there, and so then I was like okay well I'm gonna shut down my one -use servers, and I'll just maybe Monday I'll need them again, so I'll keeping on standby. Well. It is now Wednesday and I haven't needed to turn my one -use back on so I think very cool Yeah, so I'm running prox mocks on to Intel next you know it has one terabyte MBME and 500 gig SSD for the OS all my virtual machines are running in there 64 gigs of RAM You know I was able to save a ton of power and on top of that things I didn't realize I'm also not Using my AC or fans as much too because now the temperature in my server room dropped by almost 10 degrees what so then my Fans are on less so then my AC's unless that's"
+    },
+    {
+      "start": 4843.95,
+      "end": 4881.9,
+      "speaker": "SPEAKER_00",
+      "text": "insane so to when you servers was generating 10 degrees. That's That's a lot Wow yeah Have you done the math on what that equates to like kilowatts per month like I mean you pay your power bill And I'm like man like my power bill goes up, and we've had the AC is the main user of that and there's even ways you can cool down your your coils and stuff like that because I live in Texas okay, so it's always like it's common to be well It's same temperature as you Tim 95 degrees outside, so there you go different parts of the world, but same temperature Yeah, but yeah Have you calculated what that hundred watts or 120 watts? Equates to for the full month when you run that how much you'll save or what the difference is kilowatts per hour"
+    },
+    {
+      "start": 4881.9,
+      "end": 4890.62,
+      "speaker": "SPEAKER_01",
+      "text": "No, I haven't so it's a total of 200 watts that I save total running 24 -7. I haven't calculated it out I should probably won't"
+    },
+    {
+      "start": 4890.62,
+      "end": 4961.8,
+      "speaker": "SPEAKER_00",
+      "text": "does that be kind of cool. Oh, yeah for sure like I said before I never really thought about I mean obviously I pay my power bill, so I think about power consumption But I never really considered okay as I'm being curious with home lab things and as I choose this device You know the protect Lee stuff is low power Fanless even you know and so it's got that Great or whatever you call it on top to sort of dissipate the heat and whatnot you don't think about The consumption and then really how that you know effects like what if all the youtubers in Minnesota did what you did Tim? You know I'm just kidding. There's probably not many of you up there, but but what if everybody considered? How can I shave off? You know a 200 watts of consumption? 24 -7 that might reduce the stress on the power grid I mean these are all you know utilities You flip a switch the lights come on you expect that like what happens whenever we stress the system to the point during You know insane heat waves, or you know peak times and winters or summers whenever it's too cold or too hot You know what if we all like consider a little bit that power consumption in particular like 200 watts is a lot and 10 degrees in one room changed by turning off two devices is Significant"
+    },
+    {
+      "start": 4961.8,
+      "end": 4986.12,
+      "speaker": "SPEAKER_01",
+      "text": "it is and so yeah it had this compounding effect of less power Which you know those servers then generated less heat and so I have an enclosed server You know that enclosed server rack and as a temperature control unit so as the heat would you know get past? I think 87 degrees it would kick on those fans, and so now that whole thing is no longer happening It's all being passively cooled well passively from the rest of my house, but"
+    },
+    {
+      "start": 4986.12,
+      "end": 4986.52,
+      "speaker": "SPEAKER_00",
+      "text": "yeah,"
+    },
+    {
+      "start": 4986.6,
+      "end": 5011.81,
+      "speaker": "SPEAKER_01",
+      "text": "yeah, it's crazy to think about it Um you know I think about it more and more you know when I first got into home lab I thought I needed this huge gigantic server, and it turns out very few things need a lot of compute Like you mentioned earlier, it's gonna be compressing or compiling or Transcoding other than that most things run pretty okay on low wattage processors, so mm -hmm Yes, yes"
+    },
+    {
+      "start": 5011.81,
+      "end": 5072.73,
+      "speaker": "SPEAKER_00",
+      "text": "Well, I think we're getting close to the length of we're beyond what I thought would actually go in terms of timing the only question I had left for you And I think you may want to answer this because you said that you wanted to talk about the other topic which was the business Of YouTube what are your plans for the future? I mean you do a great job with your content I appreciate the journeys you take to create the content you do because in a lot of ways you You're the recon you know you're the recon team, and I'm the follow -up team. You know I'm just watching what you do and some things. I just learned from like the pie KVM I don't really leverage that really much I don't have a lot of headless things where I got to deal with that I SSH into most things I need to so I don't need a visual for almost anything really Unless I have to and maybe then I'll go back and watch it Maybe implement a pie KVM or something like that Proxmox you've helped me get into that Obviously considering low power consumption, but things like that so what are the features for you in terms of like the business of YouTube? Do you plan to grow a team? Do you have an editor? Will you will you build an empire? Will you be you know the next Linus? What's gonna happen? What do you want to do? What's what would be ideal for you?"
+    },
+    {
+      "start": 5073.25,
+      "end": 5174.83,
+      "speaker": "SPEAKER_01",
+      "text": "Oh that is a great question. I feel like I'm at those crossroads right now So you know the last couple of weeks. I decided to focus more on YouTube I've had a full -time job outside of YouTube as a software engineer at a small startup for a long time and since then I've Put less time in software engineering and more time in YouTube, and so I'm I'm honestly trying to still find my way I would love to find an editor at some point only because editing takes a lot of time I would love help with script writing sometime everything I talk about it are my own words Which I always want my YouTube to be my own words But it could use a little finesse sometimes, or it could use a little bit of help sometime with some of my ideas I'm okay with it being a one -person show right now It's taught me a lot about how to write How to produce how to edit how to do audio all of these things I didn't know about before how to teach I don't want to say I've taught, but I've you know I've mentored people and at work and Outside of work and teaching people through video through instructional material is a lot different You know zero feedback You know the feedback is after the fact and so it's taught me a lot how to teach And so I think this next six months are really just gonna be focusing on like you mentioned the business of YouTube I don't necessarily want to grow an empire I mean I would love to have some help at some point But I I want to keep it authentic to me and just be able to make this a sustainable business for myself to be able To support you know my family doing this and support you know doing what I love and that's you know Combining tech in learning and teaching too and exposing people to new things So yeah, if there's a if there's an audience out there for that. I would just like to capture more of that"
+    },
+    {
+      "start": 5174.83,
+      "end": 5383.39,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, well in terms of feedback since I am a a watcher slash listener I don't know what the heck they call it by person who watches somebody's YouTube videos a consumer or whatever Subscriber maybe subscriber Well for a while that I think I didn't even subscribe the algorithm Just would feed me your stuff or other people's stuff even you know so like you would Be a watcher of somebody's and not really recognize that you're not a subscriber Which does impact your you know how the algorithm treats your content? And there's all sorts of things that play into that, but in terms of you know some direct feedback on your writing I think you do a great job I think the way you open up your videos you ask a question I think that I don't know if it's intentional fully or how much you you know sort of like go back and Re -examine the words you've written to script write your processes. I think your approach to it is Really good your pace is good. Your writing is good. So whenever you consider bringing somebody on for that I would still do what you can to be the kind of primary writer and Not leverage too much from somebody else because I think your style is good already. Thank you I do understand the burden that puts on you because now you've got to be cognitively available for every piece of the process of building the thing like you'd mentioned before in the Battle is releasing the thing and being there for the distribution process and the questions that come from there and the attention that comes from That and I totally get that We have a saying around here three things actually so the kind of three pillars that kind of guide us Keep the main thing the main thing slow and steady wins and if you feel like you're going too fast Slow down and check yourself, so whatever pace you feel is your pace just because you say slow and steady That doesn't really mean slow It just means at a pace which you can go steady so you can be going really fast But still be going still and steady because you're at a steady pace So pick your momentum But if you feel like you're you're not able to keep up and the things that matter most you the main thing keep the main Thing the main thing that's if you're losing your grip on that slow down and check yourself you know, that's the rudders and the levers we tend to pull having done this for 14 plus years and Making a living doing it this year has been the most unique year of all years But that's our guiding principle so to speak you know and then I think the last one is listeners first in our case because we're Audio so listener first everything we do is Based on the listener if I don't think they're a brand if it's a promotional thing that they should hear I'm not gonna work with them you know in any sort of business way if it's a piece of content or a topic that we don't feel the listener is gonna engage In or if how we speak like I mentioned before we remove the explicit tag off of our shows for that reason We want people to be in the car with their moms their grandfathers their kids their dogs Whoever may get offended by offensive speech you may not offend us But you may offend somebody else and we're gonna we're gonna do our best to curb that so that we can hit the widest Possible audience we always even say to the hacker generation doesn't begin at 20 And they may begin at 9 or 5 or whatever like my kids are really into that my I got a 7 year old You know what I want my show playing Yeah, he listens to my show when I'm queuing it like he didn't always listen to it But I'm happy to play my content as a QA process when I'm driving my truck or car or whatever Because I know that it's safe I know what the content is and I want our listeners to have that same feeling so listener first slow and steady Slow down and check yourself keep the main thing the main thing."
+    },
+    {
+      "start": 5383.45,
+      "end": 5388.37,
+      "speaker": "SPEAKER_01",
+      "text": "I like it. Yeah, this is exactly what I needed So I appreciate your advice."
+    },
+    {
+      "start": 5388.51,
+      "end": 5474.63,
+      "speaker": "SPEAKER_00",
+      "text": "Hey. Yeah, I'm happy to be you know not just come on our show I have to be a friend. You know yeah that feedback process is Insanely challenging even with our stuff like only till a couple years ago Do we start doing certain things that sort of solicited to some degree or invited that feedback process? I think sometimes when you do such a good job like I think you do you do great job you seem Not that you're not approachable that maybe you're too cool You know that you won't say yes to coming on a rando home lab podcast like I didn't think you would respond honestly I was like Tim's not gonna respond and you responded so graciously pretty quickly And the email has that auto reply so that may turn some people off And I have no idea why you do that you may have your reasons But you know if you want feedback you have to provide feedback mechanisms I watch a lot of your stuff, but I'm on zero of twitch so your live streams almost don't exist to me Maybe I'm missing out I just don't live stream with folks ever really and I don't know who maybe it's a thing with my age demographic or whatever But I've just never done it with really anybody And so I would just find ways if you want that feedback or that friendship or that That loop so to speak of not just you in the echo chamber But you with like in the YouTube comments find ways to recreate that somewhere else But again, that's even half the battle too because now you got maybe a slack or a discord You've got a manage now. You got one more. You know self -hosted thing You've got a CI and test and kubernetes and all this good stuff, so at every layer Tim There's just a new battle to consider how to win."
+    },
+    {
+      "start": 5474.79,
+      "end": 5475.43,
+      "speaker": "SPEAKER_01",
+      "text": "That's right."
+    },
+    {
+      "start": 5475.51,
+      "end": 5479.07,
+      "speaker": "SPEAKER_01",
+      "text": "That's right. Yeah, I really appreciate it All great advice cool."
+    },
+    {
+      "start": 5479.31,
+      "end": 5488.51,
+      "speaker": "SPEAKER_00",
+      "text": "What's left anything left unsaid is there anything? I didn't ask you that you want to include here right as we're closing out this edition this long edition of Changelog and friends on home labs."
+    },
+    {
+      "start": 5489.07,
+      "end": 5515.93,
+      "speaker": "SPEAKER_01",
+      "text": "I you know I don't I don't think so I'm just super appreciative of the time and Sharing me with your community and feeling you know hey like Tim is someone I want to share with your community because it means a lot it means a lot I mean, I'm the same way. I don't curse so you don't even have to say it to me I wouldn't even have cursed anyway So I'm I like to keep a safe and welcoming chat or dialogue with anyone Yeah, so that anyone can play me anywhere and not second -guess do I need to turn it down or change the channel so"
+    },
+    {
+      "start": 5515.93,
+      "end": 5591.85,
+      "speaker": "SPEAKER_00",
+      "text": "yes Will he say something wrong like? Super quick I watch this youtuber Sam the cooking guy I don't know if you cooked him, but like my side hobby is backyard barbecue I don't love to cook, but I love to cook certain things, and I watch Sam the cooking guy I love to eat. Yeah, I love to eat I love to eat good food, and I and so nobody's making me good food my wife makes me amazing food But I don't have a chef you know I don't have anything like that, so I got to be my own chef Sam the cooking guy is amazing, but he is notorious for cussing. It's a cooking show It's like emerald, but you know way worse not on cable TV, but amazing food amazing guy I love his attitude, and I almost wouldn't take Sam without the cursing But I can't watch Sam with my kids around so I have to like Confirm when I can when it's safe for me to watch Sam the cooking guy And if I do want them to watch some of the stuff He's doing because it's entertaining while I have to be like pre watching it so yeah anyways, but yeah, Tim I appreciate the content you produce keep fighting the good fight You know keep being curious like you are find a way to make it You know a sustainable business, and if you want a friend to help you along the way I'd be happy to be that friend for you But thank you so much for coming on here and just sharing your time and sharing Yeah, your home lab journey and some of the opinions you have thank you."
+    },
+    {
+      "start": 5591.87,
+      "end": 5593.71,
+      "speaker": "SPEAKER_01",
+      "text": "Thank you so much Adam appreciate it"
+    },
+    {
+      "start": 5595.34,
+      "end": 5640.16,
+      "speaker": "SPEAKER_00",
+      "text": "Okay, so now you're done with the show and the next thing to do is to I guess begin your home lab if you haven't already And I guess a second thing you do is Subscribe to Tim on YouTube you can find him on YouTube by searching for techno Tim or check the show notes So I want to hear about your journey with your home lab and the best way to do that is to hang with us in Slag if you're not there already go to changelaw .com Slash community that gets you in and once you're there search for the home lab channel Or just ask in Maine where it's at I hope to see you there if you dig this show hey do me a favor and tell a friend we home labbers must unite That's it. This show is done come back again, and we'll talk"
+    }
+  ]
+}

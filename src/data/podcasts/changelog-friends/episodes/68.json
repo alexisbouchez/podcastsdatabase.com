@@ -1,0 +1,561 @@
+{
+  "title": "Wine Web and a whole lot of Whatnot",
+  "description": "Live from All Things Open 2024 hallway track with Robbie Wagner & Chuck Carpenter, spanning content creation, open source, career reputation, and industry dynamics with wine tasting.",
+  "links": {
+    "MP3": "https://cdn.changelog.com/uploads/friends/68/changelog--friends-68.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "SPEAKER_01",
+    "SPEAKER_00"
+  ],
+  "segments": [
+    {
+      "start": 15.38,
+      "end": 50.17,
+      "speaker": "SPEAKER_01",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about Marcus Aurelius. Big thanks to our partners at Fly .io, the home of Changelog .com. Launch your app on Fly in five minutes or less. Learn how at Fly .io. Okay, let's talk. What's up nerds? I'm here with Kurt Mackey, co -founder and CEO of Fly. You know we love Fly. So Kurt, I want to talk to you about the magic of the cloud. You have thoughts on this, right? I"
+    },
+    {
+      "start": 50.17,
+      "end": 64.27,
+      "speaker": "SPEAKER_00",
+      "text": "think it's valuable to understand the magic behind the cloud because you can build better features for users, basically, if you'd understand that. You can do a lot of stuff, particularly now that people are doing LLM stuff, but you can do a lot of stuff if you get that and can be creative with it."
+    },
+    {
+      "start": 64.61,
+      "end": 73.73,
+      "speaker": "SPEAKER_01",
+      "text": "So when you say clouds aren't magic because you're building a public cloud for developers and you go on to explain exactly how it works, what does that mean to you?"
+    },
+    {
+      "start": 74.09,
+      "end": 178.03,
+      "speaker": "SPEAKER_00",
+      "text": "In some ways it means these all came from somewhere, like there was a simpler time before clouds where we'd get a server at Rack Shack and we'd SSH it, or telnet into it even, and put files somewhere and run the web servers ourselves to serve them up to users. Clouds are not magic on top of that, they're just more complicated ways of doing those same things in a way that meets the needs of a lot of people instead of just one. One of the things I think that people miss out on, and a lot of this is actually because AWS and GCP have created such big black box abstractions. Lambda is really black boxy, you can't pick apart Lambda and see how it works from the outside, you have to sort of just use what's there. But the reality is Lambda is not all that complicated, it's just a modern way to launch little VMs and serve some requests from them and let them pause and resume and free up physical compute time. The interesting thing about understanding how clouds work is it lets you build features for your users you never would have expected. And our canonical version of this for us is that when we looked at how we wanted to isolate the user code, we decided to just expose this machines concept, which is a much lower level abstraction of Lambda that you could use to build Lambda on top of. And what machines are is just these VMs that are designed to start really fast or designed to stop and then restart really fast or designed to suspend sort of like your laptop does when it closes and resume really fast when you tell them to. And what we found is that giving people those primitives actually, there's like new apps being built that couldn't be built before, specifically because we went so low level and made such a minimal abstraction on top of generally like Linux kernel features. A lot of our platform is actually just exposing a nice UX around Linux kernel features, which I think is kind of interesting, but like you still need to understand what they're doing to get the most use out of them."
+    },
+    {
+      "start": 178.43,
+      "end": 304.45,
+      "speaker": "SPEAKER_01",
+      "text": "Very cool. Okay. So experience the magic of Fly and get told the secrets of Fly because that's what they want you to do. They want to share all the secrets behind the magic of the Fly cloud, the cloud for productive developers, the cloud for developers who ship. Learn more and get started for free at fly .io. Again fly .io. We are back from All Things Open 2024 and it was so much fun. Shout out to everyone who stopped by our booth, said hi, shake hands, or even gave us a hug. There was only one hugger, believe it or not. Hi Paloma. If you missed the conf, this episode will at least give you an idea of what the hallway track was like. We sat down with our friends, Robbie the Wagner and Charles William Carpenter, the third who we call Chuck to record an episode of their whiskey web and whatnot podcast only at all things open. It had to be the wine web and whatnot podcast because rules, I guess, but it was a lot of fun regardless. If you haven't heard their show, it's kind of like changelog and friends only are rated focused on web dev and there's 100 % more booze per episode. The plan was to do an episode of their show, then an episode of ours, but we ran out of time so this one recording will have to do. Thankfully Chuck said we could bleep him, so this might go down as the most bleeped episode in changelog history. Okay, enough setup. Here we go. Should I fill some air here? Yes, please. Welcome to wine web and whatnot, which is formerly known as whiskey web and whatnot, but cannot do whiskey at this conference venue at this time. So we have some wine at this Chuck is trying to get it open. It's very hard. Can you even doing a fine job? I can see you a little bit. You maybe should scooch this way a bit. We're kind of kind of cut off, but the camera can see us. I don't know what the real, maybe it's cause I, yeah, we're all on there. Nice. Um, it's a good shot. This"
+    },
+    {
+      "start": 304.45,
+      "end": 305.41,
+      "speaker": "SPEAKER_00",
+      "text": "is"
+    },
+    {
+      "start": 305.41,
+      "end": 398.69,
+      "speaker": "SPEAKER_01",
+      "text": "what was I saying? Yeah, we have a special guest of us who you may recognize from another podcast thing. It's called shop talk show. Was that correct? No comment. How do I get out of here? No, seriously. Um, yeah. Do you, do you guys want to introduce yourselves and tell the folks a little bit about what you do? I am the sommelier of the show opening this wine. Yes. That voice you just heard is Adam Sakowiak. My name is Jared Santo. We are co -hosts of the changelog podcast and we are open books that you can read with your ears by speaking to us. Oh, that should be your tagline, open books you can read with your ears. It's got a nice ring to it. How many deaths does it take? Are you guys okay over there? I think they broke the cork. It's broken. All right. So our wine today is full of cork, but it is a Italian wine, I believe a Chianti Classico Reserva from somewhere, I can't, where's from Chuckie? We are not drinking that. Today's episode is sponsored by corkscrews. Need one? We do. And basic education. I've got it. Yeah, we'll get it. Oh, we got it. Good. Once you get it, thread it all right. You can just push it through. Is that how the show normally goes? Well, it's a little more loosey goosey for right now, but wait, wait. Tell me you're an avid listener, right? I heard you guys,"
+    },
+    {
+      "start": 398.95,
+      "end": 399.65,
+      "speaker": "SPEAKER_00",
+      "text": "when"
+    },
+    {
+      "start": 399.65,
+      "end": 482.08,
+      "speaker": "SPEAKER_01",
+      "text": "you were on my show, JS party, that was, I definitely listened to that. Yeah. I heard that too. Yeah. You guys were awesome. I still think we should have won that. I don't remember, but I'm pretty sure. It was the screen size one. What are the common screen sizes? That was a really bad question. Turns out it was yet to say ranges because, yeah, well, you know, yeah, it was a fun time That was fun. And travel, like with, uh, what are you whispering about? These guys are like having their own conversation over there. Super awkward. You guys know we're recording right now, right? Oh yeah. You guys were talking over us, so we just went ahead and had a side conversation. We were having like a show. Well, this episode is brought to you by drinks .com drinks .com. If you're a wino on the road, drinks .com, that is such a good domain. It's a travel pourer that is like a pliable disc that you just kind of roll up and put it in your wine. And I thought roll up was for like bundling, davascript, is that, is that not it? Not anymore. I'm just going to pass them down. So when you think about drinks .com, d r i n k s that is a six letter domain is probably hundreds of thousands of dollars. This is for you."
+    },
+    {
+      "start": 483.04,
+      "end": 483.44,
+      "speaker": "SPEAKER_00",
+      "text": "It"
+    },
+    {
+      "start": 483.44,
+      "end": 654.46,
+      "speaker": "SPEAKER_01",
+      "text": "made me think of x .com, which probably cost in the millions, but a billion. Am I the only one that thinks that that's too short? It's lopsided. The X is just one letter. And then the .com is actually more substantial. I just feel like you shouldn't go less than three. Yeah. It has to be something you can search for for SEO if you go X, I know. Maybe that works. I haven't tried to search. You want to find their X account. But fine. Yeah. If you want to find their double S account also. Okay. Yeah. Like you stop right there. Good legs in this one. Yeah. I haven't. So we're having the classical reserve as it is D O G D O C G, which means organic, but that is good in Italy and terrible in the States. Just a heads up there. It's the 2018. So it's got some age to it and there you go get to a little sniff. How is it on the nose? Well, it's better in the mouth. Okay. Well, you start there. That's what she said. It's that kind of show. Oh yeah. Say whatever you want. Unedited. Unfiltered. Say whatever you want. Uncancellable by the way. Yeah. Dot com. You can sue me for zero. Can I say things I don't want? Sure. This wine. No, just kidding. Not bad. Yeah. Yeah. Drinkable. Sharp. Serviceable. That's how I describe it. Serviceable. I'm not a big Chianti guy. I am Italian though. So that's kind of backwards, but. What Italian wine do you like? Oh no. I mean, I'm Italian genetically. I'm not Italian. I mean, you have to like some Italian things, right? Now you're going to tell me you don't like pizza, right? Oh, I love pizza. I had some pizza last night. That's spectacular. How much does this wine cost? Is that? You can say whatever you want, right? Yeah. We can say whatever we want. I don't know. What is this? Like 30, 35, 30 ish? Okay. Not zero, but not super fancy. Do you get wine for zero? No, no, but I mean, you can get a five or a $10. If you guys get big enough, you can get free whiskey at least. Yeah. That's the end goal. There you go. There's your North Star. We're way off track here. We have track. So we're having alcohol. We've introduced the alcohol. We've tasted it, but we haven't talked about it. What are the notes you're getting? Any tasting. Mr. Charles William Carpenter. Thank you. Okay. There we go. It's very dry, which is what I don't like about Chianti a lot of times. I don't mind a full body, which this does have, but it's finished. Just makes me feel like I needed. I thought it was Italian. Italian. Anyway. That was a finished joke. I got it again. Sorry, Chuck. Yeah. Hi. I'm glad we're doing your podcast next. Maybe not. Cause man, I'm like yours. You can't say whatever you want on our show. Yeah. Yes. We will bleep. I apologize. I interrupted you, but"
+    },
+    {
+      "start": 654.69,
+      "end": 655.63,
+      "speaker": "SPEAKER_00",
+      "text": "it"
+    },
+    {
+      "start": 655.63,
+      "end": 755.14,
+      "speaker": "SPEAKER_01",
+      "text": "was a good job. It's part of it. No, it's all good. So very fruity in the start. Very dry in the finish. Not a whole lot in between for me. It's all right. I mean, I'm sure it's a nice Chianti. I like you, Jared, though, don't prefer them. So we have a highly technical rating here on the show. You guys may have forgotten from the last episode you listened to. Zero to eight tentacles. Zero being terrible. Obviously for middle of the road would have again, but not amazing eight clear the shelves. This is for me. You can categorize however that you want with that. You can say to other wines or alcohol in general. It doesn't matter. Like I said, not too crazy there. For me, this, I don't love Chianti's. This is probably a little better than like your standard table Chianti though. So I'm going to give it a five. Yeah. We can go down the line if you like. I'll go next. Yes. I would say that the Chianti, I almost said Conte, which is so close to the other version that can we say that on the show? Well, I mean, it is a March adult. How is it on the Chianti scale for you? I would say on the Chianti side, I'm not a, I'm not a Chianti kind of guy. I'm more of a red blend, a very simple wine drinker. I like blends a lot. I like Texas blends a lot, like California blends a lot. I like a Malbec, you know, that's my style, you know, like it goes well with steak. It goes well with"
+    },
+    {
+      "start": 755.36,
+      "end": 756.5,
+      "speaker": "SPEAKER_00",
+      "text": "solo"
+    },
+    {
+      "start": 756.5,
+      "end": 790.62,
+      "speaker": "SPEAKER_01",
+      "text": "by itself. It's generally not very expensive. I would say because of the reasons I don't really care for Chianti. This is dry. I would say it's low on my list. I would never buy this again or drink it. Will you finish this cup? Is it good enough to finish? Yeah, I'll drink it with you. Yeah, we got to crush this bottle. It would be really good. I'll drink it with you, but I'm not excited to go out and get a bottle of this very fine Capreia. Capreia. Capreia. Chianti Classico Reserva. 2018. Yeah. Thank you for sharing it, but it's not my favorite."
+    },
+    {
+      "start": 792,
+      "end": 792.32,
+      "speaker": "SPEAKER_00",
+      "text": "It's"
+    },
+    {
+      "start": 792.32,
+      "end": 883.44,
+      "speaker": "SPEAKER_01",
+      "text": "the first time I've had it too. So, you know, you take a roll of the dice when you go to the Wegmans in Raleigh. Did you give it tentacles? Oh, two tentacles. No. Okay. 2 .5. He didn't spit it out. So there's that. Yeah. I will echo Chuck in his analysis and I will subtract one point. I will give four tentacles, but for the exact same reasons. Yeah, that's fair. Yeah. The fan, the actual fan. Well, here's the thing. He's a fan? No, here's the thing. He likes Chianti. I like Chianti. I don't like the Classico Reserva. That's supposed to be fancier. I like the normal Chianti. So I got the one that was supposed to be fancier, you know, to have better stuff. But yeah, it's not my favorite either. I give it more than a two. I think four is pretty appropriate. Yeah, maybe four and a half. Like, you know. I was being a jerk. You can do halves? Yeah, you absolutely can. Does that change anything for you? I stand by my four. Where did you land? Did you say four also? Yeah, yeah. Four seems reasonable. Can I interject maybe another rule into your grading system? Sure. How much would you pay for it? Not what you paid for, but how much would you pay for it? See, that's the problem, too, because in Italy, this would be 10, 15 euro. Oh, easily. Yeah, mine is way cheaper. And so it's double or more here. So like pricing is all inflated, but yeah, yeah, I think 10 or 15 euro is pretty good for that. 15 bucks. Yeah. Do"
+    },
+    {
+      "start": 883.44,
+      "end": 889.26,
+      "speaker": "SPEAKER_01",
+      "text": "you disagree with that assessment? Well, he would say he would never buy it, so I would never buy it. What would"
+    },
+    {
+      "start": 889.26,
+      "end": 891.44,
+      "speaker": "SPEAKER_00",
+      "text": "you"
+    },
+    {
+      "start": 891.44,
+      "end": 938.32,
+      "speaker": "SPEAKER_01",
+      "text": "pay? 10 bucks. 10 bucks. Yeah. Yeah. And that wouldn't be crazy, right? In Italy. Jared, what part of Italy is your family from? Sicily. The boot. Oh. Way down. All right. The island. Yeah. And don't piss you off because you got people. That's right. Yeah, that's right. I've seen The Godfather. They have recipes. You cannot cross me. Yeah. I will make you an offer you cannot refuse. Because you'll beat them. So here we are. Actually, it's growing on me now that I'm sipping it a bit. Yeah. Alcohol. It's smoothing out. It's smoothing out. Wait until it has glass. You get past that dry part, it's smoothing out. Yeah. Maybe it's airing it out a little bit. It's gotten a bit more tart in the center for me, you know, it was like sweet at first, like jammy sweet, and then starts to get a little more like sour in the middle for"
+    },
+    {
+      "start": 938.32,
+      "end": 938.76,
+      "speaker": "SPEAKER_00",
+      "text": "me."
+    },
+    {
+      "start": 939.48,
+      "end": 1019.38,
+      "speaker": "SPEAKER_01",
+      "text": "Anyway. That's deep. We are drinking it out of the best glassware for this. Yeah. So that helps. This is Tupperware's finest glassware as a stretch, isn't it? They're not red. I was just kidding. Classic wear. We can't get red cups. That's all. I was like, come on. We're glassier than that. We're better than that. We deserve that. Yeah. There's a podcast over there too. There's a number of them. Here at All Things Open. Yeah. Some here, some down there. Some up there. It's kind of fun. So that takes me into what I think some of the things I thought it would be good for us to do. Okay. Let's get into it. Yeah. Just to the nose. Let's do it. And we're all creating content online, right? Doing kind of our thing in various areas, some more successfully than others. I don't think it's limited to podcasting because we have plenty of folks who do like live streaming. There's a lot of learning content out there. There are short form things. Do you think, and I'm going to ask this question of both of you, so we can each take an answer at it, that inherently within development for the betterment of your career, figuring out how to create content, is that necessary to really stand out and gain a career within web development as a whole or"
+    },
+    {
+      "start": 1019.38,
+      "end": 1020.66,
+      "speaker": "SPEAKER_00",
+      "text": "I'll"
+    },
+    {
+      "start": 1021.27,
+      "end": 1087.62,
+      "speaker": "SPEAKER_01",
+      "text": "leave that open -ended the second part. Good question. I don't think so. I think for a certain class of people, it makes a lot of sense. I think it can certainly accelerate a career. There are probably thousands, if not tens of thousands of very, very successful software developers who do not do any content at all. And I think they would raise their hand and say, not necessary guys, because I'm doing it without doing that. However, it's a great avenue. Yeah, I agree. No, it didn't. I think it depends on what the person is optimizing for. If they're trying to get to be like a famous developer or notoriety, then I think, yeah, you probably want to create some content. I think you're probably going to put yourself out there. You're going to be flashy. You're going to do things. You're going to be provocative potentially in your own way. And I think if you want to be that kind of well -known developer, that kind of successful developer, then I think you're probably going to create some content. But if you want to be a developer who is behind the scenes, necessary, maybe even cog -like"
+    },
+    {
+      "start": 1088.88,
+      "end": 1089.32,
+      "speaker": "SPEAKER_00",
+      "text": "potentially,"
+    },
+    {
+      "start": 1089.32,
+      "end": 1157.68,
+      "speaker": "SPEAKER_01",
+      "text": "then I think that you don't need to worry about any content. You can just show up and do your thing and be a useful cog and be a great team member and deliver great software and care about customers and that's all you got to do. So related, what do you think about open source? Is doing open source stuff helpful at all to a career? Other than learning the skill or the notoriety standpoint, is it helpful? I certainly think it is. Obviously, you can have more or less success with open source and yet it's a great way to be able to point at something that you've done or built, which is not proprietary or needs permission from your previous employer. So there's a lot of advantages even just in that. And of course, there's opportunity to raise your clout in the community by having a successful project or participate in one. So I think it absolutely is where I thought you're going to go with that. Maybe you're headed there. Is that content creation? Is open source creating content? Kind of. Kind of it is, but it's also kind of not. So I"
+    },
+    {
+      "start": 1157.68,
+      "end": 1158.85,
+      "speaker": "SPEAKER_00",
+      "text": "don't know."
+    },
+    {
+      "start": 1159.19,
+      "end": 1214.76,
+      "speaker": "SPEAKER_01",
+      "text": "It kind of is. I think it's content. The question is, is being involved in or shipping open source or contributing? Was the question again, Robbie? What was the question? It was too far back there. Is open source not from learning the skill perspective, but just like from my GitHub screen and like I'm trying to build my brand, is doing open source really helpful for that? I think it goes back to my original answer with the other one, which is if you're trying to be more out there and more of a well -known person, famous or infamous, then I think having a flashy GitHub profile that shows off the things you care about is going to be very helpful, whether it's for making friends, whether it's making new network connections that lead to job opportunities or a co -founder or whatever it might be, then yeah. But if you want to be a developer who's behind the scenes, not necessary."
+    },
+    {
+      "start": 1214.76,
+      "end": 1215.6,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 1215.89,
+      "end": 1441.24,
+      "speaker": "SPEAKER_01",
+      "text": "mean, you may have a profile, but you may not care if it's fleshed out in terms of, hey, this is Adam Stokowiak and what he cares about. Go look at my GitHub profile. It's basically abandoned. I don't do a lot of open source besides our own contributions, and that's limited. So I did do a lot of stuff in open source, but I've not done a lot in terms of co -contributions. Yeah, I guess maybe I'm not asking the question the exact right way here. So I have done a lot of open source stuff. I don't think it has helped my brand at all, or like when I try to go get a job at a company, they're not like, oh, cool, I've seen you online, let's hire you. You're still the same interviews as everyone else. Right, right. So okay, and I think all of this is kind of under the umbrella of building reputation. There are all different ways to potentially build a reputation, and then like you said, it's kind of optimizing for what kind of outcomes within that reputation you want. I can come here and drink whiskey and talk shit, and that might give me some popularity, but no one's going to know what I can do for them professionally unless they're hiring me to do that thing. So you're building reputation in multiple avenues, and open source is another one of those potential things, but you've got to optimize for the outcome that you want, although I will say that if you want to be a cog in the wheel, collect the paycheck that you're given and stay quietly tucked in the corner, you can do that, but your options are limited because the scope of the reputation you're building is within now your current company. So then that comes to be, remember they used to try to force a lot of web developers to have portfolios, and it's like, what am I showing you with a portfolio necessarily? That's just like, I could read a book and do the project in it and push that out. That doesn't necessarily show that same thing, but it's all about reputation and figuring it out how, for us as developers, how do we like showcase that without going through six loops and a whiteboard, like what does that look like? Because an architect doesn't have to prove themselves in an interview, they have a reputation because they went through the schooling and maybe built these three buildings. So what is, I think I would almost take these initial questions back one step, and it's like how, what ways, what clever ways do you think, or what ways do you think are necessary as folks who do want to just like, I want to supercharge my career and I'm really good at this thing I'm doing, how do I build reputation for that? And a lot of people are doing learning content to show it, but sometimes they show up to or get people to know us in a way that they want to work with us. Great question. I think reputation in a lot of ways is in the eye of the beholder. And so tied back to what Robbie said, we've talked with hundreds of open source developers over the years. And for every person who feels the way that you do, like it hasn't meaningful, meaningfully moved the needle for you, like your reputation based on your open source has not preceded you into those situations. There's somebody else who we've heard the stories over and over again, they can either directly or indirectly tie their current career, the current status to their open source project. So like, it's not a guarantee, but it does work. It is a way to gain reputation if you're successful at using it in that way. How best to gain reputation, I think is completely subjective and contextual. I don't know if I can give a blanket answer,"
+    },
+    {
+      "start": 1441.24,
+      "end": 1442.02,
+      "speaker": "SPEAKER_00",
+      "text": "but"
+    },
+    {
+      "start": 1442.02,
+      "end": 1497.53,
+      "speaker": "SPEAKER_01",
+      "text": "Adam might be able to do it, Adam, tell us. I never heard of him until today, so I don't think he's doing a good job, right? I think that's GitHub. His Bitbucket, though, is on fire. Yeah, well, gain reputation. I think you show up and you do what you said you could do and you do it well and you rinse and repeat, and that gets you reputation. I think that also there's a publicness to this world we're living in. In one way, shape or form, there's a socialness and a transparency that's required to show off who you are and what you're capable of doing. I think, you know, your analogy of the architect not being scrutinized and paraphrasing, but at the same time, that person"
+    },
+    {
+      "start": 1497.53,
+      "end": 1498.97,
+      "speaker": "SPEAKER_00",
+      "text": "contributed"
+    },
+    {
+      "start": 1498.97,
+      "end": 1723.8,
+      "speaker": "SPEAKER_01",
+      "text": "in some way, shape or form to several buildings using your example. So those buildings are their portfolio in some way, shape or form. You've got to show off what you say you're able to do and prove you can do that enough. So to gain the trust to get the opportunity and then deliver a reputation is formed by doing that again and again and again until you are popular enough that you have a reputation and procedure. What's up, friends? I'm here with a friend of mine. And a good friend of mine, Michael Greenwich, CEO and founder of WorkOS. WorkOS is the all -in -one enterprise, SSO, and a whole lot more solution for everyone from a brand new startup to a enterprise and all the AI apps in between. So Michael, when is too early or too late to begin to think about being enterprise ready? It's not just a single point in time where people make this transition. It occurs at many steps of the business. Enterprise single sign -on like SAML, auth, you usually don't need that until you have users. You're not going to need that when you're getting started. And we call it an enterprise feature. But I think what you'll find is there's companies when you sell to like a 50 person company, they might want this. They actually, especially if they care about security, they might want that capability in it. So it's more of like SMB features even if they're tech forward. At WorkOS, we provide a ton of other stuff that we give away for free for people earlier in their lifecycle. We just don't charge you for it. So that auth kit stuff I mentioned, that identity service, we give that away for free up to a million users, 1 million users. And this competes with Auth0 and other platforms that have much, much lower free plans. I'm talking like 10 ,000, 50 ,000. Like we give you a million free because we really want to give developers the best tools and capabilities to build their products faster, you know, and to go to market much, much faster. And where we charge people money for the service is on these enterprise things. If you end up being successful and grow and scale up market, that's where we monetize. And that's also when you're making money as a business. So we really like to align, you know, our incentives across that. So we have people using auth kit that are brand new apps just getting started, companies in Y Combinator, side projects, hackathon things, you know, things that are not necessarily commercial focus, but could be someday they're kind of future proofing their tech stack by using WorkOS. On the other side, we have companies much, much later that are really big who typically don't like us talking about them, their logos, you know, because they're big, big customers. But they say, hey, we tried to build the stuff or we have some existing technology, but sort of unhappy with it. The developer that built it maybe has left. I was talking last week with a company that does over a billion in revenue each year and their SCIM connection, the user provisioning was written last summer by an intern who's no longer obviously at the company and the thing doesn't really work. And so they're looking for a solution for that. So there's a really wide spectrum. We'll serve companies that are in a, you know, their office is in a coffee shop or their living room all the way through. They have a, you know, their own building in downtown San Francisco or New York or something. And it's the same platform, same technology, same tools on both sides. The volume is obviously different. And sometimes the way we support them from a kind of customer support perspective is a little bit different. Their needs are different, but same technology, same platform, just like AWS, right? You can use AWS and pay them $10 a month. You can also pay them $10 million a month, same product. Or more, for sure. Or more."
+    },
+    {
+      "start": 1724.63,
+      "end": 1724.94,
+      "speaker": "SPEAKER_00",
+      "text": "Well,"
+    },
+    {
+      "start": 1724.98,
+      "end": 1936.19,
+      "speaker": "SPEAKER_01",
+      "text": "no matter where you're at on your enterprise ready journey, WorkOS has a solution for you. They're trusted by Perplexity, Copy .ai, Allume, Vercel, Indeed, and so many more. You can learn more and check them out at WorkOS .com. That's W -O -R -K -O -S dot com. Again, WorkOS .com. And also by our friends over at Wix. I've got just 30 seconds to tell you about Wix Studio, the web platform for freelancers, agencies, and enterprises. So here are a few things you can do in 30 seconds or less on Studio. Number one, integrate, extend, and write custom scripts in a VS code based IDE. Two, leverage zero setup dev, test, and production environments. Three, ship faster with an AI code assistant. And four, work with Wix headless APIs on any tech stack. Wix Studio is for devs who build websites, sell apps, go headless, or manage clients. Well, my time is up, but the list keeps going on. Step into Wix Studio and see for yourself. Go to Wix .com slash studio. Once again, Wix .com slash studio. Do you think our industry would benefit from like a national organization of certification rather than the subjectivity from company to company? Like we all, you know, lack of a better term, say there's a national union of web developers or developers, programs, whatever you want to call it. And the standards aren't just determined by Amazon and their processes and Oracle and their things and so on and so forth, like independent organizations. Do you think a centralized one would be a way to kind of solve that? Because I've proven it in the way we all agree. Possibly, hesitantly, possibly, very hesitantly though. However, one of the things about our industry is it's so young and while there are common maladies between different kinds of software, it's changing still at a very rapid pace. It's very difficult to certify and to stay certified in a way that's productive around something that moves that quickly. I don't see it slowing down anytime soon. I know there are efforts to come out with certifications. Those are all good. A national certification that we all agreed to. I don't know. I get skeptical of those kind of efforts personally, but it's not very capitalist, I can say that. No, I think what I like about our industry is that it's one of the few where you can just show up and do and be good at it and get a job. If you could produce a good outcome, you're hired. Whereas I disagree. Are you currently looking? No, no, but how do you disagree? Interviewing is a completely separate skill from being a developer, in my opinion, and I am trash at interviewing, but I think I'm a pretty good developer. Okay. What I mean, though, so his question is not about the interview. It is about the certification that says I'm good enough. And so I like the fact that I don't have to go out necessarily and get a computer science degree"
+    },
+    {
+      "start": 1936.19,
+      "end": 1937.13,
+      "speaker": "SPEAKER_00",
+      "text": "that"
+    },
+    {
+      "start": 1937.13,
+      "end": 1942.45,
+      "speaker": "SPEAKER_01",
+      "text": "says that's the gate and therefore I have the pass. And so I get through the gate. Yeah."
+    },
+    {
+      "start": 1942.49,
+      "end": 1996.49,
+      "speaker": "SPEAKER_01",
+      "text": "So that's where I'm coming from, is that if you can produce, if you can do, if you can learn, if you can learn by doing and show up and do it, you have access. It's not controlled by certification or degree or this or that. It's literally, you're curious enough in this young industry we have to show up and be curious and find a path and forge that path, make a network and do, and you're in for the most part. Right. Yeah. There is no true gatekeeper aside from opportunity and doing the job. But the interview process does suck. Yes. So we're not going to disagree on that. From like a working agreements perspective of like, you've shown you can do this job, not the interview aspect or everything else. I completely agree with Adam there is that that is a benefit of it is that I'm not like kept out by,"
+    },
+    {
+      "start": 1996.61,
+      "end": 1997.17,
+      "speaker": "SPEAKER_00",
+      "text": "you"
+    },
+    {
+      "start": 1997.17,
+      "end": 2217.95,
+      "speaker": "SPEAKER_01",
+      "text": "know, the equivalent of law school and residency for medical people and all this else. And obviously... Renewals, renewals of certification. Yeah. Like you have to repass the bar exam or be current on X to be Y. We don't have that necessarily. There's some parts of our industry that may have versions of that, but by and large, for the most part, if you can be a software engineer or a developer or a producer or whatever you want to frame that person as, you can do the job and you get the job and you get paid well for the most part. Yeah. And you also can use these tools to launch a business for a pretty low cost. I mean, it's got to be one of the cheapest small businesses that you could potentially... It's software. Yeah, it's software and anybody potentially can do that. And I agree with that because in the sense that like the gatekeepers in comparison to the lawyer, doctor and all that other stuff, and obviously we're not saving lives. So, you know, no humans are harmed by this. So of course, we don't need those kind of gates per se. So it's a great counterpoint, I think, for that thing. But yeah, like Robbie and Jared alluded to or just straight up said. Now, the interviews, which are separate from all of that to get all together and where there are books and certifications to learn how to interview at Google or something like that. And I say that because we have the badges. The lanyard. Yeah, the lanyard. That's the fancy word. So that is something else altogether, which is a little bit ridiculous. You can almost just separate them. I have to learn to interview to get past. And then I can just do my job. Yeah, the interview is nothing like the days of like, you know, the guy in the hoodie who sits in the corner eating Funyuns chugging Mountain Dew, but he's crushing it. But, you know, he's not leveling up his team around him. They've kind of been shifted out of, you know, the industry in a lot of ways. Lone Wolf is really looked down on. Yeah, yeah. Like, that's an interesting thing to me, because like to what you said, those are people who know it and can get the job done. But I don't want to go get a beer with them. Well, the job isn't merely writing the code, which is what the Lone Wolf thinks it is. And so there's more to the job than many of us want there to be. Sure. And because many of us are socially awkward and not skilled in that area, we want to rather talk to computers and talk to humans, right? Like that's right. I understand that sentiment. I've felt that way. Even right now, currently, I'm feeling that way. But that's not anymore. Maybe once was because you had one engineer in your entire business, right? Or one sysadmin who just ran the entire network. That's just not the reality of the job anymore. And so that's why I think those people are marginalized, because, yeah, they aren't fit in the entire bill. But agree that the interview process just doesn't actually interview you for the job that you're going to do, which is can be maddening. Especially when it's difficult. Like right now, it's not easy to get that job when it was easier. You know, yeah, you had to go through some rigmarole and some leet code and some other crap, but then you got the job at the end of it. So it's kind of like, OK, yeah, now the leet code is eight rounds. And then they're like, thanks. We've chosen other candidates. Exactly. Yeah. So it's harder than fake jobs. That's a thing. Fake jobs are fake jobs. It's not Steve Jobs, brother. OK, this is hi. My name's Steve. This is my brother. Fake. On a recent episode of Chino and Friends with Johnny Borsico, yes,"
+    },
+    {
+      "start": 2218.13,
+      "end": 2248,
+      "speaker": "SPEAKER_01",
+      "text": "panelist on Go Time, he shared his insights to fake jobs. And I think paraphrasing versions of what he said was essentially there's companies out there that act as if they're hiring because it helps them with their bottom lines from investors. It looks good. So they have these jobs out there that are not being filled. They may even have headhunters out there collecting resumes and keeping in quotes, writing these resumes and these people warm,"
+    },
+    {
+      "start": 2248,
+      "end": 2249.02,
+      "speaker": "SPEAKER_00",
+      "text": "but"
+    },
+    {
+      "start": 2249.06,
+      "end": 2283.7,
+      "speaker": "SPEAKER_01",
+      "text": "still looking for the perfect ideal candidate. Meanwhile, they've got 15 possible really good candidates that they're not hiring. Yeah, so that's that totally sucks. Which is a side effect of VCs using hiring as a health metric. So VCs began using that, which kind of makes some sense, right? Like, well, if they're hiring, they must be growing. Companies growing. They're looking for a way to judge. Yeah. And then, however, whose law is this? Good heart, perhaps. Good heart. Yeah. This is the one where any measure that becomes known ceases to be a good measure. And so"
+    },
+    {
+      "start": 2284.31,
+      "end": 2285.55,
+      "speaker": "SPEAKER_00",
+      "text": "companies"
+    },
+    {
+      "start": 2285.55,
+      "end": 2566.82,
+      "speaker": "SPEAKER_01",
+      "text": "realize, well, we're going to look better to VCs if we're hiring. And so we can't actually hire or maybe we have one position, but we'll put out eight. Right. Yeah. And we'll just be very picky and we'll just get thousands. And meanwhile, all of us are out there applying like plebs and their jobs aren't even real. Yeah, that's annoying. Wasting our time. Yeah. Three months later, you get a we've reviewed your resume and decided you're not a good fit for this one. And really, they probably did. Why would you get anything back? That's more than you should get. That's actually kind of kind. Thanks for letting me know. I couldn't cross this one off my list. Yeah. And then you get into the position where you're like, we should regulate this then. Just like your certification question. We should regulate this. We should make sure these jobs are real before they can post a job. That is not a word I want to live in either. Like overregulation is not conducive to a a free moving market, right? So the alternative is just to suck it up, I guess. Or like just call foul heavily when when we find out true examples of fake jobs, not Steve Jobs. Fake, though, fake is a genius. But so call them out, like, say, publicly, you discovered this, like, fuck LinkedIn. They've got a job postings from and I know someone on the inside. Turns out they're all lies. Don't bother applying there in that kind of way. Like shaming there because they care about image and perception. I don't want to be a cancel culture pile on kind of guy. Yeah, but I feel like if it's egregious. Yes. And it's like maybe even multiple fences. We wouldn't do it. I would say Jared, I would probably just walk away and be like, whatever. Yeah, I think somebody I've seen do this semi well and respectfully is Gerg Auros. He's called out several companies for various hiring practices, various things, even the whole WP Engine, WordPress situation and Mullawag. And I think he does a pretty fair job of holding people to a line. Yeah, it's not my demeanor. I don't think it's Jared's demeanor. We've had a couple of examples in our lives when we've been marginalized by a very large company who we would say we're part of the community. We were told we're not welcomed and we didn't say anything. We just walked away. We turn you to the cheek until now. Listen, our three or four listeners would love to know right now. Shout out to George, Paul and Fake. Those are your three listeners, right? Yeah. Fake jobs is a big fan. He's worked on pair AI, I think. Yeah, it's just a fork of Steve. Anyway, Nerdfights and fork culture is a very interesting thing that they do. It is. It is. You bring up WP Engine and all that, but I'm sorry if you were going to go with. Well, I don't want to I just don't want to be for the cancel culture necessarily. I don't think it's necessarily helpful to, at Nauseum, just cancel something or ad nauseum, not ad nauseum. I don't think I need it in the brain, Jared. You were like, it's ad nauseum, Adam. We worked together long enough. I just let it go. I'm like, oh, he'll stop. He'll catch himself. He'll make it a big talking point, which just happened. Ad nauseum. Ad nauseum. I don't necessarily subscribe to cancel culture. I don't want to be canceled. I don't want to cancel somebody. I believe in forgiveness. I think people make mistakes. Yeah, sure. I want to see redemption because I'm a believer, a firm believer in redemption. Well, I think there's a big difference between cancer culture of individuals. Yeah, that was a Freudian slit. Cancer culture. Was that on purpose? You did. Yeah, I just, you know. Okay. I like it. Cancer, cancer, cancer culture. Cancer is culture. Culture has cancer. Yeah. Is there more of this 2 .5 wine? No, just whatever. Roll with it. You'll be fine. Is there more of this? Yeah. He really likes it. He really likes it. Is that 2 .5 now? Anybody? In the key. Anybody? No, we all think we should drink that. Do you think there's probably a different, sure, I guess. Jared does not like this one, by the way. I'll give you that. Oh, that's it. Yeah, it's just polite. It's okay. Just for a sec. Just the tip, just for a second. So, but, so we're talking about cancer, cancel, now you put it in there. Cancel culture. Just take one breath real quick and then start again. For individuals versus companies is my thought there. And it's like as a company collectively making these moves and not just one individual that gets canceled,"
+    },
+    {
+      "start": 2567.46,
+      "end": 2568.16,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 2568.16,
+      "end": 2624.37,
+      "speaker": "SPEAKER_01",
+      "text": "think there's a lot more leeway for individuals who do so, who are just humans, have a feeling, a lack of understanding, make a mistake in the moment, become emotional companies, especially the larger the company gets, they are, they're planning this. Either an HR is planning, somebody has made a plan and a group agreement to start to get a room full of people decided this is okay. Right. Like there's some C levels that know about this or some HR people that know about, there's people who know and are making that conscious choice. So I tend to be more forgiving of the individual and mistakes in that way. Unless you're like some people who just lean hard. Oh, I made a mistake. I'm going to keep going. You know, who do you know like that? Uh, I'm not friends with them, but I mean, you mentioned the WP engine WordPress drama,"
+    },
+    {
+      "start": 2624.37,
+      "end": 2625.41,
+      "speaker": "SPEAKER_00",
+      "text": "that"
+    },
+    {
+      "start": 2625.41,
+      "end": 2704.16,
+      "speaker": "SPEAKER_01",
+      "text": "is a lean hard and keep going, I am right. Fighting my position and I will not listen to the masses. And if you are canceling me, I have a large bank account. I don't get maybe, I don't know. I haven't talked to him. I have no idea. He does seem to think that he is right. He does. And he's driving that company forward. So that is a singular individual set of opinions. But if like LinkedIn was putting up 50 job postings for a job they didn't have, and I learned the truth of that, I might be like, you know, it's contextually, there's a version of, there's a version of standing up and there's a version of canceling. And I think in the case of like a Matt situation, I'm not subscribing to the idea while I disagree with several of his moves, I'm not trying to cancel Matt. No, if LinkedIn knowingly allowed in some way, shape or form their platform to promote or allow for legitimately fake, is that even the thing legitimately fake jobs, real fake jobs, real fake jobs. Then that's not cool at all. And I say, I say call foul. But if you're a small company and you're like, maybe you're between rounds"
+    },
+    {
+      "start": 2704.16,
+      "end": 2705.14,
+      "speaker": "SPEAKER_00",
+      "text": "and"
+    },
+    {
+      "start": 2705.14,
+      "end": 2839.98,
+      "speaker": "SPEAKER_01",
+      "text": "you're getting ready and you want a pipeline for triggers. Yeah, because it's mostly startups that are doing this because there are situations for founders and leaders that they get into some situations where they've got risk on the line. And I don't think it's necessarily okay to be like, well, let me just promote this fake job and like tantalize Jared for a while and let him dangle, but I can kind of, to some degree empathize because, wow, leading is so hard. Running a company is so hard. Does it mean you should be disingenuous? No, but am I going to be personally as Adam from Changelog going to call them out if it was on a podcast? Yeah. If it was like, in the places where I'm known to share my opinions, I would share those opinions. Am I going to go out on my way to write a blog post about X, Y, and Z doing X? No, because that's not my medium. But if they were on a podcast with us, I'm like, it sounds like that job's fake. And I got friends who applied. Then I'd be like, that doesn't sound legitimate. Is that real? I would totally ask them that. Am I going to be like cancel culturing them and mobbing them? Nah, it's just not my style. So cancel culture, though, starts to become like a larger and larger blanket of where it's coming from, right? Like, yeah, but the cancel culture is about changing perceptions within the culture of folks that feel like they've been marginalized or worse. And in this sense... A certain group of people feel like they're, a certain group of people feel like they shouldn't be involved anymore. And so therefore everyone should feel like they shouldn't be involved. Yeah. And it's like, oh, no opinion is supporting the thing I'm... Yeah. And all of that is a little egregious in my opinion. And you're canceled if you don't agree with the canceling. But we talk about a startup and you feel, you know, it's nice if you have a little sympathy for a startup CEO that, you know, has taken maybe a few million dollars or so, but, and they've made these decisions to try and like give them some last gasp efforts and perception of success or just even plateauing and maintaining the status quo. I would say being a leader is hard. Being a leader with integrity is even harder than, because that to me shows a lack of integrity and"
+    },
+    {
+      "start": 2839.98,
+      "end": 2840.82,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 2840.82,
+      "end": 2897.8,
+      "speaker": "SPEAKER_01",
+      "text": "wouldn't even want to be there. As I was saying, and that's why I was backpedaling, I don't want to be a lack of integrity in a person, but I can at least empathize with somebody who is struggling to hold the line because there is a phrase called by any means necessary. That's true. And to some degree, by any means necessary is sometimes a bending or a curving of the integrity, not something I personally subscribe to, but I can at least empathize with somebody who feels compelled to do so to survive. You know, and the interesting aspect of that is you would see like that particular founder, if this story comes up five, 10 years later and they were unicorns and blew up and you would say, like you said, by all means necessary and boy, was he really willing to just buckle down and do anything to make it work? And they did, you know, and that story is very different than the one of, well, they ended up drowning anyway and over a bunch of people. You know, this makes me think of a very good TV show."
+    },
+    {
+      "start": 2898.92,
+      "end": 2899.26,
+      "speaker": "SPEAKER_00",
+      "text": "Go"
+    },
+    {
+      "start": 2899.26,
+      "end": 3126.4,
+      "speaker": "SPEAKER_01",
+      "text": "ahead. And what is it? Silicon Valley. I thought you might say that, but I was like, it sounds like the obvious answer. Silicon Valley. Richard Hendrix's character arc struggled the entire show with integrity. Yeah, there's been. There were times where he buckled his integrity. What's happening? Hey, it's max podcast and max max. You want a t -shirt? Have you ever heard of the show? Did you guys have max on yesterday or no? We didn't know he ghosted us. Yeah, yes, yes. Good to see you. Um, we are live right now. Do you want to say hi to the folks at home? Put your face in the camera real quick. Yeah, this is, uh, this is max, max, max, max Howell creator of home brew. And now t dot X, Y, Z. That's right. And also, um, uh, body double for Russell Crowe. Yeah. There's some sort of familial connection. Are you not entertained? Yeah. If you want to hang out or come by in a little bit, yeah. No worries. Okay. So what were we saying back to Silicon Valley? It's got to come back. Well, technically it was canceled or no, I guess it is referring to when he talked about cancel culture. It's his show. It's just, they canceled it. No, they ended it. It wasn't canceled. Yeah, it ended. It was great. We'll finish. Sorry. That was a dream of mine. It was, it was not, it's not true. This is not true. Just a dream. So Richard Hendricks struggled the entire time. It's the entire story arc of the whole show, if you haven't watched it before. And there were a couple of times he even referenced Abe Lincoln and habeas corpus, a very particular episode where they were planting pie holes or something like that in, uh, in the hoolicon conference so that they can gain users. And that was a by any means necessary thing. Yeah. And it's wow. Like you watch that show. So I mean like that stuff happens. I'm not sure if it happens that dramatically in the world. Right. That was so cool. They end up getting a lot of users, phones caught on fire and blew up. They ended up getting all these users and then ultimately other things happened, which led to the story arc of Pied Piper. But you see that you see these folks struggle with integrity. And I think that shows a great example of playing out someone who really desires to be telling that line of integrity and you see him struggle. You see it in the character and you ultimately see it in the story arc of the entire show and the product Pied Piper and the team. That's an example of the struggle. I think it's satire, obviously, but it's very real as well. I think it's such a stretch from reality. Yeah. I think it applies the most on like the extreme ends of the spectrum. Like they're a startup. They had to do some things to not be not in existence anymore. Then the other side of things, you're like huge fang company or sorry, Menomina companies. That's the new fang, Menomina. No, no, no, stop. Just put it, put, you can't move on. We can put a pin in it Jared, if you don't, okay. What's this Menomina thing? Meta, Apple, Netflix, Amazon, What's that, Elijah? NVIDIA, I don't know. I'm probably not getting them all right. We're working on Microsoft. Yeah. Microsoft, Microsoft's the first one because we think Microsoft should have always been included in the thing, but"
+    },
+    {
+      "start": 3126.4,
+      "end": 3127.22,
+      "speaker": "SPEAKER_00",
+      "text": "anyway."
+    },
+    {
+      "start": 3127.38,
+      "end": 3133.74,
+      "speaker": "SPEAKER_01",
+      "text": "They probably wanted in there and they were like, what's wrong with these guys? All right. Yeah. What was I saying? Oh yeah. So those big companies,"
+    },
+    {
+      "start": 3133.74,
+      "end": 3134.78,
+      "speaker": "SPEAKER_00",
+      "text": "they're"
+    },
+    {
+      "start": 3134.78,
+      "end": 3142.36,
+      "speaker": "SPEAKER_01",
+      "text": "like, you're in a board meeting and they're like, okay, if we do this to over everyone, we make $500 million. That's a hard, like,"
+    },
+    {
+      "start": 3142.43,
+      "end": 3143.17,
+      "speaker": "SPEAKER_00",
+      "text": "yeah,"
+    },
+    {
+      "start": 3143.23,
+      "end": 3332.09,
+      "speaker": "SPEAKER_01",
+      "text": "no, we can't, we got to be nice. You know, I've never been in that level of a conversation, right? So I can't like speak to that, but I think there's probably a lot of that. Well, they also never say it that way. Nobody ever says it. If we make this strategic pivot, it may harm the current environment for certain users, but we will gain these others users and give them this tangential benefit and profit. You need another yacht? I need another yacht. I could use my first yacht. I think this is a good start, yeah. I lost my yacht. Yeah. It just, I went on shore, we ported and I was like, where's my yacht? You had too much Chianti. I was like, forget it. I don't know. That one ran out of gas. Just forget it. Yeah. Every time you buy a new one, the tech's here. The captain and all, bye. Got a whole new captain. So integrity and certifications and, you know, this is a whole thing about, it's funny, individuals, we were speaking first about individuals building reputation versus a company reputation, and we don't actually have the same like moral agreements from the humans to the group of humans who are a company though. I will say that because the morality kind of strips away the larger, the more growth and success you get because you're perceived differently. You did what you had to do to get there. Now, as you fall down and go burning, they're like, oh yeah, that guy was a jerk. But if it goes the other direction, it often feels perceived the other way. So the ends do justify the means. I mean, it depends. I've used it in that show. Yeah. You've seen that show Succession, right? That's not based on any kind of morality, even within there. I haven't seen it. Can you tell us what it's about? Phenomenal yet very, very disgusting show. Absolutely. Was it canceled? No, no, it was actually. It went on probably a season too long. Maybe they wrapped it up, but it was canceled. Was it? Yeah. It wasn't canceled. It wasn't canceled. No, it wasn't. No, it ended. I call that. Well, yes, they wrapped it up, but it came to me. I'd read that it was canceled. Maybe I'm wrong. Maybe I'm canceled. I think you're canceled. No way, man. For saying that, HBO will never sponsor us. Brian Cox is probably one of his best roles ever. Yeah, it's amazing. Um, stellar acting all around, gripping and obscene richness. I mean, it's an incredible showcase and statement about what actually you rich is, and that family was rich. They were so if you rich, they were if you rich against themselves. Yeah, for real. That's how I mean, there was no line that would not be crossed. Yeah, agreed. It's a great show. So whether Robbie thinks it was canceled or not, great. Did they murder their father to take the throne? No, they tried. They certainly try versus a murder. Yeah, yeah. This murder. Yes. Yeah. Because that goes back to Gladiator. You know, he just he hugs his dad. Yeah, Caesar. He just hugs him to death. You know that? Yeah. Walking Phoenix"
+    },
+    {
+      "start": 3332.09,
+      "end": 3333.01,
+      "speaker": "SPEAKER_00",
+      "text": "or"
+    },
+    {
+      "start": 3333.01,
+      "end": 3344.91,
+      "speaker": "SPEAKER_01",
+      "text": "Gladiator. Yeah, I remember. I remember it. He realizes. So I just watched this recently. That's why I have it down, Pat. Yeah, go about this. Yeah, markets. Aurelius is old. He's dying. He's going to name"
+    },
+    {
+      "start": 3345.04,
+      "end": 3346.16,
+      "speaker": "SPEAKER_00",
+      "text": "Russell"
+    },
+    {
+      "start": 3346.16,
+      "end": 3562.71,
+      "speaker": "SPEAKER_01",
+      "text": "Crowe as the next Caesar, Maximus, whatever Maximus Aurelius, whatever his name is. Maximus and Walking Phoenix, who is the heir to the throne, goes into his dad's tent and his dad tells him you will not be Caesar. And he's like, well, I ever wanted to do is have you be proud of me, Dad. I got kind of. Yeah, I remember. And they like he's like my son. And then they get close and he hugs him. And he straight strangles him to death and takes the throne. Yeah, that's succession right there. That's some speaking of things that strangle you to death. How do you feel about TypeScript? Well, I stay as far away as I can, just like Marcus Aurelius should have stayed away from his son. Yeah, yeah, yeah. Always have a buddy. That's good. That's a good pivot into the way back into whatnot. And we've got a lot of a lot of whatnot. OK, friends, I'm here with a new friend of ours over at Timescale, Avthar Suithan. So Avthar, help me understand what exactly is Timescale? So Timescale is a Postgres company. We build tools in the cloud and in the open source ecosystem that allow developers to do more with Postgres. So using it for things like time series analytics and more recently applications like rag and search and agents. OK, if our listeners were trying to get started with Postgres, Timescale, AI application development, what would you tell them? What's a good roadmap? If you're a developer out there, you're either getting tasked with building an AI application or you're interested and you're seeing all the innovation going on in the space and want to get involved yourself. And the good news is that any developer today can become an AI engineer using tools that they already know and love. And so the work that we've been doing at Timescale with the PGAI project is allowing developers to build AI applications with the tools and with the database that they already know and that being Postgres. What this means is that you can actually level up your career, you can build new, interesting projects, you can add more skills without learning a whole new set of technologies. And the best part is it's all open source, both PGAI and PG vector scale are open source. You can go and spin it up on your local machine via Docker, follow one of the tutorials of the Timescale blog, build these cutting edge applications like rag and search without having to learn 10 different new technologies and just using Postgres in the SQL query language that you will probably already know and are familiar with. So, yeah, that's it. Get started today. It's a PGAI project and just go to any of the Timescale GitHub repos, either the PGAI one or the PG vector scale one, and follow one of the tutorials to get started with becoming an AI engineer just using Postgres. OK, just use Postgres and just use Postgres to get started with AI development, build rag, search AI agents, and it's all open source. Go to timescale .com AI, play with PGAI, play with PG vector scale all locally on your desktop. It's open source. Once again, timescale .com AI. What is upset about the state of front end? I mean, like,"
+    },
+    {
+      "start": 3563.25,
+      "end": 3567.09,
+      "speaker": "SPEAKER_01",
+      "text": "basically just utterly disgusted with it. Right. How basically"
+    },
+    {
+      "start": 3567.22,
+      "end": 3568.76,
+      "speaker": "SPEAKER_00",
+      "text": "thoroughly"
+    },
+    {
+      "start": 3568.76,
+      "end": 3637.82,
+      "speaker": "SPEAKER_01",
+      "text": "to prove some point, all business logic and API, all of that stuff has come somehow into the front end. SQL in the front end is great. I can't remember if it's Ken C. Dodds who was saying this, but I don't know. Somebody was saying, like, we have a ton of folks who know react really well, subject matter experts. So rather than reskill them across the stack, how about we just figure out a way to learn once right everywhere? Yeah, no. And I think that speaks to the state. It's going to be a hard pass for me. Yeah, yeah, yeah, no. I mean, I like Kent, but I don't like that idea at all. Yeah. I think there's something to be said for I want to learn how to do things, you know, maybe not applied to front end, back end, database, everything, but like for building a front end, I should be able to write it the same way forever. And you just compile it to do whatever new you want behind the scenes. I got a real problem with that particular attitude, which is like, I'm only going to learn one thing. Okay. And you guys just work around my lack of knowledge for the rest of my career, you know,"
+    },
+    {
+      "start": 3638.56,
+      "end": 3640.12,
+      "speaker": "SPEAKER_00",
+      "text": "like, how"
+    },
+    {
+      "start": 3640.12,
+      "end": 3685.92,
+      "speaker": "SPEAKER_01",
+      "text": "about no, that's my stance. How about no, no, no, it's an option. It's not on the list. You may check yes or no, or maybe it depends. Yeah, this one doesn't even depend. I just think that's a terrible idea. It's so myopic. So what about Ray? What do you guys think about rails research? Yeah, no, I think they'll talk that we can't. We can't talk about two things. We're trumping your topic. Yeah, we're moving on. Please go ahead. Go ahead. A response to my response. Yes, I was going to say, I think there's a line. I think some of it should work, but I think SQL in the front and"
+    },
+    {
+      "start": 3685.92,
+      "end": 3686.56,
+      "speaker": "SPEAKER_00",
+      "text": "not"
+    },
+    {
+      "start": 3686.56,
+      "end": 3733.01,
+      "speaker": "SPEAKER_01",
+      "text": "a good thing. That's the line. Yeah. Well, just skip the ORM. I think we don't need to have we have to begin with because Astro is the best way to write apps, use HTML, CSS and JavaScript. You don't need react and all the everywhere just like write with web standards, use good accessibility, do all the stuff, and then, like, then if you need some kind of more back end or database, use the technologies that already exist for that rails is great, like use my SQL or Postgres or whatever, like directly. You don't need you don't like our ORM. Is that what you're saying? It depends. It depends. I like the sugar of our I mean, Django and rails"
+    },
+    {
+      "start": 3733.01,
+      "end": 3733.95,
+      "speaker": "SPEAKER_00",
+      "text": "had"
+    },
+    {
+      "start": 3733.95,
+      "end": 3773.85,
+      "speaker": "SPEAKER_01",
+      "text": "ORM. Yeah, they're true web frameworks because they give you log in. You don't give me log in. Don't tell me next is a is a full web framework. It's not. I got to have forty five other SAS things that triangle company has invested in in order to make a full web framework in that context. So tell about the dependencies of sasses on a startup. You got authentication, log in various things like that that you have to subscribe to to deliver your application. It's like, no, man. Yeah, we replaced opinionated frameworks. With a bunch of other services that you still don't write yourself,"
+    },
+    {
+      "start": 3773.85,
+      "end": 3774.77,
+      "speaker": "SPEAKER_00",
+      "text": "which"
+    },
+    {
+      "start": 3774.77,
+      "end": 3807.69,
+      "speaker": "SPEAKER_01",
+      "text": "I think is why rails is having a moment again. Because, like, hey, guys, remember this? This was better before we went over here. It's better. It's back. It's better again. Sorry, I don't know. I personally never left the old way because I'm a stodgy curmudgeon. And so I just didn't wait. And I'm just going to do it. And here it is. You describe my stack right over there. You're like HTML, CSS. I'm like, yeah, well, the sad part is that we are. Almost 10 years deep into a platform that was not written rails,"
+    },
+    {
+      "start": 3808.04,
+      "end": 3809.2,
+      "speaker": "SPEAKER_00",
+      "text": "which"
+    },
+    {
+      "start": 3809.2,
+      "end": 3831.1,
+      "speaker": "SPEAKER_01",
+      "text": "I have remorse over. But Jared does not like it. That has all the same ideals that rails has. So it's fine. I get it. We use elixir and Phoenix. Okay. That is also continuing to, like, evolve and be great. Totally. That is like kind of timeless software. I agree. Well, I picked it eight years ago and I'm still happy with it, which you can't say that about too many things, right? That's true."
+    },
+    {
+      "start": 3831.88,
+      "end": 3832.28,
+      "speaker": "SPEAKER_00",
+      "text": "That"
+    },
+    {
+      "start": 3832.28,
+      "end": 3919.1,
+      "speaker": "SPEAKER_01",
+      "text": "being said, rails is cool. And if I was starting from fresh because I used to do rails before that and I would definitely pick it back up again. Yeah, because Ruby is a great language and DHH is nice now and making friends online. Who convinced me to buy a framework laptop? So how is that? It's pretty dope. I just haven't been able to spend enough time to, like, make it my regular driver. Right. But it's that. And the only clue is really cool. Yeah, that's not cool. So I like being able to upgrade it if I want. And even when my Apple care wears out, I get it fixed. How much does that cost? I ended up buying one on sale, so it was under a grand. Yeah. So it's usually actually you can get a nicely put together one for about a grand 800 to 1000, I'd say. Okay. I'm about to get a new laptop and I am so deeply in the Apple ecosystem. So I'm afraid to, like, peek out and see because the cocoon is so warm and snuggly. It is. Yeah, you're absolutely not wrong. Yeah, but I am curious. You're a little curious. I think the work around is you have like a rack mount Mac that you can have, like, I message your Linux so you can still message people and shit, but yeah, maybe. I know it's not like a work around."
+    },
+    {
+      "start": 3919.1,
+      "end": 3919.82,
+      "speaker": "SPEAKER_00",
+      "text": "But"
+    },
+    {
+      "start": 3919.82,
+      "end": 3935.96,
+      "speaker": "SPEAKER_01",
+      "text": "I mean, it's a funny thing because you can buy a MacBook Air and a frame Linux laptop and still spend less than you would on a MacBook Pro, like real, like, high level. Yeah, so it's crazy. But that's the place. But absolutely is. Yeah,"
+    },
+    {
+      "start": 3937.17,
+      "end": 3976.77,
+      "speaker": "SPEAKER_01",
+      "text": "so there's that. Yeah, I don't know. DHH was able to make it run his Apple XDR display even too. No, he said it never worked. It worked. No, he told me it worked. I just didn't get the one level up that he did that made that work. But it would be a $200 upgrade for me to do that if I was like, I'm in and then make that work, too. So hard to say. But I say it's worth trying, especially at the price points. Anyway, this episode is brought to you by Framework Laptops. I'm just trying to find people I can build. Yeah. This episode is sponsored by KC Masterpiece Barbecue Sauce. Oh, I"
+    },
+    {
+      "start": 3976.77,
+      "end": 3980.83,
+      "speaker": "SPEAKER_01",
+      "text": "don't know. Is it legal to say you're sponsored when you're not sponsored? We do it anyway."
+    },
+    {
+      "start": 3981.72,
+      "end": 3982.12,
+      "speaker": "SPEAKER_00",
+      "text": "Is"
+    },
+    {
+      "start": 3982.12,
+      "end": 4165.88,
+      "speaker": "SPEAKER_01",
+      "text": "there rules to this? Hold on. We've been doing this. I think there's an FCC regulation against that. Do you have to? Does the FCC cover things on the Apple? They won't let me be. Things like that. Or let me be me. So let me see. That's exactly what I was thinking. I was like, do I say it or do I not say it? You should. I'm like, they won't get it. But I underestimate you, Robbie. I underestimate you a lot. Well, Eminem. Yes. He is the GOAT, apparently. He's 51 now. So that makes me feel old. Yeah. Preaching to the priority. How do you guys normally end these shows? We're done by. Yeah. No, the get out. We do try to ask at the end. Is there anything you want you guys to do if you weren't in tech? Like, you don't have to possess this skill. If you just think this is cool and I wish I could do it, you can choose that, too. Yeah. I would probably be the emperor of the Roman Empire. How often do you think about the Roman Empire? Just watch Gladiator there at night. Yeah. You're like, that seems like a good job. I like how you can just do this or this. Yeah. And everyone just does what you say. To my son does. Daddy's cooking. What would I do if I wasn't in tech? So many things. Am I retired? You can be. Whatever you want. This is your dream. There's a scenario. I mean, Jared was able to time travel back to the Roman Empire. Well, the Roman Empire brought it to us. Yeah, I brought it to the future. So that's a nitpick. Yeah, that's fair. If I'm retired, I would probably begin to garden. I'd probably pickle my own pickles. I'd probably make guacamole every single day. I probably have my own avocado tree. I would probably have my own jalapeno tree and a serrano tree or plant. That's how unschooled I am on this gardening. Well, you haven't started. I would first principles, not because I'm a weirdo, but because I really want to eat good food. And there's something magical that happens when you eat really good food. And I'm not talking like pizza good food. Yeah. But like fresh vegetables, fresh spices, make your own yogurt kind of situation, make your own sauces. There's something that changes with your food whenever you've done that. And you kind of don't want to eat out of your bar. Yeah. Unless it's like your favorite restaurant and you're like, nah, not today. You know, that's kind of where we're at. I make a phenomenal burger. All right. Better than Jason's burgers. The only thing that stopped me from going layers and layers deeper is that I don't have time to grind my own meat. Oh, right. I got that. But if you had time. If I was not in tech and I was retired, I would be grinding my own meat. I would be sirloin with ribeye and,"
+    },
+    {
+      "start": 4165.88,
+      "end": 4166.66,
+      "speaker": "SPEAKER_00",
+      "text": "you"
+    },
+    {
+      "start": 4166.66,
+      "end": 4256.74,
+      "speaker": "SPEAKER_01",
+      "text": "know, all the stuff. Make my own ground meat. I'd make my own bun. Yes. Seriously. Yes. That guy in L .A. on the burger show who has the butcher shop. He's like a chef and he has his own butcher shop. And then he gets like a bakery out in town to do his potato rolls for his burgers. They're amazing. I'd fly my own plane to Colombia to get my beans myself from Raul, who's a long time friend. And I'm now a supporter of his farm. We have a co -op. We shake hands, maybe kiss a cheek. And I come back with some fresh beans and I grind them that day. Yeah. And I make some good coffee. Nice. That's what I would do if I wasn't in tech. You could be my chef in the Roman Empire. You could be my chef. I would direct the directors. Yeah, that's fair. Yeah. And then, yeah, if you guys have anything you want to plug or mention that we didn't get to. I'll say we have a show coming out with DHH this week. So it's Tuesday. It should come out tomorrow. It's probably gonna come out Thursday. When's this gonna come out? Not for a while. Okay. Two to four weeks. You'll have heard it already. Yeah, it's out there. It's in the past. Look at our feed. You probably already listened to it. changelog .fm. And look for something that says it's a real world. Nice. It might not be called that. It'll probably say Rails or DHH. We're still working on it. Yeah. I think I'm still down with that title. I don't care. All right."
+    },
+    {
+      "start": 4257.5,
+      "end": 4257.94,
+      "speaker": "SPEAKER_00",
+      "text": "Awesome."
+    },
+    {
+      "start": 4258.28,
+      "end": 4345.44,
+      "speaker": "SPEAKER_01",
+      "text": "All right. Cool. Thanks, guys. Thanks. Thank you. Cheers, y 'all. Ciao. Cheers. Ciao. All right. That is our first show from the All Things Open hallway track, but it won't be our last. We had great conversations with Max Howell, Ched Whitaker from Sentry, Alex Kreshmar from Tailscale, and many more. Those are coming soon. Thanks again to Chuck and Robbie for hosting us on their podcast and for sharing a bottle of Chianti with us. Wine always tastes better when it's paired with good conversation. So I'm going to go ahead and revise my four tentacle rating. Let's go 4 .5. Boom. Thanks again to our amazing sponsors, Fly .io, WorkOS, Wix Studio, and Timescale. Please support them. They support us. And of course, thank you to our beat freak, BreakmasterCylinder. We couldn't bump the best beats in the biz without you, BMC. I just like anything that makes me happy, and I do that, and then I do the next thing. You're welcome. Next week on The Changelog, news on Monday, more awesome ATO interviews on Wednesday. And on Friday, we're working on an awesome Local First It Depends episode, but I'm not sure if it'll come together by then. So stay tuned. Stay tuned. Have a great weekend. Tell your friends about The Changelog over a glass of wine, and let's talk again real soon."
+    }
+  ]
+}
