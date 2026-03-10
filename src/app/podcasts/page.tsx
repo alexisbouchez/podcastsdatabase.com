@@ -60,7 +60,7 @@ export default function PodcastsPage() {
     <>
       <Breadcrumbs segments={[{ label: "Podcasts" }]} />
       <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
-      <ListFilter placeholder="Filter podcasts..." items={items} />
+      <ListFilter placeholder="Search podcasts..." items={items} />
     </>
   );
 }

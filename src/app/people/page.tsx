@@ -83,7 +83,7 @@ export default function PeoplePage() {
     <>
       <Breadcrumbs segments={[{ label: "People" }]} />
       <h1 className="text-2xl font-semibold mt-6">People</h1>
-      <ListFilter placeholder="Filter people..." items={items} />
+      <ListFilter placeholder="Search people..." items={items} />
     </>
   );
 }
