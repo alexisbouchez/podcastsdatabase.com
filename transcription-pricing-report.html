@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast Transcription &mdash; Full Market Cost Analysis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400;500&display=swap');
+
+  :root {
+    --text: #1a1a1a;
+    --muted: #555;
+    --border: #c8c8c8;
+    --bg: #fdfdfd;
+    --accent: #8b0000;
+    --table-stripe: #f5f3ef;
+    --highlight: #fffbe6;
+    --green: #2e7d32;
+    --blue: #1565c0;
+    --orange: #e65100;
+    --purple: #6a1b9a;
+    --teal: #00695c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Libre Baskerville', 'Georgia', serif;
+    font-size: 11.5pt;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 60px 40px 80px;
+  }
+
+  /* Title page */
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid var(--text);
+  }
+
+  header h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  header .subtitle {
+    font-size: 12pt;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  header .date {
+    font-size: 10pt;
+    color: var(--muted);
+    margin-top: 12px;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+  }
+
+  /* TOC */
+  nav.toc {
+    margin: 0 0 40px;
+    padding: 18px 24px;
+    background: #faf9f6;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  nav.toc h2 {
+    font-size: 11pt;
+    margin: 0 0 10px;
+    border: none;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+  }
+
+  nav.toc ol {
+    list-style: none;
+    counter-reset: toc;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+    column-gap: 32px;
+    font-size: 10.5pt;
+  }
+
+  nav.toc li {
+    counter-increment: toc;
+    margin-bottom: 4px;
+    break-inside: avoid;
+  }
+
+  nav.toc li::before {
+    content: counter(toc) ". ";
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  nav.toc a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--border);
+  }
+
+  nav.toc a:hover { border-bottom-color: var(--accent); }
+
+  h2 {
+    font-size: 15pt;
+    margin-top: 44px;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+  }
+
+  h2 .section-num {
+    color: var(--accent);
+    margin-right: 6px;
+  }
+
+  h3 {
+    font-size: 12pt;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  p { margin-bottom: 12px; }
+
+  a { color: var(--accent); }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-size: 10.5pt;
+  }
+
+  thead th {
+    background: var(--text);
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 9pt;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  tbody td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+  }
+
+  tbody tr:nth-child(even) { background: var(--table-stripe); }
+
+  td.num, th.num { text-align: right; font-family: 'Source Code Pro', monospace; }
+  td.center, th.center { text-align: center; }
+
+  .highlight-row td { background: var(--highlight) !important; font-weight: 700; }
+
+  /* Code */
+  code {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 9.5pt;
+    background: #f0ede8;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Pipeline cards */
+  .pipeline-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 20px 0 28px;
+    background: #faf9f6;
+    page-break-inside: avoid;
+  }
+
+  .pipeline-card h3 {
+    margin-top: 0;
+    font-size: 13pt;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 8pt;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: 'Source Code Pro', monospace;
+    vertical-align: middle;
+  }
+
+  .badge-green { background: #e8f5e9; color: var(--green); border: 1px solid #a5d6a7; }
+  .badge-blue { background: #e3f2fd; color: var(--blue); border: 1px solid #90caf9; }
+  .badge-orange { background: #fff3e0; color: var(--orange); border: 1px solid #ffcc80; }
+  .badge-purple { background: #f3e5f5; color: var(--purple); border: 1px solid #ce93d8; }
+  .badge-teal { background: #e0f2f1; color: var(--teal); border: 1px solid #80cbc4; }
+
+  .pipeline-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+    font-size: 10pt;
+    margin: 12px 0;
+    color: var(--muted);
+  }
+
+  .pipeline-meta dt { font-weight: 700; color: var(--text); }
+  .pipeline-meta dd { margin: 0; }
+
+  .pipeline-flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 16px 0 8px;
+    font-size: 9.5pt;
+    font-family: 'Source Code Pro', monospace;
+    flex-wrap: wrap;
+  }
+
+  .flow-step {
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .flow-arrow {
+    padding: 0 6px;
+    color: var(--muted);
+    font-size: 13pt;
+  }
+
+  /* Bar chart */
+  .bar-chart { margin: 20px 0 28px; }
+
+  .bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 9.5pt;
+  }
+
+  .bar-label {
+    width: 150px;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 14px;
+    font-size: 9pt;
+  }
+
+  .bar-track {
+    flex: 1;
+    background: #eee;
+    height: 24px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+    font-size: 9pt;
+    color: #fff;
+    white-space: nowrap;
+    min-width: fit-content;
+  }
+
+  .bar-section-label {
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 16px 0 6px;
+    padding-left: 164px;
+    font-weight: 700;
+  }
+
+  /* Footnotes */
+  .footnote {
+    font-size: 9pt;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    padding-top: 14px;
+    font-style: italic;
+  }
+
+  .footnote p { margin-bottom: 4px; }
+
+  sup {
+    font-size: 8pt;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Verdict box */
+  .verdict {
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+    padding: 18px 24px;
+    margin: 28px 0;
+    background: #fdf6f6;
+  }
+
+  .verdict h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 12pt;
+  }
+
+  /* Category dividers */
+  .category-label {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    margin: 32px 0 4px;
+    font-weight: 700;
+  }
+
+  /* Print */
+  @media print {
+    body { padding: 40px 20px; font-size: 10.5pt; }
+    .pipeline-card { break-inside: avoid; }
+    nav.toc { break-after: page; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Podcast Transcription</h1>
+  <div class="subtitle">Full Market Cost Analysis &mdash; Your Pipelines vs. 13 External Services</div>
+  <div class="date">March 2026 &mdash; podcastsdatabase.com</div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#s1">Executive Summary</a></li>
+    <li><a href="#s2">Your Current Pipelines</a></li>
+    <li><a href="#s3">Managed API Services</a></li>
+    <li><a href="#s4">Serverless GPU Platforms</a></li>
+    <li><a href="#s5">Full Market Comparison</a></li>
+    <li><a href="#s6">Visual Cost Ranking</a></li>
+    <li><a href="#s7">Feature Matrix</a></li>
+    <li><a href="#s8">Cost Scenarios (Volume)</a></li>
+    <li><a href="#s9">Recommendations</a></li>
+    <li><a href="#s10">Sources</a></li>
+  </ol>
+</nav>
+
+<!-- ================================================================== -->
+<h2 id="s1"><span class="section-num">1.</span> Executive Summary</h2>
+
+<p>
+  This report compares the three transcription + diarization pipelines currently deployed in
+  <code>podcastsdatabase.com</code> against 13 external alternatives, spanning managed APIs,
+  cloud providers, and serverless GPU platforms. All prices are normalized to
+  <strong>cost per hour of input audio</strong>, including speaker diarization where available.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Solution</th>
+      <th>Type</th>
+      <th class="num">Cost / Audio Hr</th>
+      <th>Diarization</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#e8f5e9;">
+      <td><strong>Groq (Whisper large-v3-turbo)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.04</td>
+      <td>No</td>
+      <td>Transcription only; need separate diarization</td>
+    </tr>
+    <tr style="background:#e8f5e9;">
+      <td><strong>Groq + pyannote.ai</strong></td>
+      <td>Hybrid</td>
+      <td class="num">$0.04&ndash;$0.21</td>
+      <td>Yes</td>
+      <td>Cheapest full pipeline if pyannote plan is utilized</td>
+    </tr>
+    <tr>
+      <td><strong>Your Local pipeline</strong></td>
+      <td>Self-hosted</td>
+      <td class="num">$0.17</td>
+      <td>Yes</td>
+      <td>pyannote API diarization</td>
+    </tr>
+    <tr>
+      <td><strong>Rev.ai (Reverb)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.18</td>
+      <td>Yes</td>
+      <td>Cheapest all-in-one managed API</td>
+    </tr>
+    <tr>
+      <td><strong>AssemblyAI (Universal)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.17</td>
+      <td>+$0.02/hr</td>
+      <td>$0.15 base + diarization add-on</td>
+    </tr>
+    <tr>
+      <td><strong>OpenAI (GPT-4o Mini Transcribe)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.18</td>
+      <td>No</td>
+      <td>No diarization; need separate step</td>
+    </tr>
+    <tr>
+      <td><strong>Deepgram (Nova-3 batch)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.26</td>
+      <td>Yes</td>
+      <td>Diarization included; very fast</td>
+    </tr>
+    <tr>
+      <td><strong>ElevenLabs Scribe v2</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.28</td>
+      <td>Yes</td>
+      <td>Best accuracy (2.3% WER); diarization included</td>
+    </tr>
+    <tr>
+      <td><strong>OpenAI Whisper API</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.36</td>
+      <td>No</td>
+      <td>No volume discounts; no diarization</td>
+    </tr>
+    <tr>
+      <td><strong>Modal (T4 self-host)</strong></td>
+      <td>Serverless GPU</td>
+      <td class="num">$0.15&ndash;$0.25</td>
+      <td>DIY</td>
+      <td>Run your own Whisper + pyannote; pay per second</td>
+    </tr>
+    <tr>
+      <td><strong>Your Fly.io pipeline</strong></td>
+      <td>Serverless GPU</td>
+      <td class="num">$0.39&ndash;$0.64</td>
+      <td>Yes</td>
+      <td>A10 GPU; parallel batch; word-level diarization</td>
+    </tr>
+    <tr>
+      <td><strong>Gladia (Solaria-1)</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.55</td>
+      <td>Yes</td>
+      <td>All features bundled; 100+ languages</td>
+    </tr>
+    <tr>
+      <td><strong>Speechmatics</strong></td>
+      <td>Managed API</td>
+      <td class="num">$0.70</td>
+      <td>Yes</td>
+      <td>Enterprise-grade; volume discounts at 500+ hrs</td>
+    </tr>
+    <tr>
+      <td><strong>Google Cloud STT</strong></td>
+      <td>Cloud Provider</td>
+      <td class="num">$0.96&ndash;$1.44</td>
+      <td>Yes</td>
+      <td>Enhanced model; +40% if data logging opted out</td>
+    </tr>
+    <tr>
+      <td><strong>Azure Speech</strong></td>
+      <td>Cloud Provider</td>
+      <td class="num">$1.02</td>
+      <td>Yes</td>
+      <td>Batch $0.36/hr; real-time $1.02/hr</td>
+    </tr>
+    <tr>
+      <td><strong>AWS Transcribe</strong></td>
+      <td>Cloud Provider</td>
+      <td class="num">$1.44</td>
+      <td>Yes</td>
+      <td>Tiered: drops to $0.47/hr at 5M+ min</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================== -->
+<h2 id="s2"><span class="section-num">2.</span> Your Current Pipelines</h2>
+
+<!-- ─── Pipeline A ─── -->
+<div class="pipeline-card">
+  <h3>Pipeline A &mdash; Local (Apple Silicon) <span class="badge badge-green">Cheapest</span></h3>
+
+  <div class="pipeline-flow">
+    <span class="flow-step">Audio file</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">transcribe.py<br><small>mlx-whisper</small></span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">diarize.ts<br><small>pyannote API</small></span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Diarized JSON</span>
+  </div>
+
+  <dl class="pipeline-meta">
+    <dt>Scripts</dt>
+    <dd><code>scripts/transcribe.py</code> + <code>scripts/diarize.ts</code></dd>
+    <dt>Whisper Model</dt>
+    <dd><code>mlx-community/whisper-large-v3-turbo</code></dd>
+    <dt>Diarization</dt>
+    <dd>pyannote.ai cloud API</dd>
+    <dt>Parallelism</dt>
+    <dd>Single episode at a time</dd>
+  </dl>
+
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Pricing</th><th class="num">Per Audio Hr</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Transcription (mlx-whisper)</td><td>Free &mdash; local hardware</td><td class="num">$0.00</td></tr>
+      <tr><td>Diarization &mdash; Developer</td><td>&euro;19/mo for 125 hrs</td><td class="num">~$0.17</td></tr>
+      <tr><td>Diarization &mdash; Starter</td><td>&euro;99/mo for 825 hrs</td><td class="num">~$0.13</td></tr>
+      <tr class="highlight-row"><td colspan="2"><strong>Total (Developer)</strong></td><td class="num">~$0.17</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── Pipeline B ─── -->
+<div class="pipeline-card">
+  <h3>Pipeline B &mdash; VPS (Self-Hosted) <span class="badge badge-blue">Lowest at Volume</span></h3>
+
+  <div class="pipeline-flow">
+    <span class="flow-step">Audio file</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Upload to VPS</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Whisper + pyannote<br><small>on server</small></span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Download result</span>
+  </div>
+
+  <dl class="pipeline-meta">
+    <dt>Script</dt>
+    <dd><code>scripts/transcribe-remote.ts</code></dd>
+    <dt>Server</dt>
+    <dd><code>internal.podcastsdatabase.com</code></dd>
+    <dt>Cost Model</dt>
+    <dd>Fixed monthly (amortized per episode)</dd>
+  </dl>
+
+  <table>
+    <thead>
+      <tr><th>Volume</th><th class="num">@ $50/mo VPS</th><th class="num">@ $100/mo VPS</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>10 hrs/mo</td><td class="num">$5.00</td><td class="num">$10.00</td></tr>
+      <tr><td>50 hrs/mo</td><td class="num">$1.00</td><td class="num">$2.00</td></tr>
+      <tr><td>100 hrs/mo</td><td class="num">$0.50</td><td class="num">$1.00</td></tr>
+      <tr><td>200 hrs/mo</td><td class="num">$0.25</td><td class="num">$0.50</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── Pipeline C ─── -->
+<div class="pipeline-card">
+  <h3>Pipeline C &mdash; Fly.io (Ephemeral GPU) <span class="badge badge-orange">Best for Batch</span></h3>
+
+  <div class="pipeline-flow">
+    <span class="flow-step">Audio URL(s)</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Spin up Machine<br><small>A10 GPU</small></span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">yt-dlp &rarr; Whisper &rarr; pyannote</span>
+    <span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">Download &amp; Destroy</span>
+  </div>
+
+  <dl class="pipeline-meta">
+    <dt>Scripts</dt>
+    <dd><code>scripts/transcribe-fly.ts</code> + <code>fly/worker.py</code></dd>
+    <dt>Machine Spec</dt>
+    <dd>8&times; Perf CPU, 32 GB RAM, 1&times; A10 GPU</dd>
+    <dt>Parallelism</dt>
+    <dd>Up to 3 concurrent machines</dd>
+    <dt>Diarization</dt>
+    <dd>pyannote.audio 3.1 on GPU (free HF model)</dd>
+  </dl>
+
+  <table>
+    <thead>
+      <tr><th>Component</th><th>Pricing</th><th class="num">Per Audio Hr</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>A10 GPU</td><td>$0.75/hr</td><td class="num">$0.19&ndash;$0.31</td></tr>
+      <tr><td>8&times; Performance CPU + 32 GB RAM</td><td>~$0.80/hr</td><td class="num">$0.20&ndash;$0.33</td></tr>
+      <tr><td>Diarization model (HuggingFace)</td><td>Free</td><td class="num">$0.00</td></tr>
+      <tr class="highlight-row"><td colspan="2"><strong>Total</strong> <small>(~15&ndash;25 min per audio hr)</small></td><td class="num">~$0.39&ndash;$0.64</td></tr>
+    </tbody>
+  </table>
+
+  <p style="font-size:9.5pt;color:var(--muted);margin-top:8px;">
+    Fly.io A10 GPUs may be deprecated after August 2026. Migration path: L40S at $1.25/hr.
+  </p>
+</div>
+
+<!-- ================================================================== -->
+<h2 id="s3"><span class="section-num">3.</span> Managed API Services</h2>
+
+<p>
+  Turnkey APIs that handle transcription and (usually) diarization in a single call.
+  No infrastructure to manage. Most charge per audio minute/hour with no idle cost.
+</p>
+
+<!-- ─── Groq ─── -->
+<div class="pipeline-card">
+  <h3>Groq <span class="badge badge-green">Cheapest Transcription</span></h3>
+  <dl class="pipeline-meta">
+    <dt>Model</dt>
+    <dd>Whisper large-v3-turbo on Groq LPU</dd>
+    <dt>Diarization</dt>
+    <dd>Not included &mdash; transcription only</dd>
+    <dt>Speed</dt>
+    <dd>164&times; real-time (fastest available)</dd>
+    <dt>Free Tier</dt>
+    <dd>Limited daily quota</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Model</th><th class="num">Per Audio Hr</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Distil-Whisper</td><td class="num">$0.02</td><td>Fastest, slightly lower accuracy</td></tr>
+      <tr><td>Whisper large-v3-turbo</td><td class="num">$0.04</td><td>Best speed/accuracy tradeoff</td></tr>
+      <tr><td>Whisper large-v3</td><td class="num">$0.11</td><td>Highest accuracy on Groq</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    <strong>For podcasts:</strong> Pair with pyannote.ai for diarization. Combined cost: <strong>$0.04 + $0.13&ndash;$0.17 = $0.17&ndash;$0.21/hr</strong>.
+    If pyannote plan is well-utilized, this is the cheapest full-pipeline option. Groq's speed means a 1-hour episode
+    transcribes in ~22 seconds.
+  </p>
+</div>
+
+<!-- ─── AssemblyAI ─── -->
+<div class="pipeline-card">
+  <h3>AssemblyAI <span class="badge badge-teal">Best All-in-One Value</span></h3>
+  <dl class="pipeline-meta">
+    <dt>Models</dt>
+    <dd>Universal-2 (multilingual), Slam-1 (deprecated)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in (+$0.02/hr add-on)</dd>
+    <dt>Free Tier</dt>
+    <dd>$50 credit (~185 hrs transcription)</dd>
+    <dt>Languages</dt>
+    <dd>99 languages</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Feature</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>Universal transcription</td><td class="num">$0.15</td></tr>
+      <tr><td>+ Speaker diarization</td><td class="num">+$0.02</td></tr>
+      <tr><td>+ Entity detection</td><td class="num">+$0.08</td></tr>
+      <tr><td>+ Summarization</td><td class="num">+$0.03</td></tr>
+      <tr class="highlight-row"><td><strong>Transcription + diarization</strong></td><td class="num">$0.17</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    Enterprise volume discounts up to 50%. Speaker diarization recently improved: 64% fewer counting errors,
+    10.1% DER improvement.
+  </p>
+</div>
+
+<!-- ─── Rev.ai ─── -->
+<div class="pipeline-card">
+  <h3>Rev.ai</h3>
+  <dl class="pipeline-meta">
+    <dt>Model</dt>
+    <dd>Reverb (proprietary ASR)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in (price included)</dd>
+    <dt>Human Option</dt>
+    <dd>$1.99/min for human transcription</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Tier</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>Reverb AI</td><td class="num">$0.18</td></tr>
+      <tr><td>Human transcription</td><td class="num">$119.40</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── Deepgram ─── -->
+<div class="pipeline-card">
+  <h3>Deepgram <span class="badge badge-purple">Fastest Managed</span></h3>
+  <dl class="pipeline-meta">
+    <dt>Model</dt>
+    <dd>Nova-3 (proprietary)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in; included in price</dd>
+    <dt>Free Tier</dt>
+    <dd>$200 credit (~750 hrs batch)</dd>
+    <dt>Languages</dt>
+    <dd>45+</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Mode</th><th class="num">Per Audio Hr</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Batch (pre-recorded)</td><td class="num">$0.26</td><td>Best for podcasts</td></tr>
+      <tr><td>Streaming (real-time)</td><td class="num">$0.46</td><td>Live use cases</td></tr>
+      <tr><td>Growth tier (prepaid)</td><td class="num">$0.39</td><td>$4,000+ annual commitment</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    Nova-3 benchmarks at 5.26% WER for English. 40&times; faster inference than competing diarization-enabled models.
+    Diarization, smart formatting, and language detection are all included in the base price.
+  </p>
+</div>
+
+<!-- ─── ElevenLabs ─── -->
+<div class="pipeline-card">
+  <h3>ElevenLabs Scribe <span class="badge badge-green">Best Accuracy</span></h3>
+  <dl class="pipeline-meta">
+    <dt>Models</dt>
+    <dd>Scribe v1 (batch), Scribe v2 (real-time)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in; included in price</dd>
+    <dt>Accuracy</dt>
+    <dd>2.3% WER (best in class, March 2026)</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Model</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>Scribe v2 (real-time)</td><td class="num">$0.28</td></tr>
+      <tr><td>Scribe v1 (batch)</td><td class="num">$0.40</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    Highest accuracy of any service benchmarked. Diarization and timestamps included.
+    Scribe v2 is both faster and cheaper than v1.
+  </p>
+</div>
+
+<!-- ─── OpenAI ─── -->
+<div class="pipeline-card">
+  <h3>OpenAI Whisper API</h3>
+  <dl class="pipeline-meta">
+    <dt>Models</dt>
+    <dd>Whisper, GPT-4o Mini Transcribe, GPT-4o Transcribe</dd>
+    <dt>Diarization</dt>
+    <dd>Not natively supported</dd>
+    <dt>Billing</dt>
+    <dd>Charged on file duration (including silence)</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Model</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>GPT-4o Mini Transcribe</td><td class="num">$0.18</td></tr>
+      <tr><td>Whisper</td><td class="num">$0.36</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    No volume discounts. No diarization&thinsp;&mdash;&thinsp;you'd need to pair with a separate service
+    like pyannote.ai, bringing total to ~$0.31&ndash;$0.53/hr. Bills for silence in audio.
+  </p>
+</div>
+
+<!-- ─── Gladia ─── -->
+<div class="pipeline-card">
+  <h3>Gladia</h3>
+  <dl class="pipeline-meta">
+    <dt>Model</dt>
+    <dd>Solaria-1 (proprietary)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in; included in price</dd>
+    <dt>Free Tier</dt>
+    <dd>10 hrs/month</dd>
+    <dt>Languages</dt>
+    <dd>100+, with code-switching</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Mode</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>Batch (pre-recorded)</td><td class="num">$0.55</td></tr>
+      <tr><td>Real-time (Pro plan)</td><td class="num">$0.61</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── Speechmatics ─── -->
+<div class="pipeline-card">
+  <h3>Speechmatics</h3>
+  <dl class="pipeline-meta">
+    <dt>Model</dt>
+    <dd>Proprietary (enterprise-grade)</dd>
+    <dt>Diarization</dt>
+    <dd>Built-in</dd>
+    <dt>Free Tier</dt>
+    <dd>8 hrs/month</dd>
+    <dt>Volume Discounts</dt>
+    <dd>Auto-applied above 500 hrs/mo</dd>
+  </dl>
+  <table>
+    <thead><tr><th>Tier</th><th class="num">Per Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>Pay-as-you-go</td><td class="num">~$0.70</td></tr>
+      <tr><td>Volume (500+ hrs/mo)</td><td class="num">Discounted (contact sales)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ─── Big 3 Cloud ─── -->
+<div class="pipeline-card">
+  <h3>Cloud Providers (AWS, Google, Azure)</h3>
+  <p>Traditional cloud speech services. Generally the most expensive option, designed for enterprise with compliance needs.</p>
+  <table>
+    <thead><tr><th>Service</th><th class="num">Per Audio Hr</th><th>Diarization</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Azure Speech (batch)</td>
+        <td class="num">$0.36</td>
+        <td>Yes</td>
+        <td>Custom model hosting extra ($0.068/hr)</td>
+      </tr>
+      <tr>
+        <td>Azure Speech (real-time)</td>
+        <td class="num">$1.02</td>
+        <td>Yes</td>
+        <td>Commitment tiers available</td>
+      </tr>
+      <tr>
+        <td>Google Cloud STT (standard)</td>
+        <td class="num">$0.96</td>
+        <td>Yes</td>
+        <td>+40% if data logging opted out</td>
+      </tr>
+      <tr>
+        <td>Google Cloud STT (enhanced)</td>
+        <td class="num">$1.44</td>
+        <td>Yes</td>
+        <td>Better accuracy; 60 free min/mo</td>
+      </tr>
+      <tr>
+        <td>AWS Transcribe (tier 1)</td>
+        <td class="num">$1.44</td>
+        <td>Yes</td>
+        <td>Drops to $0.47/hr at 5M+ min</td>
+      </tr>
+      <tr>
+        <td>AWS Transcribe (tier 2)</td>
+        <td class="num">$0.90</td>
+        <td>Yes</td>
+        <td>250K&ndash;1M min/mo</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================================================================== -->
+<h2 id="s4"><span class="section-num">4.</span> Serverless GPU Platforms</h2>
+
+<p>
+  Run your own Whisper + pyannote stack on rented GPUs, billed per second. Full control over models
+  and pipeline. Same approach as your Fly.io pipeline, but with alternative infrastructure.
+</p>
+
+<div class="pipeline-card">
+  <h3>Modal <span class="badge badge-purple">Best Serverless DX</span></h3>
+  <dl class="pipeline-meta">
+    <dt>Billing</dt>
+    <dd>Per-second GPU time; zero idle cost</dd>
+    <dt>Free Tier</dt>
+    <dd>$30/mo GPU credits</dd>
+    <dt>Setup</dt>
+    <dd>Python decorator-based; no Docker needed</dd>
+  </dl>
+  <table>
+    <thead><tr><th>GPU</th><th class="num">Per GPU-Hr</th><th class="num">Est. Cost / Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>NVIDIA T4 (16 GB)</td><td class="num">$0.59</td><td class="num">$0.15&ndash;$0.25</td></tr>
+      <tr><td>NVIDIA A10G (24 GB)</td><td class="num">$1.10</td><td class="num">$0.28&ndash;$0.46</td></tr>
+      <tr><td>NVIDIA A100 (40 GB)</td><td class="num">$2.10</td><td class="num">$0.53&ndash;$0.88</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:10pt;">
+    Estimated audio-hour cost assumes ~15&ndash;25 min processing per hour of audio (Whisper + pyannote).
+    T4 is sufficient for <code>medium.en</code>; A10G recommended for <code>large-v3</code>.
+    Modal's DX is excellent: define functions with <code>@app.function(gpu="T4")</code> and deploy instantly.
+    Could replicate your Fly.io pipeline with less infrastructure overhead.
+  </p>
+</div>
+
+<div class="pipeline-card">
+  <h3>Replicate</h3>
+  <dl class="pipeline-meta">
+    <dt>Billing</dt>
+    <dd>Per-second GPU time</dd>
+    <dt>Notable Model</dt>
+    <dd><code>incredibly-fast-whisper</code> (community)</dd>
+    <dt>Speed</dt>
+    <dd>~150 min audio in ~100 seconds</dd>
+  </dl>
+  <table>
+    <thead><tr><th>GPU</th><th class="num">Per GPU-Hr</th><th class="num">Est. Cost / Audio Hr</th></tr></thead>
+    <tbody>
+      <tr><td>NVIDIA A40 (48 GB)</td><td class="num">$2.61</td><td class="num">$0.07&ndash;$0.15 <sup>&dagger;</sup></td></tr>
+      <tr><td>NVIDIA L40S (48 GB)</td><td class="num">$3.51</td><td class="num">$0.09&ndash;$0.20</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:9.5pt;color:var(--muted);">
+    <sup>&dagger;</sup> Replicate's <code>incredibly-fast-whisper</code> processes ~2.5 hrs of audio per minute of GPU time,
+    making it very cheap per audio hour despite high GPU rates. However, no built-in diarization&thinsp;&mdash;&thinsp;you need
+    a separate step.
+  </p>
+</div>
+
+<!-- ================================================================== -->
+<h2 id="s5"><span class="section-num">5.</span> Full Market Comparison</h2>
+
+<p>All solutions ranked by cost per audio hour, with diarization included where possible.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Solution</th>
+      <th class="num">Cost / Audio Hr</th>
+      <th class="center">Diarization</th>
+      <th class="center">Accuracy</th>
+      <th>Integration Effort</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="background:#e8f5e9;">
+      <td>1</td>
+      <td><strong>Groq + pyannote</strong></td>
+      <td class="num">$0.04&ndash;$0.21</td>
+      <td class="center">Hybrid</td>
+      <td class="center">Good</td>
+      <td>2 API calls + merge script</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><strong>Your Local</strong></td>
+      <td class="num">$0.17</td>
+      <td class="center">Yes</td>
+      <td class="center">Very Good</td>
+      <td>Already built</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><strong>Modal (T4)</strong></td>
+      <td class="num">$0.15&ndash;$0.25</td>
+      <td class="center">DIY</td>
+      <td class="center">Configurable</td>
+      <td>Port Fly.io worker to Modal</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><strong>AssemblyAI</strong></td>
+      <td class="num">$0.17</td>
+      <td class="center">Yes</td>
+      <td class="center">Very Good</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td><strong>Rev.ai</strong></td>
+      <td class="num">$0.18</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td><strong>Deepgram Nova-3</strong></td>
+      <td class="num">$0.26</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><strong>ElevenLabs Scribe</strong></td>
+      <td class="num">$0.28</td>
+      <td class="center">Yes</td>
+      <td class="center">Excellent</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><strong>OpenAI Whisper + pyannote</strong></td>
+      <td class="num">$0.31&ndash;$0.53</td>
+      <td class="center">Hybrid</td>
+      <td class="center">Good</td>
+      <td>2 API calls + merge script</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td><strong>Azure Speech (batch)</strong></td>
+      <td class="num">$0.36</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>Azure SDK</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td><strong>Your Fly.io</strong></td>
+      <td class="num">$0.39&ndash;$0.64</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>Already built</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td><strong>Gladia</strong></td>
+      <td class="num">$0.55</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td><strong>Speechmatics</strong></td>
+      <td class="num">$0.70</td>
+      <td class="center">Yes</td>
+      <td class="center">Very Good</td>
+      <td>1 API call</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td><strong>Google Cloud STT</strong></td>
+      <td class="num">$0.96&ndash;$1.44</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>GCP SDK</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td><strong>AWS Transcribe</strong></td>
+      <td class="num">$1.44</td>
+      <td class="center">Yes</td>
+      <td class="center">Good</td>
+      <td>AWS SDK</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================== -->
+<h2 id="s6"><span class="section-num">6.</span> Visual Cost Ranking</h2>
+
+<p>Cost per hour of audio (transcription + diarization). Lower is better.</p>
+
+<div class="bar-chart">
+
+  <div class="bar-section-label">Cheapest Tier ($0.04 &ndash; $0.30)</div>
+
+  <div class="bar-row">
+    <div class="bar-label">Groq + pyannote</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:8%;background:var(--green);">$0.04&ndash;$0.21</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Your Local</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:12%;background:var(--green);">$0.17</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">AssemblyAI</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:12%;background:var(--teal);">$0.17</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Rev.ai</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:13%;background:var(--teal);">$0.18</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Modal (T4)</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:14%;background:var(--purple);">$0.15&ndash;$0.25</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Deepgram Nova-3</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:18%;background:var(--teal);">$0.26</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">ElevenLabs Scribe</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:19%;background:var(--teal);">$0.28</div>
+    </div>
+  </div>
+
+  <div class="bar-section-label">Mid Tier ($0.30 &ndash; $0.70)</div>
+
+  <div class="bar-row">
+    <div class="bar-label">Azure (batch)</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:25%;background:#546e7a;">$0.36</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">OpenAI + pyannote</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:30%;background:#546e7a;">$0.31&ndash;$0.53</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Your Fly.io</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:35%;background:var(--orange);">$0.39&ndash;$0.64</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Gladia</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:38%;background:#546e7a;">$0.55</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">Speechmatics</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:48%;background:#546e7a;">$0.70</div>
+    </div>
+  </div>
+
+  <div class="bar-section-label">Expensive Tier ($0.90+)</div>
+
+  <div class="bar-row">
+    <div class="bar-label">Google Cloud STT</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:70%;background:#b71c1c;">$0.96&ndash;$1.44</div>
+    </div>
+  </div>
+  <div class="bar-row">
+    <div class="bar-label">AWS Transcribe</div>
+    <div class="bar-track">
+      <div class="bar-fill" style="width:100%;background:#b71c1c;">$1.44</div>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================== -->
+<h2 id="s7"><span class="section-num">7.</span> Feature Matrix</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th class="center" style="font-size:8pt;">Your<br>Local</th>
+      <th class="center" style="font-size:8pt;">Your<br>Fly.io</th>
+      <th class="center" style="font-size:8pt;">Assembly<br>AI</th>
+      <th class="center" style="font-size:8pt;">Deep<br>gram</th>
+      <th class="center" style="font-size:8pt;">Eleven<br>Labs</th>
+      <th class="center" style="font-size:8pt;">Groq</th>
+      <th class="center" style="font-size:8pt;">Modal</th>
+      <th class="center" style="font-size:8pt;">OpenAI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Speaker diarization</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">DIY</td>
+      <td class="center">&mdash;</td>
+    </tr>
+    <tr>
+      <td>Word-level timestamps</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+    </tr>
+    <tr>
+      <td>Batch / parallel</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+    </tr>
+    <tr>
+      <td>URL input (no upload)</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+    </tr>
+    <tr>
+      <td>Summarization</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">+$0.03</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+    </tr>
+    <tr>
+      <td>Entity detection</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">+$0.08</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+    </tr>
+    <tr>
+      <td>Multilingual</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">99</td>
+      <td class="center">45+</td>
+      <td class="center">99+</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+    </tr>
+    <tr>
+      <td>Zero idle cost</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+    </tr>
+    <tr>
+      <td>No vendor lock-in</td>
+      <td class="center">&check;</td>
+      <td class="center">&check;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">&mdash;</td>
+      <td class="center">Partial</td>
+      <td class="center">&check;</td>
+      <td class="center">&mdash;</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================== -->
+<h2 id="s8"><span class="section-num">8.</span> Cost Scenarios</h2>
+
+<p>Projected monthly cost at different episode volumes (1-hr average). Best value per tier in <strong>bold</strong>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th class="num">Eps/Mo</th>
+      <th class="num">Your Local</th>
+      <th class="num">Your Fly.io</th>
+      <th class="num">AssemblyAI</th>
+      <th class="num">Deepgram</th>
+      <th class="num">ElevenLabs</th>
+      <th class="num">Groq+pya</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="num">5</td>
+      <td class="num">$21.85</td>
+      <td class="num"><strong>$2.50</strong></td>
+      <td class="num">$0.85</td>
+      <td class="num">$1.30</td>
+      <td class="num">$1.40</td>
+      <td class="num">$21.20</td>
+    </tr>
+    <tr>
+      <td class="num">20</td>
+      <td class="num">$24.40</td>
+      <td class="num">$10.00</td>
+      <td class="num"><strong>$3.40</strong></td>
+      <td class="num">$5.20</td>
+      <td class="num">$5.60</td>
+      <td class="num">$21.80</td>
+    </tr>
+    <tr>
+      <td class="num">50</td>
+      <td class="num">$29.50</td>
+      <td class="num">$25.00</td>
+      <td class="num"><strong>$8.50</strong></td>
+      <td class="num">$13.00</td>
+      <td class="num">$14.00</td>
+      <td class="num">$23.00</td>
+    </tr>
+    <tr>
+      <td class="num">100</td>
+      <td class="num">$38.00</td>
+      <td class="num">$50.00</td>
+      <td class="num"><strong>$17.00</strong></td>
+      <td class="num">$26.00</td>
+      <td class="num">$28.00</td>
+      <td class="num">$25.00</td>
+    </tr>
+    <tr>
+      <td class="num">500</td>
+      <td class="num">$174.00</td>
+      <td class="num">$250.00</td>
+      <td class="num"><strong>$85.00</strong></td>
+      <td class="num">$130.00</td>
+      <td class="num">$140.00</td>
+      <td class="num">$129.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:9.5pt;color:var(--muted);">
+  Your Local and Groq+pyannote include pyannote.ai Developer plan base cost (&euro;19/mo &asymp; $21).
+  AssemblyAI, Deepgram, and ElevenLabs are pure pay-per-use with no base fee.
+  Your Fly.io is pure pay-per-use (machine time only).
+</p>
+
+<!-- ================================================================== -->
+<h2 id="s9"><span class="section-num">9.</span> Recommendations</h2>
+
+<div class="verdict">
+  <h3>For podcastsdatabase.com specifically</h3>
+
+  <p>
+    <strong>Keep your Local pipeline</strong> for one-off episodes. At $0.17/hr with the pyannote subscription
+    you already have, it's competitive with managed APIs and gives you the best Whisper model (large-v3-turbo).
+  </p>
+
+  <p>
+    <strong>Consider AssemblyAI for simplicity.</strong> At $0.17/hr with diarization included, it matches your
+    Local pipeline cost but requires zero infrastructure&thinsp;&mdash;&thinsp;one API call returns transcription + diarization + timestamps.
+    Their $50 free credit covers ~290 episodes to evaluate.
+  </p>
+
+  <p>
+    <strong>Consider Deepgram Nova-3 for batch.</strong> At $0.26/hr with the $200 free credit (~750 hrs),
+    you could transcribe a massive back-catalog for free, with diarization included. Faster than Fly.io
+    and no machines to manage.
+  </p>
+
+  <p>
+    <strong>Groq is the dark horse.</strong> At $0.04/hr for transcription, it's absurdly cheap and
+    fast (22 seconds for a 1-hr episode). The catch: no diarization. But you already have a working
+    <code>diarize.ts</code> script that pairs with pyannote.ai. A Groq + pyannote hybrid could replace
+    your Local pipeline's Whisper step with a 164&times; speedup.
+  </p>
+
+  <p>
+    <strong>Retire Fly.io when A10s deprecate.</strong> Your Fly.io pipeline costs $0.39&ndash;$0.64/hr&thinsp;&mdash;&thinsp;2&ndash;3&times;
+    more than AssemblyAI or Deepgram. Its value is parallel batch processing, but managed APIs handle
+    parallelism natively. If you migrate, Modal on a T4 ($0.15&ndash;$0.25/hr) is the closest self-hosted
+    alternative with better DX than Fly Machines.
+  </p>
+
+  <p>
+    <strong>Avoid AWS/Google/Azure</strong> for this use case. At $0.96&ndash;$1.44/hr they're 5&ndash;8&times;
+    more expensive than the best alternatives, with no accuracy advantage.
+  </p>
+</div>
+
+<!-- ================================================================== -->
+<h2 id="s10"><span class="section-num">10.</span> Sources</h2>
+
+<div class="footnote" style="border:none;margin-top:0;padding-top:0;font-style:normal;font-size:9.5pt;">
+  <p>All prices retrieved March 2026. EUR&rarr;USD at 1.10.</p>
+  <table style="font-size:9pt;margin-top:10px;">
+    <thead>
+      <tr><th>Service</th><th>Pricing Page</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>AssemblyAI</td><td><a href="https://www.assemblyai.com/pricing">assemblyai.com/pricing</a></td></tr>
+      <tr><td>AWS Transcribe</td><td><a href="https://aws.amazon.com/transcribe/pricing/">aws.amazon.com/transcribe/pricing</a></td></tr>
+      <tr><td>Azure Speech</td><td><a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/">azure.microsoft.com/.../speech-services</a></td></tr>
+      <tr><td>Deepgram</td><td><a href="https://deepgram.com/pricing">deepgram.com/pricing</a></td></tr>
+      <tr><td>ElevenLabs</td><td><a href="https://elevenlabs.io/pricing/api">elevenlabs.io/pricing/api</a></td></tr>
+      <tr><td>Fly.io</td><td><a href="https://fly.io/docs/about/pricing/">fly.io/docs/about/pricing</a></td></tr>
+      <tr><td>Gladia</td><td><a href="https://www.gladia.io/pricing">gladia.io/pricing</a></td></tr>
+      <tr><td>Google Cloud STT</td><td><a href="https://cloud.google.com/speech-to-text/pricing">cloud.google.com/speech-to-text/pricing</a></td></tr>
+      <tr><td>Groq</td><td><a href="https://groq.com/pricing">groq.com/pricing</a></td></tr>
+      <tr><td>Modal</td><td><a href="https://modal.com/pricing">modal.com/pricing</a></td></tr>
+      <tr><td>OpenAI</td><td><a href="https://openai.com/api/pricing/">openai.com/api/pricing</a></td></tr>
+      <tr><td>pyannote.ai</td><td><a href="https://www.pyannote.ai/pricing">pyannote.ai/pricing</a></td></tr>
+      <tr><td>Replicate</td><td><a href="https://replicate.com/pricing">replicate.com/pricing</a></td></tr>
+      <tr><td>Rev.ai</td><td><a href="https://www.rev.ai/pricing">rev.ai/pricing</a></td></tr>
+      <tr><td>Speechmatics</td><td><a href="https://www.speechmatics.com/pricing">speechmatics.com/pricing</a></td></tr>
+      <tr><td>Artificial Analysis (WER benchmarks)</td><td><a href="https://artificialanalysis.ai/speech-to-text">artificialanalysis.ai/speech-to-text</a></td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
