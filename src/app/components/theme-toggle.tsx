@@ -21,14 +21,14 @@ function subscribe(cb: () => void) {
 }
 
 export function ThemeToggle() {
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "system");
+  const theme = useSyncExternalStore(subscribe, getTheme, () => "system" as Theme);
 
   function cycle() {
     const order: Theme[] = ["system", "light", "dark"];
     const next = order[(order.indexOf(theme) + 1) % order.length];
-    setTheme(next);
     localStorage.setItem("theme", next);
     document.documentElement.setAttribute("data-theme", next);
+    window.dispatchEvent(new StorageEvent("storage"));
   }
 
   return (
