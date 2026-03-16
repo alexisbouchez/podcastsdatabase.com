@@ -34,6 +34,14 @@ export async function generateMetadata({
         images: [{ url: `https://www.podcastsdatabase.com${logo}` }],
       }),
     },
+    twitter: {
+      card: logo ? "summary_large_image" as const : "summary" as const,
+      title: `${podcast.title} — Podcasts Database`,
+      description: podcast.description,
+      ...(logo && {
+        images: [`https://www.podcastsdatabase.com${logo}`],
+      }),
+    },
   };
 }
 
@@ -46,11 +54,31 @@ export default async function PodcastPage({
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
 
+  const logo = getPodcastLogo(slug);
   const episodes = getEpisodes(slug);
   const hosts = podcast.hosts.map((h) => getPerson(h)).filter(Boolean);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    name: podcast.title,
+    description: podcast.description,
+    url: `https://www.podcastsdatabase.com/podcasts/${slug}`,
+    inLanguage: podcast.language,
+    ...(logo && { image: `https://www.podcastsdatabase.com${logo}` }),
+    author: hosts.map((h) => ({
+      "@type": "Person",
+      name: h!.name,
+      url: `https://www.podcastsdatabase.com/people/${h!.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Breadcrumbs
         segments={[
           { label: "Podcasts", href: "/podcasts" },
@@ -59,20 +87,17 @@ export default async function PodcastPage({
       />
 
       <header className="mt-6 flex items-start gap-4">
-        {(() => {
-          const logo = getPodcastLogo(slug);
-          return logo ? (
-            <Image
-              src={logo}
-              alt={podcast.title}
-              width={80}
-              height={80}
-              sizes="80px"
-              priority
-              className="rounded shrink-0"
-            />
-          ) : null;
-        })()}
+        {logo && (
+          <Image
+            src={logo}
+            alt={podcast.title}
+            width={80}
+            height={80}
+            sizes="80px"
+            priority
+            className="rounded shrink-0"
+          />
+        )}
         <div>
           <h1 className="text-2xl font-semibold">{podcast.title}</h1>
           <p className="mt-2 text-foreground/60 text-pretty">
@@ -135,9 +160,9 @@ export default async function PodcastPage({
                   {ep.title}
                 </Link>
                 {ep.date && (
-                  <span className="text-foreground/40 text-sm ml-2">
+                  <time dateTime={ep.date} className="text-foreground/40 text-sm ml-2">
                     {ep.date}
-                  </span>
+                  </time>
                 )}
               </li>
             ))}

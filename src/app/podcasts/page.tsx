@@ -11,6 +11,20 @@ import {
 
 export const metadata = {
   title: "Podcasts — Podcasts Database",
+  description:
+    "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+  openGraph: {
+    title: "Podcasts — Podcasts Database",
+    description:
+      "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+    url: "https://www.podcastsdatabase.com/podcasts",
+  },
+  twitter: {
+    card: "summary" as const,
+    title: "Podcasts — Podcasts Database",
+    description:
+      "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+  },
 };
 
 export default function PodcastsPage() {
@@ -41,7 +55,7 @@ export default function PodcastsPage() {
             />
           )}
           <div className="min-w-0">
-            <h2 className="font-semibold">{p.title}</h2>
+            <h3 className="font-semibold">{p.title}</h3>
             <p className="text-sm text-foreground/60 mt-1 line-clamp-2 text-pretty">
               {p.description}
             </p>

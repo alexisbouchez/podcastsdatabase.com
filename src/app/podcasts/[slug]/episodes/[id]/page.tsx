@@ -5,6 +5,7 @@ import { Transcript } from "@/src/app/components/transcript";
 import {
   getPodcasts,
   getPodcast,
+  getPodcastLogo,
   getEpisodes,
   getEpisode,
   getPerson,
@@ -27,13 +28,26 @@ export async function generateMetadata({
   const podcast = getPodcast(slug);
   const episode = getEpisode(slug, id);
   if (!podcast || !episode) return {};
+  const logo = getPodcastLogo(slug);
+  const title = `#${id} ${episode.title} — ${podcast.title}`;
   return {
-    title: `#${id} ${episode.title} — ${podcast.title}`,
+    title,
     description: episode.description,
     openGraph: {
-      title: `#${id} ${episode.title} — ${podcast.title}`,
+      title,
       description: episode.description,
       url: `https://www.podcastsdatabase.com/podcasts/${slug}/episodes/${id}`,
+      ...(logo && {
+        images: [{ url: `https://www.podcastsdatabase.com${logo}` }],
+      }),
+    },
+    twitter: {
+      card: logo ? "summary_large_image" as const : "summary" as const,
+      title,
+      description: episode.description,
+      ...(logo && {
+        images: [`https://www.podcastsdatabase.com${logo}`],
+      }),
     },
   };
 }
@@ -57,12 +71,41 @@ export default async function EpisodePage({
     speakers.map((s) => [s!.slug, s!.name]),
   );
 
+  const logo = getPodcastLogo(slug);
   const totalDuration = episode.segments?.length
     ? episode.segments[episode.segments.length - 1].end
     : 0;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    name: episode.title,
+    description: episode.description,
+    url: `https://www.podcastsdatabase.com/podcasts/${slug}/episodes/${id}`,
+    episodeNumber: Number(id),
+    ...(episode.date && { datePublished: episode.date }),
+    ...(totalDuration > 0 && {
+      duration: `PT${Math.floor(totalDuration / 60)}M${Math.floor(totalDuration % 60)}S`,
+    }),
+    ...(logo && { image: `https://www.podcastsdatabase.com${logo}` }),
+    partOfSeries: {
+      "@type": "PodcastSeries",
+      name: podcast.title,
+      url: `https://www.podcastsdatabase.com/podcasts/${slug}`,
+    },
+    actor: speakers.map((s) => ({
+      "@type": "Person",
+      name: s!.name,
+      url: `https://www.podcastsdatabase.com/people/${s!.slug}`,
+    })),
+  };
+
   return (
-    <>
+    <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Breadcrumbs
         segments={[
           { label: "Podcasts", href: "/podcasts" },
@@ -75,7 +118,7 @@ export default async function EpisodePage({
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
           {podcast.title} — Episode {id}
-          {episode.date && <> — {episode.date}</>}
+          {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
         {episode.description && (
@@ -128,6 +171,6 @@ export default async function EpisodePage({
           <Transcript segments={episode.segments} speakerMap={speakerMap} />
         </section>
       )}
-    </>
+    </article>
   );
 }

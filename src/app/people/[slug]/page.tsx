@@ -16,14 +16,27 @@ export async function generateMetadata({
   const { slug } = await params;
   const person = getPerson(slug);
   if (!person) return {};
+  const img = getPersonImage(slug);
   const description = `${person.name} on Podcasts Database — episode appearances, links, and full searchable transcripts.`;
+  const title = `${person.name} — Podcasts Database`;
   return {
-    title: `${person.name} — Podcasts Database`,
+    title,
     description,
     openGraph: {
-      title: `${person.name} — Podcasts Database`,
+      title,
       description,
       url: `https://www.podcastsdatabase.com/people/${slug}`,
+      ...(img && {
+        images: [{ url: `https://www.podcastsdatabase.com${img}` }],
+      }),
+    },
+    twitter: {
+      card: img ? "summary_large_image" as const : "summary" as const,
+      title,
+      description,
+      ...(img && {
+        images: [`https://www.podcastsdatabase.com${img}`],
+      }),
     },
   };
 }
@@ -70,26 +83,39 @@ export default async function PersonPage({
   }
 
   const hostedPodcasts = podcasts.filter((p) => p.hosts.includes(slug));
+  const img = getPersonImage(slug);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    url: `https://www.podcastsdatabase.com/people/${slug}`,
+    ...(img && { image: `https://www.podcastsdatabase.com${img}` }),
+    ...(Object.keys(person.links).length > 0 && {
+      sameAs: Object.values(person.links),
+    }),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Breadcrumbs segments={[{ label: "People", href: "/people" }, { label: person.name }]} />
 
       <header className="mt-6 flex items-center gap-4">
-        {(() => {
-          const img = getPersonImage(slug);
-          return img ? (
-            <Image
-              src={img}
-              alt={person.name}
-              width={64}
-              height={64}
-              sizes="64px"
-              priority
-              className="rounded-full"
-            />
-          ) : null;
-        })()}
+        {img && (
+          <Image
+            src={img}
+            alt={person.name}
+            width={64}
+            height={64}
+            sizes="64px"
+            priority
+            className="rounded-full"
+          />
+        )}
         <h1 className="text-2xl font-semibold">{person.name}</h1>
       </header>
 

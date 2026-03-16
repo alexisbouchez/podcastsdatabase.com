@@ -6,8 +6,33 @@ interface BreadcrumbSegment {
 }
 
 export function Breadcrumbs({ segments }: { segments?: BreadcrumbSegment[] }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.podcastsdatabase.com",
+      },
+      ...(segments ?? []).map((s, i) => ({
+        "@type": "ListItem",
+        position: i + 2,
+        name: s.label,
+        ...(s.href && {
+          item: `https://www.podcastsdatabase.com${s.href}`,
+        }),
+      })),
+    ],
+  };
+
   return (
     <nav aria-label="Breadcrumb" className="text-sm">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {segments?.length ? (
         <Link href="/" className="text-foreground hover:text-foreground/60">
           ~

@@ -11,6 +11,20 @@ import {
 
 export const metadata = {
   title: "People — Podcasts Database",
+  description:
+    "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+  openGraph: {
+    title: "People — Podcasts Database",
+    description:
+      "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+    url: "https://www.podcastsdatabase.com/people",
+  },
+  twitter: {
+    card: "summary" as const,
+    title: "People — Podcasts Database",
+    description:
+      "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+  },
 };
 
 export default function PeoplePage() {
@@ -68,7 +82,7 @@ export default function PeoplePage() {
             </div>
           )}
           <div className="min-w-0">
-            <h2 className="font-semibold text-sm">{p.name}</h2>
+            <h3 className="font-semibold text-sm">{p.name}</h3>
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
               {hosted && <span>Host of {hosted.join(", ")}</span>}
               {count > 0 && <span>{count} episodes</span>}

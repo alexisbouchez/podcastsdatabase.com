@@ -15,6 +15,7 @@ const siteDescription =
   "Every episode. Every word. Searchable transcripts from the best podcasts in software, devtools, and startups.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.podcastsdatabase.com"),
   title: "Podcasts Database",
   description: siteDescription,
   openGraph: {
@@ -53,7 +54,7 @@ export default function RootLayout({
           <ThemeToggle />
           <Search />
         </div>
-        {children}
+        <main>{children}</main>
         <Analytics />
         <Script src="https://cdn.palmframe.com/embed.js" strategy="lazyOnload" />
         {/* @ts-expect-error -- custom element */}
