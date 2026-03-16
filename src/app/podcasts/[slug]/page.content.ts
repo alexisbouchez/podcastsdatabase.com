@@ -5,8 +5,8 @@ const podcastDetailContent = {
   content: {
     noEpisodesYet: t({
       en: "No episodes yet.",
-      fr: "Aucun épisode pour le moment.",
-      es: "Aún no hay episodios.",
+      fr: "Aucun \u00E9pisode pour le moment.",
+      es: "A\u00FAn no hay episodios.",
     }),
   },
 } satisfies Dictionary;

@@ -1,3 +1,4 @@
+import { useIntlayer } from 'next-intlayer/server';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -8,30 +9,30 @@ import {
   getEpisodes,
   getPerson,
 } from "@/src/lib/data";
-import { useIntlayer } from "next-intlayer/server";
 
 const description =
   "Browse all podcasts with full searchable transcripts on Podcasts Database.";
 
 export const metadata = {
-  title: "Podcasts — Podcasts Database",
+  title: "Podcasts \u2014 Podcasts Database",
   description,
   alternates: { canonical: "/podcasts" },
   openGraph: {
-    title: "Podcasts — Podcasts Database",
+    title: "Podcasts \u2014 Podcasts Database",
     description,
     url: "https://www.podcastsdatabase.com/podcasts",
   },
   twitter: {
     card: "summary" as const,
-    title: "Podcasts — Podcasts Database",
+    title: "Podcasts \u2014 Podcasts Database",
     description,
   },
 };
 
 export default function PodcastsPage() {
+  const content = useIntlayer('podcasts-page');
+
   const podcasts = getPodcasts();
-  const content = useIntlayer("podcasts-page");
 
   const items = podcasts.map((p) => {
     const logo = getPodcastLogo(p.slug);
@@ -63,8 +64,8 @@ export default function PodcastsPage() {
               {p.description}
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-foreground/50">
-              <span>{episodes.length} {content.episodes}</span>
-              {hosts.length > 0 && <span>{content.hostedByHostnames.replace("{{hostNames}}", hostNames)}</span>}
+              <span>{episodes.length} episodes</span>
+              {hosts.length > 0 && <span>{content.hostedByHostnames({ hostNames: hostNames })}</span>}
               <span>{p.language}</span>
             </div>
           </div>
@@ -77,7 +78,7 @@ export default function PodcastsPage() {
     <>
       <Breadcrumbs segments={[{ label: "Podcasts" }]} />
       <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
-      <ListFilter placeholder={content.searchPodcasts} items={items} />
+      <ListFilter placeholder={content.searchPodcasts.value} items={items} />
     </>
   );
 }

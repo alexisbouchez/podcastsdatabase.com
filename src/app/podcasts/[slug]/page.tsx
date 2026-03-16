@@ -1,3 +1,4 @@
+import { useIntlayer } from 'next-intlayer/server';
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,6 @@ import {
   getEpisodes,
   getPerson,
 } from "@/src/lib/data";
-import { useIntlayer } from "next-intlayer/server";
 
 export function generateStaticParams() {
   return getPodcasts().map((p) => ({ slug: p.slug }));
@@ -49,18 +49,14 @@ export async function generateMetadata({
   };
 }
 
-function PodcastContent({
-  slug,
-}: {
-  slug: string;
-}) {
+function PodcastContent({ slug }: { slug: string }) {
+  const content = useIntlayer('podcast-detail');
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
 
   const logo = getPodcastLogo(slug);
   const episodes = getEpisodes(slug);
   const hosts = podcast.hosts.map((h) => getPerson(h)).filter(Boolean);
-  const content = useIntlayer("podcast-detail");
 
   const jsonLd = {
     "@context": "https://schema.org",

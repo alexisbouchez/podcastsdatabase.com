@@ -1,11 +1,11 @@
-import { type Dictionary, t } from 'intlayer';
+import { type Dictionary, insert, t } from 'intlayer';
 
 const podcastsPageContent = {
   key: 'podcasts-page',
   content: {
     browseAllPodcastsWithFull: t({
       en: "Browse all podcasts with full searchable transcripts on Podcasts Database.",
-      fr: "Parcourez tous les podcasts avec des transcriptions complètes consultables sur Podcasts Database.",
+      fr: "Parcourez tous les podcasts avec des transcriptions compl\u00E8tes consultables sur Podcasts Database.",
       es: "Explore todos los podcasts con transcripciones completas buscables en Podcasts Database.",
     }),
 
@@ -15,17 +15,11 @@ const podcastsPageContent = {
       es: "Podcasts \u2014 Podcasts Database",
     }),
 
-    hostedByHostnames: t({
+    hostedByHostnames: insert(t({
       en: "Hosted by {{hostNames}}",
       fr: "Anim\u00E9 par {{hostNames}}",
       es: "Presentado por {{hostNames}}",
-    }),
-
-    episodes: t({
-      en: "episodes",
-      fr: "\u00E9pisodes",
-      es: "episodios",
-    }),
+    })),
 
     searchPodcasts: t({
       en: "Search podcasts...",

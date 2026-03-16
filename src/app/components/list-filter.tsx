@@ -1,5 +1,6 @@
 "use client";
 
+import { useIntlayer } from 'next-intlayer';
 import { useState, useMemo } from "react";
 
 export function ListFilter({
@@ -9,6 +10,8 @@ export function ListFilter({
   placeholder: string;
   items: { key: string; searchText: string; node: React.ReactNode }[];
 }) {
+  const content = useIntlayer('list-filter');
+
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -49,9 +52,7 @@ export function ListFilter({
           <div key={item.key}>{item.node}</div>
         ))}
         {query.trim() && filtered.length === 0 && (
-          <p className="text-sm text-foreground/40 py-4">
-            No matches for &ldquo;{query}&rdquo;
-          </p>
+          <p className="text-sm text-foreground/40 py-4">{content.noMatchesForQuery({ query: query })}</p>
         )}
       </div>
     </>

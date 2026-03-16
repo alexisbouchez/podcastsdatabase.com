@@ -1,3 +1,4 @@
+import { useIntlayer } from 'next-intlayer/server';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -8,31 +9,31 @@ import {
   getPodcasts,
   getEpisodes,
 } from "@/src/lib/data";
-import { useIntlayer } from "next-intlayer/server";
 
 const description =
-  "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.";
+  "Browse all podcast hosts and guests on Podcasts Database \u2014 episode appearances and full searchable transcripts.";
 
 export const metadata = {
-  title: "People — Podcasts Database",
+  title: "People \u2014 Podcasts Database",
   description,
   alternates: { canonical: "/people" },
   openGraph: {
-    title: "People — Podcasts Database",
+    title: "People \u2014 Podcasts Database",
     description,
     url: "https://www.podcastsdatabase.com/people",
   },
   twitter: {
     card: "summary" as const,
-    title: "People — Podcasts Database",
+    title: "People \u2014 Podcasts Database",
     description,
   },
 };
 
 export default function PeoplePage() {
+  const content = useIntlayer('people-page');
+
   const people = getPeople();
   const podcasts = getPodcasts();
-  const content = useIntlayer("people-page");
 
   // Pre-compute episode counts, hosted podcasts, and languages per person
   const episodeCounts = new Map<string, number>();
@@ -93,7 +94,7 @@ export default function PeoplePage() {
           <div className="min-w-0">
             <h3 className="font-semibold text-sm">{p.name}</h3>
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
-              {hosted && <span>{content.hostOf} {hosted.join(", ")}</span>}
+              {hosted && <span>{content.hostOf}{hosted.join(", ")}</span>}
               {count > 0 && <span>{count} episodes</span>}
               {languages && languages.size > 0 && (
                 <span>{[...languages].sort().join(", ")}</span>
@@ -109,7 +110,7 @@ export default function PeoplePage() {
     <>
       <Breadcrumbs segments={[{ label: "People" }]} />
       <h1 className="text-2xl font-semibold mt-6">People</h1>
-      <ListFilter placeholder={content.searchPeople} items={items} />
+      <ListFilter placeholder={content.searchPeople.value} items={items} />
     </>
   );
 }

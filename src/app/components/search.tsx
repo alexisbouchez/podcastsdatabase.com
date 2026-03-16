@@ -1,8 +1,8 @@
 "use client";
 
+import { useIntlayer } from 'next-intlayer';
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import { useIntlayer } from "next-intlayer";
 
 interface SearchEntry {
   type: "podcast" | "person" | "episode" | "transcript";
@@ -19,7 +19,8 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 export function Search() {
-  const content = useIntlayer("search");
+  const content = useIntlayer('search');
+
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
@@ -130,7 +131,7 @@ export function Search() {
           <input
             ref={inputRef}
             type="text"
-            placeholder={content.searchPodcastsPeopleEpisodesTranscripts}
+            placeholder={content.searchPodcastsPeopleEpisodesTranscripts.value}
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelected(0); }}
             onKeyDown={handleKeyDown}
@@ -144,9 +145,7 @@ export function Search() {
         {query.trim() && (
           <div ref={resultsRef} className="overflow-y-auto">
             {results.length === 0 && index && (
-              <p className="px-4 py-3 text-sm text-foreground/40">
-                {content.noResults}
-              </p>
+              <p className="px-4 py-3 text-sm text-foreground/40">{content.noResults}</p>
             )}
             {!index && (
               <p className="px-4 py-3 text-sm text-foreground/40">
@@ -172,7 +171,7 @@ export function Search() {
                 </span>
                 <span className="text-foreground">
                   {r.title.length > 120
-                    ? r.title.slice(0, 120) + "\u2026"
+                    ? r.title.slice(0, 120) + "…"
                     : r.title}
                 </span>
                 {r.context && (

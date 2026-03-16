@@ -6,7 +6,7 @@ const transcriptContent = {
     searchTranscript: t({
       en: "Search transcript...",
       fr: "Rechercher dans la transcription...",
-      es: "Buscar en la transcripción...",
+      es: "Buscar en la transcripci\u00F3n...",
     }),
   },
 } satisfies Dictionary;
