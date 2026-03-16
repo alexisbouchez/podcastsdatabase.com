@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { Search } from "./components/search";
+import { ThemeToggle } from "./components/theme-toggle";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -37,11 +38,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem("theme");if(t&&t!=="system")document.documentElement.setAttribute("data-theme",t)})()`,
+          }}
+        />
+      </head>
       <body
         className={`${geistMono.variable} antialiased mx-auto max-w-3xl p-8`}
       >
-        <div className="flex justify-end mb-2">
+        <div className="flex justify-end mb-2 gap-3">
+          <ThemeToggle />
           <Search />
         </div>
         {children}
