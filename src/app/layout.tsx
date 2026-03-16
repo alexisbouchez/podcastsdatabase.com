@@ -7,7 +7,7 @@ import { Search } from "./components/search";
 import { ThemeToggle } from "./components/theme-toggle";
 import { LocaleSwitcher } from "./components/locale-switcher";
 import { IntlayerClientProvider } from "next-intlayer";
-import { getHTMLTextDir } from "intlayer";
+import { getHTMLTextDir, getIntlayer } from "intlayer";
 import { getLocale } from "next-intlayer/server";
 export { generateStaticParams } from "next-intlayer";
 
@@ -16,27 +16,43 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteDescription =
-  "Every episode. Every word. Searchable transcripts from the best podcasts in software, devtools, and startups.";
+const BASE_URL = "https://www.podcastsdatabase.com";
+const LOCALES = ["en", "fr", "es"] as const;
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://www.podcastsdatabase.com"),
-  title: "Podcasts Database",
-  description: siteDescription,
-  openGraph: {
-    title: "Podcasts Database",
-    description: siteDescription,
-    url: "https://www.podcastsdatabase.com",
-    siteName: "Podcasts Database",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary",
-    title: "Podcasts Database",
-    description: siteDescription,
-  },
-};
+function hreflangAlternates(path: string) {
+  return {
+    canonical: path === "/" ? BASE_URL : `${BASE_URL}${path}`,
+    languages: Object.fromEntries([
+      ...LOCALES.map((l) => [l, `${BASE_URL}${path}${path.includes("?") ? "&" : "?"}locale=${l}`]),
+      ["x-default", path === "/" ? BASE_URL : `${BASE_URL}${path}`],
+    ]),
+  };
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const content = getIntlayer("layout", locale);
+
+  return {
+    metadataBase: new URL(BASE_URL),
+    title: content.podcastsDatabase,
+    description: content.everyEpisodeEveryWordSearchable,
+    alternates: hreflangAlternates("/"),
+    openGraph: {
+      title: content.podcastsDatabase,
+      description: content.everyEpisodeEveryWordSearchable,
+      url: BASE_URL,
+      siteName: "Podcasts Database",
+      type: "website",
+      locale: locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : "en_US",
+    },
+    twitter: {
+      card: "summary",
+      title: content.podcastsDatabase,
+      description: content.everyEpisodeEveryWordSearchable,
+    },
+  };
+}
 
 export default async function RootLayout({
   children,

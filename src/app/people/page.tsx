@@ -1,5 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
+import { getIntlayer } from 'intlayer';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -11,24 +12,36 @@ import {
   getEpisodes,
 } from "@/src/lib/data";
 
-const description =
-  "Browse all podcast hosts and guests on Podcasts Database \u2014 episode appearances and full searchable transcripts.";
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const content = getIntlayer("people-page", locale);
+  const title = content.peoplePodcastsDatabase;
+  const description = content.browseAllPodcastHostsAnd;
 
-export const metadata = {
-  title: "People \u2014 Podcasts Database",
-  description,
-  alternates: { canonical: "/people" },
-  openGraph: {
-    title: "People \u2014 Podcasts Database",
+  return {
+    title,
     description,
-    url: "https://www.podcastsdatabase.com/people",
-  },
-  twitter: {
-    card: "summary" as const,
-    title: "People \u2014 Podcasts Database",
-    description,
-  },
-};
+    alternates: {
+      canonical: "/people",
+      languages: {
+        en: "/people?locale=en",
+        fr: "/people?locale=fr",
+        es: "/people?locale=es",
+        "x-default": "/people",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: "https://www.podcastsdatabase.com/people",
+    },
+    twitter: {
+      card: "summary" as const,
+      title,
+      description,
+    },
+  };
+}
 
 function PeoplePageContent() {
   const content = useIntlayer('people-page');

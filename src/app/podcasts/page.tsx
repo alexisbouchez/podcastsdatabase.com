@@ -1,5 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
+import { getIntlayer } from 'intlayer';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -11,24 +12,36 @@ import {
   getPerson,
 } from "@/src/lib/data";
 
-const description =
-  "Browse all podcasts with full searchable transcripts on Podcasts Database.";
+export async function generateMetadata() {
+  const locale = await getLocale();
+  const content = getIntlayer("podcasts-page", locale);
+  const title = content.podcastsPodcastsDatabase;
+  const description = content.browseAllPodcastsWithFull;
 
-export const metadata = {
-  title: "Podcasts \u2014 Podcasts Database",
-  description,
-  alternates: { canonical: "/podcasts" },
-  openGraph: {
-    title: "Podcasts \u2014 Podcasts Database",
+  return {
+    title,
     description,
-    url: "https://www.podcastsdatabase.com/podcasts",
-  },
-  twitter: {
-    card: "summary" as const,
-    title: "Podcasts \u2014 Podcasts Database",
-    description,
-  },
-};
+    alternates: {
+      canonical: "/podcasts",
+      languages: {
+        en: "/podcasts?locale=en",
+        fr: "/podcasts?locale=fr",
+        es: "/podcasts?locale=es",
+        "x-default": "/podcasts",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: "https://www.podcastsdatabase.com/podcasts",
+    },
+    twitter: {
+      card: "summary" as const,
+      title,
+      description,
+    },
+  };
+}
 
 function PodcastsPageContent() {
   const content = useIntlayer('podcasts-page');

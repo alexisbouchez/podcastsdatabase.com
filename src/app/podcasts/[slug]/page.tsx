@@ -30,6 +30,12 @@ export async function generateMetadata({
     description: podcast.description,
     alternates: {
       canonical: `/podcasts/${slug}`,
+      languages: {
+        en: `/podcasts/${slug}?locale=en`,
+        fr: `/podcasts/${slug}?locale=fr`,
+        es: `/podcasts/${slug}?locale=es`,
+        "x-default": `/podcasts/${slug}`,
+      },
     },
     openGraph: {
       title: podcast.title,
