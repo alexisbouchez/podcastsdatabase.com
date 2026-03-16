@@ -1,4 +1,5 @@
-import { useIntlayer } from 'next-intlayer/server';
+import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
+import { getLocale } from 'next-intlayer/server';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -29,7 +30,7 @@ export const metadata = {
   },
 };
 
-export default function PodcastsPage() {
+function PodcastsPageContent() {
   const content = useIntlayer('podcasts-page');
 
   const podcasts = getPodcasts();
@@ -80,5 +81,15 @@ export default function PodcastsPage() {
       <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
       <ListFilter placeholder={content.searchPodcasts.value} items={items} />
     </>
+  );
+}
+
+export default async function PodcastsPage() {
+  const locale = await getLocale();
+
+  return (
+    <IntlayerServerProvider locale={locale}>
+      <PodcastsPageContent />
+    </IntlayerServerProvider>
   );
 }

@@ -9,6 +9,7 @@ import { LocaleSwitcher } from "./components/locale-switcher";
 import { IntlayerClientProvider } from "next-intlayer";
 import { getHTMLTextDir } from "intlayer";
 import { getLocale } from "next-intlayer/server";
+export { generateStaticParams } from "next-intlayer";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",

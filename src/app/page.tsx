@@ -1,4 +1,5 @@
-import { useIntlayer } from 'next-intlayer/server';
+import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
+import { getLocale } from 'next-intlayer/server';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "./components/breadcrumbs";
@@ -10,7 +11,7 @@ import {
   getPersonImage,
 } from "@/src/lib/data";
 
-export default function Home() {
+function HomeContent() {
   const content = useIntlayer('home');
 
   const podcasts = getPodcasts();
@@ -114,5 +115,15 @@ export default function Home() {
         </div>
       </section>
     </>
+  );
+}
+
+export default async function Home() {
+  const locale = await getLocale();
+
+  return (
+    <IntlayerServerProvider locale={locale}>
+      <HomeContent />
+    </IntlayerServerProvider>
   );
 }

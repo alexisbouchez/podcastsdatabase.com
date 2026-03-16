@@ -1,4 +1,5 @@
-import { useIntlayer } from 'next-intlayer/server';
+import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
+import { getLocale } from 'next-intlayer/server';
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -183,5 +184,11 @@ export default async function PodcastPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <PodcastContent slug={slug} />;
+  const locale = await getLocale();
+
+  return (
+    <IntlayerServerProvider locale={locale}>
+      <PodcastContent slug={slug} />
+    </IntlayerServerProvider>
+  );
 }
