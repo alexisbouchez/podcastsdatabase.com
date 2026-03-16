@@ -44,6 +44,21 @@ test.describe("i18n locale switching", () => {
     await expect(page.locator("h1")).toContainText("Base de datos de podcasts");
   });
 
+  test("locale switcher navigates back to English from Spanish", async ({
+    page,
+  }) => {
+    await page.goto("/?locale=es");
+    await expect(page.locator("html")).toHaveAttribute("lang", "es");
+
+    // Switch back to English
+    const select = page.locator("select");
+    await select.selectOption("en");
+
+    await page.waitForURL(/locale=en/);
+    await expect(page.locator("html")).toHaveAttribute("lang", "en");
+    await expect(page.locator("h1")).toContainText("Podcasts Database");
+  });
+
   test("/podcasts page renders Spanish with ?locale=es", async ({ page }) => {
     await page.goto("/podcasts?locale=es");
 

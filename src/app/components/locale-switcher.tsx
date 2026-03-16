@@ -13,9 +13,7 @@ export const LocaleSwitcher: FC = () => {
     if (newLocale === locale) return;
     // Hard navigation to ensure server components re-render with new locale
     const url = new URL(pathname, window.location.origin);
-    if (newLocale !== Locales.ENGLISH) {
-      url.searchParams.set("locale", newLocale);
-    }
+    url.searchParams.set("locale", newLocale);
     window.location.href = url.toString();
   };
 
