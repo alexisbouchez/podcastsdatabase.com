@@ -1,3 +1,5 @@
+import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
+import { getLocale } from 'next-intlayer/server';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -44,12 +46,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function PersonPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+function PersonContent({ slug }: { slug: string }) {
+  const content = useIntlayer('person-detail');
   const person = getPerson(slug);
   if (!person) notFound();
 
@@ -107,7 +105,7 @@ export default async function PersonPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Breadcrumbs segments={[{ label: "People", href: "/people" }, { label: person.name }]} />
+      <Breadcrumbs segments={[{ label: content.people.value, href: "/people" }, { label: person.name }]} />
 
       <header className="mt-6 flex items-center gap-4">
         {img && (
@@ -142,14 +140,14 @@ export default async function PersonPage({
 
       {languages.length > 0 && (
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-          <dt className="text-foreground/60">Languages</dt>
+          <dt className="text-foreground/60">{content.languages}</dt>
           <dd>{languages.join(", ")}</dd>
         </dl>
       )}
 
       {hostedPodcasts.length > 0 && (
         <section className="mt-6">
-          <h2 className="text-lg font-semibold">Hosts</h2>
+          <h2 className="text-lg font-semibold">{content.hosts}</h2>
           <ul className="mt-2 space-y-1 list-['—_'] list-inside">
             {hostedPodcasts.map((p) => (
               <li key={p.slug}>
@@ -165,7 +163,7 @@ export default async function PersonPage({
       {appearances.length > 0 && (
         <section className="mt-6">
           <h2 className="text-lg font-semibold">
-            Episodes
+            {content.episodes}
             <span className="text-foreground font-normal ml-2">
               ({appearances.length})
             </span>
@@ -186,5 +184,20 @@ export default async function PersonPage({
         </section>
       )}
     </>
+  );
+}
+
+export default async function PersonPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const locale = await getLocale();
+
+  return (
+    <IntlayerServerProvider locale={locale}>
+      <PersonContent slug={slug} />
+    </IntlayerServerProvider>
   );
 }

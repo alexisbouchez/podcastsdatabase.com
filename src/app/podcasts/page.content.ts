@@ -26,6 +26,18 @@ const podcastsPageContent = {
       fr: "Rechercher des podcasts...",
       es: "Buscar podcasts...",
     }),
+
+    podcasts: t({
+      en: "Podcasts",
+      fr: "Podcasts",
+      es: "Podcasts",
+    }),
+
+    episodes: t({
+      en: "episodes",
+      fr: "épisodes",
+      es: "episodios",
+    }),
   },
 } satisfies Dictionary;
 

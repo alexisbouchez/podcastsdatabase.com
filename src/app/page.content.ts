@@ -21,10 +21,28 @@ const homeContent = {
       es: "Las conversaciones desaparecen. Las buenas no deber\u00EDan. Transcribimos cada episodio, identificamos a cada hablante, y hacemos cada palabra buscable. Sin res\u00FAmenes. Sin contenido IA. La transcripci\u00F3n real \u2014 qui\u00E9n dijo qu\u00E9, cu\u00E1ndo. Hecho para quienes prefieren buscar en vez de desplazarse.",
     }),
 
+    podcasts: t({
+      en: "Podcasts",
+      fr: "Podcasts",
+      es: "Podcasts",
+    }),
+
+    people: t({
+      en: "People",
+      fr: "Personnes",
+      es: "Personas",
+    }),
+
     viewAll: t({
       en: "View all",
       fr: "Voir tout",
       es: "Ver todo",
+    }),
+
+    episodeCount: t({
+      en: "ep.",
+      fr: "ép.",
+      es: "ep.",
     }),
   },
 } satisfies Dictionary;

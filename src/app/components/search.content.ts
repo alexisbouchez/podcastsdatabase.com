@@ -11,8 +11,38 @@ const searchContent = {
 
     noResults: t({
       en: "No results",
-      fr: "Aucun r\u00E9sultat",
+      fr: "Aucun résultat",
       es: "Sin resultados",
+    }),
+
+    typePodcast: t({
+      en: "podcast",
+      fr: "podcast",
+      es: "podcast",
+    }),
+
+    typePerson: t({
+      en: "person",
+      fr: "personne",
+      es: "persona",
+    }),
+
+    typeEpisode: t({
+      en: "episode",
+      fr: "épisode",
+      es: "episodio",
+    }),
+
+    typeTranscript: t({
+      en: "transcript",
+      fr: "transcription",
+      es: "transcripción",
+    }),
+
+    loading: t({
+      en: "Loading...",
+      fr: "Chargement...",
+      es: "Cargando...",
     }),
   },
 } satisfies Dictionary;

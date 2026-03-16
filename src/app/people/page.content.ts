@@ -26,6 +26,18 @@ const peoplePageContent = {
       fr: "Rechercher des personnes...",
       es: "Buscar personas...",
     }),
+
+    people: t({
+      en: "People",
+      fr: "Personnes",
+      es: "Personas",
+    }),
+
+    episodes: t({
+      en: "episodes",
+      fr: "épisodes",
+      es: "episodios",
+    }),
   },
 } satisfies Dictionary;
 

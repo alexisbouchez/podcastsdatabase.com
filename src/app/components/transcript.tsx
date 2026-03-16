@@ -59,9 +59,9 @@ export function Transcript({
   return (
     <details open>
       <summary className="text-lg font-semibold cursor-pointer">
-        Transcript
+        {content.transcript}
         <span className="text-foreground font-normal ml-2">
-          ({segments.length} segments)
+          ({segments.length} {content.segmentsCount})
         </span>
       </summary>
 
@@ -92,7 +92,7 @@ export function Transcript({
 
       {lower && (
         <p className="mt-2 text-xs text-foreground/40">
-          {filtered.length} of {segments.length} segments
+          {filtered.length} {content.filteredOf} {segments.length} {content.segmentsCount}
         </p>
       )}
 

@@ -6,7 +6,7 @@ import { useLocale } from "next-intlayer";
 
 export const LocaleSwitcher: FC = () => {
   const { locale, availableLocales, setLocale } = useLocale({
-    onChange: ({ locale, path }) => {
+    onChange: ({ path }) => {
       window.location.href = path;
     },
   });

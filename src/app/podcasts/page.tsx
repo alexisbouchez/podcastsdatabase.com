@@ -65,7 +65,7 @@ function PodcastsPageContent() {
               {p.description}
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-foreground/50">
-              <span>{episodes.length} episodes</span>
+              <span>{episodes.length} {content.episodes}</span>
               {hosts.length > 0 && <span>{content.hostedByHostnames({ hostNames: hostNames })}</span>}
               <span>{p.language}</span>
             </div>
@@ -77,8 +77,8 @@ function PodcastsPageContent() {
 
   return (
     <>
-      <Breadcrumbs segments={[{ label: "Podcasts" }]} />
-      <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
+      <Breadcrumbs segments={[{ label: content.podcasts.value }]} />
+      <h1 className="text-2xl font-semibold mt-6">{content.podcasts}</h1>
       <ListFilter placeholder={content.searchPodcasts.value} items={items} />
     </>
   );

@@ -11,15 +11,15 @@ interface SearchEntry {
   context?: string;
 }
 
-const TYPE_LABELS: Record<string, string> = {
-  podcast: "podcast",
-  person: "person",
-  episode: "episode",
-  transcript: "transcript",
-};
-
 export function Search() {
   const content = useIntlayer('search');
+
+  const TYPE_LABELS: Record<string, string> = {
+    podcast: content.typePodcast.value,
+    person: content.typePerson.value,
+    episode: content.typeEpisode.value,
+    transcript: content.typeTranscript.value,
+  };
 
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
@@ -149,7 +149,7 @@ export function Search() {
             )}
             {!index && (
               <p className="px-4 py-3 text-sm text-foreground/40">
-                Loading...
+                {content.loading}
               </p>
             )}
             {results.map((r, i) => (

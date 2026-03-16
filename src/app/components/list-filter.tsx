@@ -38,13 +38,13 @@ export function ListFilter({
             onClick={() => setQuery("")}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/30 hover:text-foreground/60 no-underline text-xs"
           >
-            clear
+            {content.clear}
           </button>
         )}
       </div>
       {query.trim() && (
         <p className="mt-2 text-xs text-foreground/40">
-          {filtered.length} result{filtered.length !== 1 ? "s" : ""}
+          {filtered.length} {filtered.length !== 1 ? content.resultCount : content.resultCountSingular}
         </p>
       )}
       <div className="mt-3 grid gap-3">

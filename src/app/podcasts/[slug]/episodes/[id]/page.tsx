@@ -1,3 +1,5 @@
+import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
+import { getLocale } from 'next-intlayer/server';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -55,12 +57,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function EpisodePage({
-  params,
-}: {
-  params: Promise<{ slug: string; id: string }>;
-}) {
-  const { slug, id } = await params;
+function EpisodeContent({ slug, id }: { slug: string; id: string }) {
+  const content = useIntlayer('episode-detail');
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
   const episode = getEpisode(slug, id);
@@ -113,14 +111,14 @@ export default async function EpisodePage({
         segments={[
           { label: "Podcasts", href: "/podcasts" },
           { label: podcast.title, href: `/podcasts/${slug}` },
-          { label: "Episodes" },
+          { label: content.episodes.value },
           { label: `#${id}` },
         ]}
       />
 
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
-          {podcast.title} — Episode {id}
+          {podcast.title} — {content.episode} {id}
           {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
@@ -133,7 +131,7 @@ export default async function EpisodePage({
 
       {speakers.length > 0 && (
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-          <dt className="text-foreground/60">Speakers</dt>
+          <dt className="text-foreground/60">{content.speakers}</dt>
           <dd>
             {speakers.map((s, i) => (
               <span key={s!.slug}>
@@ -144,7 +142,7 @@ export default async function EpisodePage({
           </dd>
           {totalDuration > 0 && (
             <>
-              <dt className="text-foreground/60">Duration</dt>
+              <dt className="text-foreground/60">{content.duration}</dt>
               <dd>
                 <time>{formatTime(totalDuration)}</time>
               </dd>
@@ -175,5 +173,20 @@ export default async function EpisodePage({
         </section>
       )}
     </article>
+  );
+}
+
+export default async function EpisodePage({
+  params,
+}: {
+  params: Promise<{ slug: string; id: string }>;
+}) {
+  const { slug, id } = await params;
+  const locale = await getLocale();
+
+  return (
+    <IntlayerServerProvider locale={locale}>
+      <EpisodeContent slug={slug} id={id} />
+    </IntlayerServerProvider>
   );
 }

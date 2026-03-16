@@ -38,7 +38,7 @@ function HomeContent() {
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold">Podcasts</h2>
+          <h2 className="text-lg font-semibold">{content.podcasts}</h2>
           <Link href="/podcasts" className="text-sm">{content.viewAll}</Link>
         </div>
         <div className="mt-3 grid gap-3">
@@ -69,7 +69,7 @@ function HomeContent() {
                   </p>
                 </div>
                 <span className="ml-auto text-xs text-foreground/40 shrink-0">
-                  {episodeCount} ep.
+                  {episodeCount} {content.episodeCount}
                 </span>
               </Link>
             );
@@ -79,7 +79,7 @@ function HomeContent() {
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold">People</h2>
+          <h2 className="text-lg font-semibold">{content.people}</h2>
           <Link href="/people" className="text-sm">{content.viewAll}</Link>
         </div>
         <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">

@@ -112,11 +112,11 @@ function PodcastContent({ slug }: { slug: string }) {
       </header>
 
       <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-        <dt className="text-foreground/60">Language</dt>
+        <dt className="text-foreground/60">{content.language}</dt>
         <dd>
           <code>{podcast.language}</code>
         </dd>
-        <dt className="text-foreground/60">Hosts</dt>
+        <dt className="text-foreground/60">{content.hosts}</dt>
         <dd>
           {hosts.map((h, i) => (
             <span key={h!.slug}>
@@ -149,7 +149,7 @@ function PodcastContent({ slug }: { slug: string }) {
 
       <section className="mt-6">
         <h2 className="text-lg font-semibold">
-          Episodes
+          {content.episodes}
           <span className="text-foreground font-normal ml-2">
             ({episodes.length})
           </span>

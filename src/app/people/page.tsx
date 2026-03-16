@@ -96,7 +96,7 @@ function PeoplePageContent() {
             <h3 className="font-semibold text-sm">{p.name}</h3>
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
               {hosted && <span>{content.hostOf}{hosted.join(", ")}</span>}
-              {count > 0 && <span>{count} episodes</span>}
+              {count > 0 && <span>{count} {content.episodes}</span>}
               {languages && languages.size > 0 && (
                 <span>{[...languages].sort().join(", ")}</span>
               )}
@@ -109,8 +109,8 @@ function PeoplePageContent() {
 
   return (
     <>
-      <Breadcrumbs segments={[{ label: "People" }]} />
-      <h1 className="text-2xl font-semibold mt-6">People</h1>
+      <Breadcrumbs segments={[{ label: content.people.value }]} />
+      <h1 className="text-2xl font-semibold mt-6">{content.people}</h1>
       <ListFilter placeholder={content.searchPeople.value} items={items} />
     </>
   );
