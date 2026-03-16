@@ -9,6 +9,7 @@ import {
   getEpisodes,
   getPerson,
 } from "@/src/lib/data";
+import { useIntlayer } from "next-intlayer/server";
 
 export function generateStaticParams() {
   return getPodcasts().map((p) => ({ slug: p.slug }));
@@ -48,18 +49,18 @@ export async function generateMetadata({
   };
 }
 
-export default async function PodcastPage({
-  params,
+function PodcastContent({
+  slug,
 }: {
-  params: Promise<{ slug: string }>;
+  slug: string;
 }) {
-  const { slug } = await params;
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
 
   const logo = getPodcastLogo(slug);
   const episodes = getEpisodes(slug);
   const hosts = podcast.hosts.map((h) => getPerson(h)).filter(Boolean);
+  const content = useIntlayer("podcast-detail");
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -157,7 +158,7 @@ export default async function PodcastPage({
           </span>
         </h2>
         {episodes.length === 0 ? (
-          <p className="mt-2 text-foreground/60 text-sm">No episodes yet.</p>
+          <p className="mt-2 text-foreground/60 text-sm">{content.noEpisodesYet}</p>
         ) : (
           <ol className="mt-3 space-y-3">
             {episodes.map((ep) => (
@@ -178,4 +179,13 @@ export default async function PodcastPage({
       </section>
     </>
   );
+}
+
+export default async function PodcastPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  return <PodcastContent slug={slug} />;
 }

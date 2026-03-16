@@ -8,10 +8,12 @@ import {
   getPeople,
   getPersonImage,
 } from "@/src/lib/data";
+import { useIntlayer } from "next-intlayer/server";
 
 export default function Home() {
   const podcasts = getPodcasts();
   const people = getPeople();
+  const content = useIntlayer("home");
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -29,19 +31,16 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <Breadcrumbs />
-      <h1 className="text-2xl font-semibold mt-6">Podcasts Database</h1>
+      <h1 className="text-2xl font-semibold mt-6">{content.podcastsDatabase}</h1>
       <p className="mt-3 text-sm text-foreground/60 text-pretty leading-relaxed">
-        Conversations disappear. The good ones shouldn&apos;t. We transcribe
-        every episode, diarize every speaker, and make every word searchable.
-        No summaries. No AI slop. The actual transcript — who said what, when.
-        Built for the people who&apos;d rather search than scroll.
+        {content.conversationsDisappearTheGoodOnes}
       </p>
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">Podcasts</h2>
           <Link href="/podcasts" className="text-sm">
-            View all
+            {content.viewAll}
           </Link>
         </div>
         <div className="mt-3 grid gap-3">
@@ -84,7 +83,7 @@ export default function Home() {
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">People</h2>
           <Link href="/people" className="text-sm">
-            View all
+            {content.viewAll}
           </Link>
         </div>
         <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">

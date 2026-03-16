@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { flushSync } from "react-dom";
+import { useIntlayer } from "next-intlayer";
+
 interface EpisodeSegment {
   start: number;
   end: number;
@@ -26,6 +28,7 @@ export function Transcript({
   segments: EpisodeSegment[];
   speakerMap: Record<string, string>;
 }) {
+  const content = useIntlayer("transcript");
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState<number | null>(() => {
     if (typeof window !== "undefined") {
@@ -65,7 +68,7 @@ export function Transcript({
       <search className="mt-4">
         <input
           type="search"
-          placeholder="Search transcript..."
+          placeholder={content.searchTranscript}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {

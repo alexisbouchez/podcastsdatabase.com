@@ -5,6 +5,10 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { Search } from "./components/search";
 import { ThemeToggle } from "./components/theme-toggle";
+import { LocaleSwitcher } from "./components/locale-switcher";
+import { IntlayerClientProvider } from "next-intlayer";
+import { getHTMLTextDir } from "intlayer";
+import { getLocale } from "next-intlayer/server";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -33,13 +37,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} dir={getHTMLTextDir(locale)} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -47,19 +53,22 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistMono.variable} antialiased mx-auto max-w-3xl p-8`}
-      >
-        <div className="flex justify-end mb-2 gap-3">
-          <ThemeToggle />
-          <Search />
-        </div>
-        <main>{children}</main>
-        <Analytics />
-        <Script src="https://cdn.palmframe.com/embed.js" strategy="lazyOnload" />
-        {/* @ts-expect-error -- custom element */}
-        <palmframe-widget project="podcastsdatabase" />
-      </body>
+      <IntlayerClientProvider defaultLocale={locale}>
+        <body
+          className={`${geistMono.variable} antialiased mx-auto max-w-3xl p-8`}
+        >
+          <div className="flex justify-end mb-2 gap-3">
+            <LocaleSwitcher />
+            <ThemeToggle />
+            <Search />
+          </div>
+          <main>{children}</main>
+          <Analytics />
+          <Script src="https://cdn.palmframe.com/embed.js" strategy="lazyOnload" />
+          {/* @ts-expect-error -- custom element */}
+          <palmframe-widget project="podcastsdatabase" />
+        </body>
+      </IntlayerClientProvider>
     </html>
   );
 }

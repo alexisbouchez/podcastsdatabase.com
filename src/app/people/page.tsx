@@ -8,6 +8,7 @@ import {
   getPodcasts,
   getEpisodes,
 } from "@/src/lib/data";
+import { useIntlayer } from "next-intlayer/server";
 
 const description =
   "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.";
@@ -31,6 +32,7 @@ export const metadata = {
 export default function PeoplePage() {
   const people = getPeople();
   const podcasts = getPodcasts();
+  const content = useIntlayer("people-page");
 
   // Pre-compute episode counts, hosted podcasts, and languages per person
   const episodeCounts = new Map<string, number>();
@@ -91,7 +93,7 @@ export default function PeoplePage() {
           <div className="min-w-0">
             <h3 className="font-semibold text-sm">{p.name}</h3>
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
-              {hosted && <span>Host of {hosted.join(", ")}</span>}
+              {hosted && <span>{content.hostOf} {hosted.join(", ")}</span>}
               {count > 0 && <span>{count} episodes</span>}
               {languages && languages.size > 0 && (
                 <span>{[...languages].sort().join(", ")}</span>
@@ -107,7 +109,7 @@ export default function PeoplePage() {
     <>
       <Breadcrumbs segments={[{ label: "People" }]} />
       <h1 className="text-2xl font-semibold mt-6">People</h1>
-      <ListFilter placeholder="Search people..." items={items} />
+      <ListFilter placeholder={content.searchPeople} items={items} />
     </>
   );
 }

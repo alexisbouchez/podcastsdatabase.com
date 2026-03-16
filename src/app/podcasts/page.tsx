@@ -8,6 +8,7 @@ import {
   getEpisodes,
   getPerson,
 } from "@/src/lib/data";
+import { useIntlayer } from "next-intlayer/server";
 
 const description =
   "Browse all podcasts with full searchable transcripts on Podcasts Database.";
@@ -30,6 +31,7 @@ export const metadata = {
 
 export default function PodcastsPage() {
   const podcasts = getPodcasts();
+  const content = useIntlayer("podcasts-page");
 
   const items = podcasts.map((p) => {
     const logo = getPodcastLogo(p.slug);
@@ -61,8 +63,8 @@ export default function PodcastsPage() {
               {p.description}
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-foreground/50">
-              <span>{episodes.length} episodes</span>
-              {hosts.length > 0 && <span>Hosted by {hostNames}</span>}
+              <span>{episodes.length} {content.episodes}</span>
+              {hosts.length > 0 && <span>{content.hostedByHostnames.replace("{{hostNames}}", hostNames)}</span>}
               <span>{p.language}</span>
             </div>
           </div>
@@ -75,7 +77,7 @@ export default function PodcastsPage() {
     <>
       <Breadcrumbs segments={[{ label: "Podcasts" }]} />
       <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
-      <ListFilter placeholder="Search podcasts..." items={items} />
+      <ListFilter placeholder={content.searchPodcasts} items={items} />
     </>
   );
 }

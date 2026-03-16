@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useIntlayer } from "next-intlayer";
 
 interface SearchEntry {
   type: "podcast" | "person" | "episode" | "transcript";
@@ -18,6 +19,7 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 export function Search() {
+  const content = useIntlayer("search");
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
@@ -128,7 +130,7 @@ export function Search() {
           <input
             ref={inputRef}
             type="text"
-            placeholder="Search podcasts, people, episodes, transcripts..."
+            placeholder={content.searchPodcastsPeopleEpisodesTranscripts}
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelected(0); }}
             onKeyDown={handleKeyDown}
@@ -143,7 +145,7 @@ export function Search() {
           <div ref={resultsRef} className="overflow-y-auto">
             {results.length === 0 && index && (
               <p className="px-4 py-3 text-sm text-foreground/40">
-                No results
+                {content.noResults}
               </p>
             )}
             {!index && (
@@ -170,7 +172,7 @@ export function Search() {
                 </span>
                 <span className="text-foreground">
                   {r.title.length > 120
-                    ? r.title.slice(0, 120) + "…"
+                    ? r.title.slice(0, 120) + "\u2026"
                     : r.title}
                 </span>
                 {r.context && (
