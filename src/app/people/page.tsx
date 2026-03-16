@@ -9,21 +9,22 @@ import {
   getEpisodes,
 } from "@/src/lib/data";
 
+const description =
+  "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.";
+
 export const metadata = {
   title: "People — Podcasts Database",
-  description:
-    "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+  description,
+  alternates: { canonical: "/people" },
   openGraph: {
     title: "People — Podcasts Database",
-    description:
-      "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+    description,
     url: "https://www.podcastsdatabase.com/people",
   },
   twitter: {
     card: "summary" as const,
     title: "People — Podcasts Database",
-    description:
-      "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+    description,
   },
 };
 

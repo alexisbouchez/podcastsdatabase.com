@@ -26,6 +26,9 @@ export async function generateMetadata({
   return {
     title: `${podcast.title} — Podcasts Database`,
     description: podcast.description,
+    alternates: {
+      canonical: `/podcasts/${slug}`,
+    },
     openGraph: {
       title: podcast.title,
       description: podcast.description,
@@ -65,7 +68,11 @@ export default async function PodcastPage({
     description: podcast.description,
     url: `https://www.podcastsdatabase.com/podcasts/${slug}`,
     inLanguage: podcast.language,
+    numberOfEpisodes: episodes.length,
     ...(logo && { image: `https://www.podcastsdatabase.com${logo}` }),
+    ...(Object.keys(podcast.links).length > 0 && {
+      sameAs: Object.values(podcast.links),
+    }),
     author: hosts.map((h) => ({
       "@type": "Person",
       name: h!.name,

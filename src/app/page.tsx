@@ -13,8 +13,21 @@ export default function Home() {
   const podcasts = getPodcasts();
   const people = getPeople();
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Podcasts Database",
+    url: "https://www.podcastsdatabase.com",
+    description:
+      "Every episode. Every word. Searchable transcripts from the best podcasts in software, devtools, and startups.",
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <Breadcrumbs />
       <h1 className="text-2xl font-semibold mt-6">Podcasts Database</h1>
       <p className="mt-3 text-sm text-foreground/60 text-pretty leading-relaxed">

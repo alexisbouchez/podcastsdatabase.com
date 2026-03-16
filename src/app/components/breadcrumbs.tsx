@@ -6,6 +6,10 @@ interface BreadcrumbSegment {
 }
 
 export function Breadcrumbs({ segments }: { segments?: BreadcrumbSegment[] }) {
+  // Only include segments that have URLs (or are the last item, where item is optional per Google's spec)
+  const ldSegments = (segments ?? []).filter(
+    (s, i, arr) => s.href || i === arr.length - 1,
+  );
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -16,7 +20,7 @@ export function Breadcrumbs({ segments }: { segments?: BreadcrumbSegment[] }) {
         name: "Home",
         item: "https://www.podcastsdatabase.com",
       },
-      ...(segments ?? []).map((s, i) => ({
+      ...ldSegments.map((s, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: s.label,

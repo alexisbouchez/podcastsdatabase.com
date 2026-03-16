@@ -9,21 +9,22 @@ import {
   getPerson,
 } from "@/src/lib/data";
 
+const description =
+  "Browse all podcasts with full searchable transcripts on Podcasts Database.";
+
 export const metadata = {
   title: "Podcasts — Podcasts Database",
-  description:
-    "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+  description,
+  alternates: { canonical: "/podcasts" },
   openGraph: {
     title: "Podcasts — Podcasts Database",
-    description:
-      "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+    description,
     url: "https://www.podcastsdatabase.com/podcasts",
   },
   twitter: {
     card: "summary" as const,
     title: "Podcasts — Podcasts Database",
-    description:
-      "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+    description,
   },
 };
 
