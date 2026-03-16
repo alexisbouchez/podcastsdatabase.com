@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
 import Image from "next/image";
-import { getPeople, getPerson, getPersonImage, getPodcasts, getEpisodes } from "@/src/lib/data";
+import { getPeople, getPerson, getPersonImage, getPersonLanguages, getPodcasts, getEpisodes } from "@/src/lib/data";
 
 export function generateStaticParams() {
   return getPeople().map((p) => ({ slug: p.slug }));
@@ -87,6 +87,7 @@ export default async function PersonPage({
 
   const hostedPodcasts = podcasts.filter((p) => p.hosts.includes(slug));
   const img = getPersonImage(slug);
+  const languages = getPersonLanguages(slug);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -94,6 +95,7 @@ export default async function PersonPage({
     name: person.name,
     url: `https://www.podcastsdatabase.com/people/${slug}`,
     ...(img && { image: `https://www.podcastsdatabase.com${img}` }),
+    ...(languages.length > 0 && { knowsLanguage: languages }),
     ...(Object.keys(person.links).length > 0 && {
       sameAs: Object.values(person.links),
     }),
@@ -136,6 +138,13 @@ export default async function PersonPage({
             </a>
           ))}
         </nav>
+      )}
+
+      {languages.length > 0 && (
+        <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
+          <dt className="text-foreground/60">Languages</dt>
+          <dd>{languages.join(", ")}</dd>
+        </dl>
       )}
 
       {hostedPodcasts.length > 0 && (

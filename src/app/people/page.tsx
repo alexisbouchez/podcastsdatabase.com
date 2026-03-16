@@ -32,14 +32,17 @@ export default function PeoplePage() {
   const people = getPeople();
   const podcasts = getPodcasts();
 
-  // Pre-compute episode counts per person
+  // Pre-compute episode counts, hosted podcasts, and languages per person
   const episodeCounts = new Map<string, number>();
   const hostOf = new Map<string, string[]>();
+  const personLanguages = new Map<string, Set<string>>();
 
   for (const podcast of podcasts) {
     for (const host of podcast.hosts) {
       if (!hostOf.has(host)) hostOf.set(host, []);
       hostOf.get(host)!.push(podcast.title);
+      if (!personLanguages.has(host)) personLanguages.set(host, new Set());
+      personLanguages.get(host)!.add(podcast.language);
     }
 
     const episodes = getEpisodes(podcast.slug);
@@ -50,6 +53,8 @@ export default function PeoplePage() {
       for (const speaker of ep.speakers || []) {
         if (!podcast.hosts.includes(speaker)) {
           episodeCounts.set(speaker, (episodeCounts.get(speaker) || 0) + 1);
+          if (!personLanguages.has(speaker)) personLanguages.set(speaker, new Set());
+          personLanguages.get(speaker)!.add(podcast.language);
         }
       }
     }
@@ -59,10 +64,11 @@ export default function PeoplePage() {
     const img = getPersonImage(p.slug);
     const count = episodeCounts.get(p.slug) || 0;
     const hosted = hostOf.get(p.slug);
+    const languages = personLanguages.get(p.slug);
 
     return {
       key: p.slug,
-      searchText: `${p.name} ${hosted ? hosted.join(" ") : ""}`.toLowerCase(),
+      searchText: `${p.name} ${hosted ? hosted.join(" ") : ""} ${languages ? [...languages].join(" ") : ""}`.toLowerCase(),
       node: (
         <Link
           href={`/people/${p.slug}`}
@@ -87,6 +93,9 @@ export default function PeoplePage() {
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
               {hosted && <span>Host of {hosted.join(", ")}</span>}
               {count > 0 && <span>{count} episodes</span>}
+              {languages && languages.size > 0 && (
+                <span>{[...languages].sort().join(", ")}</span>
+              )}
             </div>
           </div>
         </Link>

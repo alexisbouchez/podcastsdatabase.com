@@ -124,6 +124,23 @@ export function getEpisode(
   return { id: episodeId, ...data };
 }
 
+export function getPersonLanguages(slug: string): string[] {
+  const languages = new Set<string>();
+  for (const podcast of getPodcasts()) {
+    if (podcast.hosts.includes(slug)) {
+      languages.add(podcast.language);
+      continue;
+    }
+    for (const ep of getEpisodes(podcast.slug)) {
+      if (ep.speakers?.includes(slug)) {
+        languages.add(podcast.language);
+        break;
+      }
+    }
+  }
+  return [...languages].sort();
+}
+
 export function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
