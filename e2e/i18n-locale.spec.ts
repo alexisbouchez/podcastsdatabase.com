@@ -50,11 +50,13 @@ test.describe("i18n locale switching", () => {
     await page.goto("/?locale=es");
     await expect(page.locator("html")).toHaveAttribute("lang", "es");
 
-    // Switch back to English
+    // Switch back to English — triggers hard navigation via window.location.href
     const select = page.locator("select");
-    await select.selectOption("en");
+    await Promise.all([
+      page.waitForNavigation(),
+      select.selectOption("en"),
+    ]);
 
-    await page.waitForURL(/locale=en/);
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("h1")).toContainText("Podcasts Database");
   });
