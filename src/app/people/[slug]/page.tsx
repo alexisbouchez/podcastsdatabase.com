@@ -1,5 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
+import { getMultilingualUrls } from 'intlayer';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -26,12 +27,7 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/people/${slug}`,
-      languages: {
-        en: `/people/${slug}?locale=en`,
-        fr: `/people/${slug}?locale=fr`,
-        es: `/people/${slug}?locale=es`,
-        "x-default": `/people/${slug}`,
-      },
+      languages: { ...getMultilingualUrls(`/people/${slug}`), "x-default": `/people/${slug}` },
     },
     openGraph: {
       title,

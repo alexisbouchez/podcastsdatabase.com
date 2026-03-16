@@ -1,5 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
+import { getMultilingualUrls } from 'intlayer';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -37,12 +38,7 @@ export async function generateMetadata({
     description: episode.description,
     alternates: {
       canonical: `/podcasts/${slug}/episodes/${id}`,
-      languages: {
-        en: `/podcasts/${slug}/episodes/${id}?locale=en`,
-        fr: `/podcasts/${slug}/episodes/${id}?locale=fr`,
-        es: `/podcasts/${slug}/episodes/${id}?locale=es`,
-        "x-default": `/podcasts/${slug}/episodes/${id}`,
-      },
+      languages: { ...getMultilingualUrls(`/podcasts/${slug}/episodes/${id}`), "x-default": `/podcasts/${slug}/episodes/${id}` },
     },
     openGraph: {
       title,

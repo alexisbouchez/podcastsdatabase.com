@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
+import { getMultilingualUrls } from "intlayer";
 import { getPodcasts, getEpisodes, getPeople } from "@/src/lib/data";
 
 const BASE_URL = "https://www.podcastsdatabase.com";
 const DATA_DIR = path.join(process.cwd(), "src", "data");
-const LOCALES = ["en", "fr", "es"] as const;
 
 function fileMtime(filePath: string): Date | undefined {
   try {
@@ -17,12 +17,10 @@ function fileMtime(filePath: string): Date | undefined {
 
 function alternates(pagePath: string) {
   return {
-    languages: Object.fromEntries(
-      LOCALES.map((l) => [
-        l,
-        `${BASE_URL}${pagePath}${pagePath.includes("?") ? "&" : "?"}locale=${l}`,
-      ]),
-    ),
+    languages: {
+      ...getMultilingualUrls(`${BASE_URL}${pagePath}`),
+      "x-default": `${BASE_URL}${pagePath}`,
+    },
   };
 }
 

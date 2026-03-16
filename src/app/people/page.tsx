@@ -1,6 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
-import { getIntlayer } from 'intlayer';
+import { getIntlayer, getMultilingualUrls } from 'intlayer';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -23,12 +23,7 @@ export async function generateMetadata() {
     description,
     alternates: {
       canonical: "/people",
-      languages: {
-        en: "/people?locale=en",
-        fr: "/people?locale=fr",
-        es: "/people?locale=es",
-        "x-default": "/people",
-      },
+      languages: { ...getMultilingualUrls("/people"), "x-default": "/people" },
     },
     openGraph: {
       title,

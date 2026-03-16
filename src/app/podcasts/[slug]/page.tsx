@@ -1,5 +1,6 @@
 import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
 import { getLocale } from 'next-intlayer/server';
+import { getMultilingualUrls } from 'intlayer';
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,12 +31,7 @@ export async function generateMetadata({
     description: podcast.description,
     alternates: {
       canonical: `/podcasts/${slug}`,
-      languages: {
-        en: `/podcasts/${slug}?locale=en`,
-        fr: `/podcasts/${slug}?locale=fr`,
-        es: `/podcasts/${slug}?locale=es`,
-        "x-default": `/podcasts/${slug}`,
-      },
+      languages: { ...getMultilingualUrls(`/podcasts/${slug}`), "x-default": `/podcasts/${slug}` },
     },
     openGraph: {
       title: podcast.title,

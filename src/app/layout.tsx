@@ -7,7 +7,7 @@ import { Search } from "./components/search";
 import { ThemeToggle } from "./components/theme-toggle";
 import { LocaleSwitcher } from "./components/locale-switcher";
 import { IntlayerClientProvider } from "next-intlayer";
-import { getHTMLTextDir, getIntlayer } from "intlayer";
+import { getHTMLTextDir, getIntlayer, getMultilingualUrls } from "intlayer";
 import { getLocale } from "next-intlayer/server";
 export { generateStaticParams } from "next-intlayer";
 
@@ -17,31 +17,24 @@ const geistMono = Geist_Mono({
 });
 
 const BASE_URL = "https://www.podcastsdatabase.com";
-const LOCALES = ["en", "fr", "es"] as const;
-
-function hreflangAlternates(path: string) {
-  return {
-    canonical: path === "/" ? BASE_URL : `${BASE_URL}${path}`,
-    languages: Object.fromEntries([
-      ...LOCALES.map((l) => [l, `${BASE_URL}${path}${path.includes("?") ? "&" : "?"}locale=${l}`]),
-      ["x-default", path === "/" ? BASE_URL : `${BASE_URL}${path}`],
-    ]),
-  };
-}
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
   const content = getIntlayer("layout", locale);
+  const multilingualUrls = getMultilingualUrls("/");
 
   return {
     metadataBase: new URL(BASE_URL),
     title: content.podcastsDatabase,
     description: content.everyEpisodeEveryWordSearchable,
-    alternates: hreflangAlternates("/"),
+    alternates: {
+      canonical: "/",
+      languages: { ...multilingualUrls, "x-default": "/" },
+    },
     openGraph: {
       title: content.podcastsDatabase,
       description: content.everyEpisodeEveryWordSearchable,
-      url: BASE_URL,
+      url: multilingualUrls[locale as keyof typeof multilingualUrls],
       siteName: "Podcasts Database",
       type: "website",
       locale: locale === "fr" ? "fr_FR" : locale === "es" ? "es_ES" : "en_US",
