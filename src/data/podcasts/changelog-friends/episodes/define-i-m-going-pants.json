@@ -1,0 +1,2518 @@
+{
+  "title": "#define: I'm going pants",
+  "description": "A game show featuring obscure jargon where contestants either provide real definitions or craft convincing fake ones to trick their peers, with Angelica Hill, Matthew Sanabria, John Henry Muller, and BMC.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/93",
+    "MP3": "https://cdn.changelog.com/uploads/friends/93/changelog--friends-93.mp3",
+    "YouTube": "https://youtu.be/G7KhGBL4AjA",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "angelica-hill",
+    "matthew-sanabria",
+    "john-henry-muller",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 15.54,
+      "end": 35.08,
+      "speaker": "jerod-santo",
+      "text": "To changelog and friends a weekly talk show about Osobuna Thanks to our partners at fly.io the public cloud built for developers who ship we love fly You might too learn all about it at fly.io Okay, let's play"
+    },
+    {
+      "start": 35.1,
+      "end": 58.75,
+      "speaker": "angelica-hill",
+      "text": "Friends, I'm here with Terrence Lee talking about what's coming for the next generation of for Roku They're calling this next gen for chance one of the biggest moves for fur in this next generation of Heroku It's being built on open standards and cloud native What can you share about this journey?"
+    },
+    {
+      "start": 58.75,
+      "end": 67.79,
+      "speaker": "jerod-santo",
+      "text": "If you look at the last Half a decade or so like there's been a lot that's changed in the industry a lot of the twelve Factorisms that have been popularized and are well accepted"
+    },
+    {
+      "start": 68.35,
+      "end": 96.49,
+      "speaker": "angelica-hill",
+      "text": "Even outside the Ruby community are things that are think table stakes for building modern applications, right? And so being able to take all those things from kind of 10 14 years ago being able to revisit and be like, okay We helped popularize a lot of these things We now don't need to be our own island of this stuff and it's just better to be part of the broader ecosystem Like you said since Heroku's existence. There's been people who've been trying to rebuild Heroku I feel like there's a good Kelsey quote when we can stop trying to rebuild Heroku"
+    },
+    {
+      "start": 96.49,
+      "end": 118.51,
+      "speaker": "jerod-santo",
+      "text": "It's like like people keep trying to like build their own version of Heroku like internally at their own company Let alone the public offerings out there. Yeah, I feel like Heroku's been the gold standard. Yeah. I mean, I think it's the gold standard because There's a thing that like Heroku's hit this like piece of magic around developer experience But give me enough flexibility power to do what you need to do"
+    },
+    {
+      "start": 118.55,
+      "end": 125.83,
+      "speaker": "angelica-hill",
+      "text": "Okay, so part of fur and this next generation of Heroku is adding support for dotnet. What can you share about that?"
+    },
+    {
+      "start": 125.83,
+      "end": 136.55,
+      "speaker": "jerod-santo",
+      "text": "Why dotnet and why now I think if you look at dotnet over the last decade It's changed a lot dotnet is known for being this Windows only platform. You have winforms use it to build"
+    },
+    {
+      "start": 137.27,
+      "end": 217.51,
+      "speaker": "angelica-hill",
+      "text": "Windows stuff double is and It's moved well beyond that over the last decade. You can build dotnet on Linux on Mac There's this whole cross-platform open source ecosystem and it become it's become this juggernaut of an ecosystem around it and we've we've gotten this ass to support dotnet for a long time and it isn't a new ass and Regardless of our support of it like people been running dotnet on Heroku in production today There's been a mono bill pack since the early days when you couldn't run dotnet on Linux and now with dotnet core the fact That it's cross-platform this dotnet core bill pack That people are using to run their apps on Heroku the kind of shift now is to take it from that To a first-class citizen and so what that means for Heroku is we have this languages team We're now staffing someone to basically live breathe and eat being a dotnet person, right? Someone from the community that we've plucked to be this person to Provide that day zero support for the language and run times that you expect and like we have for all of our languages right to answer your support and and deal with all those things when you open support tickets on Heroku and Kind of all the documentation that you expect for having qualities language support in the platform in addition to that one of the things that it means to be first class is that when we are building out new features and things is now one Of the languages is part of this ecosystem that we're gonna test and make sure run smoothly, right?"
+    },
+    {
+      "start": 217.51,
+      "end": 228.99,
+      "speaker": "jerod-santo",
+      "text": "So you can get this kind of end-to-end experience. You can go to dev center There's a dotnet icon to find all the dotnet documentation Take your app create a new Heroku app run git push Heroku main and you're off to the races"
+    },
+    {
+      "start": 229.13,
+      "end": 256.07,
+      "speaker": "angelica-hill",
+      "text": "so with the coming release of fur and this next generation of Heroku dotnet is officially a first-class language on the platform Dedicated support Dedicated documentation all the things if you haven't yet go to Heroku Dot-com slash changelog podcast and get excited about what's to come for Heroku once again Heroku dot-com slash changelog podcast"
+    },
+    {
+      "start": 260.62,
+      "end": 292.76,
+      "speaker": "jerod-santo",
+      "text": "Welcome to pound define. This is a game of obscure jargon fake definitions and expert tomfoolery Our contestants checked their imposter syndrome at the door Because they either know what these words mean or they're going to fake it till they make their peers think they know Let's introduce our players in the order. They will be playing first up She's our female equivalent of Matt Reyer And if you don't know what I mean, you will know as soon as she begins talking, it's Angelica Hill"
+    },
+    {
+      "start": 293.62,
+      "end": 311.44,
+      "speaker": "angelica-hill",
+      "text": "Hello I'm very excited to be here I hope to Prove my worth outside of just being the female replacement for Matt Reyer because he couldn't make it today That is the goal is to win and also use up Matt Reyer as the best Brit on this podcast"
+    },
+    {
+      "start": 311.62,
+      "end": 320.22,
+      "speaker": "jerod-santo",
+      "text": "Well, I like your odds. I like your odds Plain second our friend fresh off of Oxide and friends"
+    },
+    {
+      "start": 320.98,
+      "end": 328.18,
+      "speaker": "angelica-hill",
+      "text": "Matthew Sanabria, what's up, Matt? Hey, what's up? Glad to be here and fake it even though I made it, right?"
+    },
+    {
+      "start": 328.22,
+      "end": 344.02,
+      "speaker": "jerod-santo",
+      "text": "You did make it you showed up in the right place at the right time, but you still might have to fake some things Plain third he's mysterious. He's a break master. He's our beat freak. He's break master cylinder Hi, what's up, BMC? How are you?"
+    },
+    {
+      "start": 345.14,
+      "end": 350.5,
+      "speaker": "angelica-hill",
+      "text": "Fine, I think thank you for having me on science. We are very excited"
+    },
+    {
+      "start": 350.5,
+      "end": 360.14,
+      "speaker": "jerod-santo",
+      "text": "We wanted to have you to talk about the new album after party, but you're like we've talked about music a lot Let's do something else. And so I was like come play a game with us. Yeah. Thanks. I know nothing about this"
+    },
+    {
+      "start": 360.14,
+      "end": 362.14,
+      "speaker": "angelica-hill",
+      "text": "So it's perfect. I can talk about music"
+    },
+    {
+      "start": 362.14,
+      "end": 367.2,
+      "speaker": "jerod-santo",
+      "text": "But if I were to ask you about our brand new album called after party, what would you say about it? Oh god"
+    },
+    {
+      "start": 367.2,
+      "end": 376.66,
+      "speaker": "angelica-hill",
+      "text": "It's just the best. Oh man, the sounds the notes The levels the beats. Yes"
+    },
+    {
+      "start": 379.46,
+      "end": 387.62,
+      "speaker": "jerod-santo",
+      "text": "And New to the changelog but not new to me. We've been Omaha acquaintances for many years It's John Henry Muller. What's up, man? Oh, hey"
+    },
+    {
+      "start": 388.3,
+      "end": 392.1,
+      "speaker": "angelica-hill",
+      "text": "Hello from Omaha. You're somewhere. Hello also from Omaha"
+    },
+    {
+      "start": 392.79,
+      "end": 412.14,
+      "speaker": "jerod-santo",
+      "text": "well The greater Omaha area not better then but just outside. That's where I live. All right, maybe also better I don't know. We'll see and playing last Because we are gracious hosts around these parts my partner in podcasting Adam stuck. Oh, yeah. What's up, man? What's up? What's up?"
+    },
+    {
+      "start": 412.46,
+      "end": 414.31,
+      "speaker": "angelica-hill",
+      "text": "I'm here to win"
+    },
+    {
+      "start": 414.31,
+      "end": 503.02,
+      "speaker": "jerod-santo",
+      "text": "Fifth time's a charm And of course, I'll be your not-so-humble host Jared Santo here is how the game works we have 10 rounds of play or 15 points scored whichever comes first I Will present a word You all will either know the definition of the word and submit that to me or you will make up a fake Definition that acts as if it's the actual definition and see if you can trick everyone else into selecting yours If you know the correct definition immediately you get three points and you also get to take a break and sit that round out Because you already know the answer if after I read all the definitions you guess the correct one you get two points And for each person you trick into selecting your definition you get one point Now if all five of you fail in any given round to select The correct definition. I you're not so humble host receive four points and if I do that enough times you all lose which would be rad I think and Your word for round one is baryon baryon y-o-n Please submit to me your definitions now"
+    },
+    {
+      "start": 503.02,
+      "end": 512.44,
+      "speaker": "angelica-hill",
+      "text": "I'm just adding some finesse to mine. I know the definition I just need to make sure I've explained it clearly enough fair"
+    },
+    {
+      "start": 513.36,
+      "end": 526.23,
+      "speaker": "jerod-santo",
+      "text": "Smart even see this game is nice because you gotta like time to check your email and maybe code up a feature It's not like a typical podcast where you have to be on the whole time. It's nice. I'm gonna find a therapist"
+    },
+    {
+      "start": 527.03,
+      "end": 533.55,
+      "speaker": "angelica-hill",
+      "text": "You might have enough time we are not allowed to use"
+    },
+    {
+      "start": 534.11,
+      "end": 551.55,
+      "speaker": "jerod-santo",
+      "text": "No the internet. I just assume yeah, I mean you don't want to ruin the game. I mean nobody wants that Can you hear this? Are you here you do here have you ever played"
+    },
+    {
+      "start": 552.95,
+      "end": 569.31,
+      "speaker": "angelica-hill",
+      "text": "Bomb Corp. It's one of those like Jack box party games. No This sounds like the intro music for it. Basically you diffuse bombs, you know, I'm sad played bomber man. Yeah Check it out. It sounds very similar vibe"
+    },
+    {
+      "start": 569.91,
+      "end": 584.66,
+      "speaker": "jerod-santo",
+      "text": "All right, so Adam and BMC are both trailing indicators This I think is the actual track that I use in the produced episode during this time. It's kind of nice, right?"
+    },
+    {
+      "start": 587.02,
+      "end": 607.02,
+      "speaker": "angelica-hill",
+      "text": "Giving me black mirror vibes from the recent season. This is a BMC original is called study hall adventure Do you remember making this one? I remember the video game. I was picturing while writing it was it bomb Corp"
+    },
+    {
+      "start": 610.18,
+      "end": 616.79,
+      "speaker": "jerod-santo",
+      "text": "You've made so much music in your life, I wonder if you like forget songs, you know"
+    },
+    {
+      "start": 617.35,
+      "end": 651.92,
+      "speaker": "angelica-hill",
+      "text": "Yeah Yes, well titles, especially Adams in I'm also known for going last. Yeah, so BMC's winning Beating you. It's good. You're thoughtful before submission My son I got stressed out and submitted it and then ended up I ended up editing the message after I sent it No way I can I can edit the message once I've sent it to you"
+    },
+    {
+      "start": 652.42,
+      "end": 656.46,
+      "speaker": "jerod-santo",
+      "text": "Well, I copy it out of there and put it somewhere else. I'll recall. It was just it was just slight"
+    },
+    {
+      "start": 657.14,
+      "end": 671.18,
+      "speaker": "angelica-hill",
+      "text": "Grammatical errors that I needed to crack. I'll recopy it then so I get your thank you And I added a little clarification on the end just to make it crystal clear Is this on the album?"
+    },
+    {
+      "start": 671.18,
+      "end": 676.36,
+      "speaker": "jerod-santo",
+      "text": "No, it is not. This is actually a really long. It's like 15 minutes long"
+    },
+    {
+      "start": 676.78,
+      "end": 685.7,
+      "speaker": "angelica-hill",
+      "text": "They were like make it one level like if it was a hard level and you keep playing it over and over for like an hour Yeah, you sort of get used to the same music"
+    },
+    {
+      "start": 686.66,
+      "end": 762.32,
+      "speaker": "jerod-santo",
+      "text": "Do it like that. I have all definitions for Barry on I will read them now And then you all will guess which one you think is correct Starting with Angelica and going from there. So Barry on a universally recognized culinary term for a cooking technique that covers the entirety of a cake or pastry in various berries Berry covered or in robed in berries it originates from the Greek berry for berry and on to put on so very on That was number one number two the byproduct of a chemical reaction between two or more gases number three a particle used as a comparison marker in microscopic weight measurements Number four a chemical mixture often used in sterilization for surgery number five a new element under review to be added to the periodic table of elements and Number six composite particles made up of three quarks such as protons and neutrons There you have it six possible definitions for berry on It's now up to you all to decide which one is the actual definition starting with Angelica Which one do you think is real? I feel like"
+    },
+    {
+      "start": 762.84,
+      "end": 767.08,
+      "speaker": "angelica-hill",
+      "text": "They're chemical molecular or culinary. These are my three options"
+    },
+    {
+      "start": 767.76,
+      "end": 776.04,
+      "speaker": "jerod-santo",
+      "text": "Yes Can I have a third one again? Yeah, the third one was a particle used as a comparison marker in microscopic weight measurements"
+    },
+    {
+      "start": 776.32,
+      "end": 782.68,
+      "speaker": "angelica-hill",
+      "text": "Okay, the one about medical procedures I think isn't right the one about a chemical mixture often"
+    },
+    {
+      "start": 782.68,
+      "end": 787.26,
+      "speaker": "jerod-santo",
+      "text": "In sterilization, so that's number four. You think that's it or not? It? No, not why not"
+    },
+    {
+      "start": 787.26,
+      "end": 822.56,
+      "speaker": "angelica-hill",
+      "text": "I just I just don't I just don't think it's correct something in my bones tells me Okay, doesn't I feel like if a doctor came into my my room and said oh, we're about to inject you with berry on I'd be like, no, you're not Based on the sound alone. I am not going to yeah, let you do the thing that you are went to school to do Okay, no, I mean I would I'd ask a little bit more, you know I need a little bit more context on this strangely named chemical. You're about to put to my body. Is that vibe doctoring?"
+    },
+    {
+      "start": 822.56,
+      "end": 825.78,
+      "speaker": "jerod-santo",
+      "text": "Oh, I think there might be it's just not the vibe"
+    },
+    {
+      "start": 827.22,
+      "end": 831.98,
+      "speaker": "angelica-hill",
+      "text": "All right, I think it's I think it might need to be the second one that I asked you to repeat"
+    },
+    {
+      "start": 832.18,
+      "end": 836.28,
+      "speaker": "jerod-santo",
+      "text": "Okay, which one was that one the second one or the second one? You asked me to repeat"
+    },
+    {
+      "start": 836.68,
+      "end": 839.88,
+      "speaker": "angelica-hill",
+      "text": "The first one that I asked you to repeat, okay"
+    },
+    {
+      "start": 841.72,
+      "end": 848.22,
+      "speaker": "jerod-santo",
+      "text": "Number three was a particle used as a comparison marker in microscopically. That's your that's yours right there. Okay, we'll lock that in"
+    },
+    {
+      "start": 848.8,
+      "end": 862.54,
+      "speaker": "angelica-hill",
+      "text": "Alright Matthew, which one do you think is real? There was a number of them of the definitions around? Chemical sort of deals. Mm-hmm. I think there were maybe two or three of them. Can you repeat those?"
+    },
+    {
+      "start": 863.22,
+      "end": 876.98,
+      "speaker": "jerod-santo",
+      "text": "So definition number four was a chemical mixture often used in sterilization for surgery Okay, number five was a new element Is that the one you're thinking of or no possibly and number six was composite particles made up of three quarks?"
+    },
+    {
+      "start": 877.98,
+      "end": 887.78,
+      "speaker": "angelica-hill",
+      "text": "quarks or quarks quarks You're gonna need to say that better cool Better Jared"
+    },
+    {
+      "start": 888.18,
+      "end": 900.6,
+      "speaker": "jerod-santo",
+      "text": "As I can there's also number two the byproduct of a chemical reaction between two or more gases Oh, so it was like four chemically definitions. There's a lot that are in the same little category. Yes. Okay"
+    },
+    {
+      "start": 900.6,
+      "end": 919.66,
+      "speaker": "angelica-hill",
+      "text": "What do you think? I I think since there's so many chemically things maybe it's wrong It sounds like it would be around maybe it's yeah, it could either go one way. It's either it's completely wrong or It's like in the area. It's a lot of stuff man Okay, I'm I think I'm gonna choose the one that you couldn't pronounce well"
+    },
+    {
+      "start": 920.64,
+      "end": 922.16,
+      "speaker": "jerod-santo",
+      "text": "Okay"
+    },
+    {
+      "start": 922.16,
+      "end": 927.96,
+      "speaker": "angelica-hill",
+      "text": "So quarks. Yeah that one quarks quarks quarks that choice was quirky"
+    },
+    {
+      "start": 927.96,
+      "end": 932.92,
+      "speaker": "jerod-santo",
+      "text": "Okay. Now we go to BMC. What do you think gases?"
+    },
+    {
+      "start": 934.72,
+      "end": 936.4,
+      "speaker": "angelica-hill",
+      "text": "Yeah, I have notes"
+    },
+    {
+      "start": 937.58,
+      "end": 941.5,
+      "speaker": "jerod-santo",
+      "text": "Good job. I like how efficient you are. It says gases right there"
+    },
+    {
+      "start": 941.78,
+      "end": 943.78,
+      "speaker": "angelica-hill",
+      "text": "I like having a pencil"
+    },
+    {
+      "start": 944.62,
+      "end": 951.34,
+      "speaker": "jerod-santo",
+      "text": "BMC takes to John Henry your turn number three was the one that was the measurement one. Yes, that's correct"
+    },
+    {
+      "start": 951.66,
+      "end": 954.42,
+      "speaker": "angelica-hill",
+      "text": "I'm gonna go with that one. I think all right, so you're"
+    },
+    {
+      "start": 954.9,
+      "end": 960.18,
+      "speaker": "jerod-santo",
+      "text": "You're going with Angelica. She picked that one as well. So we have two for that one and"
+    },
+    {
+      "start": 961.14,
+      "end": 964.78,
+      "speaker": "angelica-hill",
+      "text": "Lastly Adam, would it be a total pain to have you repeat them all?"
+    },
+    {
+      "start": 965.78,
+      "end": 969.3,
+      "speaker": "jerod-santo",
+      "text": "Absolutely Which one do you need?"
+    },
+    {
+      "start": 969.3,
+      "end": 971.65,
+      "speaker": "angelica-hill",
+      "text": "all of them"
+    },
+    {
+      "start": 972.69,
+      "end": 1002.19,
+      "speaker": "jerod-santo",
+      "text": "I was one specifically let me summarize all six in order. Okay, I'm not gonna read them verbatim Number one was the culinary one Number two was the byproduct of two or more gases. Number three was the one that's used in microscopic weight measurements Number four is the chemical mixture used in surgery except for not Angelica surgeries Number five a new element under review to be in the table of elements and the number six"
+    },
+    {
+      "start": 1002.75,
+      "end": 1010.11,
+      "speaker": "angelica-hill",
+      "text": "Composite particles made up of three quarks. I'm thinking element. It's a new element. You're going for a new element. That's right"
+    },
+    {
+      "start": 1011.35,
+      "end": 1028.45,
+      "speaker": "jerod-santo",
+      "text": "Okay All right, all six answers are in but who? Landed on the right definition. Let's start right there where we left off Adam You selected a new element under review to be added by the period to the Adam. That was yours"
+    },
+    {
+      "start": 1028.45,
+      "end": 1048.99,
+      "speaker": "angelica-hill",
+      "text": "You gotta go away boy. I love you. He's distracted. He was distracted Did you see that trick? I know go with that trick Moms away dads will play okay I had to watch a little bit of Spongebob real quick, but I'm back. He's back Are you distracted out of because you selected your own definition? Oh, no, that was on purpose"
+    },
+    {
+      "start": 1051.23,
+      "end": 1062.35,
+      "speaker": "jerod-santo",
+      "text": "Okay, so selecting your own while it may trick other people you get zero points for doing that and you went last So the trick couldn't happen either Interesting. Let's move on"
+    },
+    {
+      "start": 1063.95,
+      "end": 1068.59,
+      "speaker": "angelica-hill",
+      "text": "To it's safe though, right because then you're not it is a safe flight"
+    },
+    {
+      "start": 1068.59,
+      "end": 1090.63,
+      "speaker": "jerod-santo",
+      "text": "Let's move on to what BMC thought It was the byproduct of a chemical reaction between two more gases even wrote down gas right there on a piece of paper That was Matthews. So one point to Matthew Speaking of Matthew. He thought it was the quirky one that I couldn't pronounce and you know what? That's exactly what baryon is so he got it correct baryon composite particles made up of three quarks"
+    },
+    {
+      "start": 1091.15,
+      "end": 1098.99,
+      "speaker": "angelica-hill",
+      "text": "Such as protons and neutrons you get two points. So everyone you mispronounces the definition got it. Okay, we're in this We know what we're doing now"
+    },
+    {
+      "start": 1098.99,
+      "end": 1111.19,
+      "speaker": "jerod-santo",
+      "text": "But there are more points to give out because both Angelica and John Henry piled on to BMC's Definition the weight measurements that was BMC. So two points BMC not bad. I thought I was tricked"
+    },
+    {
+      "start": 1111.19,
+      "end": 1124.51,
+      "speaker": "angelica-hill",
+      "text": "I thought I was tricked by Angelica No, you're tricked by BMC. Yeah, but I was right it was not used for surgical procedures So my gut instinct was correct a hundred of mine. That was his yeah"
+    },
+    {
+      "start": 1125.13,
+      "end": 1136.83,
+      "speaker": "jerod-santo",
+      "text": "Now there is a very um, isn't there it's not a thing that they do for like enemas and stuff over beryllium Maybe I am just a vibe doctor"
+    },
+    {
+      "start": 1137.67,
+      "end": 1139.67,
+      "speaker": "angelica-hill",
+      "text": "All"
+    },
+    {
+      "start": 1140.51,
+      "end": 1162.93,
+      "speaker": "jerod-santo",
+      "text": "Right, so after round one Matthew's in the lead with three BMC has two and the rest of us have not scored quite yet We move now to round two and the word for round two is jaggies jaggies J a GG IES jaggies, please submit your definition for jaggies now"
+    },
+    {
+      "start": 1163.45,
+      "end": 1166.94,
+      "speaker": "angelica-hill",
+      "text": "Are we saying these are all stem words?"
+    },
+    {
+      "start": 1169.35,
+      "end": 1176.2,
+      "speaker": "jerod-santo",
+      "text": "They're in the general world of that but they're not specifically they just call them like yes ish"
+    },
+    {
+      "start": 1176.92,
+      "end": 1178.92,
+      "speaker": "angelica-hill",
+      "text": "No"
+    },
+    {
+      "start": 1179.24,
+      "end": 1187.67,
+      "speaker": "jerod-santo",
+      "text": "They aren't strictly stem, but they are certainly STEMI"
+    },
+    {
+      "start": 1187.67,
+      "end": 1196.31,
+      "speaker": "angelica-hill",
+      "text": "Like one time you were like, oh, what was that word? Gallifrey get mmm. Yes with food. There's a big stew"
+    },
+    {
+      "start": 1197.48,
+      "end": 1215.15,
+      "speaker": "jerod-santo",
+      "text": "right In previous games we've had stem rounds and non stem rounds and today I just decided just throw out the rules and just do words All right, Adam is in he's not the last one this time around. I'm fighting for my right to party man"
+    },
+    {
+      "start": 1215.33,
+      "end": 1227.29,
+      "speaker": "angelica-hill",
+      "text": "Get your jaggies old. I'm trying to move like jaggies If I didn't know the definition I would have I would have gone that direction and made y'all laugh. Oh"
+    },
+    {
+      "start": 1228.39,
+      "end": 1230.75,
+      "speaker": "jerod-santo",
+      "text": "There's BMC coming in hot"
+    },
+    {
+      "start": 1232.39,
+      "end": 1237.5,
+      "speaker": "angelica-hill",
+      "text": "Right way cuz I already knew what it was Supatico Angelica simpatico you and me"
+    },
+    {
+      "start": 1238.02,
+      "end": 1321.12,
+      "speaker": "jerod-santo",
+      "text": "All right. We have six definitions for jaggies. Only one of them is actually the definition here. They are number one containers used to hold raw mining material be for being processed Number two stair stepped edges in pixelated graphics due to low resolution or aliasing Number three comfortable pants for remote working a play on jeggings Number four an irregular pathway taken by an object in response to magnetic stimuli number five in digital photography when an image is not clear the image will have jaggies and number six a Gen-z slang term initially used in colloquial typing and texting to refer to the lightning bolt emoji and This usage has now transitioned into the realm of software engineering in this technical context. Jaggies indicates sections within Within code where high computational load or intensive processing is handled drawing a visual parallel to the sharp Energetic nature of a lightning bolt and it's linked to electricity Okay, oh my gosh now you've heard all six definitions We start with Matthew. Which one do you think is actual? Uh, can you repeat please?"
+    },
+    {
+      "start": 1321.92,
+      "end": 1328.78,
+      "speaker": "angelica-hill",
+      "text": "number two Four and five. Yeah, I wrote them down this time, but I didn't get a chance to write them all. That's all good"
+    },
+    {
+      "start": 1328.78,
+      "end": 1349.49,
+      "speaker": "jerod-santo",
+      "text": "It's hard to keep track of all this stuff. Okay, number two was the stair stepped edges in pixelated graphics Number you want the full thing due to low resolution or aliasing? number four is an irregular pathway taken by an object in response to magnetic stimuli and number five is in digital photography when an Image is not clear. The image will have jaggies"
+    },
+    {
+      "start": 1350.13,
+      "end": 1375.73,
+      "speaker": "angelica-hill",
+      "text": "Mmm, okay. I'm between two and four here. Okay Stair-stepped edges due to Italy aliasing that sounds that sounds right But so does the magnetic stimuli of irregular pathways that sounds fun, too Right, I'm gonna lock in number four with the magnetic stuff. All right number four locked in. Mm-hmm I go now to BMC. Can you rapid-fire go through all of them as short as you like? I just want to hear how you say it"
+    },
+    {
+      "start": 1376.25,
+      "end": 1403.26,
+      "speaker": "jerod-santo",
+      "text": "Number one was the containers the whole raw mining material Number two was the pixelated graphics Number three was comfortable pants Number four was the irregular pathway. Number five is the digital photography and Number six was the Gen Z slang term. I'm going pants. I love your conviction. He's going pants Alright, John Henry your turn. Oh"
+    },
+    {
+      "start": 1403.56,
+      "end": 1424.8,
+      "speaker": "angelica-hill",
+      "text": "Pants sounds pretty convincing there also the very run-on Gen Z term Wow, there was so much detail. How can it be wrong? Right? I mean, that's But I think I'm gonna have to go with number four the pathways that I was convincing and not an obvious"
+    },
+    {
+      "start": 1425.52,
+      "end": 1432.08,
+      "speaker": "jerod-santo",
+      "text": "Sound to the term so I like that piling on with Matthew on number four. How about you Adam?"
+    },
+    {
+      "start": 1432.08,
+      "end": 1437.58,
+      "speaker": "angelica-hill",
+      "text": "I'm spreading it out. I'm going for the last one cuz whoever wrote that deserves some points"
+    },
+    {
+      "start": 1437.58,
+      "end": 1449.55,
+      "speaker": "jerod-santo",
+      "text": "Adam picks the Gen Z slang term For the lightning bolt emoji that turned into a software engineering term. Well, you guys know the rest next up Angelica last up Angelica"
+    },
+    {
+      "start": 1449.79,
+      "end": 1456.85,
+      "speaker": "angelica-hill",
+      "text": "Can you I mean I write down two four six. So four I remember two was the jagged edges"
+    },
+    {
+      "start": 1456.85,
+      "end": 1470.71,
+      "speaker": "jerod-santo",
+      "text": "What was the two one? Yeah, the stair stepped edges and pixelated graphics due to low resolution or aliasing And four is the one that Matthew and John Henry both picked. Okay, and six is the lightning bolt emoji"
+    },
+    {
+      "start": 1470.71,
+      "end": 1492.84,
+      "speaker": "angelica-hill",
+      "text": "Jackie's just too fun to not be to do with something that's visual But I don't think it's a photography one as someone who who aspires to be able to understand Gen Z I think I go with the last one. So you are picking the last one. Maybe I'll make me cool Yeah, I can whip it out if it's correct Talk to the the Gen Z's get some some cred. That would be cool"
+    },
+    {
+      "start": 1493.52,
+      "end": 1546.91,
+      "speaker": "jerod-santo",
+      "text": "Well, Adam also picked that one, so let's start right there and see maybe that is what jaggies are However, Angelica didn't you write that one? Yeah, you're right. It was so cool. It deserved to be selected So you don't get any points for selecting yourself, but you do get one point for getting Adam to select see Somebody go now Matthew and John Henry piled on to number four in a regular pathway taken by an object in Response to magnetic stimuli. Well, that was very convincing and that was BMC's made-up definition Good job, you see very nice two points for you, which means is up to BMC to actually select correctly. Otherwise You're not so humble host gets to the points this round You thought it was comfortable pants for remote work Play on jeggings What do you think? Is that right? Do I think it's right?"
+    },
+    {
+      "start": 1548.43,
+      "end": 1550.43,
+      "speaker": "angelica-hill",
+      "text": "Thing but yeah, let's go all in on"
+    },
+    {
+      "start": 1553.09,
+      "end": 1577.81,
+      "speaker": "jerod-santo",
+      "text": "All in on pants and all out on the correct answer so four points for me the correct definition of jaggies is stair-stepped edges in pixelated graphics due to low resolution or Alias seen that's what I was trying to see with my photography one. You are somewhat close. I almost gave you you should Photography you use the word jaggies in the definition and you can't do that. So I just I couldn't"
+    },
+    {
+      "start": 1578.09,
+      "end": 1585.93,
+      "speaker": "angelica-hill",
+      "text": "I Get robbed y'all are you not allowed to put the name the word in the definition?"
+    },
+    {
+      "start": 1585.93,
+      "end": 1590.37,
+      "speaker": "jerod-santo",
+      "text": "Well you I mean and technically when you define something you're not supposed to use the word in the definition"
+    },
+    {
+      "start": 1590.37,
+      "end": 1601.05,
+      "speaker": "angelica-hill",
+      "text": "I didn't know the the clinical version of it. I just knew when an image isn't clear you get those jagged jaggedy jeez, I don't think that's usually for photography though. That's usually more like"
+    },
+    {
+      "start": 1601.77,
+      "end": 1610.41,
+      "speaker": "jerod-santo",
+      "text": "Mmm, the context is more video game dev. Yeah, that's what I figured it would be If you had said video games, I probably would have given it to you. Well, I only know it in the context of photography"
+    },
+    {
+      "start": 1610.41,
+      "end": 1616.69,
+      "speaker": "angelica-hill",
+      "text": "I'm sorry That's all right. It's like saying a bite is not a bite because you experience it somewhere else. So, you know still bite"
+    },
+    {
+      "start": 1616.69,
+      "end": 1634.97,
+      "speaker": "jerod-santo",
+      "text": "What are you biting into over there? Like someone's leg a bit or a bite. That'd be jaggy Alright, let's move down around three. Well, hold on Let's add up these totals because you know what I might have just moved in the first place Ooh, I did I am tied with BMC in first place with four points Matthew has three Angelica one and so far sir"
+    },
+    {
+      "start": 1635.09,
+      "end": 1643.96,
+      "speaker": "angelica-hill",
+      "text": "I think your math is incorrect Isn't it three for getting someone or isn't it three for guessing the correct definition? It's three if you guess it initially"
+    },
+    {
+      "start": 1644.38,
+      "end": 1654.2,
+      "speaker": "jerod-santo",
+      "text": "It's two if you guess it at the end So I had Adam actually just given me the correct definition even though he was somewhat close He would have got three immediately, but if you guess it correctly at the end you get two"
+    },
+    {
+      "start": 1654.64,
+      "end": 1659.68,
+      "speaker": "angelica-hill",
+      "text": "Okay, if you guess it correctly during okay, I understand that after you hear the definitions. Yes. So your math is correct"
+    },
+    {
+      "start": 1659.68,
+      "end": 1680.58,
+      "speaker": "jerod-santo",
+      "text": "I thank you and you get a point when somebody Guesses yours. Yeah, that's right. Like it picks your pants. Oh my bad. You're all thank you Yeah, he was a pants when I just forgot because I was moving on the fact that I won the round Yeah, that's a good one jeggings. I like that"
+    },
+    {
+      "start": 1680.58,
+      "end": 1692,
+      "speaker": "angelica-hill",
+      "text": "I feel like I'm learning already in this game that the more detail the answer other than Adam who appreciates it Gotta keep it short and sweet. Yeah, you're writing books over there. Just letting my creativity fly"
+    },
+    {
+      "start": 1692.08,
+      "end": 1737.36,
+      "speaker": "jerod-santo",
+      "text": "That's very creative. I liked it. It's hard for me to read that long without starting to laugh. Yeah, I'm sorry Okay, I just want to I want to represent your definitions well, and it's just the more I'm reading the more just it gets to become kind of Funny, okay Now I don't want to shut out John Henry He's has a point so he got Adam locked in the dungeon now all by himself and the rest of us on the board Let's move down to round three where the word For round three is oobleck oobleck. That's o o b l e c k oobleck It is fun to say is it fun to define we'll find out right after this"
+    },
+    {
+      "start": 1737.36,
+      "end": 1748.31,
+      "speaker": "angelica-hill",
+      "text": "Well friends, I'm here with David shoe CEO of retool David. I want to talk about Awareness beyond Silicon Valley retool has a great presence and a great awareness"
+    },
+    {
+      "start": 1748.99,
+      "end": 1807.75,
+      "speaker": "jerod-santo",
+      "text": "Inside Silicon Valley, but what about beyond what's really cool is I think we've done a really good job of building awareness inside of Silicon Valley And so when you look at customers that use retool pretty much every big company Silicon Valley above thousand people today Now uses retool and builds internal apps via retool. So that's really awesome And I'm really proud of the progress we've made there but I think the larger opportunity for us actually it's outside of Silicon Valley when you think about for example the Kroger's of the world the Coca Cola's of the world many of them are customers already today But I think we haven't done as good as of a job building awareness if you will Around the developers and all these companies and that to me is where the opportunity lies because so much of these companies Run on software software is so important if you think about Coca Cola For example, Coca Cola has not really gotten any cheaper to manufacture the last 10 or 20 years Instead the reason why Coca Cola is doing well as a company is because they are getting more productive by a better software That's every company needs to become a software company and retool lets you do that"
+    },
+    {
+      "start": 1808.03,
+      "end": 1837.27,
+      "speaker": "angelica-hill",
+      "text": "So coke is a big company, but the principle rings true Become more efficient by using better software. There you go. Well, if you're beyond Silicon Valley raise your hand We want to hear from you I want to tell David we've reached people beyond Silicon Valley that we're raising the awareness of what retool is and what retool does And some big announcements coming soon here on changelog, which is cool Well, if you haven't yet go to retool.com get a demo try it out for free all that good stuff again"
+    },
+    {
+      "start": 1838.03,
+      "end": 1839.91,
+      "speaker": "jerod-santo",
+      "text": "retool.com"
+    },
+    {
+      "start": 1839.91,
+      "end": 1852.23,
+      "speaker": "angelica-hill",
+      "text": "How do we know that you're giving us the right pronunciation of these words? I just take my word for it Okay understood, but are you claiming to lied about math? Yeah, I"
+    },
+    {
+      "start": 1852.95,
+      "end": 1863.27,
+      "speaker": "jerod-santo",
+      "text": "Make no claims neither express or implied Most of these I looked up the pronunciation I actually forgot to on this one, but don't google it because you'll know the definition"
+    },
+    {
+      "start": 1863.35,
+      "end": 1888.28,
+      "speaker": "angelica-hill",
+      "text": "Make sure I'm saying it right. Well, maybe this will work. Hey Siri define oobleck. No, no Anyone anyone anyone things go off? No, it's why are you trying to get other people the answer? Yeah, you think I have Siri enabled on my phone, but you don't like her. I don't call her Siri anymore She never called me back. So my brother's ex-girlfriend's called Siri. I'm sorry for her loss"
+    },
+    {
+      "start": 1889.04,
+      "end": 1893.92,
+      "speaker": "jerod-santo",
+      "text": "Was that her name or he just called her that no, that was her legit name that hurts"
+    },
+    {
+      "start": 1894.52,
+      "end": 1899.88,
+      "speaker": "angelica-hill",
+      "text": "So are you giving us the proper pronunciation or I was waiting for that person? Oh my bad"
+    },
+    {
+      "start": 1899.88,
+      "end": 1902.52,
+      "speaker": "jerod-santo",
+      "text": "I actually got distracted as hard as one else. I"
+    },
+    {
+      "start": 1904,
+      "end": 1908.84,
+      "speaker": "angelica-hill",
+      "text": "Was just waiting for that. I was just you know, just curious. Okay, I just confirmed it's oobleck"
+    },
+    {
+      "start": 1909.52,
+      "end": 1911.29,
+      "speaker": "jerod-santo",
+      "text": "Specifically as I said it"
+    },
+    {
+      "start": 1911.29,
+      "end": 1917.29,
+      "speaker": "angelica-hill",
+      "text": "Since you said you check your email during this and you also said that not every email gets a response is now a good time"
+    },
+    {
+      "start": 1917.29,
+      "end": 1929.68,
+      "speaker": "jerod-santo",
+      "text": "To email you this be a great time. Okay, perfect This reminds me while we wait for BMC You guys may or may not know that I have an entire soundboard of BMC noises"
+    },
+    {
+      "start": 1930.32,
+      "end": 1956.08,
+      "speaker": "angelica-hill",
+      "text": "Really? I just like anything that makes me happy and I do that and then I do the next thing. You're welcome Like glitchy things and You know things things. Okay, that's my definition. Here's my favorite one Heckins. Yeah, I said to myself"
+    },
+    {
+      "start": 1960.53,
+      "end": 1973.08,
+      "speaker": "jerod-santo",
+      "text": "Sometimes I throw those in at the end of a show when I'm thanking you for making our beads. Yes I've heard oh you've heard nice This one. I'll use you throw in this one. I'm here for your sound needs. I'm here for your sound needs"
+    },
+    {
+      "start": 1974.24,
+      "end": 1980.68,
+      "speaker": "angelica-hill",
+      "text": "Hold on. I'm getting distracted by all that smart funny things. I say one second. Do you still need jobs if you're listening?"
+    },
+    {
+      "start": 1980.68,
+      "end": 1982.68,
+      "speaker": "jerod-santo",
+      "text": "I need jobs. Thank you"
+    },
+    {
+      "start": 1983.56,
+      "end": 1985.56,
+      "speaker": "angelica-hill",
+      "text": "That was just me talking"
+    },
+    {
+      "start": 1992.9,
+      "end": 1994.9,
+      "speaker": "jerod-santo",
+      "text": "Sorry does"
+    },
+    {
+      "start": 1994.94,
+      "end": 2026.81,
+      "speaker": "angelica-hill",
+      "text": "You're both Batman and a spider-man Evil octopus man at the same. Ah, thank you You're welcome. I love a backhanded compliment. Oh cool But if you really do like your goggles, okay, if I could get prescription goggles, that would be awesome That would be awesome. I can't see past like two inches or my face. So right I would need them to be very heavy"
+    },
+    {
+      "start": 2028.85,
+      "end": 2035.96,
+      "speaker": "jerod-santo",
+      "text": "They have saved my face from all Doorways"
+    },
+    {
+      "start": 2035.96,
+      "end": 2042.64,
+      "speaker": "angelica-hill",
+      "text": "Door frames. One of these is shattered and they're gonna say you can't hit doorways. We can't door frames or doors"
+    },
+    {
+      "start": 2042.96,
+      "end": 2047.18,
+      "speaker": "jerod-santo",
+      "text": "This was going to be my face and instead it shattered this and I'm very lucky"
+    },
+    {
+      "start": 2048,
+      "end": 2059.14,
+      "speaker": "angelica-hill",
+      "text": "Okay, the end do you routinely hit into door frames? I did that one time like a Regular car. Okay, that's why I bought these it's like one day All"
+    },
+    {
+      "start": 2061.18,
+      "end": 2127.12,
+      "speaker": "jerod-santo",
+      "text": "Right, we have all definitions for oobleck and this round will be a little different than the rest because two of our contestants Actually got the correct definition for oobleck three points awarded to Angelica and John Henry you guys both know what oobleck is John the rest of us Will have to find it out. So We'll actually only have four definitions since those two were the correct definition they merged down onto the real one and we start with oobleck a Non-newtonian fluid that acts as both a liquid and solid under stress Number two oobleck similar to an oom loud. The oobleck is used to indicate the pronunciation of a word number three a piece of communication network that filters some data while setting aside others for future dispatch and Number four a gritty adhesive formed by mixing sand water and epoxy so four definitions of oobleck one of those is correct Angelica and John Henry sit this round out since they already know what it is and BMC gets to pick first"
+    },
+    {
+      "start": 2127.56,
+      "end": 2129.57,
+      "speaker": "angelica-hill",
+      "text": "first one"
+    },
+    {
+      "start": 2129.57,
+      "end": 2148.81,
+      "speaker": "jerod-santo",
+      "text": "First one the non-newtonian fluid. Okay. Yeah BMC. You said it funny is there we we go to Adam Mmm, it is funny. What's the last one again the gritty substance a gritty adhesive formed by mixing sand water and epoxy Oh, yeah, that's it. That's it. Adam takes that one we go now to"
+    },
+    {
+      "start": 2150.2,
+      "end": 2160.92,
+      "speaker": "angelica-hill",
+      "text": "Matthew so I heard the first one was the non-newtonian something or other correct The last one was gritty adhesive or the second to the middle to the mail to was similar to an oom loud. I"
+    },
+    {
+      "start": 2161.8,
+      "end": 2170.24,
+      "speaker": "jerod-santo",
+      "text": "Oobleck is used to indicate the pronunciation of a word and the other middle one was a piece of a communication network that filters some Data while setting aside other"
+    },
+    {
+      "start": 2170.72,
+      "end": 2192.26,
+      "speaker": "angelica-hill",
+      "text": "For future dispatch that one's spelled incorrectly. There's some mistakes in that one. So I'm gonna pass on that one. Okay I'm thinking one What one sounds the best here Hmm, and I don't know if it if this group would say something like non-newtonian So, I think I'm gonna lock in for one actually, okay"
+    },
+    {
+      "start": 2193.62,
+      "end": 2228.98,
+      "speaker": "jerod-santo",
+      "text": "So not only does he select number one. He also disses everybody This group wouldn't say non-newtonian Yeah, but we knew what it was so that's a good point so Angelica and John Henry already knew that That Oobleck was a non-newtonian fluid that acts as both a liquid and a solid under stress. So BMC and Matthew each get two points for guessing it correctly. Did you guys not go to elementary school or"
+    },
+    {
+      "start": 2230.1,
+      "end": 2250.98,
+      "speaker": "angelica-hill",
+      "text": "like You guys don't know what this is. I just skipped straight to I don't know how you know what it is So, can you please explain to you what context we're all missing Cornstarch and water mixture that you can punch and this feels solid and then you hold it and it drips through your fingers I went outside as a kid. I don't know what you're talking"
+    },
+    {
+      "start": 2254.22,
+      "end": 2306.74,
+      "speaker": "jerod-santo",
+      "text": "So this is also a commercial product, I guess when Angelica you were talking about the commercial product, right? Yeah, and we go she called it an ooey gooey kids toy like slime With specs in it Never heard this in my life. I actually hadn't heard in a boob like either and so I'm very impressed by you two That's all right and then Adam selected the gritty adhesive formed by mixing sand water and epoxy and that's Matthew So he gets another point So three points for you three points for Angelica two for BMC three for John Henry Adam and I shut out this round so after three rounds Tied for first is Matthew and BMC with six tied for second is Angelica John Henry myself with four And we leave Adam where he was previously Let's move now to round four"
+    },
+    {
+      "start": 2311.35,
+      "end": 2317.35,
+      "speaker": "angelica-hill",
+      "text": "I do not I do not There's a strategy. That's right. He has a strategy"
+    },
+    {
+      "start": 2318.34,
+      "end": 2359.45,
+      "speaker": "jerod-santo",
+      "text": "This round is a little different. We call this give it a goog Give it a goog Where I went out to Google in an incognito browser window, so no personalization and I started giving it a goog Then I stopped and checked for the first auto complete Your job is to come up with what the first auto complete was or ostensibly what? You you can trick other people into thinking that it was the query that I queried Was when does the I typed when does the and then I stopped? What do you think Google Suggested as the number one auto complete, please submit to me your auto completes now"
+    },
+    {
+      "start": 2359.97,
+      "end": 2373.6,
+      "speaker": "angelica-hill",
+      "text": "Did you do this this search or this auto complete? Yourself on your machine incognito window a VPN and it can you put the text that you put? Yeah, the channel for sure"
+    },
+    {
+      "start": 2373.9,
+      "end": 2375.98,
+      "speaker": "jerod-santo",
+      "text": "Adam was the first one in this time. So he's"
+    },
+    {
+      "start": 2376.62,
+      "end": 2387.52,
+      "speaker": "angelica-hill",
+      "text": "No, that's cuz I know the answer he's changing the things around Well, this one's obvious"
+    },
+    {
+      "start": 2387.52,
+      "end": 2403.96,
+      "speaker": "jerod-santo",
+      "text": "Well, the cool thing about it is it's kind of a proxy for the human condition. Is it not like what were people asking it? What do people wonder when does the when does the Fox say I was gonna think of that to you That's what does the Fox say very close though? Oh, dang"
+    },
+    {
+      "start": 2404.28,
+      "end": 2418.49,
+      "speaker": "angelica-hill",
+      "text": "That's why I said and did you do this today this search such a search I don't answer any further questions. Okay, that's fair That's very relevant. It is really relevant. What does the Fox say know when you"
+    },
+    {
+      "start": 2422.19,
+      "end": 2424.19,
+      "speaker": "jerod-santo",
+      "text": "Yeah, like it was like six years ago"
+    },
+    {
+      "start": 2424.43,
+      "end": 2432.11,
+      "speaker": "angelica-hill",
+      "text": "He's super different. He's prepared for this show a long time ago. He's been doing this. Yeah, you plan this Where did he come from? Where'd he go?"
+    },
+    {
+      "start": 2432.11,
+      "end": 2434.34,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm"
+    },
+    {
+      "start": 2435.22,
+      "end": 2445.77,
+      "speaker": "angelica-hill",
+      "text": "MCs with me VMCs here for our sound if you're listening I need jobs. Thank you here for your sound needs"
+    },
+    {
+      "start": 2446.09,
+      "end": 2449.83,
+      "speaker": "jerod-santo",
+      "text": "It's kind of more fun when VMCs here than it even is when he's not"
+    },
+    {
+      "start": 2450.51,
+      "end": 2452.51,
+      "speaker": "angelica-hill",
+      "text": "I'm having fun that with he's here"
+    },
+    {
+      "start": 2458.22,
+      "end": 2462.02,
+      "speaker": "jerod-santo",
+      "text": "All right, we're just down to one person not in by my music"
+    },
+    {
+      "start": 2464.58,
+      "end": 2468.46,
+      "speaker": "angelica-hill",
+      "text": "My music that's a good sound bite next time we release a"
+    },
+    {
+      "start": 2469.38,
+      "end": 2475.59,
+      "speaker": "jerod-santo",
+      "text": "Album, we'll just play that one the end. Well repeat at the beginning. Yeah. Yeah. Yeah. Yeah do it"
+    },
+    {
+      "start": 2477.09,
+      "end": 2482.43,
+      "speaker": "angelica-hill",
+      "text": "You choose phrases that have like they don't have much. Yeah"
+    },
+    {
+      "start": 2484.45,
+      "end": 2518.8,
+      "speaker": "jerod-santo",
+      "text": "That's a good one, right? Yeah Okay Six potential Google auto complaints for when does the number one when does the current administration end? Number two, when does the Sun rise? Number three, when does the time change? Number four, when does the stock market open number five? When does the Sun set near me and Number six, when does the world end? Existential. All right six potential when does those"
+    },
+    {
+      "start": 2519.44,
+      "end": 2559.67,
+      "speaker": "angelica-hill",
+      "text": "John Henry. Mm-hmm. So going through these What was the first one current Current administration. Oh that yeah, that's I'm I'm certainly wondering that but I Don't know. I don't I don't know if Google would go there. Maybe maybe not. I'm not sure. Oh, it would it would Oh, yeah, this global Google though, or is this u.s. Space this is Jared's Jared's IP address, you know my I didn't VPN very far Sunrise is plausible. They're all plausible actually stock market sunset near me"
+    },
+    {
+      "start": 2559.67,
+      "end": 2563.69,
+      "speaker": "jerod-santo",
+      "text": "I like the near me send me the Sun sets like as close to you as possible"
+    },
+    {
+      "start": 2563.69,
+      "end": 2573.87,
+      "speaker": "angelica-hill",
+      "text": "Or I don't know that Google just always like adds that in those searches And so that's what made me think I'm going with number five number five"
+    },
+    {
+      "start": 2573.87,
+      "end": 2579.11,
+      "speaker": "jerod-santo",
+      "text": "When is the Sun set in the air me? Okay, Adam, what do you think? I haven't been paying attention. Sorry"
+    },
+    {
+      "start": 2583.54,
+      "end": 2585.6,
+      "speaker": "angelica-hill",
+      "text": "Board accurately reflects that yes"
+    },
+    {
+      "start": 2587.18,
+      "end": 2589.18,
+      "speaker": "jerod-santo",
+      "text": "Are you still watching spongebob?"
+    },
+    {
+      "start": 2590.1,
+      "end": 2599.76,
+      "speaker": "angelica-hill",
+      "text": "Yeah, I am actually Patrick so awesome. Let's see here There are two that are near me. Which ones are those read those to me, please"
+    },
+    {
+      "start": 2600.16,
+      "end": 2606.7,
+      "speaker": "jerod-santo",
+      "text": "Well, one was when does the Sun set near me? That's number five And then the other one was when does the Sun rise but does not say near me"
+    },
+    {
+      "start": 2607.4,
+      "end": 2613.14,
+      "speaker": "angelica-hill",
+      "text": "Number five is the only one that says near me. That's a Mandela fact, I think right? I remember both of them saying near me"
+    },
+    {
+      "start": 2616.18,
+      "end": 2627.73,
+      "speaker": "jerod-santo",
+      "text": "To remember it otherwise, it's just you being wrong Let's see, what was the first one again? The first one was when does the current administration end?"
+    },
+    {
+      "start": 2628.21,
+      "end": 2636.61,
+      "speaker": "angelica-hill",
+      "text": "We're on number two you think number two is the right answer when does the Sun rise near me no"
+    },
+    {
+      "start": 2642.37,
+      "end": 2646.29,
+      "speaker": "jerod-santo",
+      "text": "Yeah What a change your answer if it said near me a bit, huh?"
+    },
+    {
+      "start": 2646.29,
+      "end": 2700.68,
+      "speaker": "angelica-hill",
+      "text": "I feel like it near me is probably accurate, but I'm not gonna go that route. I'm gonna go tight When does the Sun rise, okay, Angelica, I don't think it's the administration one and I don't think it's the world end one Okay, so you're down to four then so I've got the two someone's and the time zone stock market I don't think the stock market is broadly applicable to the world. So don't think that many people Google that famous last words face that Going on what I would care about I care about when the Sun rises and sets so I'm also on On the line of thinking of is the near me Mm-hmm. I think last time I locked in with Adam it was good. So I'm gonna look in You're going with Adam. Okay, when does the Sun rise? You're sympathetically incorrect. I put my faith in you Adam So I'm like, oh, you know"
+    },
+    {
+      "start": 2700.92,
+      "end": 2702.48,
+      "speaker": "jerod-santo",
+      "text": "All right"
+    },
+    {
+      "start": 2702.48,
+      "end": 2706.62,
+      "speaker": "angelica-hill",
+      "text": "Matt, can you give me the the quick rundown of all of them again?"
+    },
+    {
+      "start": 2706.86,
+      "end": 2718.9,
+      "speaker": "jerod-santo",
+      "text": "Number ones the current administration number two is the Sun rising number three is time-changing Number four is the market opening number five is the Sun setting near me and number six is the world ending"
+    },
+    {
+      "start": 2719.22,
+      "end": 2748.7,
+      "speaker": "angelica-hill",
+      "text": "Okay, I've haven't used Google in a very long time So, I don't know what Google even suggests anymore. Hmm. I've also never seen a suggestion ever say near me So I think that one's out for me. That's it's not true Yeah Yeah, I've never seen a near me thing pop up Where you're at, it's great. Exactly. It already knows there. You know, we are near me is our specific Nouns like where is the nearest gas station near me? Yeah"
+    },
+    {
+      "start": 2751.86,
+      "end": 2757.54,
+      "speaker": "jerod-santo",
+      "text": "Well sunrise and sunset are Geographically dependent right? It's not so it's that's a different time different places"
+    },
+    {
+      "start": 2757.94,
+      "end": 2793.4,
+      "speaker": "angelica-hill",
+      "text": "Yeah, but like I feel like Google I feel like Google's evolved that it knows my geo All right. What do you think in Matthew? All right, so if you're doing this from Omaha I'm torn between the sunrise and the stock market, honestly, but I think we have we've over indexed on the sunrise I think I'm gonna go the other way and do the stock market opening. He's playing the spread Okay when the world ends, huh? Okay, good job That's a good. That's a good choice when the world ends. All right. No, he's picked the stock market Wow, but he said where the wind ends him is come on, that's the right answer"
+    },
+    {
+      "start": 2795.16,
+      "end": 2805.54,
+      "speaker": "jerod-santo",
+      "text": "Lee BMC, what do you think well then? Oh End of days"
+    },
+    {
+      "start": 2805.54,
+      "end": 2811.56,
+      "speaker": "angelica-hill",
+      "text": "Fan finger one of those things called giant hand. I got this in 2020 and it's gonna be useful sometimes"
+    },
+    {
+      "start": 2813.27,
+      "end": 2828.63,
+      "speaker": "jerod-santo",
+      "text": "Eventually, it will every five years useful. All right, so BMC picks the world Ending Adam was very excited that you were interested in the world ending because Adam wrote the world endings at one point for Adam Mm-hmm when the world ends"
+    },
+    {
+      "start": 2828.63,
+      "end": 2832.49,
+      "speaker": "angelica-hill",
+      "text": "See I had faith in you Adam. I would keep doing that. It's amazing"
+    },
+    {
+      "start": 2833.44,
+      "end": 2851.67,
+      "speaker": "jerod-santo",
+      "text": "John Henry was interested in the Sun setting near him And nobody else was interested in that one. I happened to be his own so he gets zero points Couldn't quite bring people The ride try to lobby that yeah, it almost worked but and they were all using logic and stuff"
+    },
+    {
+      "start": 2852.43,
+      "end": 2858.83,
+      "speaker": "angelica-hill",
+      "text": "Let's see. What else I see that I see the near me all the time. Do you yeah, no you guys don't"
+    },
+    {
+      "start": 2860.67,
+      "end": 2865.93,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I guess I don't really think about the autocomplete much well, I mean like in maps maybe you know"
+    },
+    {
+      "start": 2865.93,
+      "end": 2871.19,
+      "speaker": "angelica-hill",
+      "text": "I'm like looking for like a chick-fil-a near me like search nearby. Yeah, that's where I see the near me"
+    },
+    {
+      "start": 2871.19,
+      "end": 2875.83,
+      "speaker": "jerod-santo",
+      "text": "That's like a button there you can press near me right and do the GPS thing"
+    },
+    {
+      "start": 2875.83,
+      "end": 2886.73,
+      "speaker": "angelica-hill",
+      "text": "I saw a dentist that was named something like near me for SEO research last name Near me. It was his last doctor near me. Dr. Name paging doctor near me"
+    },
+    {
+      "start": 2886.81,
+      "end": 2902.63,
+      "speaker": "jerod-santo",
+      "text": "If I was a doctor, I'd name myself on the plane, you know, is there a doctor on the plane? I just get hit every time The Sun rising was also popular with Adam and Angelica Adam picked it because he thought it was right Angelica picked it because she thought she could fool more people I guess cuz that's hers"
+    },
+    {
+      "start": 2903.79,
+      "end": 2916.31,
+      "speaker": "angelica-hill",
+      "text": "She gets one point you you reduce the addition to others see I had faith in you giving me points Adam I was doing it. I was you know, I felt that the brainwaves coming through like a yeah like a"
+    },
+    {
+      "start": 2916.91,
+      "end": 2968.09,
+      "speaker": "jerod-santo",
+      "text": "Ablak or what the heck is that thing called like an old black black like an oobleck a jaggy oobleck Nobody picked a time change. That was Matthews. Nobody picked the current administration ending those BMC's also There's a time limit on it, right? So people don't ask that question. It's four years minus whatever hundred days No, it's gonna be like 12 years if he has anything to do well Yeah, we'll see how many administrations there are and then Matthew picked the stock market which was The actual answer Angelica so you need to eat some crow here When does the stock market open is the number one auto complete for windows? No Here's the number two three and four and five auto completes when does the time change? So Matthew you actually had the second best auto complete"
+    },
+    {
+      "start": 2968.09,
+      "end": 2972.41,
+      "speaker": "angelica-hill",
+      "text": "I've googled that before I got where I've searched that before you get zero points"
+    },
+    {
+      "start": 2972.55,
+      "end": 2998.21,
+      "speaker": "jerod-santo",
+      "text": "But you do get to forgetting it, right? So good job there When does the WNBA season start so shout out to Kaitlyn Clark for you know, probably affecting those results WNBA very popular all of a sudden and then when do the NBA playoffs start? Of course, that's they're going on right now. And then the last one number five was when does the Sun set? No near me though, John Henry So you're close"
+    },
+    {
+      "start": 2998.21,
+      "end": 3004.06,
+      "speaker": "angelica-hill",
+      "text": "But I only care about near me because because you're a narcissist. It's it's rolling"
+    },
+    {
+      "start": 3004.06,
+      "end": 3010.62,
+      "speaker": "jerod-santo",
+      "text": "You know, it's something somewhere all the time, right? That's fair. I think I tried this out right now after"
+    },
+    {
+      "start": 3011.62,
+      "end": 3026.32,
+      "speaker": "angelica-hill",
+      "text": "Submitting I think it's objective to where you are subjected to your because my top one is when does the Minecraft movie come out? Are you logged in that is my top? I'm incognito mode I put when does the this is minecraft movie?"
+    },
+    {
+      "start": 3026.32,
+      "end": 3034.86,
+      "speaker": "jerod-santo",
+      "text": "Okay, everybody right now go incognito and do a search my crap and John Henry and I are very closely Approximate to each other. So we'll see if he gets what I got"
+    },
+    {
+      "start": 3034.86,
+      "end": 3046.1,
+      "speaker": "angelica-hill",
+      "text": "When does the minecraft movie come out and then when does the time change and then when does the time change? 2025 my three options I pretty much have that same thing. Yeah. Yeah. My top search is when there's a world and cheese"
+    },
+    {
+      "start": 3048.58,
+      "end": 3078.78,
+      "speaker": "jerod-santo",
+      "text": "Mine is when does the Sun rise And then number two is yeah, and then number two is when does the MLB season start near me? Near me that's spectacular because it starts at the same time everywhere, but Maybe they just maybe Google fingerprinted me somehow Even though I'm incognito and it's like this guy wants to know when the stock market opens Even though I've never searched that in my life"
+    },
+    {
+      "start": 3079.26,
+      "end": 3105.87,
+      "speaker": "angelica-hill",
+      "text": "You did mention slack shares and stuff. So, you know It knows it knows you have stocks in your mind. Do you know what the stock market is? This is true Yeah, what it is. I feel like mine was the number one on Jordan's browser So I should at least get like a half point. Come on. It's integers only. I'm sorry. Hold on John Henry's doing another one Different from my my browser. No, it's not John. It's it's cracked. But then when I go to google.com and the autocomplete that's different"
+    },
+    {
+      "start": 3105.87,
+      "end": 3231.94,
+      "speaker": "jerod-santo",
+      "text": "Well, that's what I did google.com. I think the browser is definitely crack the browser address bar is probably using your stuff there Anyways, my craft All right, so after four rounds now We have Matthew in a commanding lead with eight followed by BMC with six angelic with five John Henry and I are tied with four and Adams on the board now with one How many points you see this many points for Adam you have the finger that's right. Yes BMC one finger It's the right finger at least that's true. All right, we knew we moved out around five. This is a brand new format We've never done this one before I call it weird flicks, but okay Where I have gone out and found a weird old movie and Your job I will give you the title and the date of the year that movie came out and your job is to write The tagline or the synopsis the one sentence synopsis of the movie having no nothing But the title and the year it came out make sense Mm-hmm. Yes the movie that's tagline you're gonna write Was a 1924 flick called he who gets slapped He who gets slapped now you are in charge of the actual synopsis. Please submit those to me whenever they're ready The talkie like those chips that are real spicy. No like a movie that Today we call those movies I actually haven't seen it. I do know its title and the synopsis though. It could have been talking from 19 black and white. I Try to find one of the most obscure movies I could"
+    },
+    {
+      "start": 3232.8,
+      "end": 3239.12,
+      "speaker": "angelica-hill",
+      "text": "Just hoping nobody has seen it. I think I did good. Are you gonna be reading these in a cinematic voice drive? I"
+    },
+    {
+      "start": 3240.39,
+      "end": 3247.11,
+      "speaker": "jerod-santo",
+      "text": "Feel like you should just fully commit in a world. I don't have Batman voice. What is it?"
+    },
+    {
+      "start": 3247.71,
+      "end": 3249.71,
+      "speaker": "angelica-hill",
+      "text": "I"
+    },
+    {
+      "start": 3250.39,
+      "end": 3352.07,
+      "speaker": "jerod-santo",
+      "text": "Do try to be foreboding though weird flicks, but okay, we have six potential Synopses for the 1924 movie he who gets slapped. I will read you these now number one Young George's mischievous childhood was punctuated by the sharp sting of a cane now an adult He wakes to phantom slams and inexplicable cane-shaped bruises is it madness his imagination or is his past literally leaving its mark a Chilling psychological thriller based on a true story of buried trauma and the repercussions of being a naughty boy Okay, number two a High school student Hopelessly searches for love while continuously facing rejection often physical Number three a scared straight short film describing the purported hazards of befriending communists Number four a bitter clown endeavors to rescue the young woman He loves from the lecherous Baron who once betrayed him number five in a world where hand gestures have gone too far a group of friends vowed to change things and restore the old ways of simple handshakes and high-fives and Number six when a man decides a raucous night out on the big city is more important than his life back home Which of these six very well-written I might say Synopses is actually the one for the 1924 flick he who gets slapped"
+    },
+    {
+      "start": 3352.81,
+      "end": 3362.62,
+      "speaker": "angelica-hill",
+      "text": "We start with Adam. Oh gosh. I was too busy thinking about who's who and what's what? Yeah, I forgot to listen"
+    },
+    {
+      "start": 3362.62,
+      "end": 3364.62,
+      "speaker": "unknown",
+      "text": "You"
+    },
+    {
+      "start": 3364.78,
+      "end": 3366.78,
+      "speaker": "jerod-santo",
+      "text": "Have one job which was a listen"
+    },
+    {
+      "start": 3367.26,
+      "end": 3372.98,
+      "speaker": "angelica-hill",
+      "text": "No, actually, I just need two and four in the last one. I think so just two four and six a half of them"
+    },
+    {
+      "start": 3372.98,
+      "end": 3407.38,
+      "speaker": "jerod-santo",
+      "text": "Okay Yeah, please number two a high school student hopelessly searches for love while continuously facing rejection often physical Four was a bitter clown endeavors to rescue the young woman. He loves from the lecherous Baron who once betrayed him That's Matt and number six is when a man decides a raucous night out on the big city is More important than his life back home who don't want to get points to So you think you know who wrote each one? Oh, yeah Can I get some points for that? Oh, yeah, it could be yeah guess who you can certainly guess who that twist"
+    },
+    {
+      "start": 3407.38,
+      "end": 3409.86,
+      "speaker": "angelica-hill",
+      "text": "Yeah, that'd be a good game. I'm gonna give BMC some points and"
+    },
+    {
+      "start": 3410.38,
+      "end": 3417.06,
+      "speaker": "jerod-santo",
+      "text": "Read number three again, please a scared straight short film describing the purported hazards of befriending communists. Yeah"
+    },
+    {
+      "start": 3417.9,
+      "end": 3429.98,
+      "speaker": "angelica-hill",
+      "text": "Okay What was the clown one that was number four, yeah, okay the clown was four three was communists to his physical rejection"
+    },
+    {
+      "start": 3429.98,
+      "end": 3453.51,
+      "speaker": "jerod-santo",
+      "text": "The first one was young George his mischievous childhood He got caned as a kid What are you gonna do Adam? I just already said oh I couldn't hear you I gave the points to the number three BMC Oh number three BMC. Okay votes all the way three Okay, we go now to Angelica"
+    },
+    {
+      "start": 3453.51,
+      "end": 3478.52,
+      "speaker": "angelica-hill",
+      "text": "Obviously, we all know which one I think it was we do When do you actually think it is I what I actually think it is is the last one I think the one about the raucous night out and leaving one's One's family behind feels very 1920s man to me Angelica picks number six locks it in Matthew I'm going to double on that"
+    },
+    {
+      "start": 3479.16,
+      "end": 3485.28,
+      "speaker": "jerod-santo",
+      "text": "Okay, she also picks number six the raucous night out is it's very it gives very 1920 vibes"
+    },
+    {
+      "start": 3485.36,
+      "end": 3492.72,
+      "speaker": "angelica-hill",
+      "text": "You know who uses raucous anymore. Nobody nobody uses that way who says raucous right flappers like jazz music"
+    },
+    {
+      "start": 3493.24,
+      "end": 3506.92,
+      "speaker": "jerod-santo",
+      "text": "The flapper is the big the big city, you know It's out. Okay John Henry, are you gonna go raucous? Oh I don't know I mean, yeah"
+    },
+    {
+      "start": 3508.24,
+      "end": 3522.45,
+      "speaker": "angelica-hill",
+      "text": "Like the raucous part but it's a pile on. Oh my god Where's Matt when you need to sing a song I'm gonna go with number for the clown"
+    },
+    {
+      "start": 3523.19,
+      "end": 3535.86,
+      "speaker": "jerod-santo",
+      "text": "He's not piling on he's playing the spread and he's going with the clown BMC. What are you going with? Raucous, he's going raucous Wow Now that's a pile on right there"
+    },
+    {
+      "start": 3536.24,
+      "end": 3539.48,
+      "speaker": "angelica-hill",
+      "text": "Adding to George's poor trauma. He never gets picked. Oh"
+    },
+    {
+      "start": 3540.88,
+      "end": 3546.24,
+      "speaker": "jerod-santo",
+      "text": "Young George's mission of childhood. Of course. We all do know that Angelica wrote that book"
+    },
+    {
+      "start": 3550.48,
+      "end": 3554.44,
+      "speaker": "angelica-hill",
+      "text": "All of you practically had the entire script written it was a screenplay"
+    },
+    {
+      "start": 3557.68,
+      "end": 3610.14,
+      "speaker": "jerod-santo",
+      "text": "Was more of you than even a synopsis good job Angelica very well-written I enjoyed it from you know, it was a raucous night out That was hers and we picked it scared straight short film Alright, so one point for BMC and the pile-on Angelica Matthew and BMC were all out on for a raucous night out John Henry did not pile on any thoughts as to why maybe he didn't pick it. Well because he wrote it Oh big time big time three points there and He's no clown he's got the right answer as well. He got Two because the actual synopsis of he who gets slapped is a bitter clown endeavors to rescue the old woman He loves from the lecherous Baron who once betrayed him Wow. Well, how'd you know that John Henry? Well,"
+    },
+    {
+      "start": 3611.34,
+      "end": 3640.08,
+      "speaker": "angelica-hill",
+      "text": "My grandfather wrote the screenplay No it It just seemed like nobody would add a clown into theirs unless they were like it's just like it's not quite funny but it's like kind of like too weird to like Right, you wouldn't add that to make it like oh, no, that's not what a movie is about. So it's like, okay That's just weird enough. Good thinking. Yeah, like there's nobody there's no clown"
+    },
+    {
+      "start": 3641.02,
+      "end": 3671.29,
+      "speaker": "jerod-santo",
+      "text": "Inclinations in the title at all Yeah, and it's not quite weird enough to be funny But it is weird enough to be the actual synopsis of a 1924 movie And a big score so you got three for fooling and two for getting it correct, so that's a five-point And BMC is the only other person that scored that round with one So big score bringing you in the first place with nine points passing Matthew with eight BMC was seven Angelica with five me with four Adam with one"
+    },
+    {
+      "start": 3671.83,
+      "end": 3676.23,
+      "speaker": "angelica-hill",
+      "text": "Mm-hmm still anybody's game there. Oh, I got the bone split for getting the you know, the the"
+    },
+    {
+      "start": 3677.23,
+      "end": 3682.87,
+      "speaker": "jerod-santo",
+      "text": "You know the side quest you drilled the side quest how many points do you get for knowing that BMC wrote that one?"
+    },
+    {
+      "start": 3682.87,
+      "end": 3685.29,
+      "speaker": "angelica-hill",
+      "text": "At least a half a point, you know, all right, we'll give you a half"
+    },
+    {
+      "start": 3685.99,
+      "end": 3687.99,
+      "speaker": "jerod-santo",
+      "text": "Adam with one point five"
+    },
+    {
+      "start": 3688.15,
+      "end": 3691.39,
+      "speaker": "angelica-hill",
+      "text": "One point three. Let's go down to one point three. Okay, we'll give you a third"
+    },
+    {
+      "start": 3692.31,
+      "end": 3694.11,
+      "speaker": "jerod-santo",
+      "text": "1.3 repeating decimal"
+    },
+    {
+      "start": 3694.11,
+      "end": 3755.01,
+      "speaker": "angelica-hill",
+      "text": "Well friends building multi-agent software is hard Agent to agent and agent to tool communication is still the wild wild west So, how do you achieve accuracy and consistency in non-deterministic agentic applications That's where the agency AGNC why comes in the agency is an open-source collective building the Internet of Agents and what is the Internet of agents? It's a collaboration layer where AI agents can communicate discover each other and work across frameworks for developers Means standardized agent discovery tools seamless protocols for inter-agent communication and modular components to compose and scale Multi-agent workflows you can now build with other engineers who care about high-quality Multi-agent software visit agency.org and add your support. That's AGNC why org"
+    },
+    {
+      "start": 3755.01,
+      "end": 3763.36,
+      "speaker": "jerod-santo",
+      "text": "We move now to round six where the word for round six is penumbra"
+    },
+    {
+      "start": 3763.4,
+      "end": 3765.4,
+      "speaker": "angelica-hill",
+      "text": "So back to the original"
+    },
+    {
+      "start": 3766.31,
+      "end": 3778.73,
+      "speaker": "jerod-santo",
+      "text": "Definition that's correct. This is a regular round penumbra spelled PENUMBRA And you can submit to me your definitions"
+    },
+    {
+      "start": 3779.66,
+      "end": 3783.58,
+      "speaker": "angelica-hill",
+      "text": "Whenever you have them I have to think of how to how to word mine"
+    },
+    {
+      "start": 3786.71,
+      "end": 3793.63,
+      "speaker": "jerod-santo",
+      "text": "That's up to Jared to decide miss I think it's actually up to the Oxford Dictionary to decide"
+    },
+    {
+      "start": 3794.63,
+      "end": 3798.83,
+      "speaker": "angelica-hill",
+      "text": "Mr. Oxford can't even decide where to place a comma so we don't talk"
+    },
+    {
+      "start": 3803.63,
+      "end": 3818.15,
+      "speaker": "jerod-santo",
+      "text": "Aren't you in America? Yes, does that mean I have to adhere to your grammatical errors? No, excuse me I don't make grammatical errors. Excuse me. No, you just say like 52 times within an hour. Listen. Okay, I tried"
+    },
+    {
+      "start": 3818.15,
+      "end": 3820.15,
+      "speaker": "angelica-hill",
+      "text": "All"
+    },
+    {
+      "start": 3820.75,
+      "end": 3889.56,
+      "speaker": "jerod-santo",
+      "text": "Right, we have six definitions for penumbra One of which is the correct definition and three points before the round begins goes to Matthew. He has the correct Definition he knows what a penumbra is So you just set this one out Congrats. You've already scored three and we go now to five definitions Number one an area in which something exists to a lesser or uncertain degree Number two the largest in a list of numbers Number three the second to final stage of a nerve receptors life cycle number four What's the matter with you? Huh? Penumbra? number five a Geographical or astrological term for a peninsula or a concave piece of land that is in shade on a planet Angelica goes first Which one do you think is a penumbra I think I'm between the second one which was the largest in the list of numbers"
+    },
+    {
+      "start": 3889.92,
+      "end": 3902.76,
+      "speaker": "angelica-hill",
+      "text": "Yes, like the penultimate Mmm penumbra that like resonated with my brain. Mm-hmm. I'm gonna go that one Now that I'm talking it through in my brain. It's resonating. She's locking that one in"
+    },
+    {
+      "start": 3903.22,
+      "end": 3908.6,
+      "speaker": "jerod-santo",
+      "text": "Okay. Now we go to always skip Matthew cuz he's correct. We go to BMC"
+    },
+    {
+      "start": 3909.12,
+      "end": 3911.12,
+      "speaker": "angelica-hill",
+      "text": "Could you say the first three everyone"
+    },
+    {
+      "start": 3911.48,
+      "end": 3925.24,
+      "speaker": "jerod-santo",
+      "text": "Number one was an area in which something exists to a lesser or uncertain degree Number two was the largest in a list of numbers And number three was the second to final stage of a nerve receptors life cycle"
+    },
+    {
+      "start": 3925.44,
+      "end": 3938.48,
+      "speaker": "angelica-hill",
+      "text": "My knowledge of prefixes is getting in my way. I Hate it when that happened me too. Thank you. No one ever Says that The first one"
+    },
+    {
+      "start": 3938.48,
+      "end": 3945.34,
+      "speaker": "jerod-santo",
+      "text": "The first one okay BMC picks an area in which something exists to a lesser or an uncertain degree. That means enough"
+    },
+    {
+      "start": 3945.78,
+      "end": 3954.09,
+      "speaker": "angelica-hill",
+      "text": "Go now to John Henry. I'm gonna go with the largest number. It seems the most logical. Okay piling on with Angelica"
+    },
+    {
+      "start": 3955.12,
+      "end": 3958.12,
+      "speaker": "jerod-santo",
+      "text": "Going now to Adam Angelica chose her own"
+    },
+    {
+      "start": 3958.84,
+      "end": 3961.71,
+      "speaker": "angelica-hill",
+      "text": "Let's see here"
+    },
+    {
+      "start": 3961.75,
+      "end": 3966.59,
+      "speaker": "jerod-santo",
+      "text": "Mmm, she says she didn't I refuse that claim. No one puts baby in the corner"
+    },
+    {
+      "start": 3967.21,
+      "end": 3979.99,
+      "speaker": "angelica-hill",
+      "text": "Or in the shadows. Oh I'm going to shadow Where are you putting babies? It is a shot in the penumbra in the penumbra. What's the matter with you? Huh? number"
+    },
+    {
+      "start": 3981.23,
+      "end": 3984.09,
+      "speaker": "jerod-santo",
+      "text": "Which number is the shadow only five or something six"
+    },
+    {
+      "start": 3984.71,
+      "end": 3992.08,
+      "speaker": "angelica-hill",
+      "text": "There's the last one the peninsula with the shadow occurring deep within the jungle gotcha. All right, so Adam goes to that one"
+    },
+    {
+      "start": 3993.04,
+      "end": 3998.68,
+      "speaker": "jerod-santo",
+      "text": "Alright, so we'll start right there Adam thought Angelica picked her own but then Adam picked Angelica's that one"
+    },
+    {
+      "start": 3999.2,
+      "end": 4004.72,
+      "speaker": "angelica-hill",
+      "text": "Yeah, I was just trying to help you out Angelica. I just cut you down put you right back up. So we had to appreciate it"
+    },
+    {
+      "start": 4006.04,
+      "end": 4017.8,
+      "speaker": "jerod-santo",
+      "text": "Angelica thought it was a largest any list of numbers. So did John Henry. That's cuz he wrote it so he gets one point We're fooling one person. I knew someone was going with their own"
+    },
+    {
+      "start": 4018.81,
+      "end": 4023.29,
+      "speaker": "angelica-hill",
+      "text": "Tactic is not getting old you use that tactic one time first round"
+    },
+    {
+      "start": 4024.97,
+      "end": 4028.78,
+      "speaker": "jerod-santo",
+      "text": "But you know, it could be possible it's just showing you the possibilities. That's right"
+    },
+    {
+      "start": 4028.78,
+      "end": 4032.86,
+      "speaker": "angelica-hill",
+      "text": "I'm here to teach you how to play the game. Thanks, man. I'm simply level one"
+    },
+    {
+      "start": 4032.86,
+      "end": 4061.16,
+      "speaker": "jerod-santo",
+      "text": "I'm level one and BMC thought it was an area in which something exists to a lesser or uncertain degree. That is a penumbra So two points for BMC That's one of the definitions the other one is a partial shadow cause when an object does not completely block a light source That's what Matthew wrote down Oh Or the diffuse outer part of a sunspot Maybe you're really close Angelica. That's why you convinced. I knew it was some shadowy thing"
+    },
+    {
+      "start": 4061.16,
+      "end": 4069.84,
+      "speaker": "angelica-hill",
+      "text": "I did I like half knew it and I couldn't remember what the actual okay so close you tricked somebody a number like umbrella"
+    },
+    {
+      "start": 4069.84,
+      "end": 4071.84,
+      "speaker": "jerod-santo",
+      "text": "Like like umbrella. No"
+    },
+    {
+      "start": 4072.76,
+      "end": 4110.52,
+      "speaker": "angelica-hill",
+      "text": "This one was the interesting way I knew this one immediately when you when you wrote it For two reasons one. I knew my prefix and suffix here. Right Thank You Pokemon. I'm Brian Espeon And then also like when I was doing lighting for my kitchen You there was when I was placing lights for the ceiling and finding out where to do it There's always that secondary shadow that's cast under the cabinets I want to minimize that as much as possible and I was like, how do I do that? And that's why I found that term gotcha. Oh, yes. That's what that secondary shadow is called It is a science kitchen lighting is a science. So yeah, that's what it is. Yeah, no pen numbers in my house That's right. What's the matter with you, huh?"
+    },
+    {
+      "start": 4112.28,
+      "end": 4200.53,
+      "speaker": "jerod-santo",
+      "text": "I'm not sure what Adam wrote there What's the matter with you? Huh? Penumbra? Can you explain the logic on that y'all laugh a little bit? Yeah. Oh, yeah got a laugh Alright, so three points for Matthew two for BMC one for Angelica one for John Henry Bringing Matthew in the first place with 11 John Henry with 10 BMC with 9 Angelica was 6 me with 4 and Adam with 1.3 repeating decimal Alright, we're getting late in the game now round 7 of a potential 10 rounds. This is a different round It's called how do you do fellow humans? because I have went out to Chat GPT and given it a prompt and it has responded I wrote down its response. Your job is to act as if you are fellow humans and Fellow chat GPT ears and write your own response To this prompt the prompt is create a new word in the world of science fiction and give it a one-sentence definition it should be both interesting and Memorable so I've written down chat GPT's response You will write down your response as if you are chat GPT to this prompt Put it in the chat. I'll read it again for our listener Create a new word in the world of science fiction and give it a one-sentence definition It should be both interesting and memorable"
+    },
+    {
+      "start": 4201.25,
+      "end": 4203.57,
+      "speaker": "angelica-hill",
+      "text": "Are y'all thinking or done already?"
+    },
+    {
+      "start": 4204.69,
+      "end": 4208.33,
+      "speaker": "jerod-santo",
+      "text": "Thinking they're thinking I have zero submissions. I"
+    },
+    {
+      "start": 4208.45,
+      "end": 4215.88,
+      "speaker": "angelica-hill",
+      "text": "I Love this game and it's making himself laugh"
+    },
+    {
+      "start": 4217.86,
+      "end": 4223.71,
+      "speaker": "jerod-santo",
+      "text": "What's the matter with you, huh number that's what's he read in the rocky voice"
+    },
+    {
+      "start": 4226.57,
+      "end": 4232.12,
+      "speaker": "angelica-hill",
+      "text": "If I can't get me I get Jared"
+    },
+    {
+      "start": 4254.1,
+      "end": 4263.09,
+      "speaker": "jerod-santo",
+      "text": "Nope oh it's gonna be a tough one to read all these I Play it straight"
+    },
+    {
+      "start": 4263.09,
+      "end": 4280.15,
+      "speaker": "angelica-hill",
+      "text": "Crying crying. Oh, this one's hard. I'm not gonna lie to you. This is really hard. Hmm. Good little challenge for your For your Tuesday afternoon. I'm gonna keep going there Jared. I'm just gonna maybe augment it a little bit Okay, you're gonna change it now. Well, I'm gonna go the same direction. I just didn't do a good job"
+    },
+    {
+      "start": 4287.9,
+      "end": 4304.66,
+      "speaker": "jerod-santo",
+      "text": "Angelica you just submitted a second one. Are you just clarifying for me? I just thought it'd be fun. She's like I just came back from work. I just added a supplementary mean I"
+    },
+    {
+      "start": 4305.4,
+      "end": 4328.75,
+      "speaker": "angelica-hill",
+      "text": "Do like that me illustrative am I supposed to include that in your actual? It's up to you. I'll give you creative discretion. Okay, this is your discretion Jared You just go whichever direction you want to go. Okay, I just need to enunciate I was so close to writing Description of a new word that was fit with my favorite sticker on my water bottle"
+    },
+    {
+      "start": 4329.67,
+      "end": 4336.51,
+      "speaker": "jerod-santo",
+      "text": "Looks like crying it kind of does like from Ninja Turtles. Yeah. Yeah, but stuck in the Gameboy"
+    },
+    {
+      "start": 4336.51,
+      "end": 4338.51,
+      "speaker": "angelica-hill",
+      "text": "Oh, yeah, it does. Yeah"
+    },
+    {
+      "start": 4338.51,
+      "end": 4341.71,
+      "speaker": "jerod-santo",
+      "text": "Why? Where why?"
+    },
+    {
+      "start": 4342.42,
+      "end": 4344.42,
+      "speaker": "angelica-hill",
+      "text": "Just for like funsies"
+    },
+    {
+      "start": 4344.54,
+      "end": 4350.08,
+      "speaker": "jerod-santo",
+      "text": "It makes me laugh. It is funny. But how where'd you get it? Yeah, I also have a worm"
+    },
+    {
+      "start": 4350.88,
+      "end": 4372.08,
+      "speaker": "angelica-hill",
+      "text": "From one emporium. What do they sell their? lumps She just answered that one straight. Yeah, this one is actually made by the punchy cat Can you have you seen that one thing it's a worm or tiger tail and it's a thing"
+    },
+    {
+      "start": 4372.08,
+      "end": 4377.52,
+      "speaker": "jerod-santo",
+      "text": "You know, is it a worm or is it a tiger tail? I have seen that. I'm not very good at guessing though"
+    },
+    {
+      "start": 4378.44,
+      "end": 4380.44,
+      "speaker": "angelica-hill",
+      "text": "You feel like if I could touch it I could tell"
+    },
+    {
+      "start": 4381.02,
+      "end": 4382.34,
+      "speaker": "jerod-santo",
+      "text": "Yeah"
+    },
+    {
+      "start": 4382.34,
+      "end": 4384.18,
+      "speaker": "angelica-hill",
+      "text": "Definitely. All right"
+    },
+    {
+      "start": 4384.18,
+      "end": 4518.9,
+      "speaker": "jerod-santo",
+      "text": "We have six potential real responses from chat GBT Only one of them is the real response to the prompt create a new word in the world of science fiction and give it a one-sentence definition it should be both interesting and memorable response number one neuroforge a noun a Clandestine device implanted in the cerebral cortex that allows its user to overwrite memories with synthetic synthetic experiences blurring the line between reality and engineered perception Number two, I would be happy to here's a new word for you. Oh, so Buna a Spherical shield around itself that is completely impenetrable and indestructible to everything Mmm number three great idea. How about zinnis a rare plant with mystical healing properties? That could provide a sci-fi spin on a familiar story element number four Darlor gone the powerful hybrid offspring of a rogue Dalryk and a Gorgon Sorry, they're you know, their union was born, sorry Their union was born out of both love and due to the potent essence of the Gorgon spit As reproductive properties Mmm this has resulted in a uniquely resilient new species within the matrix Number five certainly. Here's your new science fiction word. That's both interesting and memorable a Plurate a plurate the treatment of a porous substance to fill all its vessels and create a single entity Let me know if you'd like more words. I can even use in a sentence for you and number six jaggies comfortable Comfortable pants for remote working a play on jeggings Okay There's six frankly spectacular responses by chat GPT wannabes And we'll see who's who and Jellica you get a pick first. Which one do you like the most?"
+    },
+    {
+      "start": 4520.06,
+      "end": 4524.84,
+      "speaker": "angelica-hill",
+      "text": "Can I hit? through six"
+    },
+    {
+      "start": 4525.04,
+      "end": 4614.5,
+      "speaker": "jerod-santo",
+      "text": "For again We're gone Three and four, please. Okay, three and four three says great idea. How about zinnis? or zinus zi n n us a rare plant with mystical healing properties that can provide a Sci-fi spin on a familiar story element and number four was darl or gone The powerful hybrid offspring of a rogue Dalryk and a Gorgon their union was born out of both love and do it and due to the potent And due to the potent essence of the Gorgon spit and its reproductive properties This has resulted in a uniquely resilient new species within the matrix That one, okay That one Matthew Can you repeat one in two? Yes one was neuro forge a Clandestine device implanted in the cerebral cortex that allows its user to overwrite memories with synthetic experiences blurring the line between reality and Engineered perception and number two says I would be happy to here's a new word for you. Oh, so Buna a Spherical shield around itself that is completely impenetrable and indestructible to everything Number three. All right, he go over number three, which is the zinnis We go now to BMS. Yeah, we go to BMC"
+    },
+    {
+      "start": 4615.14,
+      "end": 4617.98,
+      "speaker": "angelica-hill",
+      "text": "Were there five or six there were six can I have the last two?"
+    },
+    {
+      "start": 4618.06,
+      "end": 4647.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the last two number five says certainly here's your new science fiction word. That's both interesting memorable aplerate or a play rate a PL you are a te The treatment of a porous substance to fill all its vessels and create a single entity Let me know if you'd like more words I can even use it in a sentence for you and number six is jaggies comfortable pants for remote work play on jiggings Maybe familiar because you wrote pants down previously. I wrote pants down"
+    },
+    {
+      "start": 4648.72,
+      "end": 4655.16,
+      "speaker": "angelica-hill",
+      "text": "Didn't you? Oh, yes. I wrote pants down. Yeah, you did. Yeah, we're the first two"
+    },
+    {
+      "start": 4655.16,
+      "end": 4667.49,
+      "speaker": "jerod-santo",
+      "text": "I will now summarize cuz I cannot do this again Neuro forge was the first one and the second one was also Buna and the third one the third one"
+    },
+    {
+      "start": 4668.15,
+      "end": 4687.97,
+      "speaker": "angelica-hill",
+      "text": "Zinnis do you want the fourth one too? Cuz you're just missing that one Yeah, I'll do the fourth one I probably know You asked for the food a plate a plate which is the one that had the like I'd be so happy to put that in a sentence for you. Oh"
+    },
+    {
+      "start": 4687.97,
+      "end": 4699.69,
+      "speaker": "jerod-santo",
+      "text": "Oh Well, there's a few of those so number five said certainly here's your new science fiction word that's both interesting memorable Oh, yeah, and it ends with I could even use it in a sentence for you. I'm gonna go with that one"
+    },
+    {
+      "start": 4699.69,
+      "end": 4704.13,
+      "speaker": "angelica-hill",
+      "text": "it seems a little heavy-handed on the chat GPT speak, but also I"
+    },
+    {
+      "start": 4705.13,
+      "end": 4710.51,
+      "speaker": "jerod-santo",
+      "text": "Wanna okay. We'll give it to you John Henry. I think I'm gonna go"
+    },
+    {
+      "start": 4713.73,
+      "end": 4721.57,
+      "speaker": "angelica-hill",
+      "text": "Doesn't have Chat GPT speak but number one is pretty solid Neuro forge"
+    },
+    {
+      "start": 4721.57,
+      "end": 4740.52,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm. Are you locking that in are you? No, I'm gonna switch it. I'm gonna go with number three number three. So we now have two people on that one. That's the zinnis Adam last to select we'd like and what are you thinking? What are you seeing? What are you doing? I'm thinking deeply"
+    },
+    {
+      "start": 4741.72,
+      "end": 4747.04,
+      "speaker": "angelica-hill",
+      "text": "Which one was the one that? Really got Angelica like made her laugh a lot"
+    },
+    {
+      "start": 4747.74,
+      "end": 4768.06,
+      "speaker": "jerod-santo",
+      "text": "She really liked when I said their union was born out of both love and due to the potent essence of the Gorgon spit That's what got her See you got her again. No Lock that in This is"
+    },
+    {
+      "start": 4768.06,
+      "end": 4776.14,
+      "speaker": "angelica-hill",
+      "text": "Jared's chat GPT, right? This is mine. Yeah. Okay. All right. Yeah, it's in a temporary chest. It doesn't have any context or memory"
+    },
+    {
+      "start": 4776.98,
+      "end": 4801.15,
+      "speaker": "jerod-santo",
+      "text": "All right, six potential responses to the prompt about a science fiction word and a definition. Where do we begin? Where do we begin? Well, let's begin right where we left off, which is the Gorgon spit Which is probably a pretty good show title, honestly Gorgon spit I'm not sure about that the powerful hybrid offspring of a rogue Dalek Angelica. How do you come up with this? I"
+    },
+    {
+      "start": 4801.15,
+      "end": 4824.18,
+      "speaker": "angelica-hill",
+      "text": "Just thought of random sci-fi stuff it's actually Dalek And Gorgon and then the matrix I basically thought about what chat GPT would define as sci-fi I see you're smidged it together with a little bit of spice. So I was pronouncing it wrong when I say Dalek Yeah, I was trying to go for Dalek like"
+    },
+    {
+      "start": 4825,
+      "end": 4829.96,
+      "speaker": "jerod-santo",
+      "text": "like from Your own definition made you laugh that hard"
+    },
+    {
+      "start": 4829.96,
+      "end": 4837.96,
+      "speaker": "angelica-hill",
+      "text": "When you hear someone else say it When you hear someone else say it Then it sounds weird It sounds really odd"
+    },
+    {
+      "start": 4837.96,
+      "end": 4844.4,
+      "speaker": "jerod-santo",
+      "text": "When I wrote it, it was perfectly normal. Well, you did convince Adam to select it. So you get a point there. Good job"
+    },
+    {
+      "start": 4844.4,
+      "end": 4851.36,
+      "speaker": "angelica-hill",
+      "text": "I called it Dorgon. Whatever you called it. I appreciate it. Mm-hmm. Always just lending a hand around here"
+    },
+    {
+      "start": 4852.52,
+      "end": 4859.74,
+      "speaker": "jerod-santo",
+      "text": "Matthew let's see here Matthew and John Henry. They piled on to zinnis. Is that how I should pronounce a BMC zinnis?"
+    },
+    {
+      "start": 4859.78,
+      "end": 4861.54,
+      "speaker": "angelica-hill",
+      "text": "Don't care what you do"
+    },
+    {
+      "start": 4861.54,
+      "end": 4886.09,
+      "speaker": "jerod-santo",
+      "text": "He doesn't care, but he made it up. That was BMC's nice response at two points for him Nobody picked jaggies Unfortunately, nobody picked also a Buna. That's also Buna You should have put like a pronunciation guide in there for me I should have but I figured you'd get it"
+    },
+    {
+      "start": 4886.09,
+      "end": 4896.09,
+      "speaker": "angelica-hill",
+      "text": "Oh, no, I can't get that when you when you you know, it's OS BO O and a H nah, oh, so boo. Nah, oh, so boo. Nah"
+    },
+    {
+      "start": 4897.05,
+      "end": 4914.87,
+      "speaker": "jerod-santo",
+      "text": "Apologize and then BMC picked a player eight. Is that how you pronounce that one Matthew a player eight? Yep, that sounds right to me. Okay one point for you. Nobody picked neuro Forge John Henry almost picked neuro Forge But then he changed his mind. That was the correct response from Chad GPT. So four points go to Jared"
+    },
+    {
+      "start": 4915.87,
+      "end": 4920.67,
+      "speaker": "angelica-hill",
+      "text": "You know, I don't know about four points go into you on this round there's this is a fake round oh"
+    },
+    {
+      "start": 4921.27,
+      "end": 4923.87,
+      "speaker": "jerod-santo",
+      "text": "You would say that mister one point"
+    },
+    {
+      "start": 4928.19,
+      "end": 4930.32,
+      "speaker": "angelica-hill",
+      "text": "Yeah"
+    },
+    {
+      "start": 4930.92,
+      "end": 4932.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you got one I gave you one"
+    },
+    {
+      "start": 4933.08,
+      "end": 4944.36,
+      "speaker": "angelica-hill",
+      "text": "You're too busy laughing at it. Yeah, you get a point. Oh, thank you, Jerry You can have another one if you'd like I can have another one. I don't know if you want to do that No me I can have another one"
+    },
+    {
+      "start": 4945,
+      "end": 4968.54,
+      "speaker": "jerod-santo",
+      "text": "Why would I like that? I could have another one if you like I like that we can both have another one if you like We got a few more if we like after round Seven we're getting near the end y'all Matthew from first with 12 BMC was 11 John Henry with 10 I am moving to fourth with eight points. Angelica has seven and Adam has 1.3 repeating decimal"
+    },
+    {
+      "start": 4969.32,
+      "end": 4974.96,
+      "speaker": "angelica-hill",
+      "text": "2.3 repeating decimal. Yes, I'm buddy. Yeah, didn't you get a point? No, he got awesome"
+    },
+    {
+      "start": 4975.16,
+      "end": 4977.16,
+      "speaker": "jerod-santo",
+      "text": "boo, nah"
+    },
+    {
+      "start": 4977.72,
+      "end": 4991.2,
+      "speaker": "angelica-hill",
+      "text": "It was so I thought it was a point it was so like happy oh, you know, I'm just happy I'm just happy to be here man. He's just happy to be here. I Wish I would have pronounced it better for you. I know well, the actual definition is pretty solid"
+    },
+    {
+      "start": 4991.88,
+      "end": 4998.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it was good. It's funny. But the definition is solid. I didn't really understand it a spherical shield around itself"
+    },
+    {
+      "start": 4999,
+      "end": 5038.46,
+      "speaker": "angelica-hill",
+      "text": "That is completely shear around itself, you know, so like a How does a shield go around itself is it to shield you should have said a spherical shield encompassing an object it's like Imagine imagine beings. It's like a force field. Oh what it is. Mmm a spherical shield around itself So is it shielding itself is the shield shielding it's it's like it's a sphere so do you know how spheres work? No, I I'm a flat earther at this point. So I don't really know no circle. It's not flat Stanley. It's It's the circle on really, you know real sphere, right? It's inside of sphere"
+    },
+    {
+      "start": 5038.46,
+      "end": 5044.06,
+      "speaker": "jerod-santo",
+      "text": "I saw as a what like oh, it's like a gyroscope a wheel on a wheel out of itself. What's inside is itself"
+    },
+    {
+      "start": 5044.58,
+      "end": 5055.38,
+      "speaker": "angelica-hill",
+      "text": "concentric spheres, that's right, and it's completely impenetrable and Indestructible to everything but it had to be penetrated for another sphere to go in there. Well, no it formed"
+    },
+    {
+      "start": 5055.94,
+      "end": 5063.64,
+      "speaker": "jerod-santo",
+      "text": "It formed. Yeah, and so once it was formed what was inside could never be, you know penetrated"
+    },
+    {
+      "start": 5063.68,
+      "end": 5074.92,
+      "speaker": "angelica-hill",
+      "text": "So then wow, if it's impenetrable, why would there need to be multiple layers? It is not multiple layers. It's one layer itself What's inside the sphere in the sphere itself? Okay, I got it. I like this world. This is a fun"
+    },
+    {
+      "start": 5074.92,
+      "end": 5081.22,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah, the person who discovered it was with his girlfriend, but she was disagreeable So he said that's an awesome boo and she said nah"
+    },
+    {
+      "start": 5083.99,
+      "end": 5085.99,
+      "speaker": "angelica-hill",
+      "text": "You know what we should give him"
+    },
+    {
+      "start": 5087.03,
+      "end": 5106.48,
+      "speaker": "jerod-santo",
+      "text": "All right, we'll give you a three three three, we'll give you a third so you have one point six repeating decimal. Oh perfect Okay, let's move down to round eight clavichord clavichord c l a v i c h o r d That's our word. You have to define a clavichord"
+    },
+    {
+      "start": 5107.73,
+      "end": 5109.73,
+      "speaker": "angelica-hill",
+      "text": "Adam why am I thinking about beef bones?"
+    },
+    {
+      "start": 5110.51,
+      "end": 5112.64,
+      "speaker": "jerod-santo",
+      "text": "There are many reasons"
+    },
+    {
+      "start": 5112.8,
+      "end": 5117.52,
+      "speaker": "angelica-hill",
+      "text": "God really? Hungry, is that what osso buko is as a book? Nah"
+    },
+    {
+      "start": 5118.92,
+      "end": 5136.49,
+      "speaker": "jerod-santo",
+      "text": "That's when you turn down the osso buko that had like bone marrow landed or something. That's Like a drink, isn't it? If you drink cow juice Osso buko. Oh, yeah, because ossuary bone. Also, it must be something like that"
+    },
+    {
+      "start": 5137.41,
+      "end": 5162.99,
+      "speaker": "angelica-hill",
+      "text": "osso buko or osso buko also known as obuko a la milanese Is a specialty of Lombard quincine of cross veal shanks braised with vegetables Wine that is white as well as broth sometimes garnished with a little dash of"
+    },
+    {
+      "start": 5163.59,
+      "end": 5246.57,
+      "speaker": "jerod-santo",
+      "text": "Osso bu na. There you go. No the word in round eight is clavichord clavichord six definitions, however two of our contestants know what a clavichord is and Those two people are break master cylinder and Adam stachoviak. So three points to each of you a Default three and the rest will play on so clavichord. Is it the muscular and nervous tissue in between the clavicle and scapula or Is it an avant-garde type of body modification involving the precise insertion of jewelry through the skin above the clavicle bones? connected by a decorative decorative cord that drapes across the upper chest and shoulders or Is it a woodwind instrument similar to a clarinet with 14 keys or Is it a quiet archaic keyboard instrument with struck strings that's barely audible There's your four definitions and we start with Matthew. So we have two"
+    },
+    {
+      "start": 5248.18,
+      "end": 5265.82,
+      "speaker": "angelica-hill",
+      "text": "relatively bodily definitions and then two Instrument definitions. Is that correct? Yes, and the bodily definitions are What tissue and muscle around the clavicle and then some yeah the muscular nervous tissue"
+    },
+    {
+      "start": 5265.82,
+      "end": 5279.1,
+      "speaker": "jerod-santo",
+      "text": "And then the other one is a body modification Involving insertion of jewelry through the skin above the clavicle bones Okay, so ones that ones are connected by a decorative cord that drapes across the upper chest and shoulders"
+    },
+    {
+      "start": 5279.1,
+      "end": 5285.26,
+      "speaker": "angelica-hill",
+      "text": "And then the other ones are instruments one being a wind instrument woodwind instrument similar to a clarinet"
+    },
+    {
+      "start": 5285.38,
+      "end": 5292.36,
+      "speaker": "jerod-santo",
+      "text": "With 14 keys and then the other one being a quiet archaic keyboard instrument with struck strings that are barely audible"
+    },
+    {
+      "start": 5292.62,
+      "end": 5351.18,
+      "speaker": "angelica-hill",
+      "text": "So one's a wind and one's a string instrument Correct. Okay. Uh, hmm. I don't know. This is a weird one because clavic clavicle clavic sounds bony body body But then you have cord That sounds more that sounds more string instruments. Like I'm confused it Can I call a lifeline? How does lifelines work in this game? Do we have any call me? I'll I'll listen you can't talk to these two. I can't talk to anybody. Okay. I know what it is I'm in between the instrument ones. Honestly, I think I don't know a Clavic cord clavicle clavicle. I'm trying to say it and making my mind somewhere We'll be like you've heard this before Matt in this context. Have fun I think I think I'll just go with the Not the wind instrument one the other one the one that's an instrument but not the keyboard instrument. Yeah"
+    },
+    {
+      "start": 5351.98,
+      "end": 5354.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, let's do that one. All right, there you go and"
+    },
+    {
+      "start": 5355.4,
+      "end": 5368.8,
+      "speaker": "angelica-hill",
+      "text": "We skip BMC we go to John Henry, you know, I think I'm gonna go with the body modification I think it's a made-up word. I think that's I think that's might be what it is. Okay number two number two and"
+    },
+    {
+      "start": 5370.56,
+      "end": 5372.56,
+      "speaker": "jerod-santo",
+      "text": "we go now to"
+    },
+    {
+      "start": 5372.76,
+      "end": 5375.36,
+      "speaker": "angelica-hill",
+      "text": "Angelica I'm also thinking that it's"
+    },
+    {
+      "start": 5377.12,
+      "end": 5381.32,
+      "speaker": "jerod-santo",
+      "text": "Okay, there's two instruments to pick from BMC got right right, right"
+    },
+    {
+      "start": 5381.32,
+      "end": 5393.32,
+      "speaker": "angelica-hill",
+      "text": "I feel like I'm gonna think it's musically driven them Mmm smart or not smart. What was it? Well the two options it was the penis piano like schnannigan or"
+    },
+    {
+      "start": 5394.32,
+      "end": 5400.56,
+      "speaker": "jerod-santo",
+      "text": "Correct. The flute like thing clarinet flute, you know woodwind versus string. I think it's"
+    },
+    {
+      "start": 5401.4,
+      "end": 5412.68,
+      "speaker": "angelica-hill",
+      "text": "And which one did you do Matthew? I did the the stringed instrument. Yeah Can you tell me the definition the clavichord one like the words used? the exact definition"
+    },
+    {
+      "start": 5415.4,
+      "end": 5416.68,
+      "speaker": "jerod-santo",
+      "text": "Pardon me"
+    },
+    {
+      "start": 5416.68,
+      "end": 5425.47,
+      "speaker": "angelica-hill",
+      "text": "Can you give me the words that you used for clavichord clavichord musical? Instrument leaning to you want me to give you those two definitions again?"
+    },
+    {
+      "start": 5426.11,
+      "end": 5445.59,
+      "speaker": "jerod-santo",
+      "text": "One's a woodwind instrument similar to a clarinet with 14 keys And the other one's a quiet archaic keyboard instrument with struck strings barely audible Barely audible. I'm gonna go with the one that Matthew did. Okay, she's piling on to the Rings cuz Matthew's winning, right? Correct. I"
+    },
+    {
+      "start": 5445.59,
+      "end": 5448.23,
+      "speaker": "angelica-hill",
+      "text": "Feel like I trust I trust his intuition"
+    },
+    {
+      "start": 5448.71,
+      "end": 5453.99,
+      "speaker": "jerod-santo",
+      "text": "Well, what is after all a clavichord BMC you want to school us? What's a clavichord?"
+    },
+    {
+      "start": 5453.99,
+      "end": 5460.43,
+      "speaker": "angelica-hill",
+      "text": "It's like an old piano kind of thingy. It predates the piano forte and it's harpsichord like"
+    },
+    {
+      "start": 5461.55,
+      "end": 5465.73,
+      "speaker": "jerod-santo",
+      "text": "Thank you. There you go. You're welcome. Adam also knew that I"
+    },
+    {
+      "start": 5466.39,
+      "end": 5472.51,
+      "speaker": "angelica-hill",
+      "text": "Made my definition up. I had no idea. Are you serious? I made no way. What is your dad?"
+    },
+    {
+      "start": 5472.51,
+      "end": 5486.05,
+      "speaker": "jerod-santo",
+      "text": "What was his definition a dissident relative to the harpsichord that uses keys in a linear arrangement? I mean, that's Pretty good. Yeah, it works for me. Were you so surprised when you got it, right?"
+    },
+    {
+      "start": 5489.77,
+      "end": 5498.61,
+      "speaker": "angelica-hill",
+      "text": "Harpsichord was oh, yeah Like I'm gonna just like yeah keep keep it going yes make it yeah, just make it up push it"
+    },
+    {
+      "start": 5498.61,
+      "end": 5553.09,
+      "speaker": "jerod-santo",
+      "text": "Did you made it up pretty closely? Close enough that it fooled me. I thought you knew it. I did though three points All right. So yes, it is the archaic Keyboard instrument, which means Matthew and Angelica got it, right? So you each get to thank you Matthew. You're welcome John Henry picked the body modification which was Angelica's so she gets another point there Mm-hmm. So lots of points this round except for me Angelica got three BMC got three Adam got three Matthew got two John Henry and I shut out hmm, which means we have one more round to play because 14 to 14 you two are tied Matthew and BMC in first So this will probably this will definitely be the last round. Let somebody gets shut out unless you both get shut out I suppose and Angelica has 10 John Henry has 10. I have 8 and Adam has 4.6 repeating decimal"
+    },
+    {
+      "start": 5554.97,
+      "end": 5559.09,
+      "speaker": "angelica-hill",
+      "text": "So we have to shut out Matthew and BMC and the rest of us have to catch up now"
+    },
+    {
+      "start": 5559.09,
+      "end": 5579.81,
+      "speaker": "jerod-santo",
+      "text": "I'll give you guys the option for the final round We can do a typical another word or I have another round which is another give it a goog We can do that one instead. This will be our last round I assume we can pick from those two which ones you want to do. What was the first one? Just another word I can't tell you what the word is because that might spoil it but it's a standard round or give it a goog"
+    },
+    {
+      "start": 5583.29,
+      "end": 5590.09,
+      "speaker": "angelica-hill",
+      "text": "That's the autocomplete one, yeah so hard but it's also so easy I mean if it says near me at the end"
+    },
+    {
+      "start": 5592.29,
+      "end": 5620.63,
+      "speaker": "jerod-santo",
+      "text": "All right, well we'll do that round we will do give it a goog and the phrase that I began the words I put in for into google.com incognito window is why is my why is mine? And we'll see what we think the autocomplete suggested for the phrase why is my This is PG rated. This is a family show. Okay, great. Good to know. Keep it somewhat relatively"
+    },
+    {
+      "start": 5620.63,
+      "end": 5641.1,
+      "speaker": "angelica-hill",
+      "text": "I would always I just wanted to clarify so y'all want to get together and watch that weird clown movie or what? July 27th Hey, I had like a didn't have bad reviews. Actually he who gets slapped. That was a name. Yeah, he who gets slapped"
+    },
+    {
+      "start": 5642.14,
+      "end": 5661.34,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm. This is for all the marbles right here unless BMC and Matt both get shut out and then we have to play the Last round but unlikely Come on marbles. Now. What if they both score the exact same amount of points? Mmm, probably just announce them as co-winners"
+    },
+    {
+      "start": 5662.06,
+      "end": 5669.22,
+      "speaker": "angelica-hill",
+      "text": "Sudden death single amount lightning round. That's right a good lightning round it a winner was so much nicer than"
+    },
+    {
+      "start": 5670.38,
+      "end": 5677.38,
+      "speaker": "jerod-santo",
+      "text": "Yeah, co-winner be nice. It's like, you know, the communist style. We all win participation trophies"
+    },
+    {
+      "start": 5678.06,
+      "end": 5694.89,
+      "speaker": "angelica-hill",
+      "text": "speaking of all winning He who gets slapped is in the public domain. Yeah, really we can have our own show That's actually pretty cool January 2020 is when it went into the pot. Oh dang. Oh, it looks really quite creepy"
+    },
+    {
+      "start": 5695.76,
+      "end": 5750.58,
+      "speaker": "jerod-santo",
+      "text": "Yes, it's the only problem. I'm really not a fan of clowns. All right, we have all the auto completes. I Surmise that this will be a hard one to identify the correct answer because they're all plausible So pause so bull so give it a goog why is my Potential answer number one computer so slow. Why is my computer so slow? Number two, why is my eye twitching? Number three, why is my leg bruised? Number four. Why is my hair falling out? Number five. Why is my poop green? Number six, why is my pee red? Oh, it's Christmas one of those Was the actual autocomplete suggestion, but which one was it first up this round John Henry"
+    },
+    {
+      "start": 5751.02,
+      "end": 5754.81,
+      "speaker": "angelica-hill",
+      "text": "You read the first four. I can read them all they're fast"
+    },
+    {
+      "start": 5755.73,
+      "end": 5767.93,
+      "speaker": "jerod-santo",
+      "text": "Number one. Why is my computer so slow number two? Why is my eye twitching number three? Why is my leg bruised number four? Why is my hair falling out number five? Why is my poop green and number six? Why is my pee red?"
+    },
+    {
+      "start": 5768.17,
+      "end": 5790.13,
+      "speaker": "angelica-hill",
+      "text": "I'm gonna go with number one Google's on the computer people have computer issues. Okay. There you go. Number one Adam. What about you? I'm done with the colors. I'm just trying to choose a color color Yeah, I'm going red or green red or green this was a lot, you know is it's a good sign Should I go north or south right?"
+    },
+    {
+      "start": 5790.45,
+      "end": 5796.41,
+      "speaker": "jerod-santo",
+      "text": "Both these are concerning like if your pee is red or if your poop is green. They're both concerning. It's Christmas"
+    },
+    {
+      "start": 5796.41,
+      "end": 5798.41,
+      "speaker": "angelica-hill",
+      "text": "Oh"
+    },
+    {
+      "start": 5799.57,
+      "end": 5811.13,
+      "speaker": "jerod-santo",
+      "text": "Which one's you going with let's go with a dookie, huh? There's another show title go with the dookie, yeah Okay, how about"
+    },
+    {
+      "start": 5812.38,
+      "end": 5835.13,
+      "speaker": "angelica-hill",
+      "text": "Angelica I mean, I feel like my PG definition is higher bar than I think because I was thinking that it was going to be An excrement related. Mmm, but that was why I are so I didn't put that also you didn't see no I didn't put that because I thought it was not PG. I was unsure So but that is my that was my original thought. Okay"
+    },
+    {
+      "start": 5837.13,
+      "end": 5838.65,
+      "speaker": "jerod-santo",
+      "text": "Is it with the"
+    },
+    {
+      "start": 5838.65,
+      "end": 5843.85,
+      "speaker": "angelica-hill",
+      "text": "Number one or number two the the first the number two number number two"
+    },
+    {
+      "start": 5843.97,
+      "end": 5857.4,
+      "speaker": "jerod-santo",
+      "text": "Wait, that's when you said number two the green one the green Yes, it's number two she's going with number two green she's going Duke Way too excited about this. Okay, uh"
+    },
+    {
+      "start": 5857.8,
+      "end": 5865.16,
+      "speaker": "angelica-hill",
+      "text": "Follow me man. You know I'm saying that means I'm on the right path Matthew So what do we have here? We have what do we have?"
+    },
+    {
+      "start": 5866.24,
+      "end": 5870.72,
+      "speaker": "jerod-santo",
+      "text": "Well, we've got one person pick computer so slow two people have picked poop green"
+    },
+    {
+      "start": 5871.12,
+      "end": 5890.23,
+      "speaker": "angelica-hill",
+      "text": "Okay, so have computer slow poop green pee red. Mm-hmm. Something about an eye eye twitching hair falling out leg bruised hair falling out leg bruised eye twitching pee poop It's literally everything here is bodily related which is funny except for yeah"
+    },
+    {
+      "start": 5890.23,
+      "end": 5895.79,
+      "speaker": "jerod-santo",
+      "text": "Well, I mean, this is what we google. I guess why is my it is funny that two people already picked the dookie one, though"
+    },
+    {
+      "start": 5898.87,
+      "end": 5906.14,
+      "speaker": "angelica-hill",
+      "text": "I just want to like communally pick the dookie one at this point. It's a little dookie. I'm gonna pile on the poo"
+    },
+    {
+      "start": 5909.3,
+      "end": 5920.09,
+      "speaker": "jerod-santo",
+      "text": "File on the poo. This is a first for us here at changelog and Hopefully it's a last. Okay BMC your final pick here. You know pile on the poo"
+    },
+    {
+      "start": 5920.77,
+      "end": 5926.27,
+      "speaker": "angelica-hill",
+      "text": "Computer so slow final answer. Yes, cuz it's the last round and you said it first"
+    },
+    {
+      "start": 5927.21,
+      "end": 5929.21,
+      "speaker": "jerod-santo",
+      "text": "He's playing the meta game, huh?"
+    },
+    {
+      "start": 5930.85,
+      "end": 5932.85,
+      "speaker": "angelica-hill",
+      "text": "Into my calculus actually"
+    },
+    {
+      "start": 5934.29,
+      "end": 5976.41,
+      "speaker": "jerod-santo",
+      "text": "Plans for that so it's never quite yeah, I randomized the order every round we split Unto this round we are so we have two on computer so slow and we have three on poop green let me tell you some of the Alternates that almost were the top one Why is my eye twitching that was actually the number two autocomplete suggestion. It was also Adams Guess so you were very close to hitting it. No one selected it though, but a lot of people are apparently googling Why is my eye twitching? I was thinking that myself now. Why is my P cloudy? That was the number three autocomplete Why is my P red that was close BMC BMC actually came up with that one if your P is red, that's a problem"
+    },
+    {
+      "start": 5980.53,
+      "end": 5982.53,
+      "speaker": "angelica-hill",
+      "text": "Right now"
+    },
+    {
+      "start": 5985.69,
+      "end": 5987.83,
+      "speaker": "jerod-santo",
+      "text": "We love beats around here BNC"
+    },
+    {
+      "start": 5990.35,
+      "end": 5994.77,
+      "speaker": "angelica-hill",
+      "text": "You know all about beats also getting punched in the kidneys now the other"
+    },
+    {
+      "start": 5996.09,
+      "end": 6062.08,
+      "speaker": "jerod-santo",
+      "text": "Suggested autocomplete was why is my poop black? Mm-hmm, but the number one autocomplete and all of Google at least for my incognito tab is why is my poop green? So Adam Angelica and Matt all got it People got even figuring out why the poops win two points for Adam two points for Angelica two points for Matthew and That puts him over the top. But not only that but why is my computer so slow? Yeah, that was Matt's as well so you got two more points because You guys piled on to Matt we all pood piled together He got four points that round he got four points Adam gets to Angelica gets to that puts him over the requisite 15 with 18 points Matthew Sanabria is our pound to find winner. Congrats, Matt. Is that the ultimate number? Just like 18 is high It's about as high as you can get because 15 is the winning amount and you have to go over so Good job, Matthew. You have any final words before we call to show? I know we've kept y'all here a long time. We should all go see who gets slapped"
+    },
+    {
+      "start": 6062.08,
+      "end": 6064.68,
+      "speaker": "angelica-hill",
+      "text": "I think that's that's the takeaway here. We should all do it"
+    },
+    {
+      "start": 6064.68,
+      "end": 6069.28,
+      "speaker": "jerod-santo",
+      "text": "We should we should have like a wait one of those things called when you stream it all at the same time"
+    },
+    {
+      "start": 6069.52,
+      "end": 6075.9,
+      "speaker": "angelica-hill",
+      "text": "Yeah stream party stream co stream party just for just entertain me Jerry read my definition again for that one"
+    },
+    {
+      "start": 6078.07,
+      "end": 6094.06,
+      "speaker": "jerod-santo",
+      "text": "For you who gets laughed. Yes in a world where hand gestures have gone too far Thank you, but friends vowed to change things and restore the old ways of simple handshakes and high-fives Good Stan we could movie"
+    },
+    {
+      "start": 6094.74,
+      "end": 6099.18,
+      "speaker": "angelica-hill",
+      "text": "Had been released this year. That would be it. Well, you know"
+    },
+    {
+      "start": 6099.7,
+      "end": 6105.06,
+      "speaker": "jerod-santo",
+      "text": "You get slapped kind of gives away the ending in the title, you know"
+    },
+    {
+      "start": 6105.58,
+      "end": 6109.2,
+      "speaker": "angelica-hill",
+      "text": "Yeah, it kind of does. I did learn a lot of new words coming on to this show"
+    },
+    {
+      "start": 6109.2,
+      "end": 6118.22,
+      "speaker": "jerod-santo",
+      "text": "I feel like it was educational show. Yeah. Well, that's what we're here for is to educate That's why we play this game. Just pure education. There's no faster way actually to learn"
+    },
+    {
+      "start": 6122.74,
+      "end": 6142.44,
+      "speaker": "angelica-hill",
+      "text": "My cheeks have been smiling too much. I'm like I need to do some like exercises cuz my cheeks hurt The so the googles were basically money and bodily function. Mm-hmm. And then AI was just AI Yeah, I was always good. Yeah. Yeah, I should say I that was Something"
+    },
+    {
+      "start": 6142.44,
+      "end": 6147.28,
+      "speaker": "jerod-santo",
+      "text": "Something core. What was it again? Oh, yeah, I was like neuro Forge. I think Nora Forge"
+    },
+    {
+      "start": 6147.28,
+      "end": 6151.24,
+      "speaker": "angelica-hill",
+      "text": "Yeah, it's like source Forge, but not actually sound a lot like neuro link to me"
+    },
+    {
+      "start": 6151.72,
+      "end": 6157.64,
+      "speaker": "jerod-santo",
+      "text": "Which maybe that's where I got it from, you know a device implanted in the cerebral cortex Sounds like neuro link something they're up to"
+    },
+    {
+      "start": 6157.64,
+      "end": 6171.46,
+      "speaker": "angelica-hill",
+      "text": "I also learned that clearly I didn't have a childhood cuz I didn't know what oobleck was no. Oh my gosh Well as much as I would love to stand Do more I'm not"
+    },
+    {
+      "start": 6172.34,
+      "end": 6257.62,
+      "speaker": "jerod-santo",
+      "text": "All right, that is our game congrats to our winner Matthew, thank you BMC Angelica John Henry everybody for joining us This has been an absolute riot. There are other pound to find game shows in the feed. Go find them If you enjoy this you can listen to other Ridiculous games and you can also find other games that aren't just pound to find front end feud go for say JS danger other such things at change on comm slash topic slash games That's all for this week. Thanks for hanging out everybody and we'll talk to you on the next one by the beats our friends by BMC By his album by his music That's the changelog for this week, thanks for pound defining with us We hope you enjoy playing along with these game shows if you want more like this head to changelog.fm slash games Thanks again to our partners at fly.io and to our sponsors of this episode Heroku retool and Cisco next week on the pod is going to be a little crazy Adam and I are flying to Seattle for Microsoft build if you're gonna be there come find us and if not, don't worry We'll bring the best back with us and deliver it to your ear holes on future episodes Have a great weekend leave us a five-star review to help out the show and let's talk again real soon"
+    }
+  ],
+  "slug": "define-i-m-going-pants",
+  "id": "93"
+}

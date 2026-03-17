@@ -1,0 +1,1981 @@
+{
+  "title": "SO much to dig into",
+  "description": "Adam & Jerod examine Stack Overflow's 2025 developer survey results, discussing the platform's decline, younger developers' preference for real conversations over AI, and the rise of uv as a Python package manager.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/104",
+    "MP3": "https://cdn.changelog.com/uploads/friends/104/changelog--friends-104.mp3",
+    "YouTube": "https://youtu.be/CD0PUixRn_0",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 15.12,
+      "end": 38.42,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about Notepad++. Thanks to our partners at Fly.io, the public cloud built for developers and AI agents who like to ship. We love Fly. You might, too, learn more at Fly.io. Okay, let's talk."
+    },
+    {
+      "start": 38.42,
+      "end": 58.46,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, I'm here with Damian Shingleman, VP of R&D at Auth0, where he leads the team exploring the future of AI and identity. So cool. So Damian, everyone is building for the direction of Gen AI, artificial intelligence, agents, agentic. What is Auth0 doing to make that future possible?"
+    },
+    {
+      "start": 58.46,
+      "end": 103.22,
+      "speaker": "jerod-santo",
+      "text": "So everyone's building Gen AI apps, Gen AI agents. That's a fact. It's not something that might happen. It's going to happen. And when it does happen, when you are building these things and you need to get them into production, you need security, you need the right guardrails. And identity, essentially authentication, authorization, is a big part of those guardrails. What we're doing at Auth0 is using our 10-plus years of identity developer tooling to make it simple for developers, whether they're working at a Fortune 500 company or working just at a startup that right now came out of Y Combinator, to build these things with SDKs, great documentation, API-first types of products, and our typical Auth0 DNA."
+    },
+    {
+      "start": 103.22,
+      "end": 126.54,
+      "speaker": "adam-stacoviak",
+      "text": "Friends, it's not if, it's when. It's coming soon. If you're already building for this stuff, then you know, go to auth0.com slash AI. Get started and learn more about Auth for Gen AI at auth0.com slash AI. Again, that's auth0.com slash AI."
+    },
+    {
+      "start": 126.54,
+      "end": 136.78,
+      "speaker": "jerod-santo",
+      "text": "So the 2025 Stack Overflow Developer Survey report is out. It's out there, Adam."
+    },
+    {
+      "start": 136.78,
+      "end": 144.19,
+      "speaker": "adam-stacoviak",
+      "text": "You know, surveys like this are very much needed, I think. You know, it grounds us in our crazy cycles, right?"
+    },
+    {
+      "start": 144.19,
+      "end": 149.59,
+      "speaker": "jerod-santo",
+      "text": "It does. Ground me. This is their 15th year doing it, which seems like a lot."
+    },
+    {
+      "start": 149.59,
+      "end": 150.43,
+      "speaker": "adam-stacoviak",
+      "text": "Wow, yeah."
+    },
+    {
+      "start": 150.43,
+      "end": 158.76,
+      "speaker": "jerod-santo",
+      "text": "Maybe it took them a while to get this prominent. I mean, if you do something 15 years in a row, you must be doing something right."
+    },
+    {
+      "start": 158.76,
+      "end": 159.6,
+      "speaker": "adam-stacoviak",
+      "text": "They say that."
+    },
+    {
+      "start": 159.6,
+      "end": 162.12,
+      "speaker": "jerod-santo",
+      "text": "Or else you'd stop, I think."
+    },
+    {
+      "start": 162.12,
+      "end": 163.92,
+      "speaker": "adam-stacoviak",
+      "text": "They do say that, or you're crazy."
+    },
+    {
+      "start": 163.92,
+      "end": 164.76,
+      "speaker": "jerod-santo",
+      "text": "Or you're crazy."
+    },
+    {
+      "start": 164.76,
+      "end": 166.68,
+      "speaker": "adam-stacoviak",
+      "text": "Or you're crazy, you know?"
+    },
+    {
+      "start": 166.68,
+      "end": 188.16,
+      "speaker": "jerod-santo",
+      "text": "So this year, I mean, it's gotten pretty big. It says that they've received over 49,000 responses, which you know how much they wanted to get to 50,000 and couldn't quite get there. So that 49,000 is cool. But you know, as the people running that survey, they much would have rather said 50,000."
+    },
+    {
+      "start": 188.16,
+      "end": 196.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, no one wants to say 49,000. No, it's the long numbers. Unless it's a price, you're trying to like do the 49,500 versus 50,000, you know, psychological."
+    },
+    {
+      "start": 196.64,
+      "end": 197.68,
+      "speaker": "jerod-santo",
+      "text": "Oh, trying to round you up?"
+    },
+    {
+      "start": 197.68,
+      "end": 203.6,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you know? That's when it makes sense. But when your stats and audience size, you went big."
+    },
+    {
+      "start": 203.6,
+      "end": 223.96,
+      "speaker": "jerod-santo",
+      "text": "That's right. There's no 1999 here. You know, this is a 49,000 plus. From 177 countries across 62 questions, focused on 314 different technologies. And as is obligatory, a brand new focus on, can you guess it?"
+    },
+    {
+      "start": 225.12,
+      "end": 229.32,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe it's, I don't know, surprise, what is it?"
+    },
+    {
+      "start": 229.36,
+      "end": 230.76,
+      "speaker": "jerod-santo",
+      "text": "AI agents."
+    },
+    {
+      "start": 230.76,
+      "end": 231.8,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh."
+    },
+    {
+      "start": 231.8,
+      "end": 236.38,
+      "speaker": "jerod-santo",
+      "text": "Of course, LLMs and such like."
+    },
+    {
+      "start": 236.38,
+      "end": 244.48,
+      "speaker": "adam-stacoviak",
+      "text": "Are they, I didn't see it in here yet, but did they talk about their downtrend as a result too? Or is it, this is just developer survey?"
+    },
+    {
+      "start": 244.48,
+      "end": 245.92,
+      "speaker": "jerod-santo",
+      "text": "Stack Overflow's downtrend?"
+    },
+    {
+      "start": 245.92,
+      "end": 247,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 247,
+      "end": 248.96,
+      "speaker": "jerod-santo",
+      "text": "I don't think they want to talk about that at all."
+    },
+    {
+      "start": 248.96,
+      "end": 250.64,
+      "speaker": "adam-stacoviak",
+      "text": "No, I don't think so either, right?"
+    },
+    {
+      "start": 250.64,
+      "end": 260.72,
+      "speaker": "jerod-santo",
+      "text": "But it's real. And in fact, they do have an open tab because I was thinking about that. 49,000 responses, however, Stack Overflow itself is declining, as you said."
+    },
+    {
+      "start": 260.72,
+      "end": 261.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 261.64,
+      "end": 267.72,
+      "speaker": "jerod-santo",
+      "text": "Here's a blog post from Eric Holscher, friend of the show, from Read the Docs, right? Eric Holscher, Read the Docs."
+    },
+    {
+      "start": 267.72,
+      "end": 270.48,
+      "speaker": "adam-stacoviak",
+      "text": "Read the Docs, and Read the Docs, I believe. Read and Write."
+    },
+    {
+      "start": 270.48,
+      "end": 272.68,
+      "speaker": "jerod-santo",
+      "text": "Read and Write the Docs. Someone's got to do both."
+    },
+    {
+      "start": 272.68,
+      "end": 274.04,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, why not?"
+    },
+    {
+      "start": 274.04,
+      "end": 276.72,
+      "speaker": "jerod-santo",
+      "text": "Eric's a fan of both. He's been on the pod a few times."
+    },
+    {
+      "start": 276.72,
+      "end": 277.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 277.56,
+      "end": 336.49,
+      "speaker": "jerod-santo",
+      "text": "And here he is talking about Stack Overflow's decline. Of course, he's quoting our fellow friend of the show, Gergar Rose, who I think was just analyzing somebody else's gist that they dumped. So this is like three layers of inception right here. But the chart is nice, showing monthly questions asked on Stack Overflow, dating back to 2010, pre-2010. And they peaked between 2014 to 2017 at about 200,000 questions asked per month or answered per month. Just questions per month, whether or not you get the answer, I guess, depends. And then it's been a precipitous decline ever since. Most people blame ChatGPT. But if you look at this chart, it was already on its way down prior to ChatGPT launching in 2023. Good point. But since then, it's gone way down, like 25,000-ish."
+    },
+    {
+      "start": 336.49,
+      "end": 374.44,
+      "speaker": "adam-stacoviak",
+      "text": "You know, it begs the question, so there's a place, I mean, prior to AI and prior to, let's just say, deep learning and, you know, data lakes with lots of knowledge stored in them. I think asking a question to a community like this, like Stack Overflow has provided for many years, has been very pertinent. But what has been your personal experience with that user experience of the, have a question, find a question, get the answer, apply the answer, move along with your life because you're a developer, you got better things to do? What's been your experience with that, with them?"
+    },
+    {
+      "start": 374.44,
+      "end": 375.6,
+      "speaker": "jerod-santo",
+      "text": "With Stack Overflow?"
+    },
+    {
+      "start": 375.6,
+      "end": 383.2,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, like what's been your personal happiness level, I suppose, with the status quo user experience they offered?"
+    },
+    {
+      "start": 383.2,
+      "end": 433.78,
+      "speaker": "jerod-santo",
+      "text": "So I should say I've never been a user. Like, I don't think I have an account. I've never answered a question, I know that. Maybe that's not true, it's been a long time. Maybe I answered one way back in the day. I do not believe I have an account. If I do, it would be news to me. So I'm merely a person who lands there. I've heard a lot of the stories about the moderation on Stack Overflow and the complaints about people's questions being deleted and some just draconian moderation around what is a good question, what's not, et cetera. And of course, I've also seen the gamification and how some people have rose in prominence from it. So there's also social benefit of using it over time. And so I've been along for the ride, but I haven't been a user. I've only been a question, reader, answer, reader, or person. Yeah, I'm a taker."
+    },
+    {
+      "start": 433.78,
+      "end": 441.7,
+      "speaker": "adam-stacoviak",
+      "text": "Nothing wrong with that. I don't think so. I mean, when you're a mass appeal website like that, you have to have a large majority of takers, not givers."
+    },
+    {
+      "start": 441.7,
+      "end": 442.54,
+      "speaker": "jerod-santo",
+      "text": "For sure."
+    },
+    {
+      "start": 442.54,
+      "end": 508.67,
+      "speaker": "adam-stacoviak",
+      "text": "I'm with you. So you've been able to have a profile there. You've been able to gamify or gamify, however you want to pronounce that, your involvement, whether it's an answer or a questioner, I don't know how you would phrase those personas either, but very much so has been like this really kind of unique world. If you're a listener out there and you've been a gamified, enriched user of Stack Overflow and you love it, let us know, I'm curious what that's like or has been like. But to me, I've never been like, oh, I've got to go there and answer all the questions I know so that I can rise to prominence. I've never understood that specific user experience, but I think my experience with Stack Overflow has been generally, I would say on par. Sometimes find an answer, sometimes it's out of date. Sometimes you have some responses that bubble up as, hey, it's been a year or two, this has changed. This is the new way. So generally it's been the prompt before the prompt, so to speak."
+    },
+    {
+      "start": 508.67,
+      "end": 546.71,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah, obviously I'm glad that it exists. I wish it would continue to exist prominently. I do not know the details of the whatever moderation drama and there's backlash. Even from people who are like long-time contributors, I've seen them like leaving the platform and so they've got their problems. Every website does as a difficult thing, moderation. And however, like most people, even as just a casual user, I'm not using the website anymore. Like I'm just not landing there."
+    },
+    {
+      "start": 546.71,
+      "end": 547.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 547.55,
+      "end": 626.86,
+      "speaker": "jerod-santo",
+      "text": "And so that's a problem. In fact, Eric in his post about this says that he's a little bit worried about something like this happening to read the docs because obviously his livelihood and a lot of his life's work is with read and write the docs. And it's a very similar situation, a Q&A site or a documentation site. And of course the LLMs answering our questions for us is the biggest reason probably for Stack Overflow's decline. And so he's hoping that doesn't happen to read the docs, but at least when he wrote this back in January, he says they haven't really seen a huge decrease in traffic. So it hasn't happened to them yet, but it is slightly different when you have a document, like official documentation for your Python library versus questions about how to use your Python library. It's a different beast altogether. I hope Stack Overflow does not continue to decline. I think it kind of needs to exist. I think the LLMs need it because it's a source of truth for them. But the incentives, just like the rest of the web, the incentives to publish are just going away, right? Like why would they do that if they're not gonna get the traffic?"
+    },
+    {
+      "start": 626.86,
+      "end": 656.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, even the reason I mentioned the UX experiences is the fact that you mentioned the decline was prior to really this uprise of AI and agents being a thing, like it was already in a downward trend based on Eric's blog posts and Gerge's illustration, of course. It's already showcasing that. There was an obvious spike up for COVID whenever that happened because everyone was trying to figure out everything, right?"
+    },
+    {
+      "start": 656.9,
+      "end": 657.74,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 657.74,
+      "end": 694.11,
+      "speaker": "adam-stacoviak",
+      "text": "And so obviously there's a peak, an unearned potentially peak in user experience or even just usage, but it was already on this downward trend. So I just wonder like, was it already, was it a systemic issue with how Stack Overflow works in so far as that you said it's needed, right? Like we need a source of truth. That's what docs present. That's what Stack Overflow has presented in the past or even now is this version of what is true in terms of a question a developer asks."
+    },
+    {
+      "start": 694.11,
+      "end": 800.7,
+      "speaker": "jerod-santo",
+      "text": "Right. So back to the survey, they have the data, of course, but they also do some editorial, which is nice and related to Stack Overflow's decline on the homepage of the survey, you'll find kind of their editorial, the creators of the survey, meaning like they try to contextualize some stuff and make a few conclusions for the reader. And in fact, there's probably 20 or 30 of them on the homepage that just randomly refresh or they switched orders as you refresh the page. So they're not trying to make one more important than the other, but one of their takeaways from the survey is Stack Overflow is a destination developers visit frequently. I thought that one was funny cause that one almost sounds like a self-serving selection from the data. Of course they published the data as well and everyone can come to their own conclusions, but connecting the dots and trying to like have takeaways is of course the interesting part. And so many of us don't have time for that. In fact, if you don't have time for that to our listener, of course we're here to even read you some of those connections. So there is a question about Stack Overflow, frequency of visiting Stack Overflow. And of course on the homepage, they create these conclusions and then you can drill down on the actual chart that that comes from. And they have a few questions like how long have you had an account on Stack Overflow and then frequency of visiting Stack Overflow. And what's crazy is there's 45% of the people who answered this survey have had a Stack Overflow account for over 11 years."
+    },
+    {
+      "start": 800.7,
+      "end": 801.54,
+      "speaker": "adam-stacoviak",
+      "text": "Wow."
+    },
+    {
+      "start": 801.54,
+      "end": 805.48,
+      "speaker": "jerod-santo",
+      "text": "So that's like a very dedicated long standing group of folks, you know?"
+    },
+    {
+      "start": 805.48,
+      "end": 806.6,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 806.6,
+      "end": 840.62,
+      "speaker": "jerod-santo",
+      "text": "And a strong majority, 82% of respondents visit at least a few times per month with 25% visiting daily or more often. So it's declining, but I think in terms of a community, they're showing through this data, at least of course they're serving their own community. So that's inherently self-representative, I guess. People are using the site, just not the same number as they were prior."
+    },
+    {
+      "start": 840.62,
+      "end": 883.55,
+      "speaker": "adam-stacoviak",
+      "text": "76% use the site for more than six years. So you mentioned 45% over 11 years. There's another stat, 76% having an account for six years or more, it says, or more. So maybe that's like six to 10, you know? Something like that. That's a lot. I mean, they're definitely in their echo chamber when it comes to the survey, right? Like this is not randos who don't know Stack Overflow. So this is very, this is going to be as truthful as it can be given the tenure of the account holders. When you got 76%, six years or more as an account holder, that's a lot."
+    },
+    {
+      "start": 883.55,
+      "end": 953.5,
+      "speaker": "jerod-santo",
+      "text": "Here's a funny one. So in the data, they provide you the range of responses and then they also categorize that based on the people responding. And so in this case, they're categorizing it by age. And so you can look at all respondents and you can look at age respondents. And the youngest category is age 18 to 24. And in that category, the number of people who've been using the website for 15 plus years is two tenths, a fifth of a percent. So what's 32, 578, that's how people took it, times 0.002, 65.15, if I'm doing my math right. So 65 people started using Stack Overflow. Somewhere between the age of three and nine. Wow. They would have to, right? Cause they're age 18 to 24. Unless they're lying. Or they're just lying. Or must be the thing about surveys is people just like fill in random things."
+    },
+    {
+      "start": 953.5,
+      "end": 957.98,
+      "speaker": "adam-stacoviak",
+      "text": "65 people were, you said nine was the highest age or five or nine?"
+    },
+    {
+      "start": 957.98,
+      "end": 971.26,
+      "speaker": "jerod-santo",
+      "text": "It had to be three to nine cause they're- Three to nine. Well, they've been using it for 15 years and they're age 18 to 24. So three on the low end and nine on the high end. So can you imagine some three-year-old stumbling across Stack Overflow and signing up? Oh, go ahead and-"
+    },
+    {
+      "start": 971.26,
+      "end": 976.4,
+      "speaker": "adam-stacoviak",
+      "text": "How does this pacifier work? Okay, come on. How do I get into this?"
+    },
+    {
+      "start": 976.4,
+      "end": 980.98,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I mean, most of the questions probably about Roblox and stuff like that, Minecraft."
+    },
+    {
+      "start": 983.14,
+      "end": 1030.58,
+      "speaker": "adam-stacoviak",
+      "text": "That's true. That's true. Yeah. Wow. Very interesting. So definitely some interesting stats coming from that. What about the, what I'm noticing as I go through the different age brackets is really it's the older generation that has been using it for longer, obviously. So I think 35 to 64 is probably a range of the last 15 years. Cause if you were 35, 15 years ago, you were what? 20 years old? It's pretty common to pick up Stack Overflow at 20 whenever you were in your junior days or just getting into development. That was 15 years ago. That was 2010, 2015, yeah, 2010. So 2010 was a pretty popular year to use Stack Overflow. I think."
+    },
+    {
+      "start": 1030.58,
+      "end": 1059.68,
+      "speaker": "jerod-santo",
+      "text": "All right, well, I thought we would go through some of these conclusions and use those as launching pads to drill down. Was there anything that jumped out as you? I mean, we can go into the AI stuff. Obviously some of our listeners would love that and not the ones are so sick of it. We could go into technologies. You're gonna have AI in there as well. We could talk about remote work. We could talk about content creation. We could talk about all kinds of things, history."
+    },
+    {
+      "start": 1059.68,
+      "end": 1189.41,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I wanna talk about YouTube man. What about YouTube? Can I talk about YouTube on this? I'm trying to scroll it and keep my context. So forgive me if I get a little discombobulated. I'm looking at two in particular and I'm thinking about the junior generation because what, I mean, we can always talk about AI but I think that that's an obvious large category to talk about. But I think we're gonna start to see how that is impacting younger developers. Those who are coming into software development, whether they're the traditional engineer type or someone who's just throwing together something because they have to build a website for their business or whatever. I'm looking at this, the one that says younger developers want developer content with social or interactive formats. So a little self-serving here. We run a podcast as you know, Jared. So, you know, we're on YouTube and stuff like that. So I'm thinking where is the young model of who we want to reach and who we want to serve? Because we serve humans, not machines. We use machines to serve humans and solve problems. But I'm thinking how are the younger generation going to be impacted by this major change? Thankfully, they still want good developer content that they're not just saying, hey, every LLM give me all the content only. They want that social nature and they want interactive formats. So that's one piece of this data puzzle. And then the other one was the respondents learning to code using YouTube for community more than professional developers. So they're leaning on this scalable content, maybe even influencer, which I'm not really, we wouldn't consider ourselves influencers, although we may influence. We're not considering ourselves the stamp of approval influencer, but it is reassuring that the places that we're pouring our efforts into is being looked at by the younger generation, the younger developer who's coming in, even though, you know, AI is coming and AI is here and is doing good stuff."
+    },
+    {
+      "start": 1189.41,
+      "end": 1228.12,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so there's two questions that speak to that. Like you said, the first one is how do you choose to find relevant developer content? And the Stack Overflow folks say, while all age groups want lists and articles, cause everybody loves a good listicle, younger developers show a significantly higher interest in more social and interactive formats. For example, 37% of 18 to 24 year olds want chat with people, not with GPT. Oh, that's the new, that's all the kids are saying now. Chat GPT is just chat now, I've learned. So ask chat. Yeah, ask chat, that means chat GPT."
+    },
+    {
+      "start": 1228.12,
+      "end": 1228.96,
+      "speaker": "adam-stacoviak",
+      "text": "Ask chat."
+    },
+    {
+      "start": 1228.96,
+      "end": 1242.06,
+      "speaker": "jerod-santo",
+      "text": "That's what the kids are saying. Yeah, compared to only 20% of 55 to 64 year olds. Do you want chat with people, Adam? Do you want this? I mean, because you're, okay, you're not 55 to 64, but we're between these two groups, you and I."
+    },
+    {
+      "start": 1242.06,
+      "end": 1242.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1242.9,
+      "end": 1248.3,
+      "speaker": "jerod-santo",
+      "text": "And young people want chat with people and old people don't, as much."
+    },
+    {
+      "start": 1248.3,
+      "end": 1368.32,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I don't know. I think with people is still a necessary component. I mean, that's obviously why we have Zulup. That's why we had Slack. That's why we went from Slack to Zulup because we really care about community. So I personally desire that. Now, am I trying to chat with people more than chat with GPT? I think it depends. I think I wanna self explore as much as possible and with little to no hallucinations. And I've learned to do chat, solo chat, let's just say with the model inside of chat GPT or Claude or Grok or wherever I'm doing it. And I'll have a certain amount of happiness with that process. And then I have a prompt that is sort of canned that I've learned to can it essentially, it's become repetitive. So I'm like, okay, I should probably store this so I could just like copy and paste this in the future. And it's this version of summarize what we've discussed here. So I can have my XYZ agent review and verify what we've found. Cause I get to a session end of the session, I'm like, this is awesome, conquering the world. Meanwhile, there's like four core hallucinations in there that just like destroy the model. So getting at the with people part is I wanna explore self-driven for a bit with less hallucinations as possible. And then once I've gotten to a certain comfortability with what I'm trying to accomplish and my own mental model or new lexicon, I had to learn to do whatever. I would want to have this community of folks to pair with or spar with or ask questions of. So I agree with that. I think I wanna chat to a certain degree, get some self-assurance, and then expose those ideas to real people to validate yes, good path, no, not good path."
+    },
+    {
+      "start": 1368.32,
+      "end": 1459.47,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I think a mixture is for the win for sure. I think they serve different purposes. I certainly enjoy chatting with people generally more because I can't easily predict their responses. It seems to me like when I'm looking for advice on how to do something or a tool to do a thing, I'm perfectly fine with asking chat, but I don't find things there unless I'm looking for them. I think people are the best source of like unsolicited recommendations, because if you're excited about something, you're just gonna find me and come and tell me, right? And we see that all the time in our Zulip where it's like, this is cool. In fact, that's what I do most. Most of my work is finding cool stuff and sharing with people, aka change log news. So like that's unsolicited recommendations, right? Like, okay, you solicited it because you signed up for change log news. But if you're hanging out in Zulip and you're just part of our community, you may have not wanted to know there's this cool movie you should watch. Someone's gonna come and tell you. That's irreplaceable, I think. I mean, you could be like, hey, every N hours, please send me a recommendation. Like you can do stupid stuff like that to imitate it. But when people find useful tools, useful lists, useful long form articles that really compel them, they'll share. And you can't, I think we need chat with people for that."
+    },
+    {
+      "start": 1459.47,
+      "end": 1463.83,
+      "speaker": "adam-stacoviak",
+      "text": "Do you remember, this is really gonna date us Jared, if you remember this. And I know you do,"
+    },
+    {
+      "start": 1464.65,
+      "end": 1465.49,
+      "speaker": "jerod-santo",
+      "text": "because we're old."
+    },
+    {
+      "start": 1465.49,
+      "end": 1467.34,
+      "speaker": "adam-stacoviak",
+      "text": "Mahalo."
+    },
+    {
+      "start": 1467.34,
+      "end": 1469.46,
+      "speaker": "jerod-santo",
+      "text": "I do, that was Jason Calacanis' thing, right?"
+    },
+    {
+      "start": 1469.46,
+      "end": 1470.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1470.42,
+      "end": 1474.6,
+      "speaker": "jerod-santo",
+      "text": "It was like, was it the encyclopedia?"
+    },
+    {
+      "start": 1474.6,
+      "end": 1477.12,
+      "speaker": "adam-stacoviak",
+      "text": "It was essentially a search power by humans."
+    },
+    {
+      "start": 1477.12,
+      "end": 1480.5,
+      "speaker": "jerod-santo",
+      "text": "Search power by humans. So rather than the result. You ask it and this human goes find it for you."
+    },
+    {
+      "start": 1480.5,
+      "end": 1562.02,
+      "speaker": "adam-stacoviak",
+      "text": "Right, the list of the results wasn't necessarily algorithmically compounded and refined, et cetera. It was somebody, a real human with context. I think it doesn't scale, but the premise is good. In the fact that you've got humanity in this seemingly inhumane process. You search Google, get results. That's a machine, it's ranked by some sort of order you don't even have. It's a black box, how the results got there. Somebody could have paid, somebody could have paid an SEO engine. Somebody could have like gamified the thing and to not earn the number one ranking or even the top 10 ranking. But then you go to Mahalo, which was this idea. Okay, take the same kind of result, the same kind of search term or a search query. And you put a human in the middle there, which says rather than return this algorithmic result list that is arbitrary and black box and controlled by the behemoth, let's put it in control of maybe Jared, a particular human and their name is on the result. And so it's owned by a human. I like that idea. I think I wanna see a resurgence of Mahalo in today's world, personally."
+    },
+    {
+      "start": 1562.02,
+      "end": 1576.47,
+      "speaker": "jerod-santo",
+      "text": "So here's a question. Why do you think it is that 18 to 24 year olds want to chat with people more than any other older age group? What is it about that group of folks?"
+    },
+    {
+      "start": 1576.47,
+      "end": 1685.91,
+      "speaker": "adam-stacoviak",
+      "text": "Loneliness, yeah, I think it's a lonely world there. I think the more we're, I mean, this is really getting philosophical, but I think the more, well, this is 18, right? So these 18 year olds were probably not just introduced to their smartphone or to their smart tablet or whatever you wanna describe it as. It's not a computer anymore, right? Like that's not a computer to people like us. They probably had something for many years. And so they've probably already been in this ice, this self isolating framework or decline where they're just like socializing less. And if I were 18 and 24, I want friends. You know, I want friends. I don't want just money. I don't just want a job that fulfills me. I want the whole kit and caboodle, so to speak. I want to self learn, cause that's just my personal nature, but I wanna socialize. And I need, I personally am the kind of person that needs a sounding board. I need my idea to be reflected off of somebody and you know this because we've been working together for so long, how I operate. I need somebody to hear my idea. You don't even have to say yes, you like it or no, it's a bad, like don't, just please just listen. Just listen, right? And then I do desire feedback, but you don't have to. This is not a requirement I need as an individual human. I need to tell another human about my crazy ideas just to see if there's any resonance. And if there is, then I'm gonna chase that dog. If not, well, the idea dies in my brain. I move along, I keep doing my daily thing. You know, so I'm a person who needs other people. So I can empathize with these 18 and 24 year olds that are in a world where they're more self-isolated than normal that we ever have in our history."
+    },
+    {
+      "start": 1685.91,
+      "end": 1805.37,
+      "speaker": "jerod-santo",
+      "text": "Yeah, what's interesting is like the 25 to 54 year olds all want chat with a bot. And then the olds don't want that either. I think they're just grumpy. They don't want anything anymore. They're like, no, we're good. This is how you choose to find relevant developer content. So there is a context for this. It's not just like, do you like chat bots? It's like, do you like to find relevant developer content via an AI chat bot? And I think 55 to 64 year olds don't care too much about finding relevant developer content. At least I don't think I'm going to at that age. But one thought I had, which I agree with the loneliness factor, what about novelty? So I feel like our age ish is more likely to become infatuated. And I guess I use that word from a lack of thinking of a better word with AI chat bots because like we remember how bad it was. Remember the bots, I mean, maybe you didn't do this but when I was a kid, we wanted to talk to a computer. Like we could never do that. And if you found a chat bot that was anywhere near decent I would just talk to that thing. Let's see if it can make, say this, say that, you know? And they were just like pre-program responses back then. It was all deterministic and they only had so many responses and you could, you know they were terrible. They didn't pass the Turing test, that's for sure. And so like for most of our formative years and up we've been desiring smart computers that can talk to us. And now we have that. And so we kind of want it more. Whereas these young bucks, they kind of grew up with that ability. I mean, it's gotten better over the last three or four years, it's gotten way better. But I don't know, chat bots aren't all that novel when you've grown up in the smartphone era. You know, you've had Siri your whole life."
+    },
+    {
+      "start": 1805.37,
+      "end": 1824.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, the 18 to 24, if you just started recently then you're still in that first five years of your journey which is the fresh part, right? It's when you're learning all of your initial things that you're considering, concerned about for the next 10 years. Yeah, I agree with that. I suppose, novelness makes sense."
+    },
+    {
+      "start": 1824.58,
+      "end": 1835.62,
+      "speaker": "jerod-santo",
+      "text": "I agree with that. Then when it comes to YouTube specifically, so back to the other question that's relevant to this YouTube topic. Is this the one you were looking at, community platforms?"
+    },
+    {
+      "start": 1835.62,
+      "end": 1871.21,
+      "speaker": "adam-stacoviak",
+      "text": "There's a summarization of it. So the question in particular was, it's kind of hard to search I think was, let me scroll back. Respondents learning to code use YouTube for community more than professional developers. So they're using this, you know, algorithmic feed and search to find content versus, Hey Jared, you're a friend of mine. Where do you get your content? So they're going there. That was the one. And then the other one was younger developers want developer content with social or interactive formats."
+    },
+    {
+      "start": 1871.21,
+      "end": 1901.83,
+      "speaker": "jerod-santo",
+      "text": "Which is the one they were just looking at. That first one comes from this particular question. When you click the link, it goes to here. And the question was which community platforms have you utilized considerably or consistently in the past year and which would you like to use next year? Select all that apply. And that's where they're drawing this from. And so again, broken out at this time, not by age, but by professional learning, professionals that use AI and learners that use AI and write-ins. Oh, you could write in. Did anybody write in change a little?"
+    },
+    {
+      "start": 1901.83,
+      "end": 1908.99,
+      "speaker": "adam-stacoviak",
+      "text": "It's almost non-existent really. Mastodon, Lobsters, Matrix, Lemmy, Tiscores, Mastodon is on her twice."
+    },
+    {
+      "start": 1908.99,
+      "end": 1912.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah, these are all write-ins. Fediverse is on her twice."
+    },
+    {
+      "start": 1912.43,
+      "end": 1918.75,
+      "speaker": "adam-stacoviak",
+      "text": "Matrix is on her twice. Lemmy is on her twice. Fediverse is obviously the undercurrent. It's all of those things."
+    },
+    {
+      "start": 1918.75,
+      "end": 1975.62,
+      "speaker": "jerod-santo",
+      "text": "Right, so these are the CD underground where you get 0.02% of write-ins. But back to like the major platforms. And so of course it's a Stack Overflow survey. Stack Overflow is number one. But specifically YouTube is up high for all developers and especially for learning to code people. It's number two at 70%. So 70% of people learning to code will go to YouTube versus 60% of professional developers will use YouTube. And that tracks with me. I think that the younger generation, of course, will more likely to be learning to code. There are people who are older and still learning, like they're transitioning or switching careers. But most learning to code are in that 18 to 30 age demo. And again, like YouTube is a primary form of learning for these people. It's just become a thing you do, right?"
+    },
+    {
+      "start": 1975.62,
+      "end": 1976.46,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1976.46,
+      "end": 2021.48,
+      "speaker": "jerod-santo",
+      "text": "Whereas our age isn't up. Like we started with blogs and forums and documentation. And so, and many times for me, YouTube is just like way too slow. Like I did not want to watch a video that's been dragged out to 10 minutes on purpose because 10 minutes is the perfect length of a video. And but really the content should be 90 seconds in order to get one thing out of it that I'm looking for or to learn something new. I'm less likely to do that than I am a blog post that I can scan quickly and look at some pictures and then decide if I want to dive deeper. Not saying I don't do that with YouTube. I'm just less likely to. Yeah. But I think that calculus has flipped as you go down the age brackets."
+    },
+    {
+      "start": 2021.52,
+      "end": 2033.49,
+      "speaker": "adam-stacoviak",
+      "text": "Thankfully. I mean, I'm surprised. Not really, but kind of surprised Stack Overflow is so high. I don't know if they, maybe because it's the echo chamber, it makes sense for it to be so high."
+    },
+    {
+      "start": 2033.49,
+      "end": 2034.47,
+      "speaker": "jerod-santo",
+      "text": "Sure."
+    },
+    {
+      "start": 2034.47,
+      "end": 2048.18,
+      "speaker": "adam-stacoviak",
+      "text": "I think if they bust off the echo chamber, it's going to be drastically lower than that. I am happy. I mean, it's really wild to see GitHub and YouTube compete. Such a uniquely different platform."
+    },
+    {
+      "start": 2048.18,
+      "end": 2050.34,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I wouldn't even put those in the same category."
+    },
+    {
+      "start": 2050.34,
+      "end": 2051.88,
+      "speaker": "adam-stacoviak",
+      "text": "No, but they compete."
+    },
+    {
+      "start": 2051.88,
+      "end": 2053.14,
+      "speaker": "jerod-santo",
+      "text": "I guess they're both social."
+    },
+    {
+      "start": 2053.58,
+      "end": 2088.18,
+      "speaker": "adam-stacoviak",
+      "text": "So there you go. Right. I mean, where else can you go in the world where you can self-publish for the most part without any real censorship? I mean, there's obviously copyright. There is some censorship. DMCA. There is definitely, I would say socially acceptable censorship. Some socially unacceptable censorship when it comes around politics, but we're not talking about politics generally in this podcast. And generally around software development, generally. I mean, it becomes political at some point as code."
+    },
+    {
+      "start": 2088.18,
+      "end": 2093.14,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I think most coding channels don't have any issue with that kind of stuff."
+    },
+    {
+      "start": 2093.14,
+      "end": 2140.67,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so I mean, for the most part, you have an unfettered ability to publish video, as well as you want to, or as poor as you want to. So I think with that kind of platform, it makes sense to me to see that be so high. And thankfully, chaptering, so for me, I'm with you in the way you responded, except for if I find a 10 minute video and it doesn't have chapters, I'm bailing. If it does have chapters, and I think that, and I don't know how to describe this litmus test I go through, but for some reason, there's this way to discern as a human, whether something is good or bad or for me or against me. So in that reptilian brain version of Adam, when he's watching YouTube videos, he's thinking about that."
+    },
+    {
+      "start": 2140.71,
+      "end": 2142.83,
+      "speaker": "jerod-santo",
+      "text": "The chapter is good, the chapter is bad."
+    },
+    {
+      "start": 2142.83,
+      "end": 2207.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so chapters are a must for me. And if it's a 10 minute video, and I think, well, this probably took about two or three minutes to explain, I'll look for the chapter, the chapters that go past the intro or the who I am or why I do what I want. I appreciate all that. I'm a diehard fan, I want to hear, I thought I became a fan of Techno Tim, you know, Timothy Stewart, he's a friend of ours now. I was a watcher like everybody else, but then I became a friend and said, hey, let's talk on a podcast, let's be friends. We're friends now. I will still watch his stuff and I'll go past the preamble. And he's cool with that, why? Because we're friends, I don't need the I'm Tim or Techno Tim, this is where I came from, this is my context. No, just take me right to the true NAS, don't fail, how do I configure it scenario. And thankfully he's of the chapter mindset where he chapters. So I'm like, YouTube must have chapters if there are any length of video whatsoever for me to get my attention. Unless it's like golf content, I'll watch that. I'll watch that 45 minutes straight, no problem. I mean, I waste a lot of time when they're watching golf content."
+    },
+    {
+      "start": 2207.16,
+      "end": 2220.84,
+      "speaker": "jerod-santo",
+      "text": "Especially if you need a power nap. So speaking of chapters, we got some props, dude. We got some props in Denver from a listener who attended the live show for our chapters, which was nice because, you know, we do those with love."
+    },
+    {
+      "start": 2220.84,
+      "end": 2224.54,
+      "speaker": "adam-stacoviak",
+      "text": "We do those because we are now chapter snobs,"
+    },
+    {
+      "start": 2224.54,
+      "end": 2255.42,
+      "speaker": "jerod-santo",
+      "text": "but we don't always know if other people are, we know that some people like them, we've heard some things, but it's always nice to have reinforcement learning of, hey, I love your guys' chapters. They're so on point. He's like, he turns his nose up at people that don't have them on their podcast now, now that he's learned, you know, the better way. And him and I had some comradery around that. So I can't remember his name right now. He was the fellow who gave us a hiking recommendation. I can picture your face. I can't remember your name."
+    },
+    {
+      "start": 2255.42,
+      "end": 2257.06,
+      "speaker": "adam-stacoviak",
+      "text": "Was it Jim?"
+    },
+    {
+      "start": 2257.06,
+      "end": 2258.1,
+      "speaker": "jerod-santo",
+      "text": "No, it wasn't Jim."
+    },
+    {
+      "start": 2258.1,
+      "end": 2259.06,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 2259.54,
+      "end": 2275.53,
+      "speaker": "jerod-santo",
+      "text": "Maybe it was, I don't know. We met a lot of people. Here's a couple of shout outs, names I do remember. So at the meetup on Friday night, there were three, I think, randos that came and very cool. We see their love, right?"
+    },
+    {
+      "start": 2275.53,
+      "end": 2279.69,
+      "speaker": "adam-stacoviak",
+      "text": "Can you explain just the randos with love, just for those who are not getting that insider joke?"
+    },
+    {
+      "start": 2279.69,
+      "end": 2317.65,
+      "speaker": "jerod-santo",
+      "text": "First of all, randos is part of one of our Change Welcome Friends theme songs, Adam and Jared and some other rando, because we usually have a third or sometimes a fourth, although today was just the two of us. And so that got worked into a BMC song that we play sometimes on our show. And then we also invited a bunch of Denver locals to the show, people who aren't necessarily listeners. And so some of them came, some of them didn't. It's not easy to get outside your comfort zone and go to a meetup of a bunch of software podcasters on a Friday night, knowing nobody. They didn't even know the show, some of these guys, until the day of."
+    },
+    {
+      "start": 2317.65,
+      "end": 2319.41,
+      "speaker": "adam-stacoviak",
+      "text": "We didn't even have signage where they just show up."
+    },
+    {
+      "start": 2319.41,
+      "end": 2321.07,
+      "speaker": "jerod-santo",
+      "text": "We had nothing. We told people."
+    },
+    {
+      "start": 2321.07,
+      "end": 2321.91,
+      "speaker": "adam-stacoviak",
+      "text": "Hopefully you'll find us."
+    },
+    {
+      "start": 2321.91,
+      "end": 2356.07,
+      "speaker": "jerod-santo",
+      "text": "You said, if you can't find us, just start asking people if they listen to the Change Like podcast. It's not really helpful advice. And yet they did. Like that was very cool. It takes guts. Shout out to Aaron, Randy and Pedro. And I think Trevor, although he might be a listener. I think Trevor's a listener. Those three aren't even listeners. Maybe they are now. But they just came out and hung out and they came to the show. And I thought that was pretty cool. It takes guts to do that. And so we appreciate it. I think they had fun. So I think it was worth the discomfort."
+    },
+    {
+      "start": 2356.07,
+      "end": 2365.06,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah, I agree with that. Names from Friday night. I don't remember any of them. So good job for you."
+    },
+    {
+      "start": 2365.06,
+      "end": 2366.94,
+      "speaker": "jerod-santo",
+      "text": "Remember Randy, Aaron and Pedro?"
+    },
+    {
+      "start": 2366.94,
+      "end": 2372.62,
+      "speaker": "adam-stacoviak",
+      "text": "Probably, but not by name. I'm so sorry. No offense, obviously."
+    },
+    {
+      "start": 2372.62,
+      "end": 2374.37,
+      "speaker": "jerod-santo",
+      "text": "That's why there's two of us."
+    },
+    {
+      "start": 2374.37,
+      "end": 2444.75,
+      "speaker": "adam-stacoviak",
+      "text": "I am. It's easy for me to get overwhelmed in public facing scenarios because I feel so much pressure to give my full love. I would say I'm a giver, you know? It takes a lot out of me. I'm not an extrovert. I'm an introvert that gets depleted through social interaction, not invigorated. I will say though, I was riding a high. So there's a part of that that's not true. I do get fueled, but I also get equally depleted. Well friends, I'm here with a brand new friend of mine, Kyle Galbraith, co-founder and CEO of depo.dev. Your builds don't have to be slow. You know that, right? Build faster, waste less time, accelerate Docker image builds, get up action builds, and so much more. So Kyle, we're in the hallway at our favorite tech conference and we're talking. How do you describe depo to me?"
+    },
+    {
+      "start": 2444.75,
+      "end": 2531.65,
+      "speaker": "jerod-santo",
+      "text": "And depo is a build acceleration platform. The reason we went and built it is because we got so fed up and annoyed with slow builds. For Docker image builds, get up action runners. And so we're relentlessly focused on accelerating builds. Today, we can make a container image build up to 40 times faster. We can make a get up action runner up to 10 times faster. We just rolled out depo cache. We essentially bring all of the cache architecture that backs both get up actions and our container image build product. And we open it up to other build tools like Bazel and turbo repo, SC cache, radial, things like that. So now we're starting to accelerate more generic types of builds and make those three to five times faster as well. And so in simple terms, the way you can think about depo is it's a build acceleration platform to save you hundreds of hours of build time per week. No matter whether that's build time that happens locally, that's build time that happens in a CI environment. We fundamentally believe that the future we want to build is a future where builds are effectively near instant no matter what the build is. We want to get there by effectively rethinking what a build is and turn this paradigm on its head and say, hey, a build can actually be fast and consistently fast all the time. If we build out the compute and the services around that build to actually make it fast and prioritize performance as a top-level entity rather than an afterthought."
+    },
+    {
+      "start": 2531.65,
+      "end": 2563.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, okay friends, save your time, get faster builds with depo, Docker builds, faster get up action runners and distributed remote caching for Bazel, Go, Gradle, Turbo, Repo and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one-line code change. Learn more at depo.dev. Get started with a seven-day free trial. No credit card required. Again, depo.dev."
+    },
+    {
+      "start": 2563.64,
+      "end": 2626.34,
+      "speaker": "jerod-santo",
+      "text": "Well, let's change our focus to some technology here. Still avoiding the AI topic and let's talk Python. So one of the things they had is this admired and desired question where they asked people about certain tags, meaning like Stack Overflow tags. So technologies usually or concepts represented by a tag that the respondents desired or admired. And the distinction, I have to go read it again cause I didn't totally, it's like admired. Okay, I'll read their words. To better gauge hype versus reality, we created a visualization that shows the distance between the proportion of respondents who want to use a technology that's desired. So you desire to use it. And the proportion of users that have used the same technology in the past year and want to continue using it, that's admired. Did you track that?"
+    },
+    {
+      "start": 2626.34,
+      "end": 2628.1,
+      "speaker": "adam-stacoviak",
+      "text": "I'm tracking it."
+    },
+    {
+      "start": 2628.1,
+      "end": 2637.21,
+      "speaker": "jerod-santo",
+      "text": "So I can be like desired Rust, but I had never really used it. So I can't admire it because that would require use. That's how they're separating the hype cycle. Okay."
+    },
+    {
+      "start": 2637.21,
+      "end": 2639.71,
+      "speaker": "adam-stacoviak",
+      "text": "Cause I get to be hyped about it. It's connection to the hype essentially."
+    },
+    {
+      "start": 2639.71,
+      "end": 2640.55,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2640.55,
+      "end": 2641.57,
+      "speaker": "adam-stacoviak",
+      "text": "It's making hype real."
+    },
+    {
+      "start": 2641.57,
+      "end": 2659.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly. And from that said, I want to talk about UV. UV is a Python package manager built in Rust and it's the most admired Stack Overflow tag this year. UV, have you heard of UV Adam?"
+    },
+    {
+      "start": 2659.74,
+      "end": 2666.31,
+      "speaker": "adam-stacoviak",
+      "text": "I have not heard of UV. In this context, no, but in other context, yes."
+    },
+    {
+      "start": 2666.31,
+      "end": 2667.43,
+      "speaker": "jerod-santo",
+      "text": "You know, ultraviolet."
+    },
+    {
+      "start": 2667.43,
+      "end": 2668.33,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 2668.33,
+      "end": 2673.95,
+      "speaker": "jerod-santo",
+      "text": "All right, so I haven't used UV, so I guess I desire it more than I admire it."
+    },
+    {
+      "start": 2673.95,
+      "end": 2677.35,
+      "speaker": "adam-stacoviak",
+      "text": "We do desire it. We think the way you install Python packages is weird."
+    },
+    {
+      "start": 2677.35,
+      "end": 2746.39,
+      "speaker": "jerod-santo",
+      "text": "Exactly. We know that, yeah. Yeah, so this is why I'm excited because this has been a long standing bugaboo for the Python community is like, and for the community that has to use Python because they're trying to do other stuff and Python is so prevalent, right? It's like package management is weird, requirements.text, et cetera, like the weirdness of that. Pip and the other stuff. I made a whole show with my friend Brett Cannon just like telling us how to do it right because it's weird. And UV is a relatively new technology. That's a better Python package manager by Charlie Marsh. Charlie Marsh, a developer who's building Astral, which is high performance tools for Python in Rust. Of which UV is one. And he's one, oh, let's see what I did there. The hearts of many Stack Overflow respondents and just developers in general. People really love UV. It's solving their problem. And did you know this, Adam? Charlie will be on the podcast in September. So he's coming up. He's gonna be joining us."
+    },
+    {
+      "start": 2746.39,
+      "end": 2748.05,
+      "speaker": "adam-stacoviak",
+      "text": "That'll be fun. I didn't know that."
+    },
+    {
+      "start": 2748.05,
+      "end": 2750.85,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so there's a teaser in there."
+    },
+    {
+      "start": 2750.85,
+      "end": 2753.28,
+      "speaker": "adam-stacoviak",
+      "text": "I'm excited about that."
+    },
+    {
+      "start": 2753.28,
+      "end": 2766.88,
+      "speaker": "jerod-santo",
+      "text": "But yeah, 74% the most admired. I mean, he's beating out large language models. He's beating out Tailwind. He's beating out Delphi."
+    },
+    {
+      "start": 2766.88,
+      "end": 2767.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2767.84,
+      "end": 2774.39,
+      "speaker": "jerod-santo",
+      "text": "Wow, well, a lot of people probably don't know what Delphi is. He's beating out Pollers. I don't even know what Pollers is."
+    },
+    {
+      "start": 2774.39,
+      "end": 2775.91,
+      "speaker": "adam-stacoviak",
+      "text": "Even Ollama."
+    },
+    {
+      "start": 2775.91,
+      "end": 2782.33,
+      "speaker": "jerod-santo",
+      "text": "He's beating them all, man. Charlie Marsh and UV winning, winning."
+    },
+    {
+      "start": 2782.33,
+      "end": 2801.4,
+      "speaker": "adam-stacoviak",
+      "text": "So there's obviously the context of UV, but I think just this spectrum of desire and admire. I think that's a really interesting measure because that's hype and hype and reality, right? Hype versus reality is what that essentially stands for in my brain."
+    },
+    {
+      "start": 2801.4,
+      "end": 2806.04,
+      "speaker": "jerod-santo",
+      "text": "Yeah, because desired is kind of a hype and then admired means like, no, you're actually using it. You still like it, right?"
+    },
+    {
+      "start": 2806.04,
+      "end": 2867.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you bought the hype and you tried it and you're using it. You're like, okay, this is actually, this was what they said it would be. And I agree. I'm gonna keep using this thing. So going back to your desire for Stack Overflow to remain, this is a reason why I would want it to remain. I don't know where we can get this data otherwise. Maybe the LLMs will expose this to us and maybe with a much larger and maybe potentially more accurate data set. But this kind of range here alone from the desired and admired is cool. It is cool. Yeah, I mean, this is signal versus noise. This is what we've tried to produce since our inception, which was open source is moving fast. There's so much happening out there. What's worth your attention? Has always been our thesis of content. And I like this, obviously, thank you for getting him on and September and all that good stuff because we get to examine, you know, this desire versus admire scenario and what exactly is happening there. But it's a cool measure."
+    },
+    {
+      "start": 2867.84,
+      "end": 2895.98,
+      "speaker": "jerod-santo",
+      "text": "It is a very cool measure. And it seems like UV itself has grown as a way of solving the Python problem. Python continues to grow. So in the programming, scripting and markup languages section, Python capturing almost 58% of all respondents using it behind only SQL."
+    },
+    {
+      "start": 2895.98,
+      "end": 2896.82,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2896.82,
+      "end": 2921.95,
+      "speaker": "jerod-santo",
+      "text": "HTML, which is, of course. Yeah, databases and then the web. So HTML, CSS and number two is 62%. And then of course, JavaScript, which has eaten the world and continues to is used by 66% of respondents. I assume that includes TypeScript. So I don't see TypeScript as its own category. Good job surveyors. Some surveyors split those into two."
+    },
+    {
+      "start": 2921.95,
+      "end": 2923.61,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, is it? It's there, 43%."
+    },
+    {
+      "start": 2923.61,
+      "end": 2924.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah, underbash."
+    },
+    {
+      "start": 2924.45,
+      "end": 2927.42,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, see, that's weird. It blended in."
+    },
+    {
+      "start": 2927.42,
+      "end": 2928.26,
+      "speaker": "jerod-santo",
+      "text": "It did blend in."
+    },
+    {
+      "start": 2928.26,
+      "end": 2932.66,
+      "speaker": "adam-stacoviak",
+      "text": "Well, if you add those two together, that's like 100%. It's tremendous. Yeah, it's huge."
+    },
+    {
+      "start": 2932.66,
+      "end": 2947.18,
+      "speaker": "jerod-santo",
+      "text": "So if you had JavaScript and TypeScript, you got 100%. Now, some of those people are using TypeScript, but they also answered yes on JavaScript because they know. I mean, everybody pretty much knows."
+    },
+    {
+      "start": 2947.18,
+      "end": 2950.7,
+      "speaker": "adam-stacoviak",
+      "text": "Where somebody only entered JavaScript because they thought it meant both."
+    },
+    {
+      "start": 2950.7,
+      "end": 2968.02,
+      "speaker": "jerod-santo",
+      "text": "Exactly. Is that what you meant? And then later they saw TypeScript and they're like, oh, I should mark that one too. Someone needs to fix this bug. They needed to be like, make a category called like TypeScript not JavaScript or I don't know, JavaScript not TypeScript or I don't know. Anyways."
+    },
+    {
+      "start": 2968.06,
+      "end": 2970.3,
+      "speaker": "adam-stacoviak",
+      "text": "So you can have that separation, yeah."
+    },
+    {
+      "start": 2970.3,
+      "end": 2976.3,
+      "speaker": "jerod-santo",
+      "text": "So Python though, saw a 7% point increase over 2024 to 2025."
+    },
+    {
+      "start": 2977.68,
+      "end": 2980.02,
+      "speaker": "adam-stacoviak",
+      "text": "That's a lot."
+    },
+    {
+      "start": 2980.02,
+      "end": 2984.26,
+      "speaker": "jerod-santo",
+      "text": "That's a pretty big increase, especially for a language that's been around for like 30 years, right?"
+    },
+    {
+      "start": 2984.26,
+      "end": 3043.96,
+      "speaker": "adam-stacoviak",
+      "text": "Scroll down to the number of people who submitted to this one. I can't see it in my view. Okay, so 31,700 responded to this question, which is 64% of the total respondents of the whole survey. I don't know about you, but I feel like the web is kind of default. We should keep measuring it of course, but I'm not surprised it's up there at the top because what else do you choose? And there is no other choice besides HTML, CSS, and then obviously JavaScript. So I feel like those are naturally gonna be at the top. So Python kind of is the true number one, aside from SQL, which is more and more understanding of databases, which totally makes sense as we move into the next era of all the things. Databases have always been there, but they've been super prominent as companies, open source, et cetera, for the last decade. But Python has been steadily growing year after year."
+    },
+    {
+      "start": 3043.96,
+      "end": 3095.52,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and I think that that trend is actually shows up in another question about web frameworks and technologies. Because on that one, we have Node.js at number one with 48.7%, React number two, 44.7%, then jQuery number three. Hello, jQuery. Hello darkness, my old friend. But the interesting rise here is FastAPI, which is a Python-based web framework. It has had a five point increase over the last year. So this is a significant shift up for FastAPI, which I had previously not heard of until maybe like six months ago. And that's because people are building more Python stuff with APIs and MCP and that kind of thing."
+    },
+    {
+      "start": 3098.35,
+      "end": 3106.71,
+      "speaker": "adam-stacoviak",
+      "text": "Right, they're not having to worry about the interface. The interface is somewhere else. It's the condo to the data that they're trying to engineer around."
+    },
+    {
+      "start": 3106.71,
+      "end": 3127.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so Python continues to grow despite being dominant. Pretty cool, pretty accomplished. What else? What else is interesting here? Do we broach the AI tooling topic or do we just continue to avoid it for now?"
+    },
+    {
+      "start": 3128.62,
+      "end": 3137.41,
+      "speaker": "adam-stacoviak",
+      "text": "I just live in the world, man. I just do what I gotta do. If I have to talk about it, I do. If I don't, then I don't. I'm cool with it."
+    },
+    {
+      "start": 3137.41,
+      "end": 3146.07,
+      "speaker": "jerod-santo",
+      "text": "All right, well, let's start with an anecdote because I feel like we've been very bullish of late, maybe because I have been more bullish of late than I was."
+    },
+    {
+      "start": 3146.07,
+      "end": 3151.31,
+      "speaker": "adam-stacoviak",
+      "text": "I've had the ability to also be bullish because I've already been bullish. I can pile on."
+    },
+    {
+      "start": 3151.31,
+      "end": 3175.52,
+      "speaker": "jerod-santo",
+      "text": "Yes, and I've been singing Claude Code's praises quite a bit. Very good. And here's a story. So I think it was last show after we quit recording with Nick Nisi. We had just talked for a long time about my new Claude Code habit and how much Nick is using it, et cetera, et cetera. Ultra think, if you recall that conversation."
+    },
+    {
+      "start": 3175.52,
+      "end": 3177.22,
+      "speaker": "adam-stacoviak",
+      "text": "I tried that recently."
+    },
+    {
+      "start": 3177.22,
+      "end": 3178.06,
+      "speaker": "jerod-santo",
+      "text": "Did it work?"
+    },
+    {
+      "start": 3178.38,
+      "end": 3187.5,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I got a result. I was happy with it. I want to think that my ultra think exclamation point had something to do with it. I don't know though."
+    },
+    {
+      "start": 3187.5,
+      "end": 3264.63,
+      "speaker": "jerod-santo",
+      "text": "So after that conversation, we're hanging out with Nick in the post show and we're talking about CPU.fm coming soon. We now have a design. We haven't been completely dragging our feet, just sort of dragging our feet, but we're making progress. And we're telling Nick that it's time for me to take the design, which is in Figma, and put it into our Rails application so we can get the sucker out there. And I said, Nick, I don't want to write any code. Did you remember this, Adam? I think I told you guys. How can I do this without writing a single line of code? I was very hyped. And Nick said, well, there's a Figma MCP server. And so you turn that on and you point Claude Code at your design file or your project. And then you tell it to turn that into a webpage. Well, that's what I did this morning. I turned it on, only it wouldn't turn on because I needed to first upgrade our plan because Figma needs to make money. And so we went from starter free to pro, 20 bucks a month for me, 20 bucks a month for you. Spoiler, we'll be turning this off soon. So one month upgrade."
+    },
+    {
+      "start": 3264.63,
+      "end": 3268.63,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, one month trial. I hate those annual plans. The requirement goes annual."
+    },
+    {
+      "start": 3268.63,
+      "end": 3334.88,
+      "speaker": "jerod-santo",
+      "text": "I know, they get ya. Cause it's like say 16% and you're like, I don't want to spend $900 right now. So I went with the monthly, 20 bucks a month. I had to turn us both on because we still, we both actively use it. And that allowed me to get inside of Figma and turn on the MCP server. This is my first MCP server of people. So here's my experience. And I went to Claude Code and I said, hey, can you use the Figma MCP server? And Claude was like, no, I don't know how to do that. So I taught it how to do that. And then I said, basically that take this design and put it into this rails, you know, index with Tailwind. And the first thing I said is I can't do that cause it requires way too many tokens. And so instead of like, instead of reading the entire, cause this is like the whole webpage is one Figma project. And I pointed at the entire thing at first. And I said, instead of that, I'm gonna take a picture of it and then I'll ingest the picture. And then I'll reproduce the picture. And I said, okay, fine."
+    },
+    {
+      "start": 3334.88,
+      "end": 3336.14,
+      "speaker": "adam-stacoviak",
+      "text": "Good for you, go do it."
+    },
+    {
+      "start": 3336.14,
+      "end": 3337.2,
+      "speaker": "jerod-santo",
+      "text": "Go do it."
+    },
+    {
+      "start": 3337.2,
+      "end": 3338.92,
+      "speaker": "adam-stacoviak",
+      "text": "Well, however you do what you do, do it."
+    },
+    {
+      "start": 3338.92,
+      "end": 3380.79,
+      "speaker": "jerod-santo",
+      "text": "It goes away. It probably takes like 45 seconds, maybe a minute. I don't know. Yeah. And it writes a new rails view and all of the CSS are the Tailwind classes or whatever, whatever, whatever. And it like triumphantly declares success. Now it says, reload that page and see what you think. It was complete dog trash, dude. It was like a child. It was like a, you take like a Picasso. Cause this is a high fidelity comp. You've seen it. Like we've both seen it. Like this is a very nice website. It's like taking a child and saying, hey, can you reproduce that Picasso for me? You know, in the next 45 seconds. And then they draw stick figures and stuff and like present it to you. And it's your kid. So you have to be nice and be like, oh, it looks good."
+    },
+    {
+      "start": 3380.79,
+      "end": 3383.27,
+      "speaker": "adam-stacoviak",
+      "text": "Such a great effort. I see what you did here."
+    },
+    {
+      "start": 3383.27,
+      "end": 3385.63,
+      "speaker": "jerod-santo",
+      "text": "This is so bad, dude. It was so bad."
+    },
+    {
+      "start": 3385.63,
+      "end": 3386.67,
+      "speaker": "adam-stacoviak",
+      "text": "Yes."
+    },
+    {
+      "start": 3386.67,
+      "end": 3449.5,
+      "speaker": "jerod-santo",
+      "text": "I was so disappointed. And then I was like, well, okay. At least it had the structure though. Like it had the sections. It was like the content of the sections was really bad. So I'm like, okay, that's a start. How about now? And maybe it's because it took a picture. So I said, okay, there it is. Now let's focus in on like the hero section. Now we've just limited the scope and I went and selected that in Figma. So it uses like the currently selected object or whatever. I said, now that we have the framework, I want you to focus on the hero section. Don't take a picture. Like actually use what Figma gives you and just reproduce that pixel for pixel. I can't remember what I said, something like that. Like make it look exactly like the Figma thing. And it went away to this thing and it had checked, you know, a checklist and it checks everything off and it declared victory. Like go check it out. It was like lipstick on dog trash, dude. It was just terrible. So I'm disappointed. And I'm like, dang, I'm gonna have to code this thing. Aren't I?"
+    },
+    {
+      "start": 3449.5,
+      "end": 3450.98,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh."
+    },
+    {
+      "start": 3450.98,
+      "end": 3465.36,
+      "speaker": "jerod-santo",
+      "text": "So that leads us to Stack Overflow conclusion. 66% of developers are frustrated with AI solutions that are almost right. They're almost right. But that makes them wrong."
+    },
+    {
+      "start": 3465.36,
+      "end": 3473.96,
+      "speaker": "adam-stacoviak",
+      "text": "Can we dig into the, Yes, we can. some details there? Well, not the question, your experience. Oh, my experience, yeah, of course."
+    },
+    {
+      "start": 3473.96,
+      "end": 3477.74,
+      "speaker": "jerod-santo",
+      "text": "I do wanna go to the graph. Yeah, sure. Go ahead. Ask away."
+    },
+    {
+      "start": 3477.74,
+      "end": 3489.08,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so I'm unfamiliar with this. So did it let you, are you able to say using Tailwind or using, you know, class-based utilities?"
+    },
+    {
+      "start": 3489.08,
+      "end": 3531.94,
+      "speaker": "jerod-santo",
+      "text": "I told you to use Tailwind. I already had Tailwind set up in the Rails app. So all I had to do is like use it. And so, yes, I said using Tailwind, which it did. Like if you go look at the HTML, it has all the Tailwind classes. But where it really falls down is like, it's not, like we have like the CPU logo, you know? And it's not gonna go like take that asset out of Figma and put it into a webpage in any sort of way, which is what I'm gonna do. Like that's what you're gonna do, right? Like you're gonna say, okay, here's a logo. However, what's the best way to get it in? No, it just like reproduces it in HTML with like, it's like a circle and it says CPU. It's like literally a circle, like a red circle or blue. I don't know what color."
+    },
+    {
+      "start": 3531.94,
+      "end": 3543.76,
+      "speaker": "adam-stacoviak",
+      "text": "Could you have then said for assets like that, don't use that. Just put a standard known size for a future SVG logo replacement."
+    },
+    {
+      "start": 3543.76,
+      "end": 3545.4,
+      "speaker": "jerod-santo",
+      "text": "Like could you have said- I probably could."
+    },
+    {
+      "start": 3545.4,
+      "end": 3549.36,
+      "speaker": "adam-stacoviak",
+      "text": "Give me the framework, the bones, and I'll fill it in with the good stuff."
+    },
+    {
+      "start": 3549.36,
+      "end": 3563.12,
+      "speaker": "jerod-santo",
+      "text": "I probably could. And there is a blog post out on Anthropix site, like how best to use this thing, or maybe not on the Anthropix, on Figma's website, about how best to use it."
+    },
+    {
+      "start": 3563.12,
+      "end": 3563.96,
+      "speaker": "adam-stacoviak",
+      "text": "You're like, I'm not reading that."
+    },
+    {
+      "start": 3563.96,
+      "end": 3565.48,
+      "speaker": "jerod-santo",
+      "text": "And I think, yeah, I mean, yeah."
+    },
+    {
+      "start": 3565.76,
+      "end": 3566.6,
+      "speaker": "adam-stacoviak",
+      "text": "I'm not reading that."
+    },
+    {
+      "start": 3566.6,
+      "end": 3654.52,
+      "speaker": "jerod-santo",
+      "text": "I'm not reading that. I don't really, I don't have the patience. I'm going on my own, man. I got this. I'm frustrated and I'm moving on. Like I'm back where I was with Gemini when it wrote that crappy function. When I was like, no, this function sucks. And that's why I'm like this, front end sucks. Now I got to decide, am I going to rip it all out and start fresh or am I going to use like at least the skeleton it has in place? I don't know. I stopped right there because we need to record this. So I stopped working on it, but it brought me back to earth a little bit from where I was, which was cloud nine, because cloud code had impressed me so many times. But when it comes to this, I mean, this is for me, gonna be the bomb diggity is like Figma design to HTML, like to like pixel perfect, responsive, et cetera, et cetera, like optimized. That's going to save people so much time and money. Like I will love that fee. I was very hopeful that this would work. I'm also not willing to like continue to try it though. You know, and maybe that's me. I'm just frustrated and going back to my old ways on this particular and waiting, I'll try it again later. But the stuff that you're saying, like, could you tell it to do this, that or the other thing? Probably, but I just don't think I have the patience for that because what if it doesn't work? And now I've just wasted more time. I got my early indicator is it's not going to get to the fidelity that we want. And there's no there that like, it's not going to cross the chasm with current tools."
+    },
+    {
+      "start": 3655.28,
+      "end": 3665.48,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think for like a random landing page that you want to get, I mean, maybe that's even a bad example, like where starter. Yeah, you want to, you want something with good bones."
+    },
+    {
+      "start": 3665.48,
+      "end": 3702.62,
+      "speaker": "jerod-santo",
+      "text": "Now what you can do, and it is cool. Cause you can like, it's plugged into it now. So you can say like, and I haven't tried this yet, but they tell me, you can say this, like take all of the colors out of that Figma file and like use those whenever you're doing any sort of component creation or something. Like you can have it use the colors, maybe like copy rate gradients or the exact radius for rounded racks and stuff, or for rounded corners. And that's cool as like a little bit of a shim, but it's not going to just take a Figma design and turn it into a webpage, which the world wants. The world wants that feature."
+    },
+    {
+      "start": 3702.62,
+      "end": 3725.44,
+      "speaker": "adam-stacoviak",
+      "text": "What is V.0 doing then with Vercel's thing? How is that? I mean, is it focused on components versus bigger picture? Is that why you think it's maybe more used and maybe more popular? Cause it's like getting to a component result versus a full on painting, you know, make the tree nicer, not make the whole painting nicer."
+    },
+    {
+      "start": 3725.44,
+      "end": 3729.24,
+      "speaker": "jerod-santo",
+      "text": "Yeah, maybe they also, and I don't know V.0 personally, like I haven't used that one."
+    },
+    {
+      "start": 3729.24,
+      "end": 3730.52,
+      "speaker": "adam-stacoviak",
+      "text": "It's a little Bob Ross joke by the way."
+    },
+    {
+      "start": 3730.52,
+      "end": 3731.68,
+      "speaker": "jerod-santo",
+      "text": "That's a, that's very."
+    },
+    {
+      "start": 3731.68,
+      "end": 3733.24,
+      "speaker": "adam-stacoviak",
+      "text": "I should have said happy a little tree, I'm not bad."
+    },
+    {
+      "start": 3733.24,
+      "end": 3747.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I don't want to give you the shout out. The ACK, reference acknowledged. I think a lot of those are using that one component library, that Shaw CDN or Shawdee. I don't know what it's called. It's the worst name ever. You know what I'm talking about?"
+    },
+    {
+      "start": 3747.16,
+      "end": 3748.62,
+      "speaker": "adam-stacoviak",
+      "text": "No, is it called Shawdee?"
+    },
+    {
+      "start": 3749.52,
+      "end": 3753.96,
+      "speaker": "jerod-santo",
+      "text": "No, Shawdee would be cool. It's like Shaw CDN or Shawdee."
+    },
+    {
+      "start": 3753.96,
+      "end": 3759.2,
+      "speaker": "adam-stacoviak",
+      "text": "I'm sorry, I was just thinking like calling Shawdee, but like the slang version of Shawdee."
+    },
+    {
+      "start": 3759.2,
+      "end": 3788.94,
+      "speaker": "jerod-santo",
+      "text": "It's your birthday. This one, UCN, Shad, CN. What, what do people call this thing? Anyways, this is a very popular thing. It's by Vercel. I think it's not by Vercel. I should say that differently. I think Vercel has hired the person that built this. I think it's named after the person. So the person's name is Shaw DCN or Shad, CN. And they built this component library."
+    },
+    {
+      "start": 3788.94,
+      "end": 3792.2,
+      "speaker": "adam-stacoviak",
+      "text": "My assumption is Chinese. It's a CN maybe."
+    },
+    {
+      "start": 3792.2,
+      "end": 3793.49,
+      "speaker": "jerod-santo",
+      "text": "Maybe."
+    },
+    {
+      "start": 3793.49,
+      "end": 3795.57,
+      "speaker": "adam-stacoviak",
+      "text": "Just a guess. Or it's a CDN."
+    },
+    {
+      "start": 3795.61,
+      "end": 3828.34,
+      "speaker": "jerod-santo",
+      "text": "There are 91,000 stars on GitHub. And so a lot of these coded from scratch, vibe coding tools like V0 are just using this and they're all components, like you said. And so they can just use this and it will look like this. And for your startups, you know, first version or whatever, it's good enough. But they're not going to take an existing design and build it out. Unless that design's like wireframe. So they're not going to take something that like a designer did and turn that into a webpage. That's like still a world of front-enders, you know?"
+    },
+    {
+      "start": 3828.34,
+      "end": 3898.37,
+      "speaker": "adam-stacoviak",
+      "text": "Right. Yeah. That's where I thought, maybe that's where my question came from was if you're using Tailwind, Tailwind has a lot of really well-known components out there. My assumption is that a lot of the, you know, wrapping divs you gotta do and the various utility classes you gotta use to get to these layouts is pretty well known. And so I thought, well, it would be smart enough to think like that, but clearly it's not because it's, I mean, what do we expect? We're expecting a machine to do both the thinking and the art in the same motion. And I think even as a human, I have a hard time doing that. Like not that I'm better than these LLMs, but we're the original art creators. And I'm using me because I'm the best example I know of because I know me, right? It's hard to do both the thinking and the artistic side. That's why you have a left and right brain analogy for human beings. Well, I'm more right brain prone or left brain prone kind of thing. They went like that. Like we're asking it to do potentially in the moment way too much, like technical code and visual design."
+    },
+    {
+      "start": 3898.37,
+      "end": 4014.13,
+      "speaker": "jerod-santo",
+      "text": "It's a lot. Sort of, I think that, so our designer, John Henry, if you go read the Figma file, like that project, he has embedded a lot of the thinking into Figma. So there are- So good layers and stuff. There's layers, there's groupings, everything's logical. Like there's a structure in there that has been thought through. And so I feel like a machine could be able to do that. Could be like, okay, I'm gonna take this and I'm not sure what it is over there in Figma. I think it's probably like all a bunch of SVGs, but whatever this tree structure that I'm getting from the MCP server that has all the information in it somewhere, I'm gonna translate that into HTML and CSS. I think we can get there without very much thinking. Now there are like on the specific like details, like how do I implement this picture? Should this be a PNG? Should it be an SVG? Should it be a this, that, the other thing? Should I use some sort of CSS based animations and stuff? Like, yeah, that might be a step beyond, but I think a static representation of a Figma project in HTML, I think that's possible. And so that's always kind of what I was expecting. Now, maybe the skeleton and the bones are there and I'm just getting too stuck up on how, they're too caught up. I don't feel very stuck up about this, but I do feel caught up on how bad it looks and how like when it did try to do a thing, I was like, you know, not good, dude, not good. But when I go back and look at what it has done, which I haven't done, I just stopped, so we record. Maybe, like I said, maybe the bones are good. Maybe the structure is good. Maybe I can just build from there and not have to throw it all away. But just trying to provide, you know, some color around my previously always bullish the last couple of weeks stance."
+    },
+    {
+      "start": 4014.13,
+      "end": 4015.61,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, total frustrations."
+    },
+    {
+      "start": 4015.61,
+      "end": 4034.68,
+      "speaker": "jerod-santo",
+      "text": "Yep, so people are kind of frustrated, or frustrated, 66% quote AI solutions that are almost right, but are wrong. And then people are also frustrated with debugging AI generated code and saying it's more time consuming than human generated code."
+    },
+    {
+      "start": 4034.68,
+      "end": 4054.45,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe not a great analogy, but this is what's coming to mind in the moment. Imagine you go in your rented car, right? And you get there and you stay in line, you prepay, you consider the insurance, whatever you gotta do. And you get in the car and it doesn't go. It's not a car. It just looks like a car."
+    },
+    {
+      "start": 4054.45,
+      "end": 4057.01,
+      "speaker": "jerod-santo",
+      "text": "It's not a car. I thought I ran out of set."
+    },
+    {
+      "start": 4057.33,
+      "end": 4058.49,
+      "speaker": "adam-stacoviak",
+      "text": "Or excited."
+    },
+    {
+      "start": 4058.49,
+      "end": 4059.33,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4059.33,
+      "end": 4060.33,
+      "speaker": "adam-stacoviak",
+      "text": "Right, like that's."
+    },
+    {
+      "start": 4060.33,
+      "end": 4066.97,
+      "speaker": "jerod-santo",
+      "text": "Yeah, almost the real thing is like worse than not even close because you are bamboozled, right?"
+    },
+    {
+      "start": 4066.97,
+      "end": 4070.24,
+      "speaker": "adam-stacoviak",
+      "text": "Bamboozled is very accurate."
+    },
+    {
+      "start": 4070.24,
+      "end": 4072.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's not a car."
+    },
+    {
+      "start": 4072.16,
+      "end": 4074.52,
+      "speaker": "adam-stacoviak",
+      "text": "This is, come on enterprise, try again."
+    },
+    {
+      "start": 4074.52,
+      "end": 4075.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4075.8,
+      "end": 4076.72,
+      "speaker": "adam-stacoviak",
+      "text": "You know?"
+    },
+    {
+      "start": 4076.72,
+      "end": 4077.56,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4077.56,
+      "end": 4079.67,
+      "speaker": "adam-stacoviak",
+      "text": "Can I get the car please?"
+    },
+    {
+      "start": 4079.67,
+      "end": 4084.55,
+      "speaker": "jerod-santo",
+      "text": "I want the actual website, not the thing that looks like a website, you know?"
+    },
+    {
+      "start": 4084.55,
+      "end": 4091.43,
+      "speaker": "adam-stacoviak",
+      "text": "Well, and even going back to the dinosaur era of this, which was PSD to HTML."
+    },
+    {
+      "start": 4091.43,
+      "end": 4092.82,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4092.82,
+      "end": 4096.9,
+      "speaker": "adam-stacoviak",
+      "text": "And for those who don't know what PSDs are, gosh, you live in a cool world."
+    },
+    {
+      "start": 4096.9,
+      "end": 4102.89,
+      "speaker": "jerod-santo",
+      "text": "This is a good analogy actually though. Cause there was similar frustrations. I'm not sure if you're going there."
+    },
+    {
+      "start": 4102.89,
+      "end": 4103.93,
+      "speaker": "adam-stacoviak",
+      "text": "Kind of, yeah, go ahead."
+    },
+    {
+      "start": 4103.93,
+      "end": 4105.61,
+      "speaker": "jerod-santo",
+      "text": "Go ahead. Yeah, finish your thought."
+    },
+    {
+      "start": 4105.61,
+      "end": 4143.13,
+      "speaker": "adam-stacoviak",
+      "text": "Well, mostly just that there was this idea that I as a designer can do really cool stuff. I can make it very cool looking, but somebody else has got to turn this into a real website. And that's the hard part. And you kind of want this pixel perfection, then you almost demand it. And the website kind of sucks from a braille standpoint when it comes to mobile or not mobile, which is a whole different era. Mobile first was post PSD to HTML. Right. And so you got all these anomalies along the way that could happen that sure it looks like it, but it doesn't function the way it should."
+    },
+    {
+      "start": 4143.13,
+      "end": 4147.13,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And even then you had more layers because you had the designer, right?"
+    },
+    {
+      "start": 4147.13,
+      "end": 4148.37,
+      "speaker": "adam-stacoviak",
+      "text": "Pun, is that a pun?"
+    },
+    {
+      "start": 4148.37,
+      "end": 4151.89,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Nice. The designer with their Photoshop layers."
+    },
+    {
+      "start": 4151.89,
+      "end": 4153.41,
+      "speaker": "adam-stacoviak",
+      "text": "That's right."
+    },
+    {
+      "start": 4153.41,
+      "end": 4178.67,
+      "speaker": "jerod-santo",
+      "text": "And they have pixel perfect perfection in their Photoshop file, right? That's what they want on the webpage and they know they're not going to get it, but they hope they get close. Then you have the PSD to HTML shop or person. A lot of times you'll just send this to a shop or send it back, right? There's even companies that would do this for you. It's big business. And you would spend a couple thousand dollars maybe. I don't know. Yeah."
+    },
+    {
+      "start": 4178.67,
+      "end": 4180.35,
+      "speaker": "adam-stacoviak",
+      "text": "1200 bucks. A finite amount of money."
+    },
+    {
+      "start": 4180.35,
+      "end": 4215.23,
+      "speaker": "jerod-santo",
+      "text": "Yeah. And you'd send the PSD file out and you get back to HTML and CSS. And that might look pretty stinking close to that file or maybe not. There'll be little things wrong. And then you have the developer who's implementing that into the site and they go open those HTML files and it's like div chaos. And it's incredibly brittle and hard to work with and terribly coded. Somehow they managed to make it look almost like the website design, but it was unusable trash when it came to the code quality."
+    },
+    {
+      "start": 4216.97,
+      "end": 4224.57,
+      "speaker": "adam-stacoviak",
+      "text": "Or break constantly as you changed it or anything with it. You added too much text to your birth the whole website."
+    },
+    {
+      "start": 4224.57,
+      "end": 4227.89,
+      "speaker": "jerod-santo",
+      "text": "Right. They're like space stuff with the ampersand and NBSP."
+    },
+    {
+      "start": 4227.89,
+      "end": 4229.33,
+      "speaker": "adam-stacoviak",
+      "text": "Or the actual break tag."
+    },
+    {
+      "start": 4229.33,
+      "end": 4251.25,
+      "speaker": "jerod-santo",
+      "text": "Yes. Lots of break tags. Lots of ampersand NBSPs with that non-breaking space. That's right. The invisible space. Like if I do seven of these, it'll push that thing over far enough, you know? And you're like, yeah, but that was just once. You could have put it in CSS and it would apply to every single element. But instead you have seven NBSPs 14 times."
+    },
+    {
+      "start": 4251.25,
+      "end": 4252.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4252.09,
+      "end": 4257.67,
+      "speaker": "jerod-santo",
+      "text": "Every time. So those are the bad old days. So I don't know. We're definitely better off than that."
+    },
+    {
+      "start": 4257.67,
+      "end": 4262.47,
+      "speaker": "adam-stacoviak",
+      "text": "Are you saying front-enders have a future then for a little bit? For the next few years? Heyday maybe?"
+    },
+    {
+      "start": 4262.59,
+      "end": 4266.55,
+      "speaker": "jerod-santo",
+      "text": "I think they're not going anywhere in the short term."
+    },
+    {
+      "start": 4266.55,
+      "end": 4268.87,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4268.87,
+      "end": 4313.17,
+      "speaker": "jerod-santo",
+      "text": "I think so. I do think just like everybody, their job will be evolving. But until you can hook these things up directly to Figma and say, codify this. And it just does. At that point, I think front-enders will be looking for something else to do with their time. Which would be great. Cause that's just a huge waste of time. I mean, it's not like a waste. You shouldn't be good at it. It's just like, it's an implementation detail of a bigger project that nobody really wants to have to do. Like if it were easy, nobody would be like, nah, I'm gonna do this anyways."
+    },
+    {
+      "start": 4313.17,
+      "end": 4314.01,
+      "speaker": "adam-stacoviak",
+      "text": "Right."
+    },
+    {
+      "start": 4314.01,
+      "end": 4343,
+      "speaker": "jerod-santo",
+      "text": "It'd just be done. And there's lots of people trying to solve that problem. Like the Nordcraft folks, like Figma themselves. What if we could just take the designer and the developer and make them work together on the same thing? So there is no translation step. People are trying to solve that problem. Anyways, vibe coding not really a thing, Stack Overflow says. Most respondents are not vibe coding. 72.2% in fact."
+    },
+    {
+      "start": 4343,
+      "end": 4355.84,
+      "speaker": "adam-stacoviak",
+      "text": "It is burgeoning. Yeah. And it's not their core audience. So of the folks, we already identified who has accounts, right? Yes. And wasn't it a large majority of the survey respondents had accounts?"
+    },
+    {
+      "start": 4357.55,
+      "end": 4358.39,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 4358.39,
+      "end": 4366.91,
+      "speaker": "adam-stacoviak",
+      "text": "And most of them had accounts for 15- For a long time. At least six years, right? A lot of them. So it makes sense to me that vibe coding is not represented."
+    },
+    {
+      "start": 4366.91,
+      "end": 4368.59,
+      "speaker": "jerod-santo",
+      "text": "It's not true. Yeah, totally."
+    },
+    {
+      "start": 4368.59,
+      "end": 4370.25,
+      "speaker": "adam-stacoviak",
+      "text": "Totally. It's true amongst that group though."
+    },
+    {
+      "start": 4370.25,
+      "end": 4389.28,
+      "speaker": "jerod-santo",
+      "text": "My favorite part about this one is you can answer no, which 72% did. And you can answer no emphatically, which means like, not only am I not doing it, but I despise the fact that you asked me about this thing. And 5% of people said no emphatically."
+    },
+    {
+      "start": 4389.28,
+      "end": 4392.36,
+      "speaker": "adam-stacoviak",
+      "text": "Of 26,000 people, that's a pretty huge percentage."
+    },
+    {
+      "start": 4393.2,
+      "end": 4395.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4395.18,
+      "end": 4396.86,
+      "speaker": "adam-stacoviak",
+      "text": "What's the number there? 26,500."
+    },
+    {
+      "start": 4396.86,
+      "end": 4398.42,
+      "speaker": "jerod-santo",
+      "text": "21% would be 260, right?"
+    },
+    {
+      "start": 4398.42,
+      "end": 4400.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, do the math."
+    },
+    {
+      "start": 4400.14,
+      "end": 4401.02,
+      "speaker": "jerod-santo",
+      "text": "1200, maybe?"
+    },
+    {
+      "start": 4403.86,
+      "end": 4406.54,
+      "speaker": "adam-stacoviak",
+      "text": "13-ish, yeah, almost 1400."
+    },
+    {
+      "start": 4406.54,
+      "end": 4407.83,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4407.83,
+      "end": 4416.14,
+      "speaker": "adam-stacoviak",
+      "text": "That's rounded. That's- And so what was the question again? They were saying no to? Vibe coding, okay."
+    },
+    {
+      "start": 4416.14,
+      "end": 4419.97,
+      "speaker": "jerod-santo",
+      "text": "Is vibe coding something you do in your professional development work?"
+    },
+    {
+      "start": 4419.97,
+      "end": 4465.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm not excited about vibe coding personally, but I can see, see there's so many, like all things, they exist on a spectrum, right? Vibe coding is not somebody who doesn't know how to write software, speaking into a microphone and getting software out. That's one, that's the, I would probably say the status quo, what people think it is, but it's also that you can vibe code a certain feature, a certain thing, not have to be like a full on green code base from zero to one. It's more like, well, just add a feature. I don't know. I'm not personally vibe coding and you tried, at least front end wise."
+    },
+    {
+      "start": 4465.05,
+      "end": 4472.09,
+      "speaker": "jerod-santo",
+      "text": "Well, I do vibe code scripts basically. So I just tell Claude Code to write a script that does a thing and as long as the script works, I don't look at it."
+    },
+    {
+      "start": 4472.09,
+      "end": 4495.83,
+      "speaker": "adam-stacoviak",
+      "text": "Right. So in this case, and that's what I mean by the spectrum is like, does that, are those folks just upset that you even asked them and they're saying no and then no emphatically? Yeah. Or is it a true no? Like, is it- It's no emphatically. The human resisting the future. Obviously that 1300 or so and the emphatically, that makes a lot more sense."
+    },
+    {
+      "start": 4495.83,
+      "end": 4499.31,
+      "speaker": "jerod-santo",
+      "text": "It's more like I don't vibe code and I'm never going to vibe code. So leave me alone."
+    },
+    {
+      "start": 4499.31,
+      "end": 4501.35,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. That's how I read it at least."
+    },
+    {
+      "start": 4501.35,
+      "end": 4510.89,
+      "speaker": "jerod-santo",
+      "text": "All right. Well, anything else that jumped out to you? Obviously there's a way more on this survey. We're not here to be comprehensive or anything that we want to talk about before we say goodbye."
+    },
+    {
+      "start": 4510.89,
+      "end": 4529.41,
+      "speaker": "adam-stacoviak",
+      "text": "I think there's obvious ones around here. As I scroll it, look at when things jump out, like Claude Sonnet is the most admired AI model. And I assume they're doing the desire versus admired spectrum there, which is cool. So we look at Claude Sonnet, it was 33%."
+    },
+    {
+      "start": 4529.41,
+      "end": 4530.45,
+      "speaker": "jerod-santo",
+      "text": "Desired."
+    },
+    {
+      "start": 4530.45,
+      "end": 4543.07,
+      "speaker": "adam-stacoviak",
+      "text": "Desired. And that's of 26,000 respondents. And it was pretty high on the, gosh, it's really hard to navigate this going back and forth."
+    },
+    {
+      "start": 4543.07,
+      "end": 4546.31,
+      "speaker": "jerod-santo",
+      "text": "The admired is the red one. So 67.5% admire."
+    },
+    {
+      "start": 4546.31,
+      "end": 4574.33,
+      "speaker": "adam-stacoviak",
+      "text": "I had the data in front of me. I was scrolled perfectly and now I'm not. So I can't answer my own question anymore. But it was pretty high. It was pretty high. There was a lot of folks liking it a lot. I would say make this thing easier to dig into and not lose your place and not have to, you know, open a new tab just to kind of keep it place. But that's me asking for a lot. Some AI probably vibe this randomly, fast."
+    },
+    {
+      "start": 4574.33,
+      "end": 4583.85,
+      "speaker": "jerod-santo",
+      "text": "I don't know, it's pretty good. I mean, it's not perfect, but I think there was humanity involved."
+    },
+    {
+      "start": 4583.85,
+      "end": 4660.12,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think one thing that's clear is that, you know, obviously AI is getting better and better. And I think for now, there's a lot of really good use and provided your, I guess, provided your patient with, you know, having to maintain AI slop or generate AI slop. I think the folks doing that are the ones who could not originally do software development anyways. Or they're being told by companies, you've got to do this because everyone here is a developer now, right? We heard that at Build, everyone's a developer. Everyone's a builder. And I kind of agree with that to a certain point, but I mean, an engineer is an engineer. I don't care how you slice it. The engineer can make something from zero to one with docs and their own gumption and their own abilities, and not get stuck behind a poorly-vibed solution that didn't work. They will find the path forward and they will deliver it. Whereas everyone else is more like trying to leverage it and getting poor results. Well, the hype is there. For some, it's real. For others, it's a dream."
+    },
+    {
+      "start": 4660.12,
+      "end": 4661.84,
+      "speaker": "jerod-santo",
+      "text": "In others, it's a nightmare."
+    },
+    {
+      "start": 4661.84,
+      "end": 4665.46,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, for others, it's an absolute nightmare, emphatically."
+    },
+    {
+      "start": 4665.78,
+      "end": 4667.38,
+      "speaker": "jerod-santo",
+      "text": "Yeah, synthetically so."
+    },
+    {
+      "start": 4667.38,
+      "end": 4672.74,
+      "speaker": "adam-stacoviak",
+      "text": "I am not surprised that VS Code is still at the top. Good for them. They've earned that."
+    },
+    {
+      "start": 4672.74,
+      "end": 4682.53,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the one that surprised me from that was actually, not that VS Code is the top-used IDE, but that Visual Studio was number two."
+    },
+    {
+      "start": 4683.01,
+      "end": 4686.52,
+      "speaker": "adam-stacoviak",
+      "text": "And Notepad? Third?"
+    },
+    {
+      "start": 4686.52,
+      "end": 4688.96,
+      "speaker": "jerod-santo",
+      "text": "Notepad++. It's better."
+    },
+    {
+      "start": 4688.96,
+      "end": 4694.06,
+      "speaker": "adam-stacoviak",
+      "text": "Is that your version of it's better? I love that. I've never heard that before. I just want you to do it again."
+    },
+    {
+      "start": 4694.06,
+      "end": 4696.02,
+      "speaker": "jerod-santo",
+      "text": "I just did that on the fly there."
+    },
+    {
+      "start": 4696.34,
+      "end": 4701.47,
+      "speaker": "adam-stacoviak",
+      "text": "Notepad++, 27.4% of 26,000 people."
+    },
+    {
+      "start": 4702.99,
+      "end": 4708.65,
+      "speaker": "jerod-santo",
+      "text": "So what that's telling me is that there's a lot of Windows users taking this, right?"
+    },
+    {
+      "start": 4708.65,
+      "end": 4710.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 4710.36,
+      "end": 4727.8,
+      "speaker": "jerod-santo",
+      "text": "It's the number three most used dev IDE. It beats Vim. It beats Cursor. It beats NeoVim, of course. It destroys Xcode. It destroys Zed. It makes wins a group. Yeah, I mean. Like a piker."
+    },
+    {
+      "start": 4727.8,
+      "end": 4731.76,
+      "speaker": "adam-stacoviak",
+      "text": "Zed is 7.3% of respondents."
+    },
+    {
+      "start": 4731.76,
+      "end": 4733.88,
+      "speaker": "jerod-santo",
+      "text": "Not bad for a newish editor."
+    },
+    {
+      "start": 4733.88,
+      "end": 4740.51,
+      "speaker": "adam-stacoviak",
+      "text": "Still not beaten sublime, 10.5%, which was our original marching orders two years ago."
+    },
+    {
+      "start": 4740.51,
+      "end": 4757.69,
+      "speaker": "jerod-santo",
+      "text": "I feel like Zed at seven is respectable until you see Clod code at 9.7%. Because that's existed for like six months, you know? And it goes back to our conversation with Nathan Sobel when you asked him if he's been working on the wrong thing or what'd you ask him? Got passed up."
+    },
+    {
+      "start": 4757.69,
+      "end": 4762.84,
+      "speaker": "adam-stacoviak",
+      "text": "Something like that. It was something like that, like."
+    },
+    {
+      "start": 4762.84,
+      "end": 4764.56,
+      "speaker": "jerod-santo",
+      "text": "Cause he's building from scratch, you know?"
+    },
+    {
+      "start": 4764.56,
+      "end": 4779.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. And I really hope that that bet pays off and it pays off if the IDE doesn't die, which trending is trending down. The IDE is trending down."
+    },
+    {
+      "start": 4779.38,
+      "end": 4783.26,
+      "speaker": "jerod-santo",
+      "text": "I think it'll be a long, slow decline if it actually goes that way."
+    },
+    {
+      "start": 4783.26,
+      "end": 4785.18,
+      "speaker": "adam-stacoviak",
+      "text": "Trending down is a long slope."
+    },
+    {
+      "start": 4785.18,
+      "end": 4786.06,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4786.06,
+      "end": 4789.94,
+      "speaker": "adam-stacoviak",
+      "text": "When you're so high, there's so much farther fall. That's right, I mean, everyone's gotta use something."
+    },
+    {
+      "start": 4789.94,
+      "end": 4791.03,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4791.51,
+      "end": 4802.15,
+      "speaker": "adam-stacoviak",
+      "text": "But it is trending down. I mean, so even so far as that, who did I speak to recently? And I asked them how much code they're writing. We were on stage with Nora, yeah. She said none."
+    },
+    {
+      "start": 4802.15,
+      "end": 4803.87,
+      "speaker": "jerod-santo",
+      "text": "Yeah, she's like a CEO."
+    },
+    {
+      "start": 4803.87,
+      "end": 4824.35,
+      "speaker": "adam-stacoviak",
+      "text": "That's a different example, yes, I agree with that. Contextually different example. And then I asked somebody else, like how much code you write? And they're like, oh, I won't tell you their name, but it's somebody we both know. And they're at a very, they should be in the FANG list in the acronym, but they're not so very prominent company."
+    },
+    {
+      "start": 4824.35,
+      "end": 4826.19,
+      "speaker": "jerod-santo",
+      "text": "It should be in the FANG."
+    },
+    {
+      "start": 4826.19,
+      "end": 4828.05,
+      "speaker": "adam-stacoviak",
+      "text": "Zero, writing zero the code."
+    },
+    {
+      "start": 4828.05,
+      "end": 4829.7,
+      "speaker": "jerod-santo",
+      "text": "And what role are they?"
+    },
+    {
+      "start": 4829.7,
+      "end": 4921.9,
+      "speaker": "adam-stacoviak",
+      "text": "I can't tell you too much what gives them away. They should be writing code. They previously wrote code up until a year ago when they didn't have to anymore. And so now they don't have to. And so document driven, documentation driven, theory driven, architectural driven, things like that that's driving the code. There's still AI is checking that code, which I'm not gonna toot a sponsor's horn too much, but I'm a big fan of CodeRabbit, mainly because they offer what they do to open source for free. So if you're running open source out there today and you've got AI spam coming into your PRs, you can curb it with them and also get some intelligence, but I think that's pretty cool. But there's ways around the slop that isn't me, human, discern the slop, fix the slop. It's AI, fixing AI, which I'm not sure is a good thing, but the trend towards IDE dying for the people I'm talking to and I think you too, is that the IDE is just going away for them and they're writing less and less code. That could be a two-year streak. And they were like, nope, we were wrong for two years and they're back to writing code. And the IDE is well alive again. So it could be a failed two-year or multi-year experiment, but for now the IDE is dying. Steve Yehge, like Steve said, like he predicted and that less code is getting written as a result. Less code is getting written by them. It's getting written by not."
+    },
+    {
+      "start": 4921.9,
+      "end": 4923.7,
+      "speaker": "jerod-santo",
+      "text": "Less code is being typed into an editor."
+    },
+    {
+      "start": 4923.7,
+      "end": 4928.68,
+      "speaker": "adam-stacoviak",
+      "text": "Right, no one's hand coding the code anymore. They're vibing."
+    },
+    {
+      "start": 4928.68,
+      "end": 4933.72,
+      "speaker": "jerod-santo",
+      "text": "Now you said no one and you just went beyond the trending. You're like, no one is? No one?"
+    },
+    {
+      "start": 4933.72,
+      "end": 4934.95,
+      "speaker": "adam-stacoviak",
+      "text": "Come on. Yeah."
+    },
+    {
+      "start": 4934.95,
+      "end": 4949.68,
+      "speaker": "jerod-santo",
+      "text": "It's a trend, it's not a absolute. All right, well, no one is talking anymore or at least will be shortly. Cause that's it, man. That's all I got for this week."
+    },
+    {
+      "start": 4949.68,
+      "end": 4955.51,
+      "speaker": "adam-stacoviak",
+      "text": "All right. Bye friends. Bye friends."
+    },
+    {
+      "start": 4955.51,
+      "end": 5004.43,
+      "speaker": "jerod-santo",
+      "text": "All right, that's what we have for you this week. Next week, we'll bring you our awesome interview with Nora Jones and our live Kaizen 20 and Piplee Launch from Denver. Stay tuned for that. In the meantime, maybe dig into Stack Overflow survey results for yourself and see what you can uncover. If you do find something or if you have any feedback on what we covered in this episode, let us know in our community Zulip chat. Sign up for $0 at changelog.com slash community and let your voice be heard. Thanks again to our partners at Fly.io and to our sponsors of this episode. Auth0, start building at auth0.com slash AI and Depot, 10x faster builds at depot.dev. Have yourself a great weekend, share a changelog with a friend or three who might dig it and let's talk again real soon."
+    }
+  ],
+  "slug": "so-much-to-dig-into",
+  "id": "104"
+}

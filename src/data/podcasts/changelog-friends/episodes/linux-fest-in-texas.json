@@ -1,0 +1,937 @@
+{
+  "title": "Linux Fest in Texas!",
+  "description": "Carl George joins to discuss Texas Linux Fest, Omarchy, Linux desktop environments, and configuring Linux systems.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/109",
+    "MP3": "https://cdn.changelog.com/uploads/friends/109/changelog--friends-109.mp3",
+    "YouTube": "https://youtu.be/dlRbyLCgFmc",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "carl-george"
+  ],
+  "segments": [
+    {
+      "start": 3.54,
+      "end": 109.84,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, the weekly talk show about all things Linux Fest. By the way, use CHG15 for 15% off a Texas Linux Fest ticket. Big thank you to our friends over at Fly.io for sponsoring and supporting and partnering with us all these years. Learn more at Fly.io. Okay, let's Linux Fest. Well, friends, the news is out. Our friends over at CodeRabbit, CodeRabbit.ai, they've raised a massive Series B, and they've launched their CLI reviews tool. It is now out there. I've been playing with it. It's cool. The bottleneck is not code. The bottleneck is code review. With so much code happening, so many people coding now, so much code being generated, and so many things competing for developers' time and attention to maximize, code review still remains a bottleneck, but not anymore. CodeRabbit, CLI code reviews, code reviews in your pull requests, code reviews in your VS code and more, teams now have a true answer to what it means to code review at scale. Code review at the speed of AI, and CodeRabbit is right there for you. You can learn more at CodeRabbit.ai. We'll link up their latest blog announcing their Series B and their announcement of their CLI review tool. Again, CodeRabbit.ai. Well, friends, we're here with our good friend, Carl George, steeped in Linux, works for Red Hat."
+    },
+    {
+      "start": 109.84,
+      "end": 111.42,
+      "speaker": "carl-george",
+      "text": "Steeped?"
+    },
+    {
+      "start": 111.42,
+      "end": 113.26,
+      "speaker": "jerod-santo",
+      "text": "Just kidding. I love Red Hat."
+    },
+    {
+      "start": 113.26,
+      "end": 115.98,
+      "speaker": "carl-george",
+      "text": "What was that? The fangs are out."
+    },
+    {
+      "start": 117.18,
+      "end": 138.64,
+      "speaker": "jerod-santo",
+      "text": "Principal software engineer at Red Hat. The last thing on the show, you schooled us about, I think, just this separation that was kind of happening. That was about a year ago, not really happening, but just this war in Linux between CentOS, Red Hat, RHEL, Rocky. I don't want to talk about any of that today. None of it. Zero of it."
+    },
+    {
+      "start": 138.64,
+      "end": 141.92,
+      "speaker": "carl-george",
+      "text": "Go back and listen to it a year ago. Who cares what's going on now?"
+    },
+    {
+      "start": 141.92,
+      "end": 171.01,
+      "speaker": "jerod-santo",
+      "text": "Well, I think the biggest news I've seen come out, but we have Texas Linux Fest, so we're going to talk about that too. But the biggest news I've seen come out of Linux recently has been around Arch Linux, Omarchi, and this resurgence of the desktop Linux. Are we there? Is it this close? Is that the thing? I know Ubuntu desktop's been out there, but is Omarchi... What do you think about Omarchi? Is it the right way to say it? Omarchi?"
+    },
+    {
+      "start": 171.01,
+      "end": 202.61,
+      "speaker": "carl-george",
+      "text": "I have no idea what the right pronunciation is. I'm happy to see it. I haven't tried it myself. Not really interested, but I'm glad that people are taking an interest in trying new things. So much stuff in open source in general is just, I'm going to try this and see if it sticks, see if it gets traction, see if it gets contributors. Some people try stuff, it never catches on and it just kind of fades or it stays as a single person project for 30 years. But yeah, I definitely like seeing experimentation like that and what people can come up with."
+    },
+    {
+      "start": 202.61,
+      "end": 245.46,
+      "speaker": "jerod-santo",
+      "text": "So Omarchi, I think, is effectively a configuration script that configures Arch in an opinionated way out of the box to have an awesome Arch setup. And I don't think that's... Okay, so DHH started it and he has a loud microphone. He also has taste that a lot of people appreciate. And so he's gotten traction behind it. And of course, lots of people like Arch Linux. There's other Linuxes as well, as Carl's well aware. Are there other Omarchi setup scripts that exist for other distros that... Is there a Red Hat thing? Is there a CentOS thing? I don't know. Carl, first of all, what distro are you rocking in your personal life?"
+    },
+    {
+      "start": 245.46,
+      "end": 255.46,
+      "speaker": "carl-george",
+      "text": "I use Fedora pretty much everywhere. That just fits in naturally with the amount of work that I do naturally for working on CentOS and RHEL and in Fedora itself."
+    },
+    {
+      "start": 255.46,
+      "end": 259.94,
+      "speaker": "jerod-santo",
+      "text": "So is there a Fedora out of the box setup script where it's like, boom, Fedora-y?"
+    },
+    {
+      "start": 259.94,
+      "end": 262.18,
+      "speaker": "carl-george",
+      "text": "There's dozens of them. Lots of people have made things like that."
+    },
+    {
+      "start": 262.18,
+      "end": 263.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I assume there would be, right?"
+    },
+    {
+      "start": 263.62,
+      "end": 358.7,
+      "speaker": "carl-george",
+      "text": "Probably the one that's got the most traction, interest, the hot topic right now is a project called Universal Blue, ex-canonical guy, George Castro. He decided that he wanted to create a pre-configured Fedora setup using the... Pick the term of the week, immutable image mode, atomic, whatever. I think Fedora's branding is centering itself around atomic workstations. Some people still like the term immutable, even though not everything's immutable. So it's kind of a weird thing. A little identity crisis on the naming, but engineers love naming things and arguing about names. But yeah, they're a way to take boot C images where you can boot up an image and you don't apply updates to packages individually. You just boot into a new image and you carry forward your home directory and any configurations you've set up. They've got a good structure now where they've got an image template and you build it, put everything in GitHub with GitHub actions to build the images, stores it in GitHub container registry. And they're doing all kinds of different pre-configured desktops, the way they see it, opinionated desktops, kind of a similar thing as the Yoma Archie stuff. It's just they're delivering it as ready to go images. Bazzite's in that same family, if you've heard of that. It's pre-configured, ready to go for gaming in general. A lot of Bluefin's, the other real popular one they have, that is a known workstation pre-configured the way, basically the way that George likes it. And a few other people that have gotten involved with it, but things that they think definitely need to be installed on a workstation to make it a day-to-day driver. So that's cool. What do you"
+    },
+    {
+      "start": 358.7,
+      "end": 362.54,
+      "speaker": "jerod-santo",
+      "text": "do? What do you use? How do you configure your stuff? I'm sure you have years and years of doing"
+    },
+    {
+      "start": 362.54,
+      "end": 370.78,
+      "speaker": "carl-george",
+      "text": "it. I am an old school SIS admin. So I use Ansible for my workstation. Oh man, hardcore. What's that?"
+    },
+    {
+      "start": 370.78,
+      "end": 373.98,
+      "speaker": "jerod-santo",
+      "text": "That's hardcore, man. You're just writing your own Ansible stuff. Others said, what for? I was"
+    },
+    {
+      "start": 373.98,
+      "end": 432.7,
+      "speaker": "carl-george",
+      "text": "like, cause it's just what I know. It works for me. It fits in my brain. I use the gnome desktop and they have actually an interesting, the backends for all the settings is a thing called deconf. I've heard it kind of compared to like the windows registry. Like it's not like a configuration file, like most people like on Linux. But it's got an Ansible module that's really well integrated. So I can just, in my Ansible playbook, just set up and say like, set the clock from, instead of doing 24 hour time, use AMPM. And that's just a single key in a little chunk of gamble that I put in a playbook. And then I run that along with all the other little things that I have set up to go. And so that's how I'll configure my systems. I'll be getting ready to do that here in the next month or so. I've got a hardware refresh coming from my work laptop and I'll just run that playbook, copy over, I think run the playbook, sign into my Firefox profile and just double check that there's any files loose, like stuff in get repos I haven't"
+    },
+    {
+      "start": 432.7,
+      "end": 441.5,
+      "speaker": "jerod-santo",
+      "text": "committed yet, things like that. Then I'll be good to go. If you play with Ansible in a while, Jared, I don't have a ton of experience with it personally. I want to, but I haven't done it yet,"
+    },
+    {
+      "start": 441.5,
+      "end": 447.1,
+      "speaker": "carl-george",
+      "text": "but do you have any? I have some experience, but just back when, so we used to use Ansible"
+    },
+    {
+      "start": 447.1,
+      "end": 483.86,
+      "speaker": "jerod-santo",
+      "text": "with deploying change log probably six, seven years ago. And so I learned it then I did a little bit of Ansible when I was doing network administration, like decades ago. And it always made sense to me. It seemed like for my uses back then, it was like slightly too much for what I needed, which was really just a couple of scripts. But once you get over the learning curve as Carl, I'm sure can confess, it's all very simple and straightforward and worth, it makes it worth the lift. It requires like a client server, right? You still have to have like a main Ansible hub where you run your playbooks, right? Isn't that how it works?"
+    },
+    {
+      "start": 483.86,
+      "end": 537.55,
+      "speaker": "carl-george",
+      "text": "It can work that way, but there's a lot of flexibility. The way that I'll usually do it is I just have the playbooks in a get repo, I'll clone the get repo, and then I'll apply it to local host. You can also do it where like if you're configuring servers, your local machine is kind of the hub, the control. I think the official terminology is the control node, but you can have it where your local laptop is the control node setting up a server. You can have the control node set up itself. You can do any number of things. There's a lot of flexibility. That's probably the hardest part of it is that there's enough flexibility that there could be multiple ways to do a thing and that can get you confused, especially if you hear about one way to do it and you try and do it and then you find another way and then you're like, okay, well, what's the most correct way I want to do this? Or at least that's where I'll get hung up on it. Other people just go with the first thing they find that works and they say, okay, good enough."
+    },
+    {
+      "start": 537.55,
+      "end": 561.97,
+      "speaker": "jerod-santo",
+      "text": "I don't really care. Yeah. I think correctness is like subjective in things like that. It's like, this works for me. So cool. Can you give us a deep look? Well, not like deep, deep, but a deep enough look where it's not too shallow of how you go from fresh Fedora install, clone a get hub repo down, boom Ansible. Like how does that, is that roughly how it works? Is that,"
+    },
+    {
+      "start": 562.69,
+      "end": 639.33,
+      "speaker": "carl-george",
+      "text": "did I paraphrase a good version of it? That's pretty much what I'll do. The things that I haven't got set up, figured out right with, with Ansible quite right is sync things set up. I use that kind of like a Dropbox, open source Dropbox thing. And the way that is configured is you open up a browser and go to a portal and local host to do the setup in a web browser. I'm not really sure of a way yet to make, put that into Ansible. So I'm still doing that by hand. Then I already mentioned like signing into my Firefox profile and syncing all of that stuff down for all my bookmarks and history. Are you happy with sync thing? I like it a lot. Cause we are not happy at Dropbox at the moment. Most of the time I completely forget sync thing. I'm even using it. I just have a directory called sync that is just the same on all my systems, even my server. So I can just shuffle files back and forth really quick or just always have like, you know, my directory of notes or those memes that I wanted to share. I, most of the time I forget that I'm even using it because there's not like a, well, there's a tray icon that you can get. I don't use that. I just periodically go pull it up in the web browser and make sure everything's happy and working. So I'll forget that I'm even using, using it. Do you use that for collab at all or is it all just your own stuff? It's just for my own stuff, personal. Because if we were to replace Dropbox,"
+    },
+    {
+      "start": 639.33,
+      "end": 659.62,
+      "speaker": "jerod-santo",
+      "text": "which I would love to at this point, it's been so flaky, just even the desktop app and just stop sinking. I like force quit a bunch of processes and then it starts again, just like nonstop trouble. We would need that collaboration features cause that's how I use it is to share. And how does it work with large files? Good stuff. Are you mostly sharing memes?"
+    },
+    {
+      "start": 661.38,
+      "end": 695.3,
+      "speaker": "carl-george",
+      "text": "I have not had any, I don't share very large files. Certainly not like podcast size, you know, video recordings, but videos that I have put in there and larger files have all worked just fine. I haven't had any issues with it, but there may be a certain file size where it starts getting problematic. But like with the experimentation thing early on with the Omarchi, like the only way to find out is to try it. I also don't know what the collaboration features look like. I'm sure that if they are lacking, there's probably lots of requests to improve those and ideas about how to improve those. There's a lot more opinions than"
+    },
+    {
+      "start": 695.3,
+      "end": 710.1,
+      "speaker": "jerod-santo",
+      "text": "people willing to do the work usually. That's a fact. That's not just the open source world though in a proprietary world, you know, they hire employees to work on stuff that nobody else wants to, but in open source, you have to either convince somebody that it's worth"
+    },
+    {
+      "start": 710.1,
+      "end": 714.34,
+      "speaker": "carl-george",
+      "text": "their time or you have to roll up your sleeves and do it yourself. I wonder if sync thing has"
+    },
+    {
+      "start": 715.06,
+      "end": 736.32,
+      "speaker": "jerod-santo",
+      "text": "a token like, like tail skill does. I was trying to think about one other tool I use that requires, well, sometimes requires browser intervention and tail skill is one of them where it makes you click a link. But if you know, or you have an auth key or a token kind of key, then you can sort of just use that when you instantiate it. It's like, okay, this is really me. I don't have to ever go to the browser."
+    },
+    {
+      "start": 736.96,
+      "end": 738.72,
+      "speaker": "carl-george",
+      "text": "Like an activation key type thing."
+    },
+    {
+      "start": 738.72,
+      "end": 753.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah. It's kind of like that. I wonder if sync thing has that kind of thing because so many things are things, you know, that's it. That's it. You know, like I had said the thing like 17 times just now, I was like, I'm just going to stop saying thing. Okay. No more things"
+    },
+    {
+      "start": 753.2,
+      "end": 758.56,
+      "speaker": "carl-george",
+      "text": "for me. And here you are saying it a few more times, just in case, just in case. So I think"
+    },
+    {
+      "start": 758.56,
+      "end": 783.52,
+      "speaker": "jerod-santo",
+      "text": "the reason why Omarchi is catching on is because I think a lot of people want to experiment with Linux, but they're so intimidated, you know, and just like, Oh, my ZSH, I assume Omarchi is like, Oh, maybe the O is like from, Oh my ZSH. I don't know where the O is coming from, but we try to infer what these names are about. That sounds like a reasonable guess. I never thought about that, but yeah. Cause it's kind of the same thing, right? Like, Oh my ZSH."
+    },
+    {
+      "start": 783.52,
+      "end": 786.64,
+      "speaker": "carl-george",
+      "text": "I think you're probably right. I would, I would bet, you know, five bucks. You're right."
+    },
+    {
+      "start": 786.64,
+      "end": 865.81,
+      "speaker": "jerod-santo",
+      "text": "That sounds, that sounds correct. Thank you. Let's not go search out the truth. Let's just assume I'm correct. That's always more fun. The thing about all my ZSH, what it does is just like gives you an awesome setup and then you can just use it. And then once you're using it, you start to formulate opinions and I want to tweak. I want to go from there, but you do not have to start from canvas. Exactly. And I think that's what these setup scripts are so awesome for is it lets you use it out of the box in a way that's not just stock. In like an opinionated, these are good settings, not like these are default settings, which aren't always good, especially for development. And then you can start to tweak and configure and go from there. And it sounds like Fedora has ample, you know, number of projects like that. I'm sure every major distro has people that have wanted to provide that for others. And maybe they're just lacking the signal to the ratio that DHH has, and which is why he's gotten so much. Cause there's a lot of steam around that at the moment, but that's cool because it brings people in and then they can get their feet under them and they can try it out and then they can go off and do their own thing or they can switch from arch to, they can go distro hopping as so many of us do in the early days of Linux. And then they can settle in and really sit with the same distro for years as it sounds like you've done."
+    },
+    {
+      "start": 865.81,
+      "end": 921.01,
+      "speaker": "carl-george",
+      "text": "Oh yeah. I think another aspect of the Omarchi stuff is that I don't think there's a ton of stuff out there yet for Hyperland, which is the desktop environment or shell thing that it's using. It's relatively new and a lot of people are, it's very, very configurable, a lot more than like Gnome. I don't know if it'd be more or less than KDE. That's another one that's very configurable, but KDE has been out there a long time. So there's a lot of opinionated KDE setups out there. Hyperland's a lot on the newer side. So I think there's an appetite. One of the reasons it's getting so much traction is that there's an appetite for, people have heard of Hyperland, they want to try it. And they go and they say, okay, well, I don't want to start from scratch because when you saw Hyperland from scratch, it is pretty bare bones. It's just right there. And it's like, okay, write your config to put stuff where you want it. So people are looking for an out of the box, ready to go set up to start from and change, not necessarily start from scratch."
+    },
+    {
+      "start": 921.01,
+      "end": 932.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Who's on the work kind of thing. Omarchi actually extends from Omakube. This is Omakube. Sorry, I already knew this, but that's why I had to look it up."
+    },
+    {
+      "start": 932.88,
+      "end": 936.4,
+      "speaker": "carl-george",
+      "text": "Yeah, no, go ahead. I just like being, you know, I like Carl Betten on me."
+    },
+    {
+      "start": 936.4,
+      "end": 958.48,
+      "speaker": "jerod-santo",
+      "text": "Yeah, my bad. So Omakube, this is the thing that the DHH made as well. It's like a Kubernetes. I wouldn't say that it's more like a deployment thing. I haven't played with enough to know exactly what it is, but it says turning fresh Ubuntu installation into a fully configured, beautiful and modern web development system. So he kind of took the same thing. I guess he had done"
+    },
+    {
+      "start": 958.48,
+      "end": 969.41,
+      "speaker": "carl-george",
+      "text": "with Ubuntu and turned it into. And that one didn't connect, but maybe Carl's right then on the Hyperland. Now I'm knowing where it comes from originally. The etymology is now complete."
+    },
+    {
+      "start": 969.41,
+      "end": 996.22,
+      "speaker": "jerod-santo",
+      "text": "Omakase. That's his thing, right? That's right. The Omakase spirit, the idea that the entire setup experience can benefit from being tailored up front by someone with strong opinions. That's basically DHH in a nutshell, right? Right. Configuration, convention over configuration, but that convention is kind of pre-configured, pre-configuration that is very strong opinion. All right. So now we have that, that figured out."
+    },
+    {
+      "start": 996.22,
+      "end": 1001.02,
+      "speaker": "carl-george",
+      "text": "Sorry, Omakase. I gave you credit where it was not due. And I lost five bucks."
+    },
+    {
+      "start": 1001.02,
+      "end": 1006.38,
+      "speaker": "jerod-santo",
+      "text": "And yeah, Carl, you can, I guess, who does he give it to Adam maybe, or just, just DHH."
+    },
+    {
+      "start": 1006.38,
+      "end": 1010.22,
+      "speaker": "carl-george",
+      "text": "Just hold onto that. He gets all the money. I was offering the bet. Nobody took me up on it. So I'm good."
+    },
+    {
+      "start": 1010.22,
+      "end": 1019.82,
+      "speaker": "jerod-santo",
+      "text": "That's a good point. That's a good point. So Hyperland. I'm not super familiar with that, Carl. Is it a windowing manager? What is it? Is it a."
+    },
+    {
+      "start": 1019.82,
+      "end": 1132.78,
+      "speaker": "carl-george",
+      "text": "Yes. I think that sounds about like the right term. Like Linux desktop stuff. You know, you've got the whole, the idea of like a desktop environment. That's kind of, you know, this should be, maybe it's not as opinionated as something like Omakase, but it is a design where you install it and it has all the components. There's nothing missing out of the box. You know, you've got your file manager, you've got your sound settings, you know, a basic desktop may be kind of minimal, but, you know, a more or less complete setup. KDE out of the box, I think is the same way, KDE plasma, XFCE. There's other desktop environments like that, that advertise themselves as desktop environments. And then you've got the things like Hyperland, i3, Sway is another one. There's a whole bunch of these other things that they don't really describe themselves as whole desktop environments. They're more like, like you said, I think window manager was the term you used. And so those they're definitely expecting you to come in and make a lot of your own choices. Like I want to use this window manager and I want to use the file manager from Gnome and I want to use the image viewer from XFCE and piece together things by hand. Long, long ago, I used to do that, tinkered a lot more and I was like, yeah, I like this app and this app and I'm going to piece together my own little stone soup of a desktop. And then after a certain point, I was just like, no, Gnome's good enough. I'll just use this. This is what most people are using. You know, you run into enough random, weird issues with things not working together that you want to go down a path that is more common, where if you have a problem, you know that other people have run into the same problem. So I think that's where desktop environments fit in versus people that do want to tinker and come up with something that is extremely custom and exactly the pieces they want and nothing else. They'll go down the route of the window managers, which is where Hyperland fits in, I think. Gotcha. On their website, hyperland,"
+    },
+    {
+      "start": 1132.78,
+      "end": 1137.92,
+      "speaker": "jerod-santo",
+      "text": "hyper.land, it says they provide the latest Wayland features. Now I don't even know what"
+    },
+    {
+      "start": 1137.92,
+      "end": 1144.24,
+      "speaker": "carl-george",
+      "text": "Wayland is. Do you know what Wayland is? Well, that is a whole thing. It's way deep under the"
+    },
+    {
+      "start": 1144.24,
+      "end": 1148,
+      "speaker": "jerod-santo",
+      "text": "covers. A little bit of a deep dive, right? That's why I would say Hyperland is probably not great"
+    },
+    {
+      "start": 1148,
+      "end": 1151.52,
+      "speaker": "carl-george",
+      "text": "for beginners because like right off the bat, you're asking like, what even is this Wayland"
+    },
+    {
+      "start": 1151.52,
+      "end": 1155.68,
+      "speaker": "jerod-santo",
+      "text": "thing? It raises more questions than it answers. And I'm like, I don't know what that is."
+    },
+    {
+      "start": 1155.68,
+      "end": 1343.04,
+      "speaker": "carl-george",
+      "text": "Yeah. For people that have been using the Linux desktop for a while, a lot of times you'll see strong opinions about it, at least on Fedora. I forget what version it was, but Fedora switched over to Wayland by default. Some things didn't work. It was fairly early on whenever it switched up. Let me back up a little more. You got to have something that draws all the windows on your screen, handles all of that stuff. For a long time, that was Xorg server or X11 is what a lot of people call it. I think technically the term X11 is the protocol and like the project is X.org. And then the thing people are calling X11 is Xorg server, I think is the actual correct term. These are often used interchangeably though. People will just throw those around and say, I have to use X11. Well, the Xorg developers, the people that worked in that project, they realized that their 20, 30 years of technical debt around that server, that thing to draw everything on the screen was piling up and it wasn't really working great for them. So they decided, one of the developers said, okay, well, if we started this over from scratch, how do we change it? And did a lot of different things. A lot of it around security. Xorg has a long history of security vulnerabilities and things because of the design and the lots of technical debt, security problems arising. And then the developers decided, okay, well, if we started over, how can we design this where we wouldn't run into this category of issues? And what they came up with was Wayland. That is this new way to do it. The differences were in the old Xorg server days, all these desktops would use the same Xorg server and then they would talk to that through those APIs. Wayland is just the protocol, kind of like X11 is for Xorg server. And so with Wayland, the idea is that all of these clients are going to talk to the Wayland protocol and be their own, the equivalent of the Xorg server. So in the Gnome setup, they have a thing called Mutter is one of the components of Gnome and that serves as the Wayland compositor, I think is the term. Hyperland is also a Wayland compositor. Sway is another one. KDE has one, I forget what it's actually called, but it's similar to Gnome where it's one of the components is part of the whole Plasma desktop experience they have. And so that has been a big shift. It is for many, many years, people have said Xorg server is eventually going away. Wayland is the future. It fixes all of these security problems. It's more maintainable. It doesn't have 30 year old code in it for things that don't even matter anymore. But then like with anything else, you tell people, this is going to be an eventual change you have to accept. You have people that try to come up with reasons why they have to stay on the old one. Well, I've got this one particular bug on Wayland that doesn't happen on Xorg server, but that's not really a fair comparison because there's many bugs that are only on Xorg server and don't even exist on Wayland. So it's really just, you know, if you want to look at only the negatives, you're swapping one set of problems for the other. The theory is that the Wayland problems are easier to fix and more maintainable"
+    },
+    {
+      "start": 1343.04,
+      "end": 1373.89,
+      "speaker": "jerod-santo",
+      "text": "long-term. Yeah. So where was the pressure to migrate placed was because the Xorg server team, they came up with Wayland, but Wayland's a protocol. So they write a protocol and they just brush their shoulder off now, or do they give a reference implementation? Is it on the Gnome team and the KDE team, or I guess the Hyperland folks, like who actually has to implement these Wayland compositors? It's definitely anyone that wants to consume it. So"
+    },
+    {
+      "start": 1373.89,
+      "end": 1446.61,
+      "speaker": "carl-george",
+      "text": "the, and a lot of those Wayland developers, they are, they're working in some of these other projects as well. Like some of them work in both Gnome and Wayland, some of them work in Wayland and KDE, and they're working together implementing this. I also heard of another project recently that is, I think it's called Wayback. And the idea is that they are going to write a Wayland compositor that can basically act as a translation layer and servers that were designed to work on with Xorg server, like XFCE or I3 can just talk to Wayback and Wayback will basically lie to it and say that it's Xorg server, but then also be a Wayland compositor and just kind of be like a translation layer in between. So there won't be as much porting work. That's a really new project though. So I don't know how well it works yet, or if it works at all, or maybe working perfectly already. But yeah, it's definitely on each individual project to just adapt to the new protocols. And that's some of the pushback I think is that people see like, oh, well, there's work involved in this. This is going to change. And, but I like this desktop that works on Xorg server. Why do I have to do anything? And yeah, that's just open source in a nutshell. Underline stuff changes. Nothing stays the same forever."
+    },
+    {
+      "start": 1447.25,
+      "end": 1482.64,
+      "speaker": "jerod-santo",
+      "text": "So am I tracking this right? And maybe Adam, let me know if you're tracking this too, because it's complicated, right? So Omarchi is a configuration script that installs Hyperland into Arch Linux. And Hyperland is a compositor that implements the Wayland protocol, which means it's also a Windows server. Like it's a windowing server then, because Xorg isn't there. Xorg server is not there. So Hyperland is then its own windowing server in that way, because it implements Wayland compositor. Okay."
+    },
+    {
+      "start": 1482.64,
+      "end": 1483.6,
+      "speaker": "carl-george",
+      "text": "That sounds accurate."
+    },
+    {
+      "start": 1483.6,
+      "end": 1485.04,
+      "speaker": "jerod-santo",
+      "text": "And so that, okay, so that's all right."
+    },
+    {
+      "start": 1485.04,
+      "end": 1491.28,
+      "speaker": "carl-george",
+      "text": "It matches with how I understand it. Then bring it over to- I'm not a developer on these things, so I don't fully understand them, but that all sounds correct."
+    },
+    {
+      "start": 1491.28,
+      "end": 1510.72,
+      "speaker": "jerod-santo",
+      "text": "But you're like three classes ahead of us in school, you know? It's true. Yeah. So we're just checking our work against yours. We still might all be wrong, but probably Carl's more right than I am. And so bring that over to Gnome. Where does Wayland compositor, Wayland protocol, and a windowing server fit into Gnome? Is it like built in the Gnome now?"
+    },
+    {
+      "start": 1510.72,
+      "end": 1531.2,
+      "speaker": "carl-george",
+      "text": "Essentially, yeah. I know the component in Gnome is called Mutter. That is the Wayland compositor. It runs as a separate process, but it's integrated as part of the Gnome project. And that's where all the Wayland things happen for Gnome. And then all of the other Gnome components just integrate into Mutter to work together as one desktop environment."
+    },
+    {
+      "start": 1531.2,
+      "end": 1531.92,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1531.92,
+      "end": 1594,
+      "speaker": "carl-george",
+      "text": "The good thing is because with Gnome, it's not really designed for that piecemeal, like I'm going to take this piece and that piece. They're really designed to be like one cohesive unit and work together. So really you use a distribution that has Gnome, either pre-installed or you can, even in Arch, you can install the Gnome, I think they call them groups in Gnome or in Arch also. You install the Gnome group and you get all of the designed components of Gnome that work together. And you don't really have to even understand that, okay, well, Mutter's handling this part and Gnome Shell's handling this part. It's all just, you install Gnome and this collection of pieces work together versus something like Hyperland or any of the other various windowing environments or window managers. You do have to kind of understand, okay, well, I got all this working. Oh, but I don't have a file manager. How do I read my files? And now I got to install that, or this part's working or that part's not working. Gnome's definitely designed to be a lot closer to the it's ready to go works out of the box for the most part. But at a cost of you don't have as much choice with it in configuration."
+    },
+    {
+      "start": 1594,
+      "end": 1616.32,
+      "speaker": "jerod-santo",
+      "text": "So yeah, it's kind of like buying an entire set of Lego where it's like, this is what you get. It's all packaged. It has all the things for you to build this particular thing. I'm talking about Gnome now. So as a Fedora maintainer, I'm not saying you are one, but are you one? Are you a Fedora maintainer? Okay. So as a Fedora maintainer, and does Fedora ship Gnome by default? Is that the default environment in Fedora?"
+    },
+    {
+      "start": 1616.96,
+      "end": 1727.52,
+      "speaker": "carl-george",
+      "text": "So the yes for what we call Fedora workstation, there are certain deliverables that are called additions, I think is the right term. And kind of the flagship addition for a long time was Fedora workstation, which defaults to Gnome. More recently, I think about a year, year and a half ago, we have, let me back up a little, besides the main Fedora workstation edition, there's also a Fedora server edition, which obviously for servers not meant to have like a graphical environment on it. But there's also Fedora spins that would have things like KDE plasma, XFCE, and other desktop environments. A lot of people would use those. Farther back, it was decided that KDE plasma was popular enough and important enough to be what we call a release blocking deliverable. Meaning that if something's broken in the KDE plasma spin, Fedora could delay the release to get that working before pushing out a new version. A release blocking spin wasn't really that different than an addition. So basically they said, we need to promote this from a spin to an addition and give KDE a little bit more love and feature better on the front page. So now for desktops, Fedora has two additions. There's the workstation, which is Gnome, and then plasma desktop, I think is the name they went with. A lot of people, engineers are naming things. There's lots of talk of like, well, we should have plasma workstation and Gnome workstation and have it more right in the name. And then other people said, no, workstation is Gnome. And then lots of different opinions and fighting about that. But eventually what they landed on was, we still have Fedora workstation that is Gnome. If you want to call it a default, sure. But also the plasma desktop is also featured as a leading variant on the front page. One of the choices you can download and that has KDE plasma in it."
+    },
+    {
+      "start": 1727.52,
+      "end": 1748.43,
+      "speaker": "jerod-santo",
+      "text": "Gotcha. All right. So my last question, and I'm going to make sure Adam's with us and has further thoughts because I'm still getting clarifying questions. So as a Gnome or as a Fedora maintainer then with regards to Gnome, do you have to care at all about Wayland, X11, those kinds of things, or you just make sure Gnome is packaged and installed and configured by default and they're"
+    },
+    {
+      "start": 1748.43,
+      "end": 1872.8,
+      "speaker": "carl-george",
+      "text": "black box to you? It's mostly a black box to me, but that's also because I'm not a maintainer of the Gnome packages or any of the Wayland packages. By you, I mean the group of maintainers that maintain that part. Yeah. And that's part of the difference, right? Is that we have the collection of Fedora maintainers, but then you work on the specific things that are interesting to you, the packages you care about. I mentioned my sysadmin background, so I have a lot of server oriented and Python library stuff that I'll interact with. A few desktop apps, but I don't maintain any desktop environments. For the Royal Way though, you're correct that generally the Fedora makes sure that Gnome is packaged and working. That's a lot of the Gnome developers from upstream also work in Fedora and package it there, make sure it's all working correctly. And then everyone else can just kind of maintain applications and libraries and whatever else that or even Gnome extensions that integrate with that base desktop. And they'll just adjust to whatever changes. That is one thing that people can fairly criticize Gnome for is that the extensions API, there's not really an API for it. There's a lot of Gnome extensions and they're well known for basically breaking with every Gnome version or every other Gnome version, which can be pretty painful. And then you have some Gnome developers that will just go out of their way and say that extensions are a niche thing, which is weird because every distribution that ships Gnome has at least like one or two extensions pre-installed. They're not niche at all. Maybe some of these smaller ones are, but that is one of the things in Gnome that nobody's really figured out how to do yet is to have like a stable extensions API where you can have an extension that works well for an extended period of time because Gnome releases a new major version every six months, which does line up pretty well with Fedora's release schedule, which is the same, a new major every six months. So every new major version of Fedora has the next major version of Gnome, but it can be painful for those extension developers whenever the things changing out from under them. For sure. All right, Adam, are you with us?"
+    },
+    {
+      "start": 1872.8,
+      "end": 1934.06,
+      "speaker": "jerod-santo",
+      "text": "Are you tracking? Oh, I'm tracking. I'm just overwhelmed. I would say like, it's not that hard to follow necessarily. I think for me in particular, I would love to use, like, I love Linux server, Linux servers of all types, and I would love to try and use Linux as a desktop, but because I'm a creative and we do video and audio, there's always something that stops me. I can build machines. I love that stuff, but man, all these distros, all these configs, it's just so hard to map your mind around. It's no wonder why we haven't experienced the year of the Linux desktop because the sand is always shifting underneath you. I feel as someone who knows the lay of the land well, or at least to some degree, you're a couple of classes ahead, as Jared said. That's probably underselling, Karl. I don't want to undersell you, Karl. Sure. Sure. I'm just reusing your words."
+    },
+    {
+      "start": 1934.06,
+      "end": 1937.34,
+      "speaker": "carl-george",
+      "text": "We're in elementary school. He's in college. Okay. That's a lot of classes."
+    },
+    {
+      "start": 1937.74,
+      "end": 1947.98,
+      "speaker": "jerod-santo",
+      "text": "Okay. That's not a few. You're being generous there. Where if I, for creatives who want to build their own PC and they don't want to use windows, OMG, please stop. Don't make me use"
+    },
+    {
+      "start": 1947.98,
+      "end": 1962.29,
+      "speaker": "carl-george",
+      "text": "windows. I've tried it. It wasn't the worst ever. It wasn't that bad, but this is your first time publicly saying this. I know you told it to me last week privately, but you know, do you want to come, you want to make a stance here? Cause you were pretty, you know, I got a lot of windows,"
+    },
+    {
+      "start": 1962.29,
+      "end": 2055.42,
+      "speaker": "jerod-santo",
+      "text": "right? I mean, I'll love it this week and I'll hate it next, you know, but I'm an experimenter. I love to tinker. I love to try. And I think that if you want to go the easiest road possible ever and have your GPU drivers and your IGP drivers and all the drivers ever right there at your fingertips, use windows, because that's what it does well. It is not extremely configurable to my knowledge. There's the install install a ton of stuff on top of it is getting littered with co-pilot ask things. I don't even know what they're doing with it. There's a lot of ways you can remove that stuff, but I think windows is a super easy user experience. Unless you're a developer, if you want to SSH into, or you want to do things you could do on a Unix Linux system, it's just not as easy and smooth. It's not like installing another flavor of an OS that's very popular out there and being able to treat it like a thing like that. I had a lot of opposition and I'm also not steeped in it. So it could have been, you know, user error, but it was challenging. But the real question is, is if I'm using Linux or I want to use Linux and I want to be a creative who does video or audio or podcasts and things like this, I don't even know. I guess Figma is a web app, so you can probably Figma on Linux, no problem. But where, what distro do I choose? What windowing server? It seems like maybe Wayland is probably the route because Xorg's got issues. Let's just say, where do you go to be a creative"
+    },
+    {
+      "start": 2055.42,
+      "end": 2250.3,
+      "speaker": "carl-george",
+      "text": "and use Linux? Well, obviously I'm biased and we'll say you can do all that in Fedora. But the real answer is that's just the wrong question to ask. The real question is use what works for you if you try something and it doesn't work. The thing that people love about Linux is that you can just change it out because most distributions are free of cost. You can just go and install a new one. Well, the famous, not really meme, but people call it distro hopping. You can just swap out and change one. People overdo that a bit where they run into any problem and instead of trying to solve it, they'll switch to another distribution and then have the same problem after hours of reinstalling and whatever. Not everyone has that quick setup script with Omar Archie or Ansible Playbooks or whatever. And so they'll spend a weekend getting a new distribution set up and then run into the exact same problem and realize this isn't anything to do with any particular distribution. This is say a bug in Gnome or a bug in KDE or whatever, or a bug in Wayland or a bug in Xorg server from the old stuff. The main thing is, I would say, get out to the events, a little future segue to what we should talk about, but get out to events, talk to other Linux people. There's a ton of people doing podcasts on Linux, doing creative work videos and streaming and all kinds of that stuff. Talk to them, see which ones they like. I know that I have some friends that I won't shout out all the other podcasts out there, but I know that there's some podcasting fans that use Nix OS. My buddies over at Jupyter Broadcasting, they do a lot of stuff. They are big fans of Nix OS, which is... If you think that Omar Archie is really configurable, Nix OS is that kind of for your whole OS. Everything is extremely configurable. I don't know a whole lot about it. I haven't tried it myself, but they are big fans of Nix OS. My friend Michael over with Destination Linux, he uses Fedora for all his podcast production stuff. But then there's other people on his show that use other stuff. So I would say, get out and talk to these people. I'm sure you've probably met some of these folks before. If you haven't, if you see them at a show together, I'll be happy to introduce you. Just talk to other people, see what tools they're using. Besides distributions, you might find out about other applications. You may think, oh, well, here's this Mac app that's really good that I would have a hard time doing without, and they could tell you about, oh yeah, I used to use that and try this. This app on Linux works better for that or is good enough for that. But then there's this other app that helps fill in the gap and just talk to people, network and find out what can work for you. Because at the end of the day, I don't really benefit or care about switching people to Linux anymore. There was a time in my life when I was like, oh yeah, everyone should use Linux and I need to convert people. Use whatever works for you. If you're happy on Mac and don't really have interest or curiosity in changing, don't. If you're happy and satisfied on Windows, then keep using it. It's not my problem. But for me personally, I know that I want to use an operating system that I can contribute to and change and affect. I can't do that with Windows. I can't do that with Mac. I can do that"
+    },
+    {
+      "start": 2250.3,
+      "end": 2353.28,
+      "speaker": "jerod-santo",
+      "text": "with Fedora, which is why I use it. That's true. That's good points there. Well, I would say, hey, if you're listening to this on YouTube, wherever you're listening to that, drop a comment if you're on YouTube. If you're out there not on YouTube and listening on the audio podcast, we're on X, you could email us editors at change.com. I would love to hear from creators, creatives, whatever you want to call yourself, anyone doing this kind of stuff, because I just haven't gotten that far into it. And I feel like the next layer of experimentation for me truly is building a creator PC that does not run Windows, let's just say. So that'd be my next major fun project. I'd film it. I'd talk about it. I would love that. Like I love building machines and I have no desire to build one more because I would have to put Windows on it and I just don't want to do that. It wasn't that bad though. It really wasn't that bad. It sounds like you're pretty curious. So, you know, honestly, if I could just give one credit to Windows is that they've got so many applications. And I think once you're past a few things and you're using, let's just say like Notion or you're in Slack or you're in Zulip or something like that, at that point, the operating system sort of just goes away and it doesn't feel like you're somewhere wrong. There's some things I really liked about Windows, but it was mostly UX things. And that's because I had taken so much of the bad stuff away that is by default. Chris Titus's script, I forget what it's called, but it's really awesome for helping you fine tune, install, configure and de-configure Windows to be more enjoyable. If it wasn't for that, Windows would"
+    },
+    {
+      "start": 2353.28,
+      "end": 2432.32,
+      "speaker": "carl-george",
+      "text": "have sucked bad for me. I think you bring up a good point with the apps. I mentioned like, you know, in the past trying to like convert people to Linux and like, you know, huge waste of time. But what I would run into is, you know, I would say like, what do you do on a computer? And they're like, oh, I get on Facebook and check my email. And I'm like, what else do you do? That's it. You know, maybe I'll, you know, look at some photos and I'm like, okay, well, if you're just in a browser and don't have any specific application needs other than like a photo viewer, like, yeah, here's XYZ Linux distribution. Try this out for a while. And then they would always do it. And then they would say, they would call me up like a month later or whatever and say, hey, I bought this camera at Walmart and it comes with an application and it doesn't install. And I'm like, what's the camera? And I'll look it up. Yep. That's a Windows only app. And inevitably something would happen like that. Nowadays, I think that would be a less common thing just because of the move to web apps over like native applications. So the problem has gotten better, but still it's a problem where I wouldn't recommend, you know, I wouldn't necessarily recommend Linux to friends and family unless they actually want to get involved and learn it. Like you're asking questions and want to know if I have a family member that wants to know and learn, then sure, I'll help them get started and whatever, but I'm not going to try and convince anyone that's perfectly happy using Windows or Mac or anything else that they need to change"
+    },
+    {
+      "start": 2432.32,
+      "end": 2435.84,
+      "speaker": "jerod-santo",
+      "text": "to anything. Especially because you become the de facto tech support, don't you? I mean,"
+    },
+    {
+      "start": 2435.84,
+      "end": 2450.32,
+      "speaker": "carl-george",
+      "text": "once you've done that, I have gotten to the point in my life where a family call me asking Windows questions. They're like, you work with computers, right? And I'm like, the last time I used Windows was Windows Vista. Sorry. Can't help you. The best Windows there was the best. That's the best"
+    },
+    {
+      "start": 2450.32,
+      "end": 2544.1,
+      "speaker": "jerod-santo",
+      "text": "Windows. Pretty accurate. One more thing on this note. I think the thing that bugs me is like, when you use, even when you build your own PC, you run into these issues with, you know, is the, you know, going back to the camera kind of thing, like, is there software for it on the platform? Corsair, pretty popular brand, have a really cool power supply for your PC, a really good liquid cooler for the CPU. And they both have, I'm not sure what they call IQ. It's more of a system IQ is like this information system you can get from the PSU, like how much power is it using? What's the constant power draw? And the application is pretty much a Windows app, right? It's not for Mac because you can't really use Mac unless you're doing, I guess, hackintosh stuff, which is not something I do. So you're pretty much relegated to a Windows application to leverage IQ, which is diagnostics and information. So if you're building a system on Linux, the API for it is not published and you could probably reverse engineer one and have fun with that. But by and large, if you're using Corsair as a power supply or a water cooler, you're not getting the IQ goodies in Linux to my knowledge, you know? So it's kind of a bummer. You're building a PC, you're probably building a Linux PC because that's kind of the sundry more popular these days, but yet you don't have access to APIs or a CLI for this stuff. And it's just a shame."
+    },
+    {
+      "start": 2544.1,
+      "end": 2649.62,
+      "speaker": "carl-george",
+      "text": "Yeah. You'll see sometimes third-party projects that'll come up for things like that, where they'll say, you know, for in this, I don't know if there's one, an equivalent for the one you gave the Corsair IQ, but for example, someone could say here, you know, Corsair IQ is a Windows only app. Here is a, here's an app, a GTK app that is designed for gnome that does sort of the same thing that works on Linux. But it'll be like just somebody's hobby project that, you know, maybe it works today, maybe it breaks tomorrow and it's just an as is thing. Getting more manufacturers interested to make, you know, native applications. I mean, we've got the great example of Steam there and that's been just a huge, huge boon for Linux desktop is having, you know, whatever, I don't know what the percentage is, but say like, you know, 50 to 80% of the Steam library just works on Linux now without any problems. There's still some games that don't, but people can, you know, game all day long with Steam on Linux. And as long as they stick to those games that are compatible, that's not a blocker for them anymore. And it's just going to be, you know, it's a slow and steady drum beat of getting manufacturers on board, getting more hardware manufacturers on board that will ship Linux pre-installed. We're getting better at that. Framework's real popular these days. They don't ship Linux pre-installed, but they have devices where they'll advertise it as bring your own OS, which is kind of code for go install whichever distro you want on here. We've got Lenovo offering pre-installed Ubuntu and Fedora laptops now. So I think the more of those we get, the better this application problem will get long-term. But it's certainly been a long time coming, getting to the point we're at now, and we're still not in a great place with it. So it's probably going to be a lot longer trek up this hill, getting it more popular."
+    },
+    {
+      "start": 2649.62,
+      "end": 2707.7,
+      "speaker": "jerod-santo",
+      "text": "Yeah. In my case, I'm using IQ as more of a diagnostic thing. I'm not trying to view the window and check out the power draw. I'm trying to capture that in Prometheus, just monitor across the server. So in this case, it's a powers upon a server. The GPU is on the server. You know, the CPU is obviously the CPU of the server. And I want to look at those things. I want to understand how the CPU is performing, you know, which cores are active, things like that, how cool it is. Those are things you can get from the actual CPU. But in terms of its cooling, you know, there's things you can tell about, like, what is the constant temperature of the water in the AIO and whether or not that pump is about to go away. You know, there's things you can do just to ensure durability of your server and the IQ system or the diagnostics in there is sort of stuck. And, you know, I'm thinking about not making it stuck, but I got to make some software and I don't want to do that. I'd rather than just do it, make it easy. But that's how it works."
+    },
+    {
+      "start": 2707.7,
+      "end": 2764.98,
+      "speaker": "carl-george",
+      "text": "If you don't care about the graphical part, I imagine there's probably something on Linux that could reach into that data. Usually those type of things, they're not like, it's not like special secret data where you have to have the one special proprietary app to access it. It's usually just normal, you know, industry standard stuff exposed via the hardware. And then there's other, I mean, servers do this anyways, that don't have any graphical environments at all. So there's usually a standard that you can plug into and find some kind of app. It might just be a matter of finding the right term to Google for, you know, I think this used to be known as monitoring. Now it's observability is the hot term. You know, kind of like a lot of sysadmins went from sysadmin to DevOps to SRE. Observability is now the new lingo. So maybe look into some of that. Observability and then the exact thing you're trying to monitor, right? Like, you know, a water cooling loop temperature. Maybe that one's too specific. It might not be out there, but there's probably something you can find some kind"
+    },
+    {
+      "start": 2764.98,
+      "end": 2810.18,
+      "speaker": "jerod-santo",
+      "text": "of open, open hardware sensor. There was an IQ kind of Linux. I'm not sure even sure what to call it, probably a package if you want to call it that, but it was unmaintained. So it was written in C and unmaintained and probably for good reason. I'm not going to say, but whatever. What's up friends. I'm here with Kyle Galbraith, co-founder and CEO of Depot. Depot is the only build platform looking to make your builds as fast as possible. But Kyle, this is an issue because GitHub actions is the number one CI provider out there, but not everyone's a fan. Explain that."
+    },
+    {
+      "start": 2810.18,
+      "end": 2835.38,
+      "speaker": "carl-george",
+      "text": "I think when you're thinking about GitHub actions, it's really quite jarring how you can have such a wildly popular CI provider. And yet it's lacking some of the basic functionality or tools that you need to actually be able to debug your builds or deployments. And so back in June, we essentially took a stab at that problem in particular with Depot's GitHub action runners. What we've observed"
+    },
+    {
+      "start": 2835.38,
+      "end": 2856.74,
+      "speaker": "jerod-santo",
+      "text": "over time is effectively GitHub actions when it comes to like actually debugging a build is pretty much useless. The job logs in GitHub actions UI is pretty much where your dreams go to die. Like they're collapsed by default. They have no resource metrics. When jobs fail, you're essentially left playing detective, like clicking each little dropdown on each step in your"
+    },
+    {
+      "start": 2856.74,
+      "end": 2882.82,
+      "speaker": "carl-george",
+      "text": "job to figure out like, okay, where did this actually go wrong? And so what we set out to do with our own GitHub actions of observability is essentially we built a real observability solution around GitHub actions. Okay. So how does it work? All of the logs by default for a job that runs on a Depot GitHub action runner, they're uncollapsed. You can search them, you can detect if there's been out of memory errors, you can see all of the resource contention that was happening on the runner. So you can see your"
+    },
+    {
+      "start": 2882.82,
+      "end": 2895.14,
+      "speaker": "jerod-santo",
+      "text": "CPU metrics, your memory metrics, not just at the top level runner level, but all the way down to the individual processes running on the machine. And so for us, this is our take on the first step"
+    },
+    {
+      "start": 2895.14,
+      "end": 2904.34,
+      "speaker": "carl-george",
+      "text": "forward of actually building a real observability solution around GitHub actions so that developers have real debugging tools to figure out what's going on in their builds."
+    },
+    {
+      "start": 2904.34,
+      "end": 2959.14,
+      "speaker": "jerod-santo",
+      "text": "Okay, friends, you can learn more at depot.dev, get a free trial, test it out, instantly make your builds faster. So cool. Again, depot.dev. Let's talk about Texas Linux Fest before I put my foot in my mouth on sea. So we got at the UT campus. This is what is it this month? Like a couple of weeks, basically 16 days. As of Friday, it's like 13 days. Okay. So if you're going to go to this, go to 2025.texaslinuxfest.org. I assume you're an organizer because you reached out on length and you said, Hey, Adam, what do you think about Texas Linux Fest? You didn't come last year. You come in this year. And I said, well, the best case I could do here is pod about it. Maybe I can come at least one day, maybe not two, but let's talk about this awesome fest"
+    },
+    {
+      "start": 2959.14,
+      "end": 3151.28,
+      "speaker": "carl-george",
+      "text": "called Texas Linux Fest. What is it? So it is a all volunteer run community event. We are the backing organization is a nonprofit. We're actually under the same nonprofit umbrella as the scale scale conference out in California. Okay. We have some of the same organizers that help out with both. Like we use the same registration system, but it's a really fun event. I got going to it, met some good people there. And at one point I made a suggestion. I don't even remember what the suggestion was about, but I made a suggestion about something about how the conference operated. And they said, that's a good idea. You should come and help us with that. And they hooked me in. And so that's the motto I'll tell people a lot of times when they give me ideas for the conferences, I'll tell them the same thing, like good ideas require volunteer time to implement it. I'm not just taking all the good ideas from the good idea fair. You got to come help us do this. And I've looped in a few volunteers to help make things happen that way. Some people, it's kind of like open source, right? Everyone's got an idea, but very few people are willing to do the work to make it happen. And then the person that told me that it resonated with me. So I've been involved ever since then. I think the first year I got involved was maybe 2017, 2018. We took a bit of a hiatus for COVID. We had the 2019 event, the 2020 event we canceled outright just because I was right when COVID was kicking off the pandemic. And then we were trying hard to bring it back in 2022, didn't really come together, 2023 the same thing. And then last year, 2024 was our first year back after the long break. Like many conferences in the years, post pandemic, the attendance was down a little bit, but we had a good number of people come out. It was about 300 people that year. We've had somewhere between 400 and 800 in the years before that. So we're hoping to get the attendance back up to pre-pandemic levels this year. And talking to other organizers with other events, I've heard good things that conference attendance overall is trending up across community events. So that's a good sign. It's part of the reason I brought it up to you, Adam, to help talk about on the show, let more people know about it. Some people haven't ever heard about it and they would be very interested. It seems like every year we have the event, someone will reach out like a month afterwards and say, I had no idea this existed. If I had known about it, I would have come. And so we try to get the word out, but we don't really have a marketing department. So it's all just word of mouth stuff and podcast interviews and talking to other people at other events, just to try and get the word out and let people know. Well, we're happy to help. Is this getting put on at the university? It's not at the... Yeah, you mentioned the UT campus. It's not the main campus. It is an ancillary venue called the J.J. Pickle Research Campus. It's called the Commons Conference Center at the J.J. Pickle Research Campus. All the map is on the conference website that you already mentioned the link to. It's also pretty easy to find in Google maps. Yeah, it's our first time in this venue. I just noticed on the schedule that you"
+    },
+    {
+      "start": 3151.28,
+      "end": 3155.84,
+      "speaker": "jerod-santo",
+      "text": "have different venues and one is the stadium. I was like, is that actually the football stadium?"
+    },
+    {
+      "start": 3158.32,
+      "end": 3171.76,
+      "speaker": "carl-george",
+      "text": "Those are the names of the rooms inside that building. The stadium room inside of the Pickle Center. Yes. When I was filling that out, I actually wrote in that part of the schedule and I worried about that, about the name being a little weird. I was like, dang, they're going to"
+    },
+    {
+      "start": 3171.76,
+      "end": 3177.52,
+      "speaker": "jerod-santo",
+      "text": "have a set up in the style. I'd go to that. I was hoping people would look at the other names,"
+    },
+    {
+      "start": 3177.52,
+      "end": 3181.2,
+      "speaker": "carl-george",
+      "text": "maybe venue is not the right term for that. Well, I didn't know atrium, so I'm like, oh, hey,"
+    },
+    {
+      "start": 3181.2,
+      "end": 3184.8,
+      "speaker": "jerod-santo",
+      "text": "there could be an atrium, there could be a stadium, then Bevo. And I'm like, I have no idea what Bevo"
+    },
+    {
+      "start": 3184.8,
+      "end": 3188.4,
+      "speaker": "carl-george",
+      "text": "is. I'm going to skip that one. These are all just room names in the building and it's all kind of..."
+    },
+    {
+      "start": 3188.4,
+      "end": 3193.36,
+      "speaker": "jerod-santo",
+      "text": "Okay, strike it from the record. But no, that's a good point. I actually thought about that, that"
+    },
+    {
+      "start": 3193.36,
+      "end": 3201.36,
+      "speaker": "carl-george",
+      "text": "the venue column on the website was a little confusing and I should change it to room instead of venue. That was something from the website thing that we have, but that should be a pretty"
+    },
+    {
+      "start": 3201.36,
+      "end": 3206.48,
+      "speaker": "jerod-santo",
+      "text": "easy tweak to change. So what kind of stuff is being discussed? It's a Linux conference,"
+    },
+    {
+      "start": 3206.48,
+      "end": 3305.63,
+      "speaker": "carl-george",
+      "text": "but it's not only Linux. We don't really have tracks for every room. We do kind of keep some of the same topics on theme so they're not conflicting at the same time. So in the main room, we'll have pretty much Linux talks the whole way, a lot of distribution stuff. And then one talk about Linux kernel upgrades. We have another room that I think the whole afternoon is all Kubernetes stuff. Another one where the whole afternoon is AI stuff. That's a real hot topic right now. I think we have one room where the morning is, it's two observability talks back to back. So like monitoring type things. So those are some of the leading ones. We have some stuff that's more developer oriented. We have a workshop on the Friday of the event. It's a Friday, Saturday thing. One workshop about web assembly, another workshop about WSL using the Windows subsystem for Linux, which is like a Linux sort of thing, a layer on Windows. So yeah, lots of topics all around the, at least tangentially related to Linux and or open source in some way. One interesting talk we had on the schedule this year was about Darwin, which is the, as I understand it, kind of the underlying operating system for Mac. So I'm pretty interested in, I don't know if I'll be able to actually watch any of the talks live, but we're hoping to get the talks recorded this year and be able to go back and watch that. Cause I'm curious, the title is the design and implementation of the Darwin operating system. And that's interesting to me that one, that someone would propose that at a Linux open source conference and two, I want to know what he has to talk about about it. And I'm sure there'll be a lot of comparisons"
+    },
+    {
+      "start": 3305.63,
+      "end": 3312.03,
+      "speaker": "jerod-santo",
+      "text": "to Linux itself. Who should come to this thing? Like it seems varied. So it seems varied,"
+    },
+    {
+      "start": 3312.03,
+      "end": 3412.54,
+      "speaker": "carl-george",
+      "text": "who would come? Anyone, anyone interested in Linux and open source? Like I said, we mentioned, I mentioned that there's a lot of AI talks this year. So I know that's a hot topic. People that want to learn more about that. We've got, you know, people working specifically in observability. So if this is some of the topics are things that you work with in your day to day job, it's certainly applicable. Maybe you can get your employer to pay for the ticket. The tickets are pretty reasonable. The entry level tickets, we just, we actually just ended the early bird pricing. Unfortunately that's been open for a while. It was $50 tickets. But now the entry level ticket is $75 and you can upgrade to a hundred dollar ticket to get the swag pack that includes a t-shirt. But yeah, if you can, if it's related to your job at all, if any of the topics on the schedule sound good, I would definitely pitch it to your employer. And if your employer is interested in sponsoring the conference, since this is run by a nonprofit, we don't actually have big budgets for any of this stuff. We are completely reliant on our sponsors helping make the conference happen. This year, my ex-employer Rackspace down in San Antonio is our platinum sponsor and they haven't, they sponsored in years past and they haven't in a while. So it was nice to see them come back around and want to be involved in community events. We've also got Red Hat and my current employer and Percona and Elastic as our gold sponsors and a few more silver ones. And we're looking for more sponsors. If anyone's interested in helping make the event happen this year and in future years, that'll definitely come in handy. But also having lots of sponsors also helps us control that ticket price and not have to charge too much so that attendees can come and it's affordable for everyone."
+    },
+    {
+      "start": 3412.94,
+      "end": 3449.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I'm seeing speaker slots with sponsored by Red Hat and those examples. How does that, how does that work? I imagine it's obviously in the cases I looked at, it was a Red Hat employee, but is it, is there like a promotion kind of thing there? Is it simply kind of covering that person's costs to be there to give that talk? And it's, it's not like an advertisement. It's more like we enabled that person while they may work here to have the freedom to go to this conference and give this talk and share their love and knowledge with the community. How does that work?"
+    },
+    {
+      "start": 3449.2,
+      "end": 3642.72,
+      "speaker": "carl-george",
+      "text": "So more of the latter, what you said, it's going to be more like for my case where I'm an organizer but I'm not doing one of these sponsored talks. So I don't have like sponsored by Red Hat on any of this stuff. But I will be helping coordinate some of the stuff at the actual Red Hat booth. The actual sponsors, there's different sponsored levels. That's all listed on the website. Many of the sponsor levels will include what we call a sponsored workshop. And then the sponsors get to split that up however they like. I think the gold level comes with a half day workshop, which will be works out to about three hours. The platinum gets a full day workshop that is comes out to a total of six hours. The sponsor can use that time however they want to. Many years ago, actually the first time I spoke at Texas Linux Fest, I was still a racks-based employee. And the way that I spoke was in the sponsored workshop. They had a session that was basically part of their sponsorship and they could fill it however they wanted to. And so among employees, they said, who would like to present at the conference about any topic? And then I got to get on with that and do a little small talk there. And I think that might've been my first public speaking thing. So it's not always that. It's not always just employers paying for their employees to have a spot. Sometimes it might be like sales engineers trying to talk about how their products are working with an upstream open source thing. We definitely try to have an upstream and community angle on it as much as possible. But because the sponsors are putting up money for this, we like to give them a little bit of the audience time as part of the benefit for the sponsors to come in. So any of the talks that are part of a sponsored thing, we disclose that right there in the title as sponsored by whoever. So far Red Hat's the only ones you see there, but that's only because Red Hat's the only one that has given me the titles for any of the sessions so far. Waiting to get those back from the other sponsors. And then once they give those to me, I'll add them up on the website and you'll see if you'll see Percona and Rackspace and Elastic on there and that in the schedule as well. All those workshops are on the Friday. There's no sponsored content. The Saturday is all talks from our call for papers, which ended last month, I believe in August. And that's just talks that people have submitted. Nobody is paying for the spot. It's all just submit your ideas. And then we have a committee of reviewers. I participated in that also. We go through and read all of the submissions, rate them, and then we look through the top ranked ones and then try to come up with tracks. Like I mentioned, we have like a full day of Linux distribution stuff and kernels, and then like a half a day, like an afternoon of like AI and then like an afternoon of observability stuff. So we'll look through all of the submissions and the ones that we liked we'll put together into themes that make sense for the conference and then have all the community members speak in that. Some of those speakers do happen to have their employers paying their way to come speak. Not all of them. A lot of the speakers are local and don't have any travel at all. Like for me, I'm just driving up from San Antonio. So it's just like a short two hour drive for me, basically. We have some people, a lot of people local in Austin, some people that come down from Dallas or over from Houston."
+    },
+    {
+      "start": 3642.72,
+      "end": 3655.28,
+      "speaker": "jerod-santo",
+      "text": "Longer drive for Carl than it is for you, Adam. Oh yeah. Well, San Antonio is far away compared to where I'm at. I'm 40-ish minutes from downtown ish with traffic. You just never know about traffic, man. It can get you."
+    },
+    {
+      "start": 3655.28,
+      "end": 3671.52,
+      "speaker": "carl-george",
+      "text": "We're a little further for you this year then because last year we were at the Palmer Events Center, which is right by Terry Black's barbecue. Kind of just south of downtown, just south of the Ladyburg Lake. This year that J.J. Pickle research campus is a little bit further north in Austin, but it's still in Austin. So it's not far."
+    },
+    {
+      "start": 3671.52,
+      "end": 3676.24,
+      "speaker": "jerod-santo",
+      "text": "I was thinking downtown UT. Yeah. Is there still barbecue nearby? Always."
+    },
+    {
+      "start": 3676.24,
+      "end": 3702.24,
+      "speaker": "carl-george",
+      "text": "There's one I haven't tried yet called Interstellar. That's out a little, I think about 10 or 15 minutes northwest from there. I really want to try that one. The one or two times I've gone out there, the line was really long, which I don't terribly mind, but the group that I was with was like, oh, I don't want to wait an hour or two. And I'm like, oh, but it's like one of the top ranked ones. I got to try it. Adam, did you ever go out to Seguin to try Burnt Bean?"
+    },
+    {
+      "start": 3702.24,
+      "end": 3706.24,
+      "speaker": "jerod-santo",
+      "text": "No, that's Seguin's. I mean, you might as just go in the middle of nowhere to go to Seguin, right?"
+    },
+    {
+      "start": 3707.28,
+      "end": 3716.88,
+      "speaker": "carl-george",
+      "text": "It's like, that one's like an hour for me. They won number one on Texas Monthly this past rankings that they put out. Really? Oh, yeah. They're really good. One of my favorites."
+    },
+    {
+      "start": 3716.88,
+      "end": 3718.8,
+      "speaker": "jerod-santo",
+      "text": "Oh, what's it called again?"
+    },
+    {
+      "start": 3719.36,
+      "end": 3719.92,
+      "speaker": "carl-george",
+      "text": "Burnt Bean."
+    },
+    {
+      "start": 3720.8,
+      "end": 3728.54,
+      "speaker": "jerod-santo",
+      "text": "Burnt Bean. All right. I'm putting on my list. On Adam's list, Adam's Texas Monthly list. There you go."
+    },
+    {
+      "start": 3728.54,
+      "end": 3743.18,
+      "speaker": "carl-george",
+      "text": "Yeah. They were number four on the top 50, like four years ago when they did the last list and they went from number four to number one. Which I was kind of bummed about because I was like, okay, the food's going to still be great. All that means is the line's going to be longer. More people know about it because they want to have number one."
+    },
+    {
+      "start": 3743.18,
+      "end": 3753.9,
+      "speaker": "jerod-santo",
+      "text": "Oh, good for them, I guess. They get the business. Give us the Carl George list. Give us the top three Carl George barbecue. You want to do San Antonio and Austin? You want to do just Austin? You want to do just San Antonio?"
+    },
+    {
+      "start": 3753.9,
+      "end": 3754.62,
+      "speaker": "carl-george",
+      "text": "Oh, they're all over."
+    },
+    {
+      "start": 3755.74,
+      "end": 3756.22,
+      "speaker": "jerod-santo",
+      "text": "Top three."
+    },
+    {
+      "start": 3757.26,
+      "end": 3787.18,
+      "speaker": "carl-george",
+      "text": "The one that I end up going to more often than any in Austin probably is Terry Black's. It's not the best barbecue in Austin. It's really good. But the best thing about them is that they are cooking 24 seven. They're only open during normal business hours, but they still have barbecue at seven, eight o'clock at night. Most of these other places, they start cooking the day before and then they close when they sell out, which will be at like noon or one or two. A lot of times you can't get barbecue for dinner."
+    },
+    {
+      "start": 3787.18,
+      "end": 3788.94,
+      "speaker": "jerod-santo",
+      "text": "That's an early day to sell out, man. It's crazy."
+    },
+    {
+      "start": 3788.94,
+      "end": 3849.5,
+      "speaker": "carl-george",
+      "text": "Yes. That's one of the things I love about Terry Black's is you can still reliably go get barbecue for dinner. And they're basically cooking 24 seven to accomplish that. There may be sometimes late in the evening where they run out of particular things, but it's not too bad. Another one I really like is La Barbecue. They're really good. That's all in Austin. There's another one. What is the name of it? They have a brisket taco that I really love. I'll think of the name of it in a minute. The hat I'm wearing is Snow's. They're outside of Austin. They're about halfway between Austin and Houston. And they were number one years ago on the list. They actually got featured on a... If you go on to Netflix, there's a documentary about barbecue. And one of the episodes is all about Snow's barbecue. And if you've ever seen it and forgot, it was the one where they had the little old lady that's the janitor at the high school is the pit master at the barbecue restaurant. It's a great story. Fantastic."
+    },
+    {
+      "start": 3849.5,
+      "end": 3854.38,
+      "speaker": "jerod-santo",
+      "text": "Oh my gosh. That does make sense too. I know it's good if you're going to buy a hat for it."
+    },
+    {
+      "start": 3854.38,
+      "end": 3874.7,
+      "speaker": "carl-george",
+      "text": "It's got to be good. They're only open one day a week too. So they definitely drive up their own demand. It is in a town called Lexington. Very small. I think the population of the town is like 200 normally. And then on the weekends, the day they're open, it swells up to however many people are in line, which is well more than 200. Which day of the week? Is it open Saturday? Saturdays, yes."
+    },
+    {
+      "start": 3875.34,
+      "end": 3881.1,
+      "speaker": "jerod-santo",
+      "text": "Gosh. Get there 5 a.m. kind of thing. Camp out all night. Is it Friday every Saturday?"
+    },
+    {
+      "start": 3881.1,
+      "end": 3893.02,
+      "speaker": "carl-george",
+      "text": "I think when I've gone out there, it was like 5, 5.30 when I went out there and I would be 100 in line or so. We should do a barbecue crawl around Tejas someday, Adam. That'd be fun."
+    },
+    {
+      "start": 3893.02,
+      "end": 3901.18,
+      "speaker": "jerod-santo",
+      "text": "It would be fun. There's a lot of good barbecue. I mean, endless supply of places to go. I mean, I could name my own list, which would not be exhaustive comparative, but..."
+    },
+    {
+      "start": 3901.18,
+      "end": 3903.26,
+      "speaker": "carl-george",
+      "text": "Not as good as Carl's list, is what you're saying?"
+    },
+    {
+      "start": 3903.26,
+      "end": 3908.62,
+      "speaker": "jerod-santo",
+      "text": "Well, you know, I used to live in Tombaugh, Texas. As you know, Jerry, you should call it Tombaugh. Not Tombaugh."
+    },
+    {
+      "start": 3909.5,
+      "end": 3910.78,
+      "speaker": "carl-george",
+      "text": "I know what you're about to bring up."
+    },
+    {
+      "start": 3910.78,
+      "end": 3946.75,
+      "speaker": "jerod-santo",
+      "text": "slight difference. Yeah, Tejas. But see, I knew Tejas before it was in Texas Monthly, and you can go at any given time. There was always barbecue and there was no line. And then the moment they hit Texas Monthly, because they have chocolate and barbecue, it's a very unique place. They're chocolatiers. So is it, what do they call it? Chocolaree or something like that? I don't know what they call it, but you can go there and get really good, all sorts of chocolates. And it's, then you got really good carrot. I think my favorite side there is carrot souffle, and I've yet to find any place to carry carrot souffle."
+    },
+    {
+      "start": 3946.75,
+      "end": 3948.27,
+      "speaker": "carl-george",
+      "text": "I've never even heard of that before."
+    },
+    {
+      "start": 3948.27,
+      "end": 3952.19,
+      "speaker": "jerod-santo",
+      "text": "I know. Well, that's the reason to go there because they have it. It's a signature thing."
+    },
+    {
+      "start": 3952.19,
+      "end": 3959.95,
+      "speaker": "carl-george",
+      "text": "I'll check it out the next time. My sister doesn't live far from there. So when I go visit her, I'm like, hey, you in the mood for barbecue? Let's go. Have you been to the Tejas Burger"
+    },
+    {
+      "start": 3959.95,
+      "end": 4020.85,
+      "speaker": "jerod-santo",
+      "text": "Place? The same business, but I was going to say you have the Tejas Burger Joint. It's literally called Tejas Burger Joint and Tejas is spelled T-A-J-A-S. That's solid too. I mean, they had, they have smoked burgers there, smoked brisket burgers there. They've got amazing smash burgers there, which is something I've personally have really worked hard the last two years, maybe three years of my life to perfect. And I've finally got it down. So if ever you're in my neck of the woods and I have some good beef, I will make you a good smash burger, but it would be Tejas Barbecue. And near me right here in Dripping Springs, I would say Pig Pen, which is good for downtown. My other favorite, which is better, shh, don't tell them, is the Switch. I think the Switch. Oh, the Switch is good. Yeah. I mean, they've done some real special, they have a really good menu across the board from turkey to ribs, to brisket. I like the specialty stuff the Switch"
+    },
+    {
+      "start": 4020.85,
+      "end": 4050.69,
+      "speaker": "carl-george",
+      "text": "will come out with like the tomahawk steaks and other stuff that like what, lamb ribs, other specialty items. The other one out near you, Adam, is it's not the best barbecue, but I love it just because I like their salt lick. That was one of the early ones I was going to. Controversial statements, some people were like, oh no, all these other ones are better. But it's a great social hangout place. And I do like their barbecue sauce. Not many Texas places do a mustard based"
+    },
+    {
+      "start": 4050.69,
+      "end": 4114.21,
+      "speaker": "jerod-santo",
+      "text": "sauce. Well, I go for the barbecue and stay for the pecan pie. And back when I drank beer, they would have a few good beers there, but I don't drink beer anymore. But the pecan pie is awesome. I think the cool thing about Salt Lick is that if you want to go to OG Barbecue, it is the OG Salt Lick. And so this is like a property that was probably somebody's backyard at some point, turned barbecue joint. And it's just, that's the kind of site. It's a destination. It's a landmark. It's not just a place to go get barbecue. It's a place to go see barbecue. And in particular, if you get a chance to go there, what's cool about it is you get to walk by when you order, you get to walk by where they actually like roast and smoke a lot of the things. And so you can see the years, decades, decades upon decades seasoning around their pit. It's just really, really insane. It's an open fire pit. They'll give you a tour of the place if you ask nice. And it's an experience for sure. That's what I was going to use, experience. I like"
+    },
+    {
+      "start": 4114.21,
+      "end": 4125.49,
+      "speaker": "carl-george",
+      "text": "it. I haven't been out there in a couple of years, but I do want to go back. And you're right that it's the original one. They have another location up further north in Austin that is, it's good, but it's not the same. You're not getting the same environment."
+    },
+    {
+      "start": 4126.61,
+      "end": 4166.99,
+      "speaker": "jerod-santo",
+      "text": "I mean, it's, it's just not the same as the OG location. And in fact, when we became friends a year or so back, we had said, Hey, we live close to each other. Let's meet at Salt Lake's. That never happened. Kind of sad. So much shorter drive for you. Well, you know, on your way to something called Texas Linux Fest. Oh, there you go. It pretty much is on my way. It is. You'll, you'll go 150 to get here. I'm sure you'll probably go one miles per hour to 90. No, the highway, the road or both speed in that 50 on one 50, you could go one 50 on. Well, I mean, maybe if you want it to, you could,"
+    },
+    {
+      "start": 4166.99,
+      "end": 4172.51,
+      "speaker": "carl-george",
+      "text": "you might die. Yeah. The, uh, anything to avoid at 35. Yeah. Yeah. I like what I love most about"
+    },
+    {
+      "start": 4172.51,
+      "end": 4216.83,
+      "speaker": "jerod-santo",
+      "text": "where we live is the back roads. Like, unless you want to, you don't have to really know if you're going to downtown, you have to take some highways. But if, if I'm going between here and San Antonio, except for once I actually get into San Antonio, I don't have to drive a lot of highways to get there. It's a lot of really cool, fun, adventurous, beautiful back roads with just views, just beautiful views. Hill country. Yeah. I love that. So Texas Linux Fest, second year back officially since the vid. Is there any particular talk that you're looking forward to? One thing I noted actually was that I didn't hear you say home lab and I kind of made me sad. It's kind of like all home lab in a way, but are there any particular home lab flavored conversations happening? Let"
+    },
+    {
+      "start": 4216.83,
+      "end": 4286.38,
+      "speaker": "carl-george",
+      "text": "me see. I know last year, uh, my friend Alex that works at tail scale gave a talk, but he wasn't able to make it this year. Uh, I know tail scales were popular among home home labbers for good reason. One of those guys, one of those Nick's OS fans, uh, from the JB network, uh, my friend West Payne, uh, he's given a talk mesh network sidecars for Nick's OS services. So if you're getting into Nick's OS for your home lab setup, um, that is something he mentions tail scale in the, uh, uh, in mesh network clients in the talk description. So I'm sure he'll delve into that and probably talk about ways that it can fit in home lab type stuff. Um, let's see, uh, there's an NGINX talk that may be applicable for depending on what you have set up. Uh, I don't know how, how often home labbers get into observability type stuff and monitoring all the time, man. I'm sure some home lab setups are just like, Oh, whatever, if it goes down, like, you know, my kids will tell me like the, you know, the Plex ain't working or whatever. Uh, and, but other people get all into it and want to know, like, you know, real time analytics and other things like that. Uh, so definitely the, the monitoring talks and observability talks will be applicable"
+    },
+    {
+      "start": 4286.38,
+      "end": 4312.94,
+      "speaker": "jerod-santo",
+      "text": "to this, uh, to that. Yeah, that's what I'm doing more. So I want to do a little bit more, I would say metrics tracking, which is observability in a way. I just want to see how it's performing. I guess it is observability. Now that I think about it, I'm not, I'm not trying to build dashboards and go crazy with it. I'm just trying to like monitor what's happening there and just kind of get feedback more, more so kind of like the, the pilot fill in the rut. Like, I just want to feel it. I want to feel how it feels, you know, that's what we do have a talk"
+    },
+    {
+      "start": 4312.94,
+      "end": 4377.98,
+      "speaker": "carl-george",
+      "text": "about getting started with Ansible. So homeliners that might want to improve the repeatability of their setup, that might be applicable for them. We do have a SteamOS talk on the schedule that, that that's one that I am really interested in that I'll be bummed if I can't sneak away from organizing duties to go watch live. Uh, I was chatting with the presenter and he was asking details about the, the presentation setup and a little spoiler. He's trying to figure out if he can, he wants to, it's about SteamOS on the Lenovo Go S hardware. And he was trying to figure out if he'd be able to do his presentation about it from the, from SteamOS on the Lenovo Go. And I was just like, that's a fantastic idea. I would love to help you get that working. Hopefully can, uh, you know, bring any adapters you might need and, uh, presentation wise and I'll try to help you get it set up and going. Uh, there's a databases talk. Uh, there's a, a no SQL talk, good number of Kubernetes things. If you're getting into Kubernetes in your home lab. Yeah. But lots of, lots of various things. Uh, nothing that is exactly home lab specific, but you know, home labs, just, you know, the environment, it's all the other technologies and in it anyways."
+    },
+    {
+      "start": 4377.98,
+      "end": 4381.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Sometimes it's like, well, I'm trying to use this in enterprise and it's like, well,"
+    },
+    {
+      "start": 4382.66,
+      "end": 4393.46,
+      "speaker": "carl-george",
+      "text": "can we talk about it in a home lab? We do have a CI pipeline workshop on Friday. That might, uh, be for home labbers that want to do, uh, you know, automate their deploys at home. That might come in"
+    },
+    {
+      "start": 4393.46,
+      "end": 4407.66,
+      "speaker": "jerod-santo",
+      "text": "handy. Yeah, absolutely. I've been running, uh, is it pronounced get T or is it giddy? I don't know. It's G I T E A and I'm just not sure. Is it get T or is it get T? Just not sure."
+    },
+    {
+      "start": 4407.66,
+      "end": 4416.3,
+      "speaker": "carl-george",
+      "text": "I've never heard an official ruling on that. I know sometimes people ask me about, about CentOS versus CentOS and I'm like, sure, choose whichever one you want. There's no official"
+    },
+    {
+      "start": 4416.3,
+      "end": 4434.62,
+      "speaker": "jerod-santo",
+      "text": "pronunciation. Very cool. Well, glad to have you on the pod again, a friend of course, 2025 dot Linux Fest dot org tickets are now 75 bucks. If you want some swag, it's a hundred bucks. I might know somebody. Do you want to, can you give out a coupon? Is it too late for that?"
+    },
+    {
+      "start": 4434.62,
+      "end": 4439.98,
+      "speaker": "carl-george",
+      "text": "You just can't do that. That would have been a good idea like yesterday to get ready. Maybe"
+    },
+    {
+      "start": 4439.98,
+      "end": 4444.46,
+      "speaker": "jerod-santo",
+      "text": "a short lived one, like 10, the first 10 get a bonus kind of thing. I don't know. Like"
+    },
+    {
+      "start": 4445.9,
+      "end": 4632.08,
+      "speaker": "carl-george",
+      "text": "10 bucks off or something. Anything. Uh, we had a, we had a coupon code for people that submitted to the CFP, uh, to give them a, uh, uh, basically give them the $50 ticket, uh, even late, like basically let them get the early bird pricing, uh, continuously if they submitted a talk and didn't get accepted. Uh, so I would definitely encourage people to do that next year. Uh, submit a talk, even if it's your first talk, this is, I would say a really good event for first time speakers. Um, well, the organizers, uh, we've got several first time speakers on the schedule. Uh, we try to be supportive, help people get started. A lot of regular conference presenters, uh, help organize. So we're familiar with all the little things that you would need, you know, things we want, wish someone told us when we were getting started. Uh, so if you've never presented at a conference before, uh, the community events like this, uh, whether you're in Austin or can travel Austin, or you have another community event in your neck of the woods, uh, like Linux Fest, Northwest, or, uh, or Southeast Linux Fest, those other conferences, if you've got something near you that's, you know, advertises itself as, you know, a smaller community event, submit a talk, see if you can get it accepted. The hardest part a lot of times isn't the present presentation itself. That's one that, you know, I tell people, you know, they're like, oh, do you get nervous when you present? I'm like, yeah, every time still. Uh, but the thing is you just figure out how to just, you know, move forward and present in spite of being nervous. And it's just part of the part of the thing is, okay, I've got my talk jitters now. Um, the harder part is coming up with a good idea that will, you know, look good in that, uh, call for papers where the, you know, the reviewers look at it and say, yeah, our audience does want to hear about SteamOS on the Lenovo Go S or, uh, smart cities built with Kubernetes or whatever it is topic wise that you have. Um, so coming up with an interesting pitch, uh, uh, send it out there. And then a lot of conferences will, uh, even if they don't accept, if they accept your talk as a speaker, you can pretty much guarantee you're getting a free pass for that. Uh, as, as a speaker, you're part of the content. Uh, a lot of conferences, including us will give, uh, also give free passes to all speaker alternates. Um, and that is where like we, we accept so many talks right off the bat. Uh, and then a certain percentage of those will drop off just scheduling conflicts or they don't show up at all or whatever. Uh, hopefully it's a small percentage. It's not too bad, but we have to plan for it. So we right off the bat, you know, the next whatever 20 or 30 talks that we would have accepted, we put on the wait list and tell them like, you know, something may open up and we'll fit you in. And we've already pulled up, I think four or five talks from the wait list and put them on. Uh, but all of the speakers that we put on the, put on the wait list, we are, we gave them free passes as well, mainly to encourage them to be there present in case we have a day of cancellation. I want to be able to tap one of them on the shoulder and say, you got that talk ready, right? And you're already here cause you got a free ticket. Uh, but anyone that we rejected in the CFP, we gave, uh, the, the $50 price ticket, the early word pricing, uh, permanently so they can get in, uh, still get in. So I definitely encourage people to do that. Uh, I wish I'd have had the forethought to get a, uh, get a special coupon code just for your listeners. Uh, if I did get that later on, is there a good way to push that out to people maybe in the show notes?"
+    },
+    {
+      "start": 4632.08,
+      "end": 4639.6,
+      "speaker": "jerod-santo",
+      "text": "Well, we can even make an easy sprinkle it in there. It's not a problem. Yeah. Yeah. Okay. Stay tuned listener to the outro. That's right. You'll hear that coupon code."
+    },
+    {
+      "start": 4639.6,
+      "end": 4649.92,
+      "speaker": "carl-george",
+      "text": "I will, uh, I will harass some people today about, uh, giving me a coupon code for, uh, for your list for the changelog listeners. Maybe, maybe, uh, uh, code like changelog might work"
+    },
+    {
+      "start": 4649.92,
+      "end": 4661.95,
+      "speaker": "jerod-santo",
+      "text": "possibly. We'll see. Sounds pretty complicated. Can we make it easier than that? Easy to remember. Cool. Yeah. We'll look forward to that. Stay tuned to the outro. Right on. Bye, Carl. Thank you."
+    },
+    {
+      "start": 4661.95,
+      "end": 4664.19,
+      "speaker": "carl-george",
+      "text": "Awesome. Thanks, Carl. Well, thanks for having me on guys."
+    },
+    {
+      "start": 4668.18,
+      "end": 4740.42,
+      "speaker": "jerod-santo",
+      "text": "What a fun time talking to Carl again. It's been a bit, I like Carl. He's cool. Love talking about Linux. Of course. Big fan of Linux. Are you a daily driver Linux user? Is it the year of the Linux desktop for you? Are you using Omarchi? What are you doing? How steeped in Linux are you? Are you a Mac user wanting to be in Linux? You hate windows, but you're kind of stuck in it. Love to hear from you. We have a community changelog.com slash community. It's free to join Zulip is there. It's not Slack, but it's a lot like it. And you should join again, changelog.com slash community and a big thank you to our friends over at CodeRabbit. Big fan of CodeRabbit, CodeRabbit.ai just announced their series B so well-funded for the next phase. And they launched their CLI, which is so cool. A CLI code review tool that is built to run with the agents. So cool. And of course our friends over at depodepo.dev and our friends, our partners, fly.io. They support us. You should support them if you can. And of course, to our beat freak in residence break master cylinder. Love those beats. That's it. This show's done. We'll see you next week."
+    }
+  ],
+  "slug": "linux-fest-in-texas",
+  "id": "109"
+}

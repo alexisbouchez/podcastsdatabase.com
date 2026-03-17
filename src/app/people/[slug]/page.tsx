@@ -57,6 +57,7 @@ function PersonContent({ slug }: { slug: string }) {
   const appearances: {
     podcast: string;
     slug: string;
+    episodeSlug: string;
     episodeId: string;
     title: string;
   }[] = [];
@@ -67,6 +68,7 @@ function PersonContent({ slug }: { slug: string }) {
         appearances.push({
           podcast: podcast.title,
           slug: podcast.slug,
+          episodeSlug: ep.slug,
           episodeId: ep.id,
           title: ep.title,
         });
@@ -77,6 +79,7 @@ function PersonContent({ slug }: { slug: string }) {
           appearances.push({
             podcast: podcast.title,
             slug: podcast.slug,
+            episodeSlug: ep.slug,
             episodeId: ep.id,
             title: ep.title,
           });
@@ -172,11 +175,11 @@ function PersonContent({ slug }: { slug: string }) {
           </h2>
           <ol className="mt-3 space-y-3">
             {appearances.map((a) => (
-              <li key={`${a.slug}-${a.episodeId}`}>
+              <li key={`${a.slug}-${a.episodeSlug}`}>
                 <span className="text-foreground/60 select-none">
                   #{a.episodeId}
                 </span>{" "}
-                <Link href={`/podcasts/${a.slug}/episodes/${a.episodeId}`}>
+                <Link href={`/podcasts/${a.slug}/episodes/${a.episodeSlug}`}>
                   {a.title}
                 </Link>
                 <p className="text-xs text-foreground mt-0.5">{a.podcast}</p>

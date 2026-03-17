@@ -1,0 +1,239 @@
+{
+  "title": "Cloudflare vs Perplexity, Laracon Recap, & Old News",
+  "date": "2025-08-11",
+  "description": "Breakdown of Cloudflare's public callout of Perplexity and PR strategy. Hank recaps Laracon with record ticket sales and sponsor-speaker integration. Discussion of the Astronomer saga going viral.",
+  "links": {
+    "spotify": "https://open.spotify.com/show/03IT9FQssrIWiP00CliTyF",
+    "apple": "https://podcasts.apple.com/us/podcast/code-to-market/id1772967744"
+  },
+  "speakers": [
+    "hank-taylor",
+    "martin-gontovnikas"
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 2,
+      "speaker": "hank-taylor",
+      "text": "Welcome back. We're back."
+    },
+    {
+      "start": 12.64,
+      "end": 94.64,
+      "speaker": "martin-gontovnikas",
+      "text": "Welcome back. Welcome back again to Code to Market. We missed for a couple of weeks because Hank run a conference which we'll talk about today. We then went we're both in SF actually recording interviews that are coming soon. So sorry we missed but you're gonna get a lot of episodes coming soon and some in a very interesting format as well for today We have I would say two topics and a half We have like two main topics and then no one will mention but i'll start with the first one Which is actually something that Cloudflare did today Cloudflare tweeted today and wrote a blog post Basically giving shit to Perplexity what they talked about was how Perplexity keeps on changing The user agent a lot of the information from the Perplexity crawler so that they do not get blocked and Perplexity was planning on using that as a differentiation Compared to ChatGPT and others. I really like that Cloudflare talked bad about them because this I think shows them with a lot of strength on it, we care so much about our customers that we actually Realize that Perplexity changes a lot of this stuff and now we're gonna call bullshit on them We are blocking them even if they are dynamic and even if other vendors cannot block them we will because we know how to do it and They show this place where they actually protect and care about their customers. What's what do you think about it?"
+    },
+    {
+      "start": 94.88,
+      "end": 147.76,
+      "speaker": "hank-taylor",
+      "text": "Yeah, it's great PR It shows like a few cool things like one they start this article with like hey Some of our customers are complaining about this So one they're showing we listen to our customers always great to have evidence for two They show their clever process for testing this so they don't just take their customers word for it They take their customers word as enough evidence like okay. We need to go investigate properly and they have an investigation They spell that all out. So that shows some clever engineering and thinking and that's just good And then of course they call out Perplexity and it serves as a warning that hey if you do this to any of our customers We're gonna call you out We're gonna watch out for bad behavior and it's just a good classic play at first when you showed me the tweet I was like, well, why does Cloudflare care and then you know after a few seconds thinking I was like Oh It's obvious why they care and how do they get through it and they care even more"
+    },
+    {
+      "start": 148,
+      "end": 194.32,
+      "speaker": "martin-gontovnikas",
+      "text": "Because of the new product that they shipped recently They recently Cloudflare shipped this new product where you can charge for bots who are crawling your website And you can have this setting What if people want to crawl your website they need to pay and you will charge them through Cloudflare So this I think is a fantastic PR for that feature as well. Like we're so good Understanding what bots are crawling you and we will actually be able at charging them as well the only thing that was interesting from the blog post to me is that I did like the idea of like we Listen to our customers and that's how we learned about it But is it their job to figure it out without customers telling them like wouldn't you expect them to figure it out? That's the only thing that I thought when I was reading a blog post or like, yeah Maybe that's the only red flag, but I don't know that I thought it was good"
+    },
+    {
+      "start": 194.4,
+      "end": 218.16,
+      "speaker": "hank-taylor",
+      "text": "I think in this case, it's really hard because I mean Perplexity was being sneaky The only way that they could know was like you have to have a customer Like the customers were basically running Perplexity Queries or searches or prompts and getting answers that that customer knew Okay, Perplexity can only do that if they're reading our stuff and that's that's something impossible for a company to do. I think yeah That's fair"
+    },
+    {
+      "start": 218.16,
+      "end": 295.84,
+      "speaker": "martin-gontovnikas",
+      "text": "I think the other thing I like is how they talked about their Engineering process and how they thought about it and why and stuff like that And this strategy is something that actually Cloudflare does a lot Cloudflare some time ago also did a huge Blog post on Okta and their outage and their vulnerabilities and their back fixes and stuff like that and they went over Okta Because they were shipping a product that will compete with them, but they do a lot of this We call out people in this case It's not competitors in this case They call out the company because they want to show their new product I think in other cases They call out the competitor because they want to win over them But I think they did it in style like they as you said they called out their customers They showed their engineering process and how good it was They talked about how they protected their customers and they show how they're going to continue protecting them and how they will care So overall fantastic job by Cloudflare good job Cloudflare let's switch topics topic number two You should introduce it But we're gonna talk a bit about Laracon and how you did the conference what you liked about it what you didn't? What were creative or different things that you did? Like I love to hear all about that. We haven't practiced this or talked about this before so I Would not be spoiled and actually I have real honest questions based on what he shares"
+    },
+    {
+      "start": 296.08,
+      "end": 370.24,
+      "speaker": "hank-taylor",
+      "text": "Yeah, Laracon was great last year I went basically as an attendee It was my second week full-time when I went last year this year Is pretty much all on me and my team to make it happen. I even found out through a podcast a couple months ago From my CEO he said on a podcast when someone asked him. How's Laracon planning going? He said I don't really know I kind of decided to step back and see how the team does without me and kind of as a test So the pressure was on for sure, but we managed to sell A couple hundred few hundred more tickets than last year. It's it's primarily a live event Although the live streams it's a two-day event that the live streams got you know Tens of thousands of views each which is really good. And yeah, we did uh, we did some crazy stuff I I guess i'll kind of run you through the schedule interrupt me with questions But i'll just tell you some of the stuff I was happy with. Oh first off we made these Which is uh, really funny, I guess if you're just listening to this i'm holding a little it's like a stress ball foam material Of a lamborghini and it has a license plate that says dollar sign PHP So I thought we had to we had to create something something that was fun That was a reference to the community and that uh, I think even people who don't know about PHP"
+    },
+    {
+      "start": 370.4,
+      "end": 378.8,
+      "speaker": "martin-gontovnikas",
+      "text": "They know that the CEO owns a lambo and they drive. Yes, like that's the only thing they knew about The CEO and about Laravel probably yep"
+    },
+    {
+      "start": 378.88,
+      "end": 400.4,
+      "speaker": "hank-taylor",
+      "text": "So I figured that's something I think it's worth leaning into when people know something about you And when there's like these rumors of PHP money, I want to lean into that and part of making PHP You know cool again if it ever was is leaning into stuff like that You know that the people outside of the community already like I have an idea don't walk me through the agenda"
+    },
+    {
+      "start": 400.48,
+      "end": 402.48,
+      "speaker": "martin-gontovnikas",
+      "text": "I'll ask you some questions, please"
+    },
+    {
+      "start": 403.6,
+      "end": 532.56,
+      "speaker": "hank-taylor",
+      "text": "That you're the most proud of in this conference. So the thing i'm most proud of is actually our day zero content So we have day one and two and then day zero is the day before where we usually do some sort of social thing So first through a series of strange events I ended up putting on a golf tournament and that was unusual last year We had a basketball game with the terminal guys. It was like a 5v5 basketball game That's not too hard to put on we rented a basketball court, you know I threw on a referee shirt people didn't even know who I was I showed up the next day at the conference like wait, I thought you were a referee and I was like no I'm actually an employee but this year we ended up renting an entire golf course and we made this the speaker And sponsor like appreciation event and then we also had I told you a few months ago How we were selling these community bundle tickets They were more expensive tickets and basically it meant we'd throw in a couple extra experiences and swag for those people So last minute we told those people. Hey, you can actually come to this golf tournament. We have room so I had about 150 engineers and sponsors on a golf course and That was wild because you know, I had to make it accessible. Most of those people have never even golfed So me and my employees we're watching MrBeast videos we're watching the Taskmaster show We're trying to come up with things that aren't golf that you can do on a golf course that make it accessible So we had a few holes of golf and then we had these other random games to give you an idea Like one of the games was hey, skip the drive go straight to the green we're going to ask you trivia questions about Laravel and the community and You're going to be blindfolded and if you answer three questions correctly You get to take three steps forward and take off the blindfold every question you get wrong You take a step backwards and if you don't get all three questions, you keep the blindfold on for two putts And then that takes you forward so and that was kind of a tie-in that that was the Nightwatch hole So we have this product called Nightwatch. So we're like, okay There's kind of a tie-in if we blindfold you, you know And the trivia questions were all somehow related to the company or something We had a bunch of other fun games like this. We had some of our sponsors sponsor holes and then you do like"
+    },
+    {
+      "start": 532.88,
+      "end": 538.8,
+      "speaker": "martin-gontovnikas",
+      "text": "Um The race of the carts that you told me you were gonna do we didn't do a cart race"
+    },
+    {
+      "start": 539.04,
+      "end": 615.68,
+      "speaker": "hank-taylor",
+      "text": "But we did do some like running type of stuff. Well, there were I guess there was sort of a car race So for example, we had one where you know how it was related to the product for that hole That was the Cloud and Forge hole so it was originally going to be something about deploy your code what it ended up being after several iterations of the metaphor getting lost was Each team had a cup of water and the team that delivered the most water in their cup to the green or deployed it I guess was the metaphor we're going for originally the most water to the green Delivered got a better golf score and the other team would take the worst score, but the first team there So the fastest team would get extra water that was held at the green and so you had you know My CEO was running full sprint across the golf course holding a cup of water the other team Drove a cart and they were pouring they're like they had ice water from their drinks They poured in they tried to cheat so we got there. I was like, how is there ice in yours and whatever? And on top of all this for my CEO's team, you always had two teams playing together So you had like a competitor for the team that my CEO was on I stacked both teams with a bunch of content creators and well-known people in the community and I had a documentary crew follow them around So we're gonna have a full-on video about this event I hope it turns out well, but those"
+    },
+    {
+      "start": 617.36,
+      "end": 624.48,
+      "speaker": "martin-gontovnikas",
+      "text": "Like the office style for the conference or not, really we also have that for the conference we had that documentary crew"
+    },
+    {
+      "start": 624.56,
+      "end": 642.16,
+      "speaker": "hank-taylor",
+      "text": "They did a golf day and we're gonna do a video just for that and then for days One and two because i've always wanted a behind the scenes documentary of these things like when I was doing Next.js Conf I always thought man if people could see some of these conversations and how ridiculous they are behind the scenes It would just be fun to watch and and I love"
+    },
+    {
+      "start": 642.24,
+      "end": 672.32,
+      "speaker": "martin-gontovnikas",
+      "text": "The idea of a documentary to show like how people are running around how like some is scripted Some is not like the fuck-ups stuff like that like doing a good documentary. I think it's a smart idea Like i'm looking forward to to seeing it. I I love it I love the idea of the golf course the main thing that's interesting to me as well on that is in most cases You don't have sponsors sponsor a speaker dinner. You just have speakers So you need something weird where you actually got sponsors there and you also have sponsor holes did speakers not care Like did they have fun? Yeah, it was fun"
+    },
+    {
+      "start": 672.48,
+      "end": 713.52,
+      "speaker": "hank-taylor",
+      "text": "Like we wanted the sponsors when I first invited these sponsors to contribute and say like hey If you want to sponsor a hole you can I told them you just need an idea and we were just looking Mainly I was trying to get out of the work of coming up with the ideas frankly Only two of the sponsors had good ideas Out of the several that sponsored holes and I had to come up with the ideas for the other ones But then they at least had staff that could help and stuff like that. Um a little bit of cash is also nice You know and these were I mean this group of 150 people they were they're influential people They're you know, we invited some enterprise people. They're our speakers They're the content creators and then we had dinner after that at the course. That was really just us hosting that"
+    },
+    {
+      "start": 713.6,
+      "end": 727.12,
+      "speaker": "martin-gontovnikas",
+      "text": "That's good. And I was asked like I always talk about this like it's better to be different than better But I think your goal of your documentary are they are they creative different things? Do you have anything else that you've done differently to other days or other conferences?"
+    },
+    {
+      "start": 727.44,
+      "end": 783.12,
+      "speaker": "hank-taylor",
+      "text": "Yeah, so one thing we did I guess it's not that different we changed some things from last year You know, we did the expo hall differently. There's a lot of little details that I felt really good about So for example with the expo hall We made an expo hall map and we also put a a key on it and we told everybody Hey, here's the list of sponsors. Here's the swag they have at their booths. We called that out immediately So if all you care about is swag just go straight to it. We also called out what type of company they are So if they're an agency or a dev tool or some cloud service and the way you got these lambos the little stress toy ones was We gave you a punch card and we said you don't have to visit all the sponsors But you have to go get a punch from five sponsors So five sponsors equals a lambo and that way you could pick the five you wanted to go to most We also highlighted if they were hiring someone so we did a lot of like Help on the pre-research on like helping point people to the right sponsors that they'd want to go to"
+    },
+    {
+      "start": 783.2,
+      "end": 803.2,
+      "speaker": "martin-gontovnikas",
+      "text": "I like that you thought of the sponsor experience like we talked about in the past but I think most conferences never think of the sponsor experience and because of that a lot of those sponsors never come back or They just send people to the event. That's it But actually encouraging people to talk to sponsors and thinking of the sponsor experience Means that I think it's easier to get more sponsors in the future as well"
+    },
+    {
+      "start": 803.36,
+      "end": 865.12,
+      "speaker": "hank-taylor",
+      "text": "Yeah, exactly And they had a good time golfing for the most part like we treated them really well actually something else we did If you are a gold or platinum sponsor we made custom shirts for you So it would say for example Titan or or Curatec or WorkOS and Laravel And so they all had this custom shirt and it looked very similar to the crew shirt to our staff shirts So and we made them a shirt for both days so they could wear, you know A and b and they kind of matched the staff We think it elevated them and it made them feel really cool to have like that uniform So that was another thing the sponsor experience was very important for me this year Especially because now that i'm on the scene we charge a lot more for sponsorships and we deliver a lot more likewise We also had if you were in an upper tier of sponsorship you had tickets to the enterprise dinner, which is another thing I'm proud of we had about a hundred plus people at our enterprise dinner. I don't do the sit-down dinners We've talked about this before I like to do I like to do standing up only dinners. So high top tables"
+    },
+    {
+      "start": 865.36,
+      "end": 870.8,
+      "speaker": "martin-gontovnikas",
+      "text": "And you put like an entire restaurant and you invited prospects and customers enterprise basically"
+    },
+    {
+      "start": 870.96,
+      "end": 927.36,
+      "speaker": "hank-taylor",
+      "text": "Yeah, basically we invited everybody enterprise who wanted to come we actually put out a tweet We've talked about this type of tweet before where we said hey if you're spending more than 50k on Amazon or AWS Then you know dm at the Hank Taylor and you'll get an invite to this dinner We also invited a lot of our you know, the bigger names in the community So it's kind of a thank you for them But it's also an incentive for the enterprise people to come because they want to mingle and meet those people And then I always get up at the start of these type of dinners and I give people a checklist to run through So I you know, I stood up on a table and I was like, hey everybody. Thanks for coming And we had our engineering leads there for each product So I said those are the eng leads they have their laptops go ask them anything you want to know I pointed out our sales team and our co I was like these guys they'll talk to you about If you want to like, you know lock in or security questions or get discounts those are your guys I pointed out a couple of our sponsors who helped pay for the dinner and then of course"
+    },
+    {
+      "start": 927.92,
+      "end": 933.84,
+      "speaker": "martin-gontovnikas",
+      "text": "You told people what was there but then it was up to them if they wanted to talk to size or to an engineer"
+    },
+    {
+      "start": 933.92,
+      "end": 959.2,
+      "speaker": "hank-taylor",
+      "text": "Or whatever they wanted to exactly but then they kind of have this So that's why I hate the sit-down dinner because if you have a sit-down dinner You're just stuck with you know The five people around you and this i'm giving people like a checklist like almost a scavenger hunt like hey Go like these are all the people to talk to and there's always something and those people are all i've prepared them I'm training them. They're all ready to like talk all night. So by the end of the night all my team's voices are gone"
+    },
+    {
+      "start": 959.2,
+      "end": 966.08,
+      "speaker": "martin-gontovnikas",
+      "text": "That's awesome last question on this Is there something that you didn't like or that you think you should have done better for next year?"
+    },
+    {
+      "start": 966.32,
+      "end": 1047.28,
+      "speaker": "hank-taylor",
+      "text": "Yes, the biggest I mean there's a few things one thing i'll say that I was happy I did was I started a thread the day before the conference in a public marketing channel Just about feedback of the conference and then I did a general message to the team and I said hey If there's something happening that we can fix in the moment go to like the Laracon channel and tag Me or the other people on my team if it's something we can't change right now Go to this thread and tag it there because there's nothing more annoying as a conference organizer than like somebody's saying man We really should have fixed this this year and you're like, yeah Well, I can't do anything about it and I have a hundred other things going on. Yeah, so that felt good One of my top things in there for myself is our our content and our social content specifically We were just not prepared for we didn't pre-draft the tweets the keynote changed too much in the last few days And then our keynote was massive So that's like another thing that me and the CEO are talking about How do we fix this because the keynote we covered we covered open source we covered AI We covered forge Nightwatch and cloud and we had a speaker for each people up there Our our head of design got inserted in there, too So it was a two and a half hour keynote with a whole cast of characters and i'm like we got to fix that We got to get the socials right and those are our biggest things for next year. I love it"
+    },
+    {
+      "start": 1047.52,
+      "end": 1059.86,
+      "speaker": "martin-gontovnikas",
+      "text": "I like that you did a lot of creative things what i'm mostly looking forward from it is the documentary I'm excited to see the behind the scenes on like what went right? What was a rush why and stuff like that like looking forward to it?"
+    },
+    {
+      "start": 1059.94,
+      "end": 1153.94,
+      "speaker": "hank-taylor",
+      "text": "I have to tell you one other swag thing that i'm proud of Yeah, in fact, i'm gonna run and get the jacket real quick. Hold on So months ago, I had this idea to create a jacket, but a really nice jacket So we made this it's got all our open source logos and product products inside. I'm out of breath from grabbing this So One thing that's important to me at a conference is to build a community identity and this community already has the artisan identity so we put on the back crafted by artisans and then Every Laracon we're producing a unique patch. That's awesome So if you buy the jacket, we give you the patch no matter what so everybody got the patch But then every Laracon you go to if you have the jacket We have an iron press there and so people press them on I pressed it on my sleeve most people put it like You know on the right side, but what's cool is now you can imagine Five years from now if we have four Laracons a year Which we do there are people who might have like 15 patches and they'll look like a Top Gun pilot with this jacket on And that's something i'm really excited about I like it's gonna take years to pay off but i'm excited to see somebody who's been to like 20 Laracons and Has like all the evidence we might do other special patches whatever but we gave the jacket to all the speakers to all the employees And the people who paid for the community bundle and then you could also just buy the jacket and it's it's quite expensive It's an aspirational item for sure But but yeah the patches the patches are free and some people were putting them on other stuff like hats"
+    },
+    {
+      "start": 1154.02,
+      "end": 1170.9,
+      "speaker": "martin-gontovnikas",
+      "text": "But I love the idea that you'll be able to collect them and collect the patches for multiple of them and stuff like that The jacket looks like an Alpha jacket, I don't know what Alpha is but I love the Alpha jackets They are the official makers of the NASA jacket and stuff like that. It's very center. We actually modeled it"
+    },
+    {
+      "start": 1171.06,
+      "end": 1192.1,
+      "speaker": "hank-taylor",
+      "text": "I have to return this but we modeled it after this, uh, this Apple this Apple jacket, which they made for WWDC 2019 so I kind of went all out on it That was one of my biggest risks a few of the risks at the conference were the little Lamborghinis the jacket and the golf were probably the three like craziest things where people were like, what are you doing Hank?"
+    },
+    {
+      "start": 1192.26,
+      "end": 1200.66,
+      "speaker": "martin-gontovnikas",
+      "text": "But they all worked out. That's awesome. That's cool. Congratulations for a great conference now You need to make it better for the next year. I know pressure's on actually"
+    },
+    {
+      "start": 1200.74,
+      "end": 1204.9,
+      "speaker": "hank-taylor",
+      "text": "I don't know how I topped that golf thing. The golf thing was so crazy exactly"
+    },
+    {
+      "start": 1204.9,
+      "end": 1272.02,
+      "speaker": "martin-gontovnikas",
+      "text": "You need to see what you need to do something creative for our last topic We were out but we have to talk about Astronomer like it was The weakest like and what's mind-blowing out of Astronomer is that even though they're a dev tool Everybody knows about Astronomer like my mom knew about what happened with Astronomer my dad They know nothing of dev tools. They know nothing on what's going on on twitter But they always knew what happened with Astronomer and all of it. So it blew up I knew from the past that Astronomer was struggling like they were growing but not so fast I heard through the lines that they tried to do PLG but they were more like a sales company So to me what's interesting is if this attention will actually make them be more popular or not What I will say is I don't know if he was the head of marketing or not But whoever picked Gwyneth Paltrow who was the ex of Chris Martin to do the video I don't know how much money they spent but it was worth it. Like everybody on twitter was talking about it She did a great job. It seemed like an FAQ but they didn't answer any of the questions They just talked about Astronomer and the facts that he was based on the ex of Chris Martin was just absolutely"
+    },
+    {
+      "start": 1272.98,
+      "end": 1298.74,
+      "speaker": "hank-taylor",
+      "text": "I know how they approved it. Maybe she did it for free just out of Her her own petty revenge or something, but who knows it was very clever that choice of celebrity for it The way they would show the questions and then she would just ignore them And yeah, I told you this before the call. I mean, yeah go figure they weren't going Well, like if you've got two executives who are You know having an affair and skipping off to concerts together. Yeah, your company is probably not doing great"
+    },
+    {
+      "start": 1300.66,
+      "end": 1340.26,
+      "speaker": "martin-gontovnikas",
+      "text": "But at least they took the right call and even without the CEO they made this decision I read a tweet and their theory was that this is like the music industry and Hollywood trying to help a company that they fucked up So they said actually Coldplay help them find Gwyneth Paltrow and do this all for free or very cheap So they fixed the situation that they fucked up. I don't know if that's true or not But if it is hats off to Coldplay as well. Yeah. Yeah. What a great clip though. It was absolutely crazy But anyway, thank you for joining us today. We're back on our weekly vices We are gonna have some interesting interviews coming soon. We're editing them now and yeah, thank you for listening"
+    },
+    {
+      "start": 1340.34,
+      "end": 1342.76,
+      "speaker": "hank-taylor",
+      "text": "Yeah, really exciting stuff coming up. Thanks everybody"
+    }
+  ],
+  "slug": "cloudflare-vs-perplexity-laracon-recap-old-news",
+  "id": "31"
+}

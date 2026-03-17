@@ -1,0 +1,853 @@
+{
+  "title": "Brewing up something for work",
+  "description": "Mike McQuaid from Homebrew and Workbrew joins to discuss open source maintenance, developer experience, telemetry in projects, and the balance between innovation and simplicity in software development.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/32",
+    "MP3": "https://cdn.changelog.com/uploads/friends/32/changelog--friends-32.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "mike-mcquaid"
+  ],
+  "segments": [
+    {
+      "start": 15.34,
+      "end": 37.14,
+      "speaker": "jerod-santo",
+      "text": "change log and friends our weekly talk show about brewing at work big thanks to our friends and partners at fly dot-io the home of change log comm launch apps near users too easy learn more at fly dot-io Okay, let's talk"
+    },
+    {
+      "start": 37.14,
+      "end": 57.64,
+      "speaker": "mike-mcquaid",
+      "text": "My LinkedIn messages one of my favorite places to live has that has anyone ever enjoyed sending or receiving a message on LinkedIn like it's I don't know like the thing I like about it It's kind of ubiquitous now. It feels like the one place where I can contact pretty much anyone. Yeah, it's become that, huh? I never want to be talking there in that tiny little box in the bottom right my screen, right?"
+    },
+    {
+      "start": 57.94,
+      "end": 88.47,
+      "speaker": "jerod-santo",
+      "text": "Then you maximize it and it's still not very big and you're like that's not maximized Yeah, here it is. Oh, hey, mr. 500 tabs Hmm. So someone called me mr. 500 tabs. Oh, man, you were offended. I bet it was not me at all I was making fun of mr. 500 tabs like relentlessly the whole week It was Adam for sure But and then and they were trying to relate to me and I was like, sorry, man That's uh, that's Adam. I'm more of a tab 17 kind of guy as I told him"
+    },
+    {
+      "start": 89.59,
+      "end": 113.73,
+      "speaker": "mike-mcquaid",
+      "text": "How many tabs got open over there Mike? I'm currently rocking if you include the tab that this is in Four tabs. I have this I have work crew that I'll talk about later like in the My kind of development server for that I've worked with code coverage and then I have the Link to upload my local audio. Okay, as soon as this call is done because otherwise I'll forget so you're focused"
+    },
+    {
+      "start": 114.01,
+      "end": 118.93,
+      "speaker": "jerod-santo",
+      "text": "Now do you close all four like after this is over do you close everything down and you have no zero tabs then?"
+    },
+    {
+      "start": 118.93,
+      "end": 129.61,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, probably. Yeah, I'm a bit of a kind of clean freak when it comes to tabs and Desk minimalism and all this stuff. I just like to just not have stuff same"
+    },
+    {
+      "start": 129.61,
+      "end": 134.13,
+      "speaker": "jerod-santo",
+      "text": "I don't reboot very often, but I do try to like just exit stuff. I'm like get out of here"
+    },
+    {
+      "start": 134.13,
+      "end": 167.91,
+      "speaker": "mike-mcquaid",
+      "text": "Get out of here. Did you ever use that? I think Marco said Marco Orment who made that quitter app Mmm, I never did. Yeah, so that I quite like that for like focus and stuff So you can basically just tell it what stuff to silently quit in the background And so like slack is like a good example of you if you generally have slack in the background Anyway, then you just be like if I don't touch slack for five minutes Just quit it and don't notify me or anything. So yeah, so like it's a pretty good like I don't need it as much nowadays But like yeah, my dad days are just like ping ping ping ping ping like it's a nice focus thing"
+    },
+    {
+      "start": 167.91,
+      "end": 170.33,
+      "speaker": "jerod-santo",
+      "text": "Can you pick which apps count and which apps don't count?"
+    },
+    {
+      "start": 170.43,
+      "end": 204.19,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, so you can just say like mail the app slack whatever and you can choose between quit or hide so you can say like If it's you know on the screen just hide it or if it's running in the background just silently quit it And yeah, like it's I don't know I definitely couldn't have it all the time But it's a nice focus up for because I'm one of those people like I can't I think Justin Sells has talked about this before Like if a test takes more than like five seconds, then it's just like okay I'm gonna go click something because my brain needs dopamine, right? I just did that this morning with SPF records"
+    },
+    {
+      "start": 204.19,
+      "end": 252.02,
+      "speaker": "jerod-santo",
+      "text": "You know, I'm just like realizing that we had a problem with an SPF record And I went to update it and I changed it and then I was like, you know waiting for the DNS to clear and So I could run the test again like not an automated test just like CFD The thing was gonna actually return correctly and that's I think the TTL was set to like ten minutes You know, you can set it to an hour. I think is default ten minutes one minute, whatever It was set to like ten minutes and I was like, all right And then by the time ten minutes had passed I was like seven or eight things past I forgot about it for like an hour and a half. Yep, and I was like, oh I was doing a whole nother thing over here You know, I had like a process I was gonna make something get something done and I just completely Finally, I found the tab and I was like, oh, yeah SPF. Okay. Yeah, that's the worst"
+    },
+    {
+      "start": 252.02,
+      "end": 268.94,
+      "speaker": "mike-mcquaid",
+      "text": "Oh, we I feel like we're billing slowly a running list of things in this call that people don't want to deal with LinkedIn messages SPF records, that's yes to like no one ever woke up this morning and was like woohoo. I need to Fix my SPF records like this is gonna be a good day, right?"
+    },
+    {
+      "start": 269.46,
+      "end": 310.86,
+      "speaker": "jerod-santo",
+      "text": "100% yeah, never 0% I should say I have no idea what an SPF record is. Well, it's like sunscreen I am on the cloud for our website because they have like the number one Google result for SPF record, but I am not schooled on what these are don't don't don't go there Stay that way. It's so uninteresting. Yes. I'm winning. It's a happier life without knowing All right, but I got it fixed. So we're good to go there now. I know Google and Yahoo are both cracking down on their email spam prevention Maybe they should give some of that over to the mastodon Have you guys probably haven't been on mastodon this week or have you it's been spammy. There's a whole spam campaign going right now"
+    },
+    {
+      "start": 310.86,
+      "end": 317.66,
+      "speaker": "mike-mcquaid",
+      "text": "Oh, really? Yeah, I've not really seen it. Are you on like the normal mastodons or are you like what's your server?"
+    },
+    {
+      "start": 317.66,
+      "end": 372.26,
+      "speaker": "jerod-santo",
+      "text": "So we are on our own server. So it's attacking like Indies like us basically. It's not on our server because we are Literally like eight accounts or twelve accounts like you can't sign up for account on our server It's just for our for our stuff. We just wanted to be branded and you know, try it out and stuff But they basically just sign up on a small servers that have open accounts and then they just spam Other stuff the funny thing about it is it literally is a picture of the can of spam like a discord URL in the picture which to me is like wow, who's gonna type that in or something? You can't click on it, but I mean it doesn't make any sense So it's almost like a joke I think they're just showing you how bad mastodons spam features which are pretty much non-existent right now are maybe it's just a Elon Maybe yeah, it's Weekends trying to spam most grassroots marketing for X, you know if mastodons bad, maybe they'll come back. Maybe they'll come back"
+    },
+    {
+      "start": 372.26,
+      "end": 385.14,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, hey more Jack Dorsey I guess to try and drive people to blue sky or Zuck like it's it's one of those guys one of those three Yes behind the the spam campaign well Zuck he's real competitive so I wouldn't put it past him I gave in today"
+    },
+    {
+      "start": 385.14,
+      "end": 518.64,
+      "speaker": "jerod-santo",
+      "text": "I I actually I deleted the app from my iPhone, but I didn't delete it from the phone I deleted it from like the install, you know that where you can hide it kind of thing. Which app is this X? Actually, it's Twitter. Why is it X? It's X on iOS, but it's Twitter on Mac OS Which is strange and the reason why is I just cannot stand the notification spam I just can't take it anymore. Just like none of these notifications are for me. I don't even follow this person there's a whole new one with like a chat bubble not the Star splash thing where it's like I don't even care about this update from Elon or people I follow But I don't think if I want that I would get it in my feed not in my notifications I feel like I don't know what's happening, but it's just dumb. Whoever's doing that It's just like me the dumbest feature. It is not engagement. It's annoying and I'm just over that. I'm just totally over like my notifications not being for me That's the whole point of notifications right if I want my for you tab I would go to for you like that's kind of a for you thing right not a right followings thing or even a notifications thing It's a for you thing. It's things you might be interested in that they want to algorithmically share with you Which I'm cool with like I would go there opt in but stop using my notifications and abusing them Cuz now I'm just like I don't even trust the app anymore that it's important That I should care about things that I want to pay attention to I've subscribed to I'm over it I don't even care really about Elon honestly. I don't even care like everybody's upset about him whatever I mean cuz you can't control the world you can't control his president. You can't control who owns Twitter You know I mean like is that synonymous really? It kind of is you can't control who is the president of X or wherever all right? And I didn't mean that punny, but it kind of was a pun I was using X as a variable not X as a platform Yeah, I'd explain it. Sorry because I was even like did I do that on purpose no I did not so I feel like I don't even care if Elon is in place I don't care what I do care about is the fact that Twitter was good at some point It was at least useful like even if you didn't care about the conversations Yeah, 2010 right it delivered on its promise subscribe to certain people get certain feeds Engage when you want to and now I feel like it's and it's just not that for me"
+    },
+    {
+      "start": 518.64,
+      "end": 579.88,
+      "speaker": "mike-mcquaid",
+      "text": "But this is just generally like the whole way the internet works now Right is it's like if you if you want to consume content that way it has been an uphill battle on this for like Five to ten years at this point like even like we were saying my notifications like I mean even Apple has joined the party of like Random apps random first party Apple apps that will like spam you with like offers or like sign up to Apple TV Or whatever like at this point when I get an iPhone or Mac like I'd really probably like to just be able to say No apps do any notifications by default even like badges. I'm like I will literally just turn on the apps I care about because yeah It's just so bad for everything now and and all social media are now if you're I guess we were talking earlier about like being Distracted and sucked into things. Yeah for me like any social media with like a Like explore tab or anything like that. I just cannot have it on my phone. I do not have the mental Willpower to not just sit and like the wherewithal like on the same"
+    },
+    {
+      "start": 579.88,
+      "end": 681.64,
+      "speaker": "jerod-santo",
+      "text": "I can't yeah, I'm not in control at that point if I go to slash explore on any once I'm in there. I'm like oh, I can flip one more. I'm subject to whatever their mind control is and it works It's MK ultra at its finest Really had three iOS notifications yesterday from reputable apps all three were ads I had a Southwest ad which is like you want to know when your planes arriving in it or delayed So you have to have notifications for Southwest? Uber, okay, maybe not quite as reputable but reputable ish and Then a third one was like one of those bike those electric bikes that when you go to the you know You're in the city and you want to get a bike. It's like ride or or bird or lime I don't know which one it was. It's like I haven't used that one for a long time And here they are telling me there's like 20% off rides Tomorrow like I don't even in a city that has that particular service Anyways, it sucks because the apps that you do want to be notified once in a while But you don't want their ads It's even worse for kids or like young adults that are getting into technology because they don't know any better They're like, yeah notifications all the way They'll be sitting there like interacting with the ad Like hey, you know, that's an ad right? Like if they're playing a game like a lot of games are subsidized by ads especially on iOS, of course and You know my son there's times when we let him play certain games on the iOS Platform and he will be playing something and I'm like, what is that game you're playing? Oh, this is not a game It's the ad because you have to like they force you to interact with it to get past it Yeah, I like basically like do everything besides slap his hand like get out of there like like like it's a B like get out Oh, yeah, stop doing that what's he's like, but it's kind of fun. I'm like, that's the problem"
+    },
+    {
+      "start": 681.88,
+      "end": 759.3,
+      "speaker": "mike-mcquaid",
+      "text": "it's funny because my my kid while my my eldest kids is Just entered the like playing games on an iPad sort of level recently and and with the exception of Minecraft Which is again pretty good from not spamming ads at you like Apple have missed a trick. I think with advertising because I found the not being showed ads filter for Half-decent games like no ads no in-app purchases. Basically, that's Apple arcade So he only gets to play games in Apple arcade, right? So those are the only games I will install on his device and I will pretty much install All of the Apple arcade games that are around right now that seem Well, they meet the kind of age settings that I've done in the parental settings and stuff like that. And then yeah, I've seen no Shady behavior no in-app purchase stuff. No ads anything like that in any of the Apple arcade stuff so for me that's just become like until he gets old enough that he figures out that stuff exists outside of this wool garden and He badges me to the point that I give in or whatever the for now like it's it's perfect because it's you know You just have this nice selection Apple arcade, huh? I didn't consider that. Yeah, and I don't even want Apple arcade I just have it as part of my Apple one family"
+    },
+    {
+      "start": 759.82,
+      "end": 774.14,
+      "speaker": "jerod-santo",
+      "text": "Whatever anyway, right what I needed was just the storage like the family storage Yeah, and so I upgraded to Apple premium one or whatever and then you get a bunch of other stuff and Apple arcades in there And it's like really great. I think for that purpose. So yeah, so that's the only thing I use it for"
+    },
+    {
+      "start": 774.14,
+      "end": 781.38,
+      "speaker": "mike-mcquaid",
+      "text": "I don't think I've really played any games there myself, but for my kid, it's like a how to avoid horrible spammy"
+    },
+    {
+      "start": 781.38,
+      "end": 790.62,
+      "speaker": "jerod-santo",
+      "text": "Crap filter a note taken. I'm gonna I'm gonna take that note and do something with it because I cannot stand these And they're kind of predatory in my opinion"
+    },
+    {
+      "start": 790.62,
+      "end": 900.12,
+      "speaker": "mike-mcquaid",
+      "text": "I don't think kind of I think like literally I mean I think we're gonna I had a really disturbing moment in an airport a few weeks ago I've been like quite passionate about this for a while My kids are young enough that like, you know, they're years away from even wanting to be on social media But I sat behind this like maybe 11 or 12 year old kid in the airport who was sitting on tik-tok like flicking between stuff and I saw like a couple of posts in a row with like Really pretty misogynistic kind of like comic-book related memes like the comic book itself was not message not besides just like but like Stuff are being combined together to make some almost like a statement about women And he was sitting there next to his parents doing this and I just was thinking like his parents have no idea of like what? Is being delivered straight into his brain right now in like and take talk feels like I don't have this account I've never really used it and take talk feels from Friends and what I read and see and whatever like essentially the best dopamine It is transmission mechanism we've got for social media so far right and it's yeah I guess it's it's scary for me that like it's got the really really really good But I think particularly little kids are just like right. Well, not that little but little adults even are Defenseless against this stuff right because they don't they don't have the ability really yet to say like yeah Maybe this is just like not be my phone like for me with like Instagram now I have Instagram for Literally my middle ground is I follow people who I literally see in the gym at the same time when I go to the gym To like see like what's going on with their like latest gym goals or whatever right and when I use Instagram my phone I install on my phone. I basically see what's going on from people I followed I post anything I want to post and then after I've done that I delete the app from my phone every single time Because I just I have no self-control otherwise and I will just go again and again and again"
+    },
+    {
+      "start": 900.12,
+      "end": 932.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, like well at least you admit it and you're aware of it Yeah, I think that's half the battle is being aware that you have you know how controlling these They're just so good at getting your attention and just so good at like keeping it tantalizing your curiosity I was we've shared this a couple times. I know I have on tik-tok. I like I like the platform I think it it really has so many really Good qualities for things you could be curious about and people that are educating and sharing content but then you kind of get into the Like especially as you know, Jared and I aren't creators, but we are in the creator world"
+    },
+    {
+      "start": 932.46,
+      "end": 937.82,
+      "speaker": "mike-mcquaid",
+      "text": "You're totally creators the two of you. Well, I mean not not like tik-tok"
+    },
+    {
+      "start": 937.82,
+      "end": 955.5,
+      "speaker": "jerod-santo",
+      "text": "Yeah in the in the creator sense where people say I'm a content creator. We're not casters, you know, we talk to people Yeah, like when I introduce somebody I see my podcast or not a content creator And I think we're definitely we're more like a kinted like talk radio even like a.m. Like eight this am radio"
+    },
+    {
+      "start": 955.5,
+      "end": 957.5,
+      "speaker": "mike-mcquaid",
+      "text": "We're like software shock jocks, you know"
+    },
+    {
+      "start": 960.26,
+      "end": 1037.38,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I mean that's Where's that going with that take talk as a platform for creators when you think about tik-tok from a creator in quotes creator standpoint? And you want to get big you're trying to find things that essentially hook people What is a hook? It's an addictive thing. It's something that gets you Involved like we don't even to our knowledge design our shows To be hooky in any way like we may do things that are listed We call ourselves listen obsessively as I do like I want to make sure our listeners enjoy our podcasts But I'm not trying to hook them or manipulate them into listening to more Insofar as that I think they'll enjoy it like we're not trying to get to a goal Whereas with tik-tok and pretty much every platform that is like this that you immediately delete Mike It forces creators to be Just I'll just call it hooky. Like you have to be hooky. You have to be yeah hookers Is that what you're saying? They're hookers? No hooky. Okay. Oh, okay. Yeah, and you even have a lot of people on YouTube There's a big kind of push where there's people who've been on there for at least five years. Maybe a decade. They're just quitting Because they cannot maintain the rat race anymore because they're not creating content. They want to create anymore They're creating content that the platform wants which is not exactly the same right? It's not come to enjoy to make"
+    },
+    {
+      "start": 1037.44,
+      "end": 1142.88,
+      "speaker": "mike-mcquaid",
+      "text": "That's all I feel like that's always been there in some ways and it's always been that kind of like Temptation or devil's pact or whatever like I remember finding that like blogging in like literally like 2005-2006 right and you know I was part of kind of some open source communities back then and there was like federated blogs or whatever and like I learned pretty early on that like if you If you post some flame bait, right you get way more views like way more views way more engagement way more comments Way more other people are gonna like talk about your person link your purse and all this type of stuff, right? I'm like, you know, I guess for me that was me in my like early 20s and even back then it was clear that like Oh, I have a choice here, right? I can chase the views and post the stuff that will like make people angry or upset or Documentative or whatever or I can post the stuff that will like Make me happy or make them happy or be interesting and maybe a little bit more like low-key but it's like perhaps a little bit healthier and I think the hard thing we have right now is we have as you say like That if you kind of really want if you're a content creator and you want to chase the views you have to do that stuff But then it's we also have this intersection between social media apps I've got really good and the phone like there's a lot of like anti smartphone chat and a lot of anti social media chat But I think the the hard thing for me is like the subset between those two things, right? social media on a desktop is way less addictive and like having a smartphone where you have no social media like most of my smartphone usage now like most of the text I read is like books or my one by Cyla myself is like 15 minutes of hacker news a day or whatever, but like if you if you have it locked down to that extent It's just it it doesn't have that same effect on your brain. And yeah, it's I don't know it's interesting"
+    },
+    {
+      "start": 1142.88,
+      "end": 1179.32,
+      "speaker": "jerod-santo",
+      "text": "But a bit scary the times were now. Mm-hmm. Here's another way to get views and yes, this is a segue You can post your Apple vision Pro review. That'll get you some views won't it? Oh, yeah now Yeah, we had last time we talked Mike it was right after the announcement right Apple vision was yeah Yeah, and we were prognosticating and we were Guessing and we were talking about whether or not we would buy one or all these things. That was probably nine months ago It's out there. You are a big VR guy. Yep I did not buy one Adam. Did you buy one? No, Mike. Did you buy one? I did not. Oh my gosh"
+    },
+    {
+      "start": 1179.32,
+      "end": 1269.57,
+      "speaker": "mike-mcquaid",
+      "text": "I would I would take one Same same my kind of curve on this has been like I was fairly excited and then when I read the early reviews, I was moderately disappointed and then when I I guess like the person who's content related to Vision pro I've consumed the most of it's probably Justin Charles and his first like initial review made it sound terrible And then like as he talks about it more It sounds like actually more more good over time and it sounds like he is now basically just using it as like Purely screen mirroring and it's still great for that So yeah so I think I don't know why I could see myself in a later non pro iteration like Showing out some money for this particularly if I'm I'm flying with work again a bit more now than I was previously and I could see it being good for Working or new movies or whatever when you're flying. But yeah, but I I can't see myself using it It's like a standalone device or like my primary thing and I think the main thing I'm sort of like really I like all the gesture based stuff like I haven't played with it yet But I don't know from what I read and see and it looks very Finicky and doesn't quite look like it's gonna work as nicely as the keyboard certainly keyboard and mouse But even like the kind of hand gestures handheld controllers the other stuff have what about the two of you? Are you tempted to buy one? Like what would the price need to be for either of you like you buy one of it was like 100 bucks Adam"
+    },
+    {
+      "start": 1269.57,
+      "end": 1333.57,
+      "speaker": "jerod-santo",
+      "text": "I presume you would yes Yes, he would hundred bucks You know, I don't I mean I suppose maybe the hundred bucks but even then I'm just like I just don't I'm not attracted to the Medium. Yeah, I guess I think I have everything I want already I've read the book ready player one and ready player two. I kind of get what we're gonna go and If that's even somewhat predictive which like Star Trek was predictive and so was other movies and science fiction We've had if it's even 50% predictive. I'm not sure I want to be a part of that Really and I like it for folks who like I have a theater So I don't have a need to have a big screen like I already have a real literal big screen So I'm not attracted to some of the promise of small bigger Whereas I can totally empathize with somebody who does not have a larger TV or a larger screen to want to have a larger screen Or I get that and that's for them. I don't really see myself even a hundred bucks I probably I think maybe I would have to because what we do Jerry, let me get you your hundred bucks here"
+    },
+    {
+      "start": 1333.57,
+      "end": 1342.21,
+      "speaker": "mike-mcquaid",
+      "text": "Let me let me convince you if it's your hundred bucks. Maybe Jared. Okay, I'll give you a hundred bucks for it Here's here's how I convinced you on that. Okay, go for you. You fly on airplanes, right?"
+    },
+    {
+      "start": 1342.21,
+      "end": 1406.84,
+      "speaker": "jerod-santo",
+      "text": "Maybe once twice me four times a year. Yeah. Yeah, I know you do so 100 bucks on an airplane get you get you a seat upgrade maybe sure you know you go from coach to business or from business to first save the hundred bucks on your seat upgrade and Get spend on a vision Pro and you can sit in the very back of the plane with all the weirdos Cramped in and you feel like you're in a giant movie theater or something. I don't know I don't have one of it. So they're saying like that to me is the most compelling use case That's when I would use it and love it other than that. It's not getting me Jared I would love to go to someone's house who has one and use it for a few hours and I probably would be satisfied and Done. Yeah, I would be like Guilfoyle when he tested out the VR rig from the dude in Silicon Valley And I would be like this thing is rad now because it has the compression algorithm that makes it better But I don't think I would really enjoy it. Honestly, I think I think it'd be like a toy I'm not that attracted to it I don't like to be a naysayer about technology because I'm like that is such innovation I recognize everything that promises but it's just not for me"
+    },
+    {
+      "start": 1406.94,
+      "end": 1461.76,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, I I feel like it it looks more like a toy to me right now as well I got I think I said this before but it feels like it's gonna be like the Apple watch right where the first version they're just like this can do 40 things and Within a couple of years they'll realize like it you can do well Apple and or the users will be like It can do two things really well, right and then everyone doubles down and builds the apps and even the device, right? It's one of the reasons is it's got this like front mounted screen and all this type of stuff And if you like pulled a bunch of the sensors out of there I'm sure you would get the price down fairly dramatically and even be like plugs in right if you're gonna use it entirely You know some of the folks who were like using it entirely tethered to a Mac it's like well, right, you know if you can do that and you can have it plugged into your Mac and Fully powered off your Mac and use that with no battery and stuff like that. Then again, maybe that becomes more compelling I don't know"
+    },
+    {
+      "start": 1461.76,
+      "end": 1556.45,
+      "speaker": "jerod-santo",
+      "text": "Here's the thing that would actually get me is if I would say work applications if we could be doing this podcast Like we're doing it right now on a computer. We have zoom in front of us or a version of zoom It's it's Riverside. So I'm not trying to It I actually almost thought was zoom for a second cuz it was so zoom like right It's just like y'all are you know little squares on my screen if it could be a bit more realistic Like cuz I it's kind of weird Jerry we say we hang out with people here in podcast and we're not literally here with them But I feel like like if we hung out Mike a week from now at a conference I don't think I'd feel dramatically different I would feel like we've kind of hung out like it doesn't feel Aside from the fact that I can't you know smell you because that's a an in-person sense right more of a feature, right? Yeah, I'm not trying to sniff you But that would be an in-person feature, right? That's something I can't get that's data. It's a data point That's you know restricted in that this medium until smell-o-vision. Yeah till smell-o-vision which still hasn't come around I think maybe for scenarios like that where it's like a meeting or a hangout with folks That's probably where I could be more interested in the The whole experience the the siloed me by myself doing something. I don't need more of that I've got other things that I'm more interested in that I do so low as adventures or curiosities I would hang out with people in a more realistic setting in an Apple vision Pro or something like it If that was the thing that drew me there and that's something I think a business would pay for because you kind of get The experience you can sort of put some scenes behind you you can have a more in-person feeling"
+    },
+    {
+      "start": 1556.49,
+      "end": 1559.81,
+      "speaker": "mike-mcquaid",
+      "text": "Be tougher podcasters though because our guests would also have to have one"
+    },
+    {
+      "start": 1559.81,
+      "end": 1590.25,
+      "speaker": "jerod-santo",
+      "text": "We had a sent one around the world, you know for sure. Well, that was the case too until Microphones was the same thing for us for a long time coven change microphones. Yeah, you know microphones are more popular So we have more guests that have better microphones. They're not ubiquitous Obviously, we still have those challenges, but that would be something that makes would make me you know well, if we had one for everyone like a set panel of Hosts for example, and we know it's just you me and Mike every single time. Yeah, we might drop"
+    },
+    {
+      "start": 1590.25,
+      "end": 1597.77,
+      "speaker": "mike-mcquaid",
+      "text": "Okay, so what would we spend for something like that? Like as a business what would be worth it for us 500 bucks a piece or a grand, you know"
+    },
+    {
+      "start": 1597.77,
+      "end": 1668.41,
+      "speaker": "jerod-santo",
+      "text": "Maybe even a grand a half. I mean we spend a thousand bucks on a decent audio setup, you know so I'd say between 500 and 1500 someone that range per person is probably a decent spot to be and I would I Wouldn't mind doing that really if it changed the now if I had to wear this thing on my face all day long Like I already hate having to wear headphones, you know, and I get it like that's what we do Cuz it's what we we prefer to hear better with our Sony 7506 is or whatever they are. I think there's 75. Oh six is the pros a product placement. That's a good one I love the Sony's I'll probably says all day long. These are the only headphones I'll wear as a podcast. That's for sure I love them. Yeah, the professional series So, I think if I had to upgrade this to like a full-on face mask basically That's a heavy headgear and we'll podcast for a couple hours sometimes in a day. Like I'll have phone calls, you know zoom calls Daily if I had to wear that thing for like five hours a day or four hours a day as any decent in quotes content creator Might you know through meetings business in the podcasting part of it? That would kind of suck man Yeah, I mean it would be good in terms of immersive but it would suck in terms of"
+    },
+    {
+      "start": 1668.93,
+      "end": 1674.25,
+      "speaker": "mike-mcquaid",
+      "text": "Wow, I'm gonna bolt this thing onto my face. What does the endgame look like then? I think that's a somewhat ubiquitous"
+    },
+    {
+      "start": 1674.25,
+      "end": 1686.05,
+      "speaker": "jerod-santo",
+      "text": "Oh, it's it's already been told ready player one, man. I can't reveal it though. Yeah, but are they wearing masks full-on masks? Well, no at that point it becomes a neural net. It's like it's something that taps into your brain synapses"
+    },
+    {
+      "start": 1686.21,
+      "end": 1690.53,
+      "speaker": "mike-mcquaid",
+      "text": "Okay, so we're a little bit far away from that unless unless Elon succeeds with his neural link"
+    },
+    {
+      "start": 1690.53,
+      "end": 1705.85,
+      "speaker": "jerod-santo",
+      "text": "You got to ask a lot about that. He's already put a microchip in somebody. I don't want to ask him about that. So I'm sure I know what he would say, you know, it's right around the corner and so he's gonna say We're 18 months away"
+    },
+    {
+      "start": 1706.25,
+      "end": 1749.95,
+      "speaker": "mike-mcquaid",
+      "text": "Did either of you read his biography from Walter Isaacson? No. No, is it good? That's that's worth the read Like yeah, I mean I I've already complicated relationship with a guy like he you know fired a bunch of my friends But like it's a really interesting book and I think kind of like Isaacson's book of Steve Jobs Which I also read whatever like ten years prior. I think biographies are was more interesting on complex People right like I I feel like the last few I've read like Arnold Schwarzenegger I read not his most recent one, but his older one I read Will Smith's one like literally a yeet like a week before that happened on the Oscar Like I was I just became like the local like Will Smith expert cuz I just had decided to read his biography on holiday"
+    },
+    {
+      "start": 1749.95,
+      "end": 1752.07,
+      "speaker": "jerod-santo",
+      "text": "Did you see it coming then? You probably saw it coming"
+    },
+    {
+      "start": 1752.07,
+      "end": 1779.91,
+      "speaker": "mike-mcquaid",
+      "text": "Well, I mean, I guess it's well, this is the thing like I feel like this is why these bar foods are interesting Is that like these people who are very? polarizing right like often have kind of a lot of stuff in their upbringing and where they've come from and what their relationship with Their parents was like and stuff like that and like when you've read that stuff, it makes you look at them differently Like I don't think it makes you Excuse when they do bad things But I think it does make you Understand maybe a little bit more how you end up being that person, right? Sure"
+    },
+    {
+      "start": 1780.13,
+      "end": 1821.71,
+      "speaker": "jerod-santo",
+      "text": "Well when I say I don't want to hear what Elon would say. I'm not I'm not death on Elon Musk I'm just oh, yeah, I'm just over it. You know, that's the same way. I'm with politics and stuff It's like I just don't even want to hear about it because that was my main complaint was Twitter became Elon Musk's as the main character for like a year That was my complaint about more so than the changes to the moderation or the features and stuff It's like I'm just sick of him as the main character And so I just kind of like even though you know There's a lot about the guy that's very interesting and he's had a lot of success and he's she's changed a couple industries So I'm not I'm not completely anti Elon Musk But I just I know what he would say about neurotic I got I've already heard him say it"
+    },
+    {
+      "start": 1821.71,
+      "end": 1953.19,
+      "speaker": "mike-mcquaid",
+      "text": "But I guess is the thing is like he's I don't know how I can quite explain this But it's almost like there's multiple axes of surprising, right? Is that like Elon or various politicians or whatever may well come out on Twitter or Wherever to more X or whatever tomorrow and say the latest like wild thing that everyone's like, oh well You know, like I never thought they'd say that but like they're not gonna come out and say Something surprising that's like actually this really polarizing viewpoint I've had in the past I turns out I talked to a bunch of people and like I'm a bit more chill like I can see both sides now, right like You know, it's like things are surprising because they are never almost like nuanced or right contextualized or whatever It's just like it's almost like we were saying earlier right about like blog posts or content creation or whatever it's more like shocking than like oh Like I I wouldn't have thought that person would look to things that way. Oh, that's a nuanced take Oh, that's how we understand the world like differently like I I'm with you Jared Like I think that's why I find like so much of some of these characters in this conversation So boring is that it's just you know, like I might not be able to predict like the exact words that come out their mouth a lot of the time, but it's like I can predict the Emotions they are trying to channel most of the time and like like my father-in-law, you know, he's originally from Ireland and Did his PhD at Harvard? Super smart guy and like if you ask him any question about anything even moderately contentious He starts with one of two phrases either Well, it depends or a common misconception is right because he's just like the nuance factory Right, like anything that you want to make a very polarized Obvious this way's right that way is wrong Like he he's allergic to like that way of thinking and to me like the really really smart Really interesting people in the world are allergic to that way of thinking and it feels like that Is harder and harder to find because the algorithm punishes that type of almost like absolutely long-form Let's not just inflame people that's going to bring sides together Let's have an interesting deep dive exploration on a topic that's commonly overlooked whatever, you know, right"
+    },
+    {
+      "start": 1953.31,
+      "end": 2037.37,
+      "speaker": "jerod-santo",
+      "text": "there's a there's a parallel to software in that whole relationship because as developers like we want everything to be object oriented or binary or straightforward or solvable or Deterministic and so we're trying to create You know with certain constraints around a world that is none of those things right like the world is gray The world is analog. It doesn't have ones and zeros. It has like all these varying degrees right between one and zero And they can be very frustrated And so like what I've found is the most laudable interesting successful engineers are the ones who are able to somehow work around all of the Fail points and the nuances and the gray parts of the world and have software that still is robust and survives and works but as Engineers want to be like no, it's true or false guys. It's just true or it's false and Obviously the answer in this case is false and you said true. So you're wrong. So it's the exact same analog, you know but yeah, like you said the people who Have lived a long time a lot of times a lot of people with experience and also with education They realize that What we see on in the digital world is not what the real world looks like. There's lots of other Lots of data points missing as I don't like to say like the smells we're missing all the smells"
+    },
+    {
+      "start": 2037.49,
+      "end": 2122.13,
+      "speaker": "mike-mcquaid",
+      "text": "Was it Jeff Edward who first came out with the strong opinions weekly held thing? Like I think I feel like it was on coding horror that I first read that But again, like to me like that feels like the personality trait as you say of like great engineers It's yeah, and you know almost like an aside from like whether they feel that way about stuff outside of engineering but like in some ways you kind of have to have strong opinions because you have to have some rules to like write code like Code is almost by definition strong opinions because there's an if-else statement, right and you can't do like literally rules Yeah, if depends, you know like but then equally I guess You know the more you learn about like big systems and refactoring and working in teams or whatever like again All that comes down to like weekly held as well, right? You need to be willing to change things day to day week to week month to month year to year you need to change things when you have when you grow a team when you grow a company when you grow an open source project like when you grow as a person like and yeah, like it feels like it's that eternal balance in in engineering between those two poles like, you know strong computer logic rules and then like Weekly held emotions humans feelings Organizations like and anyone who tries to go like really really hard in like one of those directions and not the other like I feel Like ends up making a bit of a mess of things. Yeah"
+    },
+    {
+      "start": 2122.85,
+      "end": 2142.04,
+      "speaker": "jerod-santo",
+      "text": "Well friends, I have some good news for you It is launch week once again for century and I'm here with Rahul Chabria from the product team at century"
+    },
+    {
+      "start": 2142.12,
+      "end": 2155.92,
+      "speaker": "mike-mcquaid",
+      "text": "So Rahul, can you tell me about the launch week this year for century in March we're making a huge investment into our product Platform we're trying to make it faster better in November. We shared a sneak peek about our new metrics offering"
+    },
+    {
+      "start": 2155.92,
+      "end": 2290.52,
+      "speaker": "jerod-santo",
+      "text": "So now developers are able to define custom metrics They care about and monitor how quickly their app is responding to the business measures They have to be accountable for plus also like the customer experiences that they've committed to and that's gonna be available in an alpha People can sign up to get access We'll turn off for them like in a couple days once they write in and they can get going right away on top of that It's like we are looking more at how do we make the product smarter now? I know the world is talking about AI and ML and they're also solving like we think like entertaining problems But century is taking a more thoughtful approach to it We are trying to look at what is the developer trying to do? Like our goal is not to have you sit in century I'll do our goal is not have us like be the tab that you need to keep open Our goal is to have this be a tab you open when something is wrong Give me the information you need right away Tell you how impactful it is to your user base and if you should care and if it is something you should care about Here's how to fix it. So we're taking a broader look at how developers use the product. Where is the noise? They're seeing like are they seeing repeat events? Are they seeing like things that are not critical rise to the top and have to automatically resolve the burden on them? So we're gonna make Center a little bit smarter with the artificial intelligence To give you a more prioritized view of the issues that really matter so you can solve them quickly and move on and not be Distracted by random rage clicks that are you know, just ghost issues. Those are the two major things coming out It's like thinking about more like defining the metrics you care about also figuring out ways to like organize your issues So developers can actually solve those problems faster And then we're also working on a few features for our mobile developers like centuries a platform that works with any technology you want But for mobile developers, there's always been this like wait a second There was an error but hold on. Let me go dig up this device and see if I can recreate it I can't recreate it. Okay. Let me go look at the stack trace and I get it's definitely something there I'll just fix it push release and hopefully those about like the crash It's go up and the crash for user hits go up But this it's always like this idea like I still need to figure out like where is that bank of used old devices for someone? Running, you know iOS 13 on an iPhone 11 somewhere So we're giving them the ability or previewing the ability for mobile developers to actually see what happens on an end-user session So that way there's no question about the problem or the latency issue and building out more performance capabilities So they can see exactly how fast their app is performing"
+    },
+    {
+      "start": 2290.52,
+      "end": 2300.44,
+      "speaker": "mike-mcquaid",
+      "text": "Those are the three big things where we're planning on talking about aside from core platform announcements some integrations and cool partnerships We're working with yes the big investment in machine learning and artificial intelligence"
+    },
+    {
+      "start": 2301.08,
+      "end": 2549.3,
+      "speaker": "jerod-santo",
+      "text": "Okay centuries launch week happens March 18th through the 22nd check the show notes for a link to the launch week page I'll be showing off new features products. You can tune into their YouTube channel or discord daily at 9 a.m Pacific Standard Time to hear the latest scoop or if you wanna get swag along the way into your email address at the page We'll link up to get swag all along the way or join the discord whatever works for you at a century dot IO that's S E N T R Y dot IO I'm sure the link is up somewhere or check the show notes for a link while you're at it Use the code changelog to get a hundred bucks off the team plan again use the code changelog go to century dot IO The other complexity with software is that even if the strong opinion was right on day one it can become invalidated on day two because the world around it changes like the world is not static and we don't write our software in a vacuum and The longer we don't maintain our software We find that actually it doesn't even work anymore Like if you just let something sit we have terms like bit rot which still frustrates me to this day It's like I return to old projects. I had a client Who I wound down the relationship with them But they still need my help recently and they have a Ruby on Rails app that's been Unmaintained by their choice not by my choice, but they didn't want to pay for maintenance For years on Heroku and I was like, okay Well, the hard part about me helping you make this change now is actually just even getting an environment that works Running so that I can make the change and so I dove into that whole process, you know, just trying to get a working Environment going and it was untenable. It was actually I was like, I can't even do it There's just version mismatches Heroku doesn't support this old version anymore I can't upgrade to this version because that doesn't support this blah blah blah so on and so forth and it's like The world changed. Yeah, it's sad. I wish Heroku didn't Deprecate and then just remove support for what you're running, but they did and I can't do anything like it's like a rewrite or I don't know let it live as it is until it just dies on the vine It was sad, but it was true at that point. You have to wonder if software. This is kind of like Polarizing a bit is software cancer on the world like it is such a helpful thing obviously But the moment you don't maintain it it becomes against you basically right it can't support itself anymore it requires a Subscription a person a person's time. It requires a commitment to be runnable in a world that like you said is not static it changes as a dynamic world and At some point we're just gonna be like our whole job and I guess that kind of is the case already Which was a little polarizing. We already do maintain software on the daily, right? it's already part of humanity, but now that we have software as like a Like humanity has been older than a hundred years right like in the last 50 years or maybe more than that now I suppose maybe 60 plus years maybe even close to 80. We've had the idea of software right You've had a hardware device that had something soft on that you can change software and Humanity has not had software in its zeitgeist or I guess day-to-day For as long as humanity's been around. It's only a recent thing in the last 50 or so years And so now we have this thing that requires us to show up daily make it Progress the world and then the world relies upon it and then we have to maintain it And then the moment you let it go like in this case here and let's use Docker Some and maybe that doesn't change your versions, right? You know, maybe you could have freeze your you could have like installed all of your dependencies locally and that would have been okay I don't know get a frozen your dependencies We now have this thing that requires us to show up and give it love in some way shape or form for it to keep"
+    },
+    {
+      "start": 2549.3,
+      "end": 2789.68,
+      "speaker": "mike-mcquaid",
+      "text": "Giving us love back. That's kind of cancerous. I don't know I kind of feel the opposite So I guess for me like the thing that's been nice about the last five or ten fifteen years with software is it feels like it's becoming more universally accepted in the software industry and even outside like even kind of consumers of software that like Software is not static and it requires Continuous maintenance and I guess like while you were saying that I guess I was thinking about I mean how many things in our life? genuinely require Zero maintenance right over. I mean there's some individual appliances But anything of like, you know a house right if you lock the doors and just shut the doors on your house Like eventually that house is just gonna fall down right like with if you do like literally nothing to it your car You're like, you know, I guess over here we have for our heating systems our boiler or your AC unit or most things like I think we maybe had this little blip in the 20th century where we we shipped a bunch of like electrical devices that in Some cases probably not anymore like could actually last 20 years plus without Anyone doing any prevents the maintenance or repair or whatever and in some ways it felt like a lot Of the software industry looked at software like that for quite a while, right and there was some small minority of us Which you know, I was definitely one of them standing on the sidelines being like hey like these package managers You use the software and your package manager all this type of stuff Like it might feel good to just like sit on a fixed version of all your stuff forever But like ultimately the world is changing around you right? like if you do that, then your Mac OS version changes or your Linux kernel changes or Literally like countries in the world change their time zones. So like your calendars are not correct anymore it's like the world is a an always changing thing and to me maintenance is almost like Admitting that like that's a thing and trying to kind of honor that and I guess like particularly open source land it It does make me happy that this word of like the maintainer is so Front and center because it feels like we're also learning that like a maintainer is a different role to a creator Right, but I have never made any open So like this blew my my kind of company that I started last year my CEO this blew is up in his mind that I Have worked on Ruby professionally for you know Over a decade at this point done a bunch of stuff with homebrew a bunch of stuff with github some some of the kind of you know fairly big name Projects in the Ruby ecosystem. I've never created a Ruby gem ever. I have never created any open source project From scratch that has got any traction whatsoever, right? Like I've done I maintained homebrew for like 15 years now But I would net there's no world in which I would have ever created homebrew Like that's not the type of person I am but I'm the type person who could take Someone else's idea when the ball is rolling and be like cool. How do we keep that rolling? How do we make it better? How do we like improve the community? How do we bring people on whatever but like I don't come up with like cool new ideas By myself right like that's not who I am, but equally there's a bunch of people I know who are incredibly prolific talented Creators in open source land have created many NPM modules Ruby gems like open source projects Whatever it may be, but they don't have the stomach for like plugging away at that for a year after year I mean decade after decade in some cases like just keeping that stuff going like that's not what interests them It makes me happy in some ways that it feels like we as an industry are recognizing that like Even as you said Jared like that little rails up you can't do that You can't just rely on a bunch of open source project Walk away for five years and then come back and expect to be able to just be like Well, let's pick up where we left off because the entire world has changed around you while you did that, right? Yeah that needed to be maintained and it was not maintained and as a result is maybe died, right?"
+    },
+    {
+      "start": 2789.68,
+      "end": 3039.53,
+      "speaker": "jerod-santo",
+      "text": "And in this case, it was literally eight years of unmaintained Mm-hmm until they which hey speaks well, I guess of my code because it served their purposes for eight years without anybody touching it I felt good, but then I felt actually really bad at the end of it because I was like gosh really hand-tied here Let's figure out a way of doing this That's not gonna cost a whole bunch of money because obviously if you had the money all along they'd be fine But they didn't have the money they maintain because it's expensive to maintain software. I'm gonna agree with you Mike. Sorry, Adam I'm gonna go against you on this one. Here's why I don't think it's a cancer because And the example of a home or a large appliance is a good one We maintain things that are valuable and provide us value Maybe you can say our relationship to software is symbiotic like it needs us and we need it at this point But we only maintain things that provide value. That's what legacy systems are We don't like legacy because it's like hard to deal with but the reason why it's legacy is because it's valuable It's actually doing something for the world. Otherwise, no need to maintain it, right? So cancer you can't just ignore it and it goes away but a software system that's no longer bringing value You just don't maintain it and it just dies. It doesn't spread and kill you so I'm gonna go with Mike on this one, although I do understand where you're coming from Adam because yeah, definitely It's spreading and definitely there's more and more people that need to maintain the software or bad things happen, right? I said cancerous, which is Not exactly seeing its cancer Okay, it has you know traits and similarities I would say Mainly that I would say maybe you said it's like cancer on the world Isn't that what you said cancer on the world cancerous? I mean we can we can roll back the trans go back Yeah, I'm also just you know, throwing it out there really. Yeah, because you know You let's say you throw up a website even with the web today I mean you to establish a decent website that is attractive to Mainstream or just regular folks There is so much you have to do and know to get it right or you can adopt a platform Not plugs like Wix or Squarespace or Hostinger or other places that will do different things That give you that leg up, but it's still not the same full fidelity as if you like handcrafted the website But if you leave that website for like like you said like your home close the doors for a bit Unmaintained for your make zero changes Maybe in the case of a Squarespace Wix or other you might they might because of the platform upgrade for you But it still required somebody To commit their time to maintain something that is in quotes valuable because I suppose there is an exchange You're paying for the service. And so therefore that's the value exchange but now we've got to show up and like kind of keep loving this thing and kind of keep giving this thing a little nudge and it's weak in a turn and You know dependency upgrades or whatever it is along the way Standards change, you know in this dynamic world that now to kind of keep getting the same initial value and the maintained value we now have to keep committing our time to Keeping the thing in place and as we as as humans, you know as humanity Remains and it goes even deeper. I mean going back to even social media as we get deep more deeper into our our Livelihood being because it's there we are here Now we we can't give up like you said that symbiotic relationship now We can't and maybe at some point we now have to serve software just so it can serve us. Maybe that is symbiotic I just wonder at some point. Is it like is it long-term worth it? You know like even with more connection like we're not that we're better off as humanity But like it hasn't solved the kind of primary human problems. We still have hunger. We still have poverty. We still have racism We still have any isms that are negative out there. We have where the whole internet was fraught with Just hate in a lot of places. There's also a lot of love too and I get that I just don't know if you've actually solved the maybe we're going the wrong direction with this podcast at this point But have you really solved the problem the software solved the problem and will it only require more of our time to kind of keep"
+    },
+    {
+      "start": 3039.53,
+      "end": 3246.85,
+      "speaker": "mike-mcquaid",
+      "text": "The status quo. I think it some of the stuff it depends how almost like how close you fly to the Sun So in some ways this like I see it as like three options Right where you describe two of them already where say option one is you you know, you make some shiny I can't really JavaScript but you know whatever the JavaScript Front-end framework is du jour and your site looks amazing and you click around and there's animations and cats fly at you from everywhere And wow, it's incredible like that's like option one right and then option two is what you described before about like you just set up a site in Squarespace or Where Squarespace or WordPress or whatever it may be and then someone else just like maintains that for you But you have a lot less control and like option three that I guess I thought of is the much Derided when they pop up on sites like I can use like someone who just has a website where like there's no CSS There's just HTML and body and they're more or less like right like either I don't care at all about like how this looks or like you can just use reader modes or An RSS app or whatever it may be to consume my content that way I care about the words I don't care about how it looks and like I guess it's like for each of those three It's like for option three that site will probably be viewable more or less the same as it is today in literally 20 years time It'll probably look exactly the same option two as you said, you're you're probably paying someone or there's some big Multinational corporation and you've seeded some control in exchange for that maintenance and it's option one I think that is the most painful to deal with because you know the more new shiny exciting frameworks you use then yeah like you you pair a much heavier cost on Doing that and particularly if you if you don't want to do that kind of day-to-day maintenance or whatever like it's it's interesting Cuz you know, I've just built been building this kind of new Rails out for work brew stuff and it's amazing to me compared to like last time I started a rails project from scratch like how much stuff I've like written You know, whatever like a little five-line method and then I read some more of the rails docs and like oh This is a one-liner now. I don't need to write this method I can like throw it away, right? I'm like that to me is what again like the we're in kind of private beta right now and stuff and like the the customers We have I definitely lean into that. I think was Reid Hoffman or whatever. It was like, you know, your first MVP You should be like embarrassed like but the way it looks and like all the wording and the way like rails will like Autocapitalize things for you and sometimes it looks right and sometimes it looks a bit weird like it's kind of embarrassing like the state of the app we've got in front of people and like No one has complained about any of that No one has complained about like how it looks ugly and janky how like, you know Essentially no love has gone into design How this like no dynamic JavaScript doing anything other than rails is built and stuff Like the only thing our customers so far want to know is like more features, right? They care about Essentially more like back-end business logic and I guess to go to your point from earlier Jared Like that is probably the stuff again like that back-end business logic. It's the easiest to test. It's the easiest to change It's the easiest upgrade. It's the least dependent on like third-party libraries and stuff like that and it's all the really shiny front-end whiz bang magic great design relying on the latest web standards that will have trouble in two years and my you know Three-line Ruby back-end function that powers some new feature will Probably be perfectly happy in 20 years right and not be relying on the rails version or the JavaScript version or whatever it may be"
+    },
+    {
+      "start": 3246.97,
+      "end": 3291.93,
+      "speaker": "jerod-santo",
+      "text": "Yeah, speaking of front ends. I was just thinking about our front end recently for changelog.com hasn't gone through any Substantial remake since we launched the website in 2016 And so that's eight years of just dutiful service without any Real maintenance. That's a pretty big win. I think I mean just in terms of I think that's a huge win Yeah, yeah, I mean, I think it's showing its age now both in the code and just design like we've had Desires to redesign and change and do things but I can't say that for very many other Websites I've made that I've had that much longevity without Serious updates over time. So that's kind of cool"
+    },
+    {
+      "start": 3291.93,
+      "end": 3415.19,
+      "speaker": "mike-mcquaid",
+      "text": "This is the thing that when you think about those sites and we can probably imagine some sites that we use that are you know Maybe more rails or PHP or whatever right some older school apps where it's definitely there's not a lot of JavaScript Stuff going on there, right? Like the fit I find the failure states on those apps to be like so much nicer, right? Like I get an error message. I don't get you know pops up it gets rendered It might take a second or two for a new page load or whatever Whereas I don't know if it's because I'm still a safari user or because I have a content blocker or whatever But like I just feel like for me Increasing amounts of the internet just don't work I just click a button and nothing happens right like there's no nothing loading and then I had to click around I go into my Developer tools and it's like oh, there's like a JavaScript over there and like essentially just everything on the page Kills the entire site. Yeah, it's just frozen but like it's I mean part of me It's almost like how would you even know this is a problem if you're just like a normal person, right? Because I know half the time I'd go and I I do that and I have like, you know I'll be like logging into this name and shame like British Airways or whatever and this stuff's going wrong And then it's some JavaScript error and I'm like, oh it must be cuz I'm using Safari So I switched to Chrome and then I'm oh it must be cuz I have adblock and then it's a bad block and it's like no, no, this is just broken for everyone in the entire world right now like and Who knows if anyone's even being notified that this is the case I don't have any way of notifying a person that this is broken and Yeah, it's just like this is just how things are now and that for me is why well I'm not like anti JavaScript But I'm very like if I can push that logic into my back end instead I can then write unit tests against it I can deliver the same code to every customer I can get Century alerts or whatever more easily like it just feels like a better world to me than One stuff gets into front ends. You can do a lot more but like yes yeah, and you're having to maintain that and deal with the changing JavaScript standards and all your dependency tree that changes all the time and well as a guy who's plugged into the"
+    },
+    {
+      "start": 3415.71,
+      "end": 3437.09,
+      "speaker": "jerod-santo",
+      "text": "Web dev community by way of JS party I can tell you that the pendulum is very much swinging back towards our old-school Style for all the reasons that you just explained and That's very refreshing. I know that will also Eventually swing back the other direction, but I agree with you. It's a better failure path. How's it swinging back?"
+    },
+    {
+      "start": 3437.13,
+      "end": 3442.29,
+      "speaker": "mike-mcquaid",
+      "text": "Can you give like a one-minute flow on what that means? Yeah, so kind of the rise of"
+    },
+    {
+      "start": 3442.89,
+      "end": 3513.25,
+      "speaker": "jerod-santo",
+      "text": "htmx and simpler JavaScript libraries and frameworks kind of a little bit of a Frustration with react as the de facto choice for your next web app is no longer. I think de facto it's still probably the main choice, but because of RSC react server components and some of the difficulty moving react to the server more and the confusion that has come out of that has made people kind of disillusioned a little bit and just like How awesome Laravel and rails are you know when you just compare them the experience? I kind of want to build a rails app today Because I haven't for so long and just see what it's like because that's what Justin circles also tells me And yeah, I mean all of the all along when you watch tech Twitter and tech Mastodon stuff Like the PHP folks are just like sitting over there laughing because Laravel is just like a really productive thing And it's like a lot of us front-enders and web JavaScript people are kind of like Reinventing a lot of the stuff that other camps have been Django as well have been doing for years And I don't know. It's just bringing back that direction. Yeah, that's cool makes me happy"
+    },
+    {
+      "start": 3513.71,
+      "end": 3703.45,
+      "speaker": "mike-mcquaid",
+      "text": "There was a great one recently actually I think it was on how can use the comments for there was some jQuery release You know and oh yeah the comments were like 50% people being like why would anyone be using jQuery in 2024 like all the JavaScript standards? Mean that you don't need to anymore and then the other half being people be like yeah, I still use jQuery It's a really good library It solves a lot of cost browser stuff like the API's are just really pleasant to use right like it's I won't name them Because I don't want to talk about you know specific people who may or may not have sponsored this podcast at points in the past But I had that recently right where I wanted to integrate with a particular provider for our app and I spent like several hours trying to make it work and there was this other company that essentially sells like a Hey, we have like a user-friendly wrapper on top think like what Heroku sold for like AWS and I had their implementation of the other company's stuff working in like Literally that's in five minutes like and it and the developer experience was just like my I'm like all the docs were there better Using their gem was better like everything was just a more pleasant experience all around like it was just absolutely Wonderful to deal with right the pricing is dramatically higher, but I'm like yeah We're just we're just gonna pay that right because the developer experience is so much worthwhile that it's like every time I think now about like Working against the API of the first one I feel sad like it makes me like not want to do my job and every time I think about using the API's with the other one I'm like Yeah, this makes me happy because it's been they care and it's been well designed and like some of the kind of you know Again, I'm I'm not super skilled up on like jQuery stay up on a JavaScript But even some of the coding samples people had in the comments they were like, okay Yeah, modern JavaScript can do this But like which of these two examples is more readable and more obvious what it means and that like old-school jQuery You know using the dollar sign parentheses Way, like it's super nice like they like the reason why J crew is really good There's a lot of thought went into having an API that was really good And you know I kind of feel the same way with like homebrew right like homebrew gets a lot of shades Periodically and like one of the reasons I worked on it for so long One of the things I liked about it so early on was like there was this real amount of care in the community and from max the creator and you know I feel like most of the things they're on like having a really nice user experience right if you could like we we argue a lot about like what a good error message looks like right a good error Message informs the user exactly what they have to do And if an error message says you need to run this command Then the question is always like why wouldn't you just do that for them, right? Like why would you print an error that says go do this thing when you know you are on the computer after all You could choose to do that thing for the user, right? and yeah, I think a lot of our industry underestimates when you're building like developer tools or developer API's or whatever like just how Important that developer experience is like it's everything I feel like it that feeling of like I like using this API versus this API makes me sad to go to work is It's a real thing and maybe I care too much but like I feel like it's not just me that feels that way"
+    },
+    {
+      "start": 3703.49,
+      "end": 3809.44,
+      "speaker": "jerod-santo",
+      "text": "Let me ask you this about homebrew and we'll talk about work for I was on the website And I think you said something like 35 million People are using homebrew or something some large number that I was very impressed by yes And it reminded me that you all have that telemetry built in because at first I was like well How do they know that I was like, oh, yeah, because they put in that telemetry and that was very controversial And maybe that's why some of the shade Continues to come your way to this day. That was a long time ago now I was thinking about that in light of a recent post by Julia Evans Popular git config options. Did you see this post by her last week? I think yeah She basically went out and aggregated a bunch of people She asks she has a large following so she asks her followers. What are your popular git config options and then she just blogs them It's a good idea for a blog, but she said this in the opener She said I always wish that command-line tools with data about how popular their various options are like basically nobody uses this one or 80% of people use this probably take a look or This one has six possible values But people only really use these two in practice like she wishes that that existed and so I could imagine that with git or I could imagine that with FFmpeg or I can imagine that with Name your developer tool, right? That would be amazing for a user experience like yeah I'm gonna configure this thing vim config right like here's probably the six vim configs that you want And we do a lot of boilerplates or starters and stuff like that give us those things But all of that would require telemetry wouldn't it? Like how do you how you gonna know your popular options? That's why I thought of homebrew and your guys's telemetry So my question is like has that super paid off over the years or not? Like it was a big Controversial decision you put I think it was Google Analytics, wasn't it? Like you just yeah use that service years ago Can you talk about it? Yeah. Yeah"
+    },
+    {
+      "start": 3809.44,
+      "end": 4054.68,
+      "speaker": "mike-mcquaid",
+      "text": "So yeah we originally used Google Analytics because they were the only people we could find that essentially could Handle our load and our price point which was zero dollars. And yeah, it has been really really useful so I mean the the single biggest thing that it became most useful for and We basically ended up dropping a lot of the data that was not this essentially Was just the packages in homebrew like figuring out how widely uses this package so a common thing that would happen is like a new version of Mac OS comes out and You know, there'll be stuff that breaks and we're like, okay, we know there's some stuff like open SSL curl get whatever We know these are popular like we know need to fix them But some random package like none of the maintainers personally use breaks. It's like do we fix this? Do we delete this like how do we know like and the analytics essentially gave us like a data-driven way of saying like well Actually a hundred thousand people installed this in the last month So we probably want to fix it or actually no one installed this in the last year or at least no one with analytics Not disabled, right? So it's probably not worth fixing Right. So like that being able to be data-driven about those decisions and I guess also like as someone who you know I've been learning a lot Maintaining homebrew for a while, but like at the same time I was like at GitHub right and had been at various other kind of tech companies before that and it's I feel like that's the kind of unfair the unfortunate double standards here is that like in an open source project like You can see and you tell your users when you have analytics But like every single other app you use has some amount of analytics, right? Like basically everything right and certainly if you're dealing with like a server-side web app They can't track everything you do at all times and you will never even know and you have no ability to opt out And it's it felt like, you know trying to canoe with one arm tied behind your back whatever trying to do this type of stuff and trying to do essentially like I've been The product manager for homebrew like trying to make these decisions about like what we do and what we don't do with absolutely zero data just meant that like essentially what you would have to just do is just make arbitrary decisions and wait for the internet to scream at you and tell you you're a terrible person for not knowing that this is incredibly popular and Instead they instead the internet scream at you for having the analytics, but then you make less Contentious stupid decisions and also like our analytics as of whatever it was like I think a year a year and a half ago Like we moved it all from Google Analytics to like our own kind of cloud hosted influx DB Which is in the EU and like with that the nice things are like this There was a certain amount of trust that when Google Analytics that like we said Hey, don't we don't want you to store IP address information and they provide a mechanism for opting out But some people just don't believe that Google doesn't store that information, right? We're so worth with the server. We can just say well that's not stored right and the way we store it is in aggregate We don't differentiate between users anymore because that was like a nice thing for kind of figure out use numbers But in the end of the day, it didn't really help with anything meaningful in the project And yeah, and it basically just means now we have like a slightly more simplified like analytics set up there is more expensive for us to run but it's Significantly better from like a privacy and an empty perspective and all our data is set up to like auto-delete every 365 days And all this type of stuff So like yeah We basically have now like pretty much as good as you're gonna get for opt-out analytics in an open source project Where they need to kind of pain maintain the infrastructure and to go back to what you said at the beginning Jared about Julie Evans Idea about like the command line options like yeah We're already talking about doing that and having at the very least something like, you know, the commands that are run we have some sort of analytics for them and then we use those to like I think her suggestion was to Sort the in the man page like to sort the items, right? So I would imagine like brew install will be at the top because it's the most widely used then maybe followed by brew upgrades But like what will be in position, you know, five or six or seven or eight or whatever Like I don't really know and right now it's an alphabetical order and that's Arguably not as good as it would be if it was sorted by actual usage. Mm-hmm"
+    },
+    {
+      "start": 4054.68,
+      "end": 4069.38,
+      "speaker": "jerod-santo",
+      "text": "So that's sub commands, but I imagine configs I'm not even sure is I'm sure there is a homebrew config where you can tweak it and stuff That seems a little bit more intrusive like you're reading my configs, you know What you kind of would have to in order to get that information from everybody"
+    },
+    {
+      "start": 4069.38,
+      "end": 4150.56,
+      "speaker": "mike-mcquaid",
+      "text": "We've got a nice middle ground on this stuff actually So if you go to I'm sure you could double look at the show notes Like that's the other thing I forgot to mention with our ethics This is essentially all of the analytics data. We have access to as homeroom containers is all on the public internet So if you go to formulae.brew.sh Analytics then you can see like all of the kind of events and like all the data for there And what we do for example is you say like, okay What does the local configuration look like in reality? like the only stuff we care about is Are you using the default homebrew installation or not the default because if using the default then you get binary packages Well all of them and if using not the default then you don't get them So instead what we instead of like logging, you know You have homebrew installed in slash users slash Jared You have it in the default location or you have it not in the default location and you could go and look and there's a Little like page where you can see like homebrew prefixes for events in the last 30 days We can see like 41% of them have them in the default location on Apple silicon 39% default location on Intel max 13% in the default location on Linux and then there's like a breakdown of smaller numbers of people who are running in like custom locations On, you know ARM or x86 or Linux or whatever like and that that gives us the information we need But at the same time preserves the anonymity of the people who were not getting your configuration from that"
+    },
+    {
+      "start": 4150.56,
+      "end": 4157.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's like a proxy for your actual config You're actually just answering the questions that you really have versus just grabbing all the config information"
+    },
+    {
+      "start": 4157.34,
+      "end": 4189.34,
+      "speaker": "mike-mcquaid",
+      "text": "Exactly exactly and I know so like that we don't that's not done server side Like again that the other nice thing about why you would think open source analytics would be like more popular in some ways It's like you can go and see like go and look at the homebrew code and you can see that like we do not send The string of like your local thing and then sort out the server Like we only send the data that like this is a custom thing And so you can't dig into like literally the way the analytics is sent and say like hey like they're not Being creepy and sending all this data that we don't want them to that is cool"
+    },
+    {
+      "start": 4189.34,
+      "end": 4198.74,
+      "speaker": "jerod-santo",
+      "text": "So 35 million users Adam is that strike you as a lot? I mean, I guess I had it in like I stopped and like let me intellectualize that if I can or think about it"
+    },
+    {
+      "start": 4198.74,
+      "end": 4207.4,
+      "speaker": "mike-mcquaid",
+      "text": "I guess as a simpler way of saying that it's like yeah, pretty much everybody uses homebrew And so I don't know why it surprised me, but I was like dang. That's a lot of people"
+    },
+    {
+      "start": 4207.54,
+      "end": 4232.86,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I guess I'm surprised by the number but not surprised by the number Like it makes sense like hearing it and that makes sense because like what else would you use if you're on a Mac and you're a developer and you Want to be as close to production which is Unix Linux in you know, almost every case Then you're gonna be on a Mac in most cases being a developer now There's also a lot of Windows developers to they're running, you know, yep Linux subsystems. Yeah, I guess it's not all Macs now, right?"
+    },
+    {
+      "start": 4232.86,
+      "end": 4285.44,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, so I mean that that number is like inferred because we don't have Analytics numbers for everyone So essentially what we have is we have the analytics numbers and then we can compare those to the for a given package say The github again with what I was saying earlier about like people on the server side contract you have what they want So when you download a binary package from GitHub packages that is logged So essentially we can compare the difference between those two numbers For a given package and see roughly how many people have opted out of analytics usage And yeah, it basically looks like about 90% have opted out And again, the other thing that's worth noting is this, you know, some of these users are GitHub actions like card runners and stuff like that, you know, sure, but we we don't discriminate We believe our our bot users are just as important as are just as important as our humans"
+    },
+    {
+      "start": 4285.44,
+      "end": 4286.84,
+      "speaker": "jerod-santo",
+      "text": "Where would I find out if I've opted out?"
+    },
+    {
+      "start": 4286.84,
+      "end": 4296.64,
+      "speaker": "mike-mcquaid",
+      "text": "Where can I where I determine that if you type brew analytics in the command line, it will tell you whether The analytics are enabled or"
+    },
+    {
+      "start": 4297.04,
+      "end": 4301.44,
+      "speaker": "jerod-santo",
+      "text": "Disabled so I've got influx DB analytics are enabled Google Analytics were destroyed"
+    },
+    {
+      "start": 4301.76,
+      "end": 4319.68,
+      "speaker": "mike-mcquaid",
+      "text": "Yes, that's because we had an intermediate time when you could opt out of one and not the other or whatever I'm kind of the same about that Google Analytics were destroyed that message could kind of go away But it's it's also fun. And yeah, because we literally dropped all of our like Historical archives backups everything for the glance of the stuff. It's all completely gone"
+    },
+    {
+      "start": 4319.68,
+      "end": 4322.6,
+      "speaker": "jerod-santo",
+      "text": "You should add some like ASCII animation of it exploding or something"
+    },
+    {
+      "start": 4323.6,
+      "end": 4324.6,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah"
+    },
+    {
+      "start": 4324.6,
+      "end": 4334.6,
+      "speaker": "jerod-santo",
+      "text": "Gosh, I don't want to say anything. But okay, you made me have to say it. Oh, no, do you still maintain? Homebrew Mike. Are you still involved in the day-to-day still very involved?"
+    },
+    {
+      "start": 4334.6,
+      "end": 4362.2,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, I'm I was elected the project leader again earlier this month And we have like a governance process that you can read about if you want to sleep. So we have little Elections and we meet in person as a group when we can basically every year since COVID and yeah like so no I'm still involved like day-to-day if you make a PR on The main package manager repo like I will almost certainly review pretty much every PR that goes to the package manager"
+    },
+    {
+      "start": 4362.32,
+      "end": 4368.72,
+      "speaker": "jerod-santo",
+      "text": "Do you try to at all mirror user experience to something like apt on Linux?"
+    },
+    {
+      "start": 4369.32,
+      "end": 4400.16,
+      "speaker": "mike-mcquaid",
+      "text": "I've used apt a lot like this I think in some ways that we kind of have like diff slightly different goals because we're not like a system-wide package manager Well, yeah, but in general like I am thinking of the other package managers I've used and like right both at the kind of you know both app get and emerge and pac-man and all these type of ones but Also, like when I've used Ruby gems or NPM or whatever like I'm I'm thinking about those where I'm trying to make decisions about how? The product might have how the package manager should work"
+    },
+    {
+      "start": 4400.6,
+      "end": 4408.44,
+      "speaker": "jerod-santo",
+      "text": "What makes me say that or ask you that is kind of what Jared said which was the did you see a spinner Jared or something? Like what did you say that made me say what I said?"
+    },
+    {
+      "start": 4408.44,
+      "end": 4413.56,
+      "speaker": "mike-mcquaid",
+      "text": "No, I was saying some sort of ASCII art of them destroying the Google Analytics"
+    },
+    {
+      "start": 4413.56,
+      "end": 4433.56,
+      "speaker": "jerod-santo",
+      "text": "Oh, that was okay disregard them because I think whenever I run brew update or I run pseudo apt update The experience is different. Yeah, like brew Homebrew will sit there for a bit and sometimes I'm not even sure what it's doing. It's kind of like it's keepy It's not givey, you know, it keeps a lot of its information"
+    },
+    {
+      "start": 4434.28,
+      "end": 4450.26,
+      "speaker": "mike-mcquaid",
+      "text": "You do a dash B or something is there a verbose mode maybe you could yeah this is there a dash B Yeah, this dash B is this dash B And then if you're a homebrew developer, you can do that such debug as well And if you enable dash V and debug then you get a lot of output for everything"
+    },
+    {
+      "start": 4450.76,
+      "end": 4456.92,
+      "speaker": "jerod-santo",
+      "text": "Wow, well, I think dash V should be the default then cuz that makes me so much happier when I run brew update dash V"
+    },
+    {
+      "start": 4456.92,
+      "end": 4460.64,
+      "speaker": "mike-mcquaid",
+      "text": "I bring Mike on the show so he can figure stuff out to you. Thank you Mike. Gosh"
+    },
+    {
+      "start": 4460.64,
+      "end": 4470.08,
+      "speaker": "jerod-santo",
+      "text": "Well that let's any time I can I be can I put my hand up and say can I be the default because I feel Like whenever you run a command like that for a package manager whether it's system-wide or not. You want feedback"
+    },
+    {
+      "start": 4470.64,
+      "end": 4473.32,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, pretty quickly doesn't tell you what it's doing, especially whenever"
+    },
+    {
+      "start": 4474.4,
+      "end": 4535.65,
+      "speaker": "jerod-santo",
+      "text": "Like I don't run brew update often, you know, I'm just not and so yeah, for example if I run brew update right now Like there's a lot of stuff out Like if I just run brew update it kind of hangs there now It actually says you're already up to date But the feedback it gave me earlier when I ran it cuz I think again I haven't ran it a while It said that I had a lot of stuff that needed some love basically that I needed to come here And yeah, and I if I run brew out Through outdated I can see what's outdated and it's quite a bit cuz I have 109 outdated formula now We didn't bring you on the show to to sort of gripe about I didn't at least but I'm always surprised by the UX of of homebrew that it seems less verbose and There are times even whenever Like when I run brew update, I'm surprised by how long it takes to get that like this is like There's nothing telling me something's happening. So I'm like, wow, what's going on here? Did I did a break? What's happening behind the scenes, but all I gotta do is dash V So I'm gonna try that now, but let me suggest I'd be the default because I would prefer a verbose update versus anything"
+    },
+    {
+      "start": 4535.65,
+      "end": 4591.48,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, no, I I think like now that homebrew does a lot more auto updating Anyway, I think if someone manually runs brew update then yeah, I think the thing that's tricky Again, it goes back to what we said about maintenance, right? Is that like brew update back in the day was even when it was Doing something it was essentially instantaneous, right? So like there's this kind of continuous almost like maintenance from the kind of product perspective as well of like, okay Well, this used to take point one seconds for everyone It now takes kind of a minimum of like two or three seconds for everyone It was actually doing anything and it's not just like a new op. So how do we get to a world where? The output more that reflects that also like it used to be it You'd have to run it manually and now like it will to update for a lot of people like So when you run it manually you probably even more want to see information than you did before and stuff So yeah, I've written it down which means that I can promise I will at least think about it on a day"
+    },
+    {
+      "start": 4591.48,
+      "end": 4596.8,
+      "speaker": "jerod-santo",
+      "text": "That is not today. I'm also not a daily user of homebrew, but I am a multi-year user of home really"
+    },
+    {
+      "start": 4596.8,
+      "end": 4604.02,
+      "speaker": "mike-mcquaid",
+      "text": "I can't remember not using homebrew. Yep. I remember but it was a long time ago That's why I brought up Mac ports because that's what I was using before. Yeah"
+    },
+    {
+      "start": 4604.02,
+      "end": 4618.6,
+      "speaker": "jerod-santo",
+      "text": "Well, I was the Mac ports day, but it was just so hard to use that I didn't really become a user of it. It was super challenging, but then again, I was also quite green with managing systems So it was probably me not the tool But it wasn't as user-friendly"
+    },
+    {
+      "start": 4618.64,
+      "end": 4626.76,
+      "speaker": "mike-mcquaid",
+      "text": "Okay, maybe wasn't all Jared made a face a Mac ports for me also was not super easy to use I was happy right when homebrew came out and"
+    },
+    {
+      "start": 4627.82,
+      "end": 4656.22,
+      "speaker": "jerod-santo",
+      "text": "Homebrew started out being like super optimized for Mac Like that was kind of the pitch in the version 1 or 0.1 or whatever Which I was an immediate switch over because I was like, yeah Why not use all like it's it's for the Mac and let's make it fast and Mackie and all this kind of stuff And it kind of mole evolved from there even which I think we've talked about in the past But yep, I can hardly remember life before it as well. I'm sure there's Millions of people who don't know life before it. They're just no homebrew. Yeah"
+    },
+    {
+      "start": 4656.22,
+      "end": 4752.34,
+      "speaker": "mike-mcquaid",
+      "text": "well, so the nice thing about the next few years is you know, I'm you mentioned kind of work brew earlier like the Company, I'm working on now is essentially building on top of and around homebrew and it involves me spending more of my time probably on hungry than I Did a couple years ago for sure so like one of our big goals like as a company is that even if you if you look in like five or ten years and you're Still a happy overuse or even if you've never heard of her of work brew or used it in any way or paid us any money, but you will look at almost like as work group grows and That being an inflection point and homebrew gets like dramatically better Like I I think from some level it's easy to look at homebrew and be like, well, it's basically done Like it doesn't doesn't need to have like really big changes But I think there's there is the potential to kind of still both the stuff you said Adam like just improving the kind of user experience Like having it be and feel faster Having it be less error prone and having it be able to kind of support more of the kind of workflows that kind of developers want to use now like this is all stuff that we're kind of thinking about and working on and You know Basically want we want home brew to be better and we want that to be the kind of bedrock for what we're doing with work Brew as well. What's up friends?"
+    },
+    {
+      "start": 4752.34,
+      "end": 4788.18,
+      "speaker": "jerod-santo",
+      "text": "This episode is brought to you by image proxy image proxy is open source and optimizes images for the web on the fly He used the world's fastest image processing library under the hood libveeps It makes websites and apps blazing fast while saving storage and sass costs and I'm joined by two guests today Sergei Alexandrovich author founder and CTO of image proxy and Patrick Byrne VP of engineering at dribble where they use image proxy to power the massive Amounts of images from all of dribble.com Sergei tell me about image proxy. Why should teams use this?"
+    },
+    {
+      "start": 4788.62,
+      "end": 4812.34,
+      "speaker": "mike-mcquaid",
+      "text": "Everyone need to process their images you can just take an image and just send it to users browsers because usually it's a megabytes of data and if you have a lots of images like dribble does you Need to compress and you need to optimize your images and you need them in the best quality you can provide That's where image proxy shines very cool"
+    },
+    {
+      "start": 4812.34,
+      "end": 4892.38,
+      "speaker": "jerod-santo",
+      "text": "So Patrick, tell me how dribble is using image proxy being a design portfolio site we deal really heavy in all sorts of images from in a lot of different sizes levels of complexity and When we serve those images to the users Those really have to match exactly what the designer intended and the visitors need to receive those images in an appropriate file size and dimensions depending on whatever their internet connection speed is or their device size is and that was just a Constant struggle really to to really thread that needle throughout the course of the platform using a handful of different tools in Maintaining that right balance of high degree of fidelity high degree of quality without sacrificing the visitors experience and when we were exploring using image proxy We were able to spin up using the open source version of the product a small ECS cluster to just throw a few of those Really tough cases that went through our support backlog looking at some of the cases people reporting and almost to a tee We aced every one of those cases Wow, so it seems like image proxy was really impressive to you Adam I just have nothing but positive things to say about using image proxy The documentation is crystal clear out of the box It does everything you need to tweaking it to meet your specific needs is incredibly easy It's wicked fast It deploys real simple and our compute costs have gone down over the open source tools that we've used in the past"
+    },
+    {
+      "start": 4892.46,
+      "end": 4905.98,
+      "speaker": "mike-mcquaid",
+      "text": "Even including the image proxy pro license. It still costs us less to use and gives our visitors a better experience So as an engineer, I like using it and as an entering manager, I like what it does to our bottom line"
+    },
+    {
+      "start": 4906.06,
+      "end": 4987.06,
+      "speaker": "jerod-santo",
+      "text": "So image proxy is open source and you can use it today But there's also a pro version with advanced features Check out the pro version or the open source version at image proxy net the one thing I love so much about this is that a matter which you choose the open source route or the advanced features and You use the same way to deploy it a docker image one that is from docker hub that everybody can use It's open source or one that's licensed differently for those advanced features. That's the same delivery mechanism via docker hub It's so cool Once again image proxy net check out the demo while you're there and check out the advanced features for the pro version once again image proxy net So the day after WWDC was the last time you were on the show with us and you had left github Yeah, you were starting something new. Yeah, but you didn't exactly know what you're going to do, right? Like you were kind of trying some stuff. Yep, and I'm curious You know take us from there to work brew calm. Were you already brewing on pun not intended? Maybe it was we already figuring out work brew and you just didn't know exactly how it's gonna work Are you trying something totally different, you know, not homebrew related. What was your process to get here?"
+    },
+    {
+      "start": 4987.06,
+      "end": 5250.66,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, so I mean it was a kind of a bit of both like we sort of investigated in their kind of earlier days Some other stuff like we didn't go straight into the company with kind of it being work on homebrew but basically we kind of built some small other things to begin with and then it became clear pretty early on that like that wasn't playing to our strengths and My CEO John Britton who used to be my manager at GitHub he had he's basically trying to convince me to make a company around homebrew for over a decade and Him and various other kind of people have said like oh, this is a great idea And I've always been like this is a terrible idea. This is why would you do this? But the thing that is interesting for me now that what changed is that we're in a place I think as an industry and a place as a project and stuff like that. Like I mentioned our governance structures earlier I mean one of the nice things about those governance structures is homebrew is in a place that even if I wanted to somehow try and Completely take over homebrew as a corporate entity like I can't do that Like we have structures in place to prevent me or anyone else involved with the project or not involved with the project from From doing that so the projects safe the projects in a decent kind of Financial state and has a decent community that kind of meets together Once a year or so and stuff like that But we're also in a state with like sustainability and open source where there's more conversation about that We've seen kind of various companies try various things get up sponsors existed We've seen how she caught do what they did and what they do and elastic do and they didn't do and all these types of Kind of different models and to me. It's kind of felt like a sort of natural solution to the problems really that I guess I've seen which is that another thing you get with like a volunteer on open source project like homebrew where no one's Employed to work on it is every so often big companies come to homebrew and they say hey, we we want you know Integration for SSO or MDM or one of these other like big company problems that small individuals and hobbyists don't have and the number of Volunteers go and you know, look at some sample documentation or whatever and they're like, oh no, no, no No, I'm not spending my evenings and weekends on this. I've absolutely no interest in doing that so it feels like there is a kind of happy middle ground where the companies who have budgets and requirements for stuff that your average number user doesn't care about Can get us in work brew lands to go and be like hey like make homebrew play nicer with the way our company does things and that's essentially what we're doing and that I Never really saw it Floated that way until we kind of thought about it this year and that is being like a way to look at open source sustainability Through that lens and like the prospect of kind of building company and making homebrew better at the same time like previously, you know when we were talking about this ten years ago, and we hadn't seen some of the success and less successful Attempts of this stuff. It was more or less just like, you know, get an open source company around an open source project dot dot dot Profit was like the business model, right? And I guess like I've never thought that that was something I wanted to do and like now we kind of have a nicer Strict separation where it's like work brew is doing stuff for money, which we will charge companies for we also work on homebrew stuff But the stuff that's in homebrew is free. It's open source. It's worked on by volunteers and You know, it's a kind of it's a nice world right and it requires me as I did at github to kind of wear two hats of like the the open-source hat and The kind of company hat but like, you know so far it's going pretty well and even like, you know We've got our first employees starting in the near future He's a homebrew maintainer and I've said to him like when I send you a message on you know Our company slack that's me talking to you is like Mike McQuaid CTO of work brew When I send you a message on the homebrew slack, that's Mike McQuaid homebrew project leader So anything I asked you to do on the homebrew slack, you can just be like nah, I don't want to like I'm a volunteer. I do this in my evenings and weekends. I can't be bothered you you would like me to review this PR No, thanks, dude like and yeah it's kind of I think that way of kind of doing things and that way of thinking is maybe a little bit unusual and weird but like that kind of idea of kind of Having the company and having the open source as being two separate entities that like can nicely Symbiotically benefit each other I think is where my head's out and I don't think that could have been done two years ago ten years"
+    },
+    {
+      "start": 5250.66,
+      "end": 5283.5,
+      "speaker": "jerod-santo",
+      "text": "Ago, whatever. I love it. It seems like a good idea seems obvious in retrospect. Some of the best ideas are The name's perfect. All right, I immediately knew what it was. Yeah, I love the name work brew Yeah, you get your home brewing your work, but I mean the the line has been drawn You have I think coming soon if I recall correctly on one of your pricings like what's the state of I suppose the company? you said soon per device per month like it's get in touch essentially free forever or which is homebrew and then work brew is your price per device per month is"
+    },
+    {
+      "start": 5284.34,
+      "end": 5374.98,
+      "speaker": "mike-mcquaid",
+      "text": "Soon not a number. Yep. So basically what we're doing right now is we're trying to recruit I guess We or others call like design partners Which is essential like private beta people who join with the expectation that like the product is not done yet But like you can you are going to help us Decide what the kind of v1 of the product looks like so that's we've got some people who are on board right now for that and in kind of like a paid relationship with us where they're making the product better and we're building it sort of to More closely Hugh to their needs as they would be if they were just like a random customer customer and then essentially once we've got something there that we feel like We could put a 1.0 label on well We'll have a like a public launch and anyone be able to kind of join and stuff like that But right now essentially that's what we're looking for We're looking for feedback from anyone who is interested in doing that or yet even anyone who kind of like some of the stuff resonates or it doesn't Or whatever. We're basically just like talking to lots of people and I'm building away Why can you know this some of the stuff that I've seen people kind of ask for in? homebrew land for a while like Multi-user support like work brew. I'm all like work brood on my like local machine So like when I run brew on my local machine it's actually like running in a separate work brew user and like passing information back and forward that way and You know and reports everything like back so I can see if like packages are outdated on my machine Like a central location and all this type of stuff. So yeah, it's it's getting there. Hmm"
+    },
+    {
+      "start": 5375.38,
+      "end": 5450.79,
+      "speaker": "jerod-santo",
+      "text": "It's interesting also to see it like live side by side with the the project like that I mean we hear the term and have heard the term Commercial open-source software like costs Coss being an acronym and being quite popular, you know There's there's a lot of companies that obviously have done versions of this But I think yours is uniquely different that you've been a maintainer for so long And you're like why I suppose like internally you thought well if I gotta if I'm going to keep being a maintainer I better find a way to be able to one leave github to do this thing full-time but then also sustain myself and Potentially build a profitable useful business for Like why would you burn your career capital essentially is what I'm trying to say Like why would you go and transition to something else? Why wouldn't you just try and find a way to create a value artifact, which is work brew alongside the thing you've been pouring so much effort into for As long as I've known you you've been home brew like I don't know you as anything else So, you know, I mean for many years, he's never started anything else, right? Exactly So, I mean it's it's been a journey 15 years. Yeah 15 years. I've worked on him. Well, that's like as long as so That's 2009. That's as long as this thing has been a thing this podcast. This is our 15th year. There you go. Interesting"
+    },
+    {
+      "start": 5451.41,
+      "end": 5457.73,
+      "speaker": "mike-mcquaid",
+      "text": "Yes left us speechless. They're like we all just sat here like that. Okay and all together. I don't like my Apple vision Pro"
+    },
+    {
+      "start": 5457.73,
+      "end": 5466.01,
+      "speaker": "jerod-santo",
+      "text": "It's just too heavy from my face. Oh My wasn't by for $100. That's my best little person impression. Sorry about that"
+    },
+    {
+      "start": 5466.01,
+      "end": 5483.61,
+      "speaker": "mike-mcquaid",
+      "text": "Well, I mean, I'm glad I'm glad you see it the same way I do Adam where I think this is the thing is that you know I'm sure much like anything on the internet that will be kind of naysayers about this stuff But you know in some ways I I mean generally not around my wife But kind of I I jokingly refer to like her brew is my like first child, right? Like it's yeah"
+    },
+    {
+      "start": 5483.61,
+      "end": 5485.01,
+      "speaker": "jerod-santo",
+      "text": "It's older than your oldest, right?"
+    },
+    {
+      "start": 5485.01,
+      "end": 5667.99,
+      "speaker": "mike-mcquaid",
+      "text": "yeah, and it's probably be like the single thing in my life like bar my relationship with my wife that I've Had for that long right like I've read I've been there longer than any educational institution or any job or whatever right, so I guess like the idea that You would just do that only to like almost instantly destroy 15 years of hard work and goodwill in the community Well, it's like yeah, why would you do that? Why would you do that? Right? I'm sorry again It's the type of thing where like I could go get another job like it's not that like this is the only thing that I kind of Can do is you know do this stuff around work brew, but it's you know This is what I want to do. And I think like I genuinely think we can have something Where we're actually building better software for the people who already like homebrew and are using homebrew that we can have something that's like actually better right and it's a Big step up and provides them with the stuff that they kind of need To be able to kind of you I mean, I guess, you know We've got lots of ideas that we've been thinking about but I mean certainly when you look at you mentioned earlier But like app get like when you look in the kind of Linux Space around this stuff, you know, you've got big companies like canonical and red hat and whatever and you know I know that some of the kind of shine is kind of come off some of these folks but you know You can pay them for commercial support and you can pay them for Getting into it with how your business runs and there are a lot less opinionated than homebrew is and has been about like How your company should work and even you know, like I guess I saw this in GitHub, right? Like you guys have both been using GitHub since the very early days as well, right and in the early days of GitHub it was internally and externally like there was a right way of using GitHub and there was a wrong way of using GitHub and like if you want to Go and like press the merge button and make your merge commits that was the right way and you were gonna have a good time and if you want it to like rebase everything and you never want to use the merge button and you want to know never have merge commit like You're gonna have a bad time, right? Because you're just spending your whole time on a plot on projects being like, you know Anyone who has a PR make sure you never click the big green button That is like the most clickable thing on the whole page Please do not click that right and eventually over time like you have learned like, okay, like actually it's maybe Not terribly practical to go to kind of a massive Multinational company and say like hey FYI the way you build software is wrong. You need to build it our way or PS give us money and The like it's it's nicer to kind of go to them where they're out and for me like I feel like similarly with kind of work brew right like the stuff that the way that kind of these big companies or Even like medium-sized companies increasingly kind of want to work is that doesn't play nicely with homebrew It's like well, like I understand why homebrew maintainers don't want to support that way of working but at the same time I feel like someone should and yeah, like this is what I and the work group folks are kind of gonna do and"
+    },
+    {
+      "start": 5668.55,
+      "end": 5751.22,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the question I asked myself really about homebrew is or I guess curiosity from the outside is It's to me. It's such a staple for the Mac platform that's my platform. And so that's where I've got my personal use case from I know that you've gone beyond the Mac With homebrew and I don't have experience there But I wonder how much of a first-class citizen has Apple treated homebrew like that's one question And then the second question is how can you ensure that the Apple platform won't become hostile? Because they're kind of doing they just did this with the web, right? They just did this with Web app installations, I think in the EU I'm trying to like grok the headline to some degree in my brain in the moment but You know has it cut to most developers homebrew is the first-class citizen of package manager for developer But that's one way of developing on the Mac It's not the Apple way like the Apple native way, which is like Xcode and their other developer tooling So you're sort of like a sidecar to the Apple platform Meanwhile developers feel like you're a first-class citizen like I don't use those platforms so it's not where I develop I'm curious how that is for you. Like it. Do you think I'll be hostile ever for you and Has there ever been you know, we love homebrew. Let's make it more native or has there been any"
+    },
+    {
+      "start": 5751.86,
+      "end": 5923.94,
+      "speaker": "mike-mcquaid",
+      "text": "Entanglement with Apple in positive ways. Yeah, I mean, I think I maybe talked about this before I think I feel like the biggest most positive entanglement with Apple that was fairly publicly visible and stuff is When they launched the Apple silicon chips, like they were really pretty proactive reaching out to us and being like hey What do you need and we're gonna get you the CI infrastructure you need? Like that you can run all your CI jobs on but also like what maintainers needs Apple silicon hardware And we will make that happen in a timely fashion stuff like that So like that was an example of them being very proactive and that was very useful I think but I think the interesting thing with Apple is like it's a it's a mutually beneficial relationship there right like at the end of the day like all three of us on this call and You know, most of them brew maintainers are all running a Mac, right? Like we like Apple stuff We probably all have iPhones many of us have Apple watches many of us have iPads etc and Like a certain amount of this stuff just comes down to like well that that is the platform we choose and as a result We're gonna put up with certain things like it in some ways you know would Developing home grew entirely on Linux be easier than doing on Mac OS like yeah Probably like but doesn't Linux need you exactly but Linux doesn't need us to the same extent exactly So yeah I think I don't know there's always that thing with Apple where it's like homebrew has like a open channel with Apple and as just probably not surprised you with Apple being Apple like I can't go into too much detail about what we talk about and Whatever because I'm sure that would make them upset just whispered they can't hear you But like yeah, I mean I would say we have an open channel with Apple But it's it could be better like it's but I guess even at GitHub Which was a fraction of the size of a company of Apple like, you know by the end I could see that like some of the issues that kind of get help had with like Communicating and collaborating with people outside the company were just the fact that this is what happens when you have a big company, right? And like the way Apple runs Apple like and is that required for me to get the shiny stuff that I like from Apple Like I don't know like I'm not a business expert in that respect but I definitely think that they just they run the company the way they run the company and that makes things hard for them to Have really really deep collaboration with a project like us like there's been times when they say like hey All we need is to you know, we can help you with this thing We just need to know the name of your legal entity and it's like we don't have a legal entity. So, okay Well, tell us the person on this project who lives in America. None of the people who work on this particular project within America You know, it's right. It's the stuff that way I can I can see it from both sides Like I can see why it's hard for them to work with us and I it's you know vice versa"
+    },
+    {
+      "start": 5923.94,
+      "end": 6025.44,
+      "speaker": "jerod-santo",
+      "text": "I just figured they would absorb you by now I just figured like they would have made a homebrew to me is like so ingrained and important to a Developer's lifestyle on a Mac that yeah, they would be like great. This is still open source But now like this is an Apple project. Let's let's a in quotes acquire it because it's just so crucial Imagine if homebrew didn't exist today, like if tomorrow for some reason homebrew went away what percentage of Mac developers would be totally upset and considering like can tomorrow literally be the day of Linux on the desktop because Linux is easy to package manage Linux is easy to use and That's actually the target that most developers like most like 99.9% of developers are targeting anyways So like what's the final nail in the coffin to make someone like a developer move to away from the Mac would it be? Non homebrew support or somehow they become hostile whatever. I mean, I think that's where I'd be at What do you think Jared? You're over like grinning over there? What do you think? Well, I'm thinking how could it go away? Well, I don't know. It's hypothetical Jared. That's the whole point of hypothetical I know but I'm now but you're asking how Apple is acting based on hypothetical, but if I'm inside of Apple, I'm thinking Well, of course we could acquire homebrew whatever that means hire all the people and Whatever but like if homebrew went away like if Mike McQuade died and John Britton and like everybody who's maintainers They all died or they just quit. Let's let's be nice. Let's say they all quit It's all open source. Like Apple could just pick it up say like, okay everybody on homebrew What they though three point they could very easily and say report your URLs to our infrastructure and everything's just hunky-dory Okay, like that's I mean isn't that the case Mike they could do that couldn't they pretty easily I've done about easily"
+    },
+    {
+      "start": 6025.44,
+      "end": 6109.72,
+      "speaker": "mike-mcquaid",
+      "text": "But I mean theoretically certainly I mean, you know, we know in software land. Everything is possible right with some effort They could do it. I mean in some ways. I think the reason why they haven't done that is because it a Is messy and complicated for them to do that and they don't have to write like I mean I've had conversation about this before, you know as much as I love visiting your lovely country I will never move to America. Okay, and I can say, you know, I can give you the breaking news here I will never be a full-time resident of America ever this so if you're Apple right, like if the project leader of the project is like well, I'm just not gonna move and Everyone who would have to you know deal with homebrew stuff is all in like Cupertino and you have The person who's like contributed the most to the project and it's like a project leader and it has a governance structure or whatever And they're like, no, I'm not moving to America. You're right. Thank you Then I mean they can't really just acquire the project and and this is the I don't know I feel like if if homebrew was the labor of love of like purely one person and that person was Happy to go and but even then right like the wall we live in now is you could hire that person and then a year Late there. It could be like yeah, I don't I don't like working Apple anymore I'm gonna go quit and work somewhere else and see suffers a cancer after all"
+    },
+    {
+      "start": 6110.88,
+      "end": 6145.88,
+      "speaker": "jerod-santo",
+      "text": "Mike take us on take us on a walk here. Take us on a walk Like I don't want to drop the playbook for Apple or anything, but you said it would be hard I'm over here and maybe I'm just the person who's you know Naive and thinking it can't possibly be that hard But if you're inside of Apple and your boss come here to engineer and your boss comes you and says Mike we got a problem What's that? Well, you know the homebrew package manager deal yeah, I know it all the maintainers just quit and Millions of people are using this to install software on their Macs We got to do something and you're like, okay, what would I like how hard would it be?"
+    },
+    {
+      "start": 6145.88,
+      "end": 6160.22,
+      "speaker": "mike-mcquaid",
+      "text": "Like what would you have to do they could do so? Well, I mean, I guess again what we talked about earlier There's like the technological harder than this to people hard, right? So that's say the technological hard, right? So what they would have to do if like literally no one is willing to even update a readme"
+    },
+    {
+      "start": 6160.22,
+      "end": 6162.14,
+      "speaker": "jerod-santo",
+      "text": "No one's gonna have another commit on the repo"
+    },
+    {
+      "start": 6162.18,
+      "end": 6350.46,
+      "speaker": "mike-mcquaid",
+      "text": "No one's gonna have another commit on any of the homebrew repairs at all, right? There you go Yeah, so what they would have to do would be okay Well, firstly, how do we tell all the homebrew people like they all the people would have to point their homebrew to a fork Right, like there was really they they would presumably like fork the stuff and then write put it over like they would have to tell Everyone how to do that or if they were feeling really yellow like push some system System-wide update that like friends and I go to that one over like yeah So you have to effectively move everything over but in some ways like that's not even the hard bit of okay I'm grew like the hard bit of homebrew is there are 10,000 packages in there Which all of which are built and installed and tested? slightly differently all of which pulls slightly different things from slightly different places and interact in slightly different ways with each other and the ecosystem and Some of those packages are very easy to update some of them are very painful to update some of this stuff is like you know easy to change some of it's not easy to change and Essentially you need to take over Like I think that's the thing is that like it's not just a matter of like Well Apple can kind of point everything to themselves. But what we said earlier about maintenance like homebrew requires like fairly I mean considering how relatively few people have worked on homebrew in its history It requires a astonishing amount of maintenance and just keeping all of that software like working and up-to-date and compatible with Mac OS releases and stuff like that is a lot of work and one of the great things max did in the Early days was her movies released relatively shortly after, you know, GitHub was public, you know a few no less than five years I think after kind of GitHub was on the kind of public internet and you could sign up And one of the smart things max did was making it so that homebrew Was from the outset not maintained exclusively by max but was like hey, I'm max I do some stuff but homebrew is like maintained by the community, right? So and again, this is the problem is that like with this is the nice thing we have with kind of open-source projects You know people may have got annoyed with analytics and homebrew and various other stuff, but no one is actually ever seriously and successfully Forked the project, but if Apple were to take it over I would think there would be a very real chance at the same time You have a bunch of community people who are like, hey, we want to go and do that I know also those people are like the community people are happy to kind of work on a Project where you know, some of our maintainers get like a small stipend, but no one's being paid Anywhere approaching like market rates for any of their time, right and no one is employed by homebrew to work on homebrew Like how much do you want to spend your evenings and weekends contributing to One of the world's richest companies to run their package manager like essentially would have to in source not just what the maintainers do But what all the volunteers do essentially as well because most of those people are probably not gonna want to spend All their time kind of helping Apple for free. So yeah, I think it's interesting. Like I think it's it's definitely kind of a Tricky situation, but as I said before like I don't see why I'll do much that happens because oh, I don't either"
+    },
+    {
+      "start": 6350.46,
+      "end": 6353.48,
+      "speaker": "jerod-santo",
+      "text": "I'm just playing a fun hypothetical. Oh, no, it's it's still fun"
+    },
+    {
+      "start": 6353.48,
+      "end": 6415.7,
+      "speaker": "mike-mcquaid",
+      "text": "It's still fun to play with I guess to touch on something just because you might find this interesting I think we've touched on like homebrew on Linux a couple times I'm like that's a slightly kind of weird use case but I think one of the things that makes homebrew on Linux interesting and compelling to people is Not so much the fact that it runs on Linux, but the fact that it runs on Mac OS and Linux So if you're working on a project or CI or you have a split dev team or whatever that you can say Hey we're gonna use the same homebrew package or brew files or Homebrew set up in CI or whatever and we're gonna use that on Mac OS and Linux and then we have The versions and the package manager whatever in sync between those two places, you know I'm were were homebrew or work brew in future to ever do anything like port homebrew to Windows then you could have like Windows Mac and Linux and you could have like either cross-platform dev teams or like dev teams in different departments or whatever that can all kind of Share use of the same tool and that kind of unifying Ability of a single tool is pretty compelling. I think and that's what people seem to like about it. That is cool"
+    },
+    {
+      "start": 6415.7,
+      "end": 6427.42,
+      "speaker": "jerod-santo",
+      "text": "So you have some customers lined up before you launched like yeah some beta people because it's all like private beta now You're trying yeah, you said you had some large entities who had previously approached you"
+    },
+    {
+      "start": 6427.42,
+      "end": 6438.72,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, we've got some like some kind of like medium-sized companies in like private beta with us right now but we if anyone that's listened to this podcast and they think work brew sounds compelling and they would like to talk then we would"
+    },
+    {
+      "start": 6438.98,
+      "end": 6442.92,
+      "speaker": "jerod-santo",
+      "text": "Love to talk to you. Mike at workbrew.com or what's the way? Yeah"
+    },
+    {
+      "start": 6442.92,
+      "end": 6455.82,
+      "speaker": "mike-mcquaid",
+      "text": "So if you go to the work brew homepage Then there's like a contact form workbrew.com slash contact and if you get in touch there then we will reach out to you and we will talk to you about work brew or homebrew or anything in between Apple vision Pro"
+    },
+    {
+      "start": 6458.02,
+      "end": 6468.54,
+      "speaker": "jerod-santo",
+      "text": "Any topic that Mike has discussed today on the podcast It was work brew calm that couldn't have been like a open domain. You had to go get that one, right? That's that's just too good to just be like 15 bucks"
+    },
+    {
+      "start": 6468.54,
+      "end": 6499.62,
+      "speaker": "mike-mcquaid",
+      "text": "Yeah, I think it was it wasn't it wasn't very expensive though But yeah that the name followed the idea by about five minutes It was my CEO John's idea for the name and I was like, yeah like that's and immediately I also thought like, you know homebrew like the it has its official logo of like the the old Beer mug and we've got our own little effective diagram for that But like, you know when you install stuff in homebrew You see the little beer emoji in your terminal and that's almost at the unofficial logo, right? I know it means you like yeah, like the thing almost the first thing that came was like work brew"
+    },
+    {
+      "start": 6499.62,
+      "end": 6529.58,
+      "speaker": "jerod-santo",
+      "text": "Yeah work brew is coffee. So yeah, love it. So work brew calm and points at homebrew or brew dot SH You know, but not the other way around And of course you have a homebrew command-line interface that has 35 million ish users There has to be at least temptation to like, you know Integrate work brew into homebrew to get the word out is that something that you're thinking about that you'd like to do does that cross a line for you between the open source and the Commercial stuff or what are your thoughts on that?"
+    },
+    {
+      "start": 6529.58,
+      "end": 6694.56,
+      "speaker": "mike-mcquaid",
+      "text": "I don't know like I mean, it's never say never but I think that's definitely something where it's not up to me like it's it's up to you know, the people who work on homebrew would need to Decide that that is or in the best interest of the project for that's a happen And I guess like even this, you know I've made a bunch of PRS to homebrew to enable functionality and work brew and again like the way I think about it is like if I'm If I'm building functionality into homebrew to benefit work brew, it should still be useful by itself Like the analogy I have either of you two got kids who are like into like Legos nowadays. Yeah, sure Yeah, so I feel like the way Lego is now compared to how I remember it growing up like like basically that now there's this real like two poles of Lego where you have like the really like super crafted kits which might have like a shark fin that like this is the only kit that possibly has like a better plastic in this particular shape Right and like you have the instructions and like they might offer you multiple things you can build but like ultimately it's just not as General-purpose and then you have the like I can just buy a big but good at the Lego store Buy a big bucket of just like bricks and I can build with or whatever I want right like in some ways when I look at those two I see like homebrew is being the big bucket of bricks where it's like what we're building in work brew land Like you could build that yourself with the bucket bricks We've given you in the open source project But like it's probably gonna be unless you have like infinite amounts of time. It's probably gonna be and subject matter understanding of homebrew probably just paying us to use the nice thing that we built for you that has the Beautifully crafted shark fin is probably gonna be a nicer experience for you And I guess you know, the other thing that I'm trying to do in building this I mentioned before, you know like I used to work at GitHub but like for me like developer experience on like GitHub and homebrew and and I guess the user experience on Apple products like that stuff's really important and like that's Equally going into like what I'm building like is I really deeply care about having a user experience. That is very nice and You know the number one user of work brew and is me right on my local machine and I as quickly as I could replace my Like local homebrew with kind of the kind of paid work brew set up and every time anything annoys me I basically drop whatever feature I'm working on and I like make it so it doesn't annoy me anymore Right, and I think like that to me is like the best way of building developer tools is you build something that you actually use Yourself and you have a very high standard for quality and a very low standard for Having things annoy you and you're willing to take feedback like Adam about brew update not being verbose enough. Yeah"
+    },
+    {
+      "start": 6695.04,
+      "end": 6771.4,
+      "speaker": "jerod-santo",
+      "text": "Well, good stuff. Love it. Mike cool stuff, man Excited for you for sure. I hope it all works. I think it'll work Right Adam, I hope it keeps working. Yeah, I think it will work brew. Ah Dot-com today Yes work brew calm. It seems like a proven methodology right like it's very much Sidekick sidekick Pro, but it has even a clear line because it's like home and work, you know And it's like very to me. Like I like the cleanliness of that I like the way you're approaching the open source stuff. Like it has to benefit homebrew. It can't just be Well, we are the maintainer so we're gonna put it in there Anyways kind of stuff and I just feel like that's all very good vibes And so I just I think you're on the right track. I just hope it works I think it's gonna work but you know Come back and let us know if it's working or if you got something else that's works, you know, and it's all these things work Yeah, how many times can say work? I was trying for we should get back to work Come back to work. Yeah. Yeah. Well, this is work, right? I guess I guess no, this is friends It's just three friends hanging out. It's right. How come all of our friends use Safari? I mean, I feel like we need to get some new friends too because pretty much everywhere we talk to our Safari users I feel like our demographic cool very"
+    },
+    {
+      "start": 6771.56,
+      "end": 6780.66,
+      "speaker": "mike-mcquaid",
+      "text": "Streamlined at this point and cool with that feel like we should have like it You should do like a sticker run or something for like I use like some sort of like I choose Safari over chrome"
+    },
+    {
+      "start": 6780.66,
+      "end": 6792.74,
+      "speaker": "jerod-santo",
+      "text": "Like yeah, I choose Safari. Yeah, I use Safari willingly and not by Apple dictate right like the rest of the people on iOS Cool Mike, well, we'll uh, we'll let you go. Thanks for hanging out with us. It's been awesome"
+    },
+    {
+      "start": 6792.74,
+      "end": 6797.54,
+      "speaker": "mike-mcquaid",
+      "text": "There's always always a pleasure guys anytime. Yes. Bye friends. Bye"
+    },
+    {
+      "start": 6799.1,
+      "end": 6898.67,
+      "speaker": "jerod-santo",
+      "text": "Two hours later Yeah, two hours this show. Can you believe that always good kids about Mike always good talking about homebrew one of our beloved Developer tools out there and I love Mike's perspective on maintaining open source Building this company now work brew around homebrew how he is constantly improving homebrew as a result of his direct and personal usage and Everything in between want to give a special mention to two of our sponsors today century. This is their launch week use the code changelog if you sign up for a new account You get three months free of the team plan hundred bucks off links are in the show notes and Also to our friends over at image proxy. I love how dribble is using image proxy But so cool to catch up a Patrick Byrne as well to just dig into how dribble dribbles dribble using image proxy I just had to say that check them out image proxy dot net and of course a Massive shout out to our friends and partners over at fly dot IO the home of changelog comm launch apps near users to easy Fly dot IO and also to our friends over at type sense type sense org It's open source. We use their cloud version Jason and team that run type sense are so cool. We love them You should check them out. And if you need a personal introduction, hit me up. I'll help you out. Okay friends. That is it This is the show. We're done. We're gonna see you next week"
+    }
+  ],
+  "slug": "brewing-up-something-for-work",
+  "id": "32"
+}

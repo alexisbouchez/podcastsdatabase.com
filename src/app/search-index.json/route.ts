@@ -26,7 +26,7 @@ export function GET() {
       entries.push({
         type: "episode",
         title: `#${ep.id} ${ep.title}`,
-        url: `/podcasts/${p.slug}/episodes/${ep.id}`,
+        url: `/podcasts/${p.slug}/episodes/${ep.slug}`,
         context: `${p.title}${ep.date ? ` — ${ep.date}` : ""}`,
       });
 

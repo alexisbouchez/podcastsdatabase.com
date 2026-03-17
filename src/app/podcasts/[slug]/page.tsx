@@ -163,7 +163,7 @@ function PodcastContent({ slug }: { slug: string }) {
             {episodes.map((ep) => (
               <li key={ep.id}>
                 <span className="text-foreground/60 select-none">#{ep.id}</span>{" "}
-                <Link href={`/podcasts/${slug}/episodes/${ep.id}`}>
+                <Link href={`/podcasts/${slug}/episodes/${ep.slug}`}>
                   {ep.title}
                 </Link>
                 {ep.date && (

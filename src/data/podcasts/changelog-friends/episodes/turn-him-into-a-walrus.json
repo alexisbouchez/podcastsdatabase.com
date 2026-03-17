@@ -1,0 +1,781 @@
+{
+  "title": "Turn him into a walrus",
+  "description": "Jerod demonstrates OpenAI's new image generation capabilities in ChatGPT by transforming Adam into various styles including LEGO, a walrus, and Studio Ghibli artwork. The hosts discuss the technology's implications and explore where early projects like Haml, Sass, and Go have landed.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/87",
+    "MP3": "https://cdn.changelog.com/uploads/friends/87/changelog--friends-87.mp3",
+    "YouTube": "https://youtu.be/L1Oi5uKNhoE",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 14.54,
+      "end": 62.1,
+      "speaker": "adam-stacoviak",
+      "text": "what's up friends this is changelog and friends your weekly talk show about awesome internet memes big thank you to our friends and our sponsors partners all that good stuff over at fly.io you can learn more at fly.io okay let's walrus well friends i'm here with scott deaton ceo of augment code augment is the first ai coding assistant that is built for professional software engineers and large code bases that means context aware not novice but senior level engineering abilities scott flex for me who are you working with who's getting real value from"
+    },
+    {
+      "start": 62.1,
+      "end": 73.86,
+      "speaker": "jerod-santo",
+      "text": "using augment code so we've had the opportunity to go into hundreds of customers over the course of the past year and show them how much more ai could do for them companies like lemonade"
+    },
+    {
+      "start": 73.86,
+      "end": 100.18,
+      "speaker": "adam-stacoviak",
+      "text": "companies like codem companies like lineage and web flow all of these companies have complex code bases if i take codem for example they help their customers modernize their e-commerce infrastructure they're showing up in and having to digest code they've never seen before in order to go through and make these essential changes to it we cut their migration time in half because they're able to much more rapidly ramp find the areas of the code base the customer code base"
+    },
+    {
+      "start": 100.18,
+      "end": 110.5,
+      "speaker": "jerod-santo",
+      "text": "that they need to perfect and update in order to take advantage of their new features and that work gets done dramatically more quickly and predictably as a result okay that sounds like"
+    },
+    {
+      "start": 110.5,
+      "end": 123.14,
+      "speaker": "adam-stacoviak",
+      "text": "not novice right sounds like senior level engineering abilities sounds like serious coding ability required from this type of ai to be that effective 100 you know these large code bases"
+    },
+    {
+      "start": 123.14,
+      "end": 132.98,
+      "speaker": "jerod-santo",
+      "text": "when you've got tens of millions of lines in a code base you're not going to pass that along as context to a model right that is would be so horrifically inefficient being able to mine the"
+    },
+    {
+      "start": 132.98,
+      "end": 166.18,
+      "speaker": "adam-stacoviak",
+      "text": "correct subsets of that code base in order to deliver ai insight to help tackle the problems at hand how much better can we make software how much wealth can we release and productivity can we improve if we can deliver on the promise of all these feature gaps and tech depth ai's love to add code into existing software you know our dream is an ai that wants to delete code make the software more reliable rather than bigger i think we can improve software quality liberate ourselves from tech debt and security gaps and software being hacked and software"
+    },
+    {
+      "start": 166.18,
+      "end": 177.46,
+      "speaker": "jerod-santo",
+      "text": "being fragile and brittle but there's a huge opportunity to make software dramatically better but it's going to take an ai that understands your software not one that's a novice well friends"
+    },
+    {
+      "start": 177.46,
+      "end": 229.39,
+      "speaker": "adam-stacoviak",
+      "text": "augment taps into your team's collective knowledge your code base your documentation dependencies the full context you don't have to prompt it with context it just knows ask it the unknown unknowns and be surprised it is the most context aware developer ai that you can even tap into today so you won't just write code faster you'll build smarter it is truly an ask me anything for your code it's your deep thinking buddy it is your stay in flow antidote and the first step is to go to augmentcode.com that's a u g m e n t c o d e dot com create your accounts today start your free 30-day trial no credit card required once again augmentcode.com first link in"
+    },
+    {
+      "start": 229.39,
+      "end": 274.22,
+      "speaker": "jerod-santo",
+      "text": "the show notes oh it's an entire chapter we talked about it for two minutes and 28 seconds for at least probably also in here probably in here you know i recommend min browser you said sounds promising i said yeah and you said at least by name and then uh remember because perplexity pointed me to it is that what you're using now and i'm like yeah it is like is this a reveal and i said yeah it's a big reveal min browser oh my gosh i love this it's it is cool and i like it's up to date and maintained well you just kept going on and on about it i'm thinking maybe i'm talking to adams any right now wait this is him i mean because we mostly work together i mean we kind of are always just yeah we're the innies we're the two innies talking to each other"
+    },
+    {
+      "start": 276.32,
+      "end": 283.39,
+      "speaker": "adam-stacoviak",
+      "text": "yeah maybe uh min browser let me see let me see you don't remember the min browser it's"
+    },
+    {
+      "start": 283.39,
+      "end": 291.95,
+      "speaker": "jerod-santo",
+      "text": "this minimal browser that i found that i was going to use i do believe our while i screen share during our recordings which is exactly what i'm doing right now oh my gosh and so i"
+    },
+    {
+      "start": 291.95,
+      "end": 298.35,
+      "speaker": "adam-stacoviak",
+      "text": "said can you see min i still it looks promising okay i didn't download it if you just uh reread"
+    },
+    {
+      "start": 298.35,
+      "end": 314.88,
+      "speaker": "jerod-santo",
+      "text": "the transcript i'm very happy with safari i love safari too i just use min specifically for this one use case and here we are what's the use case we're friendsing together sharing my screen while we're friends so there's no chrome minimal chrome is this bringing you back are you remembering"
+    },
+    {
+      "start": 314.88,
+      "end": 320,
+      "speaker": "adam-stacoviak",
+      "text": "this or you still got nothing i'm i'm with you now i'm tracking fully i'm i'm i'm up to what"
+    },
+    {
+      "start": 320,
+      "end": 339.62,
+      "speaker": "jerod-santo",
+      "text": "they call up the date up to date awesome well have you heard any of the hubbub around open ais new image capabilities chat gpt new image creation abilities you know i'm constantly"
+    },
+    {
+      "start": 340.42,
+      "end": 360.98,
+      "speaker": "adam-stacoviak",
+      "text": "just kind of peeling back the the top layer from that fire hose called ai stuff or announcements and i recall hearing about this i gotta say i've been away a little bit i had a my brother in town so i just ejected from the news let's just say right but i do pay attention always as you know"
+    },
+    {
+      "start": 360.98,
+      "end": 454.48,
+      "speaker": "jerod-santo",
+      "text": "so i heard about it but i didn't play with it yet you haven't played with it yet all right well there's a couple aspects to this particular story first you have the advancement of the tooling itself inside jet cpt i would say that you know i've been switching over to llama i've been using deep seek i'm trying to use these other models local llms but every time i leave i feel like open ai just pulls me back in like chat gpt is like a got this tractor beam around it and they're really i think developing i don't know if it's a moat but maybe it's a habit for me to where eventually google just won because you're just going to go to google.com because that's what you do it's pulling me back in and this new image capabilities pulled me back in big time but there's also like a ip angle to this copyright etc stealing from artists there's i think a coding angle that i can at least draw out but first let me say that recently probably while you're away open ai announced some crazy new capabilities inside of chat gpt specifically around image generation and i will just say it's super compelling it's like really good and you haven't played with this yet no i have not all right do you have a file i do have a file let me show it to you turn your thoughts who are watching along you'll see this and the others"
+    },
+    {
+      "start": 454.48,
+      "end": 459.6,
+      "speaker": "adam-stacoviak",
+      "text": "will add show notes links this is a temporary chat this is not going they're not keeping this"
+    },
+    {
+      "start": 459.6,
+      "end": 741.95,
+      "speaker": "jerod-santo",
+      "text": "i have a temporary chat i don't want this in my history yeah this is this is it's gonna get dirty come on now i've dropped an image of you okay into chat gpt this is you staying in front of a golf club it seems yes we're wearing a callaway hat now this is an heic file because i'm not sure why because that's what you gave me i'm not sure if chat gpt is gonna like it or not but i'm gonna ask it to transform you into something now i'm going to step on lego's copyright i think i don't know and say turn him into a lego character and we'll get that going now it is slower but it's kind of cool how it does it now this is not an ad by the way maybe that'll be a conversation for later yeah they should but they don't they have lots of dollars i hear but they've changed the way they do this to where now it's like this top to bottom phase-in kind of thing where they're going like pixel by pixel left to right top to bottom which is cool because it kind of like i mean this just takes a long time but they are changing it or they are demonstrating it in a way that you kind of like to watch along while it does its modifications however it's just getting started so we're going to have to talk for a while this is a large heis he ic file let me tell you what else happened in the wake of this so okay they made this announcement and somebody very quickly realized that you can say things like take this picture and make the people in it into studio ghibli style or studio ghibli if you prefer are you familiar with the miyazaki movies school me jared it's like catch me all the way up to all the things jared takes adam to school uh studio it's controversial whether it's ghibli or ghibli okay uh and in fact the creator you know it's like gif and gif normally i come down on the ghibli slide because i don't i don't acknowledge gif as a file format um but the creator i think is cool with either way so whatever you want to call it studio ghibli or ghibli is a animation studio okay let's go ghibli headed up by miyazaki who's a japanese animator filmmaker etc and artist and they've had some amazing movies spirited away probably the most popular where's the actual list of movies here feature films right there i'm in it i just couldn't see all i was reading was yeah i know japanese names yes the left column left castle in the sky okay my neighbor tatoro uh what are the good ones princess mononoke spirited away is most popular howl's moving castle tons of good movies you've probably seen none of these because you have to kind of search them out yeah but specifically the art style is let's go to images so they've created a very well-known style style very anime okay and somebody found out that you can say make this picture in studio ghibli style and it just does it and the results are kind of amazing no way yeah they're really good you should have ghibli'd me well i didn't want to ghibli you i wanted to try something else okay but of course this caused a huge copyright kerfuffle because hey if it can just make studio ghibli style pictures that means they basically just went out and trained it on oh yeah these stuff they have no permission to do that are they gonna sue is this immoral etc etc etc immoral gosh well what happened was everybody started turning everything into studio ghibli style like imagine a famous picture uh imagine all the memes every meme lisa got turned into yes like you name it trump and people were of course who else elon musk is he still famous elon musk i'm sure it happened to him it happened to the remember the girl in the foreground of the house that's burning down and she's got that oh yeah like every single meme got converted into this style within within hours and so it's kind of a joyous moment on the internet because everybody forgot their troubles and just said what if everything was studio ghibli style and then the world would be great and then it was great for a few short hours"
+    },
+    {
+      "start": 743.42,
+      "end": 759.86,
+      "speaker": "adam-stacoviak",
+      "text": "okay til disaster girl real story check this out folks in zulip in the general channel til disaster girl real story we will just just talk right over this okay what's happening here"
+    },
+    {
+      "start": 759.86,
+      "end": 786.34,
+      "speaker": "jerod-santo",
+      "text": "so one of the other things that happened in the wake of this is sam altman's like hey guys our computers are on fire here stop using this like crazy and everything slowed down and things started to fail i'm trying to get you an example however at the time at the current time uh it's failing so that makes for great audio i'll try it into a lego character see if that one works maybe they've put an outlaw on studio ghibli for now well while it does that there is a little"
+    },
+    {
+      "start": 786.34,
+      "end": 813.73,
+      "speaker": "adam-stacoviak",
+      "text": "thread there linking out to a closing the loop story on the the little girl who is the disaster girl this uh youtube channel which i have become a fan of called buzzfeed video gosh ever hear that and she accidentally became a meme so it went to the back story so if you ever wanted to know who's that girl no jared not your who's that girl and i knew you were thinking that as soon as i"
+    },
+    {
+      "start": 813.73,
+      "end": 826.4,
+      "speaker": "jerod-santo",
+      "text": "said it i know you're thinking of course is that the who what do you mean the who who sings that song who's that girl i don't know is that the who is it the who uh it's not even that girl it's"
+    },
+    {
+      "start": 827.04,
+      "end": 834.96,
+      "speaker": "adam-stacoviak",
+      "text": "that girl oh is it ooh that girl ooh that smell oh yeah oh my gosh you just crossed two paths"
+    },
+    {
+      "start": 834.96,
+      "end": 848.72,
+      "speaker": "jerod-santo",
+      "text": "but i'm chasing you now yes is that smell it's leon skinnard and the lyric is ooh that smell for some reason we both went to who's that girl well i went to who's that girl because of uh"
+    },
+    {
+      "start": 848.72,
+      "end": 856.45,
+      "speaker": "adam-stacoviak",
+      "text": "your show what's it called again what's my show your favorite show man ever princess bride girl"
+    },
+    {
+      "start": 856.45,
+      "end": 864.99,
+      "speaker": "jerod-santo",
+      "text": "oh new girl yeah it's jess oh yes is that girl who's that girl it's jess that's like a really"
+    },
+    {
+      "start": 864.99,
+      "end": 875.71,
+      "speaker": "adam-stacoviak",
+      "text": "different tone but totally fair enough well say if you're playing the game who's that girl guess what happens got you you find out who that girl is and she's a meme now she was a meme and she"
+    },
+    {
+      "start": 875.71,
+      "end": 880.4,
+      "speaker": "jerod-santo",
+      "text": "still isn't me what if you're playing the game what's that she's growing up oh man then you say"
+    },
+    {
+      "start": 882.08,
+      "end": 886.64,
+      "speaker": "adam-stacoviak",
+      "text": "what do you say that what do you think this song was about this ooh that smell that's what i want"
+    },
+    {
+      "start": 886.64,
+      "end": 903.92,
+      "speaker": "jerod-santo",
+      "text": "to go to oh death isn't the smell of death let's check out on one of my favorite websites genius dot com where people annotate lyrics oh man yeah here's the chorus ooh that smell can't you smell that smell that smell the smell of death surrounds you so the smell is death adam smell is death this"
+    },
+    {
+      "start": 903.92,
+      "end": 918.42,
+      "speaker": "adam-stacoviak",
+      "text": "is a dark song i know it's got coke in there and smoke in there and death in there drinking like fools like total this is image generated yet or not it says it's created but it's just utterly"
+    },
+    {
+      "start": 918.42,
+      "end": 924.42,
+      "speaker": "jerod-santo",
+      "text": "failing us so i'm thinking it's your browser man i'm thinking it's in a whole new screen just go"
+    },
+    {
+      "start": 924.42,
+      "end": 935.6,
+      "speaker": "adam-stacoviak",
+      "text": "do it elsewhere off-screen see what happens i'm gonna do it off-screen expose us to the jared world this i want to show you how good this is in the meantime i do have a software development"
+    },
+    {
+      "start": 935.6,
+      "end": 1020.13,
+      "speaker": "jerod-santo",
+      "text": "angle into this particular event here's my software development takes so gosh this is really good like it's a step change from the previous version in fact people were comparing this to like the apple emoji stuff like the apple genmoji stuff where it will generate you things there's a great one that's comparison maybe i can find it for the show notes where it's like here's chat cpt 4o whatever new stuff uh make me a picture of the main severance characters the force the four main severance people as legos and an exact same prompt to apple intelligence and it's like night and day i mean the the open ai one is just like so good just smears their face with the ooze of goodness it is and it's so good that you're like i'm sorry illustrators you know like i'm sorry you creative people out there it's just happening and it's happening right before our eyes and now you can see my software development crossover angle into this it's like i'm sorry developers we're getting there it's happening it's happening i mean we're two years in yeah plus and gosh this has just got so good yeah i mean"
+    },
+    {
+      "start": 1020.85,
+      "end": 1028.72,
+      "speaker": "adam-stacoviak",
+      "text": "we did just kind of like make fun of vibe coding and then somebody said we didn't we said it was"
+    },
+    {
+      "start": 1028.72,
+      "end": 1207.62,
+      "speaker": "jerod-santo",
+      "text": "good well they might have been talking about my conversation with amel hussein not with you okay so you were misquoting them i think you're i think you misread i think they were talking about linkedin because i told amel that linkedin is like not so bad anymore and they thought i meant linkedin was good vibe coding i'm very much ambivalent about i actually love the term and i think that as my as my most famous of my vibe coding memes said you know vibe shipping is really the problem vibe coding's totally cool it's when you ship that into production that it gets hairy and gnarly however somebody just posted something on hacker news yesterday i vibe coded a 35 000 lines of code app a recipe app with pretty impressive results i mean that's a large code base compared to what lots of folks have been putting out there this is tom blomfield who says over the last two or three weeks i vibe coded the recipe app that i always wish existed recipe ninja.ai it now includes a fully interactive voice assistant so you don't need to get your dirty hands over your new ipad when you're cooking so i mean kind of a cool app here's his background i'm a startup founder turned investor i taught myself bad php in 2000 and picked up ruby on rails in 2011 i'd guess 2015 was the last time i wrote a line of ruby professionally so that's a decade ago last month i decided to use windsurf which i don't even know what that is to build a rails 8 api back end and react front end app i assume windsurf is like a cursor style thing um using open ai's real time api for voice to voice responses over the last few days i used clod code and gemini 2.5 pro for some of the trickier features 35 000 lines of code later this is what i built and they link it up and you know it's a real website with categories voice search cool loading images look like they progressively load and recipe steps entirely vibe coded so it's not quite you know take this image and turn it in the studio ghibli but not bad not bad now is it easily hacked time won't tell it's on the public internet now and it's gotten some attention are there any actual inputs besides search like how do you create a new recipe you can sign in with google you can start cooking but where's the third-party inputs because that's where rubber hits the road on the internet is like once i have a submit button somewhere i don't see any of those maybe you have to sign in to do that but how do you create your own recipes"
+    },
+    {
+      "start": 1208.48,
+      "end": 1213.92,
+      "speaker": "adam-stacoviak",
+      "text": "so you know it's still basic in that way do you think these uh images are ai generated based on"
+    },
+    {
+      "start": 1213.92,
+      "end": 1225.2,
+      "speaker": "jerod-santo",
+      "text": "the recipe i don't know i mean the first one looks like because it's like a wonder woman picture well very boring life cake the one second row oh very boring life cake looks like a pound cake"
+    },
+    {
+      "start": 1225.2,
+      "end": 1229.76,
+      "speaker": "adam-stacoviak",
+      "text": "maybe yeah i mean that looks like a pretty awesome cheesecake non-boring cake i'd eat that"
+    },
+    {
+      "start": 1231.04,
+      "end": 1242.99,
+      "speaker": "jerod-santo",
+      "text": "thinking about eating it right now deepest deep dish pizza yeah these must be ai generated images because this thing looks like it's like a stack of pizzas and it's not real yeah yeah also probably"
+    },
+    {
+      "start": 1242.99,
+      "end": 1411.54,
+      "speaker": "adam-stacoviak",
+      "text": "using that so i think i i'm hovering in the world of like it's all plastic you know that term it's all plastic uh no it's it's generally derogatory because like you get this nice thing right and you expect to be sturdy and all the things durable to use a recent term but it's all plastic and it breaks easily like so that's maybe you know a take on the the vibe coding you know is that code maintainable by a non-human maybe you don't care you know sometimes zero to one is not the hard part it's it's maintaining one and going to two you know that that's the challenge although i gotta say i agree with you i think it's it's super cool and it actually leads me i mean this is sort of off topic i can riff a second i had this um this idea or at least this insight last night let me see if i can conjure this into show material here momentarily i had some really good ideas last night i'm gonna share with you anyways anyways anyways so i have this idea called the ai layer where every meaningful application that you touch on the daily these kind of tools you touch from email to you know layer something in we'll have some sort of ai layer to it i think mcp is what's really ushering this this interface into play this this ai layer to interface with which means we will begin to truly begin to program our world so think vibe coding for everyone i've got home automation around me at some point these things will have this it's already got it but it's not accessible via this um automation i would say that's where the ai comes in it's more automation than it is generative but this ai layer where you can begin to orchestrate your life you know that's where i think the next frontier might be and i think vibe coding is like one layer of this future ai layer we'll live in well friends i'm here with a brand new friend of mine kyle galbraith co-founder and ceo of depot.dev your bills don't have to be slow you know that right build faster waste less time accelerate docker image builds get up action builds and so much more so kyle we're in the hallway at our favorite tech conference and we're talking how do you describe depot to me depot is a build acceleration platform the reason"
+    },
+    {
+      "start": 1411.54,
+      "end": 1497.78,
+      "speaker": "jerod-santo",
+      "text": "we went and built it is because we got so fed up and annoyed with slow builds for docker image builds github action runners and so we're relentlessly focused on accelerating builds today we can make a container image build up to 40 times faster we can make a github action runner up to 10 times faster we just rolled out depot cache we essentially bring all of the cache architecture that backs both github actions and our container image build product and we open it up to other build tools like basil and turbo repo sc cache rattle things like that so now we're starting to accelerate more generic types of builds and make those three to five times faster as well and so in simple terms the way you can think about depot is it's a build acceleration platform to save you hundreds of hours of build time per week no matter whether that's build time that happens locally that's build time that happens in a ci environment we fundamentally believe that the future we want to build is a future where builds are effectively near instant no matter what the build is we want to get there by effectively rethinking what a build is and turn this paradigm on its head and say hey a build can actually be fast and consistently fast all the time if we build out the compute and the services around that build to actually make it fast and prioritize performance as a top level entity rather than an afterthought yes okay friends"
+    },
+    {
+      "start": 1497.78,
+      "end": 1522.02,
+      "speaker": "adam-stacoviak",
+      "text": "save your time get faster builds with depot docker builds faster github action runners and distributed remote caching for basil go great old turbo repo and more depot is on a mission to give you back your dev time and help you get faster build times with a one-line code change learn more at depot dev get started with a seven day free trial no credit card required again depot"
+    },
+    {
+      "start": 1522.02,
+      "end": 1556.32,
+      "speaker": "jerod-santo",
+      "text": "dot dev i got chat jpt to do the thing oh gosh how did it do um screen sharing it now can you see it i'm gonna go back to my tab let me see all right so oh my god a picture of you standing in front of a clubhouse with a hat on and glasses that's amazing turn him into a lego character and the end result is basically exactly that that's uncanny what do you think pretty good right that's uncanny i mean the details are it really gets it because you know image as fast"
+    },
+    {
+      "start": 1556.32,
+      "end": 1567.84,
+      "speaker": "adam-stacoviak",
+      "text": "as possible i need to keep that that's amazing i want that to you isn't that cool i might become my my uh my avatar right i'm sharing with my brother for sure he's gonna love it it's just"
+    },
+    {
+      "start": 1567.84,
+      "end": 1624.83,
+      "speaker": "jerod-santo",
+      "text": "too much fun i mean everybody wants themselves to just get turned into you can do like south park style obviously ghibli style lego style i mean you imagine it and it will do it for you and it's not even hard i didn't give it like a sophisticated prompt turn him into a lego character yeah it was like how many how many words that six seven and the background was interesting like it has your original picture has a guy in the background i think he's he's walking out join you with the he was it was gonna rain that day and then in this picture look there's a guy he's going in so it's a little bit different you can notice how the logo on the clubhouse has logo got jacked up this was like a yeah falcon flying and then in the this one it's looks more like an f but it actually is still the same shape and the same color dude that's actually pretty cool for falcon head because like the bird's now in an f shape right calloway came across so like the exact spelling of calloway is there on your hat now you have an under armor oh look at that you do have under"
+    },
+    {
+      "start": 1624.83,
+      "end": 1629.79,
+      "speaker": "adam-stacoviak",
+      "text": "armor on so the the picture's even backwards look at that it's not even it's in selfie mode well"
+    },
+    {
+      "start": 1629.79,
+      "end": 1641.23,
+      "speaker": "jerod-santo",
+      "text": "they put it in a better spot for you well that's true so you're actually in selfie mode so your calloway reads backwards yes and the actual generated one reads forward which is actually"
+    },
+    {
+      "start": 1641.23,
+      "end": 1645.23,
+      "speaker": "adam-stacoviak",
+      "text": "preferable too yeah they're like nah we can't give them back selfie mode we got to give them"
+    },
+    {
+      "start": 1645.23,
+      "end": 1655.49,
+      "speaker": "jerod-santo",
+      "text": "back straight up mode i'm gonna put that under armor logo you know where it fits it's uh that's compelling i mean i've been using this non-stop i just drop stuff in there and tell it to do"
+    },
+    {
+      "start": 1655.49,
+      "end": 1660.77,
+      "speaker": "adam-stacoviak",
+      "text": "things and it's just amazing oh my gosh what is it doing for you i'm just generating pictures of"
+    },
+    {
+      "start": 1660.77,
+      "end": 1704.11,
+      "speaker": "jerod-santo",
+      "text": "my kids doing different stuff funny stuff we have a uh we have a talent show upcoming at our church um it's actually tomorrow night and one of the things there is going to be is a walrus impersonation contest this is still on the down low so don't tell anybody this because if people find out it'll ruin the surprise but i'm taking pictures of these different kids who are all going to do a walrus impression and i'm turning them into walruses using this i'm going to show it to them and they're going to absolutely just lose it because they're so funny because it pulls across your likeness but then transforms you into a walrus let me do it for you impossible i'm just going to say turn them into a walrus oh now this won't be that flattering but it will be cut this"
+    },
+    {
+      "start": 1704.11,
+      "end": 1709.23,
+      "speaker": "adam-stacoviak",
+      "text": "jason let's cut this just in case it goes south here let's keep this jason cut the feed cut the"
+    },
+    {
+      "start": 1709.23,
+      "end": 1734.37,
+      "speaker": "jerod-santo",
+      "text": "feed if it doesn't go south cut it if it goes south keep it keep it no matter what it's good all right so we'll let that generate oh it must have been my min browser versus my safari browser it like it was maybe it was temporary mode like i can't do temporary mode because i lose i lose some stuff that we're keeping this this is going right into my stinking history we're training the future that's right i've been turning lots of people into walruses in my chat history so"
+    },
+    {
+      "start": 1735.09,
+      "end": 1900.1,
+      "speaker": "adam-stacoviak",
+      "text": "chat cbd is already on to me well it's line by lining us here let's go back to what you said before which was private ai is watching i'm just kidding it's not watching you it's actually not watching you so private ai versus this tractor beam this gravity this yes this pull back into the open ai world yes i'm feeling that because here's me wanting to have agency wanting to oh my gosh this is looking cool uh wanting to have this world like no i got my own gpu okay and i got my own models called deep seek and others and i'm running my show but it's not about it's not about the billions of parameters in the model or even what the model can generate it's the structured output and the utility of the application that makes it useful and obviously you're not doing this image generation yet in your local lms all right but they keep delivering features claud as well they keep delivering features that that are above the model like above what the model is trained on in terms of its knowledge inside it's like the layering on top that is truly truly the cherry on top of this pie because i can get i've compared uh deep seek to uh llama three two to llama three three and waited for a bit and you know deep seek you know r71 for example whatever might be versus four oh paid model or even a one or this image generation stuff you're doing versus claud sonnet three five or three seven i believe and what is haiku is three five and when i compare a prompt that i want to put into these things i get marginally if not dramatically better enjoyment and riffing i would say you know this vibing riffing vibing with the thing because it's it's just got better output better structured output even if the ideas aren't necessarily better the way it packages it the way it uh bullet lists it the way it structures the output into a an outline have you tried to make this thing your task list ever like just imagine you being overwhelmed from them have you ever if you've been overwhelmed recently no with like your to-do list never well when you take a break for a few days you get overwhelmed so i'm like hey i gotta come back into work after a few days being totally departed here's what's on my mind here's where i gotta get done organize this for me i just talk to it like that bam oh my gosh here i'm a walrus by the way i just looked down for the first time in a minute got your"
+    },
+    {
+      "start": 1900.1,
+      "end": 1912.53,
+      "speaker": "jerod-santo",
+      "text": "callaway hat on got your glasses you've lost her oh my gosh dude you've lost your under armor shirt so walrus is going commando but everything else is still the same uh do you think that's me though"
+    },
+    {
+      "start": 1915.73,
+      "end": 1920.85,
+      "speaker": "adam-stacoviak",
+      "text": "hey i mean it's like who am i like everything else is the same as if it's like gonna be me"
+    },
+    {
+      "start": 1921.49,
+      "end": 1937.47,
+      "speaker": "jerod-santo",
+      "text": "well i mean it's as close to me as you can it's a walrus and so it's gonna be a walrus but it's gonna try to have you know it's got your nose like that jared it's got your eyes uh-huh i mean my tusks the tusks are slightly longer it does have your facial hair so my stubble oh my gosh"
+    },
+    {
+      "start": 1937.47,
+      "end": 1950.43,
+      "speaker": "adam-stacoviak",
+      "text": "dude and it's holding the camera it's selfie it is selfie absolutely so just too much fun oh okay this is good stuff man i mean this is what the internet's made for right here i know that's the"
+    },
+    {
+      "start": 1950.43,
+      "end": 2044.05,
+      "speaker": "jerod-santo",
+      "text": "thing is like i'm sympathetic to the artist and i feel bad but i'm also sympathetic to us developers and feel i'm gonna feel bad as it continues to go away from us but gosh this is good stuff i mean what do we should do too much fun this is what you didn't see my indiana pacers thing in recent changelog news because you didn't listen this week not this week no and this isn't even new i just came across this it happened last year but it's kind of something that i'm into right now which i'm calling joyous use of tech it's like let's use technology to bring joy to people and at indiana pacers games you know the jumbotron and they show like different yes like the kiss cam and all the stuff that happens during the breaks well this is at a pacers versus lakers game and whoever's running the job jumbotron they put this crying filter like just standard like snapchat filters right over the lakers fans faces and so they'll zoom in on some lakers fans but they replace their face with a crying filter and it just looks like they're crying and it's absolutely hilarious everyone's laughing even the person who's getting their face covered up with a crying face and the fact that they start to laugh it actually looks like they're like sobbing and composing and so it kind of compounds the effect and i'm just i just highlighted that on changelog news because it's like let's use software to bring each other joy you know and this i mean for me turning people into walruses or anything else i think of i can imagine it's just so much fun oh my gosh this walrus is"
+    },
+    {
+      "start": 2044.05,
+      "end": 2049.73,
+      "speaker": "adam-stacoviak",
+      "text": "uncanny i mean it's just i can't believe it now i'm not sure which one i want more the the lego"
+    },
+    {
+      "start": 2049.73,
+      "end": 2055.44,
+      "speaker": "jerod-santo",
+      "text": "version of the walrus version well you still haven't done the uh do the do the ghibli one"
+    },
+    {
+      "start": 2055.44,
+      "end": 2060.24,
+      "speaker": "adam-stacoviak",
+      "text": "i'll do the ghibli one let's let's round it out with a ghibli close it there so a recent"
+    },
+    {
+      "start": 2060.24,
+      "end": 2130.94,
+      "speaker": "jerod-santo",
+      "text": "conversation in our general chat by the way general is now public so uh look out all of our chats are now public on changelog.zulipchat.com so you can read along without even signing up there was a cool idea coming from brian douglas about doing some revisits or some catch-up chats we definitely done catch-up episodes but not very many and there's so many episodes that go back in fact brian was suggesting that we could revisit the rise of iojs number 139 and i got to thinking well iojs doesn't exist anymore you know it got merged back into the node and so there's nothing to revisit and then he also suggested hoodie no back end offline first episode 111 and i was like i don't think any of that's very relevant anymore and then he mentioned exorcism so like what if we caught up with the exorcism folks that one still exists it's still out there it's just run by different people and so we don't know them anymore it was katrina owen back when we had her on the"
+    },
+    {
+      "start": 2130.94,
+      "end": 2137.68,
+      "speaker": "adam-stacoviak",
+      "text": "show still involved i don't think so i'm pretty sure she is okay well she's not running the show"
+    },
+    {
+      "start": 2137.68,
+      "end": 2179.18,
+      "speaker": "jerod-santo",
+      "text": "anymore i know that anywho it's tough sometimes because a lot of these things just don't exist anymore and that got me thinking about some of our earlier episodes right i know you're going with and where are they now oh you said it where are they now so i thought it'd be fun for us to just go through a few early episodes of the changelog and just figure out where are they now where are they now the project is it still a thing etc because so many things have come and gone or changed form over the years and the very first episode was about hamill sas and compass where"
+    },
+    {
+      "start": 2179.66,
+      "end": 2191.98,
+      "speaker": "adam-stacoviak",
+      "text": "where's hamill where's sas and where is compass any thoughts well hamill is still there apparently"
+    },
+    {
+      "start": 2192.54,
+      "end": 2202.7,
+      "speaker": "jerod-santo",
+      "text": "hamill still has a website hamill is a templating language for ruby this is very much our ruby roots coming out as we go back to our first episodes because a lot of it's in the ruby"
+    },
+    {
+      "start": 2202.7,
+      "end": 2208.22,
+      "speaker": "adam-stacoviak",
+      "text": "community it's basically a way of so much cleaner right look at that how beautiful was"
+    },
+    {
+      "start": 2208.22,
+      "end": 2254.56,
+      "speaker": "jerod-santo",
+      "text": "making cleaner templates what a dramatic shift and the website still exists copyright 2006 to 2023 does that give you any hints that's a couple years dated yeah and it's a couple years dated so if you look at the latest version of hamill 6.3.0 and you click around and find out when that actually shipped it was back in 2023 so there is a commit four months ago so not like forever ago dead but last release december 2023 so certainly not super active anymore what about sas sas yes sas of course i don't use sas anymore css with superpowers you were big into this one right you even had the sasway.com didn't"
+    },
+    {
+      "start": 2254.56,
+      "end": 2310.88,
+      "speaker": "adam-stacoviak",
+      "text": "you oh the sasway.com it was good john i just talked about this like super briefly in that front end with friends episode john w long by the way yes sas was really the the first open source project that really got me into i would say more open source i did some libraries around it that are obviously dead now to me and some others may be still using them but yeah sas was really cool because css was static obviously and generating css with sas was cool i think largely though most of the features that i enjoyed in sas now exist in css proper or tailwind has abstracted those things to make me feel like they're css native tooling and forgive me because i'm i i just don't do any front end work unless it's got tailwind involved i just prefer it"
+    },
+    {
+      "start": 2311.44,
+      "end": 2322,
+      "speaker": "jerod-santo",
+      "text": "so so sas looks like it is still maintained it says here sas has been actively supported for over 18 years by its loving core team so props to them for that they're even as a mastodon account"
+    },
+    {
+      "start": 2322,
+      "end": 2328.32,
+      "speaker": "adam-stacoviak",
+      "text": "which tells me that you know relatively new yeah copyrights there 2025 copyright as of this year"
+    },
+    {
+      "start": 2328.32,
+      "end": 2336.13,
+      "speaker": "jerod-santo",
+      "text": "sas on github other still active commits going on here's sas slash sas uh three days ago dependent"
+    },
+    {
+      "start": 2336.13,
+      "end": 2348.53,
+      "speaker": "adam-stacoviak",
+      "text": "bought at least can't tell you the status of this though you know what does this mean because there was always the s css and sas world i think sas this is similar to hamel just went away yeah this"
+    },
+    {
+      "start": 2348.53,
+      "end": 2424.3,
+      "speaker": "jerod-santo",
+      "text": "is like specifically the sas library slash executables that i think were written in ruby and then were eventually rewritten in javascript to be mpm installed versus like rvm installed or gem installed and so yeah i think sasses these are i think all these are successful projects um they just like you said kind of got brought into the web platform for a certain in a certain way hamel didn't but sas certainly did uh compass was even more specific right compass was all about yeah you know look at that compass is now the domain's been taken over i may be getting malware as we speak oh my gosh gather man so this is no longer abort abort and we should probably remove that link from our stuff which reminds me youtube has been hitting us up with all kinds of takedowns because of some of our old links on old episodes now point to domains which have malware on them maybe we should do some sort of a link scanner that goes through and checks those links and changes them it goes to archive.org i don't know a lot of work but when you maintain a website that points at things for this you know 2009 till now eventually some"
+    },
+    {
+      "start": 2424.3,
+      "end": 2429.66,
+      "speaker": "adam-stacoviak",
+      "text": "of those links are going to rot oh yeah a lot of rot going on there so that's episode one"
+    },
+    {
+      "start": 2430.22,
+      "end": 2460.05,
+      "speaker": "jerod-santo",
+      "text": "you know a mixed bag episode two was the original changelog weekly so that's not really even oh gosh episode three was about the go programming language that was very much relevant rob pike episode three you know we all know where go is now all of us episode four is a half hour conversation probably just with you and win about chrome os thor and roar do you know what these are"
+    },
+    {
+      "start": 2460.05,
+      "end": 2471.33,
+      "speaker": "adam-stacoviak",
+      "text": "you didn't even know what min browser was after a few no thor i know what thor is thor was some sort of deployment tool it was a lot like uh like make no rake rake yeah it was like that"
+    },
+    {
+      "start": 2472.05,
+      "end": 2481.55,
+      "speaker": "jerod-santo",
+      "text": "yeah it was ruby loads web roar it's hard to tell jerry where you land none of these tabs are"
+    },
+    {
+      "start": 2481.55,
+      "end": 2489.31,
+      "speaker": "adam-stacoviak",
+      "text": "loading thor was um broken links y'all broken created ember it was that fella what's his name"
+    },
+    {
+      "start": 2489.95,
+      "end": 2506.72,
+      "speaker": "jerod-santo",
+      "text": "oh yeah um y cats yahuda oh no oh yahuda cast created ember yahuda cats yes that's what i just said you said y cats that's his handle then i said yahuda oh my bad i was thinking uh when"
+    },
+    {
+      "start": 2506.72,
+      "end": 2519.1,
+      "speaker": "adam-stacoviak",
+      "text": "you said that i was thinking the uh the dude that uh that aborted on ruby what's his name why the lucky stuff for whatever reason you said y cats got i thought why the lucky stuff so my"
+    },
+    {
+      "start": 2519.1,
+      "end": 2559.04,
+      "speaker": "jerod-santo",
+      "text": "bad yeah my lucky stuff aborted on the entire internet and now he's just uh happy jeremy ashinkas i mean yeah five was jeremy ashkenaz or ashkenaz docking cloud and underscore.js dude i loved underscore.js yes so much it was the way for a very long time it was looks like it's still actively maintained 286 contributors stuff going on i'm like who's using this nine months ago legacy apps that just have it installed already and they're just not gonna why would you do like"
+    },
+    {
+      "start": 2559.04,
+      "end": 2566.22,
+      "speaker": "adam-stacoviak",
+      "text": "rip it out might as well just use it yeah i guess so it works i don't think anybody's installing it"
+    },
+    {
+      "start": 2566.22,
+      "end": 2591.1,
+      "speaker": "jerod-santo",
+      "text": "today but you know jquery is still on like 75 of websites and so those who don't know underscore.js is a utility belt library where alongside the dollar sign for jquery the underscore was how you access all these fun functional functions like map reduce filter etc i said fun fun fun i did fun fun function remember that show it was a throwback yeah i mean it's"
+    },
+    {
+      "start": 2591.1,
+      "end": 2600.78,
+      "speaker": "adam-stacoviak",
+      "text": "an accidental one but but yeah i dig that did you see that it was uh the commercial supporters offer by tide lift didn't they get acquired recently tide lift did get acquired"
+    },
+    {
+      "start": 2600.78,
+      "end": 2605.66,
+      "speaker": "jerod-santo",
+      "text": "but i don't remember by whom or any of the details what the details are that well that's"
+    },
+    {
+      "start": 2605.66,
+      "end": 2630.08,
+      "speaker": "adam-stacoviak",
+      "text": "cool i mean you know as you're going through these links and stuff i was just thinking like is is haml an attack factor is underscore an attack factor um and you get these older popularized like you said legacy still being used so maybe under the radar so to speak whenever it comes to maintenance and you know just oversight from the developers allowing them to be dependencies"
+    },
+    {
+      "start": 2630.08,
+      "end": 2690.8,
+      "speaker": "jerod-santo",
+      "text": "like is there an attack vector there i think there definitely could be i'm not saying that there is haml obviously is going to be rendering user-generated content on some websites as it's a templating engine that oftentimes you know will render something that somebody entered so there could be a tag vector there if you could find some way of exploiting it and then underscore is going to be loading up in people's browsers and you can obviously check it do a lot there you can do stuff there yeah so i would say yes but also mature software underscore has 30 open issues to this day most of them are probably people asking like hey is this gonna breaking changes is this gonna be updated anytime soon etc all right how about one more last one last one oh gosh mongo db episode this is cool seven mongo still going strong right i mean they're"
+    },
+    {
+      "start": 2690.8,
+      "end": 2698.05,
+      "speaker": "adam-stacoviak",
+      "text": "a publicly traded company aren't they yeah what's uh that's that's seven this is episode seven yeah"
+    },
+    {
+      "start": 2698.05,
+      "end": 2704.13,
+      "speaker": "jerod-santo",
+      "text": "i can go to that right now mongo db loved by developers tangent was the company model came out"
+    },
+    {
+      "start": 2704.13,
+      "end": 2920.72,
+      "speaker": "adam-stacoviak",
+      "text": "of my gestures and so far don't work anymore for some reason my back swipes like who would turn that off who would turn it off on me you will land at mongo db.com if you are scared of of no sql run quickly well friends i love notion because notion lets me do everything i want in a single application that lets me invite others to get involved in those organizational workflows processes collaboration whatever you want to call it right the cool thing that i love most about notion is that you can make it your own meaning you can make operating systems workflows you know processes standard operating procedures the way you do things the way you work the way statuses work for you and i don't mean that you got to build this thing yourself from the ground up no everything is for the most part push button templatable you can start from somewhere and end up somewhere else that fits your model for me i could be in the middle of doing something thinking how i could add one more property or one more status to the the flow i'm doing things and make the change in real time while doing the work to enable the future work i'm doing to be better to be easier to fit me that's why notion is cool and if you're not using notion well now is the time to do it because there is no shortage of the way ai has helped many many people i love notion ai notion for me is big a lot of stuff in my workspace i've got a personal one i've got one for the changelog and all these things fit into different places in my personal life the way i personally use notion but notion ai lets me search across everything in one single ai interface and it's the coolest but being able to combine your notes docs projects all the things you want to do into a single space that's simply beautiful easy to use well designed on all the platforms whether it's web desktop application ios application android application you name it and notion is there for you and notion is used by over half of fortune 500 companies now i don't know about you but i'm not anywhere near a fortune 500 company but they're also used by many many teams and we're one of them we're one of those teams these teams that use notions send less email they cancel more meetings because hey no meeting needed they save time searching for their work using notion ai and they reduce spending on various tools because they consolidate it and this helps everyone to stay on the same page and help the business stay more focused so try notion today for free when you go to notion.com change log that's all lowercase letters notion.com change log to try the powerful easy to use notion ai today and when you use our link of course you're helping us so do that use our link that lets notion know hey changelog is impressing people they're sharing what we do well and you know what i wouldn't tell you if i didn't i love notion it's awesome and you should try it out again notion.com change log yeah my my back swipe gestures are not uh not working anymore in my system for some reason and i'm a little angry"
+    },
+    {
+      "start": 2920.72,
+      "end": 2944.21,
+      "speaker": "jerod-santo",
+      "text": "about it a little angry well that could lead us into our next discussion which is is this an ad or is this not an ad you want to that one up let me get my bearings here real quick okay because somebody cut me deep somebody cut me deep this also was in our zulu community i believe it was called ad or interview something like that yes let's see here i was mostly sad about the the"
+    },
+    {
+      "start": 2944.21,
+      "end": 2957.46,
+      "speaker": "adam-stacoviak",
+      "text": "breaking continuity of you know the episode number and name and stuff like that then somebody drops an interview or an ad and the question mark and it's like come on now man you you ruined the"
+    },
+    {
+      "start": 2957.46,
+      "end": 2989.54,
+      "speaker": "jerod-santo",
+      "text": "beauty of the list so for context in our zulu channels each new episode gets auto posted by our system with its episode number and title and then the conversation for that show will go inside that particular topic you can also just create topics but people weren't really doing that they're kind of letting those not be and then somebody created a topic in the interviews channel which i think makes sense probably general it might make more sense but it's totally cool it's just that you're a little bit pedantic i guess well you know i figured you i figured might actually upset you"
+    },
+    {
+      "start": 2989.54,
+      "end": 3092.51,
+      "speaker": "adam-stacoviak",
+      "text": "more than me than it did me so i was kind of sad for you but then i thought about like you know you've ruined the beauty of the list it's just now i've come to embrace the chaos okay good for you i'm you're you're growing i'm fine i'm happy for you i am okay so interview or an ad question mark tim uckton was it sorry how would you say that jared ucken you can yeah you can tim you can tim you can sorry about that tim mess your last name up haven't said it out loud before i'm not gonna read what he said there should i read what he said there i guess so it's context he says i'm sure this is a fine line but at what point does an interview become an ad i'm not talking about open source maintainers or anything like that but when when you interview the ceo or cto of a company and that interview centers around their product or service it starts to smell like product placement or just plain old advertising to me not that people don't have anything interesting to say but i think you guys should do your best to steer the conversation away from the product maybe talk about their personal history or whatever i don't know they said anyway i ended the recent beyond lou episode this is the episode question so i talked to beyond lou sourcegraph co-founder and cto episode 632 yeah episode 632 uh he said i ended the episode prematurely because of this even though even though i am a user of cody and i like it maybe it's just me and so i was like i was marinating i read this stepped away didn't jump in right away and here you are jared"
+    },
+    {
+      "start": 3093.5,
+      "end": 3153.58,
+      "speaker": "jerod-santo",
+      "text": "hours or two later what'd you say i said our interviews are never ads in other words you cannot pay us money to come on our shows we only talk to and about things we are genuinely curious about so i thought that that was short and sweet that's truth yeah that's truth i think that's true i feel like we say that enough and we i i think tim probably knows that like i don't think i was informing tim of that i just wanted to put that out there just to make sure that that's like 100 clear because we've always been that way if it's up to me we'll always be that way you can't just pay you can't just buy your way onto an interview with us in fact i've just turned down some people recently who were willing to pay some good money to just come on the show and i was like that's just not how we do our thing so we've definitely lost money over the years doing that but allows us to just answer these questions with saying if you're getting interviewed on our show it's because we want to it's not because you gave us money and that's just the way it is so yeah starting there but then you expanded and said a lot more so go ahead yeah well i just think i mean"
+    },
+    {
+      "start": 3153.58,
+      "end": 3267.74,
+      "speaker": "adam-stacoviak",
+      "text": "i don't know if you want to go into all these details that's not what i'm trying to do here unless you are and i can do that but i don't think that's what we should do i think it comes down to what i stepped away and marinated with on this was that i think potentially one a couple things have changed founders talk isn't a show anymore and so we've absorbed some of the things i did there which was explore with a ceo a cto a co-founder their world their journey sometimes it's product sometimes it's their journey and uh and so we've converted what was finished talking to an infrequent episode style for the changelog right so that's one uh two i think that the style of ad that we do produce is was cut from the same cloth that i was cutting finish talking other things from was that rather than i mean i really just hated reading scripts i think that's what it came down to i was just so i wasn't even thinking about the listener really at first i don't think i think i was being a little selfish and i said i just can't read one more crappy script this marketing team gives me not because they're not good at it it's just like they don't know how to talk to our audience so it's not their fault and so i was like i gotta change this and we started going into the into the cut into the into the scene talking to ceos ctos vps product engineering you name it and we're peeling back the layers so i think our ads have have morphed into many interviews which they very much have and so now the line not that we're not drawing it clearly but the the style of the content you're getting is so similar that maybe that's what makes it feel like an ad because when we do ads it feels like content i don't know right that was my thought"
+    },
+    {
+      "start": 3268.3,
+      "end": 3346.83,
+      "speaker": "jerod-santo",
+      "text": "yeah i think that definitely blurs it slightly which is why we make it very obvious with the musical transitions and the music bed beneath the ads you'll always hear music beneath our ads and you'll rarely hear music beneath our voices and this is like coming into something or going out from something but it's always same or similar ad music so i think that that's clear enough in the production but i do think because our ads are many interviews maybe you think our interviews are long ads and so it's definitely been asking and i think it's worth talking about like yeah we want to be real legit checked and so shout out to tim for bringing it up because it's i'm sure if tim's thinking that i'm sure that other people thinking too yeah and it's something that we want to address and something that we struggle with because honestly we only talk about cool stuff that we think is cool but also that does cross over into stuff that people are advertising because yeah we have we are picky with who our sponsors are and we do think their stuff is cool and so i can see how that could become a gray area sometimes we have to say that's why i say this is not an ad but and we start to talk because it has to be clear that this is just my opinion and this is actually somebody paying us to speak to you"
+    },
+    {
+      "start": 3346.83,
+      "end": 3453.3,
+      "speaker": "adam-stacoviak",
+      "text": "directly through us it is a real challenge because i will often learn about a brand because they reached out to us and one in particular and i'm struggling because i want to get scott detail on the show and it's augment code i'm i'm really interested in what they're doing they're doing some cool stuff there but i'm only learning about it because of how deep we go with our ad style if i just took a script for them and read it i wouldn't know anything like i do about augment code i would just know the surface and what they tell me i would not have done investigative journalism and going on the inside and looked at it like how can i expose these details to our to our world in fun ways which is my approach is i i scan the entire vector of what they do you know along with their help go into to the depths talk to different people and i kind of come out with what i think their story is to our world sometimes i get an opportunity to go deeper sometimes it's a little bit more shallow but either way it's the same approach which is not what are they saying because obviously what they're saying is not resonating or it's not doing so well and if it is we're going to repeat that if it's doing well we will repeat it but in a lot of cases i'm like diving in but i'm struggling because i want to get augment code on i want to get scott on i've learned a lot of cool stuff about retool that i'm in love with they're doing some cool stuff i want to get david shoe back on but like these are anchor sponsors of ours you know and so it's like well no we're not having them on because they paid us but we did learn about them because they paid us we got curious and exposed to their world and it's like well that's where the challenge is like do we gate keep them from appearing on the show because"
+    },
+    {
+      "start": 3454.1,
+      "end": 3510.77,
+      "speaker": "jerod-santo",
+      "text": "they've paid us in the past no they have an active campaign on the source graph paid us in the past yeah right now we haven't done a spot in a while yeah we will in the future i think we don't gate keep because you have sponsored or might sponsor right we just go where we're genuinely curious i think we do have a a mandate to go beyond and find things that aren't people that come to us with money you know but i think we're obviously doing that all the time for instance our show next week our interview next week is with stefan ewen of restate yeah which is a direct competitor to a sponsor of ours temporal and yes i was just like interested in this it's a listener request i was like let's do a show so here's another thing doing similar stuff and we're gonna talk we're just gonna talk about it because that's what we want to do and that's what i think people want"
+    },
+    {
+      "start": 3510.77,
+      "end": 3588.19,
+      "speaker": "adam-stacoviak",
+      "text": "to hear i think so too but i i do appreciate tim bringing this up because i think it it like you had said if he's thinking it then others are thinking it too and i think it's definitely worth noting like one thing i did say which i think is worth quoting is if it would have been an ad if i was trying to have beyond convince us or even me how to get started i don't even think i even asked him like okay so now that we're done how do people sign up you know i was like that was not the question and i just said podcasts are and i really feel this is why i love podcasting so much is that they're still the most authentic form of content it's long form you can't hide behind questions you can't i mean you can't if you if you allow yourself to edit people because they say you have to to have the appearance and i think in those cases it's pretty telling if it's a you know controversial interview for example but i think for the most part if we ask people stuff and we have a conversation you can you can read between the lines of who they say they are and what they say they can do if they just vibe coded the next thing and they're claiming that it was not vibe coded you will find out pretty quickly if it was vibe coded or not for example in a podcast"
+    },
+    {
+      "start": 3588.19,
+      "end": 3635.6,
+      "speaker": "jerod-santo",
+      "text": "interview format yeah well said let's close with this so i turned you into a studio oh my gosh however this is a happy surprise a happy accident perhaps because when i prompted that i did not go back to the original picture so actually it turned your walrus into a studio ghibli style walrus and so i'll show you that now and to our listener definitely check the show notes maybe we'll get in the chapter data so that you can see what we're seeing and to our viewer of course you're viewing this on youtube so just look with us but we'll get these images out there there you are man what do you think oh adam as a walrus in a studio"
+    },
+    {
+      "start": 3635.6,
+      "end": 3646.96,
+      "speaker": "adam-stacoviak",
+      "text": "ghibli movie i like how the falcon head logo has morphed yeah every time i like things like slightly changed yeah it's cool how it's turned into an f that's so strange like do they know"
+    },
+    {
+      "start": 3646.96,
+      "end": 3678.24,
+      "speaker": "jerod-santo",
+      "text": "that falcon head and the person's still walking in the door maybe the falcon head logo is a falcon that looks like an f and we didn't realize it but chat cpt did and now we're learning that their their logo actually does look like an f on purpose what do you think you know i let's go back to the original image and see what do you think i mean i mean if i squint it does look like an f but if i don't squint it just looks like a falcon like this yeah it's pretty close yeah you should send that picture to them and be like you guys miss an opportunity to make your falcon"
+    },
+    {
+      "start": 3678.24,
+      "end": 3683.12,
+      "speaker": "adam-stacoviak",
+      "text": "look like an f yeah i'm gonna tell them since this conversation's over i'm gonna call them"
+    },
+    {
+      "start": 3685.12,
+      "end": 3699.71,
+      "speaker": "jerod-santo",
+      "text": "so original image not so good lego which one's best you got lego adam golfer adam you've got walrus golfer adam and you have walrus ghibli golfer i like this one i feel like yeah"
+    },
+    {
+      "start": 3699.71,
+      "end": 3705.31,
+      "speaker": "adam-stacoviak",
+      "text": "this is solid this is making a good cartoon jared how does it do it i don't know it just takes a"
+    },
+    {
+      "start": 3705.31,
+      "end": 3710.77,
+      "speaker": "jerod-santo",
+      "text": "whole bunch of copyright material and learns its stuff and then you know fakes it till it makes it"
+    },
+    {
+      "start": 3710.77,
+      "end": 3721.49,
+      "speaker": "adam-stacoviak",
+      "text": "do you think that's me though is that can you see me in that walrus i'm not gonna answer that i'm too smart to answer that kind of question i can see me a little bit i mean i think my"
+    },
+    {
+      "start": 3721.49,
+      "end": 3754.21,
+      "speaker": "jerod-santo",
+      "text": "broad shoulders are in there yeah well i mean walruses do have broad shoulders but i mean the glasses are a you know dead match the eyes are not too bad i think it's lost you know what it looks like more now it looks more like king of the hill style like i feel like it's lost your uh the ghibli just your overall shape it's kind of lost it looks more like a like you are drinking a six-pack or something anyways of near beer that's right you know i'm a big fan of near"
+    },
+    {
+      "start": 3754.21,
+      "end": 3781.62,
+      "speaker": "adam-stacoviak",
+      "text": "beer now man i think the uh i don't know if you're doing this if others are doing this but a lot of people are uh opting to not drink alcoholic beer and they're drinking a healthy non-alcoholic beer so they're drinking something that tastes like an ipa it's got nootropics in it that's got like different healthy things in it and it tastes like an ipa so i saw this trend coming a couple years"
+    },
+    {
+      "start": 3781.62,
+      "end": 3873.57,
+      "speaker": "jerod-santo",
+      "text": "ago and i invested in a company that does non-alcoholic gin and whiskey and they're very popular and they sent me a bottle because i was like an early investor or whatever it's one of these uh you i'm not sure if you had to be accredited or not but you know you can invest in private companies now through safes and different entities and one of these is like a crowd fund to a certain extent but not like a kickstart anyways okay they sent me a bottle of it and i told my wife about it because i'm like yeah i mean dry january is a thing now like more like you said people are starting to want to have the social aspect of drinking but without the actual alcohol part and so more and more of these alternatives are gonna just gonna make money and so i think i put like a thousand bucks in you know not like i'm not a big investor i like to just place little bets and see what happens with them it's fun and they sent me a bottle and you know what we cracked that sucker open and tried it it was disgusting it was disgusting now i mean maybe it's better now but i haven't tried again because they're always working on there and i was like i'm not gonna name the company let's like shame them and they kicked me off their cap but i was like this is bad um and my wife is always she thinks that makes it a bad investment i'm like that it still might be a good investment because maybe other people like it but we both thought it was gross and i haven't had some of the beers are they actually good like they taste like"
+    },
+    {
+      "start": 3873.57,
+      "end": 3967.04,
+      "speaker": "adam-stacoviak",
+      "text": "an ipa yeah yeah yeah there's some really good ones out there there's hop water there's like which is kind of like uh an ipa meets water okay i think i've had hop water it just tastes like poppy water right yeah yeah not bad so if you like the hop taste which is an ipa right uh indian pale is what ipa stands for you know like if you want to have an alcoholic beverage with you know with in a non-alcoholic setting right then i think they're great i mean i'm reaching for them before i'm reaching for beer nowadays like i'm just not even doing it yeah and i would say the i've always been an ipa fan and the ipas are actually not all of them but the ones from i think athletic or authentic is the beer brand there's a really good heineken zero they're calling zero beers by the way okay they're capitalizing on the or na beers right na or zero i think you're like hey can i get a zero and they're like okay here's our list you know you just say can i get a zero or zero beer or something like that and some of them actually have 0.5 you know very little but not yeah you're definitely not gonna feel anything from it so if you're abstaining completely and you're that kind of person then you might want to steer clear or double check the the actual amounts but the ones i'm tapping into to use a good pun is it's just zeros you know nothing at all you know totally pure over here just so you know"
+    },
+    {
+      "start": 3967.97,
+      "end": 3973.94,
+      "speaker": "jerod-santo",
+      "text": "sure every day very cool well stuff man should we call it a friend should we call it a week"
+    },
+    {
+      "start": 3973.94,
+      "end": 3980.38,
+      "speaker": "adam-stacoviak",
+      "text": "happy friday everyone what else could we cover is that it i mean we got more stuff but we don't"
+    },
+    {
+      "start": 3980.38,
+      "end": 3987.55,
+      "speaker": "jerod-santo",
+      "text": "kind of force it man let's let it ride always leave them wanting more it's one of my mottos"
+    },
+    {
+      "start": 3987.55,
+      "end": 4011.79,
+      "speaker": "adam-stacoviak",
+      "text": "always even one more i would definitely check out this thread and if you've got comments after hearing our comments on this interview or an ad i would love to hear it and i think you know i again tim thank you for doing this another for sticking up for our style i mean somebody in there who was it that said this i want to pull this out this is awesome oh john johnson somebody"
+    },
+    {
+      "start": 4011.79,
+      "end": 4021.54,
+      "speaker": "jerod-santo",
+      "text": "compared us to joe rogan john johnson yeah john john was such a good comment that i was like dang we should uh put that on a website somewhere or something or change low podcast is highly"
+    },
+    {
+      "start": 4021.54,
+      "end": 4043.86,
+      "speaker": "adam-stacoviak",
+      "text": "underrated it is the best tech podcast quote on joe rogan's level end quote even jared what even their weekly news brief is golden my new best friend everything here is for everybody but there's something here for everybody everyone put that in a solid one man put that on a t-shirt"
+    },
+    {
+      "start": 4044.42,
+      "end": 4049.62,
+      "speaker": "jerod-santo",
+      "text": "put it on a testimonial page yeah that was very nice john we appreciate that you feel that way"
+    },
+    {
+      "start": 4049.62,
+      "end": 4084.29,
+      "speaker": "adam-stacoviak",
+      "text": "it's awesome yeah well it's one thing to have an ideal or a moral or a belief and then it's an in and really not really say it verbatim to the world but act it out and for that to permeate someone's thought even though you didn't say so you know i just want to hear i want to hear more comments honestly i like i don't ever want to blow these comments fishing now yeah i really do i want to hear if you get some to say let us know in zulu yeah absolutely because i think we're gonna ruffle some more feathers i got i got some more uh people coming on that could be suspect"
+    },
+    {
+      "start": 4086.45,
+      "end": 4099.65,
+      "speaker": "jerod-santo",
+      "text": "suspect now i'm now i'm feeling ruffled i don't even know what you're talking about i'm just teasing a little bit it's been fun yeah my friends my friends well friends the fourth wall"
+    },
+    {
+      "start": 4099.65,
+      "end": 4187.07,
+      "speaker": "adam-stacoviak",
+      "text": "was broken a few times on this episode it might be beneficial in the funny parts maybe the whole thing go to youtube youtube.com change log watch all of our episodes in full length video we spend a ton of time putting visuals in there a ton of time doing the chaptering and we just feel it's a slightly upgraded experience when visuals are involved and today that's one of those shows so youtube.com change log what is the weekend it's friday that means fun is happening i know me i'm gonna go party hard with my family my two kids my wife my dog and we're gonna go and have some fun what are you doing you having fun you staying inside you're doing a home lab project maybe you're deploying something new maybe you're tinkering on a new thing whatever it is i hope you enjoy it because i'm gonna enjoy my weekend okay big thank you to our friends and our partners over at fly our friends over at augment code augmentcode.com our friends over at depot depot.dev and of course our friends over at notion notion.com change log those beats are banging because break master cylinder is bringing those beats the beat freak in residence yes bmc well okay friends that's it see you on monday"
+    }
+  ],
+  "slug": "turn-him-into-a-walrus",
+  "id": "87"
+}

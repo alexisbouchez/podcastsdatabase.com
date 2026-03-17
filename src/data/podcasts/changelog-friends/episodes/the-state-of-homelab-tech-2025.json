@@ -1,0 +1,1369 @@
+{
+  "title": "The state of homelab tech (2025)",
+  "description": "Techno Tim joins Adam to discuss the current state of homelab technology, including trends toward smaller, lower-power systems like mini PCs and compact racks. They explore AI at home, self-hosting large language models with tools like Ollama, building creator PCs, GPU availability and selection, and why Tim embraces Windows, Mac, and Linux simultaneously.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/79",
+    "MP3": "https://cdn.changelog.com/uploads/friends/79/changelog--friends-79.mp3",
+    "YouTube": "https://youtu.be/odinzBMXlCk",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "techno-tim"
+  ],
+  "segments": [
+    {
+      "start": 14.86,
+      "end": 69.05,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to Changelog and Friends, the weekly talk show about AI Homelab. Big thank you to our friends and our partners at Fly.io, the public cloud built for developers who ship. That's you. That's me. That's us. Over three million apps have launched on Fly and you can too. Learn more at Fly.io. OK, let's Homelab. Well, friends, before the show, I'm here with my good friend David Hsu over at Retool. Now, David, I've known about Retool for a very long time. You've been working with us for many, many years. And speaking of many, many years, Brex is one of your oldest customers. You've been in business almost seven years. I think they've been a customer of yours for almost all those seven years, to my knowledge. But share the story. What do you do for Brex? How does Brex leverage Retool and why have they stayed with you all these years?"
+    },
+    {
+      "start": 69.05,
+      "end": 79.39,
+      "speaker": "techno-tim",
+      "text": "So what's really interesting about Brex is that they are an extremely operational, heavy company. And so for them, the quality of the internal tools is so important because you can imagine"
+    },
+    {
+      "start": 79.39,
+      "end": 161.39,
+      "speaker": "adam-stacoviak",
+      "text": "they have to deal with fraud, they have to deal with underwriting, they have to deal with so many problems, basically. They have a giant team internally, basically just using internal tools day in and day out. And so they have a very high bar for internal tools. And when they first started, we were in the same YC batch, actually. We're both at winter 17 and they were, yeah, I think maybe customer number five or something like that for us. I think DoorDash was a little bit before them, but they were pretty early. And the problem they had was they had so many internal tools they needed to go and build, but not enough time or engineers to go build all of them. And even if they did have the time or engineers, they wanted their engineers focused on building external physics software, because that is what would drive the business forward. Brex mobile app, for example, is awesome. The Brex website, for example, is awesome. The Brex expense flow, all really, really great external software. So they wanted their engineers focused on that as opposed to building internal crud UIs. And so that's why they came to us. And it was honestly a wonderful partnership, but it has been for seven, eight years now. Today, I think Brex has probably around a thousand retool apps they use in production, I want to say every week, which is awesome. And their whole business effectively runs now on retool. And we are so, so privileged to be a part of their journey. And to me, I think what's really cool about all of this is that we've managed to allow them to move so fast. So whether it's launching new product lines, whether it's responding to customers faster,"
+    },
+    {
+      "start": 161.39,
+      "end": 174.27,
+      "speaker": "techno-tim",
+      "text": "whatever it is, if they need an app for that, they can get an app for it in a day, which is a lot better than, you know, in six months or a year, for example, having to schlep through spreadsheets, et cetera. So I'm really, really proud of our partnership with Brex."
+    },
+    {
+      "start": 174.27,
+      "end": 205.77,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Retool is the best way to build, maintain and deploy internal software, seamlessly connect to databases, build with elegant components and customize with code, accelerate mundane tasks and free up time for the work that really matters for you and your team. Learn more at retool.com, start for free, book a demo again, retool.com. So Tim, no breakfast. You're not a breakfast guy."
+    },
+    {
+      "start": 205.77,
+      "end": 210.59,
+      "speaker": "techno-tim",
+      "text": "No, no, I don't know why. I just, I just stopped eating breakfast a while ago."
+    },
+    {
+      "start": 210.59,
+      "end": 213.34,
+      "speaker": "adam-stacoviak",
+      "text": "There's no reason for it. There's just, just don't do it."
+    },
+    {
+      "start": 213.34,
+      "end": 234.38,
+      "speaker": "techno-tim",
+      "text": "No. No health reasons. No health reasons. No optimizations. No biohacking. No. I mean, you know, it kind of slows me down. I think it, I think it goes back to like, you know, I don't know, high school, not having enough time in the morning and you know, and, and same with college, just rushing the class. And so I just never picked up anything in eight along the way."
+    },
+    {
+      "start": 234.38,
+      "end": 242.14,
+      "speaker": "adam-stacoviak",
+      "text": "Gotcha. So you must be young enough to the point where you still reference high school and college. Cause I'm so far away from those two things that I can't even like."
+    },
+    {
+      "start": 242.14,
+      "end": 254.14,
+      "speaker": "techno-tim",
+      "text": "I'm far away. I'm far away. I'm, I'm just, I'm far away too. I'm, I'm just trying to figure out like how it, how it started and so I rarely ever do unless someone's like, I don't know, talking about their kids and I'm like, oh yeah, I remember those days."
+    },
+    {
+      "start": 254.14,
+      "end": 262.26,
+      "speaker": "adam-stacoviak",
+      "text": "So you're not an intermittent fast or you don't intermittent fast or do you're sort of eating windows or do you practice a special diet of any sort?"
+    },
+    {
+      "start": 262.26,
+      "end": 304.22,
+      "speaker": "techno-tim",
+      "text": "I mean, I intermittent fast, but not knowingly, I've been doing it like half my life before it was a thing, you know, because I don't eat breakfast. I usually skip lunch and then I just eat dinner. And so it kind of started happening this way a long time ago. Cause on weekends I would do it right. On weekends I would just be so focused on, on whatever I was working on, home lab gaming, world of Warcraft, you name it that I would just say, ah, I can make it to dinner, you know? And so I used to do that on the weekends and then ever since like work from home, it kind of carried over. So yeah, so it's just dinner for me, a big dinner."
+    },
+    {
+      "start": 304.22,
+      "end": 309.94,
+      "speaker": "adam-stacoviak",
+      "text": "What do you do for, I guess if you're not eating anything, are you just drinking water?"
+    },
+    {
+      "start": 309.94,
+      "end": 311.94,
+      "speaker": "techno-tim",
+      "text": "I am. Yeah."
+    },
+    {
+      "start": 311.94,
+      "end": 312.94,
+      "speaker": "adam-stacoviak",
+      "text": "Just water only."
+    },
+    {
+      "start": 312.98,
+      "end": 329.66,
+      "speaker": "techno-tim",
+      "text": "No coffee? Coffee. Yeah. You got it. Yeah. Yeah. So wake up, two cups of coffee, a Nalgene of water, and then probably two or three more of these throughout the day, then it's dinner time and then probably one or two more of these."
+    },
+    {
+      "start": 329.66,
+      "end": 330.66,
+      "speaker": "adam-stacoviak",
+      "text": "Wow."
+    },
+    {
+      "start": 330.66,
+      "end": 333.9,
+      "speaker": "techno-tim",
+      "text": "Okay. I mean, every now and then I grab a handful of nuts. Like I just did right before we started."
+    },
+    {
+      "start": 333.9,
+      "end": 340.46,
+      "speaker": "adam-stacoviak",
+      "text": "So yeah. Yeah. Right on. Nuts are good. Okay. So you're, you, you're a healthy eater then it seems."
+    },
+    {
+      "start": 340.46,
+      "end": 343.24,
+      "speaker": "techno-tim",
+      "text": "I mean, I guess so."
+    },
+    {
+      "start": 343.24,
+      "end": 348.12,
+      "speaker": "adam-stacoviak",
+      "text": "I guess your snack versus a candy bar or, you know, let's say some gummies or something like that."
+    },
+    {
+      "start": 348.12,
+      "end": 360.04,
+      "speaker": "techno-tim",
+      "text": "Oh yeah. Don't get me wrong. Like if we had candy in the house, it'd be gone. Actually. When I went down to the cupboard just a second ago, I, my wife had chocolate covered almonds in there. I'm like, what is going on? Like if I knew about these, they'd be half gone by now."
+    },
+    {
+      "start": 360.04,
+      "end": 365.84,
+      "speaker": "adam-stacoviak",
+      "text": "Oh man. Yes. I am a sucker for chocolate covered almonds or pecans."
+    },
+    {
+      "start": 365.84,
+      "end": 366.84,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 366.84,
+      "end": 373.56,
+      "speaker": "adam-stacoviak",
+      "text": "I prefer pecans cause almonds, you know, they can crack your teeth, you know? Unless they're roasted and they're like a little soft."
+    },
+    {
+      "start": 373.56,
+      "end": 395.74,
+      "speaker": "techno-tim",
+      "text": "I just had chocolate covered pecans, no cashews, chocolate covered cashews with sea salt the first time ever last week. And I was like, these are so great. But yeah, it's a, I got a thing for candy. That's I definitely have a sweet tooth. Like that's my wife. She's like, oh my gosh. Like she has to take it away from me."
+    },
+    {
+      "start": 395.74,
+      "end": 403.55,
+      "speaker": "adam-stacoviak",
+      "text": "Let me make a recommendation on pecans just in case. Do you say pecan or do you say pecan?"
+    },
+    {
+      "start": 403.55,
+      "end": 411.17,
+      "speaker": "techno-tim",
+      "text": "Pecans. I see, I do, but I, I don't, I don't enunciate it like you do. So I say pecan. Pecan."
+    },
+    {
+      "start": 411.17,
+      "end": 412.17,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 412.17,
+      "end": 413.17,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 413.17,
+      "end": 414.17,
+      "speaker": "adam-stacoviak",
+      "text": "So is it pecan pie?"
+    },
+    {
+      "start": 414.17,
+      "end": 416.17,
+      "speaker": "techno-tim",
+      "text": "Yeah. Pecan pie."
+    },
+    {
+      "start": 416.17,
+      "end": 426.79,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. No, it's not pecan pie. Cause some people say pecan pie and those are not in Texans, you know, I live here in Texas, but I'm a, I'm a, a Yankee as they say, I'm from Pennsylvania."
+    },
+    {
+      "start": 426.79,
+      "end": 427.79,
+      "speaker": "techno-tim",
+      "text": "Oh."
+    },
+    {
+      "start": 427.83,
+      "end": 435.67,
+      "speaker": "adam-stacoviak",
+      "text": "So, you know, I never really cared how you said pecan, but Texans really care. And so you can't say pecan pie. You have to say pecan pie."
+    },
+    {
+      "start": 435.67,
+      "end": 439.15,
+      "speaker": "techno-tim",
+      "text": "Wow. I thought pecan would have been a Southern way of saying it."
+    },
+    {
+      "start": 439.15,
+      "end": 440.47,
+      "speaker": "adam-stacoviak",
+      "text": "It's Southern, but it's not Texan."
+    },
+    {
+      "start": 440.47,
+      "end": 441.47,
+      "speaker": "techno-tim",
+      "text": "Oh, gotcha."
+    },
+    {
+      "start": 441.47,
+      "end": 443.31,
+      "speaker": "adam-stacoviak",
+      "text": "So Texas is South, but it's not Southern."
+    },
+    {
+      "start": 443.31,
+      "end": 444.31,
+      "speaker": "techno-tim",
+      "text": "That's right."
+    },
+    {
+      "start": 444.31,
+      "end": 463.78,
+      "speaker": "adam-stacoviak",
+      "text": "Gotcha. Southern is kind of like, you know, Louisiana and East and not Florida. So basically Louisiana, Alabama, Georgia, the Carolinas, you know, that's, that's what is considered the South. Kentucky, of course, Tennessee, those are the Southern States. Texas is Southern, but not quite Southern in that regard."
+    },
+    {
+      "start": 463.78,
+      "end": 521.34,
+      "speaker": "techno-tim",
+      "text": "At least. No, it's funny you mentioned that because like Indiana, I feel like is like half Southern. So I'm from Indiana originally, but I'm from the Northwest near Chicago, but Indiana, you know, is, is, you know, it's like nine, nine hours to drive through it or something crazy like that. I don't know. Some people in Indiana have a Southern accent and like growing up, you know, some people down in the Southern accent and I'm like, dude, you live like two blocks from me. How did this happen? You know what I mean? Like, right. Where did it go wrong? I'm not saying it went wrong. I'm just saying like, you know, somehow my family got the, you know, the, the, the Midwest, you know, the Chicago style accent and two blocks down, some people got a Southern accent. So I, I mean, it probably has to do with their upbringing and their family, but that's how, you know, diverse like accents are in Indiana because you know, as you get around Indianapolis, you know, you're either North or South. I think that's the border."
+    },
+    {
+      "start": 521.34,
+      "end": 564.26,
+      "speaker": "adam-stacoviak",
+      "text": "Let me make a recommendation on these pecans because I say pecans and then we'll get into some home lab stuff and maybe some AI home lab stuff. We'll see, you know, if we get a little crazy around here. The brand I want to recommend is a Texas brand. It's a family operated brand called Berdoll, B-E-R-D-O-L-L, the best pecans you'll ever have. You can just get the pecans for Christmas if you want. You can get a bag or you can get the chocolate covered ones, you know, whichever flavor you want to go with, but their pecans are legit the best pecans ever. This is not sponsored, just a tried and trued, loved, beloved Texas brand called Berdoll."
+    },
+    {
+      "start": 564.26,
+      "end": 566.7,
+      "speaker": "techno-tim",
+      "text": "I'll have to check it out."
+    },
+    {
+      "start": 566.7,
+      "end": 570.98,
+      "speaker": "adam-stacoviak",
+      "text": "Damn you, Buc-ee's for dropping them, you know, Buc-ee's is a big, have you ever heard of Buc-ee's?"
+    },
+    {
+      "start": 570.98,
+      "end": 572.14,
+      "speaker": "techno-tim",
+      "text": "No."
+    },
+    {
+      "start": 572.14,
+      "end": 629.85,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. Well, I don't, I can't take you there in this podcast. We'll have to do it as an after show or something like that, but Buc-ee's is not a gas station. It is a destination. Let me just say it's on most Texas highways. It's a beloved Texas brand Buc-ee's. Oh, Tim, I'm going to teach you some things, man. I'm going to teach them things. All right. Let's get into the meat of the matter. You know, we're friends, we're talking about Home Lab, we're talking about some Creator PC stuff, maybe some Linux workstation, some AI, you know, you just did a hardware tour, a software tour, a what's practical to run as AI in your Home Lab slash home, whatever. Where should we begin? Like where should we begin the state? What is the state of Home Lab as you see it going into 2025? Is it growing? Is it stagnating? Is it more diversified? What's the state of Home Lab?"
+    },
+    {
+      "start": 629.85,
+      "end": 717.34,
+      "speaker": "techno-tim",
+      "text": "No, I, I think it's growing. And I think I said this last year that, that I think it's growing. And I, I think last year I said that we'd see a trend towards many, you know, more mini PCs. And I think that's right. And we definitely will. And we are still seeing it. So I think it's still growing. I think the trend is growing because a lot of people are saying, you know, either, either they want to post stuff at home. You know, they want data sovereignty, probably not a majority of people, but a lot of people will start having their movie collection at home. And then, you know, that's a gateway to get into home labbing because like me, that's kind of how I started. You know, I want to have a media server. I have this extra compute. What else can I do? What else can I throw on there? And then all of a sudden you have a server rack in your basement. So I think it's still growing. I think it is. And you know, Geerling just a little bit ago, Jeff Geerling, you know, I had a video on 10-ish mini racks, which I have a couple up there behind me. And you know, I think that kind of opened up the doors for a lot of people to say like, Hey, you know, I don't, I don't need a full blown PC. I don't need a big server. I can, you know, have a whole entire home lab in for you of rack space that fits on my desk. As you can see, I have two mini server racks back there. And so I think, you know, I think that's, that's going to be a bigger trend. There already is a big trend over in Europe you know, 10-inch racks. But in the U S they're, they're just starting to catch on."
+    },
+    {
+      "start": 717.34,
+      "end": 765.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I'm kind of tired of the massive rack major power to, you know, having to have this massive UPS to, to deal with it. I feel like it's, it's it was a good start, right? Home lab kind of began by bringing what was enterprise to the home to play with it. That's right. Right. So there's a lot of new cases out there, fractal has gone crazy with all their different designs. There's so many others out there that can compare. Silverstone is one of my other favorite brands. I think when I was watching your your Linux build, I think we are using the same, what do you call that case? I guess Silverstone RM 42, five Oh two, I believe is what it was. What are you using for that?"
+    },
+    {
+      "start": 765.99,
+      "end": 774.19,
+      "speaker": "techno-tim",
+      "text": "Well, I got a little bit, but yeah, no, that one is just, I don't even remember the brand name. Like it's, it's like a kind of not a popular brand for that."
+    },
+    {
+      "start": 774.19,
+      "end": 775.59,
+      "speaker": "adam-stacoviak",
+      "text": "So it wasn't a Silverstone."
+    },
+    {
+      "start": 775.59,
+      "end": 906.84,
+      "speaker": "techno-tim",
+      "text": "No, although I very similar, yeah, no, it's, it's actually right there behind me. I'm actually going to probably move that into a slider case and slider cases are super awesome. You know, they're, they're one of the few that, you know, focus on, on rack Mount systems. And yeah, I agree. Like, you know, I, I, I over indexed in the beginning on compute, I thought, yeah, I need, you know, used enterprise servers, you know, distantly priced or cheap in general. But you know, most of the time that's way overkill on compute and power and everything else, heat, noise, you name it. So, you know, I, I, I reeled it back, I don't know, two years ago and, and moved to mini PCs for my Kubernetes cluster and some of the things that I'm hosting at home. And even before that, I got one use servers and kind of, you know, I, I, you know, kind of toned it back a little bit even before I moved to those mini PCs. So yeah, it's, it's, it's wild. But at the same time, like me personally, I'd rather have my stuff in Iraq. So having my stuff in Iraq doesn't make it, you know, high energy or, or, or, you know, high power usage. Cause I have a lot of stuff in my rack right now and I think I'm like at 500 Watts, which is a lot, don't get me wrong, but nowhere near like, you know, what it could be or what it was, you know, eight, 900. And so for me personally, I like putting things in Iraq because it keeps things organized. You know, it keeps things where they need to be, you know, cords, you know, have to go in a certain spot. Power has to go in a certain spot. These machines have to stack in a certain way, you know, and when I close the doors on the server rack, there can't be anything hanging out. So for me personally, I like to compartmentalize all of that in one space, like, you know, that's how my workstation is right here. I mean, I have a max studio that's racked just because I don't want to have to deal with cords and all of that. I want it to look nice and, and you know, give it, give it a, I don't know, proper place to put it. Otherwise it'd be sitting on the floor or some shelf and who knows, but I made a mistake"
+    },
+    {
+      "start": 906.84,
+      "end": 950.85,
+      "speaker": "adam-stacoviak",
+      "text": "actually when I mentioned my Silverstone, I think it was not that you might know this because you said it's not a Silverstone, but it's a Silverstone RM 44. That's actually my Plex server case. It's got three fans in the front, a great ventilation, you know, just in case I spin up that 4k footage and need to transcode it to 17 clients, you know, all that good stuff to manage the cooling of it. But it's a studio. It's a Silverstone RM 44 and it's a for you case. And I'm the same. I've got a, my preference is rack Mount really. And if I can't rack Mount it, it might look nice. Like for example, the, the fractal design, uh, North, a lot of people are liking that, but I'm like, can I get a rack Mount version of that?"
+    },
+    {
+      "start": 950.85,
+      "end": 951.85,
+      "speaker": "techno-tim",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 951.85,
+      "end": 953.41,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I would all day."
+    },
+    {
+      "start": 953.41,
+      "end": 954.41,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 954.41,
+      "end": 955.41,
+      "speaker": "adam-stacoviak",
+      "text": "All day."
+    },
+    {
+      "start": 955.41,
+      "end": 958.41,
+      "speaker": "techno-tim",
+      "text": "Are you there with me on that one? Oh yeah, man. Metal, wooden stone is all you need."
+    },
+    {
+      "start": 958.41,
+      "end": 962.47,
+      "speaker": "adam-stacoviak",
+      "text": "Right. A little, a little wood is just so nice. Yeah."
+    },
+    {
+      "start": 962.47,
+      "end": 968.35,
+      "speaker": "techno-tim",
+      "text": "I mean, if it says fractal and it has wood in it, I automatically like anything that they post."
+    },
+    {
+      "start": 968.35,
+      "end": 969.87,
+      "speaker": "adam-stacoviak",
+      "text": "So yeah, for sure."
+    },
+    {
+      "start": 969.87,
+      "end": 973.87,
+      "speaker": "techno-tim",
+      "text": "Yeah. They, they have great designers there. I like it. Yeah."
+    },
+    {
+      "start": 973.87,
+      "end": 992.32,
+      "speaker": "adam-stacoviak",
+      "text": "Definitely minimal. Do you pay attention to case designers? I know a lot of people that like really steep themselves. You're a YouTuber, you're a creator. Do you get into that realm of like, I pay attention to a case designer and when they go from XYZ company to fractal and they design the next case, I'm on it. Is that the kind of person you are?"
+    },
+    {
+      "start": 992.32,
+      "end": 1013.22,
+      "speaker": "techno-tim",
+      "text": "You just sort of like, nah, no, I just, I just know what I like when I see it and uh, and, and you know, embarrassingly maybe I don't know the names of any of the designers who do this stuff. I know that there's a great designer behind all of this stuff, but you know, for the most part I just see the brand, you know, where it lands. So no, I couldn't tell you any designer's name."
+    },
+    {
+      "start": 1013.22,
+      "end": 1039.52,
+      "speaker": "adam-stacoviak",
+      "text": "Well, good for you. You're not that deep then. What is it that motivates you to do what you do? I mean, I think you, did you begin this as a sort of a side gig to a hobby because you were a software developer and you still are, but you kind of like inched into this and you know, maybe did it well and got popular and had some good thoughts and then you're like, man, this is kind of cool. Did you just, is that kind of your story or what makes you get up in the morning and every day make content?"
+    },
+    {
+      "start": 1039.52,
+      "end": 1226.37,
+      "speaker": "techno-tim",
+      "text": "Yeah. That is kind of how it happened. That is kind of how it happened. Like I've been doing this as a hobby for a long time. I'm, instead of home labbing, I'm starting to call it infrastructure as a hobby. That's what it has been for me for a long time. I did infrastructure for work. But then as you mentioned, got into software development, I've been a software developer for a long time now. And so now, now infrastructure is now my hobby. So you know, everything I do at work is cloud, a hundred percent cloud, a hundred percent, you know, virtual. Like I don't touch anything except for my laptop. And so I, you know, I, I always have this itch for an infrastructure and it comes from two things. One, the media server that I mentioned earlier, but two, just having, having an access point in a router at home. I mean, you know, anyone can look at their access point router and say like, you know, either they love it or they hate it, you know? And if they say they hate it, it's probably rented and from, from, you know, whoever their ISP is, if they say they love it, they put some time into it and bought their own. And that's kind of where, you know, I, I like to play is like a little bit in the networking and, and somewhat in compute and storage. And so, so even if I, you know, weren't totally in, I, you know, as I am now, I'd still be doing this kind of stuff. But the thing that motivates me in the morning to get up like this morning, I thought, ah, I get to, I get to play with this stuff. You know, as soon as I opened my eyes, I thought, sweet. Did my print job complete on my 3d printer? Because I need that stuff for, you know, these mini racks behind me. That's one thing I got into the last six months is 3d printing or actually two months 3d printing. I'm in deep, but was that right? Oh man, man. There's yeah. Yeah. It's wild. But that's what gets me up in the morning. I think just having a variety of stuff to work on, you know, if, and if it's not hardware, it's definitely software. You know, whether it's writing software or using software, I'm in this, I'm in this kind of weird space where I can write software and I do, and I build that software and run it in my home lab, but I also use software from other companies, whether it be closed or open source in my home lab. I have hardware that I built and scrapped together myself for custom builds. And then I have hardware from, you know, vendors, that's full solutions that I use. And so, you know, I'm, I'm kind of playing that world. So if there's a Venn diagram of all of that, that's, that's, that's what I like is, you know, hardware, software, open source, closed source, it doesn't matter. Closed source, it has to be a really compelling story and a good solution better than anything out there. But you know, and if, you know, that's, that's, that's why some of that stuff might be closes because you know, they're making a profit and they're making a good product and I'm not afraid to support good products. So but yeah, that's, that's what gets me going is, is really just playing with stuff and thinking about, you know, what I'm going to tell people about the stuff that I'm working on. That's, that's kind of what goes through my head."
+    },
+    {
+      "start": 1226.37,
+      "end": 1235.29,
+      "speaker": "adam-stacoviak",
+      "text": "Do you go as far as writing scripts too? Do you, do you, do you, what's your process? Give me a one minute, two minute version of like how you do what you do."
+    },
+    {
+      "start": 1235.29,
+      "end": 1236.29,
+      "speaker": "techno-tim",
+      "text": "Oh man."
+    },
+    {
+      "start": 1236.29,
+      "end": 1239.25,
+      "speaker": "adam-stacoviak",
+      "text": "Can you compress it into two minutes or is it not too hard?"
+    },
+    {
+      "start": 1239.25,
+      "end": 1242.17,
+      "speaker": "techno-tim",
+      "text": "I can cut me off if I go too long. You can go far if you want to."
+    },
+    {
+      "start": 1242.17,
+      "end": 1244.33,
+      "speaker": "adam-stacoviak",
+      "text": "I'm just kind of giving you just a limit."
+    },
+    {
+      "start": 1244.33,
+      "end": 1374.5,
+      "speaker": "techno-tim",
+      "text": "I could talk all day. I used to wing it, I used to wing it and that was fun except for, you know, I was messing up every other sentence and it got super painful to edit later. And so for me, writing a script was more of an optimization for later. So I didn't have to edit longer. And I noticed the more I messed up, the longer I'd have to edit. So I started writing scripts. So I, I have two or three ways that I do it. Sometimes I'll have a script. Sometimes I'll have an outline. Depends on the topic. Right? If it's a tutorial outline, you know, intro has a script tutorial and outline outro has a script. That's kind of how I work now. But there are other videos where I have a whole script. So how does it start? Well, I have a list of ideas. Every you know, every video I kind of vote in my head, what's next? You know, I have commitments from external commitments, maybe from brands. I have the things that I want to do, you know, and then I have the things that I kind of think will do well. And then I have the things that are relevant, you know, super relevant to right now. And so I have to kind of juggle that. And so I usually pick one of those. I start depending, depending on the topic, I'll either start experimenting so I can think through what I'm going to say as I'm doing it or I or I dive right into writing because I know what I'm going to say. I'll film it. I do use a teleprompter if I need to. And then, you know, I'll start editing while I'm editing. I kind of think of what the thumbnail is going to be. And while I'm editing, I'm trying to think, like, are there pieces I can cut out to be more concise? Right. Because sometimes even if I review the script that I'm going to record, there are still things that slip in that I think later on when I'm editing and I don't need to say. And then, yeah, then, you know, then it's a then it's a, you know, polish it up, put effects on it, upload, you know, you name it, subtitles, thumbnails, three thumbnails now for ABC testing. It's it's tough. Yeah. YouTube's a lot of work and I'm not complaining at all. It's just it's more work than people think it is."
+    },
+    {
+      "start": 1374.5,
+      "end": 1402.4,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, yeah, it is. It's a lot of iterating. You know, I think that you mean by work is like even the ABC testing iterations, like which one is the one that makes people really excited about this video or connects with the people that should watch it? Are you are you tapping into the iPhone camera at all? Are you strictly staying like mirrorless or DSLR? Like what's your flavor of how you shoot? You got any preferences?"
+    },
+    {
+      "start": 1402.4,
+      "end": 1505.71,
+      "speaker": "techno-tim",
+      "text": "I use kind of whatever works. So I have I have well, now I have two cameras that I work with, actually three. So I'm doing top down kind of stuff. It's back there. That one's mounted because I replaced it with with this one. This is an Sony mirrorless FX 30. OK, on the line. I'm not so I'm not a huge photographer. I realize that a lot of people that are in YouTube are like former photographers or former you know, camera people or, you know, not me. I'm a tech person who turns my camera on. So anyways, I have that. And then my iPhone. My iPhone is actually really good at shooting B-roll. I have some videos where 90 percent of its iPhone and no one ever box at it. One bit. Oh, yeah. Yeah. Being able to, you know, record this easily, you know, as long as I have enough light, it has stabilization built in like no one even knows. I know because I know what to look for. But no one knows or no one cares. And to be able to do that is game changer. I really wish like, you know, mirrorless cameras or DSLR cameras would would kind of catch up and not so much on the optics because they're way beyond, but more so on connectivity, like, you know, store stuff automatically. Send it somewhere when I'm done or even do, you know, NDI, send it over the network somewhere to my NAS so I don't even have to worry about, you know, SD cards or anything anymore. So I don't know, I I'm hoping cameras take a huge leap at some point. I mean, there are they're already there and like super, you know, expensive high end cameras can do all of that. I just feel like, I don't know, the interface is just so old. Whenever you look at a camera, the interface is just so bad and so old."
+    },
+    {
+      "start": 1505.71,
+      "end": 1527.41,
+      "speaker": "adam-stacoviak",
+      "text": "I agree with that. It's prime for disruption, self disruption, hopefully. I'd love to see maybe even ethernet cable, you know, on a camera, you know, like connected real time bandwidth, 10 gigabit, you know, 100 gigabit, 50 gigabit, whatever you got on your network straight to your NAS, you know, direct record like a computer. It is a computer. Why not be a computer?"
+    },
+    {
+      "start": 1527.41,
+      "end": 1566.61,
+      "speaker": "techno-tim",
+      "text": "I agree. I agree. And it would be awesome. So if we're going to go down this path, make them as dumb as possible and then put software on my machine so that I can push software to it, basically a controller. You know, you make the camera dumb and then, you know, and then make some kind of software smart. So you can just push settings and push everything to that camera. It just captures it and dumps the video wherever you want. But yeah, similar to, you know, access points, right? You know, they're pretty dumb. Use a nice GUI to configure them, push settings to it. You know, software defined network. I want a camera, camera defined, no, I don't know, software defined cameras."
+    },
+    {
+      "start": 1566.61,
+      "end": 1572.75,
+      "speaker": "adam-stacoviak",
+      "text": "There we go. There you go. Yeah. I'll vote on that. I'll vote on that. I'll vote on that if you can get that bill passed."
+    },
+    {
+      "start": 1572.75,
+      "end": 1577.95,
+      "speaker": "techno-tim",
+      "text": "Yeah. No, the camera makers will not have it because then they become a commodity. Right?"
+    },
+    {
+      "start": 1577.95,
+      "end": 1585.95,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. They got to control the market. It's all about my processor and my, you know, yeah, I mean, it's, it's a, it's a game for sure."
+    },
+    {
+      "start": 1585.95,
+      "end": 1586.95,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 1586.95,
+      "end": 1605.65,
+      "speaker": "adam-stacoviak",
+      "text": "I don't blame them, but. Do you, um, one more thing on the iPhone style shooting, do you do just a straight camera application or did you do something else? With the black magic, I think has a pretty sophisticated where you can miss the F stop and shutter speed. Like do you go crazy with it or you just sort of like open up camera app and you're done."
+    },
+    {
+      "start": 1605.65,
+      "end": 1690.66,
+      "speaker": "techno-tim",
+      "text": "Yeah. So for me, it's a camera app auto and I'm done. I, I, I, I, I'm a simple, yeah, so I'm, I'm, you know, the one thing I do use, you can kind of see it back there is my gimbal. So yeah, I gimbal back there and they have their camera app built into, um, but you know, I don't, um, I don't change the settings. I just hit record and it's auto, you know, it might, it burns me sometimes on, on, uh, the white balance and stuff like that. But you know, I started thinking about like, like my goal this year is to turn around content quicker. Right. And so I need to stop sweating the small stuff. That's that's, that's big for me. Like I was just talking about white balance. No one is going to care about the white balance. And if they care about the white balance being a little bit off, you know, they're, they're either super interested or maybe not the target audience, you know what I mean? Or it's that obvious. And so I need to stop sweating the small stuff on, on a lot of my videos and just get them out quicker. You know, that's, that's a trend I see too. Like people are starting to gravitate more and more towards less polished, you know, more informal, uh, more spur of the moment type videos, you know? And so I kind of do a bit of all three. And so, you know, just trying to figure that out for this year, I just want to be able to turn videos around a lot quicker. And I think the way that I do that is to, to make a lot more informal videos."
+    },
+    {
+      "start": 1690.66,
+      "end": 1746.06,
+      "speaker": "adam-stacoviak",
+      "text": "You know? Yeah. I'm with you on that. I think, um, as I mentioned in the pre-call, I think it might've been the show. I'm not sure, uh, that this year, 2025 for Changela proper is video first. We're taking our podcast full length video. That's Changela news are two flavors of our, you know, large long form show, both on YouTube full length. Uh, our news show is nine minutes or less and it's, it's already hitting close to 2000 views. Like 2000 views is pretty good. We just started this year and it's, it's approaching 2000 views for that news show consistently. Our shorts and clips. Those things are always like in the hundreds on the, you know, maybe sub sub one thousands. There's some that are breakout hits in the 50, 60 thousands. You've got one video out there from the, we're gonna actually recycle, uh, because it's just that good about AI and IP law and stuff like that. And music. It's, it's got all the right touches and feels, you know, that one has done more than a million views."
+    },
+    {
+      "start": 1746.06,
+      "end": 1747.06,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 1747.06,
+      "end": 1801.95,
+      "speaker": "adam-stacoviak",
+      "text": "You know? So you got this really great piece of content. Let's just say, you know, what's in my hardware rack for 2025. Let's say that's what you've done, right? Let's just have, hypothetically, maybe you've done a video like that. You know, you, you put a lot of work into that video. Maybe it's 20 ish minutes, you know, you got good chapters in there. You got all the right things. You don't just leave it there though, right? You can turn your camera, your iPhone camera, let's say vertical and do a short. That is a side promotion of that content, you know, a little informal, you know, I feel like we need like this hub and spoke mentality. You got this hub, which is this larger, longer form, you know, kind of thought out content that's chaptered and, you know, linked up in the description. Then you got these side cars. You got to go on LinkedIn. You've got to go into the shorts. You got to pull some clips from it. Maybe you got to find some way to promote the, the, the hub, do some spokes to promote the hub essentially. Is that some things you're doing?"
+    },
+    {
+      "start": 1801.95,
+      "end": 1947.19,
+      "speaker": "techno-tim",
+      "text": "It is. It is. Absolutely. And yeah, I agree. Shorts, you know, are always for me, super informal, right? Sometimes I might write from a script just because, well, I used to only have 60 seconds. Now you get three minutes, YouTube finally, you know, folded into what reels and TikTok's been doing. So you get three minutes now. Yeah. That would be awesome. Uh, because before I was like trimming off seconds, you know, half seconds between words just to get it into 59.9 seconds, just in case, you know, um, because then they wouldn't consider it a short, uh, but, but yeah, that's exactly what I do. I, you know, I have my long form polished content, you know, on YouTube proper. Uh, and then I, I take it even one step further, you know, I live stream on Twitch every Saturday, right? Totally informal, totally cute Q and a AMA style. I never know what's coming. Um, you know, I promote that other places, uh, and then, yeah, absolutely. I upload my, you know, videos to different, you know, I LinkedIn, uh, X Facebook, you know, you name it, um, upload those there as well. And then, uh, you know, Instagram reels too. And um, you know, and then there's content all the time that, you know, I, I made from, uh, that week of, of, of shooting the video. So yeah, it's, it's, it's kind of weird, um, because you just, it's, it's a lot of sharing stuff, right. And hoping that stuff sticks or it gets shared again and, uh, it's kind of weird, you know, I don't know. Yeah. For me, it's sometimes it gets kind of weird. Cause it's, uh, it just feels like sometimes like, and I don't want people to ever think like I'm showing off, you know what I mean? And that's kind of what, that's not me at all. Like I never want to show off stuff. But if you see my YouTube stuff, you're like, that dude's a short, you know, what the heck is he talking about? Why is he showing me all this stuff? You know? Um, I mean, maybe, and I, you know, some people have, have, have thought that who didn't know who I was and didn't know that I do all of this, but maybe just saw my video, the vertical one for the first time. Um, and so it's, it's just a weird, it's a weird space for me to be in. Uh, cause I, you know, it's, it's, it's like self-promotion on, on steroids all the time. And you know, in my, my private life, that's not how I am."
+    },
+    {
+      "start": 1947.19,
+      "end": 2030.33,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I do, uh, I do feel that angst as well, you know, honestly, and there's, there's two pieces of, I wouldn't call it advice and maybe just conversation. Uh, one is give them what they came for. That's one of our pillars. Let's just say, uh, you know, core belief, so to speak around here, right? Give them what they came for. That, it's got a lot of things like don't make the intro so long that it takes too long to get to the content. Time to content is essential, you know, whatever is viable, the hook, et cetera, you know, give them what they came for. I think people come to you and they want that, you know, start of the year. They want that maybe mid year and a kind of content from you, like, which is show off content. What you've got to show me the choices you're making, which is like that show off feeling, but really you're just giving them what they came for, right? You got an audience who cares about your opinion and you kind of have to show off. And so I kind of feel that for you. And you know, when you do that, if your default gear in life as a human being in your persona, your personality is not a show off personality, then that's going to be a bit foreign to you, right? You're going to feel a little icky. You're going to feel a little too self-promotional and you get some haters, right? And my second piece of advice is let them. Now that's not my thing. That's Mel Robbins. Do you know Mel Robbins?"
+    },
+    {
+      "start": 2030.33,
+      "end": 2031.33,
+      "speaker": "techno-tim",
+      "text": "No, I don't."
+    },
+    {
+      "start": 2031.33,
+      "end": 2103.34,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. She's awesome. She wrote this book. This is non-sponsored. I can't wait to read it. I've heard talk about it. I've been paying attention for a long time, but I don't know how to describe Mel Robbins this time. I think she might be a psychologist. She might be motivational guru. I'm not really sure, but she has been through the ringer. Let's just stay in life and she's bounced back and she's got lots of life advice because of the way she's changed and she has this new book out called Let Them. It's called the Let Them Theory, as a matter of fact, is what this book is called. I haven't read it yet, but I identify with the premise, which is you got some haters. You got some people who want to say something about you that, oh, Tim, yeah, you're just showing off. Let them. Somebody doesn't like you, let them. Let them not like me. We care because we care so much as human beings more than anything about what other people think about us and the reality is in almost every case, they're not thinking about us at all. They're thinking about themselves and they want to hate on you. You want to change your ways or not show up for your audience or show up in the ways that you want to just be the person you are on YouTube or the different places you're at and be the human being you are. Someone wants to hate on that, man. Let them. Let them."
+    },
+    {
+      "start": 2103.34,
+      "end": 2137.94,
+      "speaker": "techno-tim",
+      "text": "Let them hate on it. Yeah, that's good, man. Yeah. I like it. Yeah. It's, you know, I just, I have that internal struggle and even if, even if people didn't say anything too, you know, I personally, I'm just like, you know, when I walk outside and be like, hey guys, come look at all this stuff I have, you know, running in my basement, you know, that's kind of how I feel like sometimes on social media and it's like, ah, yeah. You know, but, but no, it's, it's awesome. No complaints whatsoever because man, you know, most days of the week I get to wake up and do whatever the heck I want, you know? And it's awesome."
+    },
+    {
+      "start": 2137.94,
+      "end": 2161.1,
+      "speaker": "adam-stacoviak",
+      "text": "What a joy, right? Yeah. What an absolute blessing. And yes, it's almost like if someone says, Tim, how's your day? Well, am I healthy? Is my wife healthy? Y'all don't have kids, but I have kids. Are my kids healthy? Is my dog even, you know, like, is my dog healthy? Are my people healthy? Do I have the opportunity to do what I want to do this day? Man, that's a great day. That's a great day, right?"
+    },
+    {
+      "start": 2161.1,
+      "end": 2172.14,
+      "speaker": "techno-tim",
+      "text": "I agree. I agree. Yeah. I've been blessed for a long time with people being healthy in my family and, and at the same time, you know, having so many opportunities that I've had."
+    },
+    {
+      "start": 2172.14,
+      "end": 2313.8,
+      "speaker": "adam-stacoviak",
+      "text": "Well, at the risk of getting too, too deep in the details here, man, let's talk, truly talk about HomeLab. I feel like for me, there's a couple of things that I've been resonating with this. I would say the tail end of middle last year, tail end of last year and the beginning of this year. One, I'm like desperate to create a creator PC, but then I think I got to put Windows on this thing and I'm just like, forget it. You know, I want to build it and I want to, you know, to tinker with all the parts, the GPU, the CPU, the motherboard, all the parts, right? I want to have fun building it. I want it to look cool. I want it to be a showpiece, but I also want it to be performance. But then I'm like, man, Windows? So I'm a Mac guy, true and true. I'm like, I can go buy a Mac mini that's basically like, sure, it's overpriced on some of the hardware, but I don't have to worry about drivers and BIOS and configuration, which I don't mind doing the Linux world, but forget it on a Windows PC. That's resonation one is I really want to build a creative PC. And then my second thing is I've, we've talked around the software of artificial intelligence on our show for years now. I mean, we have a show called Practical AI, this part of the network. It's been doing it before it was artificial intelligence. It was data science then, machine learning then. It was not artificial intelligence. Now it is. That's how long we've been steeped in this world of AI. You know, pre-GPT, anything really, but I really want to run AI in my home like a lot of people. And I think thanks to Ollama, Open Web UI, and a lot of these advancements around open source models, or at least openly available models, whether they're truly open source or not, I feel like it's now crossed that chasm that I'm compelled to build an AI home lab. And right now I have one. It's so embarrassing. It is an Intel NUC. It runs all on the CPU because there is no GPU and Ollama will not recognize the iGPU at least on the thing. So it's just straight up CPU. I mean, I can run some, you know, 1.5, maybe 5 billion parameter models. Okay, but anything beyond that is just like, forget it, right? So those are my two resonations is like Creator PC and some form of AI home lab. I feel like we're in a self-host AI in perpetuity at some point. Someone's going to crack the nut on this machine. So those are my two subjects. Which one do you want to talk about first?"
+    },
+    {
+      "start": 2313.8,
+      "end": 2603.28,
+      "speaker": "techno-tim",
+      "text": "Let's go with the AI one because that's, you know, I mean, yeah, let's go with that. I mean, so I've been doing it for a little while and it doesn't take as much as you think it does. You've already been doing it and you've been doing it, you know, with this small 1.5 billion parameters and it's running okay. You know, and for the most part, you can run it in your home. I mean, you talked about Ollama, which is fantastic, which kind of opens the gates for all of these other LLMs and gives you an easy way to swap them out. And then open web UI really takes that to the next level where it's like, okay, now I have GPTs and helpers and basically UI to do all this stuff with Ollama. And so you could do it very easily if you have an old gaming card, an old, you know, if you had an old gaming PC, you know, that's, I don't know, 20, 30 ish, you know, series RTX. Perfect. You know, it's probably only going to have about eight gigs of RAM. But that's more than enough for some of the smaller LLMs. And I think that's the most important thing, I think, in GPUs is your VRAM. Because if it's small, it can't fit the whole model inside. And so it's going to be paging that. And so you want to look for cards that have, you know, enough VRAM to fit models in them. And so, you know, there are expensive options like even 3090, 4090, 5090, but there are budget options. I think the 3070. So in that Linux workstation build video I did, and that was focusing on AI or really LLMs, I wanted to build a workstation to play with them. I think 3070 is the budget pick right now. One because it has 12 gigabytes of VRAM and two because the price. And so when I say budget, it's, you know, we're talking sub $300. That's still a lot of money, don't get me wrong. But it's not the five, $8,000 that you're going to pay for cards where the compute end, you know, doesn't really matter. And so with 3070s, if you can find one, especially used or something, you can load, you know, big LLMs on there and not only one, you could run multiple. So I've been running LLMs at home for a little while now. I've been running, you know, open web UI to kind of have my own, you know, local chat GPT, if you will. And I've also done some stuff, you know, even as simple, maybe not so simple, but voice transcription, you know, with Home Assistant. And now Home Assistant has, you know, an AI voice assistant. But prior to that, I hooked up Ollama to Home Assistant to make Home Assistant even smarter. And you know, the most basic example is, you know, I could ask Home Assistant, you know, how many lights are on in the house? You know, simple question. Home Assistant prior to me hooking up to LLM would say, I don't know what room that is, you know, it has no idea what I'm even saying. So then I hooked it into Ollama, use any model you want, really, honestly, and then ask that same question. And it said, you have 17 lights on in your house. And that's just, it just blows my mind on how, hopefully, most things we run will let you plug in your own, you know, model or engine, API endpoint, if you will, because that's what it is. And that's yet another thing I want to get into a little bit more is, you know, I can do this stuff in the GUI with open web UI and, you know, mid journey and generate graphics. But for me, the next piece, besides trying to train, is having an LLM API. So really using the REST API that's on Ollama, right? So I can feed it text and do sentiment analysis or ask it to summarize stuff, you know, through an API endpoint, which then I can build any tools I want in, you know, in the code I want to write, and then have that backed with an LLM of my choosing. And so that's where I think it's super powerful. And that's, you know, why the whole DeepSeek thing's kind of blowing up too. But you know, being able to do some of this, and I don't even want to say at home, I just want to say like, being able to self host your own LLM, whether that's in the cloud, in your home, at work, you know, but having control over that LLM and not going out to, you know, open AI and using their API, but using your own API on your own model that's trained or maybe a public open source one, is I think going to be a huge game changer for a lot of people, for a lot of companies, a lot of companies first, I will say, but it will impact all of our lives as it already is."
+    },
+    {
+      "start": 2603.28,
+      "end": 2899.62,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. I think on-prem AI is the necessary next step. And we, I mean, I would, I would potentially even pay for a license. Like if open AI is the winner, or if DeepSeek is the winner, or if some, like whoever is the trending, like we choose Intel, we choose AMD, we choose a brand. So whatever brand we as a society or techies or geeks want to choose, like if it's not going to be open source, like literally where I can download it myself, I would love it where I can at least license it, you know, like you would software and say, okay, well, if O3 truly is the best or O3 Mini is truly the best, and you can give me an on-prem version and I have a licensing scheme or something, and I know that you're not hoarding my data or sniffing my stuff or training other things on top, like if you can give me some, some agency, then I'm, I'm for that too. My preference really is, but you know, it's hard to have this as a, as a, as a, as a hard preference because I know how much money goes into training these models. We, there was speculation that DeepSeek was only, you know, a few million, which everyone was like, there's no way. How did they do this at such a cheap cost? Well, that was actually just the GPU costs. That was not the true actual cost of training it, which was really speculated to be truly in the billions, similar to open AI. So that's the, that's the one major trend this year. And thanks to Jared, my business partner and co-host on the show, cause he shared that in Changela news on Monday, which was, you know, really, I love that show. I love paying attention to our own content. I'm up on the latest with dev news when I listen to Changela news on Mondays, every single Monday, by the way, well friends, you can now build invincible application. Thanks to Temporal, today's sponsor, you can manage failures, network outages, flaky endpoints, network running processes, and so much more ensuring your workflows and your applications never fail. Temporal allows you to build business logic, not plumbing. They deliver durable execution and abstracts away the complexity of building scalable distributed systems and lets you focus on what matters, delivering reliable systems that are faster. An example of this is Masari. They are the Bloomberg for crypto. They provide market intelligence products to help investors navigate digital assets. And they recently turned to Temporal to help them improve the reliability of their data ingestion pipeline. And this pipeline collects massive amounts of data from various sources, and then they enrich it with AI. This process previously relied heavily on cron jobs and background jobs and queues, and the design worked well. However, these jobs were difficult to debug at scale because they needed more controls and more observability. And as they looked to rethink the ingestion flow, they wanted to avoid cron jobs, background jobs, queues. They didn't want to create a custom orchestration system to oversee and to ensure these jobs and work was being done reliably. Here's a quote, before Temporal, we had to code for dead letter queues, circuit breakers, et cetera, to ensure we were resilient to potential system failures. Now we eliminate these complexities. The headache of maintaining custom retry logic has vanished by using Temporal end quote. So if you're ready to build invincible applications and you're ready to learn why companies like Netflix, DoorDash, and Stripe trust Temporal as their secure and scalable way to build and innovate, go to Temporal.io. Once again, Temporal.io. You can try their cloud for free or get started with open source. Once again, Temporal.io. I want to self-host, I'm seeing the future of where this is going. I feel like I want to self-host AI and I want to go as far as I want to have quad GPUs. Okay, Tim, I want to go, I want to build an open rack with good ventilation. I want to like, you know, I want to, I want to deck it out. I'm seeing the future where this is going. And that build is like 4,000 maybe five, you know, four or $5,000 for that kind of build. But so far, all you can do is do some of the things that you're doing now, which is like home assistant automation and stuff like that. What do you think about this world where we're going to eventually have an appliance, maybe even, where we're self-hosting? I feel like someone's going to be like, let me simplify this for most of these home users. Let me one single button this thing because we're not all techno Tims and Adams out there. Like they're not going to build these machines. They may pay the price for it, but I kind of feel like the next major trend, even for non-geeks like us, like people who are just like everyday folks, they're going to eventually get to the point where they're saying, you know what, I want to have some agency over my AI and I want to have an appliance in my house that I know I can trust. What do you think about that?"
+    },
+    {
+      "start": 2899.62,
+      "end": 2971.96,
+      "speaker": "techno-tim",
+      "text": "Yeah, no, I agree. I agree. And I start, I see this slipping in a little bit, so it's starting to creep in. So a lot of, I guess NAS, I shouldn't say a lot, but some NAS vendors are now, you know, positioning their NAS as, oh, I can also do AI because they can put a video card in there, run an LLM and there you go. Although, you know, that's still, you know, developer mode for most people. But you know, if you install open web UI, Ollama, and it comes in a nice package in a, you know, in a Synology or whatever, whatever NAS you want, it has a video card in there and it's like, okay, cool. You know, that, that works. That's a full product, right? And so I think that, you know, people wanting storage at home and also, you know, those companies seeing that, hey, AI at home is cool too. I think it's going to start going in that way, but I will say that, well, also Nvidia had that, whatever it was, I forget what it is, H100 or whatever it is, is basically has like crazy. That tiny thing? Yeah. Basically like crazy, crazy, you know, compute for, for a reasonable price. I will say it would like destroy anything. H100, I can't remember."
+    },
+    {
+      "start": 2971.96,
+      "end": 2975,
+      "speaker": "adam-stacoviak",
+      "text": "I think it was a Jetson Nano, is that what you're talking about?"
+    },
+    {
+      "start": 2975,
+      "end": 2982.28,
+      "speaker": "techno-tim",
+      "text": "No. No, this is something different. Oh yeah. They announced this, I don't know, two weeks ago. It was right before they had a press conference right before I think CES."
+    },
+    {
+      "start": 2982.28,
+      "end": 2985.6,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. You keep talking, I'll do some doodling."
+    },
+    {
+      "start": 2985.6,
+      "end": 3073.59,
+      "speaker": "techno-tim",
+      "text": "So there's that. But again, this is like a developer tool, right? And so it's going to take developers to do this, but that thing is small and compact. And so before you go spending, you know, four or 5,000 on GPUs, I'd say, you know, look at that first. Because this is like, this is like compute on steroids for anybody to do it themselves. And it's, it's, it's way beyond like anything you could possibly build for the money. But I still think there's going to be, well, two things. I still think it's going to take a killer app. It's going to take a company to put it together in a package and create full product, right? It's not going to be, you know, Hey, use this software along with this video card and put it in this hardware. And then you're going to have AI. No, I think it's really going to take a company that's going to do full product. And you know, that could, that could be anyone, it could be companies we know already, or it could be companies that are, you know, just starting out. But I will say though, that, you know, I think where this becomes, you know, super useful as soon as we get, I think we have it now, action support, you know, action support is really going to like change our lives even more than just LLMs already have. So if I'm able to tell, you know, a helper or a GPT to go do something for me, that's where this is going to be huge. And I think, I think GPT, chat GPT just announced something about operators."
+    },
+    {
+      "start": 3073.59,
+      "end": 3074.59,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 3074.59,
+      "end": 3119.88,
+      "speaker": "techno-tim",
+      "text": "Yeah. So they're already getting action support. And so I would love to be able to, like I do in home assistant say, Hey, you know, turn on these four lights or turn off these four lights. I would love to be able to say things that, you know, are kind of tedious to do. But I want them done. I mean, maybe it's, you know, I don't, I don't know, maybe it's Google and Gemini, but you know, Hey, you know, I don't know, summarize my emails, tell me the most important ones right now. You know what I mean? Or do I have any emails that, you know, are super important or a critical that I should look at? I mean, this is all business use case, but if you think like, imagine if you had that helper on your desktop and this might be going too far for some, for some people, right. But re imagine if you had software running on your desktop, that was your helper. It was your AI helper."
+    },
+    {
+      "start": 3119.88,
+      "end": 3120.88,
+      "speaker": "adam-stacoviak",
+      "text": "Jarvis."
+    },
+    {
+      "start": 3120.88,
+      "end": 3347.07,
+      "speaker": "techno-tim",
+      "text": "Yeah. I mean, I mean, well, yeah, but I mean, like it could do things like it could launch vs code. It could launch whatever it could go and patch your server. Like this is getting probably too techie but there are so many implications of like having a helper and action support, be able to do things for you that I think it's, it's going to drastically change stuff. Like even right now with home assistant, well, Jarvis can, I think. But when I hooked up the LLM to home assistant, it couldn't do any action through the LLM. Cause I, I don't know if they were waiting on action support. They were like, yeah, this only works with Google home and something else. I'm like, wait, like you can't turn off my lights on the thing because I told you to, but I have to go through Google home to tell Google home to do it. Kind of silly. I'm sure they're working it all out, but I don't know. And you know, I'm just thinking of just tiny actions here, you know, commands. I'm sure the list goes on and on and on of things that people can think of or do that. I think, I think, I don't know for me personally, I'm excited about that. Having a helper, you know, to say like, yeah, go do these couple of things really quick and like, let me know when you're done, you know, because you know, I mean, you probably can relate, you know, I'm a person of one, you're a person of one, you, you have a show and a company to run and you know, I have a channel to run along with work on the side and I, I can use all the help I can get, you know? And so if I can, you know, rattle off a few commands to, you know, an AI that I trust to do those things for me and do them right, you know, a lot of stipulations there, that would be great. That would be great for me, you know, you know and so I, I'm really looking forward to, to some of this because yeah, as you know, like, you know, I can, I could use more help and so far, like having an LLM, like GPT, for me personally or even a local alama has been like super helpful for the person of one, a creator, just to have some ideas, just to have like an assistant, you know, that understands everything you say to it, that has maybe, maybe, or maybe not the same perspective that you do, to be able to ask it questions and get feedback on exactly what you're doing is, has just been like game changing for me personally. Yeah, it's, I don't even Google anymore half the time because I don't know if I should go this far, but I'm just kind of rambling about AI, but I rarely Google anymore for things because I don't want to see advertisements. I don't want to see Google's Gemini slowly typing things. I don't even want to click on the link that they suggest, even if it's right, because then I'll have to sift through that website to find what I want. And so I've, I've gotten a lot more efficient by using, you know, GPTs because I can get for the most part, a really good answer really quick. And I don't have to shift focus, right? I shift focus once to say, chat GPT, I'm back to doing what I was doing. You know, if I go to Google and say, I went to Google, now I'm getting ads. Now I'm clicking on this thing that wasn't the right link. Oh, it took me to Reddit. What are all these people saying? Let me fish through these comments. No. You know what I mean? And so like, there's so many focus, there's so many chances for it to steal my focus. And that's, that's marketing in general. That's what they want. That is exactly what they want. And so I, I'm, I'm, I'm glad that, you know, that chat GPT is here to kind of disrupt that because I don't want to be served up advertisements. You know, I don't want to, I just want to focus on what I want to focus on. If I need some help from an expert, that's what they're there for. That's what I feel like."
+    },
+    {
+      "start": 3347.07,
+      "end": 3651.05,
+      "speaker": "adam-stacoviak",
+      "text": "I think it is the next frontier. That's why I bring it up here in this, you know, home labby friends conversation is because I feel like once you have, you know, I know the GPUs are even hard to find, right? Like they're hard to find. They're expensive. I feel like it's a racketeer system. Like there's something happening there where like, I get it. It's everybody needs something GPU to do the next big thing they want to do, whether it's personally, corporately in the artificial intelligence world, they want to run an LLM. I get it. They're expensive. They're hard to find. You can find like a 3090 or a 37 like you mentioned before on eBay pretty easily. 3090s are in the 900 to $1,500 range for a decent use one. And if you know how to eBay, then you won't get scanned or you won't buy the wrong one or buy somebody's junk basically. I'm thankful that eBay has gotten better at, you know, weeding out the poor sellers. And you still will have someone who doesn't know how to eBay well buy from a poor seller. You know, they don't understand how to use the ranking system or look at feedback to make sure they were a proper seller. And even that is still hard to, you can still kind of not get scanned, but like you just buy something that's less than what they say it is. Thankfully the eBay guarantee, this is not an ad for them, but I use eBay a lot for aftermarket products. I usually win auctions I involve myself in. I can tell you how I do that if you want to know. But you've got to learn how to look at a seller and evaluate it well. The eBay guarantee does say like if they say it's new or it's an open box or if they misidentify what it is. Or let's say it's a version, they say it's a version two but it's actually a version one. Well, the eBay guarantee protects you as a buyer from that. And eBay has gotten so much better at enforcing this that for me it's a fairly trustworthy place to buy things. Albeit you can still buy the wrong thing from the wrong person and maybe you have some challenges with getting your money back or getting a replacement. But my adventures in eBay lately have been mostly positive. Mostly positive. And that's what I'll say from there. That's my caveat to say like GPUs are hard to access. But I feel like the next frontier really is like okay, I can self-host even the geeks like us. For now we can begin to say flesh out this world. Running AI locally on a decent box or a really beefy box to me seems like the next frontier. Ollama seems to be the centerpiece of enabling most if not all of this because it's the vehicle. It's the index online, ollama.com, you can go there and find the latest models. You've got downloads, you've got the parameters, you've got clipboards where you can copy and paste to your terminal or inside of Open Web UI. They're making it really easy to find models you can play with locally. And the API that Open Web API offers or even Ollama offers, like that whole API scenario being able to tap into Home Assistant, like your video on that opened my eyes up because I was like wow, you can now voice command Home Assistant where once before you could not. And all you need is probably a simple, a really simple model that understands how, it could be a very small parameter model. So maybe that Home Assistant box is a very small box. Maybe it's all CPU even because it's like such low pressure AI. It's just like how many lights? Turn on kitchen. Give me the smarts where the smarts were not there before because the API is there. Then for me I'm thinking like as a person who wants to simplify my time, we quote somebody on working with us at a sponsorship level or partner level every single day. And it is a time consuming task because I haven't found a way to automate it with a level of high touch I want to give everybody who works with us. I can easily just like, you know, copy paste from something, but I feel like everybody needs a little bit of extra attention and detail. I would love it if I can train an AI or just rag it essentially and tell it, okay, this is our proposals. This is our pricing scheme. This is how we do things and me just tell it what I need and I tell it the format I want it back and it gives that back to me pretty much errorless. Pretty much. I'm still going to review it and you know, like those that like really good application I can see myself doing, but chat GPT is not trying to optimize for that for me. You know, maybe I can do it. Maybe they're trying to do it. At the same time, now I got to give them all my data and sure I know we've been Googling forever and they've got all of our information anyways and sure they know exactly where you're at in the world, according to change all news this past Monday. But I feel like this local run, you know, privacy focused scenario with this, with the things we're asking AI these days is sort of the next frontier and I'm hopeful for you because you're like steep in this home lab stuff. So people are probably just pouring into your channel thinking, how do I run this stuff? Is that what you're seeing?"
+    },
+    {
+      "start": 3651.05,
+      "end": 3887.61,
+      "speaker": "techno-tim",
+      "text": "Yeah. Um, you know, it's, it's, it's, it's, it's an odd topic on YouTube. I'll say that it's an odd topic. Um, yeah. Odd. Yeah. Yeah. Um, because it has the potential to go, I think either way, either, either people are burned out and don't want to, don't want anything to do with, well, there are people who don't want anything to do with it. There are people who are burned out about hearing it and then there are people who might want to hear about it and want to do it. So, you know, it's always, it's like every video, it's a crapshoot talking about those things. Um, but there are people. Yeah, absolutely. I mean that for me, that video, you know, is performing pretty well. Um, and people have asked and there are other creators talking about this too, especially the whole, you know, the deep seek thing, uh, really got people interested in self-hosting AI because they wanted to figure out and play with this deep seek thing and the easiest way to do that without, you know, sending all your data, wherever it would be, you know, online was to host it yourself. So I think that, you know, oddly enough, I think that deep seat helped, you know, people realize that they can self-host LLMs probably more so than Ollama's ever done, you know what I mean? Uh, because it, it, it, it did two things. One, it, it let people know that it's, it's a possibility and it also let people know that, Hey, it's private, you know, and those are two things that, uh, I don't think a lot of people knew were possible, um, you know, and, and nothing against Ollama. It's fantastic. It's, it's, it's great, you know, but, uh, it'd be hard to market them, uh, or that product or service, you know, in the way that deep seek, I think marketed it, you know, all, all of, all, all the deep seek hike really hype really, uh, you know, it was marketing for other stuff too, uh, which, which drove so many, you know, so many people getting interested in this, but, but yeah, I, uh, I, I think that, I think that's what people are going to do. Um, you know, I, I honestly still feel like, you know, there's an opportunity for a company to, to put it in a bow, um, and there's going to be that opportunity, I think for a long time and do whole product. Uh, but in the meantime, we can, we could do this herself. I just hope that companies continue to allow us to plug in, you know, our own, uh, models. And um, you know, one of the things that I talked about in that video too, was that, you know, I kind of hinted at it, but I use Mac whisper, you know, for, for my subtitles and stuff to, to get them, um, transcribed, right. Cause I care about them. And um, and I think a lot of people should do, uh, that's my pitch for, you know, accessibility in general, you should care about them because there are a lot of people who can't hear or have hard of hearing or just don't speak English and they want to be able to read English. So anyways, uh, Mac whisper is an app it's, it's freemium. You can get it, you can download it, run it on your Mac. It does great with the small models, but in there I saw, I paid for it. I paid for it myself. So I use it. Um, and no relationship to them whatsoever, but I kind of talked about them in the video where I said like, Hey, it would be great if a lot of companies let you plug in your own end point or plug in your own models, you know? And I kind of showed their screenshot of them only allowing chat GPT. Well, sure enough, like shortly after now it allows Ollama. So I mean, I probably had nothing to do with it. It was probably on the roadmap. Uh, but that's what I want to see. I want to see like, instead of application developers thinking like, Hey, how can I hook into chat GPT? So everybody can now use chat GPT. Well, think about Ollama and other things too. Think about, you know, how you can offer that option. And I think that's a huge differentiator too. If someone developing software right now says, yeah, we can plug into Ollama. You know, that's a differentiator. Every software company right now is saying, yeah, we can hook into chat GPT. Just put in your, put in your API key here. Here you go. You know? But, um, but I also think that they should be including Ollama for sure."
+    },
+    {
+      "start": 3887.61,
+      "end": 3935.29,
+      "speaker": "adam-stacoviak",
+      "text": "For sure. Because Ollama can be in the cloud too, right? You can spin up an Azure server. I mean, I was even tempted like, okay, if I want to play with some H100 or just like some sort of really thing I can't afford or have access to in terms of a GPU, I can go to Azure. I can spin up even a windows box, which is kind of crazy, or you can spin up an actual windows machine in the Azure cloud and play with it as if it's like a local desktop. You can, you know, VNC into it, whatever remote desktop into it, and you can install things on it. Obviously you can give it access to GPUs. You can do a lot of cool stuff and you might spend a hundred bucks on that front run because you're maybe renting a really expensive GPU, but it's better than thousands you may not have or want to spend on a GPU you can't even get access to, right? Yeah, yeah, yeah."
+    },
+    {
+      "start": 3935.29,
+      "end": 3936.29,
+      "speaker": "techno-tim",
+      "text": "That's for sure."
+    },
+    {
+      "start": 3936.29,
+      "end": 4062.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. But I feel like that's, um, that's kind of cool that you can do that. I feel like Ollama is, and maybe thanks to DeepSeek, uh, you know, we've been talking about Ollama for a while, uh, but I've just never actually been curious enough to play with it. I just, for whatever reason, just haven't, let's just say. But now I'm in this kick of, like I mentioned, like I got two things resonating with me. I really want to build some sort of AI home lab and thus far I'm just using what I have because I think that's where you should begin, right? If you want to know where to begin, what do you have? Play with that. Even if it can't run anything super powerful, begin where you are basically. But now I'm curious enough to be like, well, would it make sense for me to take my hard earned dollars and invest in hardware? One for just curiosity, two, maybe we can get a sponsor to pay for it, three, maybe we can make some content from it. But four, like just have this AI as a service with models I'm going to swap out as this becomes more and more popular on my own network. You know, tie in homelessness like you've done, you know, maybe even side train a model where I can take this sort of like really small model and say, this is the way we propose things. And these are all of our contracts over the last two years and let it have that source of truth. And now it's just super smart with the way we do business. I don't want to give that kind of, sure, I could probably do that with chat GPT, but man, wow, what an exposure point, right? Here's all of our contracts over the last two or three years. Could you imagine that? Like, no, I would feel much more comfortable doing it. And I think that's the angst is like everyone has to give up some version of privacy to play with artificial intelligence or you have some version of plagiarism. Well, I'm sorry to tell everybody like AI is here to stay. Like there is no putting that genie back in the bottle and you can be against it if you want to be and you can ignore it if you want to, but you will be, you will be behind. You will because young folks, and I don't want to say just young folks, but like people that are born into the world today with the way technology is, they don't know any different. You and I too, we grew up probably in the Dallop days. You probably remember how AOL sounds, right?"
+    },
+    {
+      "start": 4062.14,
+      "end": 4064.14,
+      "speaker": "techno-tim",
+      "text": "Goodbye. Yeah, I got that down."
+    },
+    {
+      "start": 4064.14,
+      "end": 4068.1,
+      "speaker": "adam-stacoviak",
+      "text": "We've got that. They have no idea what that is. Right?"
+    },
+    {
+      "start": 4068.1,
+      "end": 4093.68,
+      "speaker": "techno-tim",
+      "text": "No, I agree. I, yeah, I, I totally agree. And you know, that like, you know, I feel like there's this stigma for the people who are against AI. I feel like there's a stigma of those things you talked about plagiarism. It's not your own thoughts. You're not being unique. You're not using your brain. You know, all of these things I hear people say every now and then, you know, your brain's going to turn to mush or, you know, things that we've heard about TV for, you know,"
+    },
+    {
+      "start": 4093.68,
+      "end": 4096.4,
+      "speaker": "adam-stacoviak",
+      "text": "or metal or rock, you know?"
+    },
+    {
+      "start": 4096.4,
+      "end": 4394.09,
+      "speaker": "techno-tim",
+      "text": "That's right. Yeah, exactly. But what, but what I see is I've always, and I think I said this last time, but I always think of like, when I use a GPT or a helper chat, GPT, whatever, open web UI, when I use an LLM to ask it questions, you know, I'm usually thinking of it like a rough draft, like a rough draft, anything that it spits out to me is a rough draft. It might be ideas. It might give me new ideas. It might give me new perspectives, but I'm never going to copy and paste that thing and put it in my email, you know, directly. You know, I may copy and paste it and change some words, but I'm saying like, that is always going to be a rough draft to me. And so I feel like if people can understand that, and it's not just, you know, something that's like feeding me ideas or doing work for me. I think that's, you know, I, that's the perspective I have. I kind of, I kind of related to like 3d printing and like, at least not at home, but say you're, you know, a machine shop, right. And you want to be able to produce something really quick and you have some ideas and you want to test something out, you 3d print it, you know, you look at it, you test it out. You think, will this work? You make some adjustments. And then if you like it, that goes to production and you produce the real thing. Well, like for me, at least chat GPD is kind of like that for me, you know, help me out give me some ideas. Maybe there's things I'm not even thinking about, but that's my rough draft. I'm going to take that and use it probably in my final product, but it's not the final product. And that's, that's the way I look at it. And you could get so much done so quick just by having the right answers almost all the time. Yeah. I, I tell my wife cause you know, she's just very early on, she'll ask me questions about it. She's only used it a handful of times, but I, I say to her, imagine if you had a friend on Slack that knew everything you were saying to it, that understood, you know, almost everything you could possibly say to it that could help you out with anything you ask it and is usually right. And we'll give you a pretty concise answer every time. Imagine if you had that Slack friend in Slack that you could DM on the side, you know, that's how I kind of treat chat GPT, you know and, or, or any LLM, because it's, it's just so refreshing to have, I don't know, I, I work on really weird stuff. I work on home lab stuff. I work on things where the same question has probably been asked twice, you know, ever, you know, will this GPU fit here because you know, I only have this amount of clearance in my server rack, you know, I'm not going to find that answer on Reddit and it's going to take me a long time to go and get the dimensions, go and measure, you know, do all this stuff. Or if I could ask, you know, an LLM that, and it knows it's like, oh, here are the dimensions. Here's the height on this case. Yeah. Yeah. That'll fit. It's fantastic. And so it's just, I, I mean, I'm, you know, I'm, I'm not trying to talk it up, but you are, I know it saved me so bad about it, man. I'm with you. Yeah. We're some potico. All right, man. Cause it saved me so much time, so much time from not going to Google and not wasting my time on Reddit and not going somewhere else and getting advertised to it saved me a lot of time. So I'm a, I mean, even simple things. My wife and I started saying like, give me interesting pizza recipes because we were like, Hey, let, you know, we make pizza every week and you know, we, we have the same kind of pizzas, but we're like, let's branch out. Give me interesting pizzas, you know, whatever, obviously it's going to go to the web. It's going to look, but it's going to find all of them, you know, spits them out. There's one that's barbecue cauliflower. And we're like, yeah, that's kind of interesting pizza the other day and it was fantastic, you know, and it's, and it's kind of like, Hey, tell me more, you know, tell me more about this recipe. And they'd give you the whole entire recipe. So, and you know, I've been, I'm to the point now where I turn on voice and I I've gotten kind of bad with it a little bit late, not bad, but I've been relying on it a lot while I'm working on stuff. I can just be like, Hey, a perfect example for me. We were talking about the UI of cameras earlier. I can not find menu items in a camera. If you have a Sony camera, you can relate so many pages format. Where is the image format? Like I have no idea. So, you know, I'll have voice on sometimes and I'll just be like, Hey, can you tell me how to get to, you know, this setting in the camera? Here's the camera hand. Sure. Go here, here and here. Awesome. You know? And then I'm like, if I change this setting, is this going to affect the frame rate? No, it's not. You know what I mean? And so I will have a pretty in-depth conversation about one thing I'm working on, you know, with an LLM and it's, it's so great. It's so great for the things you don't understand or, or, you know, I, I, I'm, I'm, I'm, I'm a huge fan. I mean, I talk to it, you know, I, I talk to it cause it's, it's, it's faster than typing."
+    },
+    {
+      "start": 4394.09,
+      "end": 4397.69,
+      "speaker": "adam-stacoviak",
+      "text": "Have you heard it be called a word calculator yet?"
+    },
+    {
+      "start": 4397.69,
+      "end": 4398.69,
+      "speaker": "techno-tim",
+      "text": "Word calculator?"
+    },
+    {
+      "start": 4398.69,
+      "end": 4407.25,
+      "speaker": "adam-stacoviak",
+      "text": "No, not yet. That's what I call it. That's what we call it around here. It's become the way I think about it is it's a word calculator. Yeah."
+    },
+    {
+      "start": 4407.25,
+      "end": 4414.97,
+      "speaker": "techno-tim",
+      "text": "Right. It's guessing the percentage of what, yeah, it's trying to determine what to say based on percentage of what it knows."
+    },
+    {
+      "start": 4414.97,
+      "end": 4433.06,
+      "speaker": "adam-stacoviak",
+      "text": "Well, the same way you use a calculator, you're trying to figure something out, right? But it calculates with, it's a, it's a word. It uses words. It uses understanding, reasoning even, you know, in the latest models. I think of it like that. It's like, okay, here is, I'll just paste in a bunch of stuff and like tell me all the numbers in here and add them up."
+    },
+    {
+      "start": 4433.06,
+      "end": 4434.06,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 4434.06,
+      "end": 4483.56,
+      "speaker": "adam-stacoviak",
+      "text": "Right? Yeah. Like if I, if I copied, you know, 15 lines from my bank statement, for example, online, and I'm like, I want to know what these add up to, but the copy and paste on my Bank of America web UI is just terrible. Yeah. Right. Like I'll just go to the slime tax and like pull out all the, like, I'm not going to waste my time with that. I'll, I'll throw it into a GPT. There's no information there that's really, you know, shareable. I would much rather do it locally given all the things that we've just talked about. But like, hey, you see all these numbers here after the dollar sign, those are all figures I want you to add up and, and dedupe and tell me the right answer. It's going to do it in a second. Yeah. And that's what I mean by word calculator. You could probably gush about AI for forever. Let's not, let's not do that. Let's talk about two more things, especially if you have time. Do you have more time?"
+    },
+    {
+      "start": 4483.56,
+      "end": 4486.56,
+      "speaker": "techno-tim",
+      "text": "Yeah. Dude, I have all day, man. I'm yours."
+    },
+    {
+      "start": 4486.56,
+      "end": 4570.4,
+      "speaker": "adam-stacoviak",
+      "text": "So like, I, you know. Sweet. Let's go deep then. Okay. So let's close with, I think I would like to see some AI builds from you. I'd like to see, you know, low tier, mid tier, high tier AI home lab builds that might give people a gateway into this world. Right? Yeah. That'd be cool. You know, might be hard. I think that's really your alley. That's where I'll, I'll leave that at. Let's talk about the creator PC. And so you mentioned the dev workstation, which I watched your video on that. So you built a Linux workstation, the ultimate Linux workstation, 78,000 views. I think people, I think people are like resonating with what you're saying here. I mentioned I'm resonating with building a creator PC. I kind of just want to, like, I just want to build another machine and I don't have a need for another machine, but I got this itch. I want to build another PC from scratch. I love it. It's just so much fun, honestly, but I don't want to put Windows on it. And I don't think Windows or sorry, I don't think the year of Linux desktop is here for video editors, audio editors. It may be for developers. It's here and it has been here forever. So my PC building, my creator PC building has been, you know, stifled until I can figure out how to put Mac on it, which Mac OS on it, not going to happen."
+    },
+    {
+      "start": 4570.4,
+      "end": 4571.4,
+      "speaker": "techno-tim",
+      "text": "No."
+    },
+    {
+      "start": 4571.4,
+      "end": 4591.6,
+      "speaker": "adam-stacoviak",
+      "text": "Apple, if you're listening, somebody at Apple, if you're listening, I would love it if you can just make it so that if you love open source, I think you might make it so that Mac OS can live on, you know, a PC that is built for Linux, treat it like Linux. You know, I want to build your hardware too, but gosh, I want to build my own hardware sometimes. And I don't want to give up Mac OS."
+    },
+    {
+      "start": 4591.6,
+      "end": 4595.88,
+      "speaker": "techno-tim",
+      "text": "No, you got to, you got to pay for the dongle, which is the whole machine."
+    },
+    {
+      "start": 4595.88,
+      "end": 4607.56,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Or the RAM. Do you see that speculation about the Mac mini basically being free, like the lowest tier basically being free? Because if you, I think, added a couple of things to it, it's like double the price."
+    },
+    {
+      "start": 4607.56,
+      "end": 4609.56,
+      "speaker": "techno-tim",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 4609.56,
+      "end": 4614.98,
+      "speaker": "adam-stacoviak",
+      "text": "Even use the storage. Yeah. That's interesting. Yeah. So creator PC, what would you do here?"
+    },
+    {
+      "start": 4614.98,
+      "end": 4840.48,
+      "speaker": "techno-tim",
+      "text": "What are your thoughts on this? Yeah. So creator PC. Okay. It's going to do video editing, video capturing, you know, might do Photoshop edit, you know, might do raster graphics or whatever vector. But I mean, it's the same thing. It's the same thing I think of for gaming PC. And it's the same thing I think of for, you know, an AI machine. It's all going to boil down to your video card. So I mean, your first choice, most people's first choice is going to be CPU, right? And so you have two choices. I think most people right now are going to pick AMD. You know, I picked Intel and that was my choice in that video because I wanted a couple of things. One, I, you know, I wanted quick sync because quick sync is awesome for transcoding. And you know, when, when I say transcoding, I don't mean just for Plex or anything like that. But you're able to take advantage of that on windows while you're editing machines, you know, or decoding encoding. So the CPU can go either way. You can't go wrong right now. But a lot of people are leaning towards AMD because Intel has kind of been, I don't know, all over the place, but I did choose Intel. I think that Core Ultra, I think is great for everything but gaming. And let me say this, like, it's still great for gaming, but if you're going to build a gaming PC, you might as well go with AMD right now. But it's great for multitasking, low heat, low power, like Intel kind of turned it around with the CPU, even though it's doing poorly, it's uses less power, less heat, whatever. But you're going to choose your CPU, RAM, it's going to be, you know, DDR5. Don't choose four. Like a lot of people want to choose four because it's cheaper. Don't you know, it's if you're building anything new today, five. So that means you got to find a motherboard that has the right socket and DDR5, you know, which pretty easy to find those. I'm a ASUS fan. I'm a big fan of ASUS motherboards. So I usually choose from ASUS. I'm like, what do they have that I can buy? You know, it's not like, you know, let me look at all motherboards. You know, it's similar to, you know, when I'm brand loyal to stuff, that's what I do. Like Samsung flash drives, that's all I'll ever buy. So I'm like, what does Samsung have right now? You know, same with TVs. I'm brand loyal to Samsung. What TVs does Samsung have? It's not just like what's on sale, what, you know. So anyways, I'm the same way with motherboards. It's always going to be for me, ASUS. Doesn't mean I'll never buy something else, but that's what I prefer. I typically on that board, I will look for a chip set, possibly that's Intel, that has an Intel NIC on it. Mainly because those play with Linux a lot better than real tech chip sets. So, I mean, if you are thinking about it, yeah, definitely look for one with an Intel NIC built into the board. That's the way I look at it because it does better with Linux. And then you're going to want 2.5 gig networking on there. Honestly, if you're building a creator machine, you're going to want 10 gig. 2.5 is borderline pretty good. I mean, you could probably edit, you know, 4K with maybe a couple of stutters, but you want to look for 10 gig. And if you can't get it on board, you know, you could do aftermarket parts and add it there. So that leaves a, you know, that's a lot of requirements up front. I know that ASUS has their, I don't know, art media art piece, creator art piece, pro art, pro art, I knew art was in the word, but they had those that are dedicated, they say to creators, but really what it means is, hey, a lot of space for fast storage, fast network cards, and we support the latest Ram and CPUs. Yeah. And so, you know, honestly, I would say like, I know you're against Windows. I run everything. I'm not against it. I'm just sad that that's the only option."
+    },
+    {
+      "start": 4840.48,
+      "end": 4868.52,
+      "speaker": "adam-stacoviak",
+      "text": "I'm just like, so I played with it. Before I did my AI home lab on my same nut, because it's the only extra machine I have to like play with something like on bare metal. So I installed Windows 11 and I, thankfully they let you install it and play with it for free. They don't make you have to have a license. Now you can't change the desktop and do, there's limitations to what you can do. I think they nag you a little bit, but then I was like, wow, I mean, there's a lot of extra software on there. I mean, it's not the worst ever."
+    },
+    {
+      "start": 4868.52,
+      "end": 4869.48,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 4869.48,
+      "end": 4941.88,
+      "speaker": "adam-stacoviak",
+      "text": "I just think like, gosh, if I'm going to build a creator PC, I've already got so many efficiencies and workflows in the Mac OS world, software I've bought, things that I just can't live without, like Raycast I know is something I use on Mac. I think they have a plan for a Windows client, but they're not there yet to my knowledge. Maybe they are, I don't know for sure. But I'm thinking like, what do I have to give up to move to this different world? Okay, well, Adobe Creative Suite, at least my license there doesn't limit me to platform. I can use Windows or Mac. So that's cool. But then like, man, everything else is just like these weird hoops. And then Windows seems to be, I think, user hostile, like absolutely user hostile. Like to go and have fun and build and spend the money on a really awesome creator PC and have to install Windows to be a creator on that same machine and have a user hostile operating system, not saying Mac OS is that much better, but it is, it's that much better hostility wise. It's at least not doing all sorts of crazy stuff like Windows does and like AI-ing everything. Like I think Apple Intelligence might be the next frontier for them. And hopefully they don't push that button too hard. They're sort of backing a little bit."
+    },
+    {
+      "start": 4941.88,
+      "end": 4944.12,
+      "speaker": "techno-tim",
+      "text": "It's already here. It's on my Mac studio."
+    },
+    {
+      "start": 4944.12,
+      "end": 4954.64,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, you could tell me what the experience is. I don't have that, but I'm hoping that they don't, Apple Intelligence be too much. I feel like Windows is just user hostile, really."
+    },
+    {
+      "start": 4954.64,
+      "end": 5181.72,
+      "speaker": "techno-tim",
+      "text": "Yeah, I mean, they have a long history of like introducing features that people don't want. They say they don't want, and then they prove they don't want because then they get taken away. And then at the same time, taking away features that people still want because they think that's what's best for the user. And it ends up not being what's best for the user. And so they backpedal, start menu, classic examples. So yeah, it's, I don't know. Personally, I use Mac, Windows, Linux. Like I have Windows here too. I actually enjoy Windows. After you, like after it's installed, you strip out the stuff, you make it exactly the way you want, and then you get WSL running on it. So Windows Subsystem for Linux. I feel like at that point, it's almost everything that I need outside of iMessenger or Messenger, right? Outside of there, like being able to text people while I'm on my machine, it does everything. Like the WSL side lets me run Linux in a terminal that lets me to do, basically I'm in a terminal for Linux and I can do everything I wanna do. Don't even have to think about PowerShell or anything like that. I can be a developer and run developer tools. But then if I want to launch Adobe, whatever, Creative Suite, boom, I'm there, I'm editing. It's working great. Windows drivers with Nvidia or even Quick Sync or whatever works fantastic, right? Because they're getting drivers and iterations so much faster because just the volume of people. Then if I wanna launch a game, it's right there, right? Launch a game, boom, I'm in a game. The other thing is like compatibility with hardware. Like you cannot match Windows compatibility with hardware. Like it works with anything you can plug into it. And most things are built to work with Windows. And again, like this is brought to you by a Mac right now. And you know, I've had to jump through a lot of hoops because of Apple, you know, because dongles, because no PCI express, because whatever, whatever the reason. And so, you know, the things that you think are getting taken away from you, imagine what people lose when they go to a Mac. So I would flip that around and say, you lose so much freedom as a tinker, as a builder, as a custom rig builder, as a gamer, as whatever, going to Mac, you lose so much. Really lose a lot. Oh yeah, oh yeah. I mean, I can't even plug in a PCI express card, right? I mean, Mac doesn't allow that. They don't allow any video card, you gotta use theirs. And so what I've had to do is get this USB-C dongle that powers this thing that allows me to plug in, you know, PCI express cards so I can capture video and you can see me right now. That's what I do. I mean, that's, I mean, that's the lengths people have to go to to get things to work that just work in windows. You get a motherboard, you get PCI express, you plug the card in, boom, it works. Drivers are already there. So I've gone both ways. Like I use both and I flip flop on both all the time. So I, it was honestly harder for me to go to Mac than to go to windows, obviously probably because I ran it for 20 years. But making that switch, I realize, you know, Mac is great, stable, fantastic. I never have to worry about it waking up or it staying on, like it just works. Like apps are so stable all the time with the exception of editing every now and then. And I don't know, I have a kind of have a beef with Apple's biggest release. Their software release with everything. I feel like every single thing I use from Apple right now is a bug and we just need to get past this point. But like, you know, going to Mac, I kind of, you know, sometimes miss windows, if that's the thing. For me it is, sometimes I do miss windows to be able to just, I don't know, do whatever I want because windows works with everything."
+    },
+    {
+      "start": 5181.72,
+      "end": 5182.96,
+      "speaker": "adam-stacoviak",
+      "text": "So free, yeah."
+    },
+    {
+      "start": 5182.96,
+      "end": 5183.88,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 5183.88,
+      "end": 5272.91,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you're encouraging me to bite the bullets they might say, you know, just because, you know, so we're, I'm running a, to give some context to why I'm in this struggle is one, I like to build machines and two, I'm running an M1 Max machine that literally is maxed out. 64 gigs is the M1 Max, it's the initial M series MacBook Pro. I've got four terabytes of onboard storage just because we wanted to max things out when we purchased these, I think back in 2021, I don't even know, right? And so, you know, I've obviously been a Mac user for a while and I feel like I want the freedom to build my own machine. I want the freedom to choose my own video card. I want the freedom to choose AMD versus Intel. I want the freedom to choose DDR5 and not spend $10,000 on Apple RAM. You know, I'm being facetious there, but like it's expensive, right? RAM is expensive, storage expensive, and so you can go to Samsung and get, you know, what are the 900 series, the NVMEs, what are those? Yeah, 980s, yeah. The 980s, yeah. Like the Samsung 980, M2, NVME, super fast. You can get those so much cheaper than you would to even try and double your storage on a Mac build. Yeah, you can put 10 of them."
+    },
+    {
+      "start": 5272.91,
+      "end": 5277.39,
+      "speaker": "techno-tim",
+      "text": "It's very expensive. You could put 10 of them in a machine if you wanted to, if you have enough planes. Precisely."
+    },
+    {
+      "start": 5277.39,
+      "end": 5306.6,
+      "speaker": "adam-stacoviak",
+      "text": "So you pay this Apple tax, and the tax is to some degree simplicity in the fact that it just works, right? It's a pretty stable system. I really haven't had a lot of issues, but you gotta pay that dollar tax. And then obviously my family is an iMessage family. Yeah. And so I've gotta have that somewhere. I can't just have it on my phone. I gotta have it on my desktop too. Who wants to like text only on their phone? Forget that. That's a terrible world."
+    },
+    {
+      "start": 5306.6,
+      "end": 5325.76,
+      "speaker": "techno-tim",
+      "text": "Yeah, I lived that world for a while. And that's why I was saying like, if I ever left Mac and went 100% back to Windows, that's the only thing I'd miss, to be honest. That was the only thing that I had missed. I mean, Notes too, now that I'm in the ecosystem, I'm like, yeah, Notes are super easy. They're right here. You know, I'll type a note in here."
+    },
+    {
+      "start": 5325.76,
+      "end": 5408.34,
+      "speaker": "adam-stacoviak",
+      "text": "Photos, man. I reference photos on my desktop frequently. The syncing between Photos app on my phone to the desktop is just, you know. And then there's the other tax there, right? You get your iCloud tax, right? And, you know, I don't know about you. I like to back up my photos, but then I also like the Apple Cloud for those photos too, because I share a lot of photos with my wife. We got kids and we just have history. We love to look back at photos that are five, 10 years old, you know, frequently, because one of, like as a dad, one of the things I do with my kids is we will, you know, we'll do story time at night, but we'll also look through some photos of things we've done like a year ago or two years ago or have a memory with somebody. And they're like, for kids, that's grounding, right? That's their identity. Who are we? Why do you love me? Dad, it's a reminder, like I know they know I love them, but like it's a reminder of the fun things we did. Just because we didn't get to do something fun this week doesn't mean we haven't done it before. And it's just this remembrance of where they've been, loved ones that are not here anymore or someone we won't get to see through frequently, just reminding them how much they matter to them. And that's how we use photos, not just obviously for B-roll like you're doing. You know, it's more than that, you know? We live in it. It's a life thing for us. So maybe I just need to be a Windows and Mac family. You know, maybe it's like, why one or the other? Why not both?"
+    },
+    {
+      "start": 5408.34,
+      "end": 5485.24,
+      "speaker": "techno-tim",
+      "text": "That's what I say. Like, why not both? Exactly that, because I know a lot of people who use a Mac all day, all day. I mean, me personally, I used to be Windows at home, Mac at work. No, sorry, other way around. Mac at home, Windows at work. That's how it was for a long time as a developer. And you know, every enterprise had Windows, don't bring those Macs in here, you know? And then it flip-flopped. Then it got to be, well, now I'm a developer. They just hand me a Mac, so I'm using a Mac at work. Well, I'm gonna use Windows at home because I game, you know, and so it can be like that. If you think of the computer you're using like a tool, you know, and kind of what it is, it's hard to think of it like a tool because it's so versatile. But if you say, here's my editing machine and here's my everything else machine, then it kind of might make sense. But I mean, what? You're still gonna have a MacBook or a laptop, right? And so you'll have your laptop plus, you know, a workstation. It is hard going that way, but I honestly think it's hard going the other way because you give up so much. Yeah, you give up so much to move to Apple."
+    },
+    {
+      "start": 5485.24,
+      "end": 5637,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, I have a question for you. How much of your personal information, your private data, how much of that is out there on the internet right now for anyone to see? I think it's more than you think. Your name, your contact info, maybe even your social security number, your home address, potentially even information about your family. It's all being compiled by data brokers and it's being sold online. And these data brokers, they make a profit off your data. They sell it as a commodity. They don't care. Anyone on the web can buy your private details and this can lead to identity theft, phishing attempts, harassment, unwanted spam calls. I get those so much. But now you're able to protect your privacy with Delete Me. That's today's sponsor. I recently found Delete Me and they sponsor the podcast and they offer a subscription service that removes your personal info from hundreds of data sources online. Here's how it works. You sign up and you provide Delete Me with exactly the information you want deleted and their experts go and take it from there. They send you regular personalized privacy reports showing you what information they found, where they found it and what they've removed. And it's not just a one-time service. Delete Me is always working for you, constantly monitoring and removing the personal information that you don't want on the internet. To put it simply, Delete Me does all the hard work of wiping your data, your family's data from data broker websites. So take control of your data and keep your private life private by signing up for Delete Me today, now at a special discount for our listeners. Today you get 20% off your Delete Me plan by texting changelog to 64000. Once again, text changelog to 64000. And as you may know, message and data rates may apply. See terms for details. Enjoy. Humor me, let's build a Creator PC. I know you just shared your video and I know you're running Linux on it, you're not running Windows on it, but that's okay because the build itself, the hardware itself is probably very similar. So let me tell you what I would like to build and let's compare it to what choices you've made and why. And this is not an exhaustive of all the components, it's the core things, you know, it's the case, it's the motherboards, the CPU, it's the cooler, things like that. You can go into RAM, I think that's pretty, you may have opinions about which brand, maybe it's cheapest, whatever. Obviously you're a Samsung lover on the NVME storage section, but the case I would like to use is the ProArt PA602."
+    },
+    {
+      "start": 5637.04,
+      "end": 5639.68,
+      "speaker": "techno-tim",
+      "text": "Yeah, ProArt, that's what I was saying."
+    },
+    {
+      "start": 5639.68,
+      "end": 5648.16,
+      "speaker": "adam-stacoviak",
+      "text": "The motherboard, ProArt again, ProArt Z790, CPU so far as the Intel 14900K."
+    },
+    {
+      "start": 5648.16,
+      "end": 5650.56,
+      "speaker": "techno-tim",
+      "text": "14 Gen, you're going with last Gen."
+    },
+    {
+      "start": 5650.56,
+      "end": 5659,
+      "speaker": "adam-stacoviak",
+      "text": "So I have to be, okay, so that I didn't even know, is that last Gen? I'm not like you, Tim, I'm not on the, that's why you're here, man, keep me on the edge."
+    },
+    {
+      "start": 5659,
+      "end": 5660.52,
+      "speaker": "techno-tim",
+      "text": "No, it's totally fine, but yeah, 14 Gen."
+    },
+    {
+      "start": 5660.52,
+      "end": 5661.76,
+      "speaker": "adam-stacoviak",
+      "text": "Is Ultra the new hotness then?"
+    },
+    {
+      "start": 5661.76,
+      "end": 5663.6,
+      "speaker": "techno-tim",
+      "text": "It is, it is, it's their latest."
+    },
+    {
+      "start": 5663.6,
+      "end": 5668.84,
+      "speaker": "adam-stacoviak",
+      "text": "I wasn't sure what Ultra was, it was new, so I was like, is that for, who is that for? Okay, so Ultra's a new hotness."
+    },
+    {
+      "start": 5668.84,
+      "end": 5699.64,
+      "speaker": "techno-tim",
+      "text": "It's new but not really new because they launched it on laptops a while ago, but now they launched it on desktops and it's super confusing because you'll see laptop reference with Core Ultra, but then desktop processors now are out at our Core Ultra. So I don't know, there's a lot of cross-checking before you buy stuff because you don't want to buy the wrong thing, so that's one thing to look into. But yeah, 14 Gen, they're great. Run hot, run power hungry, and then there was all those problems with them, but that's all fixed in microcode now and firmware updates, so."
+    },
+    {
+      "start": 5700.99,
+      "end": 5818.22,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so I'll, jury's out then on the CPU. I'll take some advice. Maybe the 1400K is the old hotness and I need a new hotness, I need a new hotness, who knows, you know? Cooler, I was advised on the Arctic Liquid Freezer 3 420, 420 millimeter, you know, all that good stuff. That's the biggest thing you can put into this. I think it fits in the ProArt case as well. Thermal take, tough power, 1200 watt, 80 plus platinum, and then the GPU, I mean, aside from the conversation we had earlier about AI home lab stuff, I think GPUs are just hard to find, and so I'll pay through the nose for this if I can get this one, but a 4090. I can't buy a 5090 because one, it's not available, and two, it's probably just like five, seven, $10,000 because of scalpers or whatever. The jury is out on the 5090, but I do want the 90 series of the 30 or the 40, and so I was thinking the MSI Gaming GeForce RTX 4090. I could also go with the Asus TUF version of that, the RTX 4090 there, or the 3090. I think the 4090 and 3090 kind of compare pretty well, so if it's availability and price, maybe the 3090, TUF edition from Asus, or this MSI GeForce RTX 4090 if I can find it, but that's gonna be pricey. That's gonna be like two grand, 2500 bucks, and so that's what I'm saying. If I have to spend this much money to build for fun, this machine, I gotta put Windows on it? Okay, fine, you've made me think that maybe there's a world I can live in that has both Mac and Windows in my life. That's the rough of what I'd like to build. I wouldn't mind AMD. I do have an AMD AI Home Lab, but your video on your Linux workstation made me think maybe my AI Home Lab should be this Creator PC workstation. Maybe it can blend the worlds. I don't know, what do you think?"
+    },
+    {
+      "start": 5818.22,
+      "end": 5914.87,
+      "speaker": "techno-tim",
+      "text": "Oh yeah, oh yeah, it's absolutely good, because you could use that GPU for Ollama or for anything else while you're not using it, or even while you're using it, right? Because it's just gonna use the CUDA cores if you're using NVIDIA, and so it's gonna use CUDA cores and VRAM, but if you're typing a document, you don't need that. You don't need any of that, you know? So yeah, you could do both. You could have it run both, and then you could keep the AI local, and I think there's desktop applications that you could just install it and do it all, like local, local, not even on a server in your home, but on the machine you're using. So yeah, that would totally work. It'd totally work. 3090, yeah, I have a 3090. I got pretty lucky, because right before the pandemic, or right as it started, that launched, and everybody wanted the 3070 and 3080, I think, and I wanted the 3080, but it just so happened, like Best Buy had one of those in stock, the 3090, and I thought, oh my gosh, like I'm gonna spend like $1,000 on a GPU? Turned out to be like the best purchase ever, because you couldn't find them after that, and I used it all through the pandemic for all of my videos and everything. It was great, it was great, but I still think they're solid. I like the Founders Edition. Like if you're gonna go, if you're gonna buy something, I feel like the Founders Edition directly from Nvidia. Just the design and everything is fantastic. I understand why people don't choose that, but that's just me, my personal preference. Yeah. Yeah."
+    },
+    {
+      "start": 5914.87,
+      "end": 6099.54,
+      "speaker": "adam-stacoviak",
+      "text": "This world of GPUs is hard to understand as an outsider coming in. Founders Edition, OC, Tough Gaming, and I know these are sub-brands of certain brands, then you got MSI, and you've got EVGA, I believe, is another prominent brand that you can get, and I think that might be availability maybe pushing that brand, because MSI or somebody else might not be available. I don't know, it just, from the outsider coming in, someone who's never been a gamer. I've never been a gamer. I've never built a PC to build to game on, so building even a machine to utilize a dedicated GPU is foreign to me. I've never done it. Even selecting which GPU or having this history, thankfully, we've got people like you out there, and my other good friend, I don't know his name, I can't remember his name, Tech Notice. Great dude. He's always on it with the latest, and he's strictly creator PC guy. He's not gamer PC guy. Now, he will talk about how it may influence or not influence if you're a gamer, too, but he's primarily giving advice generally on the tip of technology, and he's got lots of videos out there, so he's covered most of everything, really, from RAM to storage to whatever, and it's all from a creator PC or a creator lens, not a gamer lens. Not that it's a bad thing, but a lot of people are trying to build their best possible rig for creating because the Mac has limitations or they really wanna push the boundaries or they need more than one GPU for whatever reason. For me, if I really had unlimited funds, I would love to build an AMD Ryzen Threadripper Pro machine that has a workstation-level motherboard, tons of PCI lanes, and I would love to have multiple, if not four. I think once you get to five, it's kinda hard, but especially on power and cooling, but at least two, maybe four GPUs. If this AI theory, I know you're laughing, if this AI theory plays out, I feel like, wow, I can build this rig. It might be expensive, but long-term it might play out because I think AI will become the centerpiece of home labbers here soon enough. If models become, as we've talked about before, remain or become more open source or available on Ollama, and Ollama becomes a first-class citizen when it comes to integrations for platforms. I think if it's like I integrate with ChatGPT and Ollama, if that becomes a real thing, well then that kind of machine will pay its dividends over time as AI becomes more and more advanced. And as we allow it to inject itself more and more into this private world we have, into our home lab world. So I mean, I probably wouldn't build an AMD Threadripper Pro machine for my own personal creation, like creator level. I think the Intel Core Ultra or the Intel 14900K would be just great in that world, but AMD has some compelling things about it. It seems Threadripper, that's a good name, right? Threadripper's cool."
+    },
+    {
+      "start": 6099.54,
+      "end": 6187.67,
+      "speaker": "techno-tim",
+      "text": "Ever since I heard it the first time, I'm like, heck yeah, I want to rip some threads, man. Who doesn't want to rip threads? Yeah, so you touched on a good point and I'm glad you mentioned that because it totally oversight on my part. Something that I always think about when building a machine is PCI express lanes. And so if you're going for a creator machine, yeah, there is a huge market, I think, for workstation level machines. And Threadripper is what we have from AMD. I don't know what Intel did. Now they don't have one and who knows what's going on. But workstation level machines, I think, should be a focus for, I think, both platforms. Mainly because you're limited in PCI express lanes. I think on Intel, now you get 24, so they caught up with AMD. But what does that mean in reality? It means you put a video card and you get two NVMe drives. You know, that's not enough for most people, especially creators. And it used to be 20. So you'd put a video card in there, that's 16 lanes. Then you'd put an NVMe drive in there, that's four lanes. And you're maxed out. As soon as you build a PC, you're maxed out. So that's something to keep in mind too. Any desktop class processor, you go with AMD or Intel, you're going to be limited to 24 lanes. I think they're both 24 now. And so that means, you know, that means a video card and yeah, two NVMe drives."
+    },
+    {
+      "start": 6187.67,
+      "end": 6195.75,
+      "speaker": "adam-stacoviak",
+      "text": "You could bifurcate those though, right? Like you can drop it down to eight lanes. You're just like less bandwidth, I think. It's not speed, it's bandwidth. Isn't that what it is?"
+    },
+    {
+      "start": 6195.75,
+      "end": 6298.55,
+      "speaker": "techno-tim",
+      "text": "Well, bifurcation, yeah, you can do. And it's really just dividing up the lanes. So yeah, you could maybe turn that 16 into two eights, right? Or maybe even go down to, you know, four fours, you know, to get the 16. Depending on the cars, depending on the motherboard, like there's a big if in there. But at the end of the day, you're still getting a total number of 24, right? And so your video card is going to take 16 and, you know, NVMe drive, one of them, your OS probably, is going to take one, four of that. So then you're left over with another four for maybe your media. And then it means whatever else you want to plug in there, yeah, it's going to be shared or who knows, maybe not work. It'll most likely be shared. But, and so I, yeah, I don't know. I feel like gaming like influenced this whole thing to why we don't have PCI express lanes. I kind of feel like it. I don't know. This is my theory is that like, you know, manufacturers saw, hey, most people just want to put a video card in and, you know, and one NVMe drive and call it a day. And so I think, you know, motherboard manufacturers started seeing that and they're like, okay, well, we're going to chop our motherboards down and make them smaller. We're just going to give you two slots, you know? And then case manufacturers saw that and they're like, okay, we're going to make our cases smaller, you know? And then, you know, CPUs, they were trying to see how many lanes, the minimum they could get away with. And they're like, 20 sounds good. I don't know. I feel like they optimized for the wrong thing. They didn't optimize for me. And maybe, maybe I'm the outlier. Maybe we're the outliers, right? Like we want PCI express lanes. We want to plug in add-in cards. And, and-"
+    },
+    {
+      "start": 6298.55,
+      "end": 6299.83,
+      "speaker": "adam-stacoviak",
+      "text": "That's the whole point, right?"
+    },
+    {
+      "start": 6299.83,
+      "end": 6301.15,
+      "speaker": "techno-tim",
+      "text": "Yeah. I mean, yeah."
+    },
+    {
+      "start": 6301.63,
+      "end": 6305.91,
+      "speaker": "adam-stacoviak",
+      "text": "I want to nick. Maybe my motherboard comes with a decent one. That's okay. But if it doesn't-"
+    },
+    {
+      "start": 6305.91,
+      "end": 6306.75,
+      "speaker": "techno-tim",
+      "text": "Yeah, you're going to throw a 10 gig."
+    },
+    {
+      "start": 6306.75,
+      "end": 6359.49,
+      "speaker": "adam-stacoviak",
+      "text": "And if they're not pushing 10 gig or more, I want to put a card in. Maybe I want to do an HBA because I want to have, maybe I'm building an S. Maybe I also want a GPU in there too. And I want room for it. Not just ability to put it in there for the lanes, but like, give me some room. Yeah. You know? I think you're going to want to do some things like that. And we're not, we're not the outliers here. I think that, I don't know. Maybe, well, everything that is GP related, even motherboards lately until ProArt and things like this, they started to push creators, not game. Like almost everything is, and I know you love RGB. I know you do, but you're also a gamer too. So you got that in your blood. I'm not a, I love games, but I'm never, I've never been a PC gamer. I like to play Nintendo Switch with my kids. We love, you know, Mario Party. It's, it's all the rage in our house. We love that. Mario Kart, of course, too. But, you know, gamers really influenced, I think, PC builds because everything's gamer edition."
+    },
+    {
+      "start": 6359.49,
+      "end": 6360.33,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 6360.37,
+      "end": 6416.93,
+      "speaker": "adam-stacoviak",
+      "text": "It's all gaming influence. It's all pushing what can happen in gaming. But I think you need that though, right? You need some sort of killer application or, you know, killer thing to happen. I think it's what happened with Ollama is DeepSeek was the killer app for Ollama was let's make Ollama more useful. Well, now we have a model that's comparative to others. But in the, in the PC world, gamers kind of push the, push that world for awhile. Like you don't have anybody who has to have access to, you know, cloud docs and stuff like that needing a GPU. That workstation is, it's not your everyday person. Maybe you have somebody who's got a spreadsheet itis and they've got spreadsheets out the wazoo and they need a better CPU for that. But that's, that's the limit. You know, they're not pushing GPU stuff. So all of that PCI lane express or PCI express lane innovation and GPU innovation was having because gamers were pushing the innovation really."
+    },
+    {
+      "start": 6416.93,
+      "end": 6568.23,
+      "speaker": "techno-tim",
+      "text": "Yeah, yeah, absolutely. Yeah. To get the fastest machine, to get the best frame rates, to get the lowest latency. Yeah. It pushed a lot of things forward, but I still, you know, I also feel like, man, that, that, that kind of like pigeonholed what a machine is possible of and everyone optimized probably for cost to get less lanes. So smaller motherboards, you know, yeah. I mean, it's been happening over time for a long time, but yeah, it's, it's, yeah. It's crazy to think like everything depends on the GPU now too. It's like, you know, every day, no matter what you want to do. I mean, you know, when you think of AI, when you think of, you know, Bitcoin, when you think of video rendering, you know, creation, it's, it's like everything depends on the video card. So, and everyone's competing for them, at least with the 5080, I think. The 5080 was, you know, that what Nvidia did was, was basically say, no, this one's specifically for gaming. They basically, you know, gave it gaming performance like the previous generation for the cost, I think, less than the previous generation, but without the CUDA cores for the MI, ML and AI. So I think, I think it can, I mean, I don't know if it's the right thing to do, but it was a smart thing to do within, for Nvidia to say, nah, like this one's for gaming. Like if you're going to do AI, this is not the one to get. And so I think that that kind of segmented their audience. I wish they would go wider. I wish they would go wider, you know, say, hey, here's the creator edition, here's the AI edition or Bitcoin edition, whatever, call it whatever you want. And here's the gamer edition. And then optimize for those things. Honestly, it's hard to discern between media creator and gamer. Cause, cause I mean, really, you just need, you know, GPU, you need that encoder, right? You don't need a 3D aspect, but you need that encoder and you need video RAM, you know? And so you don't need any, well, the funny thing is you still need some AI capabilities, even for a creation today. You know, if you think of Photoshop, when you say like remove or blur or anything like that, I mean, they've been doing it for a long time, right? And so that's offloaded to your GPU, if you have one, you know, is to be able to do Gaussian blurs or blurs, or even replace, or, you know, auto select this person or cut this person out of the photo. So, you know, those are still needed even outside of video, if you're just doing, you know, static art, but yeah, I don't know. I wish they would, I don't know. I don't know what the answer is."
+    },
+    {
+      "start": 6568.23,
+      "end": 6569.51,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know, I don't know."
+    },
+    {
+      "start": 6569.51,
+      "end": 6571.19,
+      "speaker": "techno-tim",
+      "text": "Yeah. I don't know what the answer is."
+    },
+    {
+      "start": 6571.19,
+      "end": 6672.84,
+      "speaker": "adam-stacoviak",
+      "text": "I think my pushback would be, or my response would be on that would be, I think, especially with the GPU scenario, literally at the creation of the hardware, there's a limitation. From what I understand, I can't recall the company's name, but there's one particular company that can do the fabrication of the, it's not a CPU, it's like the chip on the GPU card. And forgive my lack of familiarity, because I really haven't played with much GPUs, honestly. But from my understanding is there's a limitation on that, because there's such a demand, and there's only one, you know, tried and true company who can do this well, and there's a bottleneck. And so maybe the lack of SKUs, which is kind of what you're hinting at is like, you want a gamer edition, you want an AI edition, a creator edition. The lack of SKUs might be, especially now, is the pressure on the ability to crank these things out. That might be it. I would think like, maybe you just need levels. Like they have like the 70, the 80, and the 90. It's like, well, the 70 is for budgetary, less needs, and the 90's got AI, it's got gaming, it's got creator in it. I kind of feel like you can blend those worlds. So it's like almost tiers of type. I want to do gaming, I want to do AI, and I want to do creation stuff. So the 90 may be better for you, and the 90 guarantees you'll have 24 gigs of VRAM or more, maybe you can add more to it. And the 80 sort of puts you in this VRAM scenario with certain technologies in it, and the 70 is budgetary and more limiting, but still quite capable for dedicated GPU scenarios. You know, I don't know, as an outsider who's just learning, that's my, that's maybe hide SKU, you know, that's probably how I would think about it personally."
+    },
+    {
+      "start": 6672.84,
+      "end": 6753.63,
+      "speaker": "techno-tim",
+      "text": "Yeah, no, that's a good way to put it. It's just odd now though, because this is the first time I think that I've seen where they're like, yeah, the 80 is specifically for gaming, because we're taking out a lot of the AI and ML stuff, you know, which was, I think it was probably a good move on their part to say, nope, gamers, you're going to get this card, you know, this is the one to get. But yeah, it's interesting to see. Yeah, it is for sure. And honestly, on media creation, you could get by, you could get by with a lot less than you think, and I will say like, just doing media creation a lot, a lot of the times you don't even need to, you don't even need to like transcode anything or convert anything until the end, you know, you just have to have good encoders in a fast network to be able to process that video, you know? And so I edit in 4K. I used to, when I had a worse machine, I would create proxies, it's kind of insider term for transcoded down to a lower resolution so I can edit at a lower resolution. I edit at a lower resolution because my machine's not that strong. But nowadays it's like, you can get by with surprisingly very little for content creation. There's some people who even just use the iGPU and that's enough to be able to do the encoding and decoding as they edit, you know? Yeah. Yeah."
+    },
+    {
+      "start": 6753.63,
+      "end": 6770.84,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna link out to your Building My Ultimate Linux Wear Station video, but because I said, let's create a, create a PC, give me your spec list. Give me the motherboard, the CPU, give me a rough build list for this machine you built."
+    },
+    {
+      "start": 6770.84,
+      "end": 6777,
+      "speaker": "techno-tim",
+      "text": "Oh, the one I built? And then, okay. So, oh man, I'd have to kind of look at my notes."
+    },
+    {
+      "start": 6777,
+      "end": 6780.24,
+      "speaker": "adam-stacoviak",
+      "text": "You don't know from heart? Oh man. Come on, Tim."
+    },
+    {
+      "start": 6780.24,
+      "end": 6782.88,
+      "speaker": "techno-tim",
+      "text": "Dude, that was like three, four weeks ago, five weeks ago."
+    },
+    {
+      "start": 6782.88,
+      "end": 6784.6,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, that was like yesterday basically."
+    },
+    {
+      "start": 6784.6,
+      "end": 6821.09,
+      "speaker": "techno-tim",
+      "text": "I'm like on to five more things besides that. And I'm terrible at specs, but I can tell you probably off the top of my head, I know it's an Intel Core Ultra. I think it's seven or five. It's Core Ultra five, not the latest. And that was really just for budgetary constraints because I didn't see much use in going with the top tier, which is totally against what I've done my whole entire life. I've always been a buy an i7, i9, the max one, figure it out later. Then I went with an ASUS motherboard. I couldn't tell you any, the model name, but I worked-"
+    },
+    {
+      "start": 6821.53,
+      "end": 6824.81,
+      "speaker": "adam-stacoviak",
+      "text": "ASUS Prime 789D PY5."
+    },
+    {
+      "start": 6824.81,
+      "end": 6825.65,
+      "speaker": "techno-tim",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 6825.65,
+      "end": 6828.33,
+      "speaker": "adam-stacoviak",
+      "text": "Sorry, I got your video up. I got your back."
+    },
+    {
+      "start": 6828.33,
+      "end": 6839.75,
+      "speaker": "techno-tim",
+      "text": "Probably pull it up too. Corsair RAM. I know I went with Corsair RAM, DDR5. I think it was, I don't remember the speed, 7,000 maybe? And now I'm getting, making up numbers."
+    },
+    {
+      "start": 6839.75,
+      "end": 6888.89,
+      "speaker": "adam-stacoviak",
+      "text": "We'll use your videos as a backlog. I mean, we don't have to be perfectly accurate. I'm just curious, like, can we build a creator? Like I shared my spec with you only because I had it listed and I've been dreaming about it and thinking about it and deliberating and hemming and hawing as people know that I do whenever I think about change or something new. I write it down and I marinate for a while on a lot of choices that I make in my life. And building a multi-thousand dollar machine is not easy from the dollar point. So like, I'm gonna think about this thing for a while. I'm gonna survey my favorite creators, you're one of them, and see what their choices are and compare and contrast. And the only change I'm making personally is this, this Core Ultra consideration, but maybe AMD. So I thought maybe you can rattle off your dream list, so to speak, for your workstation."
+    },
+    {
+      "start": 6888.89,
+      "end": 6981.63,
+      "speaker": "techno-tim",
+      "text": "Yeah, I mean, I kind of built it with that. I'd probably bump it up. If it's my dream list, I mean, if it's my dream list, it's a CPU that doesn't even exist that, I have a workstation level processor, but for my Linux workstation, yeah, it was a Core Ultra 5, which I think is great. It's great for multitasking. It's great for coding. It's great for compiling. It's great for the things I'm gonna do as a developer, right, is it the best for gaming? No, I think we talked about that earlier, but it can still do it great. It's just not the leader in that space anymore like they used to be, but great for multitasking. You know, it's DDR5, the fastest DDR5 I can find. Motherboard to me, again, doesn't really matter. I generally don't want wifi and Bluetooth on it, but it comes with every single one, you know. I need four slots for DDR5, and it supports up to 192 gigabytes, which is such a weird number, and at the same time, now RAM kits come in weird numbers now to get to that 192, weird, weird times we're in. Yeah, and then it's, you know, I already talked about this, but it's super fast NVMe drives. For me, that's, you know, Samsung 980s, it's the pros, and then one's gonna be for OS, and one's gonna be for everything else, you know, and then I want 10 gig networking because I have a 10 gig network backbone, even though I don't even need it. Like honestly, if this is my dev workstation, I don't need it at all. I'll stick with the 2.5 gigabit that comes on it, and that'll be fine because I'm rarely gonna transfer things you know, to and from this machine."
+    },
+    {
+      "start": 6981.63,
+      "end": 6982.83,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you'll never saturate that."
+    },
+    {
+      "start": 6982.83,
+      "end": 7007.77,
+      "speaker": "techno-tim",
+      "text": "Nah, it's for writing code, man, and I mean, maybe models when I download stuff, but no, not even that because my home network is gigabit. Sorry, my ISP is gigabit, so I don't, I won't put any spinning hard drives in anything I ever buy anymore except for my NAS, so that's off the table, and even NAS, I'm kind of like still questioning it, like why are we still using spinning drives? I think-"
+    },
+    {
+      "start": 7007.77,
+      "end": 7008.61,
+      "speaker": "adam-stacoviak",
+      "text": "Because they're big."
+    },
+    {
+      "start": 7008.61,
+      "end": 7009.45,
+      "speaker": "techno-tim",
+      "text": "Yeah, I know, but why can't-"
+    },
+    {
+      "start": 7009.45,
+      "end": 7013.61,
+      "speaker": "adam-stacoviak",
+      "text": "Because they're big and less expensive than something else that's big and really expensive."
+    },
+    {
+      "start": 7013.61,
+      "end": 7023.05,
+      "speaker": "techno-tim",
+      "text": "Yeah, but I mean, are we, yeah, I don't know. I wanna kind of feel like, is this people like- Is this real? Are they holding us back on purpose, you think?"
+    },
+    {
+      "start": 7023.05,
+      "end": 7024.17,
+      "speaker": "adam-stacoviak",
+      "text": "Is it the conspiracy?"
+    },
+    {
+      "start": 7024.17,
+      "end": 7066.69,
+      "speaker": "techno-tim",
+      "text": "Big storage, I don't know. Big storage. Big storage is out to get us, I don't know. You know, I mean, it's like, do we need to stay on spinning? I get it that there's more capacity, but could we make that more capacity on SSDs? Is it possible? Yes, it's physically possible. Is it cost-effective? I don't know, maybe if we did it more, I don't know. But anyway, spinning drives, well, I heard from someone that spinning drives will never go away, because they'll always be more dense, right? And they'll always have more capacity. But that, I feel like that doesn't always have to be true, but I don't know. Maybe that's me not understanding flash and NAND flash and all that, so."
+    },
+    {
+      "start": 7066.69,
+      "end": 7125.72,
+      "speaker": "adam-stacoviak",
+      "text": "What do you gain, though, from, I mean, obviously there's challenge of the Rust disk because you got, you know, vibrations can, you know, cause read-write errors. You got lots of things that can happen. But generally, if you have a pretty good machine and a good build, those aren't true challenges. They can be challenges if you're not proactive in making them not challenges. And if the density's always there, and you really don't need, maybe you need more than, what is it, six gigabit per second per disk? Is that, that's usually what it is? Like, if you have a decent backbone in your PCIe lanes, then you're gonna, you'd be hard-pressed to saturate that, like, in a lot of cases, unless you're doing some major transfers. And maybe your home lab is super enterprise, and maybe mine is less, but like, the main thing I'm moving on my network is Plex movies. And it's usually when I rip it to the NAS and never again. And then obviously, whenever it comes off those disks to stream, but I don't need that level of saturation. So disks, for me, work."
+    },
+    {
+      "start": 7125.72,
+      "end": 7130.02,
+      "speaker": "techno-tim",
+      "text": "Yeah. You know? For me, it's heat. It's simplicity."
+    },
+    {
+      "start": 7130.02,
+      "end": 7131.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, size."
+    },
+    {
+      "start": 7131.14,
+      "end": 7160.32,
+      "speaker": "techno-tim",
+      "text": "Noise, power, you know. I could do away with most of my fans, like, and, you know, they're loud in general. You know, they make noises. Like, my flash SSDs make zero noise. They give up almost zero heat, you know? They take up a quarter of the space, you know? And so, because of that, like, my NAS is, you know, for you, because it needs to fit these drives. And, you know, I don't know. I'm, I wish we were just all SSD, all flash storage."
+    },
+    {
+      "start": 7160.32,
+      "end": 7161.52,
+      "speaker": "adam-stacoviak",
+      "text": "One day, Tim, one day."
+    },
+    {
+      "start": 7161.52,
+      "end": 7175.16,
+      "speaker": "techno-tim",
+      "text": "I know, I know. But it's nothing more than me just, like, kind of wanting to be done with it, and for those reasons. But they're efficient, they're large, and they're cheap, so."
+    },
+    {
+      "start": 7175.16,
+      "end": 7193.13,
+      "speaker": "adam-stacoviak",
+      "text": "What's left to say? I gotta go on, like, two minutes here. I got a hard stop, personally. I'd love to keep just going deeper, if we could. We'll have to do this more frequently, something like that. Who knows? Maybe more than once a year. I'd guest on Techno Tim Talks, but I don't think that's your style. You don't do that there. Do you have guests?"
+    },
+    {
+      "start": 7193.41,
+      "end": 7197.17,
+      "speaker": "techno-tim",
+      "text": "I don't know. Yeah, I can absolutely have guests. Yeah, I have before."
+    },
+    {
+      "start": 7197.17,
+      "end": 7198.37,
+      "speaker": "adam-stacoviak",
+      "text": "I'll geek out with you."
+    },
+    {
+      "start": 7198.37,
+      "end": 7206.21,
+      "speaker": "techno-tim",
+      "text": "Yeah, it's usually on Twitch. I mean, I've kind of been switching stuff up a little bit. I don't know, Twitch accidentally banned me twice."
+    },
+    {
+      "start": 7206.21,
+      "end": 7207.05,
+      "speaker": "adam-stacoviak",
+      "text": "I saw that."
+    },
+    {
+      "start": 7207.05,
+      "end": 7223.81,
+      "speaker": "techno-tim",
+      "text": "Dude, and I'm, I'm like, dude, yeah. I'm kind of, like, over it, in my head. Because I'm like, really? Like, if I gotta find, like, that gave me the opportunity to stream on YouTube Live, and realize, like, the opportunity there. The audience there."
+    },
+    {
+      "start": 7223.81,
+      "end": 7228.13,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you're already there, so you can just, like, tap into your existing subscriber base."
+    },
+    {
+      "start": 7228.13,
+      "end": 7234.21,
+      "speaker": "techno-tim",
+      "text": "Exactly. Whereas Twitch, you know, it's, hey, guys, come check out my Twitch, you know, and tap."
+    },
+    {
+      "start": 7234.21,
+      "end": 7240.25,
+      "speaker": "adam-stacoviak",
+      "text": "That's why I don't hang out with you there, honestly. I would probably at least lurk in your Lives, whereas I'm not gonna go to Twitch, personally."
+    },
+    {
+      "start": 7240.25,
+      "end": 7262.78,
+      "speaker": "techno-tim",
+      "text": "I get it. If you don't type in that URL, and you don't go there, or have someone to watch, you just don't go there. It's just not in your, you know, routine, ever. You know, and so I totally get it. It's just like, you know, that's kinda where I started. I started out live streaming before YouTube, and it was on Twitch, and it was playing games, so, you know, I just have a soft spot in my heart for it. Yeah."
+    },
+    {
+      "start": 7262.78,
+      "end": 7314.78,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I mean, you have done some cool stuff there, but, you know, whenever you disrupt somebody's normal habit and flow, you give them a reason to ponder change. Yeah. And sometimes that means the negotiating goes the opposite way, and they leave your space. And so maybe Twitch is in your past, and YouTube Lives are in your future. Yeah. But either way, I'd love to talk to you more. As it makes sense, I think we can geek out quite a bit about this stuff. And there's, I think it's fun, really. I think it's fun to just dig into it with somebody else, because, as you can tell, I make my dream list, and I ponder them myself, and I might pay attention to the people, but I'm not having a conversation with anybody really deeply about my choices, or why I'm making these choices. You know, and it's just, maybe after this conversation, I might be okay with having both Windows and Mac in my life, maybe."
+    },
+    {
+      "start": 7314.78,
+      "end": 7323.02,
+      "speaker": "techno-tim",
+      "text": "I think you'll be okay. I think you'll be okay. And then maybe your kids one day will have a gaming machine. They'll be like, yeah, now I get a gaming machine."
+    },
+    {
+      "start": 7323.02,
+      "end": 7334.74,
+      "speaker": "adam-stacoviak",
+      "text": "Dad gave me the hand, me dad, yeah. You just got the 4090 in there, Dad, oh my gosh. Yeah, exactly. But the 3090, what'd you do, Dad? The 3090, really, you couldn't get the 4090? Well, son, let me tell you what happened, okay?"
+    },
+    {
+      "start": 7334.74,
+      "end": 7335.58,
+      "speaker": "techno-tim",
+      "text": "Yeah."
+    },
+    {
+      "start": 7335.58,
+      "end": 7341.62,
+      "speaker": "adam-stacoviak",
+      "text": "AI changed everything, okay? And GPUs were hard to find and super expensive."
+    },
+    {
+      "start": 7341.62,
+      "end": 7347.02,
+      "speaker": "techno-tim",
+      "text": "Yeah, back in my day, we didn't have this AI thing like stealing all of our GPUs. It was Bitcoin."
+    },
+    {
+      "start": 7347.02,
+      "end": 7356.24,
+      "speaker": "adam-stacoviak",
+      "text": "That's right, that's right. Well, Tim, it's been fun geeking out with you, man. Thank you for hanging out for a bit, and anything left, anything else?"
+    },
+    {
+      "start": 7356.24,
+      "end": 7357.92,
+      "speaker": "techno-tim",
+      "text": "No, just anything. Any self-promotion,"
+    },
+    {
+      "start": 7357.92,
+      "end": 7359.28,
+      "speaker": "adam-stacoviak",
+      "text": "any plugs, anything?"
+    },
+    {
+      "start": 7359.28,
+      "end": 7361.04,
+      "speaker": "techno-tim",
+      "text": "I mean, no, just-"
+    },
+    {
+      "start": 7361.04,
+      "end": 7362.52,
+      "speaker": "adam-stacoviak",
+      "text": "I'll link it all up for you, don't you worry."
+    },
+    {
+      "start": 7362.52,
+      "end": 7384.88,
+      "speaker": "techno-tim",
+      "text": "Oh yeah, thank you. No, I appreciate being here. I appreciate the time to talk about it. I say this on my live stream on Twitch, like I rarely get to talk about this kind of thing to people in real life. It's either on my live show or to people in chat. And so it's nice to be able to talk to someone who understands what I'm talking about. So I appreciate it, man."
+    },
+    {
+      "start": 7384.88,
+      "end": 7390.16,
+      "speaker": "adam-stacoviak",
+      "text": "A real human, I'm not AI. If you thought I was, I'm not. This is real, I'm the real."
+    },
+    {
+      "start": 7390.16,
+      "end": 7391.76,
+      "speaker": "techno-tim",
+      "text": "Yeah, I appreciate it, man."
+    },
+    {
+      "start": 7391.76,
+      "end": 7393.48,
+      "speaker": "adam-stacoviak",
+      "text": "All right, bye, friends."
+    },
+    {
+      "start": 7393.48,
+      "end": 7396.84,
+      "speaker": "techno-tim",
+      "text": "Bye, friends."
+    },
+    {
+      "start": 7396.84,
+      "end": 7488.72,
+      "speaker": "adam-stacoviak",
+      "text": "Well, friends, as you may know, and you heard it in the show, we are now shipping full-length episodes of our podcasts with bonus visuals, chapters, and all to YouTube. And I've personally been enjoying it because I have been watching our shows on YouTube, not just listening, and I encourage you to do that too. YouTube.com slash changelog, subscribe. News on Monday is there, interviews midweek, and of course, this show, changelog and friends, on Fridays. Some would say it's the best thing ever. Well, speaking of that, it's better. Yes, changelog.com slash plus plus, bonus content, drop the ads, directly support us, and the joy of receiving a sticker pack in your inbox, your real inbox, your mailbox. Again, changelog.com slash plus plus, 10 bucks a month, 100 bucks a year. It's better, and we appreciate all the support. And of course, a big thank you to our friends and our partners over at Fly for supporting us. Fly.io, the home of changelog.com, and to our amazing friends over at Retool, retool.com, and Temporal, temporal.io, and of course, our friends at Delete Me. Make sure you text changelog to 64000, get 20% off, and that's awesome. And to the beat freak in residence, break master cylinder, those beats are banging. Love them every single week. Thank you, BMC. That's it, the show's done. We'll see you on Monday."
+    }
+  ],
+  "slug": "the-state-of-homelab-tech-2025",
+  "id": "79"
+}

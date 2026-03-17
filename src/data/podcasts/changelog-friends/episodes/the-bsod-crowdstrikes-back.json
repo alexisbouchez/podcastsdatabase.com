@@ -1,0 +1,1015 @@
+{
+  "title": "The BSOD CrowdStrikes back",
+  "description": "Robert Ross, founder and CEO of FireHydrant, joins Adam and Jerod to discuss the largest outage in information technology history following CrowdStrike's faulty update and its implications for software systems.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/54",
+    "MP3": "https://cdn.changelog.com/uploads/friends/54/changelog--friends-54.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "robert-ross"
+  ],
+  "segments": [
+    {
+      "start": 14.83,
+      "end": 43.74,
+      "speaker": "robert-ross",
+      "text": "Welcome to changelog and friends a weekly talk show about Citrix thin clients. Big thanks to our partners at fly.io the home of changelog.com over 3 billion apps have launched on fly you can too learn more at fly.io. Okay let's talk. Hey friends I'm here with a new"
+    },
+    {
+      "start": 43.74,
+      "end": 81.26,
+      "speaker": "adam-stacoviak",
+      "text": "friend of mine Shane Harter the founder of Chronitor check him out chronitor.io it lets you keep tabs on your chron jobs Linux, Kubernetes, Apache Airflow, Sidekick and more with over 12 open source integrations you can instrument all your jobs no matter where you're running them so Shane for me I'm using Linux and Linux chron jobs are by far the most popular in my opinion right but there's so many other chron like things Kubernetes, Airflow, Sidekick help me understand the full spectrum of background jobs and chron jobs beyond Linux chron. Yeah"
+    },
+    {
+      "start": 81.26,
+      "end": 184.06,
+      "speaker": "robert-ross",
+      "text": "Linux chron jobs are massively popular they are still 40 years later the tool that most developers will go to first when they need to start scheduling something in the background but when you get into a team environment or an enterprise environment there is a lot of other constraints at play and there's other considerations and whether it's simply like redundancy that you're not going to get from chron tab itself or you know more like complex orchestration stories like you can get with like Airflow we see companies eventually outgrowing chron and what we wanted to be sure of is that first of all like migrating from chron to anything else is a complicated thing so we wanted to give you tools to help you monitor that transition and make sure your jobs are working good as you as you do that migration you know and then second we wanted to give you a way to unify all these different job platforms because seldom do you have just like platform a and you migrate cleanly to platform b probably in a in a real world scenario you're running both side by side for a while you don't want to have different monitoring tools or different monitoring strategies for different for every different platform that you that you deploy so our goal is anywhere you're running a background job you can use chronator the number one way that we ensured that was possible is by having like a really simple api that you can just use with an http request yourself which is pretty abnormal for monitoring tools but that works in a lot of cases but to make it easier then every popular job platform out there like linux chron jobs kubernetes chron jobs windows sidekick airflow you name it we have a chronator sdk that you can install that will run automatically configure your monitoring run in the background and sync all your jobs with chronator the same way your linux chron jobs will be synced okay"
+    },
+    {
+      "start": 184.06,
+      "end": 234.51,
+      "speaker": "adam-stacoviak",
+      "text": "friends join more than 50 000 developers using chronator i'm one of them you can start for free and they have a pay as you grow pricing plan setup is too easy with more than 20 sdk's check them out at chronator.io that's c r o n i t o r dot io again chronator.io well friends we're here to discuss an outage a disaster that made history and we have a good friend of ours here robert ross the founder and ceo of fireheart to help us dig into what exactly happened and maybe more pertinently how to prevent incidents at large or just deal"
+    },
+    {
+      "start": 234.51,
+      "end": 251.71,
+      "speaker": "robert-ross",
+      "text": "with them what do you think robert well i'll do my i'll do my best without you know wearing wearing a monocle and thinking about exactly how this went down but yeah no i can i'm you know i've read every every news source about it i think at this point okay i think everyone's heard about it so"
+    },
+    {
+      "start": 251.71,
+      "end": 266.3,
+      "speaker": "adam-stacoviak",
+      "text": "excited to dive in what are you guys talking about i'm not even sure what we're referring to yeah right did something happen you know what i kept thinking every time i read crowd strike i kept thinking of acdc's thunderstruck i couldn't quite pull the pun across you know because it's"
+    },
+    {
+      "start": 266.3,
+      "end": 277.31,
+      "speaker": "robert-ross",
+      "text": "crowd strike thunderstruck but that song was been playing in my head probably before this happened but it just happened to a line i don't know i'm an acdc fan what can i say you know the developer may"
+    },
+    {
+      "start": 277.31,
+      "end": 281.15,
+      "speaker": "adam-stacoviak",
+      "text": "have been listening to that when they wrote the code they might have been you know that could be"
+    },
+    {
+      "start": 281.15,
+      "end": 287.55,
+      "speaker": "robert-ross",
+      "text": "why you're you're there potentially i like to code to some acdc yeah for sure especially that song"
+    },
+    {
+      "start": 287.55,
+      "end": 308.13,
+      "speaker": "adam-stacoviak",
+      "text": "that'll pump you up man for sure i code faster when uh yeah that type of music is playing that's for sure i'm sure most folks are to some degree primed on what happened but who wants to nominate themselves to explain at least a primer of what happened i think you did it pretty well in news jerry but you also covered some other sides of it too but yeah what do you think you want to handle"
+    },
+    {
+      "start": 308.13,
+      "end": 344.69,
+      "speaker": "robert-ross",
+      "text": "let me handle it well there was a giant outage on friday due to crowd strike pushing a bad update to a billion machines i'm not sure the exact number but basically every windows-based company organization around the world was affected probably somehow many things were down the banking industry got hit hard hospitals got hit hard airlines got hit hard except for southwest which i discussed in news the reasoning by the way quick update on that i put in news was that"
+    },
+    {
+      "start": 344.69,
+      "end": 351.01,
+      "speaker": "adam-stacoviak",
+      "text": "they are allegedly still running old versions of windows 95 3.1 could be true might not be true"
+    },
+    {
+      "start": 351.01,
+      "end": 355.17,
+      "speaker": "robert-ross",
+      "text": "those are actually rumors i thought that was a joke when i saw that maybe maybe that's true"
+    },
+    {
+      "start": 355.17,
+      "end": 387.57,
+      "speaker": "adam-stacoviak",
+      "text": "it kind of was uh it duped jared it got him it might be fake news i updated our our changelog newsletter to make sure that it's accurate now because i thought it was funny too which is why i put it in there and it's true that southwest was unaffected and of course southwest famously was down was it two years ago for 10 days yeah because they couldn't the the holiday outage yeah the holiday outage and a lot and back then there was reasonings because they were on really old versions of windows and they couldn't do stuff and so i think those two stories combined to say"
+    },
+    {
+      "start": 388.29,
+      "end": 404.67,
+      "speaker": "robert-ross",
+      "text": "perhaps their old versions of windows have actually saved them this time but allegedly not not necessarily the case but funny either way yeah man i guess the way i would summarize it is the blue screen of death made an epic comeback and uh took over the world total"
+    },
+    {
+      "start": 404.67,
+      "end": 410.43,
+      "speaker": "adam-stacoviak",
+      "text": "world domination last week now wouldn't you say that this is affected by crowdstrike customers"
+    },
+    {
+      "start": 411.55,
+      "end": 440.67,
+      "speaker": "robert-ross",
+      "text": "not just simply windows users yeah but i guess here's what's weird about it i had never even heard of crowdstrike but it sounds like who's not a crowdstrike customer robert were you familiar with crowdstrike prior to this yeah we we use uh crowdstrike okay not fire header yep okay so what do you what do you use them for uh endpoint security i mean we we run their their falcon demon on all of the employee laptops we don't use it for like the services we provide it's but it is"
+    },
+    {
+      "start": 440.67,
+      "end": 448.43,
+      "speaker": "adam-stacoviak",
+      "text": "running on every fire hydrant laptop gotcha and these laptops are windows linux mac os all all mac"
+    },
+    {
+      "start": 448.43,
+      "end": 476.35,
+      "speaker": "robert-ross",
+      "text": "yeah so we weren't we weren't impacted by it thankfully just the windows crowdstrike world yeah that's what it seems like it seems like it seems like there was a change that was in the new sensor that runs you know silently i think a lot of people don't even know that they have crowdstrike on their laptop and that's by design right that's that's i would say a good product you don't even know it's there until yeah you know gives you a blue screen of death"
+    },
+    {
+      "start": 478.11,
+      "end": 481.63,
+      "speaker": "adam-stacoviak",
+      "text": "it's a bad way to find out about it but right before that it's like brilliant it's like you"
+    },
+    {
+      "start": 481.63,
+      "end": 544.67,
+      "speaker": "robert-ross",
+      "text": "know you had a bunch of stuff in your walls and then eventually it falls out of the wall and you're like oh that's been rotting you know behind there for a long time i think that the change is the always the biggest cause of of incidents i mean we see it all the time google even has a stat that 80 of their incidents are caused by a change so it's not exactly shocking that a change caused this i think what's shocking to people is the scale of the incident and i when you were you know you had acdc thunderstruck playing in your head i kind of had like jeff goldblum in my head where he's like you know flap your wings and like a hurricane happens you know across the ocean right that's kind of what it felt like the butterfly effect yeah the butterfly effect exactly that's that's kind of what it felt to me a very simple try to access memory that wasn't there grounded flights still has grounded flights delta has cancelled hundreds of flights every single day for the last five days and it's you know i think it's gonna we're just gonna keep hearing about problems for the next few weeks from this thing"
+    },
+    {
+      "start": 544.67,
+      "end": 555.23,
+      "speaker": "adam-stacoviak",
+      "text": "yeah it would be interesting if somebody could somehow some way come up with like a global economic impact of this event but it has to be measured in billions maybe trillions of dollars"
+    },
+    {
+      "start": 555.23,
+      "end": 592.51,
+      "speaker": "robert-ross",
+      "text": "i think so i mean we had employees and teammates at fire hydrant that had to cancel trips i had friends that were at the airport that had to cancel their weekend plans that they were flying somewhere so it wasn't only the places like airports and hospitals that were impacted it was local economies totally that were impacted by this as well friends going to dominican republic that couldn't go and it's hard to reschedule those types of plans so it's kind of like you know probably not coming back that you know that loss that money yeah well not to mention just labor"
+    },
+    {
+      "start": 592.51,
+      "end": 598.67,
+      "speaker": "adam-stacoviak",
+      "text": "pure labor costs of mitigation or remediation because this unfortunately"
+    },
+    {
+      "start": 599.31,
+      "end": 633.49,
+      "speaker": "robert-ross",
+      "text": "does require i think direct impact with each machine affected meaning you can't just remotely reboot these machines is what i read you have to actually go touch each machine and i don't know boot in a safe mode or maybe you know robert or adam exactly the process but it's relatively straightforward unless you have an encrypted hard drive then it's slightly less straightforward but we're talking about people walking around data centers going to each computer or walking around hospitals going to each computer i mean the the amount of highly paid individuals effectively"
+    },
+    {
+      "start": 633.49,
+      "end": 642.05,
+      "speaker": "adam-stacoviak",
+      "text": "doing a mass reboot this week is probably measured in large numbers yeah and even like parts of the"
+    },
+    {
+      "start": 642.05,
+      "end": 692.37,
+      "speaker": "robert-ross",
+      "text": "country in the u.s that had issues probably don't have you know a big workforce capable of doing this work you think of a you know a giant airline they have a massive it team that can go and do that labor and that work but alaska in rural alaska 911 wasn't working people couldn't call 911 really and at one point even portland's mayor declared a state of emergency on friday and there's parts of the impact area that just don't have like a response unit that can go solve those those problems so i do think we're going to hear keep hearing about it there's going to be inquiries by the government i think i saw today that crowdstrike ceo is going to be called upon by congress that was like news of like 16"
+    },
+    {
+      "start": 692.37,
+      "end": 704.29,
+      "speaker": "adam-stacoviak",
+      "text": "hours ago or so ap had that out there the washington post had it out there house committee calls on crowdstrike ceo to testify on the global outage and not surprising and i you know he went"
+    },
+    {
+      "start": 704.29,
+      "end": 730.37,
+      "speaker": "robert-ross",
+      "text": "on air pretty quickly it was like this is our fault we're fixing it and i have to commend the confidence to just go and say own it that quickly but you know i have questions i think everyone does even my aunts and uncles in their late 60s who don't quite understand this type of world like we all do we're asking me questions i mean i had everyone felt this i think in some way shape or"
+    },
+    {
+      "start": 731.33,
+      "end": 916.94,
+      "speaker": "adam-stacoviak",
+      "text": "well windows only there's a lot of details so i caught up with dave plumber that's literally his name he is on youtube he runs a channel called dave's garage he's an x from what i understand an x microsoft operating system developer and so he knows a lot about this stuff and i will link it in the show notes but i mean he was my source of like literally what really happened on the inside there's also the code report from i think it's fireside or fire something on fire ship on youtube that also summarized some things that i pay attention to as well as part of like researching this topic so there's some theories that that this is uh just simply bad quality code this could be sabotage or this could be planned now those are obviously theories not truth at this point but i think it's important to look at you know robert you said change is what affects things and what causes incidents we're not sure when exactly this code got pushed but what happened was or at least from my understanding and thanks to dave for explaining this is that this software falcon as you all run as well it runs in what they call kernel mode and stop me if you've heard this one before but there's two lands to live in basically in the operating world you've got user mode and you got kernel mode and kernel mode has you know higher priority and when an application crashes in kernel mode it crashes the system and it does it by design because it's protecting the system it's better to crash than to actually boot up something else worse could happen if that was the case and crowdstrike their software called falcon lives and runs in kernel mode and that's i guess by design i'm not sure why it has to and then there's this labs that microsoft has called windows hardware quality labs that drivers that live in kernel mode or run in kernel mode that are third party they have to go through this process to get deployed and so it gets tested by microsoft through this whql uh labs system to be able to be deployed it gets signed and used by the operating system etc but the way they bypass this was because in dave's words they want to be they want to be agile ambitious and aggressive to get the latest protection and so as a way to deploy this latest protection more fastly to windows users and i guess it's not the case for mac or other systems because it didn't happen you all robert is that they have these things uh called definition files that the kernel reads from so when the kernel wakes up if it's a new boot it wakes up in a new rental folder and looks for this other code this dynamic code that gets deployed outside the kernel delivery system so essentially you have unsigned code that runs in kernel mode that's bad stuff from what i understand thanks to dave that's a rough version of the mechanics of how this works on the windows system"
+    },
+    {
+      "start": 917.58,
+      "end": 1079.09,
+      "speaker": "robert-ross",
+      "text": "i think it's a i think it's a game of trade-offs and that's a hard thing to feel now right like people's flights got cancelled you know hospital surgeries got cancelled like it's a big deal but at the end of the day do we it's easy to say this was the worst thing that could happen instead of the sum of the parts of all the things that were maybe prevented in the past and we just have no idea i don't even think that crowdstrike would probably know but how many things were via crowdstrike or another you know blocking system you know security system running have prevented mass credit card theft or identity theft or other things going on it's hard to say you know no one's gonna buy that now though the trade because no one's gonna look at a trade-off right now there could be like flight my flight got cancelled i don't care what i don't care what my trade-offs were in the past right now the other thing that i think that is going to be we're just going to have to see if crowdstrike post a public retrospective but this code could have been this code that is you know the the crime scene of this code base that could be in there we don't know for 10 years we have no idea and another piece of code was deployed 10 miles away or so they thought from that code base for that line of code calling that memory address and then that caused it right i think it's one of the challenges with building software now is like we were kind of saying earlier the butterfly effect like software is so complex now and so vast that you can deploy a change and what you think is a different country of your code base but it impacts across the ocean and somewhere else and i i would wager that's what happened here i would wager there's just no way that crowdstrike doesn't have a crazy test suite that microsoft is probably running tests for them because it does run in kernel mode they have to get that approval it sounds like i just have a really hard time believing that this very simple line of code just got deployed and like took everything down i could be totally wrong and totally off base i have no idea but whenever i've taken down production and it's been many times it wasn't explicitly because the one piece of code that i wrote because i tested that i i put that through its paces i wrote unit tests it was the combination of that and something else like what's the when you add chlorine and vinegar like what's what's like that potent combination they say never to do because it's like super toxic all of a sudden that's what it feels like happened to me uh in"
+    },
+    {
+      "start": 1079.09,
+      "end": 1088.29,
+      "speaker": "adam-stacoviak",
+      "text": "this outage specifically yeah i mean for me it seems like some of our most ingrained premonitions"
+    },
+    {
+      "start": 1089.01,
+      "end": 1143.33,
+      "speaker": "robert-ross",
+      "text": "coming to fruition in terms of you know being down in the mucky muck as a developer we just know and i've said many times it just feels like we're building a house of cards you know because it's so complicated and it's so intertwined and i mean it's effectively especially with web development we're talking about a worldwide distributed system you know which has things that happen i mean of course there's an explanation in retrospect for all these things but when you build a house of cards eventually it's going to just topple and sometimes it topples in ways that you don't know why or when or how and what will be the downstream effects and of course this isn't web development in this case this is operating system code but still network to machines being able to remotely update you know um every once in a while just a house of cards topples and we have to start over"
+    },
+    {
+      "start": 1143.33,
+      "end": 1149.89,
+      "speaker": "adam-stacoviak",
+      "text": "to a certain extent rethink things try to adjust and clean up the mess and move forward i mean i"
+    },
+    {
+      "start": 1149.89,
+      "end": 1211.57,
+      "speaker": "robert-ross",
+      "text": "even think of it for every person listening to this like think about the mechanics of what is going on as you're listening to this podcast if you're using headphones right now your headphones have software in them that is going to a bluetooth chip that has software on it that's part of an operating system that's translating that to go over the air to a cell phone tower that's running software that's going to a network switch that cisco probably built that's running software and it just goes more and then it eventually hits an apple music server or some app spotify server that goes through a cdn that's software it's just software all the way down i mean it is thousands of touch points of software for you to hear this stupid analogy that i'm making like that that's like that and you had to go through that grueling exercise through that much software and that's just the world now that's the way it is it's not going back we can't unwind this anytime"
+    },
+    {
+      "start": 1211.57,
+      "end": 1222.85,
+      "speaker": "adam-stacoviak",
+      "text": "soon right that's why i said sometimes you just have to clean up the mess and then obviously do a retrospective and one thing we can do is make sure that particular thing doesn't happen ever"
+    },
+    {
+      "start": 1222.85,
+      "end": 1322.29,
+      "speaker": "robert-ross",
+      "text": "again you know but that's just one of the things that's what regression tests are for like i'm not going to let this particular bug fight me and my billion customers again and i'm sure crowd strike after they go through the pr process i mean not pull requests but like public relations because i mean their stock was down 23 i think they have i mean they are massively hurt by this their reputation is just in the mud so they're going to go through all that and maybe there'll be people fired who knows what's going to happen but then hopefully they sit down and say okay let's do our analysis let's do our post-mortem let's figure out how we can make this particular aspect of our business not hurt people again but that's just one thing that's similar it goes back to the conversation of information security that we're having with jacob de priest from github's security team the challenge of the defender is you have to defend the entire system and the attacker only has to find one hole bugs work the same way only it's just accidental and not malicious you know and so into that in that conversation i said i feel like to a certain extent resistance is futile i mean the defender does all they can but you're still going to have the attacker succeed sometimes and it seems like with software systems the bugs are going to be there i mean we haven't found a way of eliminating all bugs and so how do we build around fortify defense in depth react respond i don't know i think the in one case this is an advertisement for heterogeneous systems"
+    },
+    {
+      "start": 1322.29,
+      "end": 1328.45,
+      "speaker": "adam-stacoviak",
+      "text": "what's the word not a monoculture just like in biological systems right like you want to have"
+    },
+    {
+      "start": 1328.45,
+      "end": 1334.45,
+      "speaker": "robert-ross",
+      "text": "yeah regenerative farming where you have you know you plant two crops in the same plot of land and"
+    },
+    {
+      "start": 1334.45,
+      "end": 1348.05,
+      "speaker": "adam-stacoviak",
+      "text": "they help each other yeah exactly just diversity inside of your our software systems so that when we have a problem in one particular system aka windows machines running crowdstrike that's not"
+    },
+    {
+      "start": 1348.05,
+      "end": 1409.87,
+      "speaker": "robert-ross",
+      "text": "a worldwide global outage that's like a regional you know 20 of the internet was down today guys versus what it actually like that that whole let's have multiple operating systems extent not just worldwide but even in our own organizations which can be a huge burden a huge pain and we tend to want to normalize and streamline and formalize a specific stack of software because it's easier to maintain and manage but then you just are vulnerable to attacks and like a 100 scale of your organization so i mean i think one takeaway we can have is like hey i'm really happy i'm on mac os today now maybe tomorrow all the windows users will be happy that they're running windows and not mac os because something will attack mac os but the linux users are having the best time of their life right now oh yeah the memes the memes are strong yes right now what is the year of the linux desktop as you know jared that's i've heard that the last 15 years of my life and"
+    },
+    {
+      "start": 1409.87,
+      "end": 1572.16,
+      "speaker": "adam-stacoviak",
+      "text": "has my number fruition here's the through line to all this though the through line is massively deployed software that's it or massively dependent upon software in in a different scenario like a dependency well it's that this was everywhere right it's that this was everywhere and then i think there's very specifically to this scenario there are some layers that may have been not thought so well through like literally if dave from dave's garage dave plumber is accurate in his description of how they bypass the whql which is a a hardware labs quality system that is there to sign these drivers to run in kernel mode because it's so like what runs in kernel mode is so limited because of its power and here they are able to run there which is okay fine if you have to then and windows and that team blesses you and they put you in the whql system to have this signed certificate say okay your your driver is blessed we've tested it to the absolute best of our knowledge we put it through all the paces but then to be able to have a separate folder that you can deploy to at scale and they be the driver essentially is an engine that runs code that has not been signed or not gone through these paces that alone there is like i'd imagine robert as you look at what you do and how you help folks look at incidents it's like when we look at what we've done here we have to examine the system we built maybe it's you know anti the windows way to have this sidecar this folder of definitions that the driver enumerates over and sucks in and the driver essentially is an engine that runs unsigned code that could be true if dave's accurate and if that is true wow how did that happen is that uh in quotes legal not so much in the true legal sense but like by the relationship formed between crowdstrike the falcon software and the windows team that has whql to allow this this to live in kernel land and not use your land yeah that's one thing and then you got just the ability to deploy at scale and for the system to do what it should have done so you know when an app crashes an app crashes when the kernel mode crashes the system crashes and it crashes because it has to like this is how it it did what it should have done there was a bug in the kernel driver that when it booted up it didn't for whatever reason cause an exception at the kernel level and when the kernel crashes the the whole system crashes and that's by design so it effectively it was preventative on purpose"
+    },
+    {
+      "start": 1572.16,
+      "end": 1752.86,
+      "speaker": "robert-ross",
+      "text": "but by a bug or a faulty code yeah i think that i think as software engineers and i feel qualified to say this because it is a criticism is that we we love thinking that we you know have invented new things and every once in a while you just kind of have to take a step back and and think of oh actually we've gone through all this process without software we've already done it and the example i use all the time is like buildings and building codes and structures and when was the last time you heard of a building catching on fire i live in new york city there's a lot of opportunities for buildings to catch on fire and it does happen it does happen but not nearly at the rate that it used to happen if you think about the london fire if you think about the san francisco fire like all of these events that occurred really just triggered new ways of thinking because of catastrophe and this will do the same thing we've been perfectly fine for however long this sidecar technology has been running in production we've been perfectly fine with that and then now we're not right or maybe now maybe now we're not the same thing has happened we have sprinklers in our buildings because of fires we didn't put sprinklers there as a you know preventative measure like we had to have a lot of fires before we said maybe we should have sprinklers in buildings or maybe we should put concrete as the center of the building so it doesn't fall when it becomes structurally unsound and because of the hundreds of years that we've had of retrospectives and all of these learnings from these types of things we have safe buildings now same things with cars you know you were saying the kernel panic is a preventative measure cars have the same thing they have they have crinkle zones to protect the driver it's designed to collapse in certain ways and we're getting to that point with software more and more i think the challenge we have for software is it's much easier to do new things with software than it is to do new things with cars i can go write a crazy random piece of code and put it in production today to all the fire engine customers i swear i won't do that but like i could do that and it would cost nothing there'd be no labor virtually but with these other systems like it's expensive to do new things like that so the problem i think is we're kind of getting ahead of our skis now with software like it's happening more and more and more that we're hearing about these global outages because the system is changing constantly and we're introducing change at the fastest most rapid rate that we possibly could do it like you were saying so it's a bit of a house of cards like this is probably just the beginning like we're probably going to have another massive outage before we really start to learn oh maybe we should scale back how much we're actually changing these"
+    },
+    {
+      "start": 1752.86,
+      "end": 1764.46,
+      "speaker": "adam-stacoviak",
+      "text": "really complicated systems yeah and the technical details of that hypothetical future outage could be wildly different than this and so you know whereas maybe you can say well what was the cause"
+    },
+    {
+      "start": 1764.46,
+      "end": 1824.22,
+      "speaker": "robert-ross",
+      "text": "of the fire well it was a gas leak well it was a person who was doing something you know there's these different reasons but it's they're all kind of like something combusted where it shouldn't happen we didn't have we didn't have preventative measures in place with software so much of it's wildly different i think it could be very hard now we have had some motion in the direction of i think it was the united states white house recently promoted memory safe languages for instance rust being i think named perhaps but definitely the rustations were very excited about that particular note yep so we have kind of nudges happening by governments i know the eu is what i would call more heavy-handed with their regulation around the things you can and cannot do with software but gosh it just seems like because of the diversity in software systems you can't just put fire suppression in the building and be done like there's going to be like so many different"
+    },
+    {
+      "start": 1824.22,
+      "end": 1836.54,
+      "speaker": "adam-stacoviak",
+      "text": "things i think so many different regulations and rules and details in order to actually harness up some sort of protection that would be effective against like an 80 solution even yeah i hear what"
+    },
+    {
+      "start": 1836.54,
+      "end": 1885.04,
+      "speaker": "robert-ross",
+      "text": "you're saying it's it's a crazy thought and i really hope we don't end up in this world but buildings have regulated materials that they can be built in now and you can't even like children's toys can't have certain chemicals in them like it's a these are all very regulated industries and you know could software eventually get to that point where governments are like uh you can't use any memory on safe language it has to be you know blessed by the us government if it's being used for public distribution period could we get there i don't know maybe we've gotten there and almost everything else people that have like cabins in the woods have regulations that they still have to abide by so i don't know it's a wild thought i've never really had it until you started saying"
+    },
+    {
+      "start": 1885.04,
+      "end": 1913.78,
+      "speaker": "adam-stacoviak",
+      "text": "that drug well what you're saying though is we get to the future innovations through past failure and retrospectives and learning that's how we get to the future is deploying what we think is the best solution it not being the best solution there's some sort of catastrophe on a small or large scale we examine that we retrospective we policy we regulate we redeploy and we try again"
+    },
+    {
+      "start": 1913.78,
+      "end": 1919.73,
+      "speaker": "robert-ross",
+      "text": "well the only other answer is to predict the future yeah yeah and i think that's to some degree"
+    },
+    {
+      "start": 1919.73,
+      "end": 1940,
+      "speaker": "adam-stacoviak",
+      "text": "what developers are they're trying to do they they're at least tasked with trying to solve the present problem that is future proof that has a version of future proof in it i mean you hear that all the time right this is future proof code i've never said that about my code maybe not but somebody's like this is this will future proof i have yeah somebody's definitely"
+    },
+    {
+      "start": 1940,
+      "end": 1950.88,
+      "speaker": "robert-ross",
+      "text": "said that and i have always regretted it yeah let's say feature proof maybe my code's feature proof yeah not future proof yeah feature free what's up friends i'm here in the breaks with"
+    },
+    {
+      "start": 1950.88,
+      "end": 1962.08,
+      "speaker": "adam-stacoviak",
+      "text": "david shu founder and ceo of retool so david retool has definitely cornered the market on internal tool software development but zoom out for me what's the big idea why did you start retool"
+    },
+    {
+      "start": 1962.08,
+      "end": 2091.12,
+      "speaker": "robert-ross",
+      "text": "what is the big idea with internal software yeah so retool started at this point seven years ago and when we started retool the core idea was that internal software is a giant giant category that no one really thinks about and what's surprising to most people is that internal software represents something like 50 to 60 of all the code written in the world which might sound pretty surprising but if you think about it most of us silicon valley we work at software companies you know whether it's like a airbnb a google a meta these are all companies that are software companies selling software and so most engineers these companies are working on external facing software but if you think about most software engineers in the world most software engineers in the world actually don't work at these software companies there's not that many of them there's maybe 10 20 of them big ones at least most of the companies in the world are actually non-software companies so if you think about a company like an lvmh for example like a cocola for example like a zara zara is not selling any software they actually have a lot of software engineers actually and all their software engineers all they do day in and day out is basically build internal software so that's i think one reason we're starting the second reason we started retool is if you look at all this internal software that people are building it is remarkably similar so if you take a look at you know like a zara for example or a cocola two very different companies obviously one a clothing company one a beverage company but if you actually look at the software they're building internally to go run their operations it is remarkably similar it's basically forms buttons tables all these sort of pretty common building blocks basically that come together in different ways but then if you think about you know not just the ui but also what's the logic behind a lot of this stuff they're pretty much just hitting api endpoints hitting databases uh you care about authentication you care about authorization these are sort of a lot of common building blocks if you want to internal tools and so for us the insight was wow internal software is a ginormous category and it's all so similar and developers hate building it and so could we create a sort of higher level framework if you will for building all this"
+    },
+    {
+      "start": 2091.12,
+      "end": 2167.79,
+      "speaker": "adam-stacoviak",
+      "text": "software and that would be really cool that would be really cool okay so listeners retool is built for everyone built for enterprise built for scale built for developers and that's you if you found yourself nodding your head to what david was saying then check out retool at retool.com slash changelog is the fastest way to build internal software do yourself a favor get a demo or start for free today again retool.com slash changelog i really come back to this at scale situation i think you know when we have the larger catastrophes outages etc it's because of widely deployed code which is a great thing because that code is somehow widely useful but then you've got to have certain things in place that once you're maybe at that level certain things that have to take place to instantiate change because like you said earlier robert it's usually change and not so much that specific change it's that change plus something else that's the unintended consequence of those two together and i did uh look up by the way just because i was like what actually happens when you combine chlorine bleach with vinegar what it produces chlorine gas which is highly toxic so don't do that and the reaction is just i couldn't"
+    },
+    {
+      "start": 2167.79,
+      "end": 2173.07,
+      "speaker": "robert-ross",
+      "text": "remember not good at all baby pad yeah it's not good at all i mean it it will damage your eyes"
+    },
+    {
+      "start": 2173.07,
+      "end": 2178.19,
+      "speaker": "adam-stacoviak",
+      "text": "respiratory your respiratory system like you're breathing it's it's just not good at all so never"
+    },
+    {
+      "start": 2178.19,
+      "end": 2189.15,
+      "speaker": "robert-ross",
+      "text": "but we learned that the hard way you know somebody learned that somebody did it yeah see exactly but now we know so right did it i like noticing obscure signs in public places because they're"
+    },
+    {
+      "start": 2189.15,
+      "end": 2219.23,
+      "speaker": "adam-stacoviak",
+      "text": "always indicative of some sort of incident every time has a story yeah yeah i remember i was at a hotel one time and i was hanging out in the pool or maybe the hot tub and there's a sign that said this pool is not for defecation purposes yeah which was a very strange sign and that might not be verbatim and i can't remember the defecation or really you know it was very formal though so i probably did say that and i thought yeah somebody pooped in this pool at one point and there was a there was an incident where they said we gotta put a sign up or someone watched"
+    },
+    {
+      "start": 2219.23,
+      "end": 2229.39,
+      "speaker": "robert-ross",
+      "text": "catty shack and was just terrified just baby roots yeah so yeah we uh we learn from the hard way"
+    },
+    {
+      "start": 2229.39,
+      "end": 2233.79,
+      "speaker": "adam-stacoviak",
+      "text": "most of the time yeah because we can't predict what will happen when we combine those two elements"
+    },
+    {
+      "start": 2233.79,
+      "end": 2327.68,
+      "speaker": "robert-ross",
+      "text": "until somebody does it and sometimes what happens is we go too far honestly we governments teams you know whatever it is the reaction can almost be too much and i really do hope that i mean this is such a big outage that governments are getting involved that i really hope there's some restraint in what comes out of this i do because i i can see a world where it does get more restrictive in the next few years because of this like a good example is like the tsa the you know horrible tragic event 9 11 but the tsa has been proven time and time again that it's security theater and we spend billions upon billions of dollars on it every single year and i think that's an example of like you know we overdid it we went too far reactionary i don't think tsa should be gone entirely i think you know there is purpose to it but there are plenty of examples of things in the world that we just go too far for example moratoriums and code it's pretty often that you have a couple incidents in a row and then what happens the whole everyone says don't deploy anymore stop deploying and then you'd realize that you have a memory leak and your system dies anyways because you're not deploying and not restarting that process and it dies anyways so you know i just hope that we don't go too far with this that we don't you know overreact to this"
+    },
+    {
+      "start": 2327.68,
+      "end": 2394.58,
+      "speaker": "adam-stacoviak",
+      "text": "massive outage i want an appropriate reaction to it right just to add some layers to this and going back to something you said jared and it's kind of a side trap but i kind of get the i get the information i texted my friend so i had lunch with a friend of mine yesterday i won't say where they work but they work at a bank and he said they were down for four hours which i think is a short time frame compared to other scenarios we heard of i don't know if that was literally only exactly four hours or some co-workers were only down for four hours or the specifics but let's just say at least a day right this is a 10 000 plus organization when it comes to having laptops and distributed employees and branches and you know regional hq's and state hq's whatever in all these things right so at least a day and those who who did not have their laptop booted down and have to boot up were safe because there was no there was no reboot required but for those jared you would love this because of your freaking multi-year streak or what was the number of years for your laptop i was listening back to our podcast recently and i just i can't remember which one"
+    },
+    {
+      "start": 2394.58,
+      "end": 2413.06,
+      "speaker": "robert-ross",
+      "text": "but yeah my old my very first mac for a laptop i didn't reboot it for over a year i just was trying to see how long it could go oh did you do like uptime and terminal and yep uptime well i had the also i stat menus we'll show that to you which i've used for many years so it's very cool and i'll just close it and open it and i refuse to reboot it because i just wanted to see how long"
+    },
+    {
+      "start": 2413.06,
+      "end": 2494.62,
+      "speaker": "adam-stacoviak",
+      "text": "i called it a survey right yeah and you'd have been safe so the people that you know had your your ambitions i suppose on on boot time were safe but for those who booted down and booted back up the next day which is a large majority of the people right they had that issue and they were told to reboot and see if it fixed it obviously it didn't and that if that didn't work they literally had to go to the localist it center for them to have a person like you had said jared touch the machine do something to it and then it was you know nick burns good to go again you know but could you imagine like could you imagine the cost of that enumerated across all the scenarios across the entire globe that was affected by this like was it 8.5 million windows computers were actually affected in a single day where there was a larger deployment but 8.5 million i think is the the current number if it's accurate that's it i think that was just one section of it wasn't it well i think that was the crash like there was like that many windows computers that crashed i don't know if that's the only computers that were affected necessarily but those are the ones were like in the critical sphere of should be up but not up so yeah well you know and one of"
+    },
+    {
+      "start": 2494.62,
+      "end": 2502.74,
+      "speaker": "robert-ross",
+      "text": "those servers was a sql server 2000 that right or iis 500 other servers were connecting to right"
+    },
+    {
+      "start": 2503.78,
+      "end": 2535.3,
+      "speaker": "adam-stacoviak",
+      "text": "yeah the cascading failure is yeah is massive i just feel like nick burns had you know his best day of work ever do you guys remember nick burns from saturday night live this is your company's uh your company's your company's computer guy your company's computer guy because he's yeah it's a jimmy fallon character he's one of his better characters not a huge"
+    },
+    {
+      "start": 2535.3,
+      "end": 2585.74,
+      "speaker": "robert-ross",
+      "text": "fallon fan myself but this was a good one where he was like just the most obnoxious computer guy stereotype ever and nobody wanted to go ask him for help because he was going to just denigrate them you know and his i think his catch line was like move move was that so hard so i think nick burns had a great day you know he gets to go around to everybody's computer and get out of the way i'm gonna reboot this thing yeah the heroes honestly i mean the amount of patience that you would have to have on that day saturday sunday today yes you know oh gosh oh my gosh could you imagine this safe booting everything into safe mode and fixing i just couldn't even and just to have a list of like hundreds of computers you have to do next you're like all right just one by one"
+    },
+    {
+      "start": 2586.62,
+      "end": 2619.04,
+      "speaker": "adam-stacoviak",
+      "text": "oh my gosh yeah that's true it was a friday event that happened over the weekend i mean not even just those affected by obviously the the downtime and their travel and their plans or their work it's now like wow like it has a big job to do i was just watching like the first few 30 seconds of when i'll link up in the show notes nick burns your computer guy or your company's computer guy he's like something about a virus and he's not going to be able to reboot like he just almost described what happened you've got to go and fix it so i'm like"
+    },
+    {
+      "start": 2619.04,
+      "end": 2632,
+      "speaker": "robert-ross",
+      "text": "i'll drop down the notes but or maybe even the audio we'll see i mean it's this outage that this crowdstrike outage really hit every trope it really did deployed on a friday right"
+    },
+    {
+      "start": 2634,
+      "end": 2640,
+      "speaker": "adam-stacoviak",
+      "text": "global outage what you know windows yeah i mean the whole it brought in the operating system wars"
+    },
+    {
+      "start": 2640,
+      "end": 2645.6,
+      "speaker": "robert-ross",
+      "text": "it really hit so many check boxes memory on safety of course there was a lot of c++"
+    },
+    {
+      "start": 2646.48,
+      "end": 2653.36,
+      "speaker": "adam-stacoviak",
+      "text": "versus rust conversations yeah i saw a lot of flaming of c++ and that's what kind of irks me"
+    },
+    {
+      "start": 2653.36,
+      "end": 2670.48,
+      "speaker": "robert-ross",
+      "text": "because i'm like i don't know the stuff that you probably tweeted this tweet from is probably running c++ in some way shape or form certainly somewhere in the stack yes right i can even think of it like i think that twitter x runs envoy which is written in c++ right i don't know"
+    },
+    {
+      "start": 2671.84,
+      "end": 2682.16,
+      "speaker": "adam-stacoviak",
+      "text": "i was thinking about this actually from a an incident standpoint and uh robert you know a thing or two about incidents right you know one or two things about them at least like yeah i"
+    },
+    {
+      "start": 2682.16,
+      "end": 2689.28,
+      "speaker": "robert-ross",
+      "text": "think so would you think so i mean let me test me out here just checking it's like so specifically"
+    },
+    {
+      "start": 2689.28,
+      "end": 2730.1,
+      "speaker": "adam-stacoviak",
+      "text": "to my friend in the bank situation their team had to raise an incident company-wide that wasn't even their fault it wasn't like their it department messed up so can you describe what you hypothesize for how the incident in a well managed it slash technology stack organization would and should react when it's not even their problem like it's their problem obviously but they didn't do it and the fix is not clear because it's upstream how do you think this percolated inside what's your hypothesis so that's a good question i mean for an incident like"
+    },
+    {
+      "start": 2730.1,
+      "end": 2887.02,
+      "speaker": "robert-ross",
+      "text": "this like you're saying it's it's not you know it's on the outside of your controlled world it's challenging so your job at that point for whatever these teams the banks the call centers all these places that were were down because of this outage the first job is going to be containment and workarounds you're going to try to find a workaround as fast as humanly possible and those teams are going to what they're going to do is they're going to work within their controlled world so an it team at a bank probably is going to tell everyone at the bank impacted own the communications like it's not it's not a bug that we're causing here's the news that i'm sure everyone probably knew at that point here's what you can do to try to fix it right here's how you boot into safe mode here's how you do x and the incident responders at that point they're just going to be trying to create a perimeter where it doesn't get worse and they can do things a little bit better a good example is like if you think of a wildfire there are firefighters that are fighting the fire that's crowd strike and then there are firefighters down or rather up the hill chopping down brush cutting down trees like trying to stop it from going any further that's kind of what those teams are going to go that's the mode that they're going to go into i can't say for sure but like that's in the situations i've had a vendor outage that's the first thing we do is we try to look for another route this happened recently i mean we actually our cdn provider you know incidents are natural so i won't name them it's not not blaming them but they had a incident like a week and a half ago only impacted newark pretty small and we can't control that and we had to own that and our and we had an incident opened internally because all of the east coast users were going through this point of presence and they were getting 502s so what we did is we actually just rerouted traffic we just took our cdn out of the loop and you know that's how we got around it that was the only thing we could do and i think teams are going to have to start thinking about these emergency routes more and more especially because this crowdstrike outage they're going to be like what is our risk surface area if we use this vendor and that vendor goes down are we screwed i think a lot of companies are going to start thinking that now just because of this one outage it's going to be pretty present in people's minds and the management process is going to have to change you're going to have to create like your go bag of incident management"
+    },
+    {
+      "start": 2887.02,
+      "end": 2897.66,
+      "speaker": "adam-stacoviak",
+      "text": "when it's out of your control i remember doing these practices back when i was in school which was a mis degree with a cs minor i was going to school for which is you know management"
+    },
+    {
+      "start": 2897.66,
+      "end": 2940.74,
+      "speaker": "robert-ross",
+      "text": "information systems which i probably haven't said that phrase since i graduated but i remember them doing these practice routines business continuity planning i'm starting to remember the acronyms as well disaster recovery like you would actually write down what are all the things could possibly go wrong which is a fool's errand by the way but you'd still try you do your best right there's the predict the future get close there's your predict the future part and then then you have to come up with a game plan for each of these situations like how are we going to mitigate the the impact how are we going to continue to run our business what are the workarounds what are the next steps etc and i did enjoy those processes except for the writing part of course because i"
+    },
+    {
+      "start": 2940.74,
+      "end": 2953.62,
+      "speaker": "adam-stacoviak",
+      "text": "was in school nobody wants to write but i thought it was very useful to think like okay what are kind of a a list of things are likely to happen do you remember any of them a lot of them were"
+    },
+    {
+      "start": 2954.42,
+      "end": 3031.68,
+      "speaker": "robert-ross",
+      "text": "well they're completely made up businesses of course so it's all kind of just arbitrary because we didn't actually have any businesses and so we were like you're the cto of you know x corp that does y thing and now what could happen and so you had to kind of like make up here's our technology stack here's what we're doing and then if x then y and no i don't remember any of those particular details but i did recently visit a nuclear power plant here in nebraska and the amount of things they've thought through and the amount of planning that they've done and building hedges so to speak around almost every possible thing that could go wrong at a power plant it's actually it's laudable it's amazing that's how thorough these folks have gone through and prepared for umpteen potential things and it made me realize like oh in software we just kind of fly by the scene of our pants don't we you know of course they move way slower i mean that's the trade-off right like everything moves super slow at a nuclear power plant it has to because the consequences of disaster are so large and maybe the the fairy tale we told ourselves and maybe"
+    },
+    {
+      "start": 3031.68,
+      "end": 3035.84,
+      "speaker": "adam-stacoviak",
+      "text": "it's got it's gotten less and less true over time is like the consequence of software disasters"
+    },
+    {
+      "start": 3035.84,
+      "end": 3048.56,
+      "speaker": "robert-ross",
+      "text": "isn't that big well you even had the we even had the phrases for it i don't think we were pretending at all we what was it move fast and break things how many times was that said in silicon valley"
+    },
+    {
+      "start": 3048.56,
+      "end": 3133.25,
+      "speaker": "adam-stacoviak",
+      "text": "right that got abused though i mean i think that at the time that began at facebook so that was a facebook born ideation and i think it was a culture because they were in an innovation state they were not in a i mean i guess they were becoming more and more widely deployed but they were also a web service so it wasn't like well it's installed and it's going to crash something so i think there's scenarios now obviously it's a social network and there's a lot of people out there that are affected by you know abuse harm etc that can happen in social media which i fully agree to that's like that's just how it kind of just sucks and so the move fast and break things wanna occur to a lot of people is just like not a good thing obviously but to a technologist who's trying to innovate that's a very it's a very admirable thing like yeah let's move fast and break things because what happens is what the iteration cycle to learning happens faster right this this cycle you described with the sprinklers well it doesn't happen over decades or regulated time frames it's minutes to hours to deployments you know there could be hundreds in a day and i think when you're in an innovation state like that it is credible to pursue that kind of goal but for everybody else to caracalt that idea in places it doesn't apply is the danger zone right in places like crowdstrike should not deploy this idea of move fast and break things and maybe"
+    },
+    {
+      "start": 3133.25,
+      "end": 3212.83,
+      "speaker": "robert-ross",
+      "text": "they did move fast and break things well it's interesting in that particular context because they are fighting adversaries who are also moving fast in order to break things and so this goes back to the trade-offs that robert was discussing i mean i can understand the ethos that said we need a way to deploy to these machines outside of going through the entire process with microsoft and the kernel stuff and the signing we need a way to get our fixes out there before they attack all of our customers that's what they're paying us for and so i can see that trade-off like well how can we do that well let's develop a system where we're going to just side load some rules and we'll try to make it innocuous and we'll have our i'm sure there's cicd and there's test suites i mean this is a publicly traded company i'm sure they have infrastructure around the code they're rolling out i'm giving them too much credit i don't think i am i would be shocked if we learn that they didn't like this code went out when one person wrote it and nobody else looked at it and you know i doubt that's the case the anxiety of that code review jared right a little throwback yes and so i can understand that push and pull i mean we have this even inside of like the app store where it takes forever in software terms to roll out an app update but if you have your logic server side and you can push even web components into a view you can"
+    },
+    {
+      "start": 3212.83,
+      "end": 3217.07,
+      "speaker": "adam-stacoviak",
+      "text": "actually update your app throughout the day you know you can basically doing what they're doing"
+    },
+    {
+      "start": 3217.07,
+      "end": 3256.54,
+      "speaker": "robert-ross",
+      "text": "with crowdstrike right with you know falcon but over the air updates are exactly what you're saying is right we like apple restricts them pretty heavily for their platform but i like what you're saying that crowdstrike this is an advantage this is probably something they have bragged about in their sales cycle like you don't ever need to do an update of this agent it just will update itself this is how i understand how it works and when new vulnerabilities come out like we will cover you and and protect you that's a huge selling point why would you want to get rid of that come on i don't want to get rid of that don't take it away from us no i and i agree with"
+    },
+    {
+      "start": 3256.54,
+      "end": 3292.85,
+      "speaker": "adam-stacoviak",
+      "text": "that i think i i don't think um so the question comes back to you know what can we do to learn from this i've heard i think was did you mention this in in news jared i'm like i've read and listened to several things eBPF and how this could be this this the way the eBPF works and i'm loosely i mean i'm steeped in it to some degree but also very like beyond even novice like i'm just like no i'm a green person when it comes to what eBPF is and how to describe it but from what i understand this could be a different architecture that could prevent this well what's"
+    },
+    {
+      "start": 3292.85,
+      "end": 3312.45,
+      "speaker": "robert-ross",
+      "text": "interesting is that crowdstrike is actually using eBPF in their linux client is what i read from brendan greg's article about eBPF and so they're very well aware of it it's a way to do this that's safer and it's in development inside of microsoft to provide eBPF support for windows this was you"
+    },
+    {
+      "start": 3312.45,
+      "end": 3324.37,
+      "speaker": "adam-stacoviak",
+      "text": "then thank you i love changelog news by the way hey y'all listen to this changelog.com news subscribe today if you're not you're just missing out you're missing out so brendan greg has this"
+    },
+    {
+      "start": 3324.37,
+      "end": 3355.01,
+      "speaker": "robert-ross",
+      "text": "post which was in changelog news called no more blue fridays and it's his writing of why eBPF will be potentially a another tool in our toolbox right to in order to achieve what they're trying to achieve without some of the dangers latent in the current windows based rollout however the in development version of eBPF will not have all the features it has in linux and so could crowdstrike immediately use it in order to replace their current rollout survey says probably not"
+    },
+    {
+      "start": 3355.01,
+      "end": 3363.81,
+      "speaker": "adam-stacoviak",
+      "text": "like it's gonna be it has to be had to be much more full featured in order for that to be like a thing they could start using as soon as it's shipped but it's a it's a direction well what"
+    },
+    {
+      "start": 3363.81,
+      "end": 3370.21,
+      "speaker": "robert-ross",
+      "text": "better way to get rnd budget to make that go faster than uh what just happened right you know"
+    },
+    {
+      "start": 3370.21,
+      "end": 3379.81,
+      "speaker": "adam-stacoviak",
+      "text": "well there you go that was kind of brendan greg's point at the end and of course he's uh you know i think he has a dog in the hunt he's very much invested in eBPF which is open source and all"
+    },
+    {
+      "start": 3379.81,
+      "end": 3403.25,
+      "speaker": "robert-ross",
+      "text": "that but there's businesses built around it but he said like hey here's a great moment if you are paying for computer security software and you are a paid customer of these entities you could push them to make this eBPF path happen faster and better because you know you're their customer so he's kind of that was his call to action at the end of that post and what would happen is that"
+    },
+    {
+      "start": 3404.05,
+      "end": 3487.49,
+      "speaker": "adam-stacoviak",
+      "text": "is at the kernel level can you do you know much about this to describe what would happen in this if this hypothesis or this hypothesized world existed this future development how it would work to prevent this kernel from crashing the system or booting without it or being more safer no okay well that's what i was thinking of is like how can we if you i guess and i'm not a windows developer so by all means just like slap me in the face after this one but i'm just thinking like you have a a dump a crash dump whenever the blue screen of death comes up and the system knows probably what crashed it at least if it's a driver in kernel mode what's crashing it could you not just offer the user the option to boot sans that third party especially if it's third-party software temporarily now i get that this is cyber security what do you mean software well i'm just thinking if if the the kernel driver of crowdstrike a third party not a first party native operating system kernel driver is crashing system so it by moniker it's a third party could you not say well we this system knows that this third-party drivers crashing the system do you want to boot without it and maybe that's what safe mode does but i mean why couldn't that be a non-safe mode thing i don't know because maybe those system could just been booted by everyday people it's about ux and user friendliness now i don't know if that's secure robert's shaking his head a little bit saying the system knows"
+    },
+    {
+      "start": 3487.49,
+      "end": 3492.61,
+      "speaker": "robert-ross",
+      "text": "that the system is crashing it's like a layer it's a layer on a layer right you know you're"
+    },
+    {
+      "start": 3492.61,
+      "end": 3495.73,
+      "speaker": "adam-stacoviak",
+      "text": "throwing another layer that doesn't currently exist in there is that what you're saying robert"
+    },
+    {
+      "start": 3496.29,
+      "end": 3549.6,
+      "speaker": "robert-ross",
+      "text": "i think i mean i'm not even gonna try to pretend i know how these you know kernel at i'm gonna call it an add-on see like that's how an experience i am with it uh like plugins i don't i don't want to pretend that to know but yeah i i think that what adam is saying i think the challenge with that is just more complexity and you know is the risk worth the reward and you know can the system you know think about the amount of trial and error you would have to go through for that to work really well and where does this where does the operating system even store that knowledge that that plugin is borked right you're at the point of it boot that's my point is like it's crashing you might not even have you might not even have file system access yet like that's how early in the ones and zeros we are so i think that's the challenge is you got to put it"
+    },
+    {
+      "start": 3549.6,
+      "end": 3625.89,
+      "speaker": "adam-stacoviak",
+      "text": "somewhere so let's zoom back out one layer then my thought is not literally how we deploy the fix like literally this is how we solve it but from a user experience standpoint the reason why the outage perpetuated to its length was because everyday people could not solve their their own problem with the system and i'm just suggesting is there a path where you can provide everyday users of their computer some version of bypassing this crash that's all and i don't know that answer i'm just hypothesizing that the reason why i perpetuated was because people who like it basically people smarter than the end user from a technical level in most cases standpoint could not solve they had to come in and be deployed to literally open up the laptop or could you imagine trucking in a workstation like not everybody uses laptops these days some people use workstations but like you had to take the thing in to the people they had to plug a monitor into it and a keyboard into it and somebody else had to touch it i'm just thinking is there an other way where the end user could have done more of this in line too rather than simply waiting i don't think nick"
+    },
+    {
+      "start": 3625.89,
+      "end": 3648.37,
+      "speaker": "robert-ross",
+      "text": "burns wants the end user to do it no well i remember um remember the days of windows remember the days of windows where it was um remote pcs and the only thing that that station was responsible for was basically connecting to something else that was doing the compute you know maybe that comes back right i mean maybe that's a world that client-side computing was thin clients"
+    },
+    {
+      "start": 3648.37,
+      "end": 3668.21,
+      "speaker": "adam-stacoviak",
+      "text": "that was a citrix and that's my roots man i grew up in it and in the early 2000s worked at an it company that deployed citrix and vmware intensely we had our own co-location system at a data center you were talking about the the power plant jared data centers are similarly if not equally thought"
+    },
+    {
+      "start": 3668.21,
+      "end": 3674.93,
+      "speaker": "robert-ross",
+      "text": "through not equally not equal yeah i'm gonna say maybe not all the way nuclear power plants are so"
+    },
+    {
+      "start": 3674.93,
+      "end": 3680.13,
+      "speaker": "adam-stacoviak",
+      "text": "regulated well that's why i said similarly if not equally you know there's a version of the"
+    },
+    {
+      "start": 3680.13,
+      "end": 3695.97,
+      "speaker": "robert-ross",
+      "text": "thoughtfulness let's just say i'm gonna say i hope they're not i hope that nuclear power plants have more thought okay i'll give you that i came out feeling much safer about nuclear power through this tour because of how stinking serious they are about safety but anyways yeah well just the point"
+    },
+    {
+      "start": 3695.97,
+      "end": 3727.15,
+      "speaker": "adam-stacoviak",
+      "text": "was that i agree robert maybe thin clients are remote i mean but what's old is new again maybe you know i think what the web is jerry was talking about that it's like a widely deployed operating system most of us are on web apps these days anyways you know most of what we do is through the browser like right now we're having this discussion through the browser video audio recorded locally stream backup in most cases doesn't fail really good software but it's web software we have to use a special browser which is a whole different fight web software goes down"
+    },
+    {
+      "start": 3727.15,
+      "end": 3795.87,
+      "speaker": "robert-ross",
+      "text": "i'm just not sure exactly what we're solving with this moving the furniture around so what i what i had in my head is i saw a picture uh through the all the new cycles of this crowdstrike outage was it was actually it was a gate agent's computer it was at the gate where you board the plane and it had the blue screen of death and you know in that situation does that computer need a crowdstrike kernel agent running on it maybe it does maybe it doesn't i don't know but i think where i'm going with this is does that computer just need a screen a mouse and a keyboard that's hooked up to something else down the hallway you know that's one station that's powering 20 gates and it's much easier it's a smaller surface area you know i think we're getting to that point like networks are getting fast enough to do that type of thing maybe it's too far i'm not sure honestly i mean some companies have tried to do this with like gaming for example i don't remember if you know it was they've all failed so far it failed so fast yeah but maybe that was too far right like that's hard to do that's like you need super low latency video"
+    },
+    {
+      "start": 3795.87,
+      "end": 3805.39,
+      "speaker": "adam-stacoviak",
+      "text": "feeds right and it was google it was google trying to do it it wasn't some flyby night i mean they have the resources if anybody could accomplish it you'd think google yeah and microsoft xbox was"
+    },
+    {
+      "start": 3805.39,
+      "end": 3821.63,
+      "speaker": "robert-ross",
+      "text": "trying to do it too i forget the name yeah yeah true but maybe it's like that type of world right where it's just a keyboard a mouse and a screen it's hooked up somewhere else maybe that's where we go to you reduce the surface area therefore you reduce the amount of potential outage i think"
+    },
+    {
+      "start": 3821.63,
+      "end": 3875.33,
+      "speaker": "adam-stacoviak",
+      "text": "in this case that hypothesis has merit only because we know what we know it's not because we know what we knew or know what we know prior to and that's the plan because i think even in that scenario you have now a single machine dependency of many dependencies and now it's like well when that one machine is down it's not just one person the outage affects many because of the design of you know dependency i am pro thin client though i'm pro what citrix did back in those days it was a very cool thing i mean i hated it well so for certain workers for certain tasks it was perfect i hated it too jr because i why are you for it then well in my scenario i was for it for everybody else though so in my case everybody else oh yeah oh i'm for it for everybody"
+    },
+    {
+      "start": 3875.33,
+      "end": 3880.61,
+      "speaker": "robert-ross",
+      "text": "else yeah yeah i think it's cool tech the ergonomics of it were terrible yes yeah i agree"
+    },
+    {
+      "start": 3880.61,
+      "end": 3885.97,
+      "speaker": "adam-stacoviak",
+      "text": "the tech was cool and for certain scenarios you know i i helped out i ran network administration"
+    },
+    {
+      "start": 3885.97,
+      "end": 3929.73,
+      "speaker": "robert-ross",
+      "text": "for a company that had uh that did commodity training and so they had machines in silos you know grain silos and those places are dirty nasty corn chaff etc like it's not the place where you're going to have a server farm or you wouldn't even want a pc because eventually that tower is going to get all kinds of stuff into it's going to break down and so in those cases like the thinnest client possible with a citrus connection was the answer made tons of sense yeah but in many other use cases you got your employees sitting in their office and they're citrixing into a somewhere else you know to run with this latency and it was slow and they didn't have access to local resources like okay in those contexts i was like this is ridiculous i have a beefy"
+    },
+    {
+      "start": 3929.73,
+      "end": 3937.81,
+      "speaker": "adam-stacoviak",
+      "text": "computer sitting here it's connecting to a remote machine the grain silo didn't have a good internet connection so well that was another problem we had to create a lot of times we had to create"
+    },
+    {
+      "start": 3937.81,
+      "end": 3947.65,
+      "speaker": "robert-ross",
+      "text": "internet connection for them in order for them to actually connect back to citrix and so that was i mean it was you're trying to do remote computing in a grain silo it's not going to be easy no"
+    },
+    {
+      "start": 3947.65,
+      "end": 3968.59,
+      "speaker": "adam-stacoviak",
+      "text": "matter how you do it right what's up friends i'm here with for ross abugadije founder and ceo of socket socket helps to protect the best engineering teams out there with their developer first security platform and so for ross speaking of developer first socket is developer first what does that mean what do you mean by being developer first most security software is typically sold to"
+    },
+    {
+      "start": 3968.59,
+      "end": 3975.15,
+      "speaker": "robert-ross",
+      "text": "executives so it tends to suck to actually use it so the company the vendor goes in and makes a sale"
+    },
+    {
+      "start": 3975.23,
+      "end": 4025.87,
+      "speaker": "adam-stacoviak",
+      "text": "the executive thinks it looks good but they don't actually care at all what the developer experience is of the tool so i think that's where i would start the first problem with security tools is they're sold to executives in the best case those tools get purchased and they just sit around on the shelf bothering nobody and protecting nobody but in the worst case they get rolled out and they prevent developers from getting things done and they just get all up in your face with alerts and pointless noise that isn't actionable and if you actually go and fix those alerts you're not even improving security because a lot of the time those vulnerabilities are super low impact that's like the dirty secret of vulnerabilities is most of them are low impact they're either in dev dependencies so they're never going to run in production or they're really difficult to exploit or if you exploit them there's nothing really there it's like a you know a denial of service uh in some random component and in reality like that's just such a low risk in terms of just your priorities of things you need to work on as a developer yeah i would actually say probably"
+    },
+    {
+      "start": 4025.87,
+      "end": 4035.79,
+      "speaker": "robert-ross",
+      "text": "90 or 95 of the vulnerability alerts that developers are used to seeing from other tools are just completely pointless they're just fake work and fixing them doesn't even meaningfully"
+    },
+    {
+      "start": 4035.79,
+      "end": 4164.3,
+      "speaker": "adam-stacoviak",
+      "text": "improve security at all while you have it protect yourself your team and your software from the threats that really matter don't do fake work use socket socket.dev book a demo install the github app install the socket cli whatever it takes to take the next step do it go to socket.dev again socket.dev well intel innovation 2024 accelerate the future is right around the corner it takes place september 24th and 25th in san jose california this event is all about you the developer the community and the critical role you play in tackling the toughest challenges across the industry ignite your passion for ai and beyond grow your skills to maximize your impact and network with your peers as they unleash the next wave of advancements in technology understand the emerging innovation and trends in dev tools languages frameworks technologies in ai and beyond join on-site hands-on labs workshops meetups and hackathons to collaborate and solve real problems in real time collab with experts learn and have fun engage in interactive sessions connect grow your network gain a unique idea and perspective and build lasting networks and of course have fun you'll hear from leading experts in the industry technologists startup entrepreneurs and fellow developers along with intel leadership ceo pat gelsinger and cto greg lavender as they take you through the latest advancements in technology don't miss out on the chance to be at the forefront of innovation take advantage of their early bird pricing from now until august 2nd register using the link in the show notes or to learn more go to intel.com slash innovation when you're at scale like crowdstrike was and you deploy bad code regardless which theory you go with bad code done on purpose uh rogue whatever or i mean there's people"
+    },
+    {
+      "start": 4164.3,
+      "end": 4168.46,
+      "speaker": "robert-ross",
+      "text": "saying like this was planned i haven't read any of that stuff but i'm sure it's out there"
+    },
+    {
+      "start": 4168.46,
+      "end": 4239.52,
+      "speaker": "adam-stacoviak",
+      "text": "well you know any time something like this happens at a scale like this you got to wonder like we live in a simulation lately like there is strange things happening every single day that has been basically unprecedented every single day so like the the new precedent is unprecedented you know right and i just i i don't want to hypothesize here because that's not what we're trying to do or not what i'm trying to do but when you're at scale like this it's obviously an attack surface of some sort whether it's bad code an incident or just simply you know a bad day a bad friday a bad weekend and how can we give crowdstrike the ability to do what they want to do and have the sales pitch they want to have without having the opportunity for outage like this and then all the others they're gonna fall in their footsteps you know who else well the software will be at scale and be attack surface whether it's bad code planned intended rogue whatever they're all similar scenarios just a matter of how the the incident percolates i mean there's there's just"
+    },
+    {
+      "start": 4239.52,
+      "end": 4302.78,
+      "speaker": "robert-ross",
+      "text": "the surface area of which software can be impacted now either just through sheer outage or security is staggering i mean there was i don't know maybe a month and a half ago two months ago there was it was newsworthy enough for the new york times i saw the word postgres on the front page of new york times i was like what is this and you go and read it and there it all boils down to there was a state actor that gained the trust of the core team for postgres and they started submitting patches that fixed real things and then they submitted something that was very subtle that was caught on accident by another engineer years later then they eventually figured it out they were like holy crap this person just gained our trust by submitting real stuff and then snuck something in and how do you defend that you just you just you just can't i don't think you can"
+    },
+    {
+      "start": 4303.5,
+      "end": 4308.62,
+      "speaker": "adam-stacoviak",
+      "text": "and that sounds a lot like the xz thing is this an in addition to that i think that's what i'm"
+    },
+    {
+      "start": 4308.62,
+      "end": 4313.66,
+      "speaker": "robert-ross",
+      "text": "talking about yeah i can't i couldn't remember the the exact name of it but yeah so i don't"
+    },
+    {
+      "start": 4313.66,
+      "end": 4319.66,
+      "speaker": "adam-stacoviak",
+      "text": "remember the postgres part but certainly this xz backdoor was placed by a state actor i think it"
+    },
+    {
+      "start": 4319.66,
+      "end": 4324.62,
+      "speaker": "robert-ross",
+      "text": "was someone working on postgres is like and then they got like down to that level baby that's how"
+    },
+    {
+      "start": 4324.62,
+      "end": 4331.18,
+      "speaker": "adam-stacoviak",
+      "text": "gotcha i misremembered it fair enough well xz is a dependency of many software packages and was"
+    },
+    {
+      "start": 4331.18,
+      "end": 4372.06,
+      "speaker": "robert-ross",
+      "text": "close to being actually distributed via apt and other package registries prior to it getting found out on accident by a developer so yeah crazy times for sure definitely not tinfoil hat adam to say you know was this to ask the question of was this mere incompetence or was this actually an attack because attacks happen and they are happening and they will continue to and so those questions do have to be asked i think in this particular case i jumped immediately to incompetence you know ockham's razor style because i know how how complex software systems are to roll out updates you know i was like oh gosh somebody had a really bad day but that could"
+    },
+    {
+      "start": 4372.06,
+      "end": 4489.73,
+      "speaker": "adam-stacoviak",
+      "text": "be a wrong conclusion to jump to well i think in the case that you're talking about robert with postgres if this is accurate is code analysis right you have to analyze especially an open source but when it's closed source like crowdstrike and a definition update all you can do is rely upon that team that company to have to be mature enough to have protections in place right when it's when it's proprietary closed source there's nothing you can do from a scale point to analyze the code from a different route with open source you could do a lot of things you could pay attention to where the patches are coming from you know i guess in this case here if the patch was you know hey robert here's the patch i'm adam let's just say it's you as the core committer and i'm the friend who's trying to be friendly i've solved this problem here you go robert and you just hit my code and maybe you actually deploy it to postgres so it's coming in signed maybe that's an example where you really can't analyze very well but if you had to you know say robert is is signing this commit but it's it's being the location or the the source of the commit is from an outside source helping out because it's open source then you could at least have a waypoint to begin to track if you're doing code analysis i think that's the that's the area where i'm really confident and and looking forward to more and more being done because when you can analyze the git repository and the graph of things happening in a code base there's a lot you can pull out when it's like okay that's a smell you got a brand new committer you got somebody being nurtured or whatever you want to call it to to kind of get their trust over multiple years even like there's there's layers of of anomaly that can be you know identified because of the way open source works if you do specific code analysis so that's where"
+    },
+    {
+      "start": 4489.73,
+      "end": 4543.84,
+      "speaker": "robert-ross",
+      "text": "i'm hopeful well i'm hopeful that we can keep open source going the way it is for longer i i do think that some of these risks that are coming up with state actors infiltrating through years of building trust and accidental attack vectors coming through like over time i think that people are going to start to get skeptical yeah and and that's going to be a tough moment we're going to have to kind of the start thinking about that i i'm starting to hear more and more about people like don't want to use third-party libraries for common things just because of the risk for example like attacking a javascript mpm package that's widely used that does a pretty simple thing candidly it's less risky to just do it yourself sometimes and like that's a that's a calculus that companies are going to have to start thinking about yes i mean i think every developer should"
+    },
+    {
+      "start": 4543.84,
+      "end": 4548.24,
+      "speaker": "adam-stacoviak",
+      "text": "make that calculation every time they're going to pull in dependency and i'm not"
+    },
+    {
+      "start": 4548.96,
+      "end": 4595.6,
+      "speaker": "robert-ross",
+      "text": "saying don't pull the dependency in but i think you do have to think through that i think we're learning that and hopefully our collective immune system will react i do think that these state actors being outed every once in a while at least will boost our immune system as open source maintainers to be like let's kind of be a little more leery of the contributors who are coming around and like just you know that whole kumbaya open open open we're all friends worldwide thing that was going on when open source began is like it's gone it's just not the same world anymore yep and so maybe we would just won't be fooled next time hopefully by somebody who's trying to butter us up in order to take advantage of us do you think there's a way to like label"
+    },
+    {
+      "start": 4596.16,
+      "end": 4609.65,
+      "speaker": "adam-stacoviak",
+      "text": "software at scale like an exit what do you mean like if you're a contributor to exit do you know how much is deployed you understand how crucial your core role is to that software yes and no"
+    },
+    {
+      "start": 4609.65,
+      "end": 4614.77,
+      "speaker": "robert-ross",
+      "text": "yes and no right so probably hard to feel the actual gravity of it right right i'm just"
+    },
+    {
+      "start": 4614.77,
+      "end": 4701.09,
+      "speaker": "adam-stacoviak",
+      "text": "wondering is there a way to and i'm literally asking the question without having put any thought into it so if it's naive you know slap me around if you have to as we do yeah i'm just wanting to get is there is there a way to to elevate certain software without maybe even by analysis to understand its deployment or its dependency levelness i suppose its scale like i'm sure crowdstrike knew how at scale they were this was not sure unknown to them so this is not an example but xz and the folks behind that who are being you know groomed for lack of better terms over a year or more a very long patient amount of time do they understand how crucial the software is that they're in control of so that they can have that position to set which is hey pay attention to strange incoming behaviors that is trying to get into your code base like i just don't know if like everybody who's in the open source world they may care but do they know how crucial their software is i don't even know if that's like a good question but i'm just thinking like is there a way to like label something hey you're a scaled software you're widely deployed and there's some way to elevate them to a different level at least by label so that there's like an awareness that if there's a malicious attack on that code base it has"
+    },
+    {
+      "start": 4701.09,
+      "end": 4758.67,
+      "speaker": "robert-ross",
+      "text": "effects i feel like github could own that honestly i mean they know how many times a repository is committed they know how many times it's even looked at just page views in general yeah they know the number of stars on it like and maybe it's not github maybe it's some other program maybe it's government sponsored that goes to these maintainers and says just fyi like you're on our list yeah you just made the list yeah and it's you know in a way it's like congratulations you've built such valuable software it's now a national security threat uh but you know i hear what you're saying i think it's hard i think it's hard to because it takes the steam out of it it takes the altruism out of it sometimes too for some people that just like want to do a good thing uh when the barrier is high then people won't do it yeah and i think that's challenging i"
+    },
+    {
+      "start": 4758.67,
+      "end": 4764.83,
+      "speaker": "adam-stacoviak",
+      "text": "think the maintainers of scaled software know i think that they're just wildly under resourced"
+    },
+    {
+      "start": 4765.47,
+      "end": 4821.33,
+      "speaker": "robert-ross",
+      "text": "and exhausted and can't possibly sometimes care enough anymore because they've cared so much for so long for so little so i think for the rest of us i did not know how big xz was in terms of its dependency graph the other way around you know how many dependency graphs it was in which was many but i'm sure that the author of xc has an idea like that's why i said yes and no he may not know exactly how big his software is but at a certain point when your package is deployed across all these distributions and stuff yeah you understand that like wow this thing is really reaching lots of places and so i think there's some of that gravity there but for the rest of us you know that might be useful to have that list of softwares that are considered security or national security importance or whatever it is like they aren't the threat but"
+    },
+    {
+      "start": 4821.33,
+      "end": 4828.61,
+      "speaker": "adam-stacoviak",
+      "text": "they are of potential you know threat because of their situation i think one one example of a of"
+    },
+    {
+      "start": 4828.61,
+      "end": 4861.65,
+      "speaker": "robert-ross",
+      "text": "a developer who just built an open source something and took it down not realizing the true scale of this thing was left pad oh yeah 2016 that one was wild that was so many packages couldn't be installed and deploys like stopped for hours because of that and it was just some i forget the exact context but i think it was like some dispute and out of he was like i'm gonna take down the package you're using the political yeah i don't remember exactly i don't"
+    },
+    {
+      "start": 4861.65,
+      "end": 4866.77,
+      "speaker": "adam-stacoviak",
+      "text": "think left pad was political left pad was a long time ago there was a political one you just"
+    },
+    {
+      "start": 4866.77,
+      "end": 4907.25,
+      "speaker": "robert-ross",
+      "text": "deleted it off of npm package registry and then chaos ensued i think left pad might have been the one where they had another package called kick or sidekick and another company a company not another company this might not be left pad either so but this definitely happened there's a company a startup called kick kik i believe yes and there's a package called kick i think owned by the left pad owner as if it's coming back to me oh yeah and the kick company contacted npm and wanted the name but didn't have a package name and i think npm granted them access to the kick package name basically kicking it off the left pad owner and then they got mad and just"
+    },
+    {
+      "start": 4907.25,
+      "end": 4914.45,
+      "speaker": "adam-stacoviak",
+      "text": "pulled left pad and all their stuff i think they pulled all their stuff i'm pretty sure that's left pad that may be a different one because there's been so many at this point but that definitely"
+    },
+    {
+      "start": 4914.45,
+      "end": 4942.93,
+      "speaker": "robert-ross",
+      "text": "happened i have i have the there's a wikipedia page for it is there npm left pad incident that i just found and yeah you're you're right on the money uh with what you just said but you know what's kind of crazy about that it kind of goes back to what i was saying about own your software a little bit more left pad was not a thing that needed to go out over a network and download a package and pull it down like any engineer should be able to write what left pad did absolutely or"
+    },
+    {
+      "start": 4942.93,
+      "end": 4954.32,
+      "speaker": "adam-stacoviak",
+      "text": "copy paste the function it was like or that yeah because i mean you can use somebody else's code with with a little copy paste and remove that dependency and because not because you can't"
+    },
+    {
+      "start": 4954.32,
+      "end": 4969.47,
+      "speaker": "robert-ross",
+      "text": "trust the author but because you we cannot trust the network right that's the problem with npm we can trust the authors in most cases but we cannot trust the network into the future you can maybe trust it today but you cannot trust the network tomorrow and so copy paste that sucker vendor it"
+    },
+    {
+      "start": 4969.47,
+      "end": 4973.15,
+      "speaker": "adam-stacoviak",
+      "text": "i mean that's what we used to call it in the real world vendor it yeah which is to pull it into your"
+    },
+    {
+      "start": 4973.15,
+      "end": 5005.47,
+      "speaker": "robert-ross",
+      "text": "repo yeah check it in yeah and leave it there i remember doing that did you see that one it was a couple weeks ago that a domain expired yeah that was hosting hosting a javascript package polyfill and someone else bought the domain put something not good they're not good same same domain path you know and all these websites that were resolving that domain to the new source were impacted it was like a hundred thousand websites you can't trust the network yeah so that's a good way of you can't trust the network um i think it's a good way especially"
+    },
+    {
+      "start": 5005.47,
+      "end": 5021.31,
+      "speaker": "adam-stacoviak",
+      "text": "over time yeah because that's what we think of today but over time the network changes in ways that we wouldn't expect like nobody expected polyfill.io to change ownership like yeah or cdn whatever the cdn that was hosting polyfill right we we put some stuff through a"
+    },
+    {
+      "start": 5021.31,
+      "end": 5047.98,
+      "speaker": "robert-ross",
+      "text": "proxy basically and that kind of does it yourself and let it in the gems and some stuff and that way it's kind of a if it's there we trust it kind of thing right you know if you try to pull something else in a bundle install yarn install whatever it is go get it goes through there and if it's not there then it kind of triggers a well why are you trying to get something that isn't in this you know it's not blessed yet as a proxy that you guys run"
+    },
+    {
+      "start": 5048.46,
+      "end": 5054.54,
+      "speaker": "adam-stacoviak",
+      "text": "uh yes is this like a like an artifactory kind of thing where you pull yeah some other i forget the"
+    },
+    {
+      "start": 5054.54,
+      "end": 5067.42,
+      "speaker": "robert-ross",
+      "text": "exact tech if i'm honest but yeah but but similar to the j factory or j frog artifactory yeah that's a great idea just get yourself layers in between you and the unknown i mean that's otherwise"
+    },
+    {
+      "start": 5067.42,
+      "end": 5081.58,
+      "speaker": "adam-stacoviak",
+      "text": "practices for sure well that's like the i guess uh rich man's version or rich person's version of vendoring it's like the same idea except for it's i mean this has been the tale as old as time basically ruby had it first"
+    },
+    {
+      "start": 5082.75,
+      "end": 5090.59,
+      "speaker": "robert-ross",
+      "text": "well like i said what's old is new again yeah yeah exactly we're gonna go back to all these ideas in some way shape or form i think yeah we're going back to thin clients apparently so"
+    },
+    {
+      "start": 5090.59,
+      "end": 5109.74,
+      "speaker": "adam-stacoviak",
+      "text": "i mean i think even that too you have to have an incident like this to have a discussion like this that says these older ideas that were probably pretty good you know maybe at the time it was like less modern to do it now it's more modern so maybe there's but i suppose to your point jr with your meme like i deployed software today so it's modern right like what then you have a"
+    },
+    {
+      "start": 5109.74,
+      "end": 5128.54,
+      "speaker": "robert-ross",
+      "text": "meme out there somewhere oh yeah just mostly a gripe like people always advertise their software as modern which just literally means that it's just a newer thing you know like it's not a feature it's just that you started coding it six months ago right you know at some point at some point someone's going to start bragging about how much their software hasn't changed yeah i think i think"
+    },
+    {
+      "start": 5128.62,
+      "end": 5133.82,
+      "speaker": "adam-stacoviak",
+      "text": "vintage software should make a move you know like this is classic this is vintage you know what i"
+    },
+    {
+      "start": 5133.82,
+      "end": 5162.22,
+      "speaker": "robert-ross",
+      "text": "when i was a young gun engineer and i heard about these banks using like cobalt still and i was like ah oh losers right and now i'm like hey whatever it works i could look at my balances and i've never had an issue and i can always charge my card you do you right like maybe calcified software has a purpose in the world where it just gets rarely touched and we're just happy about that yeah i'm leaning that way more and more do we need to keep changing the software i don't know"
+    },
+    {
+      "start": 5162.22,
+      "end": 5167.34,
+      "speaker": "adam-stacoviak",
+      "text": "hmm that's not really good for your business though robert i mean if you advocate for that"
+    },
+    {
+      "start": 5167.34,
+      "end": 5177.34,
+      "speaker": "robert-ross",
+      "text": "robert's out there more incidents we need more incidents my investors my board hears that they feel like what are you doing what are you saying robert stop right now i think even if you have"
+    },
+    {
+      "start": 5177.34,
+      "end": 5338.5,
+      "speaker": "adam-stacoviak",
+      "text": "unchanged software there's still bound to be incidents of some sort i mean you know there's still going to be no one's going to listen to you robert no one's going to do that right you know i recommend that yeah well this has been fun digging into the details i think you know it's it's fun to speculate out you know i do want to again mention i love dave plumber and his channel on youtube he's a great resource i always appreciate what he shares i probably listened to his video twice just making sure i kind of understood some of the mechanics behind it because i really want to understand like what to what degree does this software actually operate on windows and i thought that was pretty fascinating to kind of understand whql the protections and signing in place they have for it and really you know how this incident propagated you know we don't know if it was really bad code or if it was sabotage or if it was some sort of plan that's all speculation that we're not trying to really go through here but sort of like hey if you're out there and you've been affected by this or you're just curious you know go out there and do your own investigations pay to pay attention what's happening out there and i guess we can look forward to george curts the ceo current ceo of crowdstrike who was there at the helm during this incident to stand before congress and explain exactly what happened and maybe then we'll know talk about security theater right until then all we can do is speculate what may have happened we can you know use the they're not called dumps what are they called are they called dumps whenever it's a kernel panic well you dump the you dump the stack yeah it's not a stack trace because that's like an application kind of thing it's something kernel panic yeah exactly you can examine that and there's lots of folks there was a famous tweet out there that made the rounds explaining that you know this one file was updated and while it should have had the needed definition in there instead it just contained zeros because of a null pointer there's all these things like why this actually happened but i think in the end we we just say at scale software can have massive effects and we got to do something about that it's a good thing to have scale software but at the same time we have to do updates responsibly or in this scenario where you have a kernel level driver how do you do what crowdshakes wants to do with falcon but not bypass the security systems you know that's the real question here specifically for this incident i think for others is just love your maintainers if it's open source if it's not open source drag them through congress and make them explain it you know and slap them around a little bit you know otherwise just uh do what you can to do what you can to stay safe you know scrutinize your dependencies your third parties etc and"
+    },
+    {
+      "start": 5339.38,
+      "end": 5353.86,
+      "speaker": "robert-ross",
+      "text": "that's about it for me and run linux on your desktop i mean that's the way this is the way write rust run linux and you'll be good to go and then let all of us know about it once they figure out their audio drivers to come on this show it'll be great to hear their experience"
+    },
+    {
+      "start": 5354.9,
+      "end": 5366.9,
+      "speaker": "adam-stacoviak",
+      "text": "well every time we have a linux user we're always happy obviously and then sad because like we expect to have some version of issue because of drivers it's almost unanimous almost"
+    },
+    {
+      "start": 5366.9,
+      "end": 5469.66,
+      "speaker": "robert-ross",
+      "text": "unanimous well thanks so much for having me this was a blast i think it was a fun topic to to talk about and super interesting for sure thanks for joining us hey robert it's been fun bye friends all right bye well friends here we are again at the end of a busy and interesting week in the software world which more and more is the whole world do you have thoughts do you have opinions i know you do we would love to hear them sound off in the comments link in the show notes oh and stick around changelog plus plus members this is yet another extended episode we love doing these for our most loyal supporters oh and by the way if you are a changelog plus plus member maybe sign in to changelog.com using your plus plus email address and see if you see anything new on your home page i won't say more than that for now but we'll talk details soon enough probably on the next kaizen okay quick thanks again to our partners at fly.io to breakmaster cylinder to sentry use code changelog and to you of course for listening along seriously we appreciate it next week on the changelog news on monday joseph jacks from oss capital on wednesday and adam is flying solo on friday but he has a very special guest the author of his favorite book series the babaverse yes dennis e taylor joins the show have a great weekend leave us a five-star review if you dig our work and let's talk again real soon so during the main show"
+    },
+    {
+      "start": 5469.66,
+      "end": 5485.02,
+      "speaker": "adam-stacoviak",
+      "text": "i did not ask you about this nor did we directly reference it but it was a reference point for me you wrote something the same day as this incident i think is july 19 2024 beyond the headlines the unsung art of software outage management and rather"
+    }
+  ],
+  "slug": "the-bsod-crowdstrikes-back",
+  "id": "54"
+}

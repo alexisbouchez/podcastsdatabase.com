@@ -1,0 +1,1560 @@
+{
+  "title": "ANTHOLOGY -- Self-hosted, self-confident & self-employed",
+  "description": "Hallway conversations from All Things Open 2024 featuring self-hosting with Alex Kretzschmar, self-confidence with Israa Taha, and self-employment insights from Avindra Fernando and Adhithi Ravichandran.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/69",
+    "MP3": "https://cdn.changelog.com/uploads/friends/69/changelog--friends-69.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "segments": [
+    {
+      "start": 14.96,
+      "end": 253.25,
+      "speaker": "SPEAKER_00",
+      "text": "Welcome to changeloggin' friends. A weekly talk show about ATO hallway vibes. Thanks to our partners at fly .io, the home of changelog .com. Launch your app in five minutes or less. Learn how at fly .io. Okay, let's talk. What's up, friends? I'm here with Dave Rosenthal, CTO of Sentry. So Dave, when I look at Sentry, I see you driving towards full application health, error monitoring where things began, session replay, being able to replay a view of the interface a user had going on when they experienced an issue with full tracing, full data, the advancements you're making with tracing and profiling, Chrome monitoring, code coverage, user feedback, and just tons of integrations. Give me a glimpse into the inevitable future. What are you driving towards? Yeah, one of the things that we're seeing is that in the past, people had separate systems where they had like logs on servers, written files. They were maybe sending some metrics to Datadog or something like that, or some other system. They were monitoring for errors with some product, maybe it was Sentry. But more and more, what we see is people want all of these sources of telemetry logically tied together somehow. And that's really what we're pursuing at Sentry now. We have this concept of a trace ID, which is kind of a key that ties together all of the pieces of data that are associated with the user action. So if user loads a webpage, we wanna tie together all the server requests that happened, any errors that happened, any metrics that were collected. And what that allows on the backend, you don't just have to look at like three different graphs and sort of line them up in time and try to draw your own conclusions. You can actually like analyze and slice and dice the data and say, hey, what did this metric look like for people with this operating system versus this metric look like for people with this operating system, and actually get into those details. So this kind of idea of tying all of the telemetry data together using this concept of a trace ID or basically some key, I think is a big win for developers trying to diagnose and debug real -world systems in something that is, we're kind of charged the path for that for everybody. Okay, let's see you get there. Let's see you get there tomorrow perfectly. How will systems be different? How will teams be different as a result? Yeah, I mean, I guess again, I just keep saying it maybe, but I think it kind of goes back to this debug ability experience. When you are digging into an issue, having a sort of a richer data model that's your logs are structured, they're sort of this hierarchical structure with spans. And not only is it just the spans that are structured, they're tied to errors, they're tied to other things. So when you have the data model that's kind of interconnected, it opens up all different kinds of analysis that were just kind of either very manual before, kind of guessing that maybe this log happened at the same time as this other thing, or were just impossible. We get excited not only about the new kinds of issues that we can detect with that interconnected data model, but also just for every issue that we do detect, how easy it is to get to the bottom of it. I love it. Okay, so they mean it when they say code breaks, fix it faster with Sentry. More than 100 ,000 growing teams use Sentry to find problems fast, and you can too. Learn more at sentry .io. That's S -E -N -T -R -Y dot I -O. And use our code CHANGELOG, get $100 off the team plan. That's almost four months free for you to try out Sentry. Once again, sentry .io. We are taking you back to the all things open hallway track one more time to talk with some friends, new and old. First up, Alex Kretschmar, who you may remember from earlier this year when he was on the episode called Self -hosted Media Server Goodness."
+    },
+    {
+      "start": 255.78,
+      "end": 256.12,
+      "speaker": "SPEAKER_01",
+      "text": "Well,"
+    },
+    {
+      "start": 256.16,
+      "end": 390.1,
+      "speaker": "SPEAKER_00",
+      "text": "have you met Jared before? No. No. Well, this is Jared. I've heard you many times. Yes, and I've heard you many times. Oh, yeah. Awesome. Yeah. Happy to meet you. Mutual fans. Alex runs, is it selfhosted .fm? Dot show. Dot show. What happened to dot FM? Somebody else had it? No. You wanted a show. I don't know, I just figured that dot show was, it's a self -hosted show, so selfhosted .show seemed to be the... It works. Okay, I'm not a hater. We have shipit .show. We do. But that's because we could not get shipit .fm. Dot FM, yeah. Somebody owns that, whoever you are. Give it up. Give it up. It's ours. Somebody owns selfhosted .com, and I'd love to know who that is. Yeah, that's probably expensive. Yeah. That's a nice domain. Question for you is this. Could you do, like, similar to a commercial open source company forms around, forms a company around open source, could you form a company around the podcast, like a services business? Around self -hosted? Yeah, could you do that? It's an interesting one, because I think... Because you got the media, what is it called again? Collection, the media collection apps. No, that guide you have. What was the name of the ultimate... Oh, perfectmediaserver .com. Perfect Media Server, okay, thank you. It's an interesting one, because you look at the routes people come into self -hosting through, and it's typically things like Plex and collecting media through nefarious means, but I think these days, there are a whole new subset of people coming in through Home Assistant and Home Automation. This mythical new Linux user that we talk about in the Linux world for years and years, it's happening through those platforms, because they enable things to run on like Raspberry Pis that you couldn't do full -fat Windows, but you just couldn't do it that way. It's like a gateway drug. But one of the big appeals of self -hosting is, yes, data sovereignty is important, but it's free as in cost for a lot of people, too, so they can ditch subscriptions with a lot of these apps. So in terms of like a services company, I've thought about it quite a bit, but you'd have to charge more than most commercial services, standalone services, for just one thing, which is like a... Well, I could go and do it for free on Unraid. I could go do it for free on Linux or Docker or whatever, and"
+    },
+    {
+      "start": 390.1,
+      "end": 390.9,
+      "speaker": "SPEAKER_01",
+      "text": "it's"
+    },
+    {
+      "start": 390.9,
+      "end": 555.93,
+      "speaker": "SPEAKER_00",
+      "text": "tricky, you know? Have you thought about writing a book or a guide to capitalize on your... Because you're putting a lot of information out there, and the consolidation of information enables what? Value exchange. What happens when value exchanges? Yeah. Money! Yeah. Just a little education for you, Jared, in case you didn't know. Thank you, thank you. I do put a lot of stuff out on YouTube these days. Yeah? On the Tailskills channel, also KTZ Systems, self -hosted podcast, perfectmediaserver .com. It's all over, but maybe I should write a book. I'm just curious. Did you know that Alex started Linux Server I -O? Yes, because I listened to your guys' episode. Did you know that before that? I didn't know that before that. It was proof you were listening then. Neither did I. Did I? I mean, I prepped for that show. What, you found out on the show? I discovered it on the show. I think you thought I was making it up. I was like, I had to check this guy. He's like, no, you don't. I paginated back to page one of the blog, sure enough. Boom, yeah. Sure enough, right there. So for me, a lot of this stuff started just by, I was trying to compile a kernel to put PCI pass -through in it because I was cheap. I couldn't afford a second computer. I could afford a GPU, though, so I threw that in my server, my unraid server, did the pass -through in there, and I'm like, everyone else needs to know how to do this because this is awesome. So I started writing blogs about it and sharing information, and that's how it's... How many times have we heard something like that, like that story in a different space is the beginning for so many people? It's really rinse and repeat in your little niche, and there's like not guaranteed success, but if you do it long enough, I mean, you're gonna bring so much value to so many people. I hope so. I mean, sometimes I wonder who's actually listening after a while. Sure. Because I feel like, I mean, for me, the message has been the same for like eight years now, but there's always new people coming in and wanna hear new stuff, so. Yeah. Well, you might become jaded, but your audience might not even, like. It's not so much jaded because, I mean, I still get a lot of utility out of it myself, like I run Home Assistant at home, I run Jellyfin, Proxmox, like everything that I can self -host pretty much is self -hosted, and Tailscale obviously helps with that because I don't need to open ports in my firewall and all that kind of stuff. But I mean, from my perspective, it's weird to see my episode. Your episode's right there. Did you plant that? No. We sure did. That's random. We have a TV to Alex's left, my right, and we have clips playing there for the audience. And there's Alex and me talking about Jellyfish. Great lighting, too. Yeah. Very nice. Well, you were actually shooting a log, right? And then you changed? Yeah. I actually figured out after our episode how to get my Ninja V to output the log profile straight out of HDMI into OBS, so now it's fixed. But for that episode, that was"
+    },
+    {
+      "start": 555.93,
+      "end": 556.83,
+      "speaker": "SPEAKER_01",
+      "text": "just"
+    },
+    {
+      "start": 556.83,
+      "end": 640,
+      "speaker": "SPEAKER_00",
+      "text": "the log. Good lighting for sure. What's got your interest these days? Whether it's Tailscale or personal, what's got your attention? Nix OS. Nix OS. Yeah. Oh, wow. Like the package manager or the actual operating system? Yes. Yes. Yeah, because it's really, so Nix is talking about the language and the package manager and the OS, as you say. Right, it's, yeah, it completes. But I started managing all my MacBooks using Nix Darwin and then trying to build a single flake that can configure all my different Mac systems using Home Manager. And then I started trying to get involved in NeoVM as well and mechanical keyboard. Like, I'm going down the rabbit hole pretty hard of being like a chicken jet? Factorio also. That's been, that came out this week and that's been a big time sink. Victoriametrics? Factorio. Oh, Factorio. Oh, that's the game, right? Yeah. Like some sort of a builder game? Yeah. I haven't played it, so I'm literally ignorant right here. I'm like telling you how much I know about it. I've got like 1 ,000 hours in this game. I don't play video games. But that one. What's different about that one? It's basically software development, but in game form. Like inputs, outputs, API interfaces, all that kind of stuff. So Chris Hiller on JS Party is big into that game. And he was trying to tell me about it. And I was like, I don't want to try playing that because I'll probably never stop. It kind of feels like work sometimes."
+    },
+    {
+      "start": 640.86,
+      "end": 641.26,
+      "speaker": "SPEAKER_01",
+      "text": "I'm"
+    },
+    {
+      "start": 641.26,
+      "end": 745.1,
+      "speaker": "SPEAKER_00",
+      "text": "not going to lie. Like a grind? Are you grinding? No, in just so much as the fact it's exactly like software development. Like I am building this entity, and it's got to interface with these other entities. And before you realize it, you've built basically a modular piece of code that you can reuse different. And then you spend most of your time refactoring the base to make it more efficient. And the analogies to writing code are very strong. Very strong. And the joy, I guess, would be similar joys. The joy is there's no boss. There's no, but there is this kind of guilty pleasure in it of I must be productive. I don't know if you guys feel that, too. But I feel like I'm wasting my time playing video games, and yet sometimes I just need to. Whereas the rest of the time I'm busy making content, probably like you guys, like thinking on it in the shower and just, you know, the grind never stops in that regard. Yeah, for sure. Yeah, I use video games now as like a decompression from work, you know, 45 minutes to an hour after I'm done working. Put everything else away and just play for an hour. And then I can be done and move on. Have you played Geometry Dash yet? Oh, yeah. I played Geometry Dash way back in the day. I mean, like I moved on from it because I was kind of addicted to it. Do you ever move on from it? Well, maybe not. I mean, it changes you. Yeah. But yeah, I love Geometry Dash. I just don't play anymore. My son got me into it because he's got into it. Great music, too. Yeah. And he loves he's he wants to be a DJ. We should give BMC some Geometry Dash. Just side note. Yeah. I remember the first time I got heavily into Transport Tycoon. I was about 14 or 15. Yeah. It was OpenTTD when that started. We took a holiday. Very much lived in England at the time, in case you couldn't guess. Yeah."
+    },
+    {
+      "start": 745.2,
+      "end": 868.47,
+      "speaker": "SPEAKER_00",
+      "text": "We took a holiday in Florida and Orlando. You've got all those interchanges flying around. And I'm like looking at designs thinking I could implement this in the game. Yeah, I got big into Roller Coaster Tycoon and SimCity. Oh, yeah. After that, I kind of moved away from Builders myself. But now it's Rocket League. My kids like Rocket League, and now I like it. And so we play it together, which is a great co -op. Can relate. I'm somewhat of a bluey fanboy these days myself. There you go. So you're talking about things. You try to self -host everything you can. What services do you not self -host, and why? Great question. My password manager. I pay Bitwarden the $10 a year to host that because if I get locked out of my vault, I can't get back into anything to unlock the vaults. And it's like this catch -22. And so I'd much rather pay Bitwarden, because it's only $10 a year, $12 or something, for them to do it. And it's like that trade -off is worth it for me. I still pay for Google Photos as well, for right now at least. But image is coming up real good, which is like a self -hosted Google Photos clone. It's got things like machine learning, face detection, and duplicate detection, and all that kind of stuff in it too. It needs a good GPU to do that, so it's properly doing CUDA library stuff. Oh, wow. But yeah, I think really password managers is the only one where I'm like, Nah. Cloud, please. Even though you could, Bitwarden, you could totally self -host. Yeah, Vaultwarden. Yeah, yeah, yeah. You could, absolutely. Well, can't you just like literally host Bitwarden itself? Because it's open source. Well, they're changing things. Are they? Bitwarden? Yeah, Bitwarden, re -licensed, and SDK. I thought I saw they reversed that, though, because... They might have since, this was like last week, though, so there's news since then? Yeah. Because they pushed, there was pushback. They got to the top of Hacker News a couple of times, and nobody wants that. Right, so they reversed course, that's cool, I'm glad to hear that."
+    },
+    {
+      "start": 868.91,
+      "end": 869.31,
+      "speaker": "SPEAKER_01",
+      "text": "I"
+    },
+    {
+      "start": 869.31,
+      "end": 1112.69,
+      "speaker": "SPEAKER_00",
+      "text": "recall years ago, probably like at least two years ago, I was standing up my own Bitwarden, just to play. I wasn't, I'm with you. I don't know I want to host my own password manager, because it's just, it's too much of a, I suppose if the tech is already, you know, secure, I don't have to worry about it, and like whoever gets access to it, you have to authenticate, so if that's good to go, whatever. But it's like if it's down, and then I have that access from everywhere, I wasn't that good at poking holes in my firewall at the time, you know, so I was like, nah, I don't know if I want to do that. What else would you not host? You obviously host your data, right? Like you host a ton of data, and you're cool with that. Next Cloud is what I use to host, it's like Google Drive replacement, Dropbox replacement. Are you happy with that? Mostly. Okay. It's a big fat PHP app. It's kind of slow, it's kind of clunky, it breaks a lot. But I have it now as a Nix module, and I just don't touch it. Now it's stable, I just leave it alone, and it just does its thing in the corner. But it's trying to be a platform for small to medium businesses, I think. It's like you can install office suites on it, you can install calendars, contacts, email, file syncing, there's a million different like add -ons you can get for it. And it's like, once you start getting beyond the core product, it starts to get pretty crufty pretty quickly, really. Gotcha. Mm -hmm. Brittle, I think would be the word. Brittle, yeah. Photos is interesting because we've debated photos recently. We did. That's kind of a hard line of like the one thing you don't want to mess up. Mainly my point is like, know what you're getting into. If you're going to self -host your own photos, and you're the arbiter of the final copy, know what you're getting into. Yeah. Have a backup plan. The only reason I trust myself to self -host photos is because I have an off -site server back in England that I replicate everything to with ZFS every night, and it's done. Yeah, exactly. Does it snapshot too? ZFS is cool like that. So like copy on write, all that kind of stuff. It will only sync the blocks that have changed or the Delta. So yeah. Send receive is pretty cool. But I recently got fiber as well. So I've got like five gig upload now, which is, wow, I've gone from 30 meg to 5 ,000 meg. And it's like, for you, I upload stuff to YouTube, like every, every day nearly. And it's like amazing. Yeah, that's awesome. What's with Tailskill these days? What's new and fresh there? Is it, you still, uh, what's the latest? Still developing relations with developers, I guess. Yeah. Uh, it's pretty good. We just had our company offsite in Mexico. Uh, a whole company gets together once a year cause we're fully remote. So everybody looks at Tailskill being like head office in Toronto and they're like, oh, they're a Canadian company. In reality, there's four people in a WeWork in Toronto. Yeah. And everyone else is just geographically spread. Like I'm here in Raleigh. There's people in San Francisco, all over the place. So there's a, there's a lot of excitement at the moment in the company about where things are going over the next year or so, which made a bunch of new hires and new blood and stuff like that. And, you know, just changing the structure and growing into that next phase. Sounds fun. I think it will be. Yeah. I like Tailskill still yet. You know, I'm not a hater. I'm a lover. My use case is pretty simple though. You know, that's it. How do you connect to your stuff at home from here? Uh, just build Tailskill. Exactly. That's it. Right. This is so easy. Like that's fine. And it's on, is it connected? Okay, cool. And it's free for you because you're just one person, right? That's right. And I love that. And I do run an exit node at home on a dedicated VM, I guess. Could you say a VM is dedicated? It's not an Apple TV, let's just say, you know, it's a VM that's dedicated to being that Ubuntu server is a VM and it's meant to be the exit node. That's it. Tailskill makes my life simple. It, it's kind of boring because it's so easy and that's kind of good, right? I often say it's WireGuard on easy mode and it sounds super cheeseball, but"
+    },
+    {
+      "start": 1112.69,
+      "end": 1113.65,
+      "speaker": "SPEAKER_01",
+      "text": "it's"
+    },
+    {
+      "start": 1113.65,
+      "end": 1192.91,
+      "speaker": "SPEAKER_00",
+      "text": "true, right? Yeah. I mean, like once you're, there's not really a lot of setup, you do all the heavy lifting and it just blends in. I don't have to think about it and worry about whether or not it is working or not working. I remember the first time that I went to set Tailskill up, this, this is like probably three years ago before I worked there. I set aside the whole weekend to retool my WireGuard around Tailskill and I was done in like 10 minutes and I'm like, well, what am I going to do with my weekend? I was expecting that to be really difficult and it was, it was not hard at all. Tailskill was just really easy. Tailskill is really easy. Dig it, man. Jared doesn't Tailskill that, do you? You don't need to, right? You have no need for Tailskill. What about if you need to control a mixer back in Texas from here? Don't do it. Jared lives a simple life. I do. Very simple. It's not that he tries to not be complex. He tries to be simple. I do. Which is a different thing, really. That's a feature, though, not a bug. It is a feature. Yeah, I've designed my life around it. I mean, we are homebodies. We are homeschoolers. I work from home. I have one laptop. I take it with me when I go somewhere. I got nothing to connect to back home. Yeah, I mean, the Mac Mini has some old movies on it, but like, I'm not going to watch those if I'm on the road. I'm going to watch whatever's on Netflix. You're going to watch the world go by the window, right? Yeah, exactly. So"
+    },
+    {
+      "start": 1192.91,
+      "end": 1193.87,
+      "speaker": "SPEAKER_01",
+      "text": "young"
+    },
+    {
+      "start": 1193.87,
+      "end": 1250.87,
+      "speaker": "SPEAKER_00",
+      "text": "Jared would be all about Tailscale, but old Jared, I'm just like, I'm not a self -hoster. Yeah, I still think it's cool tech. I remember the bad old days of Hamachi VPN, I think it was called, which was, I think, open source, but it was definitely free. It was my closest analog to Tailscale before Tailscale. And it was cool because you could do a lot of the same stuff, but it was that's pre WireGuard even. I'm not sure how it worked. I know it was a VPN, but, you know, we had NASs in different people's houses, right? And we were thinking we were like sharing backups with each other. Like I back up your stuff, you back up mine. I did all that stuff the hard way, you know, probably 15 years ago. And so now just not interested now. No, yeah, I just don't. I just have different interests. I like to talk about the stuff. I like to hear what people are up to, but I just don't have that that hacker mindset with that kind of stuff. I just don't. Yeah, I think for me, it's when companies like Disney just jack the price up"
+    },
+    {
+      "start": 1250.87,
+      "end": 1251.75,
+      "speaker": "SPEAKER_01",
+      "text": "to"
+    },
+    {
+      "start": 1251.75,
+      "end": 1351.93,
+      "speaker": "SPEAKER_00",
+      "text": "be double in the years space of a year or you're beholden to business models. And it's a trade off that you're making of convenience versus time versus sovereignty of that data and information and stuff like that. Your choice is time and money. My choice is invest a lot of time and a lot of money in hardware. Yeah. And then I also get the sovereignty of the data as well. Yeah, I 100 percent understand that. And I understand it would be cool to have a Plex library with like all the movies and all that kind of stuff that I own. But my choice when Disney does that, I just canceled Disney Plus. I'm like, peace out, guys. I don't need you, you know? Yeah, I'll live the simpler life. Until the kids are like, where's Bluey? And then I tell them, Bluey's no longer with us. Bluey's no longer with us, you know? So, yeah, I mean, that's another trade off, right? It's like, OK, now I got to deal with that situation. Yeah, you can't do that to all your, to everything in your life. But so you make choices. Yeah, but then you end up spending thousands on hardware. And for me, it's also an educational piece, too, like the skills that I've learned through building my home lab have gotten me the jobs that I've had over the last decade. And by staying true to my passions and just doing what I find interesting and talking about it, that comes across in everything that I, all the content that I make and things like that. And I think ultimately it makes for better content. People can relate to you better and all that kind of stuff, as opposed to scratching around for ideas for content the whole time. It's like, no, it's just what I'm doing anyway. If I find it interesting, probably at least a couple of other people will. Yeah, I had the chance to and I still might actually. Do you know Tim, by any chance?"
+    },
+    {
+      "start": 1354.09,
+      "end": 1354.41,
+      "speaker": "SPEAKER_01",
+      "text": "So"
+    },
+    {
+      "start": 1354.41,
+      "end": 1538,
+      "speaker": "SPEAKER_00",
+      "text": "when he was on the pod a couple of times, I was like, dude, you really need to like spin off. I can do a podcast that's adjacent from your news, your YouTube channel, because you're sort of like diving deep into certain things. I think there's a room there for it. And he and I were like skunk working the idea. But then I felt like, like, I was like, Tim, I don't know if I could be your co -host. I like the idea. Well, I don't know if there's a time for it. And then, too, I'm like, I kind of feel like even though I'm a home labber, I kind of feel like I'm an imposter in a way, because I'm not like every day, every weekend, every possible moment. Am I thinking about like tinkering in my home lab? It's a problem. Whereas Tim is, you know, where that's Tim's demo, like that's his style. I'm like, I kind of even felt like imposter there. I was like, Tim, I think I don't know if I could be your co -host for this thing. I like the idea of you doing it. And I think he's spun up a couple other channels now that's like gone from his single channel to like giving him more freedom. And I think he's kind of doing that now. But I even feel like there's times I'm like, I'm not even sure I'm home lab enough for home lab. And so like for you and your job and what you do with Tailskill and other things, like YouTube's a whole beast, though. And it's turned somewhat and I'm going to get on my soapbox for a second. Please get on it. It's it's turned somewhat into a bit of a shopping channel where there are these guys like I mean, there's no disrespect to Tim, to Jeff Geerling, to Craft Computing, to RaidOwl, to all these guys, right? Those are four great channels. They do a lot of really good stuff, but they've got to pay the bills. And so they take a lot of sponsored videos and a lot of hardware. And woodworking YouTube suffers from the exact same problem, where you think I need this massive garage. What's the latest planer? Right. You know, who's the what's the watch leper now? Full of a bandsaw and a jointer. And like the reality is a track saw and a table saw and a couple of sanders and you can get most things done with that. Yeah. And the same is true in home lab. You don't need to be home lab enough to be home lab. Like, well, I feel like it's even gone beyond home lab. It's like, well, now it's literally a data center in your home lab. Right. And it's almost and I'm not hating either. I love Tim and Jeff and all those guys. I don't mean to be negative. It's just precisely I think it's it's the nature of the content beast in a way where there's not it's not good enough. You almost have to, like, almost give it your soul or feel compelled to. And I'm not going to do that. Like a thirty thousand view video gets you one hundred dollars. I can't pay my bills with that. Right. You know, just get more views is the answer. But there are only so many home lab views around. And you see these big guys and they're getting one to three hundred thousand, maybe. So let's just take the 30 K and extrapolate to it. Right. It's a thousand dollars for one video that does really well. I'm doing four of those a month. That's still pretty tight. If you've got a mortgage and a kids to pay for and like. So you have to take these third party deals and sponsorships. And I know you're not immune to that in the podcasting world as well. And it's trying to strike that balance between finding sponsors people find interesting versus. And we have this on self hosted to like it's just at what point does a hobby become a business? And"
+    },
+    {
+      "start": 1538.06,
+      "end": 1578.16,
+      "speaker": "SPEAKER_00",
+      "text": "it's easy to turn a hobby into a business and then learn to hate it because you're doing it all day every day. Like I was a classically trained musician. I hate music now because it's just too I love listening to it, but but I don't play anymore because it was too competitive, too real, too. Yeah. Too much. Yeah. It does it demands something from you. And I think that's that's what separates those who go beyond all that and in quotes, make it. And those who don't. And it's not the ability. It's the desire to go through the slog of what's required to get the greatness. Right."
+    },
+    {
+      "start": 1578.68,
+      "end": 1580.44,
+      "speaker": "SPEAKER_00",
+      "text": "Perceived greatness, not literally greatness,"
+    },
+    {
+      "start": 1580.44,
+      "end": 1581.66,
+      "speaker": "SPEAKER_01",
+      "text": "because"
+    },
+    {
+      "start": 1581.66,
+      "end": 1611.87,
+      "speaker": "SPEAKER_00",
+      "text": "it takes a lot out of you to produce a podcast for 15 years or to do all the things you've done. Like it's it takes a lot. And I don't think people realize the content grind of I mentioned the shower earlier. Like I'm thinking about how I'm making a Tailscale YouTube video today. I'm in the shower thinking about how I present that idea, how I make it interesting. Who's watching? What do they find interesting? Like trying to try to second guess every little detail that you can. It's a lifestyle. It's not a job. It's it's a lot to be good at it. I think it's a lifestyle"
+    },
+    {
+      "start": 1611.87,
+      "end": 1613.07,
+      "speaker": "SPEAKER_01",
+      "text": "precisely."
+    },
+    {
+      "start": 1613.37,
+      "end": 1928.43,
+      "speaker": "SPEAKER_00",
+      "text": "I hadn't appreciated that before taking this dev rail job at Tailscale and like going full time. You know, it's is it a lifestyle that is worth living? I think so. I mean, if it's sustainably so, if you tell 15 year old Alex, he would get paid a salary to make tech videos. I think he'd be pretty happy. Yeah, I dig it, man. So I was wrong. It's not a dev .fm. It's self -hosted dot show. And I think one of the things you talked about recently was no Google November. Is that right? Or no Google October? No GOOGtober. Yeah, no GOOGtober. So we've been looking at a bunch of stuff, self -hosted search, and there's an app called Searching. It's spelt Sia, like you Sia a steak and then XNG. OK. It creates an anonymous Google search profile for every query you make. So there's no tracking cookies. I mean, they know your IP address that's originating from. But beyond that, it's a it's a brand new empty search profile every single time. There's no ads, there's no tracking, there's no spyware, like all of that stuff. And it presents the results. Do you remember how Google used to look 10 years ago? And now it's got this AI nonsense at the top and pictures. And I've trained myself to scroll to about a third of the way down the page before anything interesting actually happens. With Searching, it's right there at the top every time. And it can self -host it. And I connect to my instance through Tailscale, of course, running in my basement. What I didn't expect, though, was to start looking at other things like AI search, like perplexity. Have you come across perplexity yet? A little bit, yeah. Amazing. Google must be quaking in their boots because you can self -host perplexity with something called Perplexica. And then you can use Searching to perplexity goes out to the Internet and does those searches on real content because chat GPT is based on two years ago. Right. The data they scraped two years ago. It'll say, sorry, I have no record before October 2022 or whatever. Whereas perplexity is searching YouTube videos right now. Yeah. And it's summarizing videos from like right now. So you're like, is the AMD 9950X the best CPU right now? And it will go out and it will transcribe a bunch of videos, figure out the answer and kind of and then you can ask it questions. And Google's done, in my opinion, until like a proper chat style comes out. Like perplexity is so good. And so you're self -hosting Perplexica, is that right? Perplexica, yeah. Perplexica. Perplexica isn't quite ready for prime time. It crashes quite a bit at the minute and you need a GPU to do the machine learning like the AI, like because it plugs into Ollama is there. It plugs into Ollama underneath to do the. Could you run it on like an M4 Mac or something like that? Yeah. So maybe. Anyway, Ollama will run. You can throw like a Mac Mini on your network and just let that be the workhorse. Couple of Docker containers, Ollama and you're good to go. No, that's a couple down in your most recent episode. So self -hosted dot show, full length, go deep. I'm sure. Right. You and Chris is your co -host. Yeah. So you guys go deep on that. What else you got, Jared? Anything else? I'm just now realizing that I've been without Google for a long time, but I've just been suffering with DuckDuckGo. And it's like I should just replace that with Perplexity and I won't be suffering it. I've just I've just lived without. And I've learned how to use DuckDuckGo to the best of its abilities. Example, I was doing some messing about for my talk here, and I wanted to know the file path that the Nginx Docker uses for its default volume mapping. And I literally said, Perplexity, what is the default Docker Nginx mapping for the HTML directory? It came back with the slash user slash share, whatever. Boom, right there. I didn't have to go to look at the actual Docker Hub page. Nothing. It was like right there. So non self -hosted, what's their what's their model? What's their business? Perplexity, you can that you get a certain amount of searches for free and then you can pay 20 bucks a month for pro searches, whatever that means. I haven't looked at that. So are you you said it Perplexica is not ready for usage necessarily. Mine's been unstable. I mean, I don't know if that's just an Alex problem or what, but. What are you running on? An epic 48 core thing with like an Nvidia. So it should be humming. It's not a hardware problem. It could just be that revision has a, I don't know. That'd be dope. I would. That's cool. I mean, especially if you're on the LAN, I suppose you can always expose that via a Tailscale URL. Thank you very much, Tailscale. To be able to match your own search that's self -hosted. I can get down with that. I mean, we've given so much to Google. So much. It's time to take it back. It's time to like, just stop giving it all back. You're not going to get it back, but you can stop giving it to him at least. I can hear Tom Morello warming up somewhere over there. You know, there you go. Good reference. I was trying to go for a Goonies reference, but it was probably too deep of a cut. Do it. I want to hear it. He's like those dreams up there. Those are other people's dreams. He's like down here. These are our dreams and I'm taking them back. I'm taking them all back. I remember that. Yes."
+    },
+    {
+      "start": 1928.75,
+      "end": 1941.96,
+      "speaker": "SPEAKER_01",
+      "text": "Did you know what? This one, this one right here, this was my dream, my wish, and it didn't come true. So I'm taking it back, taking them all back."
+    },
+    {
+      "start": 1942.34,
+      "end": 2271.81,
+      "speaker": "SPEAKER_00",
+      "text": "That was my big cut. Sean Astin. We love you, man. Yep. All right. Well, thanks, Alex. Yep. Thank you. Thanks, man. What's up friends. I'm here on the breaks with Kyle Carberry, co -founder and CTO over at Coder .com. Coder is an open source cloud development environment, a CDE. You can host this in your cloud or on -premise. So Kyle, walk me through the process. A CDE lets developers put their development environment in the cloud. Walk me through the process. They get an invite from their platform team to join their Coder instance. They got to sign in, set up their keys, set up their code editor. How's it work? Step one for them. We try to make it remarkably easy for the dev. We never get any features ever for the developer. They'll click that link that their platform team sends out. They'll sign in with OADC or Google, and they'll really just press one button to create a development environment. Now that might provision like a Kubernetes pod or an AWS VM, you know, will show the user what's provisioned, but they don't really have to care. From that point, you'll see a couple of buttons appear to open the editors that you're used to, like VSCode desktop or, you know, VSCode through the web, or you can install our CLI. Through our CLI, you really just log into Coder and we take care of everything for you. When you SSH into a workspace, you don't have to worry about keys. It really just kind of like beautifully, magically works in the background for you and connects you to your workspace. We actually connect peer to peer as well. You know, if the Coder server goes down for a second because of an upgrade, you don't have to worry about disconnects. And we always get you the lowest latency possible. One of our core values is we'll never be slower than SSH, period, full stop. And so we connect you peer to peer directly to the workspace. So it feels just as native as it possibly could. Very cool. Thank you, Kyle. Well, friends, it might be time to consider a cloud development environment, a CDE and open source is awesome. And Coder is fully open source. You can go to Coder .com right now, install Coder open source, start a premium trial or get a demo for me. My first step, I installed it on my Proxmox box and played with it. It was so cool. I loved it. Again, Coder .com that's C -O -D -E -R dot com. And also by our friends over at Eight Sleep, check them out, EightSleep .com. I love my Eight Sleep. I've never slept better. And you know, I love biohacking. I love sleep science. And this is all about sleep science mixed with AI to keep you at your best while you sleep. This technology is pushing the boundaries of what's possible in our bedrooms. Let me tell you about Eight Sleep and their cutting edge pod for ultra. So what exactly is the pod? Imagine a high tech mattress cover that you can easily add to any bed, but this isn't just any cover. It's packed with sensors, heating and cooling elements, and it's all controlled by sophisticated AI algorithms. It's like having a sleep lab, a smart thermostat and a personal sleep coach all rolled into one single device. And the pod uses a network of sensors to track a wide array of biometrics while you sleep. It tracks sleep stages, heart rate variability, respiratory rate, temperature, and more. And the really cool part is this. It does all this without you having to wear any devices. The accuracy of this thing rivals what you would get in a professional sleep lab. Now, let me tell you about my personal favorite thing. Autopilot recap every day. My Eight Sleep tells me what my autopilot did for me to help me sleep better at night. Here's what it said last night. Last night autopilot made adjustments to boost your REM sleep by 62%. Wow. 62%. That means that it updated and changed my temperature to cool, to warm, and helped me fine tune exactly where I wanted to be with precision temperature control to get to that maximum REM sleep. And sleep is the most important function we do every single day. As you can probably tell, I'm a massive fan of my Eight Sleep, and I think you should get one. So go to eightsleep .com slash changelog and use our code changelog, and you'll get $350 off your very own pod 4 ultra. You can try it free for 30 days, but I am confident I sleep on this thing every night. I'm confident you will not want to return it. Trust me, once you experience this AI optimized sleep, you'll wonder how you ever slept without it. How do I know? Because that's exactly how I feel. They're currently shipping to the US, Canada, United Kingdom, Europe, and Australia, once again, eightsleep .com slash changelog and use our code changelog and get $350 off your very own pod 4 ultra. Next up, we are joined by Isra Taha, a senior software engineer with over 12 years of experience. Isra is as legit as they come, yet she still struggles with self -confidence. Sound familiar? We kind of hounded her to get her on the mic. I even felt bad for a minute, but it all worked out in the end because she decided to do it and we had a great conversation. Here it is. Isra, Isra, Isra. Yes. Here we go. How close do I have to be? Is that good? Depends on how loud you're going to be. You're golden. You're golden. Sweet. So we asked you to come on the show yesterday morning. Now it's today afternoon, but you made it. I almost"
+    },
+    {
+      "start": 2271.81,
+      "end": 2272.51,
+      "speaker": "SPEAKER_01",
+      "text": "didn't make it."
+    },
+    {
+      "start": 2272.57,
+      "end": 2274.37,
+      "speaker": "SPEAKER_00",
+      "text": "You're stepping outside your comfort zone. I am."
+    },
+    {
+      "start": 2274.57,
+      "end": 2275.77,
+      "speaker": "SPEAKER_00",
+      "text": "Do you find that hard to do?"
+    },
+    {
+      "start": 2276.33,
+      "end": 2290.71,
+      "speaker": "SPEAKER_01",
+      "text": "It is, but I gave my first conference talk this year and it was because somebody pushed me to do it, and so if I don't start to take more of those chances myself, I'll never step out of my comfort zone and I can't rely on other people pushing me to do something"
+    },
+    {
+      "start": 2290.71,
+      "end": 2308.49,
+      "speaker": "SPEAKER_00",
+      "text": "until I do it myself. We kind of pushed you into this one, didn't we? Yeah. Well, a gentle nudge is what I like to call it. We gave her a nudge. We didn't require it of her, but we... Constant, gentle pressure. We just wanted her to come on the show. So we're happy to have you. First time at All Things Open. It is. Impressions. It's great."
+    },
+    {
+      "start": 2309.21,
+      "end": 2313.93,
+      "speaker": "SPEAKER_01",
+      "text": "I, every day I walk through and I find more booths and more floors."
+    },
+    {
+      "start": 2314.29,
+      "end": 2314.97,
+      "speaker": "SPEAKER_00",
+      "text": "Lots of booths. Yeah."
+    },
+    {
+      "start": 2315.23,
+      "end": 2332.05,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. It's a lot bigger than I thought it was going to be. I'm used to more smaller conferences capped at a thousand people, so it can be a little bit intimidating, but I think going to more conferences made me a little bit more comfortable, uh, speaking to people kind of, whether at the booths or at"
+    },
+    {
+      "start": 2332.05,
+      "end": 2344.79,
+      "speaker": "SPEAKER_00",
+      "text": "the hallway track, just kind of finding people that you have things in common with, whether you went to the same sessions or just at lunch. Uh, yeah. We're hallway trackers ourselves. Aren't we, Adam? That's right. Yeah."
+    },
+    {
+      "start": 2345.15,
+      "end": 2348.41,
+      "speaker": "SPEAKER_00",
+      "text": "That's where all the fun is. Sort of belong, you know, it's where the people are."
+    },
+    {
+      "start": 2348.73,
+      "end": 2360.01,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. I've had more conversations with people than I have been to sessions. Yeah. And I, I think I like that a lot better because you can find a lot of the content online, whether it's on YouTube or a blog or"
+    },
+    {
+      "start": 2360.01,
+      "end": 2437.96,
+      "speaker": "SPEAKER_00",
+      "text": "things like that. But the thing that I miss most is that interaction with people because I do work remote and so I go to conferences for those connections, for those interactions and not really for the sessions. What if we just had a conference that was only the hallway track? That would be incredible. Hallway conference. I would go to that. That's right. Coming to a hallway near you. Don't go in there. There's no talks. The nice thing about that is you don't really even need a place to gather. You just need a hallway and we don't need an auditorium. Would you have vendors and stuff too? It'd be like this. Everything would be in the hallway, but it would get pretty crowded though. Yeah. You would need a pretty big hallway. Would there be a revolt attempting to organize? What would be cool would be to put it in like an arena and budgets in the hall, you know, in the hallway of the arena, the circular, and so you just walk in circles. We call it circles. A figure eight. Yeah. Well, that's not how they're designed. Oh, you want to cut through the middle. Just think out loud. Cool shape. This is what we do. Welcome to the podcast. We think out loud. What do you think? Would you go to that conference? I would. If we just made you walk in a square circle or a figure eight circle or."
+    },
+    {
+      "start": 2438.1,
+      "end": 2440.3,
+      "speaker": "SPEAKER_01",
+      "text": "Kind of like a speed networking kind of thing."
+    },
+    {
+      "start": 2440.54,
+      "end": 2441.44,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 2441.98,
+      "end": 2457.98,
+      "speaker": "SPEAKER_00",
+      "text": "What would, what would attract you to that conference? The hallway? Cause you come here for the people that come here to hang out in the hallway. Yeah. I think it's a hard sell. Like, especially if you have like the company paying for it, it's hard to sell your employer on. I'm just going"
+    },
+    {
+      "start": 2457.98,
+      "end": 2466.94,
+      "speaker": "SPEAKER_01",
+      "text": "to go talk to a bunch of people. Like where's the business value in that is what a lot of them would probably, uh, have a little apprehension with, but"
+    },
+    {
+      "start": 2466.94,
+      "end": 2480.88,
+      "speaker": "SPEAKER_00",
+      "text": "it's, it's kind of like a meetup just on a larger scale. Yeah. Yeah. Or like an uncomfy, you know, like base camp style base camp. Bar camp, food camp, not food camp, bar camp, bar camp, bar camp was a response to food camp. Do you know food camp?"
+    },
+    {
+      "start": 2481.14,
+      "end": 2482.02,
+      "speaker": "SPEAKER_01",
+      "text": "I don't"
+    },
+    {
+      "start": 2482.02,
+      "end": 2530.24,
+      "speaker": "SPEAKER_00",
+      "text": "know. Bar camp. No. Okay. So food camp stood for friends of O 'Reilly. Okay. And that's Tim O 'Reilly, Tim O 'Reilly, the creator of the O 'Reilly empire, media empire. And he had a event that was, I think on his property or somewhere near where he lives, it was very exclusive invite only. You had to be a friend of O 'Reilly to go. Okay. And it was a camp food camp. I think they camped out. Okay. That part might be gray area, but the rest is true at least and cool for everybody who gets invited, but not cool for anybody who doesn't get invited. Right. So bar camp was a response to food camp because food bar you right. And so bar camp became a, a unconference"
+    },
+    {
+      "start": 2530.24,
+      "end": 2531.4,
+      "speaker": "SPEAKER_01",
+      "text": "where"
+    },
+    {
+      "start": 2531.4,
+      "end": 2540.62,
+      "speaker": "SPEAKER_00",
+      "text": "anybody can come. You don't have to be a friend of O 'Reilly. You can be anybody. And it, because it was an unconference, there was no preplanned schedule."
+    },
+    {
+      "start": 2541.68,
+      "end": 2542.08,
+      "speaker": "SPEAKER_01",
+      "text": "So"
+    },
+    {
+      "start": 2542.08,
+      "end": 2555.94,
+      "speaker": "SPEAKER_00",
+      "text": "you show up on a Saturday morning, for instance, right? Everybody gets together and there's whiteboards or even just construction paper and there's a schedule like here's slots and you just show up a lot like lighting talks, you just show up and like sign up for a slot"
+    },
+    {
+      "start": 2555.94,
+      "end": 2556.92,
+      "speaker": "SPEAKER_01",
+      "text": "and"
+    },
+    {
+      "start": 2556.92,
+      "end": 2567.08,
+      "speaker": "SPEAKER_00",
+      "text": "then you just have your, you putting together the conference as it's going. They actually did that. They did that on a Sunday at all things open. That first day"
+    },
+    {
+      "start": 2567.08,
+      "end": 2585.86,
+      "speaker": "SPEAKER_01",
+      "text": "there were two, uh, tracks. There was the community track and then there was a diversity track and the community track was essentially, um, a bunch of people writing down talk ideas or session ideas, and they just get around in a room in a circle and kind of talk about that one topic. Another, uh, that conference also does a similar concept,"
+    },
+    {
+      "start": 2586.22,
+      "end": 2586.84,
+      "speaker": "SPEAKER_00",
+      "text": "open"
+    },
+    {
+      "start": 2586.84,
+      "end": 2587.36,
+      "speaker": "SPEAKER_01",
+      "text": "spaces."
+    },
+    {
+      "start": 2587.98,
+      "end": 2589.52,
+      "speaker": "SPEAKER_00",
+      "text": "Open spaces. So we went to that conference"
+    },
+    {
+      "start": 2589.52,
+      "end": 2590.26,
+      "speaker": "SPEAKER_01",
+      "text": "in"
+    },
+    {
+      "start": 2590.26,
+      "end": 2593,
+      "speaker": "SPEAKER_00",
+      "text": "Austin in January. Yeah. Are you at that one?"
+    },
+    {
+      "start": 2593.3,
+      "end": 2595.26,
+      "speaker": "SPEAKER_01",
+      "text": "Not in Austin, but I go to Wisconsin one."
+    },
+    {
+      "start": 2595.62,
+      "end": 2634.96,
+      "speaker": "SPEAKER_00",
+      "text": "We wanted to go to Wisconsin. We didn't quite make it, but you did. I did a spaces. What was that called? Birds of a feather. Is it called spaces? I don't know. Like there was tables. It was called come to my table and hang out and you would sign up. The tables were lettered or number. They were numbered sign up what we're going to be talking about at this table. And Adam, you did home lab or something. I did. I did home lab and I did a podcasting podcast. Yep. Was that cool? That was cool. Did you get a lot of people come to it? Describe a lot more than four or more. Oh yes. Okay. Yeah, it was good. We had some good conversations about both home lab"
+    },
+    {
+      "start": 2634.96,
+      "end": 2635.98,
+      "speaker": "SPEAKER_01",
+      "text": "and"
+    },
+    {
+      "start": 2635.98,
+      "end": 2667.74,
+      "speaker": "SPEAKER_00",
+      "text": "podcasting. I think a lot of people are probably interested in podcasting in some way, shape or form. I did a really good job of my placard though. Cause like you could put it up on the board and I decorated it. Oh, nice. I may look flashy. You know, you think that's how you got such big numbers, like more than four. I think it was a great topic, but it was also like, Oh, look at me. Yeah. I was peacocking, you know, I guess you got to do what you got to do. Yeah. You know, get your attention, bro. You know, right. Get your attention. So that's cool. I like the idea of, I like improvisation. I like"
+    },
+    {
+      "start": 2667.74,
+      "end": 2669.08,
+      "speaker": "SPEAKER_01",
+      "text": "spontaneous"
+    },
+    {
+      "start": 2669.08,
+      "end": 2669.72,
+      "speaker": "SPEAKER_00",
+      "text": "things."
+    },
+    {
+      "start": 2669.84,
+      "end": 2670.16,
+      "speaker": "SPEAKER_01",
+      "text": "Yep."
+    },
+    {
+      "start": 2670.26,
+      "end": 2745.81,
+      "speaker": "SPEAKER_00",
+      "text": "And so I really have, I've gotten a lot of bar camps over the years. It used to be a bar camp Omaha every year for a long time. And they were just fun. Cause you never know what to you're going to get. You don't know who you're getting me. What are you talking to talk about? Oh, that's pretty showing her a picture of what he put on the, that conference. It was the main thing. And I put a little, like a little sub talk it, let me see it. I'll describe it. Good. It says all caps in blue across the top home lab, exclamation mark. That's it. Oh no, I've filtered names. I thought people signed up. It also says now in kind of a cloudy, kind of a mixed mass, uh, unified Proxmox. Oh yeah. It's a tech cloud V lands ultimate ultimate Ubuntu, Texas Docker. Oh no. True NAS. You're Texas. Can you read your handwriting? Leaves a lot to be desired. Wifi six. I hold down. Did you talk about all these? Yes. So that's not even false advertising. Now the other one says podcast and all caps and then in lower caps. Cause I think you probably forgot to put that in there. Exclamation mark Mike's software sales, editing questions, community clips, gear."
+    },
+    {
+      "start": 2746.17,
+      "end": 2746.73,
+      "speaker": "SPEAKER_01",
+      "text": "That's"
+    },
+    {
+      "start": 2746.73,
+      "end": 2751.93,
+      "speaker": "SPEAKER_00",
+      "text": "good. That's good advertising. I like that because a lot of times you have like a topic, but you don't"
+    },
+    {
+      "start": 2751.93,
+      "end": 2752.93,
+      "speaker": "SPEAKER_01",
+      "text": "really know,"
+    },
+    {
+      "start": 2752.93,
+      "end": 2760.49,
+      "speaker": "SPEAKER_00",
+      "text": "like what they're going to be talking about to open -ended it's too generic or I know about, you know, or you want to something or other"
+    },
+    {
+      "start": 2760.49,
+      "end": 2761.73,
+      "speaker": "SPEAKER_01",
+      "text": "switching"
+    },
+    {
+      "start": 2761.73,
+      "end": 2767.11,
+      "speaker": "SPEAKER_00",
+      "text": "ports and stuff now, you know, wifi six, right?"
+    },
+    {
+      "start": 2767.11,
+      "end": 2767.81,
+      "speaker": "SPEAKER_01",
+      "text": "It'll"
+    },
+    {
+      "start": 2767.81,
+      "end": 2805.5,
+      "speaker": "SPEAKER_00",
+      "text": "get you. I don't know what that is. See, but you would want to, you might show up and find out about wifi generally. Right. Yeah. What is wifi? Uh, wireless, uh, something. Yeah. I think it stands for fidelity, but that's right. But yeah, wireless networks. Right. And six is a good number. And six is just better than five. You know, it's the next version for two. It's here though. Right. Wifi six. It's here. Many devices are wifi six enabled, but not all of them. Yeah. It's, uh, it's not faster. It can do more concurrent bandwidth than wifi five. It's a wider pipe, but on a faster pipe."
+    },
+    {
+      "start": 2806.36,
+      "end": 2809.96,
+      "speaker": "SPEAKER_01",
+      "text": "Cool. Interesting. So if you"
+    },
+    {
+      "start": 2809.96,
+      "end": 2815.74,
+      "speaker": "SPEAKER_00",
+      "text": "were to command a space and advertise it, did you do that at that conference? Did you start one?"
+    },
+    {
+      "start": 2816.28,
+      "end": 2838.68,
+      "speaker": "SPEAKER_01",
+      "text": "I did not, but I attended my first open space, um, this year, which is surprising because like we've done open spaces at that conference for 11, 12 years, but I was always interested in the sessions and I didn't realize that the interesting conversations usually happen in those open spaces or in the hallway, but I went to my first one this year"
+    },
+    {
+      "start": 2838.68,
+      "end": 2839.7,
+      "speaker": "SPEAKER_00",
+      "text": "and,"
+    },
+    {
+      "start": 2839.86,
+      "end": 2859.7,
+      "speaker": "SPEAKER_01",
+      "text": "uh, it was on meetups and how to get people to show up to meetups, how to organize meetups, because a lot of them have died down since COVID a lot of them are pretty much gone. So how do we bring those communities back? How do we, in a sense, resurrect those meetups and get people more involved in those things."
+    },
+    {
+      "start": 2860.14,
+      "end": 2865.8,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. That's cool. So if you're going to start a space though, like you're going to step outside your comfort zone"
+    },
+    {
+      "start": 2865.8,
+      "end": 2866.84,
+      "speaker": "SPEAKER_01",
+      "text": "and"
+    },
+    {
+      "start": 2866.84,
+      "end": 2869.78,
+      "speaker": "SPEAKER_00",
+      "text": "next year that conference, I'm going to, I'm going to run a space."
+    },
+    {
+      "start": 2870.46,
+      "end": 2872.52,
+      "speaker": "SPEAKER_01",
+      "text": "I would probably do it on react native."
+    },
+    {
+      "start": 2872.74,
+      "end": 2873.22,
+      "speaker": "SPEAKER_00",
+      "text": "Okay."
+    },
+    {
+      "start": 2873.38,
+      "end": 2879.56,
+      "speaker": "SPEAKER_01",
+      "text": "I I've been a react native developer for two years now, but I'm a solo dev for the most part,"
+    },
+    {
+      "start": 2879.56,
+      "end": 2880.26,
+      "speaker": "SPEAKER_00",
+      "text": "and"
+    },
+    {
+      "start": 2880.26,
+      "end": 2881.04,
+      "speaker": "SPEAKER_01",
+      "text": "I don't know"
+    },
+    {
+      "start": 2881.04,
+      "end": 2895.84,
+      "speaker": "SPEAKER_00",
+      "text": "a lot of others in the community, at least immediate community that do react native development. So it would just kind of be interesting to see if there are people doing mobile development. What are they using? If they're interested in react native, I could maybe talk about that a little bit,"
+    },
+    {
+      "start": 2896.38,
+      "end": 2897.36,
+      "speaker": "SPEAKER_01",
+      "text": "but yeah. How"
+    },
+    {
+      "start": 2897.36,
+      "end": 2898.98,
+      "speaker": "SPEAKER_00",
+      "text": "do you keep up in the react native world?"
+    },
+    {
+      "start": 2899.9,
+      "end": 2910.06,
+      "speaker": "SPEAKER_01",
+      "text": "I listen to the react native radio podcast, uh, that's hosted by infinite red, who is one of the leading, uh, consultancies, um, actually one of the biggest consultancies"
+    },
+    {
+      "start": 2910.06,
+      "end": 2925.9,
+      "speaker": "SPEAKER_00",
+      "text": "in the U S for react native development. I also read their newsletter. They have a newsletter that they publish with some of the latest news. I keep up with, uh, the react native releases. Uh, they just released 0 .76 recently. And then just kind"
+    },
+    {
+      "start": 2925.9,
+      "end": 2926.92,
+      "speaker": "SPEAKER_01",
+      "text": "of keeping up on Twitter,"
+    },
+    {
+      "start": 2927.4,
+      "end": 2942.78,
+      "speaker": "SPEAKER_00",
+      "text": "just reading up on, you know, new libraries and framework or frameworks with expo brand new architecture, right? Yeah. Do you have a take on that? I haven't used it yet, but it's supposed to be faster. And then obviously the old architecture."
+    },
+    {
+      "start": 2943.18,
+      "end": 2943.7,
+      "speaker": "SPEAKER_01",
+      "text": "So"
+    },
+    {
+      "start": 2943.7,
+      "end": 2973.82,
+      "speaker": "SPEAKER_00",
+      "text": "there's a lot of push for react native packages to switch to the new architecture because there are ones that are still not compatible with it. So if you do switch your project to new architecture, there might be some packages that kind of have issues with that. I know there's a, there's a big movement to get those packages compatible. So, yeah. What else, man, anything else? Is it GPT able react native? Like how do you level up and learn? Where do"
+    },
+    {
+      "start": 2973.82,
+      "end": 2974.74,
+      "speaker": "SPEAKER_01",
+      "text": "you"
+    },
+    {
+      "start": 2974.9,
+      "end": 3012,
+      "speaker": "SPEAKER_00",
+      "text": "get your new skills? By doing it is GPT able, but some of the, like, some of the stuff is a little bit older or like outdated, right? So you kind of have to keep up with documentation, kind of have to try it out for yourself and play around with it. But yeah, that's kind of been one of my biggest struggles. Is where do I find those resources when I have questions on how do I do this? Or this isn't quite working the way that I expected to, where do I go? And so Twitter infinite red also has a Slack community of a lot of react native developers. So if you have questions, a lot of times you can go into their Slack, ask a"
+    },
+    {
+      "start": 3012,
+      "end": 3018.76,
+      "speaker": "SPEAKER_01",
+      "text": "question and somebody will be able to either answer or point you in the right direction to figure out where to go from there."
+    },
+    {
+      "start": 3019.49,
+      "end": 3023.73,
+      "speaker": "SPEAKER_00",
+      "text": "Nice. What are you doing? You said learn by doing, so what are you doing? Uh,"
+    },
+    {
+      "start": 3023.73,
+      "end": 3054.93,
+      "speaker": "SPEAKER_01",
+      "text": "I'm building a react native template, so I am using react native CLI to build a template with react native hook form and Zod for, uh, for forms and, uh, validation and integrating authentication with the idea that if I wanted to build a mobile app with react native, these are the things that just kind of come with it. So I don't have to rebuild it from scratch."
+    },
+    {
+      "start": 3054.99,
+      "end": 3064.89,
+      "speaker": "SPEAKER_00",
+      "text": "So these are the things that I like to use or would make a development easier and just kind of learning by doing. So how does validation work with Zod and react hook form?"
+    },
+    {
+      "start": 3065.37,
+      "end": 3070.13,
+      "speaker": "SPEAKER_01",
+      "text": "How does authentication work with Auth0? How do you implement state management with all"
+    },
+    {
+      "start": 3070.13,
+      "end": 3077.03,
+      "speaker": "SPEAKER_00",
+      "text": "of these, you know, technologies and what's the best way to do it? So it kind of helps me learn about the technologies that"
+    },
+    {
+      "start": 3077.03,
+      "end": 3084.89,
+      "speaker": "SPEAKER_01",
+      "text": "I'm using, but also how to integrate them with other technologies and have something that I can take and use to build a real world app."
+    },
+    {
+      "start": 3085.79,
+      "end": 3088.11,
+      "speaker": "SPEAKER_00",
+      "text": "Awesome. If you had a magic wand"
+    },
+    {
+      "start": 3088.11,
+      "end": 3089.43,
+      "speaker": "SPEAKER_01",
+      "text": "to"
+    },
+    {
+      "start": 3089.43,
+      "end": 3117.87,
+      "speaker": "SPEAKER_00",
+      "text": "change react native and angst or just something you haven't learned quite as well as you'd like to yet, what would it be? How would you change it? Debugging. Debugging? Yeah. So what's the problem there? I think the tools that we have today aren't like the tools that we're used to in web development. There is, I know there's a debugger that's coming out with react native 0 .76. I heard about it in react native universe or react"
+    },
+    {
+      "start": 3117.87,
+      "end": 3118.81,
+      "speaker": "SPEAKER_01",
+      "text": "universe."
+    },
+    {
+      "start": 3119.15,
+      "end": 3119.71,
+      "speaker": "SPEAKER_00",
+      "text": "I can't remember"
+    },
+    {
+      "start": 3119.71,
+      "end": 3136.91,
+      "speaker": "SPEAKER_01",
+      "text": "the name of that conference, but it was held in Poland earlier this year. Most of my logging and debugging in react native is console logs and I'm sure a lot of people kind of do that. Yeah, it's just not a lot of good tooling around debugging and react native. There is react to Tron who was also built"
+    },
+    {
+      "start": 3136.91,
+      "end": 3148.81,
+      "speaker": "SPEAKER_00",
+      "text": "by the folks at infinite red. I haven't had a chance to try that out yet, but it's one of those things where if I could know more about debugging and react native, I'd probably try react to Tron, try out the new debugger"
+    },
+    {
+      "start": 3148.81,
+      "end": 3153.13,
+      "speaker": "SPEAKER_01",
+      "text": "and 0 .76 and kind of figure out how best to do that."
+    },
+    {
+      "start": 3153.82,
+      "end": 3778.96,
+      "speaker": "SPEAKER_00",
+      "text": "Awesome. Nope. Good job. Thank you. Yeah. Thanks for sharing. Now you're a podcaster. Awesome. Yeah, you did it. We did it. We all did it. It's done. It's not as scary as I thought it was going to be. Told you. Yeah, it's fun. You just talk to each other. What's up friends. I'm here with a new friend of ours over at assembly AI founder and CEO Dylan Fox assembly AI is where you can turn voice data into insights, chapters, transcripts, summaries, and so much more with their leading speech AI models. So Dylan, give me a glimpse into what you're doing with speech AI models at assembly AI. So at assembly, we're building industry leading speech AI models for various tasks like speech to text streaming speech to text speech understanding to help developers easily convert voice data, whether it's live or prerecorded into super accurate text, and then to help developers extract ton of information and metadata around voice data, or even around the text that they just were able to convert from that audio data. So these are things like picking out entities or PII that was spoken in voice files or summarizing voice and audio data down into custom summaries. It's things like being able to detect how many speakers spoke and who said one and what the names of different speakers were. So we bundle all those things into a super simple API with really great docs that developers can just sign up to for free to start use the API, build into their apps, and then build these really cool AI apps and products and workflows and automations on top of voice data with. I dig it. Okay. Can you take me a little deeper into the opportunity for developers? Because it seems like there's a lot of voice data out there and there's a lot of trapped value in that voice data. There's so much voice data being created on the internet now, podcasts, videos, phone calls, voice messages, audio books, virtual meetings, it's crazy. And you can now transform and understand all of this voice and audio data in ways that were not even possible a year, 18 months ago. And so what we're seeing with the help of these new AI models that we're creating at assembly, developers and organizations are just racing to build all these new applications, workflows, automations that leverage the voice data they have either with either organization or their product to build really cool new products, services, workflows that are just like taking off in the market. So at assembly, we're building the industry leading models for all those different apps and workflows, whether it's speech to text or speaker diarization or speech understanding capabilities to summarize voice data or extract entities voice data or mask PII from phone calls for various types of automations that might be built. And we're exposing that through a super simple, super scalable API. That's just constantly being updated and constantly getting better. And so we're seeing a crazy amount of developers and companies just build really cool apps and services on top of our API every day. It's really only just getting started, especially with the model updates that we have planned over the second half of the year that are coming out. They're really excited to launch to the developers on our API. Okay. Constantly updated speech AI models at your fingertips while at your API fingertips. That is a good next step is to go to their playground. You can test out their models for free right there in the browser, or you can get started with a $50 credit at assembly AI .com slash practical AI. Again, that's assembly AI .com slash practical AI. Our final two conversations are with a husband and wife pair, but we speak to each of them separately because they had their son and daughter with them at the event, which is awesome, but means they had to take turns on kid duty. First up Avindra Fernando, an independent software consultant. After Avi, we speak with his wife, Aditi Rabachandran. Aditi is an independent software consultant. Is there an echo in here? No. Is there a power couple in here? I think so. Well, we're here with Avi for non Fernando, Fernando, Fernando. We're here with, I was about to call you Abby. I just changed the a sound. I'm Abby now. Yeah, I'll be Fernando. That's right. From, from Kansas, Kansas city, Kansas city, born and raised, not born and raised, born in Sri Lanka. Okay. Sri Lanka. How did you get to Kansas? Are you the Missouri side or the Kansas side? Oh, I live on the Kansas side. Okay. Yeah. So I got here when I was 19. Wanted to pursue a degree. Yeah. So that's KU? KU. Rock Chalk Jayhawk. Oh, Rock Chalk. Yeah, absolutely. Sorry. We speak a different language here. What did you say? Say it louder. I said Rock Chalk Jayhawk. Yeah. That's their saying. Yeah. Yeah. The KU Jayhawks, the motto, the Jayhawks, the mascot. That's the Rock Chalk Jayhawk. Rock Chalk Jayhawk. Rock Chalk Jayhawk. That's right. Yes. You're saying it right. That's what they all say to each other. It's kind of like saying, you'll be chanting it. It's a chant. Give me demonstration. Give me demonstration. Rock Chalk Jayhawk KU. That's it. I did not go to KU. All right. But I've been there many a times and I know the chance because I live nearby. All right. So you're 19, moved from Sri Lanka to Kansas of all places. That's right. Yeah. And then you never, you never go back. No. Yeah. I stuck around in Lawrence, uh, finished my bachelor's in computer science and then decided right after, like, let me do a master's as well. So pursued my master's right afterwards and then stuck around in Kansas city. Yeah. Since. Yeah. Got married, started a family, started a business in that order. Eventually. Probably skipping over a lot of life there, but. So my wife and I, we, uh, we met at KU. Okay. We were both teaching assistants, so we started dating right, right around the time of graduation. So we both started at Cerner, which was a large healthcare IT company in the, in the Kansas city area on the same day. We've had, we've had a great journey from the very beginning. Yeah. In lockstep. Yep. That's good stuff. Yeah. And you are a react guy. Oh, one of, one of my specialties. Yes. Okay. Yeah. What would you, what would you list of specialties? Our specialties for you? Uh, mostly front end. Yeah. I would say react next JS, uh, do a lot of playwright tests, Cyprus for my clients. Yeah. Yeah. And you are, uh, running your own business. Yeah. Since 2021. How'd you get there? Great story. So back when I was working at Cerner, you know, I got to meet a lot of architects and senior engineers, which I had learned a lot of knowledge from, and then this journey goes along. Uh, at one point I decided to join another, another big company. At that point, you know, I started to feel like I was attending a lot of meetups locally because I wanted to spread the knowledge that I was gaining from the other people. And I spoke to a couple of directors at RSA at the time, and then they were like, yeah, you bring the meetup in house and we'll let you host it. We'll let you have people in it. So it was awesome. Right. So I was really motivated by all of that, but then I realized like what I'm missing is, you know, I'm, I'm street seeing how big companies run, right? How they operate. But let me see how the small, small companies run. So I took the risk and I said, okay, let me just go join a startup, right? Product startup. So that was my, my journey into see how good product works. Yeah. And from a startup level, there was only like five people at the startup and everyone was wearing different hats, getting started with it, learned a ton there, right? Constant innovation, constantly like grinding, a great, great, great time there. What I was like thinking to myself at that time was, okay, now I got the product startup perspective. What if, how does services or consulting work, right? Let me go experiment that. So I joined a services startup, which their motto was consulting a couple of guys, amazing, amazing dudes, got to work with them, see how they negotiate contracts, you know, bring in different contracts. One of the contracts was so interesting to me. I was working on an app for someone that was his hobby. He wanted this idea of a virtual bar, so he was mapping out all the bars in the cities that they go to and would give the ability for someone to purchase a seat in the virtual world, which is a fascinating idea. I was like, people pay for this stuff. It's like, yeah, this is, this is cool stuff, right? So I got really motivated by that and then eventually decided, okay, I'm just going to, I'm just going to start this journey on my own and see how things go. So that's fast forward to 2021 and I worked with a client and at that point I decided, okay, the project's going really well and I think I can pull the plug on my full -time job and took that leap and never looked back. Gotcha. So you were kind of a weekend warrior at that point. You had a job nights and weekends. I was wondering, because for a lot of people going into their own business, especially a services business like a consultancy, the question is, how do I get that flywheel going? Do I just quit my job and take the leap or do I weekend warrior it for a while? So did you have a plan from the start or was it just kind of like opportunistic? Yeah, I think I jumped into the opportunity. Maybe in hindsight, I probably jumped into early, but again, I have no regrets. If I were to have a good time, man. Yeah, absolutely. Right. Yeah. There really isn't, you can't tell me that stuff. It's like the market. You can't tell me the entrance into a stock. Oh yeah, for sure. You can, but yeah, it's hard. Right. It's basically impossible. Yeah. Just get in. Yeah, absolutely. Yeah. The best time is now. Yeah. Oh yeah. That's why you've been doing that for three years. Yes. What's the hardest part? Hardest part is managing the different clients and keep the pipeline full all the time. So now wearing different hats, not only consulting, not only coding, not only mentoring, selling, yeah, invoicing, collecting,"
+    },
+    {
+      "start": 3779.06,
+      "end": 3780.58,
+      "speaker": "SPEAKER_01",
+      "text": "collecting money. Contracts are"
+    },
+    {
+      "start": 3780.58,
+      "end": 3785.3,
+      "speaker": "SPEAKER_00",
+      "text": "tough too. Cause you want to scrutinize those contracts. Those contracts are obviously like words of bond."
+    },
+    {
+      "start": 3785.46,
+      "end": 3785.78,
+      "speaker": "SPEAKER_01",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 3785.98,
+      "end": 3787.1,
+      "speaker": "SPEAKER_00",
+      "text": "So it's gotta be clear."
+    },
+    {
+      "start": 3787.22,
+      "end": 3787.58,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah."
+    },
+    {
+      "start": 3787.58,
+      "end": 3793.58,
+      "speaker": "SPEAKER_00",
+      "text": "And you don't want your client relationship to go haywire because. Absolutely. You did not word your contract well enough. Yeah."
+    },
+    {
+      "start": 3793.82,
+      "end": 3817.33,
+      "speaker": "SPEAKER_00",
+      "text": "There's always little details between each contract that changes. Yep. And there's a lot of details in that process. And finding the right people who actually write the check, you know, some companies, it's the CTO who does that. Some companies, it's not right. The CTO still has to talk to the CFO or the senior engineer will have to go talk to someone else. Right. So getting everyone on board. Do you have to spend a lot of time hunting down a check? Uh, what's, what's that? Do you have to spend a lot of time hunting down this check? Like"
+    },
+    {
+      "start": 3817.33,
+      "end": 3818.19,
+      "speaker": "SPEAKER_01",
+      "text": "once"
+    },
+    {
+      "start": 3818.19,
+      "end": 3938.58,
+      "speaker": "SPEAKER_00",
+      "text": "you've delivered your invoice, is there sometimes like, Hey, you know, uh, y 'all owe us the money. The invoice said to pay us, you know, I've been fortunate so far. Okay. So knock on wood. You'll hit it eventually. Especially larger, larger the org, the less they care. Yeah. What's your TTP. What's that mean? I'm making this up right now. Time to payment. Yeah. Do you have like a 30 or 30? Oh, mostly net 30. Right. That's, that's my standard. Yeah. Uh, but a couple of months too. Great. That's good. But that's, I learned a new word today. TTP. Yeah. I just made it up just now. Meaning time to payment. Here's a, here's a pro tip on your terms. Uh huh. Take that net 30 and turn it into do upon receipt. Yep. Cause if they're big enough, they're not going to care anyways. They're going to pay you when they want to. Yeah. If they're small, they'll take that net 30 very seriously and they'll pay on the 30th day. Yeah. So if you just change out the do upon receipt and they're serious, they'll just pay you as fast as they can, but the other ones will ignore you anyways. So they're not going to pay attention to your net 30. Yeah. It won't really matter that much, but you might as well make, try to get paid as fast as possible. Gotcha. You know, that's what I do with one of my clients and they're really good about, yeah, good about it. Yeah. But yeah, the larger ones, you know, it's like a whole, like you're a vendor in a system and there's like some, they don't even care what your net anything is. It's like net whatever I want to pay you. Yeah. If you're lucky, the nice thing is though on the larger ones is once you get that deal set up and you're in the system and you're on those terms, they will actually pay you reliably. Whereas the smaller customers, you know, they might run out of money in the meantime or something and just not have the money to pay you. I certainly hit that as well with my time. Yeah, it's interesting. I worked with a foreign client too, and sometimes you have tax concerns too, right? You got to get the right documents before they can pay you. So I had to go obtain a tax certificate saying that I pay taxes in the United States so that I don't get double taxed in the other country. So yeah, that was a lot of hoops you got to jump through when you're actually customers are from outside of the US."
+    },
+    {
+      "start": 3939.6,
+      "end": 3939.96,
+      "speaker": "SPEAKER_01",
+      "text": "So"
+    },
+    {
+      "start": 3939.96,
+      "end": 4019.8,
+      "speaker": "SPEAKER_00",
+      "text": "when I first started, I thought to myself, if I want to work 40 hours a week and I can bill X dollars per hour, you know, I think it was like 75 when I started and I can get that 80 % of the time, then I'll make this much money. Does that, does that dog hunt, you know, and then you look at that number and you're like, yeah, that, that makes a lot of sense. Like I can live off of that. What I didn't realize is, is that working 40 hours a week, if that's what you want to do, which is what I wanted to do and billing anywhere close to 40 hours a week, like those two things don't happen, right? No, very rarely. It's a dream. Yes. So how many, what percentage of your working hours are you billing? Is it 50%, 80 %? Cause you're a solo consultant, right? So you don't have any help on anything, maybe some software doing some stuff. That's right. Yeah. But like everything that has to happen in your business, you're doing it or software is doing it. How much of your time are you billing on a weekly percentage wise? Don't need hours. Yeah. I would say about 80%. 80%. That's a good estimate. And you have a large customer, which helps. Yes, absolutely. Yeah. How many hours we do work? About 35 to 40 right now. Yeah. Self -employed working 35, maybe 40. Yeah. Which is, which is pretty good. What are you looking at me for? Well, cause I just,"
+    },
+    {
+      "start": 4019.8,
+      "end": 4020.72,
+      "speaker": "SPEAKER_01",
+      "text": "I"
+    },
+    {
+      "start": 4020.82,
+      "end": 4054.12,
+      "speaker": "SPEAKER_00",
+      "text": "want a response. Well, I was telling Jared earlier that I do have capacity, right? Um, I'm always constantly looking to keep a couple of clients at the same time. So I can agree to some more contracts and get those hours in. But you got an 80 20 rule on your customers. Like currently you have an 80 % customer and everything else. Yes. Yes. So that helps you get to that 80 % billable. Yes. If you had three smaller customers at the same time and no larger one. Yeah. You would spend more of your time trying to fill that pipeline. Yeah. Yeah."
+    },
+    {
+      "start": 4054.12,
+      "end": 4122.15,
+      "speaker": "SPEAKER_00",
+      "text": "And if that 80 turns into zero, now you're like flip -flopped. So there's risks on either side. Yeah. Like got a big hunt. There's no perfect way to set it up. I think it depends on the year. It depends on the month. All of these formulas would change and you're going to constantly keep adapting to the newer, newer role. Yeah. I'm just surprised. What are you surprised about? That you only work 40 hours. Yeah. Not a lot of people do that. Well, there's a primary reason for that. So we have a little one at home and I, I deliberately want to spend as much as time. That's the way to do it. Heck yeah. With the kids, you know, just because you had that principle doesn't mean you get to always do it. And that's good for you that you do. Yeah. Cause you know, I'm, I'm surprised not because I think you should, but because you don't. Yes. Which is a good thing. Yeah. And you know, you're talking to two people who power has their family deeply. You know, is there a better way to say that? Deeply? It's just, um, I thought about it, you know, massively, bigly, bigly is the right word. Yeah. Yeah. I thought about it. It's like those years of my son and my daughter is like, they're not coming back. Yeah. The time once it's gone, it's gone. Right. It's the most valuable thing. Yeah."
+    },
+    {
+      "start": 4122.91,
+      "end": 4123.23,
+      "speaker": "SPEAKER_01",
+      "text": "And"
+    },
+    {
+      "start": 4123.23,
+      "end": 4141.67,
+      "speaker": "SPEAKER_00",
+      "text": "I have a bunch of them. So the way I look at it is I got six kids and I look at it like every year I lose six years, you know, cause all six of them get one year older. That's right. That's six years. They've actually gained on a single year. And so how precious is each one of those? Oh, absolutely. You know, once they're all adults, those years won't matter quite as much. But right now"
+    },
+    {
+      "start": 4141.67,
+      "end": 4142.61,
+      "speaker": "SPEAKER_01",
+      "text": "they're"
+    },
+    {
+      "start": 4142.61,
+      "end": 4158.17,
+      "speaker": "SPEAKER_00",
+      "text": "not coming back. I'm about to start crying, man. Yeah. Look at the three of us here. It's going to be hard, although obviously got us beat because his kids are literally with him. Yeah. Last year I had a son with me in the year before, but yeah, I consider bringing my son and I really wanted to bring him. I was just thinking,"
+    },
+    {
+      "start": 4158.24,
+      "end": 4159.28,
+      "speaker": "SPEAKER_01",
+      "text": "how"
+    },
+    {
+      "start": 4159.28,
+      "end": 4169.64,
+      "speaker": "SPEAKER_00",
+      "text": "old is he? Not sure. Eight. He's a little young. Yeah. Yeah. I think he needs like one more year before he can, I would not be able to concentrate. Yeah. All right. And it's not his fault. It's that I,"
+    },
+    {
+      "start": 4169.86,
+      "end": 4170.44,
+      "speaker": "SPEAKER_01",
+      "text": "I"
+    },
+    {
+      "start": 4170.44,
+      "end": 4194.08,
+      "speaker": "SPEAKER_00",
+      "text": "want to, you know, I would actually probably want to experience it with him. Yeah. So it'd be hard. I would be distracted as a dad, you know, whereas, you know, otherwise I can totally focus. Yeah. Right. You know? Yeah. So we pick and choose. So this is the second conference. So my wife, she's speaking here too, and she gave a keynote earlier. So that's why everyone's here. The kid's on us right now. Yeah. He's flexing. He did. He literally flexed his body when he said that he was"
+    },
+    {
+      "start": 4194.08,
+      "end": 4196.4,
+      "speaker": "SPEAKER_01",
+      "text": "like, he's"
+    },
+    {
+      "start": 4196.4,
+      "end": 4221.46,
+      "speaker": "SPEAKER_00",
+      "text": "flexing. All right. We get it. You're cool. And I continued. No, your wife is cool. Oh, you're both cool. That's right. Yeah. You're both cool. That is nice though. He's cool by proxy. Okay. I'm that's what I'm trying to say. Hey, the truth is we can find a babysitter. They're still in lockstep. They're still in lockstep. Yeah. After all these years. So you're doing the consultancy. What does she do then? Oh, she does a very similar consultants as well. She does mobile. So, okay."
+    },
+    {
+      "start": 4221.46,
+      "end": 4222.02,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah."
+    },
+    {
+      "start": 4222.06,
+      "end": 4241.74,
+      "speaker": "SPEAKER_00",
+      "text": "That's a, that's her specialty as well. All right. So you're both kind of doing everything the same. Now is one of you better than the other? There are talks about merging the companies because we don't want to, yeah. We don't want to pay the same accountant. Yeah, exactly. You might as well minimize your costs. We started at different times and different specialties going forward."
+    },
+    {
+      "start": 4241.9,
+      "end": 4242.34,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah."
+    },
+    {
+      "start": 4242.5,
+      "end": 4338.77,
+      "speaker": "SPEAKER_00",
+      "text": "Why? Let's merge. Yeah, totally. Brand new company name. Maybe even like, I don't know what was the company's names? So my company stopped for being consulting. Okay. And hers is Surya consulting. So we can, we can hyphen it. Maybe. The old hyphen. Well, she's not here to speak for herself. So we need to decide right now before she gets here. That's right. See if she agrees. And if she does, you both are eyewitnesses, right? Yeah, exactly. We signed it in the document. We're good. Well, that's good, man. That's very cool. Power couple. Yeah. It's a power couple right there, man. Yeah. So much potential and possibility. Yeah. It's cool, man. Good for you. Thank you. Yeah. And you get to have your kids with you too. I mean, what a, what a, what a blessing. Yeah. Oh yeah. That's where it's at, man. Yeah. I'm hoping, uh, my daughter, uh, you know, she, she came to my livestock. She's inspired. So hopefully, you know, she, she wants to be a speaker one day. Yeah. That's, that's where dreams begin right there, man. That's right. But I, Jared, I mean, I got to tell you six kids, you're, you're a power dad. Well, for sure. Yeah. My wife is pretty amazing too. Yeah. Or very smart. I think it's pretty smart. A fine line between a crazy person and a wise person. Isn't there any, any twins in there? Nope. Okay. All organic power dad. That's right. Organic. I guess a non twin or twins are non -organic. Well, thanks for chatting with us. Obvious fun. Oh, absolutely. Yeah. Well, thanks for having me. Blast. It was the best."
+    },
+    {
+      "start": 4341.6,
+      "end": 4342.52,
+      "speaker": "SPEAKER_01",
+      "text": "So what are these people?"
+    },
+    {
+      "start": 4343.08,
+      "end": 4360.5,
+      "speaker": "SPEAKER_00",
+      "text": "These are the people that have been on the show. Those are not you. Future yous. Oh God. Oh, this is video. Oh, well, we're not doing video here. Oh, okay. We have a drone. So this will be audio only, but what did you have for breakfast? Uh, is it started? We're just sound checking. Yeah."
+    },
+    {
+      "start": 4360.72,
+      "end": 4364.18,
+      "speaker": "SPEAKER_01",
+      "text": "Gotcha. Yeah. I had, uh, scrambled eggs and coffee."
+    },
+    {
+      "start": 4365.78,
+      "end": 4369.32,
+      "speaker": "SPEAKER_00",
+      "text": "You ate scrambled eggs and coffee. Yeah."
+    },
+    {
+      "start": 4369.88,
+      "end": 4371.66,
+      "speaker": "SPEAKER_00",
+      "text": "Lots of coffee, lots of coffee."
+    },
+    {
+      "start": 4372.12,
+      "end": 4374.88,
+      "speaker": "SPEAKER_01",
+      "text": "Very standard. Yep. What did"
+    },
+    {
+      "start": 4374.88,
+      "end": 4375.44,
+      "speaker": "SPEAKER_01",
+      "text": "you have for breakfast?"
+    },
+    {
+      "start": 4376.24,
+      "end": 4388.7,
+      "speaker": "SPEAKER_00",
+      "text": "I had two eggs over easy. Yeah. No toast, no toast. I had some hash browns, light fruit and one strawberry and one slice of orange."
+    },
+    {
+      "start": 4388.88,
+      "end": 4389.42,
+      "speaker": "SPEAKER_01",
+      "text": "Wow."
+    },
+    {
+      "start": 4389.74,
+      "end": 4390.16,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. Very"
+    },
+    {
+      "start": 4390.16,
+      "end": 4392.4,
+      "speaker": "SPEAKER_01",
+      "text": "detailed. I remember"
+    },
+    {
+      "start": 4392.4,
+      "end": 4393.42,
+      "speaker": "SPEAKER_00",
+      "text": "it like it was just this morning."
+    },
+    {
+      "start": 4393.88,
+      "end": 4397.26,
+      "speaker": "SPEAKER_01",
+      "text": "Usually my breakfast is just leftovers from my kids. Yeah."
+    },
+    {
+      "start": 4397.46,
+      "end": 4398.88,
+      "speaker": "SPEAKER_00",
+      "text": "I know how that goes too. Yep."
+    },
+    {
+      "start": 4399.54,
+      "end": 4400.3,
+      "speaker": "SPEAKER_00",
+      "text": "Leftovers, huh?"
+    },
+    {
+      "start": 4400.3,
+      "end": 4400.98,
+      "speaker": "SPEAKER_01",
+      "text": "Uh huh."
+    },
+    {
+      "start": 4401.74,
+      "end": 4405.38,
+      "speaker": "SPEAKER_00",
+      "text": "So you're a, you're a leaders eat last kind of person. Sort of."
+    },
+    {
+      "start": 4406.2,
+      "end": 4412.22,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. I have a couple of kids and just look at them, like waste all their food and then I know they're not going to finish it."
+    },
+    {
+      "start": 4412.22,
+      "end": 4418.34,
+      "speaker": "SPEAKER_00",
+      "text": "Right. And then I just eat off their plate. Muffin you didn't eat. Yep. That is a half a bagel I wanted. Right."
+    },
+    {
+      "start": 4418.72,
+      "end": 4422.3,
+      "speaker": "SPEAKER_01",
+      "text": "My daughter is good at loading up the plate, but she's not going to eat any of that. So yeah,"
+    },
+    {
+      "start": 4422.68,
+      "end": 4446.4,
+      "speaker": "SPEAKER_00",
+      "text": "for sure. My mom used to do that constantly. We call her like the garbage disposal cause she would not let anything get thrown away and whatever was left over. She's like, just give it to me. And she was never happy about it. Yeah. She's like, I'll eat that. And like, I'm going to eat it now. We're not throwing anything away, which I appreciate that sentiment, but it's like, well, you're just taking an empty calories on our behalf, mom."
+    },
+    {
+      "start": 4446.92,
+      "end": 4449.94,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. It's got pros and cons. You don't want to overeat for sure."
+    },
+    {
+      "start": 4450.18,
+      "end": 4455.62,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, totally. So we spoke with Avi yesterday, so we got his side of the story."
+    },
+    {
+      "start": 4455.74,
+      "end": 4456.14,
+      "speaker": "SPEAKER_01",
+      "text": "Okay."
+    },
+    {
+      "start": 4456.5,
+      "end": 4462.94,
+      "speaker": "SPEAKER_00",
+      "text": "Uh, let's hear the real story. Uh, he told us that you guys met at KU"
+    },
+    {
+      "start": 4462.94,
+      "end": 4464.3,
+      "speaker": "SPEAKER_01",
+      "text": "and"
+    },
+    {
+      "start": 4464.3,
+      "end": 4474,
+      "speaker": "SPEAKER_00",
+      "text": "you're still together. Seems like he's telling the truth. Yeah. Two kids, two businesses. Yeah. And so you're, you're doing very similar things. Yeah."
+    },
+    {
+      "start": 4474.32,
+      "end": 4475.34,
+      "speaker": "SPEAKER_00",
+      "text": "How did you get into it?"
+    },
+    {
+      "start": 4475.82,
+      "end": 4479.94,
+      "speaker": "SPEAKER_01",
+      "text": "So I grew up, um, in India and"
+    },
+    {
+      "start": 4479.94,
+      "end": 4490.94,
+      "speaker": "SPEAKER_00",
+      "text": "my dad had a small business. He was buying and selling, uh, cleaning products to hospitals and local companies, and he's a very ambitious person, but of course he didn't"
+    },
+    {
+      "start": 4490.94,
+      "end": 4497.98,
+      "speaker": "SPEAKER_01",
+      "text": "scale up to a large company or anything. It was just two people, my mom and dad, and he would always go meet these customers. And, uh,"
+    },
+    {
+      "start": 4498.32,
+      "end": 4529.82,
+      "speaker": "SPEAKER_00",
+      "text": "basically it was more for the flexibility and he loved being an entrepreneur. So I just kind of grew up watching that and I knew that was a possibility and I knew that he didn't have a boss, but he had like many bosses, always like after all these customers and all of that. So I guess that's where I draw my inspiration from. Okay. And so when you graduated from KU, you had a engineering degree? Yeah, so I did computer science undergrad in India actually. And then I came from a master's to KU and right after that, it was a good economy. It was 2012,"
+    },
+    {
+      "start": 4530.32,
+      "end": 4530.82,
+      "speaker": "SPEAKER_01",
+      "text": "so I"
+    },
+    {
+      "start": 4530.82,
+      "end": 4531.98,
+      "speaker": "SPEAKER_00",
+      "text": "got a job right"
+    },
+    {
+      "start": 4531.98,
+      "end": 4538.1,
+      "speaker": "SPEAKER_01",
+      "text": "out of college, moved to Kansas City, went to a big corporation. So yeah, that's, that's kind of how my journey began."
+    },
+    {
+      "start": 4538.44,
+      "end": 4570.2,
+      "speaker": "SPEAKER_00",
+      "text": "One step in front of the other, huh? And now you're doing mobile apps or something? I did do that for a while, but now I'm more into like the web apps as well. So I was doing React Native for a long time. Once in a while I do get customers who do React Native. So I do both. Yeah. React and React Native. And between you and your husband, who's the better software engineer? You had to go scan our code to find out. Okay. Yeah. So she's not going to answer that one. You know, we try not to work together, honestly, on projects. It kind of,"
+    },
+    {
+      "start": 4570.24,
+      "end": 4570.78,
+      "speaker": "SPEAKER_01",
+      "text": "we have"
+    },
+    {
+      "start": 4570.78,
+      "end": 4580.68,
+      "speaker": "SPEAKER_00",
+      "text": "similar, you know, we have similar personalities and, uh, we kind of take lead a lot. So it could be, it could be conflicting. So we try to have our own customers,"
+    },
+    {
+      "start": 4581.08,
+      "end": 4587.06,
+      "speaker": "SPEAKER_01",
+      "text": "have our own clients. Once in a while we would like maybe review our code or something like that. We talk about problems in"
+    },
+    {
+      "start": 4587.06,
+      "end": 4589.16,
+      "speaker": "SPEAKER_00",
+      "text": "our day -to -day work, but"
+    },
+    {
+      "start": 4589.16,
+      "end": 4595.88,
+      "speaker": "SPEAKER_00",
+      "text": "I don't think I've ever worked with him. Yeah. I work with him in like conference talks and stuff. We would sometimes give a workshop together,"
+    },
+    {
+      "start": 4595.88,
+      "end": 4596.64,
+      "speaker": "SPEAKER_01",
+      "text": "but"
+    },
+    {
+      "start": 4596.64,
+      "end": 4602.78,
+      "speaker": "SPEAKER_00",
+      "text": "like actual coding and architecture work. We don't, we don't work together. Because you've tried and it didn't work? Or you never tried it?"
+    },
+    {
+      "start": 4603.34,
+      "end": 4609.64,
+      "speaker": "SPEAKER_01",
+      "text": "I just think that's too much. Like we see each other too much. That's too much. Yeah. We need that space. Yeah."
+    },
+    {
+      "start": 4610.17,
+      "end": 4617.29,
+      "speaker": "SPEAKER_00",
+      "text": "I think that sounds healthy. What do you think, Adam? It's not bad. Yeah. Disagree. But I enjoy working with my wife, so yeah,"
+    },
+    {
+      "start": 4617.43,
+      "end": 4617.87,
+      "speaker": "SPEAKER_01",
+      "text": "yeah."
+    },
+    {
+      "start": 4618.17,
+      "end": 4620.81,
+      "speaker": "SPEAKER_00",
+      "text": "I can't, you might be missing out on something you didn't realize."
+    },
+    {
+      "start": 4621.31,
+      "end": 4623.06,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. I said"
+    },
+    {
+      "start": 4623.06,
+      "end": 4626.68,
+      "speaker": "SPEAKER_00",
+      "text": "to him, I said to Avi, power couple. And he's like, yeah, yeah."
+    },
+    {
+      "start": 4627.1,
+      "end": 4633.04,
+      "speaker": "SPEAKER_00",
+      "text": "But you're not unified in the powering of the couple. Just in the business side, obviously. Yeah,"
+    },
+    {
+      "start": 4633.06,
+      "end": 4634.96,
+      "speaker": "SPEAKER_01",
+      "text": "I agree with you. So what happened was I"
+    },
+    {
+      "start": 4634.96,
+      "end": 4704.68,
+      "speaker": "SPEAKER_00",
+      "text": "started out first while he was having a full -time job and I didn't have any ideas of scaling or anything like that. I just wanted out and wanted to be an entrepreneur, but I didn't know what that really meant. And at that time, my goal was mostly, I want to spend more time with my baby and I want to earn what I was earning in my full time. And that's, that was my goal. I didn't have like a large scale goal. So I was like, I need flexibility. I want to spend time with the baby. And I want to make as much as I made in my full time job. So I wasn't looking to like, so I just needed a company. Yeah. You know, that, that was the goal. So I just, I, that's how it started. And then when Avi started, it was a year later and he had, uh, he, he probably had a different mindset. So by then I was doing React Native apps. So we were unsure if we needed different brands or how it went. So he started his own, but technically we're just two people. So we need to like merge together our future now. Like I think we have more clarity now over the years and we see our son growing up. Oh, so we had a second baby, right? So maybe once he goes to daycare and has a more stable routine, I think we want to scale and that's when we want to like merge. We have no reason to have two different companies. Yeah."
+    },
+    {
+      "start": 4705.68,
+      "end": 4710.16,
+      "speaker": "SPEAKER_00",
+      "text": "Economies of scale. Yeah. And different baskets too. Yeah, for"
+    },
+    {
+      "start": 4710.16,
+      "end": 4710.78,
+      "speaker": "SPEAKER_01",
+      "text": "sure. Yeah."
+    },
+    {
+      "start": 4711.06,
+      "end": 4712.64,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. Two eggs. Yeah."
+    },
+    {
+      "start": 4712.92,
+      "end": 4714.44,
+      "speaker": "SPEAKER_00",
+      "text": "Two baskets. Yeah."
+    },
+    {
+      "start": 4714.82,
+      "end": 4734.02,
+      "speaker": "SPEAKER_00",
+      "text": "Not two eggs, one basket. Yeah, absolutely. Yeah. Basket dies. Yeah, we don't even actually, like now that you guys are talking about it, we haven't even talked about it or thought about it that way. Oh, we're helping out there. We just know we're doing basically the same thing in different names. That's, that's, that's it. And there are times, you know, when I might be fully booked or he's fully booked,"
+    },
+    {
+      "start": 4734.02,
+      "end": 4735,
+      "speaker": "SPEAKER_01",
+      "text": "if"
+    },
+    {
+      "start": 4735,
+      "end": 4743.12,
+      "speaker": "SPEAKER_00",
+      "text": "customers come our way, we just kind of like send them to the other person. So it's not like, we don't really view it as two different businesses. Do you charge a referral fee?"
+    },
+    {
+      "start": 4743.52,
+      "end": 4743.92,
+      "speaker": "SPEAKER_01",
+      "text": "No,"
+    },
+    {
+      "start": 4744.98,
+      "end": 4749.98,
+      "speaker": "SPEAKER_00",
+      "text": "not at all. Dinner out or anything. You know, dinner's on him. You guys are"
+    },
+    {
+      "start": 4749.98,
+      "end": 4753.58,
+      "speaker": "SPEAKER_01",
+      "text": "giving me ideas. You should do it in like marital favors. We are AG men. That's what"
+    },
+    {
+      "start": 4753.58,
+      "end": 4756.56,
+      "speaker": "SPEAKER_00",
+      "text": "we do. And there's lots of ways you can take that, obviously, but"
+    },
+    {
+      "start": 4756.56,
+      "end": 4758.24,
+      "speaker": "SPEAKER_01",
+      "text": "I would leverage"
+    },
+    {
+      "start": 4758.24,
+      "end": 4765.08,
+      "speaker": "SPEAKER_00",
+      "text": "it. The Joker said it best. Every time I send you a referral, I get a manicure and a pedicure or something."
+    },
+    {
+      "start": 4765.34,
+      "end": 4766.36,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. If you're"
+    },
+    {
+      "start": 4766.36,
+      "end": 4769.98,
+      "speaker": "SPEAKER_00",
+      "text": "into that kind of thing. The Joker said it best. He said, if you're good at something, don't do it for free."
+    },
+    {
+      "start": 4770.2,
+      "end": 4772.9,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. Yeah. You're referring something"
+    },
+    {
+      "start": 4772.9,
+      "end": 4781.18,
+      "speaker": "SPEAKER_00",
+      "text": "to somebody, husband or not. Yeah. Don't do it for free. Careful because, you know, the sword cuts both ways. Plenty of times he sent people my way too. Right. So"
+    },
+    {
+      "start": 4781.18,
+      "end": 4782,
+      "speaker": "SPEAKER_01",
+      "text": "he"
+    },
+    {
+      "start": 4782,
+      "end": 4796.24,
+      "speaker": "SPEAKER_00",
+      "text": "gets his referral fee, I guess. It could be like, hey, you're doing dinner tonight. You know, you're in charge of sides. That's how we are in my house. It's like, my wife is like, you're in charge of sides or I'm in charge of the main course. And you know, we'll collaborate and come together or, you"
+    },
+    {
+      "start": 4796.24,
+      "end": 4797.02,
+      "speaker": "SPEAKER_01",
+      "text": "know,"
+    },
+    {
+      "start": 4797.02,
+      "end": 4802.66,
+      "speaker": "SPEAKER_00",
+      "text": "I need you to put away the dishes in the dishwasher. Thank you very much. You know, whatever it takes, you know?"
+    },
+    {
+      "start": 4803.14,
+      "end": 4805.06,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. And he's been super supportive. A"
+    },
+    {
+      "start": 4805.06,
+      "end": 4820.08,
+      "speaker": "SPEAKER_00",
+      "text": "lot of the risks I was able to take was also because he was in a stable full -time job with health insurance and everything. So I was like, all right, I'm going part time now that we have the baby. And then I was like, now I'm going to go to a startup or, you know, I was able to do all of that stuff because I knew I had like a"
+    },
+    {
+      "start": 4820.11,
+      "end": 4821.11,
+      "speaker": "SPEAKER_01",
+      "text": "support"
+    },
+    {
+      "start": 4821.11,
+      "end": 4834.97,
+      "speaker": "SPEAKER_00",
+      "text": "system. And then once I got the stability in that business, he was able to take a risk too and start. What is it that drives you personally? I think, uh, personally, ever since I got"
+    },
+    {
+      "start": 4834.97,
+      "end": 4835.85,
+      "speaker": "SPEAKER_01",
+      "text": "my kid, my"
+    },
+    {
+      "start": 4835.85,
+      "end": 4836.49,
+      "speaker": "SPEAKER_00",
+      "text": "first"
+    },
+    {
+      "start": 4836.49,
+      "end": 4844.95,
+      "speaker": "SPEAKER_01",
+      "text": "kid, I kind of found more purpose in life and I wanted to do something out of the box, um, and kind of be a role model to her"
+    },
+    {
+      "start": 4844.95,
+      "end": 4864.79,
+      "speaker": "SPEAKER_00",
+      "text": "as well. So I just, I just don't want to do a nine to five for 30 years and then realize that I missed out on something. So I wanted to try out being an entrepreneur and, you know, see how that journey goes. And I think the flexibility was my first motivator, uh, with the time as a new mom, that was my primary goal."
+    },
+    {
+      "start": 4865.11,
+      "end": 4865.51,
+      "speaker": "SPEAKER_01",
+      "text": "But"
+    },
+    {
+      "start": 4865.51,
+      "end": 4881.55,
+      "speaker": "SPEAKER_00",
+      "text": "eventually I'll, obviously it's the money, the flexibility, the happiness, um, to be able to see success and failure quickly and then iterate upon that and have control. I just don't want a boss controlling my career. I want to control my career on my"
+    },
+    {
+      "start": 4881.55,
+      "end": 4882.05,
+      "speaker": "SPEAKER_01",
+      "text": "own."
+    },
+    {
+      "start": 4882.17,
+      "end": 4889.99,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, for sure. It's been so long since I've had a boss that I can't imagine having a boss, I guess. You know, I just"
+    },
+    {
+      "start": 4889.99,
+      "end": 4891.09,
+      "speaker": "SPEAKER_01",
+      "text": "can't"
+    },
+    {
+      "start": 4891.09,
+      "end": 4896.85,
+      "speaker": "SPEAKER_00",
+      "text": "imagine the, not that it's a bad thing or a good thing, but it's definitely different than being your own"
+    },
+    {
+      "start": 4896.85,
+      "end": 4898.05,
+      "speaker": "SPEAKER_01",
+      "text": "controller"
+    },
+    {
+      "start": 4898.05,
+      "end": 4905.77,
+      "speaker": "SPEAKER_00",
+      "text": "of your schedule and what happens, what you're optimizing for, the things that matter to you, the way you schedule your day. Yeah,"
+    },
+    {
+      "start": 4906.09,
+      "end": 4909.8,
+      "speaker": "SPEAKER_00",
+      "text": "you know, I can't imagine the opposite of that."
+    },
+    {
+      "start": 4910.06,
+      "end": 4911.04,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, I'm, I'm sort"
+    },
+    {
+      "start": 4911.04,
+      "end": 4930.78,
+      "speaker": "SPEAKER_00",
+      "text": "of in that space right now too. Yeah. Do you see yourself scaling beyond what your parents did with your business? Cause right now you're kind of emulating that. I do because I want to, I think right now are, um, we're kind of capped out at a certain extent and we don't have to be that way. So,"
+    },
+    {
+      "start": 4930.78,
+      "end": 4931.56,
+      "speaker": "SPEAKER_01",
+      "text": "um,"
+    },
+    {
+      "start": 4931.94,
+      "end": 4965.96,
+      "speaker": "SPEAKER_00",
+      "text": "the goal is I think in a year or so we're going to have to try to scale by bringing in people who right now the brand unfortunately is just me and him. So we need to build that trust with our customers and be able to train people. Um, so it might have, it might be a journey, so we don't know what that is or what it looks like. So we'd have to train people and bring them to the level where like, Hey, these are these software engineers we trust and um, slowly start scaling that way. So it might take some time and money to train these people who we trust and be like, Hey, they are part of our brand as well. Yeah,"
+    },
+    {
+      "start": 4965.96,
+      "end": 4966.64,
+      "speaker": "SPEAKER_01",
+      "text": "I"
+    },
+    {
+      "start": 4966.64,
+      "end": 4974.2,
+      "speaker": "SPEAKER_00",
+      "text": "definitely see myself scaling for sure. What about family? What's that? Scaling your family? No, no, the"
+    },
+    {
+      "start": 4974.2,
+      "end": 4977.42,
+      "speaker": "SPEAKER_01",
+      "text": "family's done. It's just two kids. It's a lot."
+    },
+    {
+      "start": 4977.58,
+      "end": 4978.34,
+      "speaker": "SPEAKER_00",
+      "text": "That was a quick, I know you"
+    },
+    {
+      "start": 4978.34,
+      "end": 4980.5,
+      "speaker": "SPEAKER_01",
+      "text": "have five, six,"
+    },
+    {
+      "start": 4980.5,
+      "end": 4998.1,
+      "speaker": "SPEAKER_00",
+      "text": "six, technically, but you know, we don't count Ezra. My wife is the same. She's like, nope, no more kids. It's over. If, if I even like, if for some reason there was even mention of the possibility, I can see her recoil in like physical and mental. I can see it in her"
+    },
+    {
+      "start": 4998.1,
+      "end": 4998.84,
+      "speaker": "SPEAKER_01",
+      "text": "because"
+    },
+    {
+      "start": 4998.84,
+      "end": 4999.64,
+      "speaker": "SPEAKER_00",
+      "text": "she's like, no."
+    },
+    {
+      "start": 4999.64,
+      "end": 5007,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, no, no. I think we're in a good, two is a great number. I think the national average is probably two or 2 .5."
+    },
+    {
+      "start": 5007.1,
+      "end": 5013.4,
+      "speaker": "SPEAKER_00",
+      "text": "That's good. Yeah, I got 2 .5. You got 2 .5. Well, that's exciting."
+    },
+    {
+      "start": 5013.8,
+      "end": 5014.24,
+      "speaker": "SPEAKER_01",
+      "text": "Good"
+    },
+    {
+      "start": 5014.24,
+      "end": 5016.24,
+      "speaker": "SPEAKER_00",
+      "text": "luck to you. Thanks for stopping by and talking with us."
+    },
+    {
+      "start": 5016.76,
+      "end": 5020.24,
+      "speaker": "SPEAKER_01",
+      "text": "Appreciate that. Any other questions, Adam? That's it. Yeah. Thank you. I appreciate that. Thank you."
+    },
+    {
+      "start": 5027.64,
+      "end": 5106.62,
+      "speaker": "SPEAKER_00",
+      "text": "That's all and that's it. Our all things open 2024 hallway track coverage ends right here. Well, that's not 100 % true, I guess, because we do have a changelog plus plus members only episode coming soon. So stay tuned for that if you are a plus plus supporter. Otherwise, yeah, this is it until next year, at least one more shout out to all of our guests on this anthology episode. Thank you to Alex, Isra, Avi and Aditi for the great combos and a big thanks once again to our partners at fly .io. You know, we love fly and to Breakmaster Cylinder, our beat freaking residents. Keep the beats coming, BMC. Thank you. Have a great weekend. Leave us a five star review if you dig the changelog and let's talk again real soon. Butters the key to great eggs, right? The eggs is nice and crispy. Oh, yeah. Yeah. Do you like a small bit or a big dollop? Oh, just a little bit. Yeah. Yeah, go dollop."
+    },
+    {
+      "start": 5108.06,
+      "end": 5108.54,
+      "speaker": "SPEAKER_01",
+      "text": "You"
+    },
+    {
+      "start": 5108.54,
+      "end": 5197.08,
+      "speaker": "SPEAKER_00",
+      "text": "were doing so well. You do right. You're doing so well. Yeah. Yeah, go dollop. Dollop is the way. Awesome. Are you a butter snob? No, I wouldn't say so. No. Do you like grass fed butter? You're a butter snob then. You're a butter snob then. Yeah. You got to, you got to check the ingredients. Yeah, I'm, I'm conscious about what I put in my body. Grass only. Yeah. Kerrygold is the one. It's like a brand of choice for a lot of people. Yeah. But it's cows. I believe it's, uh, New Zealand, not, not New Zealand. It's like Irish. Where's it at? Irish. Irish. Yeah. Yeah. Kerrygold. Yes. Yeah. Kerrygold is Irish. Yeah. But I was thinking it was like Greenland potentially like one of those, but not, was it like literally an island? It's Ireland. Yeah. Yeah. It's Irish butter. Yeah. That's what they call it. Yeah. Okay. So it's cows that graze grass only in the fields of Ireland. Then cows make butter. Then cows, Kerrygold. Kerrygold. Kerrygold. Yeah. It's a pretty cool brand. You've never had it? I mean, maybe I have. I'm just not a butter snob, so I don't know if I'm headed or not. I think my wifi is worse than the butter. If you're achieving the perfect egg, you know, easy over medium scrambled. You pick your style of eggs, butter, grass fed butter. That's right. Sorry. When I make my hamburgers on my griddle, butter,"
+    },
+    {
+      "start": 5197.56,
+      "end": 5198.92,
+      "speaker": "SPEAKER_01",
+      "text": "butter it up. Yeah."
+    },
+    {
+      "start": 5199.1,
+      "end": 5219.72,
+      "speaker": "SPEAKER_00",
+      "text": "Well, you know, obviously you guys toast my buns for my burgers. You guessed it butter. Okay. TMI, man. You can't go wrong with butter, right? It's vodka. I would tend to agree that butter is hard to go wrong with. It's just really good. Butter's dope, man. Butters away, especially grass fed Irish cows. That's right, man. What do you mean you don't do butter tasting? I butter taste all the time,"
+    },
+    {
+      "start": 5219.72,
+      "end": 5220.26,
+      "speaker": "SPEAKER_01",
+      "text": "man."
+    },
+    {
+      "start": 5222.52,
+      "end": 5226.74,
+      "speaker": "SPEAKER_00",
+      "text": "Daily, pretty much daily. I taste some butter. Butter's good. Butter's good."
+    }
+  ],
+  "slug": "anthology-self-hosted-self-confident-self-employed",
+  "id": "69"
+}

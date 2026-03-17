@@ -1,0 +1,2264 @@
+{
+  "title": "Kaizen! Tip of the Pipely",
+  "description": "Gerhard demos Pipely, a custom CDN built on Varnish and Fly.io to replace Fastly for the Changelog website, benchmarking performance and debugging production issues along the way.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/92",
+    "MP3": "https://cdn.changelog.com/uploads/friends/92/changelog--friends-92.mp3",
+    "YouTube": "https://youtu.be/qsIuFnhhM0w",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "gerhard-lazu"
+  ],
+  "segments": [
+    {
+      "start": 15.25,
+      "end": 67.06,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about scaling fly machines. Speaking of fly, thanks to our awesome partners, the public cloud built for developers who ship. Learn all about it at fly.io. Okay, let's Kaizen. Well friends, it's all about faster builds. Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay, so Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 67.06,
+      "end": 139.86,
+      "speaker": "gerhard-lazu",
+      "text": "I would take it a step further and say if you're using any CI provider with just the basic things that they give you, which is if you think about a CI provider, it is in essence a lowest common denominator generic VM. And then you're left to your own devices to essentially configure that VM and configure your build pipeline, effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast. Making them fast, making them secure, making them cost effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features, a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes the builds more cost effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. Ultimately, CI providers today don't prioritize performance. Performance is not a top level entity inside of generic CI providers."
+    },
+    {
+      "start": 139.86,
+      "end": 162.54,
+      "speaker": "jerod-santo",
+      "text": "Yes. Okay, friends, save your time. Get faster builds with Depot, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo and more. Depot is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depot.dev. Get started with a seven day free trial."
+    },
+    {
+      "start": 162.54,
+      "end": 171.84,
+      "speaker": "gerhard-lazu",
+      "text": "No credit card required again, depot.dev."
+    },
+    {
+      "start": 171.84,
+      "end": 180.2,
+      "speaker": "jerod-santo",
+      "text": "Well today is a very good day because we are Kaizenen and Gerhard is here and Adam is here and I am here."
+    },
+    {
+      "start": 180.2,
+      "end": 183.2,
+      "speaker": "gerhard-lazu",
+      "text": "Hey guys. Hey, it's good to be back. We almost weren't all here."
+    },
+    {
+      "start": 183.2,
+      "end": 185.1,
+      "speaker": "jerod-santo",
+      "text": "But we're all here."
+    },
+    {
+      "start": 185.1,
+      "end": 190.99,
+      "speaker": "gerhard-lazu",
+      "text": "Things happen. Rain and thunder and lightning."
+    },
+    {
+      "start": 190.99,
+      "end": 192.95,
+      "speaker": "jerod-santo",
+      "text": "Internet outages."
+    },
+    {
+      "start": 192.95,
+      "end": 193.99,
+      "speaker": "gerhard-lazu",
+      "text": "So what happened?"
+    },
+    {
+      "start": 193.99,
+      "end": 194.99,
+      "speaker": "jerod-santo",
+      "text": "To my internet?"
+    },
+    {
+      "start": 194.99,
+      "end": 195.99,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 195.99,
+      "end": 244.98,
+      "speaker": "jerod-santo",
+      "text": "To your internet. I don't know. I just went down and stayed down about 1230 on Monday, maybe one 130 and I called them and told them my internet was down and then they said we'll fix it and then they didn't fix it and then they did fix it, but it's a little bit too late for us. We actually were going to court at 9 a.m. I think on Tuesday and it came back up around 11 a.m. on Tuesday. So not even a 24-hour outage yet still. Way too long. Way too long for my liking. And it was just my house. I don't know what happened. They said they had to rebuild the modem, which was apparently a remote rebuild. I think they just flashed it with a new something or another."
+    },
+    {
+      "start": 244.98,
+      "end": 247.98,
+      "speaker": "gerhard-lazu",
+      "text": "You only have one. Let me guess. You only have one internet."
+    },
+    {
+      "start": 247.98,
+      "end": 259.18,
+      "speaker": "jerod-santo",
+      "text": "This is correct. Well, I do have my phone. I told you guys I could just tether to my phone and, you know, play hot, hot and loose. No. I'm not saying."
+    },
+    {
+      "start": 259.18,
+      "end": 260.18,
+      "speaker": "gerhard-lazu",
+      "text": "It was fast."
+    },
+    {
+      "start": 260.18,
+      "end": 261.18,
+      "speaker": "jerod-santo",
+      "text": "Fast and loose."
+    },
+    {
+      "start": 261.18,
+      "end": 262.18,
+      "speaker": "gerhard-lazu",
+      "text": "Thank you."
+    },
+    {
+      "start": 262.18,
+      "end": 281.76,
+      "speaker": "jerod-santo",
+      "text": "I don't know. I was thinking fly close to the sun and then I was thinking fast and loose and I said hot and loose. But Garrett, you said you had like a multimedia presentation. I'm going to have to like have really good internet. And so we just called it off. Now we're here. The internet's back. The rain is over. I'm assuming it's done raining there, Adam. You're all clear."
+    },
+    {
+      "start": 281.76,
+      "end": 286.08,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I think so. No. Yes. We're good."
+    },
+    {
+      "start": 286.08,
+      "end": 291.08,
+      "speaker": "jerod-santo",
+      "text": "Okay. And Gerhard brought us some goodies. You got a story to tell. I do. Yes."
+    },
+    {
+      "start": 291.08,
+      "end": 304.46,
+      "speaker": "gerhard-lazu",
+      "text": "Tell us what you have to say. I was thinking about this for some time, actually. Wow. And I was thinking is when we get close to launching the pipe dream, to launching pipely, how do I want to do this? And that's the story."
+    },
+    {
+      "start": 304.46,
+      "end": 308.98,
+      "speaker": "jerod-santo",
+      "text": "The story is that you were thinking about it or that you've thought about it and you're going to tell us more."
+    },
+    {
+      "start": 309.02,
+      "end": 344.7,
+      "speaker": "gerhard-lazu",
+      "text": "Well, the story is that I will tell you more. A lot of stuff has happened. I decided to double down on the pipe dream on pipely. I decided to like all my time went there. Yeah. And all that means is that we have something. We have something. We have something. Is this the launch story? I think it's good. Like, let's just like, you know, let me set the expectations at the right level. Okay. And let's see if Adam approves of the toy that we want to wrap for him. Okay. That's the bar. Does Adam enjoy this toy that is being built in the factory and let's see what he thinks of it."
+    },
+    {
+      "start": 344.7,
+      "end": 345.7,
+      "speaker": "jerod-santo",
+      "text": "I love toys."
+    },
+    {
+      "start": 345.7,
+      "end": 347.7,
+      "speaker": "gerhard-lazu",
+      "text": "Don't we all? Don't we all?"
+    },
+    {
+      "start": 347.7,
+      "end": 349.98,
+      "speaker": "jerod-santo",
+      "text": "Let's get right to it. Show us the toy, Gerhard."
+    },
+    {
+      "start": 349.98,
+      "end": 381.58,
+      "speaker": "gerhard-lazu",
+      "text": "All right. So I'm going to share my entire screen. That's why when I mentioned that this is a presentation style, it is a presentation style. I could even share the slides. Now they're about 80 megabytes big. Wow. Because there are some recordings as well, right? Some multimedia. If something will not work live, that's okay. I already did it. It's recording. The screen behind me will be out of sync with the things that we'll be doing, but the thing itself has been captured so that we can tell a good story."
+    },
+    {
+      "start": 381.58,
+      "end": 382.58,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 382.58,
+      "end": 486.68,
+      "speaker": "gerhard-lazu",
+      "text": "So the thing which I would like us to do now is click around a few versions of the changelog site and talk about how responsive the different versions of the changelog site feels to us. And I think this is why Gerhard's internet was important so that, you know, he experienced it as close as he would normally, no tethering, nothing like that. So we will start with the origin. The origin, as our listeners will know, runs on fly. And we always capture a date when this was created. This particular origin was created in January of 2024, 12th of January, which means that the URL to go to the origin, by the way, most users will not do that. This is for the CDN to do that, right, is changelog-2024-01-12.fly.dev. And I want you to be logged out. That is important. Or just use simply a private window, whichever is easier. We don't want any cookies. We don't want you to be logged in because the experience will differ if you are. And this is going to be our baseline. So it's important that the reading is accurate. And this is the slowest gets. This is if we were to hit the website, this is running in Ashburn, Virginia, and it basically comes down to your network latency to Ashburn. So let's open up the website. I'm going to open it up as well. And I'm going to click around and see how it feels. How responsive does it feel? That's what we're aiming for. Remember to be signed out. That's the important part."
+    },
+    {
+      "start": 486.68,
+      "end": 491.81,
+      "speaker": "jerod-santo",
+      "text": "I'm clicking around. I'm signed out. I'm in a private window."
+    },
+    {
+      "start": 491.81,
+      "end": 501.63,
+      "speaker": "gerhard-lazu",
+      "text": "So how does it feel in terms of responsiveness, the website? Average. Average. What about when you click on news? Do you see any delays? Anything like that?"
+    },
+    {
+      "start": 501.63,
+      "end": 504.97,
+      "speaker": "jerod-santo",
+      "text": "I would say there's a slight delay."
+    },
+    {
+      "start": 504.97,
+      "end": 506.97,
+      "speaker": "gerhard-lazu",
+      "text": "It doesn't feel as snappy. Adam, what about you?"
+    },
+    {
+      "start": 507.09,
+      "end": 511.81,
+      "speaker": "jerod-santo",
+      "text": "I can see it rendering. Do images play a game into this?"
+    },
+    {
+      "start": 511.81,
+      "end": 512.81,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, yes."
+    },
+    {
+      "start": 512.81,
+      "end": 528.17,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. Because that's what I'm noticing most. It's laggy. It's like the viewport kind of gets painted and then it moves around because the images catch up and it feels like I'm on tethered internet, basically."
+    },
+    {
+      "start": 528.17,
+      "end": 533.59,
+      "speaker": "gerhard-lazu",
+      "text": "Right. There you go. So imagine if Jared had tethered into that. How slow that would feel."
+    },
+    {
+      "start": 533.59,
+      "end": 534.59,
+      "speaker": "jerod-santo",
+      "text": "Double tether."
+    },
+    {
+      "start": 534.59,
+      "end": 551.16,
+      "speaker": "gerhard-lazu",
+      "text": "Cool. Yeah, exactly. Now, the interesting thing is that even though the images do serve from the CDN, everything else around them, the JavaScript, the CSS, all of that, I don't think it does. Let me just double check that."
+    },
+    {
+      "start": 551.16,
+      "end": 552.16,
+      "speaker": "jerod-santo",
+      "text": "Oh, it should."
+    },
+    {
+      "start": 552.16,
+      "end": 599.69,
+      "speaker": "gerhard-lazu",
+      "text": "It should. Yes, it actually does. So it is just a request to the website. You're right. Actually, yes. Everything, all the static assets are served from the CDN. It's just a request to the website, which makes it feel slow. And I don't think we're biased. I don't think we are imagining this. I have been looking at this for quite a while and it all comes down to that initial request. Anything that hits the website for me takes about 360 milliseconds and this is constant. So I'm showing here the HTTP stat output, a tool we talked about it. We may drop a link in the show notes and that's what it comes down to, right? Like the origin itself is slow. The further away you are from it, the slower it will get. You in the US, I would have expected this to be snappier. So interesting that it isn't."
+    },
+    {
+      "start": 599.69,
+      "end": 603.97,
+      "speaker": "jerod-santo",
+      "text": "I mean, it's borderline snappy. I can feel it a little bit, but it's not bad."
+    },
+    {
+      "start": 603.97,
+      "end": 616.01,
+      "speaker": "gerhard-lazu",
+      "text": "Right. And I think that is because you have the changelog.com experience. So now if you go to changelog.com and do exactly the same stuff that you did before, changelog.com, and you click around, how does it feel now?"
+    },
+    {
+      "start": 616.01,
+      "end": 621.16,
+      "speaker": "jerod-santo",
+      "text": "Instant. Yeah, I mean it's snappy. Versions of instant."
+    },
+    {
+      "start": 621.16,
+      "end": 694.84,
+      "speaker": "gerhard-lazu",
+      "text": "Almost instant. I think the news is the one that you notice that like that paint just takes like a little bit longer, right? It's not instant. It doesn't load instantly, but it's significantly better than if you were to go to the origin. Agreed. And this will be consistent for everyone. I think that is the advantage of changelog.com actually running through the CDN. All the requests run through the CDN, even the ones to the website. So the thing is that if it's not in the cache, if it's a cache miss. For me, the homepage loads in about 300 milliseconds, which is slightly better than when I go to the origin, but it's not great. Now, obviously, if this is a cache hit, in my case, it loads in under 20 milliseconds or around 20 milliseconds and 15 times quicker is a noticeable difference. So as soon as these things get cached, it's really, really fast. So we would expect this from a CDN all the time, but it should consistently behave like this. And by the way, title proposal, 15x quicker, maybe, we'll see, we'll see, we'll see, right? We're getting there."
+    },
+    {
+      "start": 694.84,
+      "end": 695.84,
+      "speaker": "jerod-santo",
+      "text": "Note taken."
+    },
+    {
+      "start": 695.84,
+      "end": 721.3,
+      "speaker": "gerhard-lazu",
+      "text": "So the problem is that with a current CDN, 75% of homepage requests are cache misses. So 75% of all requests- Which is, to me, insane. It is insane, right? That sounds pretty bad. So some would say, present company included, it defeats the purpose of a CDN, right?"
+    },
+    {
+      "start": 721.3,
+      "end": 722.3,
+      "speaker": "jerod-santo",
+      "text": "I would agree."
+    },
+    {
+      "start": 722.3,
+      "end": 724.33,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. But there's more."
+    },
+    {
+      "start": 724.33,
+      "end": 725.33,
+      "speaker": "jerod-santo",
+      "text": "But there's more."
+    },
+    {
+      "start": 725.33,
+      "end": 726.33,
+      "speaker": "gerhard-lazu",
+      "text": "There's more."
+    },
+    {
+      "start": 726.33,
+      "end": 728.11,
+      "speaker": "jerod-santo",
+      "text": "Tell us, tell us."
+    },
+    {
+      "start": 728.11,
+      "end": 756.59,
+      "speaker": "gerhard-lazu",
+      "text": "So here, this is a question for you, both Adam and Jared. What do you think is the percentage of all GET application requests that are cache hits? How many of all the requests that go to the app, to the origin, do you think are being searched from the cache? And the options are 15%, 20%, 25%, or 30%. What is your guess?"
+    },
+    {
+      "start": 756.59,
+      "end": 764.35,
+      "speaker": "jerod-santo",
+      "text": "Well, I buzzed in thinking it was a game show. My bad. I buzzed myself in even. Go ahead. You gotta go first. 20%, please."
+    },
+    {
+      "start": 764.35,
+      "end": 767.35,
+      "speaker": "gerhard-lazu",
+      "text": "20%. Okay. Jared?"
+    },
+    {
+      "start": 767.35,
+      "end": 772.35,
+      "speaker": "jerod-santo",
+      "text": "So you just told us that 75% are misses."
+    },
+    {
+      "start": 772.35,
+      "end": 773.35,
+      "speaker": "gerhard-lazu",
+      "text": "Yep."
+    },
+    {
+      "start": 773.35,
+      "end": 775.59,
+      "speaker": "jerod-santo",
+      "text": "And that's every type of request. Now you're asking-"
+    },
+    {
+      "start": 775.59,
+      "end": 777.59,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, no. Sorry."
+    },
+    {
+      "start": 777.59,
+      "end": 778.59,
+      "speaker": "jerod-santo",
+      "text": "Just the homepage."
+    },
+    {
+      "start": 778.59,
+      "end": 790.87,
+      "speaker": "gerhard-lazu",
+      "text": "Just the homepage is 75% miss, which means the homepage is a 25% hit. Now I'm asking about all the requests- All GET requests? To the application origin. Remember, we have a few origins."
+    },
+    {
+      "start": 790.87,
+      "end": 791.87,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 791.87,
+      "end": 792.87,
+      "speaker": "gerhard-lazu",
+      "text": "Just the application origin."
+    },
+    {
+      "start": 792.87,
+      "end": 796.59,
+      "speaker": "jerod-santo",
+      "text": "I'm going with the highest possible choice, 30%."
+    },
+    {
+      "start": 796.59,
+      "end": 831.75,
+      "speaker": "gerhard-lazu",
+      "text": "So yeah, 17.93%. So yes, Adam is closer. 15% would have been accurate. 20, I think 20 is more accurate because 17.93 is closer to 20. So yeah, I think you were too optimistic because if 30% were cache hits, that would be good. It's actually 17%. 18%. 18% are cache hits. Everything else is a miss. And the window is the last seven days. The last seven days. So in the last seven days, only 18% of requests were served from a cache."
+    },
+    {
+      "start": 831.75,
+      "end": 833.71,
+      "speaker": "jerod-santo",
+      "text": "How does this make any sense?"
+    },
+    {
+      "start": 833.71,
+      "end": 855.87,
+      "speaker": "gerhard-lazu",
+      "text": "Right. So October, 2023, this is what we started right on this journey. When this was issue 486 in our repo, what is the problem? Well after October 8th, 2023, CDN cache misses increased by 7x. It just happened. We looked into it. We tried to understand it and we could not."
+    },
+    {
+      "start": 855.87,
+      "end": 860.31,
+      "speaker": "jerod-santo",
+      "text": "And it's been ever since then or it's like this systematic problem ever since then?"
+    },
+    {
+      "start": 860.31,
+      "end": 922.09,
+      "speaker": "gerhard-lazu",
+      "text": "Well it has been low ever since. So the cache hits have been low to the application specifically ever since. Which is why even when you go through the CDN and you think, right, things are snappier and they are to some extent, many requests, they are just cache misses, especially going to the application. So here we are today. It's only been three weeks. So it's only been three weeks. So let me explain what it means. So many, it depends how you count, okay? So the thing is that roughly that's how much time I had to spend on this. Like about three weeks in total. Right. Spread over like a long period of time. So we are just about to unleash our clicks on the pipedream.changelog.com. Bring your mice out and let's do this. Let's see how this feels."
+    },
+    {
+      "start": 922.09,
+      "end": 923.9,
+      "speaker": "jerod-santo",
+      "text": "Our clicks."
+    },
+    {
+      "start": 923.9,
+      "end": 937.56,
+      "speaker": "gerhard-lazu",
+      "text": "Pipedream and by the way, anyone can reproduce the same experiment. Remember to be logged out. That part is important or a private window because if you have any cookies, it will bypass the CDN. That's the rule."
+    },
+    {
+      "start": 937.56,
+      "end": 939.96,
+      "speaker": "jerod-santo",
+      "text": "When should I do this? Right now?"
+    },
+    {
+      "start": 939.96,
+      "end": 951.12,
+      "speaker": "gerhard-lazu",
+      "text": "Right now. Yeah. Right now. Just click around and tell me how it feels. I mean, I've tested it myself, but I don't have your experience. So how does it behave on your side of the world?"
+    },
+    {
+      "start": 951.12,
+      "end": 982.07,
+      "speaker": "jerod-santo",
+      "text": "So one thing in particular that I notice between the two of them right away, because I clicked into news and it seems like there's this paint delay on the right hand side. So we split that viewport and news left side as subscribe, right side as the newsletter. Very, very cool. But that right side newsletter side, the background color seems to like delay paint. I'm not sure if that's, it's happening here as well as the past. That's an iframe. So that's a secondary request. I gotcha. Okay. So I'm not going to judge that then."
+    },
+    {
+      "start": 982.07,
+      "end": 987.39,
+      "speaker": "gerhard-lazu",
+      "text": "I think that's important. It's fair to judge it. It's like the whole thing. Like how does one compare to the other?"
+    },
+    {
+      "start": 987.39,
+      "end": 993.95,
+      "speaker": "jerod-santo",
+      "text": "Where's the iframing from though? Iframing from? From the same site. Same site. Yeah."
+    },
+    {
+      "start": 993.95,
+      "end": 1035.46,
+      "speaker": "gerhard-lazu",
+      "text": "It should be. Yeah. So for me, again, for me, when I click on news, I can see that the iframe you're either is a little bit of a delay, but when it paints for me, it paints instantly on pipedream. On changelog.com there's like a little delay between the whole thing that that's at least like how I experience it. Now anyone can reproduce this and we wonder, or I wonder, how do you perceive the two wherever you are in the world. If you click around, these are live links, by the way, changelog.com and pipedream.changelog.com, they should both behave, sorry, they will both have the same content. And what I'm wondering is how do you perceive them? Is there a significant difference? Is it the same?"
+    },
+    {
+      "start": 1035.46,
+      "end": 1036.46,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 1036.46,
+      "end": 1040.32,
+      "speaker": "gerhard-lazu",
+      "text": "What do you notice? What about you, Jared? Do you notice anything different?"
+    },
+    {
+      "start": 1040.32,
+      "end": 1098.13,
+      "speaker": "jerod-santo",
+      "text": "My experience specifically on the episode page, which I think is a good one because it has a lot of, let's just call it first party content, not even CDN content, because I do, I mean, the CDN is a CDN, right? So I do see the images lazy loading in slightly, just like they would on the previous one. However, the first party content, for instance, I'm on making DN simple, podcast 637, which has all the podcast information, all the chapters, and then the entire transcript, which is lengthy and it loaded in very quickly. Obviously my browser is not rendering that text that's off the screen, but it has to at least download it in the HTML. So that was very fast. Other than that, it feels similar to changelog.com and it's the images that I do notice load in because they're lazy loaded, they're loaded in, you know, split second later. Other than that, but yeah, I think the episode page is a good test and it's significantly"
+    },
+    {
+      "start": 1098.13,
+      "end": 1356.52,
+      "speaker": "gerhard-lazu",
+      "text": "faster. Okay. So pipe dream dot changelog.com. If you look at the requests to see the network requests in your developer tools, you will see that all the static assets they load from CDN to dot changelog.com, which is the pipe dream too. So everything that we serve, all the origins, whether it's the assets, whether it's the feeds or the website, it all goes through the pipe dream and the application was changed to that. That's what we were talking about it earlier. We may unpack that the, the change is to every public URL that we, that we serve. Now we have an alternative, which is all running through the pipe dream. I'm using an HTTP stat here and I'm going to HTTPS pipe dream dot changelog.com. If it's a cache hit, it loads for me in 25 milliseconds, which is slower than changelog.com. It's five milliseconds slower in real terms, 25%, roughly, roughly 25% slower. However, if it's stale, it should also return within 25 milliseconds, which is what's happening here. Our content should always be served from the CDN regardless if it's fresh or not. And in this case, what we see, if it's already been served once, it will stay in the, in the cache until there's pressure on the cache. And we control when that is. We just basically size the cache accordingly. We give it more memory and then more objects will store, will remain in memory. And what we want to do is to always serve content from the CDN whether it's stale or not. So this was a cache hit, right? You can see there's a cache status header to serve from the edge. We see what, what region it was served from. By the way, if you were to do a curl request, you'd see the headers, you would see like all this information, even in your browser developer tools, open any endpoint and you get this information for every single response. We see what was the origin that the request, that the CDN had to go through to fulfill the request. The TTL, that is the important, that is the important flag, which is the important value, which is how long was that object stored in the cache. In this case, it's minus four. It's a negative number, which means that it's considered stale. The default value, the default TTL is set to 60 seconds. Anything that was served 60 seconds, within 60 seconds, sorry, anything that was requested within 60 seconds is considered fresh. But then we have this other period, this other value, which is grace, which says for 24 hours, continue serving this object from the CDN, but try and fetch it from the background. And also we see that this has been served from the CDN 26 times already. As I read these headers, these are important. Every single request now has them and we can see which was a region, was an edge region. We don't have an origin yet, but we should, by the way, the closer you are to the origin, it just says the origin shield, all that we can configure now. What a shield origin does basically, the CDN instances, which aren't close to the origin, they will go to the CDN instance, which is closest to the origin. And that's so that we place as little load on the origin as possible. I don't think that will be a problem for us, but we can do it if you want to. And the question is, after all these years, are we holding fly.io right? What does that mean? Well, changelog, the application has only been deployed in two regions, right? Actually one region and we have two instances, but we always wanted to have it spread across the world. The problem with that is how do we connect to the database? Then you're introducing latency of the database layer. But now these CDN instances, they can be spread around the world. So that doesn't mean that finally we're doing this right."
+    },
+    {
+      "start": 1356.52,
+      "end": 1364.33,
+      "speaker": "jerod-santo",
+      "text": "Right. We just put it in front of our app instead of making our app be distributed. Now we're distributing in front of it."
+    },
+    {
+      "start": 1364.33,
+      "end": 1369.52,
+      "speaker": "gerhard-lazu",
+      "text": "I think so. Yeah. So shall we see where these instances are running?"
+    },
+    {
+      "start": 1369.52,
+      "end": 1371.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I'll see it, man."
+    },
+    {
+      "start": 1371.36,
+      "end": 1375.04,
+      "speaker": "gerhard-lazu",
+      "text": "I'm curious. Are we curious about anything else before we move on to that?"
+    },
+    {
+      "start": 1375.04,
+      "end": 1388.72,
+      "speaker": "jerod-santo",
+      "text": "I'm curious about the rollout of this thing, because I've noticed a few things this week and I'm wondering if maybe things are pointing at different directions and if that explains some stuff that I haven't seen, but we can maybe hold that for later."
+    },
+    {
+      "start": 1388.72,
+      "end": 1448.73,
+      "speaker": "gerhard-lazu",
+      "text": "I think we can talk about that now, just like, so that's where we go through this. We never had this situation before, by the way, where we have two application instances completely separate that are pointing to the same database, right? So the data is always the same. But one is going to become the new production and it's configured in a certain way with a new CDN and the existing application, the one that's behind changelog.com, is still consumed by our production CDN. I mean, we have two CDNs, that's the situation. And we can't change the production application because if we do that, then we have rolled out the new CDN and we don't know whether we are ready yet. I think that's what we need to determine today, what else is left, how do things look so far and just assess the readiness of the new CDN, of the pipe dream. So what things have you noticed, Jared, that are off?"
+    },
+    {
+      "start": 1448.73,
+      "end": 1487.32,
+      "speaker": "jerod-santo",
+      "text": "So I shipped changelog news Monday afternoon and that particular episode has dramatically lowered downloads so low, in fact, that it has to be a bug somewhere in the system that's not real. Like it's not a real number or, and I'm wondering if maybe a bunch of podcast apps got pointed to the new CDN and we're not capturing those logs, which is how we get the stats. So that was the first thing I was like, there's no way that this is actually only been downloaded 700 times or whatever it was in the first day. That was the first thing I noticed there. And you're nodding along. So you're thinking probably that's the case."
+    },
+    {
+      "start": 1487.8,
+      "end": 1505.52,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I think so. I think that that's what happened. If, if so, depending on which instance picked up the job, right? Like this is all like background jobs, it must have pushed a different URL than the live one. So then all those podcasting platforms, like how would you call them? All the podcasts."
+    },
+    {
+      "start": 1505.52,
+      "end": 1506.52,
+      "speaker": "jerod-santo",
+      "text": "The clients."
+    },
+    {
+      "start": 1506.52,
+      "end": 1516.22,
+      "speaker": "gerhard-lazu",
+      "text": "I mean, okay. So all the podcasting clients, some of them, maybe all of them may have picked, but I think if it would have been all of them, we'd have seen zero downloads. Yeah."
+    },
+    {
+      "start": 1516.22,
+      "end": 1526.33,
+      "speaker": "jerod-santo",
+      "text": "It wasn't all of them. Maybe eventually the other app caught up and started doing things because we sent out a bunch of notifications, you know, in the background."
+    },
+    {
+      "start": 1526.33,
+      "end": 1542.57,
+      "speaker": "gerhard-lazu",
+      "text": "Not because we have multiple instances. And I think there, this must be a job queue, right? Whichever instance picks up the job, basically it puts its own URL and then ships it to the actual so means that we are in production without wanting, damn."
+    },
+    {
+      "start": 1542.57,
+      "end": 1543.57,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1543.57,
+      "end": 1556.17,
+      "speaker": "jerod-santo",
+      "text": "Okay. So, I mean, assuming that all of those clients got their podcast episode, then it works, but we have no way of knowing. So if our listener here didn't get Monday's news episode for some reason, let us know"
+    },
+    {
+      "start": 1556.17,
+      "end": 1573.12,
+      "speaker": "gerhard-lazu",
+      "text": "because they did, well, they might have, I mean, the URL is correct, but they are going to the new application instance, which we're not tracking, which goes to the new, which has the same database, same data, just different applications. The data will be the same."
+    },
+    {
+      "start": 1573.12,
+      "end": 1575.64,
+      "speaker": "jerod-santo",
+      "text": "Okay. The other thing I've noticed."
+    },
+    {
+      "start": 1575.64,
+      "end": 1578.64,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. Go on. So that's the one."
+    },
+    {
+      "start": 1578.64,
+      "end": 1656.45,
+      "speaker": "jerod-santo",
+      "text": "Let's debug, live debugging. Two you already know about, which is that, and this is probably the exact same issue, is that when we posted our auto posts to, I think Slack in this case, posted the app instance URL, not changel.com URL, it might've been both, actually it was both, it was both. And so there was a URL mismatch, which I think is the exact same issue. And then the third one is that I subscribe to all of our feeds because I want to make sure they all work. And so whenever we ship an episode, I get like five versions, you know, just padding our stats, getting five downloads for the price I want and specifically the slash interviews. So yesterday's show with Nathan Sobo two days back, as far as we shipped this, but yesterday when we record, it went out and I downloaded on the changelog feed and I downloaded on the plus plus feed. And I didn't download it on my interviews only feed, cause you can just get the interviews if you want. And that feed did not have that episode until this morning when I logged in and said, refresh the feed and I forced it to refresh that feed. And then I got it. And so there's, and again, that's probably, those are background jobs. So somehow that did not get refreshed. So that's the third thing."
+    },
+    {
+      "start": 1656.45,
+      "end": 1657.45,
+      "speaker": "gerhard-lazu",
+      "text": "Okay."
+    },
+    {
+      "start": 1657.45,
+      "end": 1658.45,
+      "speaker": "jerod-santo",
+      "text": "The fourth one."
+    },
+    {
+      "start": 1658.45,
+      "end": 1660.45,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. That's four."
+    },
+    {
+      "start": 1660.89,
+      "end": 1696.04,
+      "speaker": "jerod-santo",
+      "text": "Yesterday I disabled Slack notifications entirely, and this is our last step to cut entirely over to Zulip. And I have a blog post, which is going out, announcing that we're no longer on Slack. Don't don't go there. However, after Adam shipped that episode, it posted the new notification in the Slack, even though I, that code doesn't exist anymore and I deployed it. So I'm guessing it still exists on your, your experimental one is not keeping up with code changes. Okay. Correct. So all of my bugs are related to this very exciting deployment that I didn't know about."
+    },
+    {
+      "start": 1696.04,
+      "end": 1700.04,
+      "speaker": "gerhard-lazu",
+      "text": "We broke it. I don't think we poisoned it. I think we broke it."
+    },
+    {
+      "start": 1700.04,
+      "end": 1701.04,
+      "speaker": "jerod-santo",
+      "text": "I think so."
+    },
+    {
+      "start": 1701.04,
+      "end": 1702.04,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 1702.04,
+      "end": 1703.04,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 1703.04,
+      "end": 1709.04,
+      "speaker": "gerhard-lazu",
+      "text": "I think we broke it. So those are the four things I've noticed. No, I'm sorry. I broke it. Let me take responsibility for this. Yeah."
+    },
+    {
+      "start": 1709.04,
+      "end": 1725.2,
+      "speaker": "jerod-santo",
+      "text": "That's much more fair. I had nothing to do with it. Well friends, I'm here with Terrence Lee talking about what's coming for the next generation of Heroku. They're calling this next gen fur. It's one of the biggest moves for fur in this next generation of Heroku. It's being built on open standards and cloud native. What can you share about this journey?"
+    },
+    {
+      "start": 1725.2,
+      "end": 1735.28,
+      "speaker": "gerhard-lazu",
+      "text": "If you look at the last half a decade or so, like there's been a lot that's changed in the industry. A lot of the 12 factorisms that have been popularized and are well accepted even outside"
+    },
+    {
+      "start": 1735.28,
+      "end": 1759.44,
+      "speaker": "jerod-santo",
+      "text": "the Ruby community are things that are think table stakes for building modern applications. Right. And so being able to take all those things from kind of 10, 14 years ago, being able to revisit and be like, okay, we help popularize a lot of these things. We now don't need to be our own island of this stuff and it's just better to be part of the broader ecosystem. Like you said, since Heroku's existence, there's been people who've been trying to rebuild Heroku."
+    },
+    {
+      "start": 1759.44,
+      "end": 1769.4,
+      "speaker": "gerhard-lazu",
+      "text": "I feel like there's a good Kelsey quote, when we can stop trying to rebuild Heroku. It's like people keep trying to build their own version of Heroku internally at their own company, let alone the public offerings out there."
+    },
+    {
+      "start": 1769.4,
+      "end": 1772.68,
+      "speaker": "jerod-santo",
+      "text": "I feel like Heroku has been the gold standard."
+    },
+    {
+      "start": 1772.68,
+      "end": 1784.84,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. I mean, I think it's the gold standard because there's a thing that Heroku's hit this piece of magic around developer experience, but giving you enough flexibility and power to do what you need to do."
+    },
+    {
+      "start": 1784.84,
+      "end": 1794.4,
+      "speaker": "jerod-santo",
+      "text": "Okay. So part of Fur and this next generation of Heroku is adding support for .NET. What can you share about that? Why .NET and why now?"
+    },
+    {
+      "start": 1794.4,
+      "end": 1807.56,
+      "speaker": "gerhard-lazu",
+      "text": "I think if you look at .NET over the last decade, it's changed a lot. .NET is known for being this Windows only platform. You have WinForms, use it to build Windows stuff, double IS, and it's moved well beyond"
+    },
+    {
+      "start": 1807.56,
+      "end": 1818.24,
+      "speaker": "jerod-santo",
+      "text": "that over the last decade. You can build .NET on Linux, on Mac. There's this whole cross-platform open source ecosystem, and it's become this juggernaut of an ecosystem around it."
+    },
+    {
+      "start": 1818.24,
+      "end": 1822.84,
+      "speaker": "gerhard-lazu",
+      "text": "And we've gotten this ask to support .NET for a long time, and it isn't a new ask."
+    },
+    {
+      "start": 1822.84,
+      "end": 1870.48,
+      "speaker": "jerod-santo",
+      "text": "And regardless of our support of it, people have been running .NET on Heroku in production today. There's been a monobill pack since the early days when you couldn't run .NET on Linux and now with .NET Core, the fact that it's cross-platform, this .NET Core build pack that people are using to run their apps on Heroku. The kind of shift now is to take it from that to a first-class citizen. And so what that means for Heroku is we have this languages team. We're now staffing someone to basically live, breathe, and eat being a .NET person, someone from the community that we've plucked to be this person to provide that day zero support for the language and runtimes that you expect and like we have for all of our languages. To answer your support and deal with all those things when you open support tickets on Heroku and kind of all the documentation that you expect for having quality language support"
+    },
+    {
+      "start": 1870.48,
+      "end": 1895.72,
+      "speaker": "gerhard-lazu",
+      "text": "in the platform. In addition to that, one of the things that it means to be first class is that when we are building out new features and things, it is now one of the languages as part of this ecosystem that we're going to test and make sure run smoothly, right? So you can get this kind of end-to-end experience. You can go to Dev Center, there's a .NET icon to find all the .NET documentation. Take your app, create a new Heroku app, run Git push Heroku main, and you're off to the races."
+    },
+    {
+      "start": 1895.72,
+      "end": 1921.6,
+      "speaker": "jerod-santo",
+      "text": "So with the coming release of FIR and this next generation of Heroku, .NET is officially a first class language on the platform, dedicated support, dedicated documentation, all the things. If you haven't yet, go to Heroku.com slash changelog podcast and get excited about what's to come for Heroku. Once again, Heroku.com slash changelog podcast."
+    },
+    {
+      "start": 1927.5,
+      "end": 2019.87,
+      "speaker": "gerhard-lazu",
+      "text": "Okay, so let's talk through this in terms of what a potential fix would look like. We have a new application instance, which behaves as production from all purposes, right? Like the content is exactly as production, it connects to the same database instance, it has all the same data. What isn't happening is the code updates aren't going out automatically, it has not been wired because my assumption was I will only deploy this one instance, I'm going to change a couple of properties so it has the new CDN configured, and I'll see how it behaves the whole stack in isolation. What happened, obviously, is the new instance is consuming the same jobs, the same background jobs as the existing production. So very helpfully, it has sent the new links, which are all temporary, especially like the application links, the ones that you've seen in Zulu in a couple of other places, which are just for the application origin, and they are only meant to be there for the CDN. Everything should go through the CDN, but the CDN hasn't been configured yet through everything, because that's like where the test comes in, how does the application behave? So some links need to be application links, how does the CDN behave, so on and so forth. So in this case, we need to somehow fix those links, the ones that went out and they're incorrect, I'm not sure whether we know what they are, and if not, then we need to basically make this experimental application instance not consume basically jobs, not process any background jobs."
+    },
+    {
+      "start": 2019.87,
+      "end": 2040.07,
+      "speaker": "jerod-santo",
+      "text": "Yeah, we just need to disable OBAN in that one, and then it would never get invoked unless you manually go to the website, right? And then we want to make sure that nothing crawls it, because then they'll start sending traffic to its endpoints instead of our main website."
+    },
+    {
+      "start": 2040.07,
+      "end": 2051.55,
+      "speaker": "gerhard-lazu",
+      "text": "So let's do that too, sweet. So I think we're finished with the recording, let's go and do it. No, no, we haven't. Don't worry, this is still going, okay. So yeah. But that sounds right."
+    },
+    {
+      "start": 2051.55,
+      "end": 2055.31,
+      "speaker": "jerod-santo",
+      "text": "Those two changes I think will mitigate the current issues. Yeah."
+    },
+    {
+      "start": 2055.31,
+      "end": 2057.57,
+      "speaker": "gerhard-lazu",
+      "text": "Yes. That sounds about right."
+    },
+    {
+      "start": 2057.57,
+      "end": 2061.45,
+      "speaker": "jerod-santo",
+      "text": "Okay, so that makes me happy as long as we get those rolled out here."
+    },
+    {
+      "start": 2061.45,
+      "end": 2132.56,
+      "speaker": "gerhard-lazu",
+      "text": "We figured it out, we figured what the issues are, all right. So what do I want to do now? I think I would like to see how many pipely instances we're running all over the world. And for this, I'm going to use a new terminal utility, which I found that I was like, yes, this is exactly what I was missing. It's called fly radar, fly radar. This is what it looks like. I'm going to go to that. It's all NCURSIS based. It's all happening in my terminal and it's beautiful. Fly radar 021, I can see all the changelog applications. The one that we're going to look at is a CDN. So by the way, the two applications, do you see this one? The changelog 2225 0505 is the new application instance that was deployed three days ago, while the one above the 2024, that is the current production. And that was updated one hour ago. So the codes will differ. And the Slack notifications, if this application instance picks up a job, it will do whatever it's configured to do, which will be the wrong thing."
+    },
+    {
+      "start": 2132.56,
+      "end": 2147.34,
+      "speaker": "jerod-santo",
+      "text": "Another thing we can do briefly before we figure that out is we could just redeploy that one. So at least it's current. Yes. And it won't do any Slack notifications because I definitely don't want to say we're no longer doing Slack notifications and then have another one come in and I'll have egg on my face."
+    },
+    {
+      "start": 2147.34,
+      "end": 2167.4,
+      "speaker": "gerhard-lazu",
+      "text": "As soon as we stop recording, I'll go and do that. Not a problem. Okay. So let's take a look at the CDN 2025 0225, which is the instance when it was deployed and it has had a few updates. What do we see? We see 10 instances. You see the region and you see it's been updated one day ago."
+    },
+    {
+      "start": 2167.4,
+      "end": 2170.4,
+      "speaker": "jerod-santo",
+      "text": "I see Sydney. Is that right? Yes."
+    },
+    {
+      "start": 2170.4,
+      "end": 2171.4,
+      "speaker": "gerhard-lazu",
+      "text": "I see Chicago."
+    },
+    {
+      "start": 2171.4,
+      "end": 2173.4,
+      "speaker": "jerod-santo",
+      "text": "Yes. LHR."
+    },
+    {
+      "start": 2173.4,
+      "end": 2174.4,
+      "speaker": "gerhard-lazu",
+      "text": "Is that the Virginia one?"
+    },
+    {
+      "start": 2174.4,
+      "end": 2175.4,
+      "speaker": "jerod-santo",
+      "text": "Heathrow."
+    },
+    {
+      "start": 2175.4,
+      "end": 2177.4,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, London Heathrow. Of course."
+    },
+    {
+      "start": 2177.4,
+      "end": 2180.4,
+      "speaker": "jerod-santo",
+      "text": "Yes. These are the airports, by the way. JNB."
+    },
+    {
+      "start": 2180.4,
+      "end": 2182.4,
+      "speaker": "gerhard-lazu",
+      "text": "That's... Joburg."
+    },
+    {
+      "start": 2182.4,
+      "end": 2186.4,
+      "speaker": "jerod-santo",
+      "text": "Yes. Johannesburg. Very good. San Jose."
+    },
+    {
+      "start": 2186.4,
+      "end": 2187.4,
+      "speaker": "gerhard-lazu",
+      "text": "Yes."
+    },
+    {
+      "start": 2187.4,
+      "end": 2190.4,
+      "speaker": "jerod-santo",
+      "text": "Correct. Okay. IAD."
+    },
+    {
+      "start": 2190.4,
+      "end": 2192.4,
+      "speaker": "gerhard-lazu",
+      "text": "That one's... That's the Virginia one."
+    },
+    {
+      "start": 2192.4,
+      "end": 2196.4,
+      "speaker": "jerod-santo",
+      "text": "That's the one. Okay. That's the one. Should we do some for Adam?"
+    },
+    {
+      "start": 2196.4,
+      "end": 2199.52,
+      "speaker": "gerhard-lazu",
+      "text": "Adam, you want to guess these? Some for Adam. SIN."
+    },
+    {
+      "start": 2199.52,
+      "end": 2201.52,
+      "speaker": "jerod-santo",
+      "text": "I know DFW. What is DFW?"
+    },
+    {
+      "start": 2201.52,
+      "end": 2203.52,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, that's where you live. Dallas, Fort Worth."
+    },
+    {
+      "start": 2203.52,
+      "end": 2204.52,
+      "speaker": "jerod-santo",
+      "text": "And I think France."
+    },
+    {
+      "start": 2204.52,
+      "end": 2205.52,
+      "speaker": "gerhard-lazu",
+      "text": "FRA is probably France."
+    },
+    {
+      "start": 2205.52,
+      "end": 2208.52,
+      "speaker": "jerod-santo",
+      "text": "France. What's... No, that's actually Frankfurt."
+    },
+    {
+      "start": 2208.52,
+      "end": 2209.52,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, Frankfurt."
+    },
+    {
+      "start": 2209.52,
+      "end": 2211.52,
+      "speaker": "jerod-santo",
+      "text": "Germany. That makes sense too."
+    },
+    {
+      "start": 2211.52,
+      "end": 2227.52,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, man. I keep seeing this. Okay. And SCL. I don't know what SCL is. Come on. I keep seeing that. Okay. I don't know. All right. Let's do fly CTL. Platform. I think regions. I think. And the regions list. There we go."
+    },
+    {
+      "start": 2227.52,
+      "end": 2228.52,
+      "speaker": "jerod-santo",
+      "text": "SCL."
+    },
+    {
+      "start": 2228.52,
+      "end": 2236.52,
+      "speaker": "gerhard-lazu",
+      "text": "San Diego, Chile. Yeah. That's the one. SCL. Yeah. That's the one. Santiago. That was it."
+    },
+    {
+      "start": 2236.52,
+      "end": 2240.52,
+      "speaker": "jerod-santo",
+      "text": "SCL. That's how we see what the regions are. Cool. That's cool, man."
+    },
+    {
+      "start": 2240.52,
+      "end": 2243.52,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. Well, we do have Sydney. Oh, that's true."
+    },
+    {
+      "start": 2243.52,
+      "end": 2244.52,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2244.52,
+      "end": 2247.52,
+      "speaker": "gerhard-lazu",
+      "text": "We can add more. I mean, we had 10, but we can add more."
+    },
+    {
+      "start": 2247.52,
+      "end": 2249.52,
+      "speaker": "jerod-santo",
+      "text": "No, no, no. Sydney covered that."
+    },
+    {
+      "start": 2249.52,
+      "end": 2263.52,
+      "speaker": "gerhard-lazu",
+      "text": "I just forgot about Sydney. Yeah. So you've seen all the machines. And in terms of other uses, it has logs, alpha logs. So this is something that's really cool. So these are the logs for the new. Let's see what logs we have, what requests we have flowing to the new change log instance."
+    },
+    {
+      "start": 2263.52,
+      "end": 2270.52,
+      "speaker": "jerod-santo",
+      "text": "This is a cool TUI. Congrats to the fly radar coder author person. Yeah. This is cool. Yeah, exactly."
+    },
+    {
+      "start": 2270.52,
+      "end": 2287.52,
+      "speaker": "gerhard-lazu",
+      "text": "That's exactly it. Yeah, that's exactly it. Oh, look. We have some requests. Robots. Robots got some requests, and the homepage got some requests. And this is IAD, IAD, so we can see what instances were requested. OK. So now let's go to the... We're not liking these requests, Gerhard."
+    },
+    {
+      "start": 2287.52,
+      "end": 2290.52,
+      "speaker": "jerod-santo",
+      "text": "How can we get a request? Yeah."
+    },
+    {
+      "start": 2290.52,
+      "end": 2318.52,
+      "speaker": "gerhard-lazu",
+      "text": "Well, we will be getting, because we have the CDN, we have monitors set up, we have a bunch of things. Now, these are the requests going to the existing. You can see there's a lot more traffic going to the existing application. Yes. If you ask me, there's too much traffic. The CDN is not doing its job. That's what we're trying to fix, right? Right, right. There's way too many requests hitting it. And you can see that the regions, right? This is, we have two regions. EWR. Adam, what does EWR stand for? Do you know?"
+    },
+    {
+      "start": 2318.52,
+      "end": 2322.68,
+      "speaker": "jerod-santo",
+      "text": "Ooh, why? Right on."
+    },
+    {
+      "start": 2322.68,
+      "end": 2397.23,
+      "speaker": "gerhard-lazu",
+      "text": "Right on. OK, yeah, perfect. That's exactly what it is. That's right on, man. Yeah. So we can focus only on specific instances to see the logs. So I think this is really cool. So we've seen this. Let's move on. Furcunkli FlyRadar. Furcun Kalasioglu, I think. Whoa. That's quite the name. Furcunkli, yeah. So he built this. That's cool. I think it's a really cool tool. You can go and check it out on GitHub. It's all written in Rust, so it's really, really fast. It's a terminal UI. It was inspired by canines. Oh, look at that. Yeah. Yeah, that's it. So issue five, March 22, that's when I just stumbled across it, so I captured it. You can go and check it out. But it was really cool. When I seen FlyRadar, I thought, wow, this is exactly what I wanted. Anyway, back to the pipe tree. So which backend do you think serves the most requested URL? Another question, we have three backends or three origins. Right. You have the application origin, the one that we've been focusing on, there's a feeds backend and the assets backend. So in the last seven days, which backend serve the most requested URL?"
+    },
+    {
+      "start": 2397.23,
+      "end": 2404.39,
+      "speaker": "jerod-santo",
+      "text": "Like the one top URL. If you also don't know what it is, which one serves that particular? That's the question."
+    },
+    {
+      "start": 2404.39,
+      "end": 2405.39,
+      "speaker": "gerhard-lazu",
+      "text": "Yes."
+    },
+    {
+      "start": 2405.39,
+      "end": 2406.39,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 2406.39,
+      "end": 2408.39,
+      "speaker": "gerhard-lazu",
+      "text": "There's only three possible answers. Yeah."
+    },
+    {
+      "start": 2408.39,
+      "end": 2409.39,
+      "speaker": "jerod-santo",
+      "text": "I'm going to go with feeds."
+    },
+    {
+      "start": 2409.39,
+      "end": 2410.39,
+      "speaker": "gerhard-lazu",
+      "text": "Same."
+    },
+    {
+      "start": 2410.39,
+      "end": 2411.39,
+      "speaker": "jerod-santo",
+      "text": "Feeds."
+    },
+    {
+      "start": 2411.39,
+      "end": 2418.39,
+      "speaker": "gerhard-lazu",
+      "text": "Feeds. So apparently we're serving this podcast original image about 10,000 times per day."
+    },
+    {
+      "start": 2418.39,
+      "end": 2419.39,
+      "speaker": "adam-stacoviak",
+      "text": "Gosh."
+    },
+    {
+      "start": 2419.39,
+      "end": 2421.39,
+      "speaker": "gerhard-lazu",
+      "text": "Or once every 10 seconds."
+    },
+    {
+      "start": 2421.39,
+      "end": 2422.39,
+      "speaker": "jerod-santo",
+      "text": "So that's the assets endpoint."
+    },
+    {
+      "start": 2422.39,
+      "end": 2429.39,
+      "speaker": "gerhard-lazu",
+      "text": "I had to check what it was. It is assets yet. The changelog. The changelog. So the answer was assets actually."
+    },
+    {
+      "start": 2429.39,
+      "end": 2433.39,
+      "speaker": "jerod-santo",
+      "text": "I guess that makes some sense because everyone has to download that into their podcast app"
+    },
+    {
+      "start": 2433.39,
+      "end": 2434.39,
+      "speaker": "gerhard-lazu",
+      "text": "all the time."
+    },
+    {
+      "start": 2434.39,
+      "end": 2436.39,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Cash ass sucker."
+    },
+    {
+      "start": 2436.39,
+      "end": 2444.55,
+      "speaker": "gerhard-lazu",
+      "text": "Come on. I know, right? Do a better job with caching it. That would be a good thing. But honestly, it was the second one."
+    },
+    {
+      "start": 2444.55,
+      "end": 2449.55,
+      "speaker": "jerod-santo",
+      "text": "I guess feed. So we were almost correct if it wasn't for that one image."
+    },
+    {
+      "start": 2449.55,
+      "end": 2587.28,
+      "speaker": "gerhard-lazu",
+      "text": "I'm wondering how does the new CDN behave for our most requested URL, which is not a static asset. So how does it behave for podcast feed? I'm going to run three commands, actually a few more than three. The recording has been done. So if anything doesn't work as it should, we'll switch back to the recording, but that's going to be a backup. So let's go back into the terminal and we'll experience this firsthand just to see what it feels like. So I'm in the pipely repository and the first command which I'm going to run is just debug. And by the way, anyone should be able to clone the repository and do exactly what I do. What's happening here is behind the scenes, it is building everything that we need for the CDN, including the debug tooling, and it will run it locally. And the TUI that you see here, because it is a TUI, it has a couple of shortcuts, is Dagger. So all this is wrapped into Dagger. So I have a terminal opened in pipely all running locally. All right. So the first thing which I'm going to do is I'm going to benchmark the current CDN, changelog.com. So I'll do just bench CDN. All this is wired together is sending a thousand requests to the feed endpoint. And this is what we see. So the current CDN serves about 300 requests per second. And it's the size that is the interesting one. The size is about 220 maybe bytes per second. So I think that the CDN is faster, but the bottleneck here is my two gigabit home connection. And this is as much as I can benchmark it. So that's the limit. So if we were to benchmark using the same connection CDN2, this will go to the pipe dream to feed. This is how that behaves. And by the way, this is live real traffic that's happening here. So 177 and 132 megabytes per second. So what do you think is happening here if you had to guess?"
+    },
+    {
+      "start": 2587.28,
+      "end": 2594.28,
+      "speaker": "jerod-santo",
+      "text": "Well, my guess would be that it's not as much bandwidth as Fastly has. That is correct."
+    },
+    {
+      "start": 2594.28,
+      "end": 2618.28,
+      "speaker": "gerhard-lazu",
+      "text": "Yes. So I'm looking at fly here. Right. And this is the CDN instance. We have the different instances. Do you see here like London Heathrow? That is the one that lit up. Lit up in response to me sending it a lot of traffic. And you can even see it here, right? If I do London Heathrow, you can see that's the one that was serving the most bandwidth. And actually what I've hit is the 1.25 gigabit limit of this one instance."
+    },
+    {
+      "start": 2618.28,
+      "end": 2626.28,
+      "speaker": "jerod-santo",
+      "text": "And that's just a constraint of the actual instance on fly, like that particular fly VM or whatever they're called."
+    },
+    {
+      "start": 2626.28,
+      "end": 2709.57,
+      "speaker": "gerhard-lazu",
+      "text": "That is correct. Yeah, exactly. So if I do fly CTL machines list, you'll see that. Let me just do an RG on LHR. You'll see that we have like a single instance in Heathrow. We could run more. And that's what we're going to do here to see if running more instances will increase the bandwidth. So I'm going to do fly CTL scale count three. And we're just basically going to run three instances in the Heathrow region. The reason why we don't do this is we'll just add cost. Right. Actually, we may need to do this because some areas may be running hotter than others. So you may need to scale it accordingly. But right now, every single region has one instance only. So let me do machines list. So what I want to see is they are all started and they're all running. The health check, there's one. Yeah, these are all good. Yeah, everything is nice and healthy. So now let's go back and let's run the same benchmark and we'll see it live. Okay, so still the same thousand requests to the feed endpoint and 180. So it's just about the same. Not much has changed. It takes a while, right, for everything to warm up and the request to be spread correctly. We've seen there a blip. So let's see how does it behave now. Okay, so we're 150 megabytes per second. If we run this a few more times so that everything is nice and spread."
+    },
+    {
+      "start": 2709.57,
+      "end": 2713.57,
+      "speaker": "jerod-santo",
+      "text": "That was request per second, right? You said megabytes per second. That's request per second."
+    },
+    {
+      "start": 2713.57,
+      "end": 2766.76,
+      "speaker": "gerhard-lazu",
+      "text": "So this is 171 megabytes per second, which is almost like 1.7 gigabits. And the request, we have 228. So these three instances, that's what we see. And if we run this enough times, when I tested this last time, I was able to get to that about two gigabits. But it's not like an exact result every single time based on network conditions, based on a bunch of things. You know, based on where those instances are placed within the fly network. But three instances, and even when I added more, I've seen there was this limit. Well, you max out eventually, right? Exactly, I max out eventually. I'm still not maxed out currently. And the reason why I know that is because if I bench CDN2, I can see that that brings me close to that two gigabits. Like 220."
+    },
+    {
+      "start": 2766.76,
+      "end": 2769.76,
+      "speaker": "jerod-santo",
+      "text": "CDN1, this is fast. CDN1."
+    },
+    {
+      "start": 2769.76,
+      "end": 2774.76,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, this is changel.com. This is fastly, that's correct. And it's those 300 and something requests per second."
+    },
+    {
+      "start": 2774.76,
+      "end": 2785.76,
+      "speaker": "jerod-santo",
+      "text": "So fastly is still faster because we haven't added enough instances in your region in order to get our bandwidth up on fly to max out your Gerhard's personal bandwidth."
+    },
+    {
+      "start": 2785.76,
+      "end": 2787.76,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. Okay."
+    },
+    {
+      "start": 2787.76,
+      "end": 2795.76,
+      "speaker": "jerod-santo",
+      "text": "So adding instances doesn't really move the needle very much, but it does move it eventually if you really wanted to."
+    },
+    {
+      "start": 2795.76,
+      "end": 2830.99,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. So this is maybe even a question to the fly team. So when it comes to the instances, if I look at what instances we provisioned, you can see that we are running shared CPU2X and they get two gigabytes of RAM. The question is, and I think we kind of like touched upon this last time, even the performance instances, we don't seem to be getting more bandwidth. There is a point at which an instance doesn't get more traffic. And depending on maybe the region's capacity, maybe there is some sort of a limit that we're hitting. Now, do you remember Bunny? Yeah."
+    },
+    {
+      "start": 2830.99,
+      "end": 2831.99,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2831.99,
+      "end": 2836.99,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. Bunny was super fast. We can bunch Bunny, which is still live."
+    },
+    {
+      "start": 2836.99,
+      "end": 2837.99,
+      "speaker": "jerod-santo",
+      "text": "Bench Bunny or Bunch Bunny?"
+    },
+    {
+      "start": 2837.99,
+      "end": 2843.99,
+      "speaker": "gerhard-lazu",
+      "text": "Bench Bunny. We can bench Bunny and Bunny will go. And this is how that behaves. Bunnychangelog.com."
+    },
+    {
+      "start": 2843.99,
+      "end": 2844.99,
+      "speaker": "jerod-santo",
+      "text": "Oh, but Bunny doesn't let you, right?"
+    },
+    {
+      "start": 2844.99,
+      "end": 2848.99,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. So the rate limits me. So I can't benchmark Bunny."
+    },
+    {
+      "start": 2848.99,
+      "end": 2853.99,
+      "speaker": "jerod-santo",
+      "text": "You think that's because they don't want to be benchmarked or you think it's because they're just fighting off spammers? I think it's throttling."
+    },
+    {
+      "start": 2853.99,
+      "end": 2868.99,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, they are throttling. So Bunnychangelog.com and I have been benchmarking them quite a bit in preparation for this. My IP might be blacklisted somewhere on the Bunny side. Yeah. But that's, that's the reality. Cool."
+    },
+    {
+      "start": 2868.99,
+      "end": 2875.99,
+      "speaker": "jerod-santo",
+      "text": "You should be able to get like some sort of like pass, like, Hey, I'm a developer and I'm testing things. Right. Cause it's benchmarking. Of course."
+    },
+    {
+      "start": 2875.99,
+      "end": 2896.44,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I think, I think so. I think so. Cool. Okay. So I'm wondering if I had a hundred gigabit internet connection and one day, and this is a fact, one day I will have that internet connection and Fly did too, right? Because remember Fly, I mean, in this case, Fly is the bottleneck."
+    },
+    {
+      "start": 2896.44,
+      "end": 2897.44,
+      "speaker": "jerod-santo",
+      "text": "Correct."
+    },
+    {
+      "start": 2897.44,
+      "end": 2906.44,
+      "speaker": "gerhard-lazu",
+      "text": "What could we expect from Pipetream? Just up runs the whole of Pipetream locally. Okay."
+    },
+    {
+      "start": 2906.44,
+      "end": 2908.44,
+      "speaker": "jerod-santo",
+      "text": "So now you got no band, you got no network."
+    },
+    {
+      "start": 2908.44,
+      "end": 2919.44,
+      "speaker": "gerhard-lazu",
+      "text": "No network. Exactly. It's just like the it's, it's, everything is running on the same host. Then you can see that this is actually forwarding traffic to the feeds endpoint, to the static endpoint, to even the application origin."
+    },
+    {
+      "start": 2919.44,
+      "end": 2921.44,
+      "speaker": "jerod-santo",
+      "text": "This is like all of our features."
+    },
+    {
+      "start": 2921.44,
+      "end": 2927.44,
+      "speaker": "gerhard-lazu",
+      "text": "So it's, it's all here, right? It's all here. It's all here. So let's do bench feed and let's see what we get."
+    },
+    {
+      "start": 2927.44,
+      "end": 2932.01,
+      "speaker": "jerod-santo",
+      "text": "Oh, we're getting massive amounts of. That's 200,000 requests."
+    },
+    {
+      "start": 2932.01,
+      "end": 2938.01,
+      "speaker": "gerhard-lazu",
+      "text": "That is 200,000 requests. Yes. It's more. What do you see in data? Can you read that out for us?"
+    },
+    {
+      "start": 2938.01,
+      "end": 2939.01,
+      "speaker": "jerod-santo",
+      "text": "85 gigabytes."
+    },
+    {
+      "start": 2939.01,
+      "end": 2965.91,
+      "speaker": "gerhard-lazu",
+      "text": "That was a bit silly, but yes, it's every 10 seconds. So now it's switched this because we had so many requests, the scale switched from one second to every 10 seconds. And this is what we see. We are pushing 11,000 requests per second, and we're transferring eight gigabytes, not gigabits, gigabytes per second. So we have a really fast network."
+    },
+    {
+      "start": 2965.91,
+      "end": 2966.91,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 2966.91,
+      "end": 2969.91,
+      "speaker": "gerhard-lazu",
+      "text": "We could saturate close to a hundred gigabit. That's insane."
+    },
+    {
+      "start": 2969.91,
+      "end": 2970.91,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2970.91,
+      "end": 2972.91,
+      "speaker": "gerhard-lazu",
+      "text": "So the software works."
+    },
+    {
+      "start": 2972.91,
+      "end": 2975.91,
+      "speaker": "jerod-santo",
+      "text": "And that's just a credit to Varnish, right? Pretty much."
+    },
+    {
+      "start": 2975.91,
+      "end": 2979.91,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. Yeah. It really, really works. Really works."
+    },
+    {
+      "start": 2979.91,
+      "end": 2980.91,
+      "speaker": "jerod-santo",
+      "text": "When you hold it right."
+    },
+    {
+      "start": 2980.91,
+      "end": 2981.91,
+      "speaker": "gerhard-lazu",
+      "text": "When you hold it right."
+    },
+    {
+      "start": 2981.91,
+      "end": 2983.91,
+      "speaker": "jerod-santo",
+      "text": "And you don't have a network."
+    },
+    {
+      "start": 2983.91,
+      "end": 2998.91,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. Well, well, you have a hundred, you need to have a hundred gigabit connection. So that's, I think that's the hard part. And fly needs to, fly needs to have, or whatever provider we run, it needs to have more network capacity because right now my internet is faster than what the fly instance does."
+    },
+    {
+      "start": 2998.91,
+      "end": 2999.91,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2999.91,
+      "end": 3055.44,
+      "speaker": "gerhard-lazu",
+      "text": "And I can't saturate it. And we've seen because I can saturate, I can saturate fastly. Cool. So, and I think the interesting thing, which, which I haven't shown yet, and I can, I could, because it's behind me, but anyway, that that's not very visible. What I would like to show is basically I'm hitting the limit of my CPU, right? Like where I'm running this benchmark is a 16 core machine and I'm running both Varnish and the benchmarking client, OHA, OHA in this case. And between the two of them, they're saturating 16 cores. And that's what we see here. So the bottleneck really is the CPU. It could go faster because again, networking is just all in the kernel. So pipe dream and pipely is an iceberg and we explored just the tip of it. So most of it is underwater."
+    },
+    {
+      "start": 3055.44,
+      "end": 3056.44,
+      "speaker": "jerod-santo",
+      "text": "Are you talking about lines of code?"
+    },
+    {
+      "start": 3056.44,
+      "end": 3059.44,
+      "speaker": "gerhard-lazu",
+      "text": "No, I'm talking about many things, but let's go."
+    },
+    {
+      "start": 3059.44,
+      "end": 3066.44,
+      "speaker": "jerod-santo",
+      "text": "So I'm wondering how, how many of my 20 lines have ballooned into at this point? It's there. It's there."
+    },
+    {
+      "start": 3066.44,
+      "end": 3073.44,
+      "speaker": "gerhard-lazu",
+      "text": "That thing is coming up. So yeah, stay tuned. Stay tuned. So VTC stands for varnish test case."
+    },
+    {
+      "start": 3073.44,
+      "end": 3074.44,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3074.44,
+      "end": 3077.44,
+      "speaker": "gerhard-lazu",
+      "text": "And Pontus Algren, Algren?"
+    },
+    {
+      "start": 3077.44,
+      "end": 3078.44,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah, I saw this comment."
+    },
+    {
+      "start": 3078.44,
+      "end": 3091.44,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, yeah, yeah. So Pontus Algren, one of our Kaizen listeners mentioned this in a Zulu message back in December, 2024. So he said regarding the testing of VCL, did you consider the built in test tool VTC?"
+    },
+    {
+      "start": 3091.44,
+      "end": 3096.72,
+      "speaker": "jerod-santo",
+      "text": "So you were doing something else previously. I can't remember what you were doing."
+    },
+    {
+      "start": 3096.72,
+      "end": 3120.04,
+      "speaker": "gerhard-lazu",
+      "text": "We are still doing that, but I'm also doing this. So I'm just going to play the recording. Okay. Okay. This is going to be a little bit easier. So just test VTC is going to run in three seconds, all the tests for the different varnish configuration that we have for the pipe cream. Cool. So this is really, really fast. This is the equivalent to your unit tests, if you wish."
+    },
+    {
+      "start": 3120.04,
+      "end": 3123.04,
+      "speaker": "jerod-santo",
+      "text": "Weren't you running the test against like production instances last time?"
+    },
+    {
+      "start": 3123.04,
+      "end": 3125.04,
+      "speaker": "gerhard-lazu",
+      "text": "I was. And I'm still there."
+    },
+    {
+      "start": 3125.04,
+      "end": 3126.04,
+      "speaker": "jerod-santo",
+      "text": "And now you have to do that."
+    },
+    {
+      "start": 3126.04,
+      "end": 3127.04,
+      "speaker": "gerhard-lazu",
+      "text": "Are you still there?"
+    },
+    {
+      "start": 3127.04,
+      "end": 3129.04,
+      "speaker": "jerod-santo",
+      "text": "I'm still there. Yes."
+    },
+    {
+      "start": 3129.04,
+      "end": 3238.16,
+      "speaker": "gerhard-lazu",
+      "text": "Why wouldn't you replace it? Hang on. Let's just give it a minute. We're getting there. So this is what the VTC looks like. And basically you can control it at a very low level in terms of the requests, the responses, the little branching. So think of it, when you're trying to come up with a final varnish, right, you make like little experiments to see how the different pieces of configuration would work. And that's what VTC enables you to do. You can write a subset of your VCL, you can configure clients, you can configure servers, and you can make them do things in an isolated way, in a very quick way. You can basically model what the thing is going to look like, and you're going to check if what you thought would happen does happen. And that's what makes it really, really fast. And it's all built into the language. So it's there, and we have it, and it gives me a nice tool to figure out what is the minimal set of varnishes I have to write for this. And this is where like that number of lines of code and number of lines of config comes in. But we all know that we want acceptance tests. We want to see what users will experience. And remember, this is what you were asking for, Jared. You were saying, how do we know that this new thing is going to behave exactly the same way as the existing thing behaves? So what we now have is, you see the test acceptance, these are all the various things that we can run in the context of Pyply. We can do test acceptance CDN, test acceptance CDN2, or test acceptance local. And this is using Hurl. And we're describing the different scenarios that you want to test for real, testing these real endpoints. Which one would you like us to try out?"
+    },
+    {
+      "start": 3238.16,
+      "end": 3240.16,
+      "speaker": "jerod-santo",
+      "text": "Local. Local."
+    },
+    {
+      "start": 3240.16,
+      "end": 3246.16,
+      "speaker": "gerhard-lazu",
+      "text": "Great. So what I've heard is changelog. Well, you have to have a bit of fun."
+    },
+    {
+      "start": 3246.16,
+      "end": 3253.16,
+      "speaker": "jerod-santo",
+      "text": "So test acceptance CDN and test acceptance CDN is going to run the same tests against"
+    },
+    {
+      "start": 3253.16,
+      "end": 3264.16,
+      "speaker": "gerhard-lazu",
+      "text": "the CDN. It's going to test the correctness of our CDN. Not using VTC though. Say again? Not using the VTC stuff. No, this is Hurl. This is Hurl stuff."
+    },
+    {
+      "start": 3264.16,
+      "end": 3265.16,
+      "speaker": "jerod-santo",
+      "text": "This is like tests."
+    },
+    {
+      "start": 3265.16,
+      "end": 3266.16,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly."
+    },
+    {
+      "start": 3266.16,
+      "end": 3268.16,
+      "speaker": "jerod-santo",
+      "text": "This is like a different test."
+    },
+    {
+      "start": 3269.16,
+      "end": 3313.51,
+      "speaker": "gerhard-lazu",
+      "text": "Exactly. This is like a different level. The VTC stuff is just for the varnish config. Hurl, in this case, the acceptance tests are doing real requests and checking the behavior of the real endpoints. Like, for example, am I getting the correct headers back? Am I being redirected? Is this returning within a certain amount of time? What happens if I do this request twice? How does it behave? Is it a miss versus a hit? What happens? So we have 30 requests that we fire against the existing CDN and we see how it behaves. And then what we're going to do, we're going to run the same requests against the new CDN. And it's slow. Why do you think it's slow?"
+    },
+    {
+      "start": 3313.51,
+      "end": 3319.63,
+      "speaker": "jerod-santo",
+      "text": "Well, I don't know what these tests are doing, so I can't answer that question."
+    },
+    {
+      "start": 3319.63,
+      "end": 3367.77,
+      "speaker": "gerhard-lazu",
+      "text": "So these tests are checking the behavior of the various endpoints. For example, the feed endpoint or the admin endpoint or the static assets endpoint. In this case, you can see that we are waiting for the feed endpoint. So if you go back and you think about the various delay and the stale versus miss, we are checking how the stale properties of a feed responses behave. So if I'm going to hit this endpoint within 60 seconds, will it show up as stale? So we're checking and we have to wait to see, will it expire? Will it refresh?"
+    },
+    {
+      "start": 3367.77,
+      "end": 3372.19,
+      "speaker": "jerod-santo",
+      "text": "So you're delaying on purpose to see. Exactly."
+    },
+    {
+      "start": 3372.19,
+      "end": 3444.82,
+      "speaker": "gerhard-lazu",
+      "text": "I'm delaying it on purpose and it takes about 70 seconds because we need to wait that long to test the staleness. And by the way, that's something which I'm going to do next. So we're going to check the staleness of something. And the staleness is currently set to 60 seconds and you can see we can do the variable delay. So this is the real CDN. We're going to pipedream. We're not testing the local one. We're testing the pipedream one. And this is the existing configuration which we consider to be production. Now, you said local and now we can do the same test. We're going to run them against local and we're going to change a couple of properties because locally we want slightly different behavior and what we care about is that speed. We want these tests to be much, much quicker. And in this case, you can see the actual requests going through. You can see the responses. You can see the headers. We still are testing delays, but the delays are much shorter, which means that the test will complete much, much quicker. So we control these variables and production is just as it is. This is how it behaves and that's what we're testing. So it'll be slightly slower. Shall we do it for real? Would you like me to try to run another test and see how it behaves if I do the acceptance local? Or shall we move on to something else?"
+    },
+    {
+      "start": 3444.82,
+      "end": 3448.82,
+      "speaker": "jerod-santo",
+      "text": "What is the conclusion from that? Like, conclude some things for me."
+    },
+    {
+      "start": 3448.82,
+      "end": 3556.86,
+      "speaker": "gerhard-lazu",
+      "text": "Well, the conclusion is that we are able to run the CDN locally and poke it and prod it and make sure that the CDN in this case is behaving exactly as we expect it to. We have a controlled way of configuring everything. What I mean by that, I mean the backends, the various backends that we use. We have properties to control like TTL, stainless freshness, and see how different configurations change the behavior of the system. We also have it deployed and we can check if the existing CDN behaves the same as the new CDN. I haven't written all the tests, only like the big ones. Does the feed endpoint behave correctly? Do the static assets behave correctly? What about the admin endpoints or those that shouldn't be cached? Do they behave correctly? So I'm starting to build a set of endpoints and a set of tests that check how those endpoints behave. And there's certain differences. Like, one CDN behaves slightly differently. We know the existing one that we're trying to improve on. So we can see where does it fall short. There's a couple of interesting things that we can look at. For example, I've seen that we, for example, don't cache the JSON variant of the feed, of the RSS. Maybe we'd want to do that. I don't know. But going through this, like testing the correctness of the system, made me look into parts where I wouldn't normally look. The best part is that we can run this locally. We are in full control of everything that happens in our CDN. It's a lot of responsibility. And it takes a certain level of understanding to know what the tools are and how they fit together. But we have it."
+    },
+    {
+      "start": 3556.86,
+      "end": 3568.53,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's awesome. Because now we don't have to just poke at a VCL in the sky and hope that it does what it does. That's right. And just only test in production."
+    },
+    {
+      "start": 3568.53,
+      "end": 3570.14,
+      "speaker": "gerhard-lazu",
+      "text": "That's it."
+    },
+    {
+      "start": 3570.14,
+      "end": 3573.33,
+      "speaker": "jerod-santo",
+      "text": "We can actually make changes with confidence."
+    },
+    {
+      "start": 3573.33,
+      "end": 3576.33,
+      "speaker": "gerhard-lazu",
+      "text": "Is that a state of the art for any of the CDNs out there?"
+    },
+    {
+      "start": 3576.33,
+      "end": 3604.68,
+      "speaker": "jerod-santo",
+      "text": "Can you do this level of acceptance test between, I guess you probably can't, right? We can't run FASI locally. We can't run even Bunny locally. We can only run our own thing locally. So you can't really test the way you'd develop it locally and then develop it in production. But you can test XYCDN versus Pipely or Pipedream, right? You can test that. That's what you're doing right now."
+    },
+    {
+      "start": 3604.68,
+      "end": 3610.68,
+      "speaker": "gerhard-lazu",
+      "text": "I think the first step is to being able to run it locally and running anything of that magnitude locally is hard."
+    },
+    {
+      "start": 3610.68,
+      "end": 3646.78,
+      "speaker": "jerod-santo",
+      "text": "Let me rephrase that. I would say if you are unhappy with your CDN provider, thus far has there been a way to say what the original question was, can we trust moving to something else? In this case, the something else is something we've built, not a different public provider. And so we're scrutinizing a little bit more. But if you were unhappy with one CDN and you were thinking, man, I want to move to a different one, has there been a state of the art to test the, I guess, the efficacy between different CDNs? Has this tooling been there before?"
+    },
+    {
+      "start": 3646.78,
+      "end": 3747.78,
+      "speaker": "gerhard-lazu",
+      "text": "I'm not aware if it has. If someone from our listeners is aware of such tooling existing, I would love to learn about that. I think it pretty much comes down to DIY, as in how much of the correctness of the system are you testing for? And in this case, even though it is a CDN, it is part of our system, right? Because it determines how the changelog website and the application and all the origins behave. Ultimately, how do users perceive them? And the best thing that we have, honestly, are the logs. Because based on the logs, you can see what users experience. But is that good enough? I mean, these systems are really big, right? Like global scale big. It's really hard, for example, even for me. I mean, sure, I could force and test every single endpoint. But when I'm running these tests, when I'm, for example, testing changelog.com, I'm testing wherever I'm closest to based on the network conditions, based on whatever's happening. And I need to encode certain properties I care about to check that they are behaving correctly. The same tooling could be used for any other CDN. So once we encode the things that we care about in terms of the correctness of the system, let's say that one day we migrate to Cloudflare. If we did that, we would run the same set of acceptance tests against Cloudflare, or whatever we're building there, and see does this thing behave the same as the thing that we're migrating from. So there are these harnesses that we are required to have to make sure that the systems behave correctly because they're big, complicated systems. And most of them are beyond our control, as we've learned over the years. Does that answer your question, Adam?"
+    },
+    {
+      "start": 3747.78,
+      "end": 3785.97,
+      "speaker": "jerod-santo",
+      "text": "Kind of. I mean, I think it does. I think what I was pointing out or potentially trying to uncover is the potential of... You know, we're all allergic to vendor lock-in, essentially. I feel like I wonder if there's a level of vendor lock-in because you don't know unless you make the move. And it's hard as a developer or an IC or even a VP to say, we've got to make this change. We've got to move to a different platform because of X, Y, and Z, whatever their data is, whatever their reasons are. And I wonder how many people or how many teams are staying where they're at because they have fear of the unknown. The unknown is that they can't test, to this degree, this acceptance level."
+    },
+    {
+      "start": 3785.97,
+      "end": 3874.45,
+      "speaker": "gerhard-lazu",
+      "text": "I mean, yeah, that is real. I mean, just think about the journey that we had to take to get to the point where we are today. It took a lot of effort. It took a lot of time. It took a lot of understanding what even are the components. And we could have picked something else. We didn't have to pick Varnish. But we didn't want, or at least I didn't want to change too much at once. One day we may replace Varnish. It is possible. The real value is in understanding what the pieces are and how they fit together. Whatever those pieces are, whether it's Kubernetes, whether it's a PaaS, whether it doesn't really matter. It's a database. Take your pick. Each context is different. So then how do you go about understanding what the pieces are? How do they interact? And how do you ensure, I think this is coming back to where we started, how do you ensure that what we do does genuinely improve things? And that is the hard part. Being able to measure correctly, being able to understand what improvement even means in the first place is really hard. And what trade-offs are you okay to make? We take a lot of responsibility by running this ourselves. And I'm very aware of that. I think that is really the hard part. Being confident that you can pull this off, having the experience that you can pull it off, and you can learn anything that you're missing. And if you apply those principles to whichever context you operate in, you'll be good. It won't be easy, but you'll have learned so much."
+    },
+    {
+      "start": 3882.55,
+      "end": 3899.55,
+      "speaker": "jerod-santo",
+      "text": "David Xu, the founder and CEO of Retool. So David, I know so many developers who use Retool to solve problems, but I'm curious. Help me to understand the specific user, the particular developer who is just loving Retool. Who's your ideal user?"
+    },
+    {
+      "start": 3899.55,
+      "end": 3911.55,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, so for us, the ideal user of Retool is someone whose goal, first and foremost, is to either deliver value to the business or to be effective."
+    },
+    {
+      "start": 3911.55,
+      "end": 3936.55,
+      "speaker": "jerod-santo",
+      "text": "Where we candidly have a little bit less success is with people that are extremely opinionated about their tools. If, for example, you're like, hey, I need to go use WebAssembly, and if I'm not using WebAssembly, I'm quitting my job, you're probably not the best Retool user, honestly. However, if you're like, hey, I see problems in the business, and I want to have an impact, and I want to solve those problems, Retool is right up your alley. And the reason for that is Retool allows you to have an impact so quickly."
+    },
+    {
+      "start": 3936.55,
+      "end": 3950.55,
+      "speaker": "gerhard-lazu",
+      "text": "You could go from an idea, you go from a meeting, like, hey, this is an app that we need, to literally having the app built in 30 minutes, which is super, super impactful on the business. So I think that's the kind of partnership or that's the kind of impact that we'd like to see with our customers."
+    },
+    {
+      "start": 3950.55,
+      "end": 3962.55,
+      "speaker": "jerod-santo",
+      "text": "You know, from my perspective, my thought is that, well, Retool is well known. Retool is somewhat even saturated. I know a lot of people who know Retool, but you've said this before, what makes you think that Retool is not that well known?"
+    },
+    {
+      "start": 3962.55,
+      "end": 3967.55,
+      "speaker": "gerhard-lazu",
+      "text": "Retool today is really quite well known amongst a certain crowd."
+    },
+    {
+      "start": 3967.55,
+      "end": 4004.55,
+      "speaker": "jerod-santo",
+      "text": "Like, I think if you had a poll like Engineers of San Francisco or Engineers of Silicon Valley even, I think you'd probably get like a 50, 60, 70% recognition of Retool. I think where you're less likely to have heard of Retool is if you're a random developer at a random company in a random location like the Midwest, for example, or like a developer in Argentina, for example, you're probably less likely. And the reason is, I think we have a lot of really strong word of mouth from a lot of Silicon Valley companies like the Brexis, Coinbase, Doordash, Stripes, et cetera of the world. There's a lot of chat, Airbnb is another customer, Nvidia is another customer, so there's a lot of chatter about Retool in the Valley."
+    },
+    {
+      "start": 4004.55,
+      "end": 4011.55,
+      "speaker": "gerhard-lazu",
+      "text": "But I think outside of the Valley, I think we're not as well known, and that's one goal of ours is to go change that."
+    },
+    {
+      "start": 4011.55,
+      "end": 4047.55,
+      "speaker": "jerod-santo",
+      "text": "Well friends, now you know what Retool is, you know who they are, you're aware that Retool exists. And if you're trying to solve problems for your company, you're in a meeting as David mentioned, and someone mentions something where a problem exists, and you can easily go and solve that problem in 30 minutes, an hour, or some margin of time that is basically a nominal amount of time, and you go and use Retool to solve that problem, that's amazing. Go to retool.com and get started for free or book a demo. It is too easy to use Retool, and now you know, so go and try it."
+    },
+    {
+      "start": 4047.55,
+      "end": 4055.6,
+      "speaker": "gerhard-lazu",
+      "text": "Once again, retool.com."
+    },
+    {
+      "start": 4055.6,
+      "end": 4089.89,
+      "speaker": "jerod-santo",
+      "text": "Because we're able to do this whole, you know, multi application, multi CDN scenario, is there a way to say test 75% of our traffic goes to existing CDN, 25% of our traffic goes to new CDN, over a course of time, like as this confidence, you know, gets to a higher level, is that, like what's the proper way, you don't just like switch it off, right, like we're testing and confirming it and things like that, like how does it work in different scenarios. But is that the prudent way to roll it out, or am I jumping the gun on your presentation?"
+    },
+    {
+      "start": 4089.89,
+      "end": 4269.94,
+      "speaker": "gerhard-lazu",
+      "text": "No, no, no, I think this is good. This is exactly, I mean, these are like the big questions, because honestly, there is no right answer. So a progressive rollout is the more, the most cautious one, especially if you don't know how the new system is going to behave. In our case, we're spending a lot of time to double check that the correctness of the system is right, and that the system behaves correctly when it comes to all the other. So it's one component, the CDN, right, but it integrates with S3, it integrates with a bunch of other, it integrates with S3 for stats, right? It integrates with Honeycomb for all the telemetry, for all the traces, for all the events. It integrates with R2, the different R2 backends for the actual storage of certain components. So there's like a lot of, we're just basically replacing a central piece, and everything around it still has to, still remains, the integration has to be right. So yes, we could do a gradual rollout in that maybe from a DNS perspective, we say 25% of queries return this backend, or this origin, sorry, in this case, let me just not compound the word origin. 25% of the requests go to Pytream, and 75% go to Fastly, and how do they behave? But at that point, we are maintaining two systems, which is okay, but it cannot be a long-term solution, right? So we want to shorten the window in which we run both systems at once, and that both are active. Because we could very easily switch, for example, to Pytream, right, make sure that everything runs correctly. Let's say that we detect that, hey, for some reason, something isn't behaving correctly. We still have the old system, we just point the DNS back, and everything continues as it was, which is why two of everything, right? That's another principle that we have. So at this point, we have two CDNs, we have two applications, which are completely isolated. Now, they are running on-fly, like the runtime is the same, but if one was to go down, the other one wouldn't know about it. So we've designed this in a way that is very cheap to fail. The new stuff, if it fails, will have impacted maybe a few minutes worth of traffic, and fail catastrophically. Which is why running all these benchmarks, running all this correctness, to make sure that the chances of that happening are low. No guarantee in anything, but they're low. And going back and forth is super easy, because we're on both things at the same time. The problem of running both fastly and the new one is that we may see inconsistent data that gets written out. I'll go to great lengths, I mean the logs, I mean the events, I'll go to great lengths to ensure that's not the case. But if there are little discrepancies, we may end up with different data, and it may take a while to find that out. Especially on the metric side."
+    },
+    {
+      "start": 4269.94,
+      "end": 4273.94,
+      "speaker": "jerod-santo",
+      "text": "What kind of data would be different? Like a different image?"
+    },
+    {
+      "start": 4273.94,
+      "end": 4350.45,
+      "speaker": "gerhard-lazu",
+      "text": "The stats that we write, like all the requests that come in, the stats that we write to S3 for example. And when Jared processes them, when the background jobs kick off, they just can't reconcile the two different ways of saving the same data. Because there's a lot of config in Varnish, sorry, there's a lot of config in Fastly that configures how we write out the logs to S3. And that will be accurate. The problem is that certain properties that Fastly has, Pipedream may not have. Again, let's remember Fastly is a version of Enterprise Varnish, which is completely different. It's only them that they have certain properties about Varnish. We don't have certain methods, we don't have table lookups, there's so many features that we don't have in the open source Varnish. So there might be differences in what we may be able to do. For example, the GeoIP stuff. I don't know how that's going to work, or if it's going to work at all. And maybe it's fine. But that's an example of something that's running these two systems at the same time, we'll need to reconcile the differences. I suppose it's no too different to switching everything across and then, oh, you are missing these properties that you care about. But that is the risk of going from one thing to another thing."
+    },
+    {
+      "start": 4350.45,
+      "end": 4356.45,
+      "speaker": "jerod-santo",
+      "text": "Well, I found the answer to my question. It looks like it's about 308 lines of code at this point."
+    },
+    {
+      "start": 4357.52,
+      "end": 4369.52,
+      "speaker": "gerhard-lazu",
+      "text": "Great. We were getting there, but that's okay. You preempted it. All good. All good. All good. That's what I care about. Yeah, I know. I know. Yeah. So it's quite, yeah, it changed a bit and we'll go over that in a minute. So."
+    },
+    {
+      "start": 4369.52,
+      "end": 4380.52,
+      "speaker": "jerod-santo",
+      "text": "One more question for you before we go on. You said the phrase Enterprise Varnish, is there such a thing? Do they have like a different fork of it they're developing? Absolutely. Open core style."
+    },
+    {
+      "start": 4380.52,
+      "end": 4416.52,
+      "speaker": "gerhard-lazu",
+      "text": "So there's obviously, there's Varnish and there's Enterprise Varnish. Enterprise Varnish is a paid product. As far as I know, when Fastly started, this is like going through their blog and going through the various public information which is out there. They started with Varnish, but they've been changing it a lot over the years. That was their starting point. I don't know how similar it is to the Enterprise Varnish, but this point we can assume it is a custom platform, customized Varnish. I don't even know if it is Varnish. They're certainly VCL, but I don't know how that maps to what they actually run it because that's like all their like proprietary software."
+    },
+    {
+      "start": 4416.52,
+      "end": 4426.93,
+      "speaker": "jerod-santo",
+      "text": "Who's in control of this Enterprise Varnish? They are? The Varnish people. I searched it on Google and I couldn't, I mean, I'm still using Google, yes."
+    },
+    {
+      "start": 4426.93,
+      "end": 4429.93,
+      "speaker": "gerhard-lazu",
+      "text": "If you go Varnish Enterprise, yeah, there is even like a company, the consultancy behind it."
+    },
+    {
+      "start": 4429.93,
+      "end": 4442.54,
+      "speaker": "jerod-santo",
+      "text": "Yeah, varnish-software.com. They sell Varnish Enterprise. They have the open source Varnish community version. Alrighty, I didn't think I landed on the right page. It seemed like not the right place, but."
+    },
+    {
+      "start": 4442.54,
+      "end": 4446.54,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, Varnish Enterprise and Varnish Software is the commercial entity."
+    },
+    {
+      "start": 4446.54,
+      "end": 4448.54,
+      "speaker": "jerod-santo",
+      "text": "Never been here before? Okay, brand new."
+    },
+    {
+      "start": 4448.54,
+      "end": 4449.54,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah."
+    },
+    {
+      "start": 4449.54,
+      "end": 4479.89,
+      "speaker": "jerod-santo",
+      "text": "Okay, so Varnish Cache is the open source community version. Varnish Enterprise, these are things I'm not familiar with. I just never paid attention to this detail. So you got Varnish Cache, open source, Varnish Pro, Varnish Enterprise, Varnish Controller, Traffic Router. Okay, so you got like different layers. So we're using obviously the only available to every developer out there, Varnish Cache. They are using likely, highly likely, Varnish Enterprise."
+    },
+    {
+      "start": 4479.89,
+      "end": 4975.63,
+      "speaker": "gerhard-lazu",
+      "text": "Yes, yes. Because, and the reason why we know this is from the documentation. They have certain, for instance, like one behavior that we had to work around. As you can see here, right, we have different instances running. So we have pipely running, which is Varnish, right? That's what it's like Varnish 770. But we have feeds, and feeds is the TLS proxy. We talked about it in the last episode. The TLS proxy terminates TLS to backends. In this case, HTTPS traffic. Varnish itself cannot go to TLS backends. It doesn't terminate SSL. Varnish Enterprise does. And the reason why I know that is because that's what we use in the FASTA VCL config. So Varnish, in that case, does terminate TLS. And that is a Varnish Enterprise feature only. So that was like another thing that we had to solve somehow. And Nabil, again, thank you very much for helping out with that. Writing this like very simple Go proxy, which uses little memories, highly performant, that is able to terminate SSL. Which then, in this case, pipely connects to. And it's all running locally. So feeds, assets, and app. They're separate processes. And we can see this by, let's just do this, PS. Look at that. This is like the whole process tree of what's running in pipely. So we have tmux. Obviously, that's like the session which I have opened here. Bash just up. It's just a wrapper. It basically invokes Gorman. So it runs like all the various processes. And we have TLS exterminator, local port 5000, proxies2, changelog, flydev. We can see the process. We can see the memory usage, all of that. It's using currently, what is it, 8 megabytes of memory. And that was asked of benchmarking, right? We ran a benchmark here. TLS exterminator, we're going to feeds, and we're going to, which was the other one. There should be one more there, changelog plays, the static assets. And then, eventually, we have Varnish. So you have quite a few things running here just to get that experience that, you know, in Fastly's case, it's just all part of Varnish. So we are bringing different components together, building what we're missing so that we get something similar. And ultimately, what we care is how the system behaves from the outside. Do the users get the experience that we want them to have or that we expect for them? All right. So I could do this live, but I think it's easier. I can focus a bit better. So the tests, right, we can run them locally. Now, I did mention that we're using Dagger. So if I do dagger login changelog, what that means is I'm going to authenticate to Dagger cloud. And then everything that runs locally will be sent the whole telemetry, like how the behavior of the various commands, like how do they change? In this case, I'm running the acceptance test locally. And by connecting Dagger to Dagger cloud, I'm able to see all the different things that run for those acceptance tests. All the commands that get installed, all the tools that get installed, all the commands that run. In this case, I can even see the actual requests that go to the local instance of Varnish in great, great detail. It's all real time. It's all wasm goodness. And the tests are hooked up, too. So when I run something locally, I can or even in CI, it all goes to the same place and I can understand how these various components behave. How long do they take? That's what we see here, like a trace of the various steps. So when something is slow or misbehaves, I know where to look. So the acceptance tests, they run locally in one minute and 26 seconds. That's pretty good. So what else is left? We're nearing the end. What else is left before we can deliver this toy to Adam? That's what we are working towards. So the first thing is the memory headroom. What does that mean? Varnish, we are configuring it to use a certain amount of memory so that it can serve as many things as it can from memory. It's really, really fast. And I went through a couple of iterations, basically, and we'll see that in a minute. The value, which I set initially, was not the right one. Varnish got crashing and I had to find out what the right value is because it's not very obvious. Forwarding logs, that is the part which I think is an important one, but it's a smaller component compared to everything else. So we will have one more process running. In this case, it will be vector. And vector is going to consume all the varnish logs and it's going to deliver them to different sinks. That's what they're called internally. So one will go to Honeycomb and we'll be able to compare, is the data the same format as we get from Fastly? Because all the dashboards and all the learning and everything else should work the same. The SLOs and all of that. And are we able to send the same logs with the same format to S3 so that Jared is able to process the metrics? And that is the important part, right? When you mentioned that the numbers went down, well, we're not getting those metrics from the new instance. And the last one is the edge redirects. And that's just basically writing more VCL, which is fairly straightforward at this point. And by the way, LLMs are very helpful. So I was using agents for this and they really go through it like they just said it was very good. It was a very nice episode. I enjoy that, by the way. So stuff like that, you know, which makes this super, super simple is literally copying config from one file to another file and just reformatting it. But we have most of it. A couple of things are different because, again, our varnish doesn't have all the properties that the Fastly varnish has, like table lookups. And specifically, there's more like if else clauses and a couple of other things, but nothing crazy, but mostly straightforward. And this is also going to clean up a lot of redirect rules because they're all over the place. There's jumps, there's go tos, there's quite a few things in our existing varnish config. And then the last one is the content purge. So we'll talk about that in a minute. But the memory, this is what it looks like, the memory. So basically, you see, like, we are looking at the memory usage of an instance of pipely slash pipepre. And you can see that the limit is two gigabytes. And we want to be just under it. But then sometimes what happens, there's some requests coming in. All of a sudden, this is like one instance that was hit particularly badly. I don't know what was happening with it, but there's lots of traffic going to this instance. And by the way, it was more like bot traffic. It felt like agents are trying to scrape it. That's exactly how it felt. They try different things. So it was all just garbage. And when we see these drops is varnish was crashing because it was running out of memory. It was getting OM killed. So I had to adjust that headroom a couple of times. And now it's been stable. If we look at the actual, let's see if we find it here. It's this one, right? So I'll look at the last six hours, right? You can see all the various varnish instances, the memory. We never had those big drops. There's smaller drops based on data being replenished and how it changes. We still need to understand those metrics, by the way, but that's coming. That's coming. So things have been stable from that perspective. Cool. And 800 megabytes. That's how much headroom we had to leave for varnish. This was version 005. It was the last one we pushed and things have been stable ever since. So we need to leave 800 megabytes free so that things don't get killed. That seems to be the goal number. 400 was not enough. And the ball request 12 is up there, which we're going to send logs to Honeycomb. That is the first one. There's not much else other than just like a placeholder for it, but that's the next big thing. And we need content purge. And for this, I need to tango with Jared on this one."
+    },
+    {
+      "start": 4975.63,
+      "end": 4977.63,
+      "speaker": "jerod-santo",
+      "text": "Hmm. It takes two to tango."
+    },
+    {
+      "start": 4977.63,
+      "end": 5019.14,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, pretty much. Pretty much. So this is where we talk about how do you imagine us integrating Oban with Fly in this case to understand what the various pipe dream instances are because we need to send requests to every single one of them when you want to purge content. There is no orchestrator, which was what was happening in Fastly, right? You would send the purge request and then Fastly would distribute it to all the instances. Or not, because things weren't cached that well. Anyway, the point is we need now to orchestrate that purging across all the instances. So how do you think we may approach this, Jared?"
+    },
+    {
+      "start": 5019.14,
+      "end": 5026.14,
+      "speaker": "jerod-santo",
+      "text": "Well, we need some sort of an index or a list of available instances. Perhaps we could get it from Fly directly."
+    },
+    {
+      "start": 5026.14,
+      "end": 5031.14,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, there is DNS. We can send a DNS query and it will give us all the instances."
+    },
+    {
+      "start": 5031.14,
+      "end": 5039.14,
+      "speaker": "jerod-santo",
+      "text": "So as long as we know some sort of standardized naming around these instances, so they're not our app instances or whatever, it's like our pipely instances."
+    },
+    {
+      "start": 5039.14,
+      "end": 5040.14,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, the machines themselves."
+    },
+    {
+      "start": 5040.14,
+      "end": 5055.27,
+      "speaker": "jerod-santo",
+      "text": "Then we just create an Oban worker that just says, you know, you tell it what to purge. It wakes up, says, all right, give me all my instances, gets that from Fly, and then just loops over them and sends whatever we decide a purge request looks like to that instance."
+    },
+    {
+      "start": 5056.27,
+      "end": 5084.52,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I'd really like to do this maybe before the next Kaizen. Sure. That's a big one. Because if you think about it, really it's like these two big things. It's sending the logs and the events to Honeycomb and to S3, content purging. And that's like this piece where we need to work together on this. And then the edge redirects are really simple. It's literally just like copy pasting a bunch of config, you know, clearing it up. And that's it. That's it. That's it. That's how close we are."
+    },
+    {
+      "start": 5084.52,
+      "end": 5085.52,
+      "speaker": "jerod-santo",
+      "text": "That's how close we are."
+    },
+    {
+      "start": 5085.52,
+      "end": 5087.56,
+      "speaker": "gerhard-lazu",
+      "text": "It's not even Christmas."
+    },
+    {
+      "start": 5087.56,
+      "end": 5090.56,
+      "speaker": "jerod-santo",
+      "text": "So close you can almost play with that toy. Yes."
+    },
+    {
+      "start": 5090.56,
+      "end": 5138.13,
+      "speaker": "gerhard-lazu",
+      "text": "Well, Garen's been playing with it. Yeah, I have. I mean, benchmarking is. I mean, anyone can try it. You've been trying it. We go to feeds, we serve assets. Now we just have to do like some of the, I think, tooling around it, like some extra stuff that is not user-facing because the content purge, I mean, if you think about it, do we need to do the content purge? 60 seconds. That's how long things will be stale because they get refreshed ultimately every 60 seconds. The problem with that is maybe that is too aggressive for static assets, right? We would like to cache them maybe for a week, maybe for a month. I don't know. Like stuff like the image that we've seen, right? The changelog image that doesn't change. Yeah. So that could be cached for a year, right? Right. Unless it gets effectively content purged."
+    },
+    {
+      "start": 5139.13,
+      "end": 5154.13,
+      "speaker": "jerod-santo",
+      "text": "Is there a way to like classify assets as like, this will never change kind of thing? Like give things like buckets, like A bucket is like on that every whatever minute cycle B buckets, like this almost never changes. So let's just go ahead and cache that almost forever."
+    },
+    {
+      "start": 5154.13,
+      "end": 5155.13,
+      "speaker": "gerhard-lazu",
+      "text": "Absolutely."
+    },
+    {
+      "start": 5155.13,
+      "end": 5160.13,
+      "speaker": "jerod-santo",
+      "text": "And then C is like, these things will never, ever, ever change. And when they do, it's a manual purge."
+    },
+    {
+      "start": 5160.13,
+      "end": 5203.68,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah. I mean, that's all that is possible. The question is, what is the simplest thing that we could do that would ensure a better behavior that we've seen so far from a CDN and something that maybe doesn't require a lot of maintenance? So as I was thinking about content purging, I was wondering, well, if we expire everything, let's say within the, or like if we say feeds, refresh them every minute. Static assets refresh them every hour. The application refresh maybe every five minutes, maybe every minute. I'm not sure. Maybe we don't need content purge."
+    },
+    {
+      "start": 5203.68,
+      "end": 5214.8,
+      "speaker": "jerod-santo",
+      "text": "When you say refresh, does it literally delete from the CDN and pull it over from wherever, or does it just check freshness?"
+    },
+    {
+      "start": 5215.8,
+      "end": 5256,
+      "speaker": "gerhard-lazu",
+      "text": "So when a request comes in, it'll check freshness when the request comes in, which means that let's say your request arrived an hour ago and the TTL is 60 seconds. When the second request arrives, it checks. Is that considered stale or fresh? If it's considered stale, if the TTL is longer, it will still serve the stale content, which means it could be an hour long, whichever the duration is between requests. And then it will go in the background to the origin to fetch a fresh copy. So subsequent requests will get the fresh content, but never the one that checks the freshness, if that makes sense."
+    },
+    {
+      "start": 5256,
+      "end": 5258,
+      "speaker": "jerod-santo",
+      "text": "Does it pull it even if it's the same?"
+    },
+    {
+      "start": 5259,
+      "end": 5268,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, because we are configuring the detail. We're saying only keep it for 60 seconds. We're not doing any comparisons. We're not doing any ETag comparisons. We're not doing anything like that."
+    },
+    {
+      "start": 5268,
+      "end": 5297,
+      "speaker": "jerod-santo",
+      "text": "That's too CPU intensive to do comparisons, like checksums and stuff like that? It's not that kind of thing? Because I'm thinking like rsync, for example, whenever I do things, this is not the same, but it's similar. It's like, hey, I want to go and push something there, but you can also do dash dash checksum, which is like, let me do a computation between the two things and confirm. Even though certain things may have changed, like updated on or whatever, but it's still the same data, it doesn't actually update it. I'm just wondering if that's a thing in CDM world."
+    },
+    {
+      "start": 5297,
+      "end": 5378.21,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, it is. I mean, that's where, for example, the ETags come in. In an ETag header, you can put basically the checksum of the actual resource, and then it will check it first, like say, is this ETag different than what I have in my cache? And if it's not, then this is up to date. So it's not time-based, it's just header-based. And all it does, it just goes and checks the resource on request. But it still means that the first request that comes after that object has been cached may serve as stale content. Actually, it will return as stale content. The first one will always return as stale content, because that's when the check happens. There's no background anything to run in the background to compare all the objects which I have in memory, are they fresh or not? And this is where the content purge comes in. When you know that something has changed, you're explicitly invalidating these objects in the CDN's memory. So let's say you've published a new feed, you know you've updated it in the origin, then you send a request to the CDN, which I believe that's what we have today, to say purge this because there's a new copy. And then the first request is going to be a miss. It will not be a stale. It will be a miss because the CDN doesn't have it. It has to go to the origin."
+    },
+    {
+      "start": 5378.21,
+      "end": 5387.21,
+      "speaker": "jerod-santo",
+      "text": "What is this? Can you go back? Would it hurt your presentation to go back to the what's left to do slide? Yeah, of course. I kind of want to see that list again. Okay, yeah."
+    },
+    {
+      "start": 5387.21,
+      "end": 5388.21,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, of course."
+    },
+    {
+      "start": 5388.21,
+      "end": 5412.24,
+      "speaker": "jerod-santo",
+      "text": "What's left? What does it take? What do we reasonably think is required to get to, I love the zero indexing too by the way, of this list? Although your font doesn't let it be very straight, I'm pedantic now as a designer looking at it. That's okay. What's required to get all this done? Like how difficult of a lift is the remaining steps to put a bow in it?"
+    },
+    {
+      "start": 5412.24,
+      "end": 5474.63,
+      "speaker": "gerhard-lazu",
+      "text": "Let's talk about unknowns because I think that's because it's like the question is how long is a piece of string? And I don't know, like, what is a string? Show me the string. I'll tell you how long it is. And what this means is that I don't know all the properties that we need to write out in the logs to see if we have them. And again, I know that the GIP we don't have. I mean, that that's just not a thing. We don't have that. And adding that will be more difficult than if we are okay to not have it, for example. So maybe we do that, or maybe we just add wherever the request is coming, like whichever instance is serving the request, we just use the instance's location, not the client's location. So maybe that's one way of working around it. So forwarding logs, it's fairly simple in terms of the implementation. What we don't know is what are all the little things that need to be in those logs for the logs to be useful or as useful as they are today."
+    },
+    {
+      "start": 5474.63,
+      "end": 5475.63,
+      "speaker": "jerod-santo",
+      "text": "And this is the dance between you and Jared."
+    },
+    {
+      "start": 5475.63,
+      "end": 5545.79,
+      "speaker": "gerhard-lazu",
+      "text": "Actually, no, that's the edge redirects. So this is forwarding logs. Forwarding logs is we have to send them to Honeycomb and to S3. Honeycomb so that we understand how the service behaves. What are the hits? Like, remember all those graphs that I was able to produce? We need to be able to see which requests were hit, which were miss. So all that stuff, I think in a day I could get the Honeycomb stuff done. I think, right? I mean, there's nothing crazy about it. Like some things will not be present, but most of it is fairly straightforward. S3 is a little bit more interesting because I haven't seen that yet. And I'm not familiar with the format, but I know it's a derivative of what we get in the request. So just a matter of crafting a string that has everything that we care about. And I'm going to flag if any items, if they're problematic. So honestly, I would say a few days worth of work. I can get the forwarding logs sorted. Then moving to the edge redirects. The question is, how far do you want to go with them? Are you okay with the current behavior, which everything expires in 60 seconds and we can be serving stale content? Or do you want to implement what Jared suggested?"
+    },
+    {
+      "start": 5546.79,
+      "end": 5548.79,
+      "speaker": "jerod-santo",
+      "text": "I want purgeability."
+    },
+    {
+      "start": 5548.79,
+      "end": 5551.79,
+      "speaker": "gerhard-lazu",
+      "text": "Sorry, content purge, not edge redirect. Sorry, content purge. That's what I meant. Sorry."
+    },
+    {
+      "start": 5551.79,
+      "end": 5576.3,
+      "speaker": "jerod-santo",
+      "text": "I do want purgeability. I just like to have the control. I don't think it's going to be very hard to do. On the logs front, I don't think we want to lose geo IP information. I think we could relatively easily, since we're running a background process. I'm not sure if Vector has that kind of stuff built in, or if you just have a script that does two things that pulls the IP, checks it against the MaxMind database, and then puts it back in there."
+    },
+    {
+      "start": 5576.3,
+      "end": 5581.3,
+      "speaker": "gerhard-lazu",
+      "text": "There is some integration with the MaxMind. I know it exists. I know there is the lite version, which is free."
+    },
+    {
+      "start": 5581.3,
+      "end": 5583.3,
+      "speaker": "jerod-santo",
+      "text": "Yeah, which is all we would need."
+    },
+    {
+      "start": 5583.3,
+      "end": 5595.3,
+      "speaker": "gerhard-lazu",
+      "text": "And if that's okay, I haven't done it myself, but having looked at the config, as long as the file is in the right place, which won't be a problem, it's pretty much baked into the software."
+    },
+    {
+      "start": 5595.3,
+      "end": 5604.68,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so if we do that, then we're pretty much everything else we have. But I do think we should keep that because it is nice to know where people are listening to us."
+    },
+    {
+      "start": 5604.68,
+      "end": 5616.68,
+      "speaker": "gerhard-lazu",
+      "text": "So that will make it slightly more difficult, the lite version. If we had to go for the paid version, that would be a different story because I don't even know what it takes to get a MaxMind paid database and get it refreshed and all that."
+    },
+    {
+      "start": 5616.68,
+      "end": 5619.91,
+      "speaker": "jerod-santo",
+      "text": "We'll have to look at the details."
+    },
+    {
+      "start": 5619.91,
+      "end": 5624.91,
+      "speaker": "gerhard-lazu",
+      "text": "So my goal is, by the next Kaizen, all this to be done."
+    },
+    {
+      "start": 5624.91,
+      "end": 5626.91,
+      "speaker": "jerod-santo",
+      "text": "Yes, that's what I wanted to hear."
+    },
+    {
+      "start": 5626.91,
+      "end": 5642.07,
+      "speaker": "gerhard-lazu",
+      "text": "That is my goal. One of my title proposals was 90% done. I feel that we are 90% done, or 10% left. All the heavy stuff has been taken care of."
+    },
+    {
+      "start": 5642.07,
+      "end": 5646.07,
+      "speaker": "jerod-santo",
+      "text": "That's exciting. My title proposal is Tip of the Iceberg."
+    },
+    {
+      "start": 5646.07,
+      "end": 5697.64,
+      "speaker": "gerhard-lazu",
+      "text": "Tip of... Oh yeah, love that. Tip of the Mountain. Oh yes, I love that. Tip of the Iceberg. CDNLC. CDN like changelog. Or, you know, what would Jesus do? Now, what would changelog do? How would they build a CDN? Or bottlenecks. That's also a thing. There's so many bottlenecks in different parts of the system. Including me. I'm a bottleneck, by the way. My time is a bottleneck. But honestly, I'm very happy with where we are with this. I mean, I've learned so much. And it feels like we own such an important piece of our infrastructure. We were never able to do this. And only because we were patient and diligent. And we had good friends is why we are where we are today. And that makes me so happy. So many people joined this journey. Yes."
+    },
+    {
+      "start": 5698.71,
+      "end": 5704.9,
+      "speaker": "jerod-santo",
+      "text": "Those are three of my favorite things. Patience, diligence, and friends, you know? Yep. Get you far. I think so, too."
+    },
+    {
+      "start": 5704.9,
+      "end": 5705.9,
+      "speaker": "gerhard-lazu",
+      "text": "Thanks, Gerhard."
+    },
+    {
+      "start": 5705.9,
+      "end": 5708.9,
+      "speaker": "jerod-santo",
+      "text": "PDF. You're leaving us on the cliffhanger here."
+    },
+    {
+      "start": 5708.9,
+      "end": 5709.9,
+      "speaker": "gerhard-lazu",
+      "text": "Kaizen 19."
+    },
+    {
+      "start": 5709.9,
+      "end": 5710.9,
+      "speaker": "jerod-santo",
+      "text": "Ah."
+    },
+    {
+      "start": 5710.9,
+      "end": 5712.9,
+      "speaker": "gerhard-lazu",
+      "text": "Kaizen 19. This is it. This is the last one."
+    },
+    {
+      "start": 5712.9,
+      "end": 5739.56,
+      "speaker": "jerod-santo",
+      "text": "Show my shirt today. Dang, man. It's in the wash. Well, I'm excited about this. I think, let's say next, Kaizen, this is production-worthy. What changes, you know, once that's true, once that's true, it's in production, it's humming along perfectly fine. What changes for us specifically?"
+    },
+    {
+      "start": 5740.66,
+      "end": 5847.84,
+      "speaker": "gerhard-lazu",
+      "text": "Our content is available more or is available full stop when our application is down. That was never the case. When the application goes down, we are down. Right. We've seen when you had like that four-hour flooded IOT in that one region. And that's when we went to two regions. That's what prompted us to go to two regions. And with a CDN that caches things properly, that would not be the case. And by the way, that's something that I wanted to test. I don't think we have time for that now. But in the next time, we'll take the application down and make sure that we're still up. Now, that's still going to be so users which are logged in, I think we'll need to do maybe something clever. And again, it's within our control. We can say, even if you have a cookie, if the backend is down, we will serve you stale content, which is public content so that we look like we are up, but none of the dynamic stuff is going to work. So that's one thing. I think this gives us a lot more control of what other things our application used to do. Like you remember all those redirects that we still have all over the application that we couldn't put in the CDN because it would have been like working with this like weird VCL language that wasn't ours, like pie in the sky, as Jared used to call it, that we don't know how it's going to behave. So we chose to put more logic in the application that maybe we wanted to, because the relationship with the CDN was always like this awkward one. And I think we had a great story to tell. I mean, just think about how many episodes we talked about this thing. And now it's finally here. And it feels like like, like, was it worth it?"
+    },
+    {
+      "start": 5847.84,
+      "end": 5852.84,
+      "speaker": "jerod-santo",
+      "text": "What was the first Kaizen we started this? Was it a year ago? A year-ish? A year and a half? Of like two years."
+    },
+    {
+      "start": 5852.84,
+      "end": 5871.84,
+      "speaker": "gerhard-lazu",
+      "text": "I can't remember. Well, I remember October, that's October 2023. That was like quite a while ago, which is when we were seriously thinking like, hey, is this is this an experience that we can expect? That was like the important milestone in this journey that kind of like started all of this."
+    },
+    {
+      "start": 5871.84,
+      "end": 5880.84,
+      "speaker": "jerod-santo",
+      "text": "So next Kaizen is roughly July something. It's May now, right? If it's a two month Kaizen 20. It's a nice number."
+    },
+    {
+      "start": 5880.84,
+      "end": 5885.84,
+      "speaker": "gerhard-lazu",
+      "text": "Kaizen 20. Look at that. Nice. We have to do it. We have to do it."
+    },
+    {
+      "start": 5885.84,
+      "end": 5902.19,
+      "speaker": "jerod-santo",
+      "text": "So it's it's a quarter off of October. So October isn't quite something. September would have been the next Kaizen after July, right? So it's a little bit before October. But I feel like it's like almost two years, a year and three quarters, basically."
+    },
+    {
+      "start": 5902.19,
+      "end": 5933.32,
+      "speaker": "gerhard-lazu",
+      "text": "Yeah, I think if we go to, I'll just very quickly go to changelog.com changelog and the changelog repository in the discussions. And I think we had even a question, should we build a CDN? And when was that? January 12, 2024. That was the first one when we asked the question, like, should we build a CDN? And I was like, that's that that started out in my mind this journey. So January 2024. So it will be one year and seven months, six, seven months."
+    },
+    {
+      "start": 5933.32,
+      "end": 5934.6,
+      "speaker": "jerod-santo",
+      "text": "Yeah, call 18."
+    },
+    {
+      "start": 5934.6,
+      "end": 5938.6,
+      "speaker": "gerhard-lazu",
+      "text": "18, 19 months. Look at that. If it was 20 months, I'll be crazy."
+    },
+    {
+      "start": 5938.6,
+      "end": 5942.6,
+      "speaker": "jerod-santo",
+      "text": "Seven episodes it took us to do this. We can delay our next Kaizen by a couple of months."
+    },
+    {
+      "start": 5943.6,
+      "end": 5967.6,
+      "speaker": "gerhard-lazu",
+      "text": "But let's remember, there's like all these other things that used to happen and they were happening around. It wasn't just this. I mean, this was one of the things that was like kicking the background. But again, just look through all the things that we went through to get here today. But definitely like between Kaizen 18 and 19, this has been my only focus because I wanted to get to a point where we can, you know, 90% done."
+    },
+    {
+      "start": 5967.6,
+      "end": 5971.6,
+      "speaker": "jerod-santo",
+      "text": "Let's do it. Let's do the last 10% for Kaizen 20."
+    },
+    {
+      "start": 5971.6,
+      "end": 5972.6,
+      "speaker": "gerhard-lazu",
+      "text": "That's what I'm thinking too."
+    },
+    {
+      "start": 5972.6,
+      "end": 5982.6,
+      "speaker": "jerod-santo",
+      "text": "We'll celebrate. Oh, I just had a good idea. Gone, gone. And we can cut this if we don't do it. But let's all, let's all go somewhere together for Kaizen 20. Let's be together."
+    },
+    {
+      "start": 5982.6,
+      "end": 5986.92,
+      "speaker": "gerhard-lazu",
+      "text": "Okay. Oh, I'm intrigued. I like this."
+    },
+    {
+      "start": 5986.92,
+      "end": 5995.92,
+      "speaker": "jerod-santo",
+      "text": "London or Denver or Texas or something. Let's get together. Let's have a little, let's have a launch party. Oh, wow."
+    },
+    {
+      "start": 5995.92,
+      "end": 5998.92,
+      "speaker": "gerhard-lazu",
+      "text": "You like this? I like where this is going."
+    },
+    {
+      "start": 5999.92,
+      "end": 6003.92,
+      "speaker": "jerod-santo",
+      "text": "Okay. We'll iron out the details, but we're all into the idea. Yeah."
+    },
+    {
+      "start": 6003.92,
+      "end": 6004.92,
+      "speaker": "gerhard-lazu",
+      "text": "I like Denver."
+    },
+    {
+      "start": 6004.92,
+      "end": 6007.12,
+      "speaker": "jerod-santo",
+      "text": "Denver be great."
+    },
+    {
+      "start": 6007.12,
+      "end": 6008.12,
+      "speaker": "gerhard-lazu",
+      "text": "Okay."
+    },
+    {
+      "start": 6010.12,
+      "end": 6013.28,
+      "speaker": "jerod-santo",
+      "text": "All right. Maybe we'll invite some friends. Oh, wait."
+    },
+    {
+      "start": 6013.28,
+      "end": 6019.28,
+      "speaker": "gerhard-lazu",
+      "text": "Dripping. I'm just kidding. That's where I live. Gerhard is Dripping Springs. To our listener."
+    },
+    {
+      "start": 6020.28,
+      "end": 6033.78,
+      "speaker": "jerod-santo",
+      "text": "Let us know in Zulip if you would go to a changelog Kaizen 20 pipely launch party in Denver sometime this summer. Let us know. Oh, wow. Throw a little party."
+    },
+    {
+      "start": 6033.78,
+      "end": 6038.78,
+      "speaker": "gerhard-lazu",
+      "text": "That's quite a cliffhanger. All right. We'll leave it right there. We'll leave it right there. Okay. Perfect."
+    },
+    {
+      "start": 6038.78,
+      "end": 6044.1,
+      "speaker": "jerod-santo",
+      "text": "All right. See you in Denver. See you in Denver. Kaizen. Always."
+    },
+    {
+      "start": 6044.1,
+      "end": 6046.29,
+      "speaker": "gerhard-lazu",
+      "text": "Kaizen. See y'all."
+    },
+    {
+      "start": 6049.72,
+      "end": 6102.82,
+      "speaker": "jerod-santo",
+      "text": "So, a live Kaizen recording slash pipely launch party in Denver in July. Would you be there? Why or why not? Please do let us know in the comments. We are serious about this. Are you? Comment in Zulip, please. Let's thank our sponsors one more time. Fly.io, of course. Depot.dev. Heroku.com and Retool.com. Do us a solid and check out what these orgs are up to and tell them changelog sent you. We love it when that happens. Next week on the pod. News on Monday. Derek Collison from Cinedia talks Nats versus the CNCF on Wednesday. And we are playing Pound to Fine once again. But this time with some new faces and a mysterious one who just so happens to produce our beats."
+    },
+    {
+      "start": 6102.82,
+      "end": 6105.82,
+      "speaker": "gerhard-lazu",
+      "text": "Oh, I want to do that. I so badly want to do that."
+    },
+    {
+      "start": 6105.82,
+      "end": 6112.82,
+      "speaker": "jerod-santo",
+      "text": "Have a great weekend. Drop a comment in Zulip if you listen all the way to the end. And let's talk again real soon."
+    }
+  ],
+  "slug": "kaizen-tip-of-the-pipely",
+  "id": "92"
+}

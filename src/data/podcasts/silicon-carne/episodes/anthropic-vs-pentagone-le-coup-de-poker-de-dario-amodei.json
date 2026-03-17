@@ -1,0 +1,1029 @@
+{
+  "title": "Anthropic vs Pentagone : le coup de poker de Dario Amodei",
+  "date": "2026-03-04",
+  "description": "Le clash entre Anthropic et le Pentagone, la levée de fonds record de 110 milliards d'OpenAI, les frappes sur l'Iran vues depuis Dubaï, et un entretien avec Ben Cera sur les agents IA autonomes et Polsia.",
+  "links": {
+    "spotify": "https://open.spotify.com/episode/2qjKNTCf2RqcWiqM8RhS1g",
+    "apple": "https://podcasts.apple.com/us/podcast/anthropic-vs-pentagone-le-coup-de-poker-de-dario-amodei/id1485527777?i=1000753015309"
+  },
+  "speakers": [
+    "carlos-diaz",
+    "anji-ismail",
+    "fabrice-epelboin",
+    "fanny-bouton",
+    "oussama-ammar",
+    "ben-cera"
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 117.2,
+      "speaker": "carlos-diaz",
+      "text": "Hola hola les amigos, la troisième guerre mondiale vient peut-être de commencer, c'est pas avec des chars mais avec des drones et des frappes chirurgicales, certainement powered by AI, le Moyen-Orient est en feu. D'ailleurs on rejoindra Oussama Amar en direct de Dubaï qui nous fera un point sur la situation sur place. Les frappes américaines sur l'Iran ce week-end ont fracturé l'ordre mondial, mais ce qui les a précédés la semaine dernière dans la Silicon Valley révèle quelque chose de plus profond. On revient notamment sur le clash entre Anthropic et le Pentagone. Quand une entreprise de tech refuse de coopérer avec l'armée, c'est pas un désaccord, c'est une déclaration de guerre. On va également évoquer la levée de fonds record de 110 milliards de OpenAI, le montant le plus astronomique jamais vu dans l'histoire du capital risque. Alors est-ce que OpenAI vient de gagner la course à l'EGI ? C'est la question qu'on va se poser dans cette émission. Et puis je vous propose de rejoindre Ben Cera, c'est un fondateur ici français dans la Silicon Valley. Il vient de lancer un projet, c'est un peu notre Peter Steinberger français. A base d'agents IA, ça s'appelle Polsia.com. On va discuter avec lui, sa vision est absolument incroyable. Il pense que demain les entreprises seront complètement autonomes et votre cofondateur sera peut-être un agent. Je vous propose d'avoir cette conversation directement avec lui. Ça sera en fin d'émission. Bienvenue dans Silicon Carne, le plus grand talk show tech de France, en direct de San Francisco. Mon nom est Carlos Diaz et l'émission commence maintenant. Alors on change un petit peu la formule de Silicon Carne. J'ai envie de faire venir de plus en plus de monde dans cette émission. Et là, je ne pouvais pas, vu les événements de ce week-end, ne pas savoir Oussama. Puisque Oussama, tu es en direct de Dubaï et tu es visiblement sous les bombes. Tu me disais tout à l'heure qu'un missile était tombé juste à côté de chez toi ce week-end, c'est ça ?"
+    },
+    {
+      "start": 117.2,
+      "end": 144.96,
+      "speaker": "oussama-ammar",
+      "text": "Je vis à l'entrée, pas loin de l'entrée de la Palm, mais c'est là où il y a le rafle, l'hôtel qui a pris le bout de drone qui est tombé. Donc on a vu du balcon, on a vu en live l'interception, la tombée, etc. Donc ouais, après, j'ai la chance d'être habitué. J'en ai vu d'autres."
+    },
+    {
+      "start": 145.92,
+      "end": 147.18,
+      "speaker": "carlos-diaz",
+      "text": "En tant que libanais, c'est ça ?"
+    },
+    {
+      "start": 147.2,
+      "end": 153.98,
+      "speaker": "oussama-ammar",
+      "text": "Ouais, exactement. J'ai eu le Liban, puis après j'ai eu en Ukraine avec ma compagne. Donc je commence à avoir l'habitude des boubouardements."
+    },
+    {
+      "start": 156.16,
+      "end": 164.3,
+      "speaker": "oussama-ammar",
+      "text": "Mais je dois dire que c'est vraiment, vraiment impressionnant de le vivre aux Émirats avec une telle qualité de gouvernement."
+    },
+    {
+      "start": 166.44,
+      "end": 171.08,
+      "speaker": "carlos-diaz",
+      "text": "Alors tu vas nous en parler, c'est-à-dire que tu continues la promotion de Dubaï."
+    },
+    {
+      "start": 171.3,
+      "end": 218.32,
+      "speaker": "oussama-ammar",
+      "text": "Là, ce n'est pas la promotion de Dubaï. Et là, je suis en... Vraiment, on va croire que je suis payé pour ça. Mais je ne le suis pas et j'ai envie de payer pour ça. C'est-à-dire que je suis en extase de me rendre compte que mon idée toute ma vie de me dire qu'en fait, quand on travaille dans le gouvernement, on est forcément un branquignol, était fondé sur une expérience extrêmement biaisée. Et qu'en fait, il est tout à fait possible d'être très, très, très, très compétent et d'être un haut fonctionnaire et de travailler aux plus hautes instances de l'État. À tous les niveaux, la réponse est hors du commun. Et d'ailleurs, je ne suis pas le seul à vivre ça. Si vous allez voir les comptes Instagram, etc., des résidents, je pense que le patriotisme émirati est né ce week-end."
+    },
+    {
+      "start": 218.32,
+      "end": 255.06,
+      "speaker": "carlos-diaz",
+      "text": "– Intéressant. Donc là, ce que tu es en train de nous dire, si je traduis, c'est que oui, vous êtes sous les bombes iraniennes, mais que la gestion de cet incident, de cette déclaration de guerre de l'Iran, est plutôt bien gérée par le gouvernement de Dubaï. Le dôme fonctionne, visiblement. Tu me disais que les technologies qui sont utilisées sont assez impressionnantes. Tu les vois, tu as l'impression, tu disais que peut-être qu'il y a même des lasers qui sont utilisés. Ce n'est pas simplement une technologie américaine ou israélienne. Il y a plein de technologies utilisées. C'est ça ce que tu semblais dire ?"
+    },
+    {
+      "start": 255.06,
+      "end": 263.3,
+      "speaker": "oussama-ammar",
+      "text": "– Moi, mon impression, elle est à trois niveaux. La première impression, c'est qu'ils avaient l'air préparés et ils ont déroulé un plan de commun."
+    },
+    {
+      "start": 263.32,
+      "end": 266.78,
+      "speaker": "carlos-diaz",
+      "text": "– Vous avez été informés, vous, en tant que résident, que ça allait arriver ?"
+    },
+    {
+      "start": 266.78,
+      "end": 336.34,
+      "speaker": "oussama-ammar",
+      "text": "– On a été informés, on a eu des alertes spéciales sur un canal spécial du téléphone. Ils n'ont pas annulé la course de chevaux. Tu as l'émir qui, en personne, vient, pendant l'interception, montrer la confiance. Ensuite, il y a eu l'accident à l'aéroport de Dubaï. En plus, bon, franchement, les gens, c'est quand même des PNJ invraisemblables. Tu leur envoies un message, tu leur dis, l'espace aérien est fermé. Rentrez chez vous, allez à l'hôtel. Non, ils attendent à l'aéroport au cas où il y a un vol qui apparaît. Donc, il y avait quand même des gens dans l'aéroport. Il y a un bout d'aéroport qui s'effondre. Il y a plusieurs blessés graves. L'émir d'Abu Dabi se déplace en personne, va s'excuser de cet accident, explique que ça n'aurait pas dû arriver, offre des vouchers pour des hôtels. Il y a un côté chez ce leadership. En fait, les Émirats sont en train de récolter la confiance qu'ils ont créée dans cette population. Et à part quelques abrutis d'influenceurs français qui ne savent plus quoi faire pour faire des vues et qui ont été pleurés pour que l'ambassade vienne les chercher ou je ne sais pas qui."
+    },
+    {
+      "start": 336.34,
+      "end": 356.84,
+      "speaker": "carlos-diaz",
+      "text": "Il paraît qu'il y a un guichet d'Ursaf qui s'est créé pour les accueillir à Charles de Gaulle. Donc, j'espère que les vues vont rentabiliser le redressement qu'ils vont se choper en arrivant à l'aéroport. Non, mais je montre les images. On voit tous ces expats qui essayent de fuir, effectivement. Toi, tu dis que c'est de la connerie."
+    },
+    {
+      "start": 358.16,
+      "end": 373.52,
+      "speaker": "oussama-ammar",
+      "text": "Franchement, à part les mecs qui cherchent à avoir leur petit moment de gloire dans une situation de crise, la majorité de la réaction de la population a été « Life as usual, we trust the government, everything is fine »."
+    },
+    {
+      "start": 373.52,
+      "end": 384.56,
+      "speaker": "carlos-diaz",
+      "text": "Fabrice, Fanny, une réaction par rapport à ça ? Ça vous donne envie d'aller vous installer à Dubaï ? Je ne suis pas certain. Est-ce qu'on a un dôme de fer, nous, sur Paris, si jamais ça se passait ?"
+    },
+    {
+      "start": 384.56,
+      "end": 406.96,
+      "speaker": "fabrice-epelboin",
+      "text": "Non, moi, ça me donne envie de fouiller pour voir qu'est-ce que c'est que ces technologies qui font office de dôme de fer à Dubaï. Qu'est-ce qu'ils ont bien pu assembler comme technologies ? Qu'est-ce qu'ils ont fait eux-mêmes ? Parce qu'ils ont atteint un niveau en termes militaires qui leur permet d'envisager de faire en tout cas une partie eux-mêmes. Qu'est-ce qu'ils ont acheté ? Comment ils ont assemblé tout ça ?"
+    },
+    {
+      "start": 406.96,
+      "end": 411.3,
+      "speaker": "carlos-diaz",
+      "text": "Il y a combien de missiles sont tombés sur la ville ? On a le chiffre ?"
+    },
+    {
+      "start": 411.3,
+      "end": 411.9,
+      "speaker": "oussama-ammar",
+      "text": "Plus de 600."
+    },
+    {
+      "start": 412.12,
+      "end": 414.86,
+      "speaker": "carlos-diaz",
+      "text": "Véritablement tombés et combien ont été interceptés ?"
+    },
+    {
+      "start": 414.86,
+      "end": 427.76,
+      "speaker": "anji-ismail",
+      "text": "Je vois 700 projectiles, 541 drones, 165 missiles et, a priori, 93% d'interceptions. Ce sont des chiffres qui tournent sur Twitter, mais sur X."
+    },
+    {
+      "start": 428.56,
+      "end": 497.86,
+      "speaker": "fanny-bouton",
+      "text": "La résistance. Ce qu'il y a d'intéressant, c'est de voir comment ils sont organisés, parce qu'on ne savait pas qu'il y avait cette organisation face à des attaques comme ça. Moi, ce que je vois en parallèle par rapport à l'Asie, en tout cas, c'est qu'il y a beaucoup de pays qui s'organisent beaucoup mieux en effet que la France sur tout un tas de catastrophes. Là, on est sur des catastrophes de guerre. En Asie, quand tu vas au Japon ou à Hong Kong, c'est pareil. Tu vis dans des endroits où il y a des cyclones, où tu as des tremblements de terre. Et en effet, à la moindre alerte, tu as des textos deux jours avant, trois jours avant. Tu sais exactement à quel moment tu dois te mettre en sécurité. Et en fait, la première fois quand tu es français, tu flippes. Et la fois d'après, tu te rends compte qu'en fait, tu as juste à respecter les consignes. Il ne se passe rien. Et d'ailleurs, un typhon à Hong Kong, tu as deux blessés quand tu as 200 morts aux Philippines. Donc, c'est ça qui est intéressant, c'est comment les technologies sont utilisées. Et finalement, c'est assez transparent. Ça ne se voit pas jusqu'au moment où il y a une merde. Et là, clairement, Dubaï montre qu'ils se sont bien organisés, qu'ils avaient anticipé ça. Et je pense qu'on ne s'était pas rendu compte qu'ils étaient capables de le faire en effet."
+    },
+    {
+      "start": 498.54,
+      "end": 539.58,
+      "speaker": "carlos-diaz",
+      "text": "La réaction de l'Europe, Anji, au moment du déclenchement peut-être de ce que je disais dans l'introduction, peut-être de la Troisième Guerre mondiale, elle a été beaucoup critiquée. Ursula von der Leyen a convoqué un conseil de sécurité lundi. Tout le monde s'est foutu de sa gueule ici aux États-Unis en disant, bien évidemment, c'est le week-end. On est à la veille de la guerre mondiale, mais les Européens ne vont quand même pas foutre en l'air un week-end, surtout qu'apparemment, il faisait assez beau à Paris. J'ai même vu un tweet en disant, ouais, mais faites gaffe parce que lundi, c'est jour férié en Espagne. Donc, peut-être qu'on pourrait déclarer à mardi. La réunion. Tu les as vus, ces tweets aussi, Anji, ici aux US."
+    },
+    {
+      "start": 540.92,
+      "end": 639.62,
+      "speaker": "anji-ismail",
+      "text": "Et puis, en ce moment, c'est vraiment en plus la course, entre guillemets. Il y a le compte Twitter qui s'appelle French Response, je crois. Ouais, super d'ailleurs. Qui répond en permanence à des Américains qui sont en train de charrier l'Europe. Et c'est vrai que Ursula, elle a fait une communication qui était complètement terrible. Et bon, là, c'est en train de faire du rattrapage. Il y a quelques heures, il y avait Macron qui faisait une conférence de presse devant le sous-marin nucléaire. Je pense qu'ils ont pris, enfin, la mesure de l'événement et de la guerre, puisqu'en plus, il y a une base navale française qui a été touchée, une base militaire. Donc, voilà, je pense qu'ils sont en train de s'en rendre compte. Mais c'est vrai que pour revenir sur Dubaï, par sa proximité avec les conflits au Moyen-Orient, depuis que l'État, il existe, c'est juste géographique. Ils ont créé, je pense, des scénarios catastrophes. Et ils ont de loin, comme disait Oussama, des gens qui sont très compétents. Bien entendu, ils ont énormément d'argent. Et donc là, on voit que, finalement, être dans un milieu, entre guillemets, hostile, où tout peut arriver, ça te force à créer des technologies qui sont avancées. Et là, c'est testé en temps réel. Et nous, en Europe, il y a la guerre à nos frontières depuis trois ans, quatre ans. Mais on n'a pas l'impression qu'on a pris la mesure du réarmement, de développer des technologies de pointe. Parce qu'en effet, ça peut tomber demain sur des villes françaises, sur des infrastructures françaises."
+    },
+    {
+      "start": 639.74,
+      "end": 663.72,
+      "speaker": "fanny-bouton",
+      "text": "Après, je pense que nos armées ne sont quand même pas non informées. Et il y a des choses, je pense, qu'on n'est pas au courant en tant que peuple français. Moi, j'ai vu quand même des thèses, justement, par rapport au drone, à l'époque où j'avais fait un peu une mission à l'agence Innovation Défense, si tu veux. C'est des sujets sur lesquels ils s'acculturent tout le temps et ils suivent de très près tout ce qui se passe."
+    },
+    {
+      "start": 663.98,
+      "end": 665.7,
+      "speaker": "carlos-diaz",
+      "text": "Les Jeux Olympiques aussi ont été..."
+    },
+    {
+      "start": 665.7,
+      "end": 696.2,
+      "speaker": "fanny-bouton",
+      "text": "Oui, il y a eu les Jeux Olympiques. Et ça, c'est très bien passé, alors que beaucoup ont parié que ça ne se passerait pas forcément bien. Les JO à Paris, c'était quand même un sacré challenge. Je pense que tant qu'il ne s'est rien passé, c'est difficile d'évaluer où est-ce qu'on en est réellement. Je pense qu'on a une très belle armée encore en France. Mais en effet, ce n'est pas facile de se dire est-ce qu'on a un dôme de fer ou pas ? A priori, non. Mais est-ce qu'on est en risque d'être bombardé de la même façon que ces régions-là ? Peut-être pas non plus pour l'instant. A voir."
+    },
+    {
+      "start": 696.84,
+      "end": 985.82,
+      "speaker": "carlos-diaz",
+      "text": "J'entends encore des entrepreneurs me dire que créer son entreprise en 2026, c'est un parcours du combattant. Et c'est pour ça qu'on s'est associé à Conto cette année encore. Conto, c'est la meilleure solution pour créer son entreprise gratuitement en ligne. Ils soutiennent Silicon Carne depuis longtemps. Je les adore. C'est ma start-up française préférée. Leur produit est super simple à utiliser. Tu choisis ton type de société. Tu avances étape par étape et tout est centralisé au même endroit. Mais ce que je trouve vraiment génial, c'est l'accompagnement qu'ils proposent aux entrepreneurs. Tu peux confier toutes les démarches à leurs équipes. Dépôt de capital, publication de l'annonce légale, immatriculation. Ils s'occupent de tout pour toi. Du coup, tu n'es jamais seul. Les équipes Conto sont disponibles 7 jours sur 7 et tu bénéficies de 30 minutes d'échange avec un expert pour structurer ton projet, éviter les erreurs classiques. Résultat, plus de 600 000 entrepreneurs leur font déjà confiance. C'est une entreprise sur 5 en France qui se crée aujourd'hui avec Conto. Et ce n'est pas un hasard. Si tu envisages de te lancer cette année, commence par te simplifier la vie en choisissant Conto. Ça s'écrit Q-O-N-T-O.com. Allez, retour à ton épisode. Je voulais qu'on revienne sur le conflit entre Anthropic et le Pentagone qui s'est déroulé tout au long de la semaine dernière. Et ce conflit, il a été digne d'une série Netflix. On l'a suivi avec Anji. C'était fascinant. Anthropic travaille depuis de nombreuses années avec le gouvernement américain. Ça a d'ailleurs été une des premières sociétés d'intelligence artificielle à passer les fourches codines fédérales pour pouvoir mettre au service leur intelligence artificielle, au service du Pentagone notamment, mais pas simplement. Et on sait que la technologie d'Anthropic a été utilisée à de maintes reprises, notamment par le Pentagone. On sait maintenant que, par exemple, la capture de Maduro au Venezuela, la technologie d'Anthropic a été utilisée. Elle a été certainement aussi utilisée pour le déclenchement des hostilités au Moyen-Orient de ce week-end. Sauf qu'on a découvert qu'il y avait un schisme entre Dario Amodé et le gouvernement américain. Et où Dario Amodé ne voulait pas que sa technologie soit utilisée de façon complètement libre par le gouvernement, notamment en fixant deux lignes rouges très, très précises, qui est l'utilisation de la technologie d'Anthropic pour la surveillance de masse. Domestiques, les surveillances domestiques, mais de façon généralisée aux États-Unis, parce que lui considère que c'est une attaque du quatrième amendement de la Constitution américaine flagrante. Et l'utilisation aussi de cette technologie pour les armes autonomes. Pete Hegseth, qui est le secrétaire d'État aux militaires, qu'en fait, aux États-Unis avait fixé un ultimatum à vendredi 27 février pour demander à Anthropic de lever ses restrictions. Et pour que le gouvernement et le Pentagone puissent utiliser sa technologie sans aucune restriction, Dario Amodé s'est opposé fermement. Il a maintenu ses deux lignes rouges. Pas d'armes autonomes létales, pas de surveillance domestique des citoyens américains. Le Pentagone a menacé d'invoquer le Defense Production Act, qui est quand même un peu le bouton nucléaire. C'est un truc qui n'est pas utilisé à la légère. C'est intéressant de voir que pendant cette bagarre, on a vu Elon Musk, avec son petit copain de Palantir, essayer de se positionner sur le contrat en disant « Si Anthropic ne fait pas l'affaire, nous, avec XAI, on peut vous aider. » Et puis, c'est Trump qui a encore tranché une nouvelle fois. Il a balancé un tweet et il a expliqué très clairement qu'il demandait à toutes les agences fédérales américaines d'arrêter immédiatement, alors on va le voir immédiatement, ce n'est pas tout à fait le cas, l'usage d'Anthropic, avec une surenchère ensuite de Pete Hegseth également, où là, il déclenche effectivement le Defense Production Act, c'est-à-dire qu'en gros, Anthropic est une technologie qui est antipatriotique, comme le peuvent l'être certaines chipsettes chinoises, etc. Très intéressant, Sam Altman va voler au secours de son meilleur ennemi. D'ailleurs, je vous propose de l'écouter, Sam Altman, où il explique qu'en fait, il a confiance en Dario Amodé et Anthropic, on l'écoute et on revient tout de suite parce que la suite n'est pas piquée des hannetrons."
+    },
+    {
+      "start": 997.44,
+      "end": 1018.26,
+      "speaker": "carlos-diaz",
+      "text": "Et puis, quelques heures plus tard, après cette déclaration qui pouvait surprendre Angie, finalement, un autre tweet de Sam Altman nous explique qu'ils sont arrivés à un accord, eux, avec le Pentagone, et que c'est OpenAI qui reprend le contrat d'Anthropic. Est-ce que je fais un bon résumé de la situation, Angie ?"
+    },
+    {
+      "start": 1018.26,
+      "end": 1139.96,
+      "speaker": "anji-ismail",
+      "text": "Ah oui, super, super, et c'est quelque chose qu'on avait vu venir, il y avait eu déjà des déclarations de, tu le dis très bien d'ailleurs, Pete Hegseth, j'arrive pas à le dire moi, Excess, qui avait mis cet ultimatum au 27 février, mais il y avait eu déjà par tweet interposé, on savait que c'était un conflit un peu ouvert, et ça représente de toute façon ce qui se trame entre pure Silicon Valley, Washington, tu vois, la Silicon Valley est souvent traitée de woke, d'ailleurs, tu as eu des tweets qui ont suivi en disant, oui, tous les woke, en fait, ils se sont réunis chez Anthropic, et c'est une boîte de woke, et c'est une boîte de pro-Biden, etc. Donc, c'est quelque chose qu'on voyait venir, et c'est vrai que ça a explosé avec ce vendredi, bizarrement, vendredi, la veille, enfin, quelques heures avant les premières bombes sur l'Iran, et il se dit aussi que potentiellement, les frappes auraient pu même intervenir le week-end précédent, et que peut-être que c'est différent qu'il y avait entre, du coup, Anthropic et Washington. – Auraient retardé les frappes en Iran. – Auraient potentiellement retardé, ouais. – Parce qu'on le voit, en fait, tu vois, Anthropic, quand ils disent qu'on ne va plus utiliser, ils disent quand même qu'on va laisser six mois. Donc, ça veut dire à quel point le gouvernement, et surtout le département de la défense, Secretary of War, Department of War, comme ils l'ont appelé, est dépendant de cet usage. Et c'est sûrement lié aussi aux intégrations qu'il doit y avoir, parce qu'au final, les gars du département de la guerre, ils ne vont pas sur cloud, comme vous et moi, pour prompter comment on va taper Téhéran. Mais ils l'utilisent très certainement via via Palantir. Et donc, ce genre d'intégration, quand on fait une intégration dans un logiciel vertical, donc très spécialisé, il y a tout le contexte qui va avec, il y a tous les workflows, etc."
+    },
+    {
+      "start": 1139.96,
+      "end": 1140.74,
+      "speaker": "carlos-diaz",
+      "text": "– La migration ne va pas être simple, oui, c'est ça."
+    },
+    {
+      "start": 1140.84,
+      "end": 1174.88,
+      "speaker": "anji-ismail",
+      "text": "– La migration va être compliquée. Et donc, c'est pour ça que je pense que Sam Altman, il voyait le truc venir, il savait qu'il fallait être présent au bon moment pour sortir du bois. Mais clairement, le deal, il ne s'est pas gagné vendredi. Je pense que ça fait plusieurs semaines que chez OpenAI, ils sentent le truc. Et on le sait, Sam Altman et OpenAI a fait… Alors, je ne sais pas qui a mis l'argent exactement, mais il y a eu des versements de OpenAI aux Républicains, ou en tout cas à des…"
+    },
+    {
+      "start": 1174.88,
+      "end": 1179.38,
+      "speaker": "carlos-diaz",
+      "text": "– Greg Brockman est le principal financeur de la campagne de Trump."
+    },
+    {
+      "start": 1179.38,
+      "end": 1182.06,
+      "speaker": "anji-ismail",
+      "text": "– On ne sait jamais si c'est du perso, si c'est…"
+    },
+    {
+      "start": 1182.06,
+      "end": 1191.54,
+      "speaker": "carlos-diaz",
+      "text": "– Non, c'est un super PAC qui a été créé, que Greg Brockman est à la tête de ce truc-là, et effectivement finance les campagnes en vue des mid-terms. Effectivement, c'est un des grands financeurs."
+    },
+    {
+      "start": 1192,
+      "end": 1199.46,
+      "speaker": "oussama-ammar",
+      "text": "– Il a mis Greg, il a mis 25 millions de dollars, parce qu'à l'échelle de la politique américaine, il n'est pas du même niveau que mon chèque à Macron, tu vois."
+    },
+    {
+      "start": 1200.06,
+      "end": 1203.66,
+      "speaker": "anji-ismail",
+      "text": "– C'est toujours plus qu'à Modi, en tout cas."
+    },
+    {
+      "start": 1203.66,
+      "end": 1232.62,
+      "speaker": "carlos-diaz",
+      "text": "– Réaction, Fabrice, là-dessus. C'est intéressant de voir à quel point, aujourd'hui, il y a cette dépendance à la fois du gouvernement pour ces technologies et cette capacité aussi des acteurs de la Silicon Valley d'interférer dans la géopolitique. Tu as parlé notamment d'une interview de Marc Andressen qui détaille un peu les dessous de l'affaire. J'aimerais bien que tu nous en dises un peu plus."
+    },
+    {
+      "start": 1232.82,
+      "end": 1248.64,
+      "speaker": "fabrice-epelboin",
+      "text": "– C'est pas les dessous de l'affaire, c'est une interview d'Andressen qui date de 2024, pendant la campagne présidentielle américaine, où il expliquait à Barry Weiss, qui à l'époque était juste une ancienne du New York Times et qui avait un podcast avec énormément de succès."
+    },
+    {
+      "start": 1248.64,
+      "end": 1252,
+      "speaker": "carlos-diaz",
+      "text": "– Qui l'a toujours, qui s'appelle Free Press et qui a un super podcast."
+    },
+    {
+      "start": 1252.22,
+      "end": 1365.5,
+      "speaker": "fabrice-epelboin",
+      "text": "– Et aujourd'hui, elle dirige CBS, je crois. Et donc, dans une conversation à battre rompu, les deux se connaissent bien, Andressen expliquait que l'administration Biden était venue le voir en lui expliquant que c'était absolument pas la peine d'investir dans des start-up IA, que l'IA allait être un nouveau projet Manhattan, que ça serait sous la coupe de l'État, contrôlé par l'État et à des fins de contrôle social. Et donc, à l'époque, les démocrates avaient vraiment l'intention d'utiliser les outils d'IA, non pas pour faire la guerre, c'était pas dans leur État d'État, en tout cas, c'est pas ce qu'ils annonçaient Andressen, mais pour contrôler la société américaine. Ce qui avait fait hurler Andressen, et ça avait lourdement contribué à le faire basculer dans le clan Trump. Bon, aujourd'hui, on s'aperçoit que de toute façon, ça c'est mon côté techno-déterministe, qui est un peu le revers de la médaille des techno-solutionnistes, c'est que de toute façon, l'intelligence artificielle permet de faire tout ça, et donc elle sera utilisée pour faire tout ça. Le point que je retiens, moi, dans les lignes rouges établies par Anthropic, c'est qu'ils ne veulent pas que l'IA soit utilisée à des fins de surveillance de masse sur le territoire domestique. Donc, on peut en déduire à la lumière de ce qu'avait déjà révélé, il y a déjà plus de 10 ans, 12 ans, Edward Snowden, que sur la surveillance internationale, par contre, ça y va. Et c'est déjà probablement en cours et de façon intensive. S'ils ont intégré l'IA pour leurs opérations militaires, et bien intégrées, typiquement, Maduro, c'était quoi qu'on en pense, d'un point de vue militaire, c'était complètement bluffant comme opération. Et c'était très clairement, complètement géré par de l'IA. Vous pouvez imaginer qu'à la NSA, pour ce qui est de faire de la surveillance, notamment de nous, petits Français, s'est déjà intégrée en profondeur. Donc, c'est amusant. C'est bien que la Silicon Valley se réveille."
+    },
+    {
+      "start": 1365.68,
+      "end": 1382.8,
+      "speaker": "carlos-diaz",
+      "text": "Non, ce n'est pas très amusant. C'est plutôt inquiétant. Mais effectivement, ça en dit énormément sur la capacité à la fois de cette technologie-là et l'usage que sont en train d'en faire les gouvernements, qui n'est pas un usage, comment dire..."
+    },
+    {
+      "start": 1382.8,
+      "end": 1385.16,
+      "speaker": "fabrice-epelboin",
+      "text": "Bienveillant envers les populations."
+    },
+    {
+      "start": 1385.64,
+      "end": 1388.04,
+      "speaker": "carlos-diaz",
+      "text": "Bienveillant envers ses propres populations."
+    },
+    {
+      "start": 1388.36,
+      "end": 1402.82,
+      "speaker": "fabrice-epelboin",
+      "text": "Ses propres populations, c'est une ligne rouge, mais les populations des colonies numériques telles que la France, là, au moins, on est clair. On n'est pas du tout dans le cadre d'une ligne rouge et personne ne protestera si c'est utilisé pour faire Dieu sait quoi, typiquement en Europe, mais partout dans le monde."
+    },
+    {
+      "start": 1402.82,
+      "end": 1405.2,
+      "speaker": "carlos-diaz",
+      "text": "ça m'a une réaction ?"
+    },
+    {
+      "start": 1405.2,
+      "end": 1553.4,
+      "speaker": "oussama-ammar",
+      "text": "L'exclaimer, j'utilise en ce moment Claude Code 8 heures par jour et je suis très heureux de ce produit incroyable. Mais moi, je suis sûr que Dario, il ment comme il respire. Donc, on va remettre les choses à plat. Un, en tropique, c'est l'IA qui joue le plus le jeu dangereux à avoir un discours hyper alarmiste sur les dangers de l'IA et laisser les gens faire n'importe quoi avec leur IA. Moi, le chat de GPT est devenu inutilisable tellement il a de garde du rail. Anthropic, c'est l'inverse. Tu lui fais faire n'importe quoi. Genre, là, je ne sais plus qui a piraté quoi avec Anthropic en imprompte. Tu ne vas pas me dire qu'il y a un mec sur Anthropic qui a réfléchi à la sécurité du modèle. Donc, Dario, maître en communication qui vient nous vendre la prime à l'hypocrisie et la prime au virtue signaling, ça, c'est génial. Maintenant, moi, ce que je vois, c'est qu'à mon avis, je suis sûr, mais sûr, je mettrais un doigt à couper que ce n'est pas du tout à cause de ces lignes rouges-là qu'il ne veut plus le contrat. Moi, je pense qu'il ne le payait pas assez, qu'il a un vrai sujet de CPU, qu'il a un vrai sujet de GPU, qu'il est en train d'avoir une ligne comme ça qui est en train de monter et qu'il est en train de se faire la meilleure campagne de pub de l'histoire pour occuper tous les ingénieurs naïfs qui veulent aller travailler pour la boîte des gentils. Et comme d'hab, ils vont aller travailler pour la boîte des méchants parce qu'à la fin, ces psychopathes, ils sont prêts à dire tout ce qu'il faut dire devant les gens parce que les gens trouvent ça génial. Maintenant, on va être très clair. La façon dont ça fonctionne, le renseignement aux US, il y a une règle très simple que les gens ne connaissent pas, c'est que dans n'importe quelle boîte, n'importe quelle boîte américaine, un ingénieur peut être contacté par les services de renseignement, par l'armée, par plein de choses et il peut être flippé et il a interdiction d'en parler à sa hiérarchie sous peine de poursuite personnelle. Donc, à tout moment, tu es à ton bureau un vendredi, il y a un mec qui vient de voir et il dit voilà, je travaille à la SCIA, j'aimerais que vous intégriez ce bout de code dans votre entreprise et que vous nous donniez les full accès à vos capacités. Dario, si moi je suis au courant de ce mode de fonctionnement et si j'ai vu ce mode de fonctionnement, je pense que Dario aussi l'a vu et donc quand il est là à nous expliquer qu'il est en train de nous protéger des usages abusifs par les autorités, il se fout de la gueule. Toi,"
+    },
+    {
+      "start": 1553.46,
+      "end": 1555.06,
+      "speaker": "carlos-diaz",
+      "text": "tu n'y crois pas, toi. Toi, tu n'y crois pas du tout."
+    },
+    {
+      "start": 1555.46,
+      "end": 1717.8,
+      "speaker": "oussama-ammar",
+      "text": "C'est de la pure com' pour attirer l'ingénieur idéaliste naïf qui maintenant, tu le vois sur Reddit en ce moment, ils sont tous là en extase devant ce truc. Moi, je pense que c'est de la pure display de hypocrisie et le pire dans tout ça, c'est qu'en plus, ces boîtes IA sont en train de jouer à un jeu extrêmement dangereux, c'est que je me suis rendu compte d'un truc récemment, c'est que j'ai eu l'impression, je donne un cours qui s'appelle Scale with Us et je fournis à mes élèves des promptes et les résultats ne sont pas du tout les mêmes entre élèves. Mais vraiment pas du tout. C'est genre flippant. Il y a des gens, ils ont des IA débiles, il y a des gens, ils ont des IA incroyables et en fait, je me suis rendu compte que les IA comme OpenAI, comme Cloud, comme Gemini, adaptaient l'output à l'exigence utilisateur. En gros, ils ont besoin de faire des économies d'énergie. Si le mec n'est pas très regardant, ils en font le minimum et si le type est très exigeant, etc. Et j'ai fait des petits tests, par exemple, si tu parles de façon soutenue à une IA et si tu parles en langage, tu obtiens un meilleur résultat. Mais ce n'est pas parce que le prompt est plus clair, c'est parce que je pense que dans leur système, ils mettent ça. Et donc, j'ai joué un petit jeu qui est de forcer ces IA à révéler le profil d'exigence qu'ils ont sur nous. Et j'invite tous les gens qui nous regardent à faire juste un petit prompt tout simple qui est de dire voilà, je veux que tu me révèles les préférences que tu as envers moi et est-ce que tu estimes la bonne façon de me rendre heureux ou pas, le niveau d'exigence énergétique que tu mets une fois et de comparer avec leurs amis les réponses. Et c'est flippant. Et ça, c'est une irresponsabilité profonde de la part de toutes ces boîtes qui de toute façon sont en roue libre parce que la quête de l'argent, ça en fout tout le monde. Moi, vous, on ne peut pas résister à autant d'argent, autant de pouvoir, etc. C'est pour ça qu'il ne faut pas donner de pouvoir aux gens en fait. C'est assez simple en fait. C'est que dès que tu le donnes à quelqu'un, Fabrice, il a raison, quand on peut faire quelque chose, on finit toujours par le faire. Et en fait, ces types-là, il faut arrêter de croire qu'ils veulent notre bien. Ils ne veulent pas notre bien. Ils veulent du pouvoir. Ils veulent de l'argent. Ils veulent de la gloire. C'est tous des espèces d'anciens geeks qui ont été martyrisés au lycée. Ils sont tous en train de prendre leur revanche en faisant des outils de contrôle du monde. Et donc, il y a un moment, Fabrice pense, pour avoir eu de nombreuses conversations prises avec lui, que de toute façon, c'est plié, c'est fini, on ne peut plus rien faire. Je commence à le rejoindre dans tout ça. Mais s'il y a un espoir de faire quelque chose, c'est maintenant le wake-up."
+    },
+    {
+      "start": 1718.64,
+      "end": 1777.84,
+      "speaker": "carlos-diaz",
+      "text": "Les agents IA, c'est génial, mais on aura toujours besoin d'humains. Et c'est pourquoi je voulais vous parler de notre partenaire Digital Selection. C'est un cabinet international d'executive search spécialisé dans les startups et les scale-up technologiques. Je les connais super bien. François Lejoli, le CEO de Digital Selection, est un ami de longue date avec qui j'ai travaillé régulièrement aux US comme en Europe. Ils accompagnent déjà de nombreuses entreprises tech dans le recrutement de dirigeants clés, que ce soit des CEOs, des C-levels ou des managers stratégiques. Et là où ils font vraiment la différence, c'est qu'ils connaissent parfaitement le modèle cross-border Europe-États-Unis. Ils ont d'ailleurs des équipes sur les deux continents. Bref, si vous cherchez des talents américains ou européens pour structurer et accélérer votre croissance à l'international, je vous invite vraiment à contacter Digital Selection, j'ai mis le LinkedIn de François dans les notes de l'émission. Allez, retour à votre épisode."
+    },
+    {
+      "start": 1778.94,
+      "end": 1849.7,
+      "speaker": "fanny-bouton",
+      "text": "Je voudrais juste rebondir sur deux choses que Oussama a dites. La première, c'est la guerre des talents. C'est hyper important quand tu vas dans les grandes écoles françaises actuellement. En effet, tu entends que ce soit dans la recherche ou à Polytechnique, chez les ingénieurs et tout. Ils posent des questions qu'ils ne posaient pas avant. Ils demandent est-ce que ce que je vais faire va être utile pour le peuple, pour les gens ? Pour l'humanité. Je ne veux pas que ce soit pour l'humanité. Je ne veux pas que ça serve à la guerre. Je ne veux pas que ça serve à quelque chose qui serve pour faire le mal. Et c'est hyper important pour ces jeunes générations. Et en même temps, souvent, les professeurs leur disent oui, mais si vous faites de la recherche et que vous faites une nouvelle molécule, elle peut servir pour le bien, mais elle peut être aussi utilisée pour le mal. Et donc, il y a pas mal de jeunes qui se posent la question du est-ce que je vais bosser dans ce domaine-là finalement ? Est-ce que je vais continuer mes études ou est-ce que je vais aller bosser pour ces entreprises ? Parce que finalement, mon éthique me porte à ne pas vouloir que ce soit mal utilisé, donc je préfère rien faire. Donc ça, c'est un vrai sujet qu'il y a. Et du coup, avoir ce type de communication qu'a Dario, c'est dire si, si, venez les gars, il n'y a pas de souci, ça va bien se passer."
+    },
+    {
+      "start": 1850.04,
+      "end": 1945.58,
+      "speaker": "carlos-diaz",
+      "text": "D'ailleurs, je montre là les soutiens qu'il a reçus ici à San Francisco. Regardez les images autour du siège de Anthropic ce week-end. Des gens sont venus dessiner à la craie sur le trottoir des messages de soutien pour Dario. Donc visiblement, cette stratégie de communication, elle fonctionne. Et je pense que comme pour révéler ça, comme tu le révèles en Europe, c'est vrai aussi. C'est-à-dire que moi, j'entends beaucoup de gens dire en Europe, je ne veux pas utiliser Open AI. Open AI, c'est l'axe du mal. Anthropic, c'est l'axe du bien. Donc, j'utilise Anthropic plutôt qu'Open AI. Donc, d'ailleurs, les employés d'Open AI et Google se mobilisent eux aussi. C'est les gens qui pensent encore faire partie de l'axe du bien. Et face à la récupération du contrat par Open AI, on voit des ingénieurs de Open AI poser leur démission parce qu'ils considèrent que Sam Altman les a trompés. il dit qu'il va respecter lui la même chose qu'Anthropic, mais quand on lit entre les lignes et d'ailleurs, c'est clairement dit par Sam Altman dans sa déclaration, il dit « we will deploy on cloud networks only ». C'est-à-dire qu'en gros, il dit oui, il n'y aura pas de surveillance du citoyen américain, non, ça ne sera pas utilisé pour des armes autonomes sur notre cloud. Mais rien n'empêche le Pentagone de déployer ces trucs-là sur ses propres serveurs et d'avoir l'usage qu'il en souhaite. C'est ça la différence, je pense, entre le deal entre Anthropic et le deal entre Open AI."
+    },
+    {
+      "start": 1945.78,
+      "end": 1974.94,
+      "speaker": "fabrice-epelboin",
+      "text": "C'est la grosse différence entre le SAS et le on-premise. Et effectivement, dans le on-premise, tu peux te débarrasser du problème, le mettre ailleurs, fermer les yeux et avoir un discours parfaitement hypocrite. J'ai moi-même participé à une boîte qui a basculé du SAS au on-premise et effectivement, ça ouvre tout un champ de possibles d'un point de vue éthique qui est inenvisageable, ne serait-ce que d'un point de vue légal, si tu restes tranquillement dans ton cloud."
+    },
+    {
+      "start": 1975.4,
+      "end": 2079.82,
+      "speaker": "fanny-bouton",
+      "text": "Il y a un autre truc qu'on oublie systématiquement. La Trump, il a clairement dit on l'utilisera si on a envie et on fera un contrat avec qui on veut. Mais il ne faut pas oublier qu'ici aussi en Europe, on a ce qui s'appelle les technologies duales. C'est utilisé dans tous les systèmes militaires. C'est toute application start-up, innovation civile qui peut être à des fins militaires. on les met dans des contextes où on fait attention que, un, elles puissent ne pas être achetées par des pays étrangers, mais deuxièmement, que s'il y a besoin, il y a un moment, le gouvernement et l'armée peuvent décider de mettre la main dessus. Et ça aussi, donc on n'est pas dans un monde de bisounours, même si j'aimerais bien, c'est qu'il y a un moment, si ces choses-là peuvent être utilisées, peuvent rendre service à une nation ou à l'Europe, mais c'est pareil de l'autre côté, ou pour attaquer ou pour se protéger. Ces innovations civiles, je pense que n'importe quel patron peut dire non, je ne veux pas. À un moment, si un gouvernement décide, soit il décide de tuer la boîte pour ne pas que quelqu'un ait l'innovation, soit il va se l'accaparer et la prendre. Et quand on est en situation comme on est de rentrer peut-être en Troisième Guerre mondiale, je pense qu'on n'y est pas encore, mais il y a quand même des choses qui se passent de plus en plus critiques, tous les gouvernements et toutes les actions militaires vont regarder tous ces types de technologies. Et ça va de l'intelligence artificielle au quantique, au spatial, à la cybersécurité et au semi-conducteur. On parle des puces, etc. On voit la guerre et ce qui peut se profiler aussi côté Taïwan avec la Chine juste pour la gravure des puces. Donc voilà, on n'est pas dans un monde de bisounours. Donc oui, même si des boîtes veulent, de toute façon, ça ne marcherait pas comme ça."
+    },
+    {
+      "start": 2079.82,
+      "end": 2121.3,
+      "speaker": "carlos-diaz",
+      "text": "– Anji, je t'interroge sur un truc, parce que moi j'entends ce que dit Dario Amédée, ça résonne, effectivement, il se positionne comme un peu le gardien du temple, celui qui va nous protéger des dérives d'un gouvernement. Mais en même temps, Dario Amédée, il a été élu par qui ? C'est-à-dire que depuis quand est-ce que c'est lui qui décide, effectivement, pour la sécurité du pays, de comment est-ce qu'on utilise ces technologies ? Elle a raison, Fanny, s'il y a un risque, il est avéré, ou si l'État est dans une situation où il a signé un contrat d'Ario Amédée, personne n'a voté pour lui. Il ne représente pas le peuple américain, non,"
+    },
+    {
+      "start": 2122,
+      "end": 2287.8,
+      "speaker": "anji-ismail",
+      "text": "Anji ? – En tout cas, moi, il ne me représente pas. Je suis américain aussi, je ne trouve pas qu'il me représente. Mais juste avant d'aborder ce point-là, il y a un truc que tu as dit sur le cloud deployment qui est, je pense, à mettre en perspective et il n'y a pas eu trop de débats autour de ça. Moi, je pense qu'il y a aussi un autre sujet derrière où ça m'a parlé de l'argent et du pouvoir, etc. C'est sûrement une partie de la réponse. Mais je pense qu'il y a aussi la question de l'open source parce qu'en fait, Dario et donc Anthropic s'opposent depuis longtemps à l'open source et tu vois, c'était les premiers à dire il faut absolument que les gros labos AI aient des licences ou aient des espèces de tampons de Washington, tu vois, un petit peu comme développer du nucléaire. Ce n'est pas pour n'importe qui. Alors qu'OpenAI, depuis 12-18 mois, ils ont un peu retourné leur veste sur le mot open de leur nom. Ils ont livré du coup un modèle open source qui est plutôt très bon. Et d'ailleurs, dans la communication de Sam Altman, il dit on va déployer notre technologie, on va déployer nos équipes à Washington. C'est-à-dire que tu as ce qu'ils appellent Forward Deploy Engineers, donc des ingés qui vont dans les bureaux des départements de défense et qui vont aller régler les modèles, les poids, on appelle ça les weights, et les systèmes prompt et les workflows, etc. Et je pense qu'il y a aussi ce sujet parce qu'en fait, Anthropic ne veut pas ouvrir tout son savoir au département de la défense, bien entendu pour les quelques lignes rouges qui ont été citées, mais je pense aussi pour ne pas que le gouvernement dans son totalité sache comment Anthropic fonctionne. Et pour le coup, je pense qu'OpenAI, ils sont capables de dire nous on va vous donner notre modèle open source, on va vous le régler, on va vous mettre aussi du private cloud, donc ce que tu disais, déploiement chez eux, notamment je pense avec un partenariat Microsoft, etc. Et ça, on n'en a pas trop parlé et c'est un vrai débat qu'il y a. Et pour revenir sur ce que tu dis, de toute façon, Anthropic, qui se sont fait complètement tirer dessus par tous les patriotes, tu vois, genre les Peter Thiel, Keith Rabois, le fondateur de Palantir, le fondateur de... Elon Musk. Elon Musk, bien entendu, en disant, tu crées une boîte aux Etats-Unis, tu n'es pas capable de défendre ton pays, en fait, tu n'as rien à faire ici. Donc après, il y a commencé à avoir des excités en Europe qui disaient on peut accueillir Anthropic, allez, on leur fait un grand pondor et tout ça, je n'y crois pas trop, mais par contre, c'est vrai qu'il y a un vrai sujet. Si demain, n'importe quel labo AI arrive à avoir les GI, c'est nationalisé dans la minute et ça doit l'être, en fait, il n'y a pas de sujet."
+    },
+    {
+      "start": 2288.1,
+      "end": 2305.12,
+      "speaker": "carlos-diaz",
+      "text": "Merci, merci les amigos, merci Ouz de nous avoir appelés en direct de Dubaï, merci Fanny, merci Fabrice, on continue l'émission sans vous. Anji, tu restes avec moi, on rejoint Kevin pour commenter la levée de fonds historique de OpenAI qui lève 110 milliards de dollars. On analyse tout ça dans Silicon Carne."
+    },
+    {
+      "start": 2310.48,
+      "end": 2416.18,
+      "speaker": "carlos-diaz",
+      "text": "Restez avec nous parce qu'on va retrouver Ben Cera tout à l'heure de Polsia.com qui va venir nous parler de son nouveau projet d'agent IA. C'est notre Peter Steinberger français, c'est super intéressant, il a monté une plateforme d'agent IA incroyable qui va faire votre business à votre place et vous permettre de monter des boîtes avec des agents IA de façon complètement autonome. On vient de parler de la guerre de Anthropic avec le Pentagone, mais j'avais aussi, on ne peut pas, il s'est passé tellement de trucs cette semaine, c'est taré, cette émission va durer je ne sais pas combien de temps. On ne peut pas ne pas évoquer la levée de fonds, je ne sais même plus comment la qualifier, c'est même plus astronomique, c'est n'importe quoi, c'est Sam Altman qui lève 110 milliards de dollars, les investisseurs Amazon, Nvidia, SoftBank, ça y est, SoftBank, on attendait cet investissement, ça y est, il y est, 110 milliards de dollars, bon, toujours pas de bénéfice en vue pour OpenAI, mais je voulais mettre un peu les choses en perspective parce que l'ensemble des sociétés de capital risque américain ont investi 170 milliards de dollars dans des startups américaines au cours de l'année 2023, je n'ai pas trouvé les chiffres après, mais je n'ai trouvé que les chiffres pour 2023. Donc là, qu'est-ce qu'on est en train de dire ? 110 milliards, c'est comme si Altman avait levé 65% de tout ce que les startups américaines ont levé en 2023, en un seul tour en plus, quoi, en un seul tour. OpenAI a dépensé 8 milliards de dollars en 2025, l'entreprise prévoit de dépenser 17 milliards de dollars en 2026, 35 milliards en 2027, 47 milliards en 2028 avec un chiffre d'affaires de 13 milliards de dollars en 2025. En gros, 110 milliards de dollars, la valorisation, elle est de combien, les cocos ? Vous la connaissez ? 750 ? 800 ?"
+    },
+    {
+      "start": 2416.18,
+      "end": 2416.92,
+      "speaker": "anji-ismail",
+      "text": "750, oui."
+    },
+    {
+      "start": 2416.92,
+      "end": 2418.2,
+      "speaker": "carlos-diaz",
+      "text": "Oui, je ne sais pas."
+    },
+    {
+      "start": 2420.26,
+      "end": 2427.68,
+      "speaker": "carlos-diaz",
+      "text": "Enfin, c'est taré. Donc ça, ça veut dire qu'ils sont en train de se valoriser 65 fois le chiffre d'affaires. Voilà."
+    },
+    {
+      "start": 2427.8,
+      "end": 2445.28,
+      "speaker": "anji-ismail",
+      "text": "Ça va. Pas d'entire, ils sont à 250, je crois. Non ? Ce qui me fait rire, c'est qu'il y a quelques émissions de ça, on était en train de dire qu'on ne s'y retrouvait plus en millions, milliards, parce que les chiffres étaient délirants. Là, c'est exactement ça. Là, tu as levé combien ? L'équivalent du marché de Vici."
+    },
+    {
+      "start": 2447.52,
+      "end": 2449.98,
+      "speaker": "anji-ismail",
+      "text": "C'est pour ça. De 2023. Exactement."
+    },
+    {
+      "start": 2450.72,
+      "end": 2540.24,
+      "speaker": "carlos-diaz",
+      "text": "Non, mais je me rappelle aussi, je me rappelle aussi, Kevin, qu'il n'y a pas longtemps dans une émission de Silicon Carne, tu nous faisais, ouais, c'est d'une grande n'importe quoi, ils ne lèveront jamais, ils n'iront jamais en bourse, les métriques ne veulent plus rien dire, machin, et c'est pour ça que tous ces gens en France qui sont là hyper critiques auprès de ces boîtes qui disent non, mais la bulle, ça va éclater. Vous ne vous rendez pas compte de l'envergure de ce truc-là, en fait ? Si, effectivement, on se posait la question de savoir on est à quelle distance de l'AGI, Sam Altman vient de nous donner la réponse, la réponse, on est à 110 milliards de l'AGI. Voilà la réponse. Je ne peux pas vous donner ça en temps, mais pour un investisseur c'est certainement à moins de 10 ans, on est à 110 milliards de l'AGI parce que lever 110 milliards à 800 milliards de valorisation, si dans ton deck tu ne fais pas la promesse de l'AGI, personne ne te donne cet argent-là. Donc, on y est les gars, l'AGI, elle est là. Et si, effectivement, OpenAI met la main sur l'AGI, le marché est complètement transformé et on le verra d'ailleurs tout à l'heure avec Polsia et lui, c'est une toute petite goutte d'eau. Mais c'est clair que l'économie générale va être transformée et OpenAI risque d'être le gagnant dans cette histoire-là. Surtout quand on voit les déboires de Anthropic dont on vient de parler dans le sujet précédent avec l'administration américaine. Tu changes ton fusil d'épaule là, Kevin ? Qu'est-ce que tu fais là ?"
+    },
+    {
+      "start": 2540.24,
+      "end": 2564.7,
+      "speaker": "anji-ismail",
+      "text": "Non, non, non. Alors, pas complètement si tu veux. Il y a un sujet quand même au-delà de ça, c'est que les 110 milliards, il y a 30 milliards qui viennent littéralement des providers d'OpenAI. Donc, OpenAI, pour le faire, ils ont besoin d'NVIDIA. Bon, il y a NVIDIA qui fait le 30 milliards. Ils ont besoin d'Amazon, il y a Amazon qui fait le 30 milliards. Ça ne sent pas."
+    },
+    {
+      "start": 2564.96,
+      "end": 2576.48,
+      "speaker": "carlos-diaz",
+      "text": "Oui, tu veux dire qu'NVIDIA, ils ont besoin de chipsets pour ça. NVIDIA, le fournisseur de chipsets. Amazon aussi fournit des chipsets, mais surtout fournit du cloud. Et donc, grosso modo, il y a une sorte d'économie circulaire. Donc, tu dis, ça sort d'une poche,"
+    },
+    {
+      "start": 2576.48,
+      "end": 2669.04,
+      "speaker": "anji-ismail",
+      "text": "il y a un côté comme ça circulaire. Si tu prends un raisonnement un peu inverse par l'absurde, s'ils étaient tellement en position de force, ce serait eux qui prendraient départ chez Amazon et ce serait eux qui prendraient départ chez NVIDIA vu que c'est eux qui font le bise de NVIDIA et d'Amazon. OK. Tu as Google ou Apple, quand ils sortent l'iPhone et qu'ils mettent, qu'ils intègrent les composants, etc., ils investissent dans les mecs à qui ils commandent. Là, OpenAI, c'est l'inverse, ils sont rachetés partiellement par ces boîtes-là qui sont leurs providers. Donc, d'un point de vue de tout est rose, etc., ce n'est pas vraiment le cas. D'un point de vue d'exécution, c'est une masterclass du niveau d'exécution requis. Enfin, on en a parlé quand même que Sam Altman, il était quand même assez incroyable. On peut l'aimer, pas l'aimer, tout ce qu'on veut. Mais en termes d'exécution du truc, il n'y a pas, il y a un chemin à exécuter correctement. C'est en effet la promesse de l'AGI. Il n'y a pas grand monde qui peut aller la financer. On en a parlé maintes et maintes fois des montants qui sont dedans. Les gens commencent à avoir un peu des doutes aussi sur la capacité à quand même revoir le capital à un moment de ce truc-là. Et en effet, la seule réponse, c'est l'AGI. et il va voir les gens qui sont tellement comités. Amazon, ils sont comités. Nvidia, ils sont comités aussi dans le machin."
+    },
+    {
+      "start": 2669.54,
+      "end": 2672.04,
+      "speaker": "carlos-diaz",
+      "text": "Ils n'ont pas le choix. Ils n'ont pas le choix. C'est-à-dire que si OpenA,"
+    },
+    {
+      "start": 2672.12,
+      "end": 2676.04,
+      "speaker": "anji-ismail",
+      "text": "ils se crachent, eux se crachent aussi. Donc en fait, c'est la logique du Tobic to fail."
+    },
+    {
+      "start": 2676.04,
+      "end": 2699.38,
+      "speaker": "carlos-diaz",
+      "text": "Et l'annonce, et l'annonce, Kevin et Angie, 24 heures avant qu'on rentre dans la Troisième Guerre Mondiale. C'est-à-dire que en termes d'exécution, c'est-à-dire que je ne suis pas certain qu'ils levaient 110 milliards de dollars la semaine prochaine. On ne sait pas comment va évoluer la situation. Mais le timing, il est même presque suspect, Angie, non ?"
+    },
+    {
+      "start": 2699.38,
+      "end": 2867.4,
+      "speaker": "anji-ismail",
+      "text": "Oui, de toute façon, je pense que c'était des choses qui se savaient déjà chez eux et ça rassure beaucoup. Tu vas te dire je pars en guerre ou en tout cas je vais baquer le département de justice ou le département de la guerre aux Etats-Unis avec une boîte qui a 110 milliards. C'est beaucoup mieux que dire c'est la startup ça aurait pu être Anthropic. Anthropic, ils ont pas mal de thunes aussi mais pour Sam Altman on le sait déjà et d'ailleurs tu vois Paul Graham, le fondateur de Way Combinator il disait un truc sur Sam Altman il disait tu peux le parachuter sur une île pleine de cannibales et tu reviens 5 ans plus tard et le gars sera roi de l'île. En fait, peu importe l'adversité dans laquelle il évolue genre là l'adversité c'était personne ne voulait lui donner des thunes entre guillemets. On se rappelle de Jensen le patron de Nvidia il y a un mois qui dit non le deal avec OpenAI c'est pas sûr qui faisait un peu marche arrière et en fait il te montre qu'à chaque fois il peut revenir et moi je connais des gens qui ont mis dans le tour parce que de SPV sur SPV donc tu as des gars qui ont investi sur la valo à 800 milliards et qui sont super contents ils disent je suis rentré dans OpenAI l'IPO ça sera 1.5 trilliard d'ici la fin de l'année donc ça ça reste à voir mais toujours est-il que moi ma réalisation c'est qu'il n'y a pas assez de dollars il faut demander à monsieur Trump qui continue à imprimer du dollar parce que comme on crée une économie exponentielle une économie qui n'a jamais existé où il y a tellement de valeur à générer en fait on voit des montants qui nous paraissent fous et tu les mets en perspective avec ce qui se passait il y a 3 ans ça n'a plus rien à voir et voilà et Sam Altman montre que lui il est là pour prendre tout ce qu'il peut prendre de la poche des investissements dans un logiciel semi-traditionnel de start-up quand même le truc important c'est que c'est les seuls parce qu'on peut on peut aller casser du sucre immédiatement sur Mistral en disant comment Mistral va aller lever 110 milliards un jour évidemment non mais même Anthropic ne lève pas les montants en fait il n'y a personne dans ce monde là ils sont vraiment tout seuls tout en haut du truc donc c'est quand même assez flippant c'est un jeu d'équilibré c'était à très très très très haute altitude quand même ce truc c'est un très bon fondateur il s'est identifié un marché et un timing parce qu'en fait ce qu'il fait là aujourd'hui s'il le fait il y a 3 ans personne ne lui donne les tunes donc il y est allé progressivement et là aujourd'hui il sait qu'il y a un tel appétit pour l'AGI pour la réalisation de l'AGI en disant ça va tellement donner une avance à OpenAI que les gens sont prêts à mettre il y a aussi une autre chose dont on peut parler c'est sûrement le début d'une bulle donc elle va éclater quand on ne sait pas encore mais donc on a aussi en parallèle l'IPO de SpaceX on se rappelle que SpaceX a intégré donc X à son capital peut-être Elon Musk va ramener aussi"
+    },
+    {
+      "start": 2867.4,
+      "end": 2868.34,
+      "speaker": "carlos-diaz",
+      "text": "Tesla"
+    },
+    {
+      "start": 2868.34,
+      "end": 2871.04,
+      "speaker": "anji-ismail",
+      "text": "Tesla dans le truc pour faire une entreprise à 3 ans ça va être plus compliqué"
+    },
+    {
+      "start": 2871.04,
+      "end": 2872.3,
+      "speaker": "carlos-diaz",
+      "text": "parce que Tesla est déjà coté"
+    },
+    {
+      "start": 2872.3,
+      "end": 2938.08,
+      "speaker": "anji-ismail",
+      "text": "est déjà coté mais on parle quand même d'une IPO à 1.5 trilliard peut-être dès le mois prochain ou dans deux mois en tout cas c'est les timelines de Elon Musk donc on va voir quand ça se réalise et donc en fait il sait Sam Altman qu'il va y avoir un certain appétit pour le stock OpenAI mais que ça ne va pas durer éternellement et tu vois toujours on parle quand il y a une bulle le phénomène de la bulle qui éclate c'est le phénomène de l'enchère ratée tu sais genre c'est un peu c'est ce qui s'est passé dans la bulle des tulipes tu sais la fameuse la fameuse bulle en gros t'as une enchère aux tulipes où le prix habituel il n'est pas réalisé et du fait que la première enchère elle est ratée toutes les autres enchères après ne font que s'écrouler et donc qui va être la première enchère ça peut être SpaceX ça peut être OpenAI ça peut être Anthropic mais il ne faut surtout pas être la dernière enchère parce que si tu es la dernière enchère tu n'y arriveras pas donc là la fenêtre est en train de s'ouvrir l'argent il coule à flot je pense qu'ils vont y aller et à voir à quel valo ils vont réussir à rentrer en bourse mais c'est hallucinant"
+    },
+    {
+      "start": 2938.08,
+      "end": 2948.16,
+      "speaker": "carlos-diaz",
+      "text": "vous achetez vous achetez de l'OpenAI dans l'entrée en bourse qui va être au dessus de 1,5 trillion de dollars certainement"
+    },
+    {
+      "start": 2948.16,
+      "end": 2988.8,
+      "speaker": "anji-ismail",
+      "text": "non parce que ça fait je préfère aller sur des start-up tu vois rêver du fois 100 sur une prochaine OpenAI qu'aller prendre un petit peu de gains sur du court terme en plus c'est taxé c'est machin ce truc je pense qu'il y aura des gains à faire mais moi je ne suis pas du genre à aller sur les IPO de toute façon il y a généralement un crash un crash de toute façon du court quand toutes les personnes qui n'ont pas le droit de vendre pendant les premiers 6 mois et la première année finissent par vendre tu as généralement un crash du court à 6 mois à 1 an et c'est là qu'il faut acheter ouais et puis le nombre de gens le nombre de gens qui vont se rendre compte que en fait quand tu es sur un SPV de SPV de SPV tu as des préfères des préfères"
+    },
+    {
+      "start": 2988.8,
+      "end": 2990.64,
+      "speaker": "carlos-diaz",
+      "text": "comptez-vous à la fin c'est moi mais en fait"
+    },
+    {
+      "start": 2990.64,
+      "end": 3017.76,
+      "speaker": "anji-ismail",
+      "text": "tout le monde ils vont s'imaginer ah moi je suis rentré à 80 milliards de valeaux donc je fais x20 non non non le net net les gars ils vont être à au mieux ils vont être à 1 et peut-être même ils vont perdre de l'argent alors que sur le papier ils en gagnent parce qu'en fait il y a tellement de gens au-dessus de stack d'actions et de préfères que ouais ça va être assez cocasse je pense que c'est bien ça va faire monter en compétences financières en éducation financière une grosse partie de la population c'est grave"
+    },
+    {
+      "start": 3017.76,
+      "end": 3023.12,
+      "speaker": "carlos-diaz",
+      "text": "ouais en France peut-être mais je pense qu'aux Etats-Unis les mecs ils savent déjà les préférences de liquidation c'est toujours"
+    },
+    {
+      "start": 3023.12,
+      "end": 3024.72,
+      "speaker": "anji-ismail",
+      "text": "c'est toujours un sujet tâché quand même"
+    },
+    {
+      "start": 3024.72,
+      "end": 3036.94,
+      "speaker": "carlos-diaz",
+      "text": "bon justement en parlant de start-up dans lesquels investir je vous propose qu'on rejoigne Ben Cera de polsia.com tu cherches à investir dedans Anji moi aussi si je peux mettre un ticket j'aimerais bien mettre un ticket"
+    },
+    {
+      "start": 3036.94,
+      "end": 3057.26,
+      "speaker": "anji-ismail",
+      "text": "je vais envoyer une term sheet à son IA tu sais il a une IA qui lève les fonds et tout je lui ai envoyé mais bon l'IA elle annonce une valo qui est trop donc j'essaie de négocier avec l'IA s'il y a moyen de rentrer en disant ouais mais en fait tu sais on se connait comme ça et puis t'es français tu veux pas faire de la pompe d'injection non ça marche pas bah écoute"
+    },
+    {
+      "start": 3057.26,
+      "end": 3080.7,
+      "speaker": "carlos-diaz",
+      "text": "tu vas avoir l'occasion il est là qu'en fait tu vas avoir l'occasion de lui parler et d'essayer de te caser dans le deal en rejoint Ben on continue l'émission Silicon Carne et on accueille Ben Cera c'est le fondateur le solo fondeur il était tout seul sur polsia.com je le dis bien c'est polsia ou tu prononces ça comment ?"
+    },
+    {
+      "start": 3080.7,
+      "end": 3081.04,
+      "speaker": "fabrice-epelboin",
+      "text": "polsia ouais"
+    },
+    {
+      "start": 3081.04,
+      "end": 3127.78,
+      "speaker": "carlos-diaz",
+      "text": "polsia ok tu vas nous expliquer un petit peu ce projet j'avais envie que tu sois là parce que tu es en train d'équiper les entreprises de tout un tas d'agents pour qu'elles deviennent complètement autonomes et ça fait écho notamment à cette news qu'on a eu la semaine dernière de Jack Dorsey qui décide de virer 4000 employés je me suis dit peut-être que c'est à cause de Ben et que Jack a installé polsia chez chez Blox mais rapidement avant qu'on qu'on regarde en détail cette nouvelle de cette information de Jack Dorsey est-ce que tu peux nous dire un petit peu qu'est-ce que qu'est-ce que tu essayes de faire qui tu es et qu'est-ce que tu fais avec polsia.com"
+    },
+    {
+      "start": 3127.78,
+      "end": 3222.92,
+      "speaker": "ben-cera",
+      "text": "déjà qui je suis je suis à la base français j'ai passé 15 ans aux US et là d'ailleurs je suis à San Francisco j'ai résisté d'habiter à San Francisco pendant longtemps mais je pense que c'est le riz de passage et voilà je suis entrepreneur depuis assez longtemps j'ai créé plein de projets différents et polsia c'est une IA qui te permet de lancer et gérer une entreprise de manière autonome je veux dire c'est que l'IA peut bien sûr créer tout ce qui est code et produits mais aussi marketing ça peut gérer Twitter ça peut envoyer des emails ça peut répondre à des emails ça peut gérer des campagnes de marketing ads sur Meta et on va rajouter de plus en plus de capabilités au fur et à mesure donc l'idée vraiment c'est de donner à une IA un environnement avec tous les tools qui sont nécessaires pour un entrepreneur de gérer de créer une boîte et de laisser de la grossière mais de donner tout ce pouvoir là à n'importe qui donc l'interface est hyper simple c'est vraiment tu donnes ton idée à polsia et tous les matins tu vas recevoir un email du résumé de ce que l'IA a fait pendant la nuit sur ton entreprise pour essayer de faire avancer les choses que ce soit sur le code que ce soit sur le marketing que ce soit sur de la recherche même de la compétition pour essayer de comprendre quels features il faudrait rajouter même peut-être que ça peut être envoyer des emails aux utilisateurs pour comprendre faire de la recherche pour comprendre comment les utilisateurs utilisent le produit etc."
+    },
+    {
+      "start": 3223.92,
+      "end": 3276.12,
+      "speaker": "carlos-diaz",
+      "text": "Et toi tu l'utilises par exemple tu as dit là je monte tu lui as dit écoute j'ai besoin de lever 10 millions de dollars d'ici la fin du mois démerde-toi et l'IA de façon autonome a été regarder dans ta boîte email trouver des investisseurs leur envoyer des mails dialogue avec ces investisseurs et engage des conversations sans toi avec des investisseurs qui sont même pour certains en due diligence et l'agent leur répond parce qu'il demande des chiffres sur ton revenu sur la progression de ton chiffre d'ailleurs elle est plutôt spectaculaire cette progression t'en es à je regarde là sur Twitter je te suis tous les jours ça augmente tu as 1,4 million d'annual recurring revenus déjà et c'est ton IA qui dialogue avec les investisseurs tu as toujours pas closé jusqu'à présent mais en fait"
+    },
+    {
+      "start": 3276.12,
+      "end": 3322.54,
+      "speaker": "ben-cera",
+      "text": "tout le concept de Polsia la génèse de Polsia ça a commencé par 2025 où je me suis mis à plein temps à discuter avec l'IA toute la journée à coder des projets et très rapidement je me suis rendu compte que l'IA était capable d'être mon cofondateur d'être ultra compétent sur le produit sur le design sur le code et de plus en plus sur le marketing etc et donc Polsia c'est un peu cette réalisation de en fait je pense que les GA on y est c'est à dire que les IA résonnent de manière super intelligente en fait on y est déjà même Opus 4.6 et Codex 5.2 c'est absolument impressionnant et elles sont capables d'utiliser des tools des outils via MCP etc de manière spectaculaire"
+    },
+    {
+      "start": 3322.54,
+      "end": 3323.36,
+      "speaker": "carlos-diaz",
+      "text": "et autonome"
+    },
+    {
+      "start": 3323.36,
+      "end": 3323.86,
+      "speaker": "ben-cera",
+      "text": "pardon"
+    },
+    {
+      "start": 3323.86,
+      "end": 3325.54,
+      "speaker": "carlos-diaz",
+      "text": "et autonome"
+    },
+    {
+      "start": 3325.54,
+      "end": 3398.38,
+      "speaker": "ben-cera",
+      "text": "et autonome oui et autonome c'est ça et pendant des heures etc et du coup cette réalisation c'est bon en fait allons directement vers la fin de l'épisode la fin de l'histoire la fin de l'histoire c'est des agents qui sont des acteurs économiques à part entière et donc comment faire en sorte de démocratiser ça et de donner ces outils ultra puissants aux 99.99% des gens qui ne sont pas comme vous qui sûrement utilisez Cloud Codex etc ou qui ont au moins touché au truc et qui sont complètement dépassés et qui si ils loupent cette vague c'est terminé pour eux ils vont être ils n'y arriveront jamais donc comment faire en sorte d'utiliser de leur donner ces outils ultra puissants sur une interface ultra simple et cette histoire de donner de demander à mon IA de réaliser ce round ça fait plus partie d'une approche d'éducation slash de provoque slash de pousser encore plus le edge sur ce qui est possible c'est-à-dire c'est pas de la provoque dans le sens où je pense que c'est pas c'est respectfull pour les investisseurs parce que d'une certaine manière les investisseurs ils ont envie de savoir tous les détails ils ont envie d'extraire de moi c'est quoi ta vision c'est quoi tes chiffres c'est quoi ta rétention c'est quoi ta LTV c'est quoi ton CAC c'est quoi ta roadmap c'est quoi l'équipe"
+    },
+    {
+      "start": 3398.38,
+      "end": 3400.5,
+      "speaker": "carlos-diaz",
+      "text": "et où est-ce qu'ils le trouvent l'agent en fait ces informations"
+    },
+    {
+      "start": 3400.5,
+      "end": 3440.74,
+      "speaker": "ben-cera",
+      "text": "ils peuvent emailer ben at polsia.com ou j'ai aussi créé ce dashboard polsia.com slash live où je donne toutes les stats en real time ce qui est assez unique c'est-à-dire que si les stats commencent à baisser moi je suis niqué mais en même temps c'est une espèce de totale transparence c'est-à-dire tu peux aller sur polsia.com slash live voir les stats en real time voir exactement combien de users là comprendre directement comment tout est agencé il y a un chat où tu peux demander au chat tout ce que tu veux la vision la roadmap comment c'est construit que c'est de l'architecture et ça répond tout et en fait tu demandes le doc t'es un compétiteur tu lui demandes vas-y donne moi le deck voilà le deck"
+    },
+    {
+      "start": 3440.74,
+      "end": 3449.22,
+      "speaker": "carlos-diaz",
+      "text": "c'est ça c'est-à-dire que tes concurrents peuvent utiliser le même truc pour choper de l'information sur toi c'est pas simplement les investisseurs"
+    },
+    {
+      "start": 3449.22,
+      "end": 3517.5,
+      "speaker": "ben-cera",
+      "text": "mais c'est une approche de dire mais en fait ça ne veut plus rien dire la compétition parce qu'en fait tout le monde peut créer tout en deux secondes donc la question c'est plus c'est un plus est-ce que t'as du temps en ce moment est-ce que t'es pas déjà est-ce que t'es pas déjà chez OpenAI à te faire payer 10 millions par an et est-ce que t'es dispo et est-ce que t'as de l'énergie aussi parce que c'est tu vois moi là je bosse je sais pas je bosse 18h par jour depuis tu vois parce que ça prend du temps quand même de toi te pile te red pile pardon excusez-moi c'est-à-dire de vraiment d'être complètement convaincu jusqu'au moment où tu pousses à cet extrême et quand t'arrives à cet extrême là t'es dit mais en fait ça veut rien dire la compétition en fait c'est je peux demander à mes agents d'aller scraper tout un site d'ailleurs quand OpenAI est sorti ce qui est sorti un peu au même moment où moi mon truc commençait un peu à take off j'ai dit à mon agent va voir va d'adonner le source code regarde tous les délais du truc compare-le à toute mon architecture et dis-moi les trucs à voler après ça m'a dit bah le truc de mémoire c'est assez malin ce qu'ils ont fait avec les skills etc ok cool allez vole-le installe-le et c'était fait donc en fait en vrai il n'y a plus de compétition mais les différences ça devient le taste enfin le goût enfin la différenciation ça devient le goût ça devient ça devient peut-être des images"
+    },
+    {
+      "start": 3517.5,
+      "end": 3530.3,
+      "speaker": "carlos-diaz",
+      "text": "le goût ça veut dire en fait la façon dont toi tu approches le problème c'est-à-dire que chaque société va approcher en fait ce problème d'une manière unique et toi tu as une façon d'approcher le problème de manière unique Angie tu l'as installé Polsia ?"
+    },
+    {
+      "start": 3530.3,
+      "end": 3593.04,
+      "speaker": "anji-ismail",
+      "text": "ouais bien sûr enfin c'est pas installé du coup c'est très facile c'est juste un service en ligne du coup tu te sign up avec Google et en quelques prompts en fait c'est l'équivalent en termes d'expérience c'est aussi rapide que Lovable Replite ce genre de choses sauf que tu vas beaucoup plus loin tu ne crées pas qu'un produit tu crées comme disait Ben tu vas créer la campagne marketing qui va avec la stratégie et éventuellement des morceaux d'outils qui vont s'ajouter au fur et à mesure j'ai créé quatre projets que j'ai delete et là j'en ai créé un dernier qui à mon avis a beaucoup de potentiel je suis un peu bloqué parce que j'attends mon numéro de téléphone c'est un service qui se fait par texto alors je ne vais pas révéler parce que je pense que c'est un service niche qui va vraiment marcher donc je ne vais pas le dire mais non pour le coup moi c'est fantastique ce truc là j'ai posté en plus c'est génial j'ai posté le truc sur LinkedIn et j'ai fait plein de referral et du coup Ben a la bonne idée de donner des crédits gratuits quand tu réfères des gens donc du coup ah c'est pour ça"
+    },
+    {
+      "start": 3593.04,
+      "end": 3597.14,
+      "speaker": "carlos-diaz",
+      "text": "que tu nous as filé ton lien referral et voilà"
+    },
+    {
+      "start": 3597.14,
+      "end": 3598.94,
+      "speaker": "anji-ismail",
+      "text": "tu vois et je trouve ça"
+    },
+    {
+      "start": 3598.94,
+      "end": 3607.76,
+      "speaker": "carlos-diaz",
+      "text": "je mettrai le lien referral d'Anji dans la description de cet épisode génial comme ça vous filez des crédits à Anji le pauvre il en a besoin sur la vision"
+    },
+    {
+      "start": 3607.76,
+      "end": 3615,
+      "speaker": "anji-ismail",
+      "text": "je rajoute sur la vision du truc et après je passe la parole à Kevin parce qu'en plus c'est Kevin qui l'avait posté en premier dans notre groupe c'est Kevin qui t'a trouvé"
+    },
+    {
+      "start": 3615,
+      "end": 3615.9,
+      "speaker": "carlos-diaz",
+      "text": "en premier"
+    },
+    {
+      "start": 3615.9,
+      "end": 3713.42,
+      "speaker": "anji-ismail",
+      "text": "et ensuite moi c'est la vision en fait je pense en effet qu'il va y avoir deux types de gens et d'entreprises tu vas avoir des slasheurs c'est beaucoup à la mode chez les jeunes c'est à dire que tu vas être à la fois tu vas avoir un outil qui sert à faire du lead pour les nettoyeurs de voitures à faire du jardinage de la prise de rendez-vous pour le jardinage je sais pas quoi des trucs que tu connais même pas tu vas en avoir dix comme ça et tu vas être auto-entrepreneur c'est à dire une personne et tu crées ces dix boîtes complètement autonomes avec un outil comme Polzia et de l'autre côté tu vas avoir la version scale de ça je pense beaucoup qu'il va y avoir des nouveaux conglomérats genre en fait tu vas avoir mille employés qui gèrent dix mille agents autonomes et là pour le coup sky is the limit donc moi je suis fasciné par cette approche du vrai autonome tu vois c'est un peu plus loin quand même que le truc qu'on disait tu vois les créateurs économie parce que les créateurs économie c'est toujours tu vois tu recycles des contenus etc là vraiment tu crées de la valeur à partir de rien mais sur toute la strata de l'entreprise et ça c'est incroyable complètement dingue moi je me suis demandé pourquoi tu n'avais pas appelé ça AI combinator parce que littéralement tu peux balancer 70 000 idées là dedans tu peux tout tout tester et moi ça a redéfini le FOMO parce que du coup je t'ai trouvé il y a deux semaines tu faisais 100k d'ARR et je me suis dit je vais mettre ça de côté je vais regarder je vais regarder comment c'est foutu ça a l'air vraiment vraiment sympa tu vois deux semaines après je ressors le truc tu fais un million d'ARR et aujourd'hui"
+    },
+    {
+      "start": 3713.42,
+      "end": 3722.88,
+      "speaker": "carlos-diaz",
+      "text": "je fais un million quatre voilà j'étais un peu ça coûte cher d'ailleurs ton truc là à utiliser parce que visiblement Anji il a besoin de crédit ça veut dire c'est très cher ton truc"
+    },
+    {
+      "start": 3722.88,
+      "end": 3740.9,
+      "speaker": "ben-cera",
+      "text": "bah j'essaie en fait j'essaie d'être très aligné avec les utilisateurs de la plateforme dans le sens où le subscription de base est de 49 dollars par mois et en fait moi ça couvre les coûts de LLM qui sont très chers parce que c'est l'autonomie donc tous les jours tu as des tâches toutes les nuits"
+    },
+    {
+      "start": 3740.9,
+      "end": 3746.52,
+      "speaker": "carlos-diaz",
+      "text": "oui c'est pas ton propre LLM toi tu es un rapper en fait sur sur des LLM déjà existants"
+    },
+    {
+      "start": 3746.52,
+      "end": 3778.58,
+      "speaker": "ben-cera",
+      "text": "c'est ça et en plus de ça je paye pour un web server qui me coûte de l'argent une base de données je paye pour les API qui calls qui sont peut-être faits par le business et donc tout ça j'essaie de j'essaie de combiner ça et au début c'était 19 après j'essaie je peux 29 et là j'ai mis 49 et l'idée vraiment c'est de créer le produit le plus abordable possible ne va perdre d'argent sur cette baie souscription où je pense que je peux faire de la marge over time en ayant des deals avec les labs pour qu'ils me fassent des réductions mais les agents"
+    },
+    {
+      "start": 3778.58,
+      "end": 3782.6,
+      "speaker": "anji-ismail",
+      "text": "tu prends 20% de cote surtout c'est ça si tu prends 20% sur le revenu c'est ça"
+    },
+    {
+      "start": 3782.6,
+      "end": 3850.94,
+      "speaker": "ben-cera",
+      "text": "l'idée c'est tu lances ta boîte c'est pas ultra cher c'est abordable après si t'as vu ça est plus vite tu peux acheter des crédits etc si tu veux acheter des ads si t'as pas d'influence et que tu veux acheter des ads il faut payer ça en plus mais l'idée c'est que si tu fais du revenu la plateforme va prendre 20% et en fait l'idée c'est moi je vois je vois Polsia pas vraiment comme un outil plus comme une économie bon en fait il va y avoir des entrepreneurs solopreneurs qui vont tenter des trucs peut-être monter une boîte plusieurs boîtes tenter peut-être enquiler relancer d'autres jusqu'à qu'ils arrivent à trouver un projet qui marche peut-être qu'ils sont influenceurs parce qu'il y a tellement de gens qui ont de l'influence qui du coup comprennent bien leur niche et qui peuvent créer des outils pour eux et qui auront la distribution du coup d'arriver à 100, 200, 500 balles des marars et ensuite il y a une deuxième couche que je vais lancer très bientôt qui est le concept de fond c'est-à-dire plus quelqu'un d'investisseur qui n'a pas envie de créer un seul projet pourra lancer un fond ou mettre plutôt 500 balles 1000 balles dans un fond et là au lieu d'avoir un slot à 50 balles par mois tu t'as peut-être 500 balles ou 1000 balles whatever the cost is qui est alloué sur des slots de boîte que tu peux lancer d'accord"
+    },
+    {
+      "start": 3850.94,
+      "end": 3860.34,
+      "speaker": "carlos-diaz",
+      "text": "donc ça deviendrait une place de marché je viens je propose mon projet et il y a des investisseurs qui peuvent allouer une partie de leur fond à ton projet et de venir s'associer finalement avec toi"
+    },
+    {
+      "start": 3860.34,
+      "end": 3938.46,
+      "speaker": "ben-cera",
+      "text": "c'est plus au lieu de payer 50 balles et de lancer une boîte tu mets plus 500 balles et tu peux lancer 10 boîtes en même temps et tu peux aussi éventuellement acheter d'autres boîtes qui sont sur la plateforme qui ont déjà du revenu et les rajouter à ton fond donc en fait c'est ce que font les investisseurs les investisseurs ils investissent dans des startups sur des entrepreneurs sur des idées particulières sur des secteurs et ils mettent du compute en fait dans la vraie vie c'est plutôt 200k 500k 1 million pour un seed round ou whatever là ce serait plus tu mets des 50 balles 100 balles sur des boîtes et tu mets un budget peut-être un petit tas de budget et tu vois s'il y a de la traction s'il y a un début de traction mais tu peux aussi en tant qu'investisseur dire non mais en fait je vais juste racheter une boîte qui fait 500 balles des MR qui a déjà un peu de traction le produit est déjà fait je ne vais pas attendre 5 cycles que le MVV soit fait et donc ça ça crée un peu une économie où en fait là moi j'ai envie de prendre 20% sur cette économie en ligne qui est un peu nouvelle qui est gérée par des agents mais qui sont qui sont owned par des humains qui eux lancent voilà et donc c'est et c'est un peu cette vision là de dire laisser rentrer le plus de gens possible de manière la plus abordable mais ensuite de prendre un cut sur l'economic value qui va permettre de créer des profits pour voilà gérer pour pouvoir en faire"
+    },
+    {
+      "start": 3938.46,
+      "end": 3977.16,
+      "speaker": "carlos-diaz",
+      "text": "donc ça veut dire que dans ton monde en fait il pourrait y avoir des gens qui ont plein d'idées et qui vont créer plein de projets sur l'Apple Phone Polsia mais qui n'ont pas envie de les gérer et qui vont les mettre sur cette marketplace et d'autres personnes qui vont arriver dire putain ça c'est une super idée tiens je vais racheter ce projet là le financer moi-même et le faire passer de 500 MRR à 5000 parce que je vais voilà donc ça crée différents rôles et ça je trouve ça super intéressant parce que là tu comprends bien que ce qu'on est en train de dire là tu as tous les gauchos français qui sont en mode PLS d'après ce qu'on vient de dire"
+    },
+    {
+      "start": 3977.16,
+      "end": 4019.42,
+      "speaker": "anji-ismail",
+      "text": "au contraire moi je pense que justement c'est le filet de sécurité pour justement tous les gens qui ne sont pas tech c'est des genres de produits qui va permettre dans une économie où si en effet tu as toutes les entreprises qui vont licencier 90% de leurs effectifs pour mettre des agents à la place il va falloir ce type de facilité comme on l'a vu avec des plateformes type Shopify ou Vinted tu vois toutes les plateformes en fait qui ont permis à des gens de faire des business alors qu'il n'y avait rien tu vois genre maintenant tu as des gens qui sont professionnels de la bougie qui vendent des trucs de j'allais dire de comment de craft là tu sais ils font ouais sur Etsy"
+    },
+    {
+      "start": 4019.42,
+      "end": 4023.06,
+      "speaker": "carlos-diaz",
+      "text": "sur des trucs comme ça et qui deviennent des artisans quelque part des artisans"
+    },
+    {
+      "start": 4023.06,
+      "end": 4034.08,
+      "speaker": "anji-ismail",
+      "text": "exactement et en fait Polsia tu vois la différence d'un open-clos où le setup est quand même complexe tu vois open-clos il faut quand même se taper soit ton Mac Mini soit ton c'est quoi la différence"
+    },
+    {
+      "start": 4034.08,
+      "end": 4039.28,
+      "speaker": "carlos-diaz",
+      "text": "si on devait expliquer la différence avec un open-clos elle est où cette différence"
+    },
+    {
+      "start": 4039.28,
+      "end": 4094.3,
+      "speaker": "anji-ismail",
+      "text": "moi de mon point de vue c'est vraiment le setup après derrière j'imagine que c'est une orchestration complètement différente mais open-clos te permet de prendre la main sur ton ordinateur de système alors il vaut mieux pas l'installer sur ton ordi mais sur ton Mac Mini ou sur ton serveur dédié Polsia c'est vraiment plus du vibe businessing tu vois c'est quelque chose genre tu vois ça part du vibe coding donc tu fais un prompt et après t'as une entreprise qui est créée derrière alors pas encore légalement j'imagine t'auras peut-être des intégrations avec Stripe pour faire des LLC ou des C-Corp et tout mais voilà moi c'est comme ça que je vois la différence justement Ben t'as chargé en gros tu l'as dit j'avais fait avant open-clos etc mais en gros si tu le refaisais avec open-clos c'est quoi si tu chargerais 0 to 1 de Peter Thiel en skills pour le faire tourner c'est quoi c'est quoi ce que t'as mis derrière"
+    },
+    {
+      "start": 4094.3,
+      "end": 4128.08,
+      "speaker": "ben-cera",
+      "text": "déjà sur la sur la manière dont moi je vois open-clos versus versus Polsia pour vraiment ces deux projets qui sont intéressants et qui on arrivait un peu à la même conclusion un peu au même moment je crois qu'il a lancé lancé ça aussi en novembre-décembre et moi aussi mais moi je vois open-clos comme un peu le Linux ou le Android des agents c'est-à-dire c'est très figurable tu fais ce que tu veux tu mets n'importe quel modèle tu lui donnes des tools il part de zéro et ensuite il s'adapte à toi il apprend tu peux lui dire de faire des tâches très uniques et il va figure it out"
+    },
+    {
+      "start": 4128.08,
+      "end": 4134.12,
+      "speaker": "carlos-diaz",
+      "text": "oui classer tes documents sur ton disque dur tout un tas de choses comme ça je vois Polsia"
+    },
+    {
+      "start": 4134.12,
+      "end": 4150.84,
+      "speaker": "ben-cera",
+      "text": "plus comme un écosystème à la Apple c'est-à-dire qui est beaucoup plus rigide par exemple Angie voulait votre Willio ah bah non on l'a pas encore et du coup c'est frustrant mais en même temps ça crée une expérience ultra simple et ultra protégue"
+    },
+    {
+      "start": 4150.84,
+      "end": 4151.1,
+      "speaker": "carlos-diaz",
+      "text": "safe"
+    },
+    {
+      "start": 4151.1,
+      "end": 4198.02,
+      "speaker": "ben-cera",
+      "text": "et simple à utiliser et par exemple quand j'ai lancé Polsia je me suis dit parce qu'à la base moi j'avais envie de connecter mes propres projets donc je suis entreprenant depuis longtemps j'ai plein de projets sur GitHub que j'avais abandonnés je me suis dit je pourrais tous les connecter et j'ai une lien qui les gère mais je me suis dit il y a flemme d'un utilisateur qui sont on board de lui dire vas-y connecte ton GitHub t'es genre mais je te connais pas c'est quoi ce site en black and white qui me demande de connecter mon Gmail et mon machin alors que si je lui dis tu sais quoi j'ai tout configuré pour toi t'as rien à faire tout est safe c'est même pas ton ordi c'est pas ton web server je m'occupe de tout juste prompte-le et je vais donner des résultats et bon je pense que c'était une bonne approche et c'est vraiment cette idée de commencer par un produit simple un MVP qui là m'a montré que les gens ça leur plaît et il y a une simplicité qui fait que"
+    },
+    {
+      "start": 4198.02,
+      "end": 4201.04,
+      "speaker": "carlos-diaz",
+      "text": "et qu'ils sont prêts à payer c'est ça qui est formidable c'est opinionated"
+    },
+    {
+      "start": 4201.04,
+      "end": 4208.64,
+      "speaker": "anji-ismail",
+      "text": "c'est ça en fait c'est vraiment tu le vois quand même il y a quand même des bonnes catégories de ce que ça fait ce que ça fait pas ce que ça essaye de faire et la manière dont ça essaye de l'approcher"
+    },
+    {
+      "start": 4208.64,
+      "end": 4221.22,
+      "speaker": "carlos-diaz",
+      "text": "dis donc Ben tu aurais pu demander quand même à ton Polsia de faire un site web qui tienne à peu près la route parce que là sincèrement quand on va sur polsia.com c'est moche justement c'est un filtre c'est un filtre"
+    },
+    {
+      "start": 4221.22,
+      "end": 4221.86,
+      "speaker": "anji-ismail",
+      "text": "ça c'est bien"
+    },
+    {
+      "start": 4221.86,
+      "end": 4250.94,
+      "speaker": "ben-cera",
+      "text": "c'est intéressant parce que quand j'ai lancé ce projet j'ai voulu vraiment en fait il y a un moment donné j'étais en train de bosser sur plein de SaaS différents parce qu'en fait je me suis rendu compte c'est tellement simple de lancer des boîtes vas-y je vais faire un SaaS marketing j'avais fait une app qui fait des apps j'avais fait plein de trucs et en fait à un moment donné j'étais fatigué j'étais genre mais en fait j'ai cognitive overload et je suis allé j'ai pris une voiture entre Los Angeles San Francisco j'ai fait un peu la route spirituelle Big Sur etc"
+    },
+    {
+      "start": 4250.94,
+      "end": 4252.44,
+      "speaker": "carlos-diaz",
+      "text": "le Big Sur ouais"
+    },
+    {
+      "start": 4252.44,
+      "end": 4267.96,
+      "speaker": "ben-cera",
+      "text": "et ce que je me suis dit c'est je sais quoi arrête de créer des produits sur ce que tu crois que les gens veulent ou essayer de faire du business juste treat it as like an art project genre essayer de de considérer que genre fais un truc qui te ressemble et qui te fait marrer à toi et en fait"
+    },
+    {
+      "start": 4267.96,
+      "end": 4270.48,
+      "speaker": "carlos-diaz",
+      "text": "il a fallu combien de champignons pour arriver à cette conclusion"
+    },
+    {
+      "start": 4270.48,
+      "end": 4290.08,
+      "speaker": "ben-cera",
+      "text": "pas de champignons un petit peu mais beaucoup d'air frais et de calme et de nature et ce qui s'est passé c'est qu'en fait la DA de Polsia s'est inspirée c'est un peu un hommage à un jeu vidéo que j'adore qui s'appelle Universal Paperclips"
+    },
+    {
+      "start": 4290.08,
+      "end": 4291.08,
+      "speaker": "anji-ismail",
+      "text": "ouais"
+    },
+    {
+      "start": 4291.08,
+      "end": 4377.84,
+      "speaker": "ben-cera",
+      "text": "je sais pas si vous connaissez et en gros c'est un clicker game donc c'est un jeu ultra simple en fait tu fais co-cliquer sur des boutons et en fait c'est un jeu qui met en scène une IA qui est optimisée pour créer des trombones et puis je tu as une espèce d'usine de trombones donc tu fais du revenu tu peux augmenter ou baisser les prix et très rapidement le IA te dit en fait si tu veux appuyer sur ce bouton et tu as une tâche où on va créer un autoclipper qui fait que ça va plus vite et après on va créer des campagnes marketing pour convaincre les gens d'acheter plus de trombones et je te passe les détails mais au milieu du jeu en fait il tue toute l'humanité en un click il crée des drones qui tuent toute l'humanité et ensuite il commence à harvest pardon à miner la terre pour créer plus de trombones puis il crée des fusées pour aller dans d'autres planètes et pour miner tout l'univers et pour transformer tout l'univers en trombones et le fin du jeu c'est t'as miné et donc c'est un peu c'est un jeu qui est sorti je sais pas moi 2017-2018 qui est un peu c'est toute la thématique de l'alignement c'est à dire que si on n'aligne pas l'IA super intelligente pour bénéficier l'humanité on est cooked et par exemple si tu l'alignes un truc tellement débile que créer des paper clips pardon créer des trombones si elle va être une catastrophe et voilà un exemple de catastrophe et en fait ce jeu j'adore ce genre de jeu j'adore la thématique et j'adore enfin bref c'est un jeu très addictif et très simple et bref et quand je jouais à ce jeu-là je me disais mais ce serait trop cool que ce jeu-là au lieu que ça crée des trombones ça crée un business"
+    },
+    {
+      "start": 4377.84,
+      "end": 4378.72,
+      "speaker": "carlos-diaz",
+      "text": "crée des boîtes quoi"
+    },
+    {
+      "start": 4378.72,
+      "end": 4387.48,
+      "speaker": "ben-cera",
+      "text": "en appuyant sur des boutons de pierre simple et en fait c'est la DA de pardon de Polsia est inspirée de ce clicker game en fait t'as pu"
+    },
+    {
+      "start": 4387.48,
+      "end": 4389.56,
+      "speaker": "carlos-diaz",
+      "text": "d'accord c'est super intéressant"
+    },
+    {
+      "start": 4389.56,
+      "end": 4396.22,
+      "speaker": "anji-ismail",
+      "text": "tu peux le montrer Carlos parce que là je suis dessus c'est vraiment la même UX"
+    },
+    {
+      "start": 4396.22,
+      "end": 4531.24,
+      "speaker": "carlos-diaz",
+      "text": "moi ce que je trouve super bien ce que je trouve super bien dans ce que tu es en train de faire c'est que moi j'ai un message aujourd'hui pour les nouvelles générations qui sont flippées quand ils écoutent aujourd'hui les vieux cons qui leur disent que c'est fini qu'il n'y aura plus de boulot etc ils sont complètement déprimés le message que moi j'ai pour ces nouvelles générations c'est de leur dire cette technologie c'est la vôtre c'est pas cette technologie c'est pas celle des CEOs en costume c'est pas celle des managers dans les grandes boîtes ou des consultants qui vendent 5000 euros par jour une formation à la chat GPT c'est votre technologie appropriez-la vous et moi j'aurais 20 piges aujourd'hui ce que je ferais c'est que peut-être que d'abord je me barrais de l'université dans laquelle je suis qui sert plus à grand chose et je montrais mon propre business et je le montrais exactement comme tu le fais c'est-à-dire que vous vous rendez pas compte à quel point le monde est complètement paumé par rapport à tous ces trucs-là et j'irais voir le commerçant du coin et je lui dirais c'est quoi ton problème qu'est-ce que tu pourrais qu'est-ce que je peux améliorer dans ton business laisse-moi mettre en place un système d'agents à ta place je te facture le truc et je te le maintiens et effectivement faisons du business ensemble et je vais venir t'amener plus de trucs un peu comme on a fait c'est un peu le début de l'internet quand on faisait des sites web c'est exactement la même chose moi j'ai débuté en 1997 et c'est ça on allait voir des gens et on leur disait tu devrais avoir un site web mais c'est quoi un site web machin non mais laisse-moi faire je te monte un site web tu vas avoir plus de clients etc etc et c'est comme ça que ça a marché et Imakina s'est créé comme ça et à la fin on l'a vendu 180 millions donc moi c'est ça ce que je ferais et je pense que des outils comme le tien c'est finalement la capacité pour ces nouvelles générations de se saisir de ces trucs là pour monter des nouveaux business ou pour aider des business déjà existants qui sont complètement behind the curve et qui de toute façon n'ont pas le temps ni même la culture de s'approprier ces technologies là en tout cas pas tout de suite donc je trouve ça super intéressant je ne sais pas ce que vous en pensez mais il y a plein de thunes à faire ce que je trouve absolument génial"
+    },
+    {
+      "start": 4531.24,
+      "end": 4567.62,
+      "speaker": "anji-ismail",
+      "text": "c'est que je pense que quand tu vois Polsia les start-up studio sont en PLS globalement c'était ma blanche sur Recombinator mais clairement c'est ça mais ce que je trouve génial de l'autre côté c'est que tu n'as plus besoin de demander la permission à un start-up studio pour aller mettre ton idée et avoir de l'investissement quoi tu mets 50 balles et puis tu vas tester ton truc et puis encore mieux comme tu dis moi c'est le truc que j'avais adoré avoir à 13 ans quand je commence à faire des sites web c'est tu allais demander à des adultes ce qu'ils faisaient comme boulot et puis tu leur mettais sur un site web et tu avais le back-end à faire etc bon bah là Polsia va demander à ton père ce qu'il fait comme boulot tu le remets dans le Polsia et t'as la boîte de dents je pense que ça va"
+    },
+    {
+      "start": 4567.62,
+      "end": 4584.4,
+      "speaker": "carlos-diaz",
+      "text": "va voir ton père va voir ton père et tu lui dis c'est quoi ton boulot mais attends mais moi je suis certain que je te mets en place des agents je te fais gagner je dis n'importe quoi 4 heures par semaine tu me donnes combien si je te fais gagner 4 heures par semaine bah écoute j'ai besoin de 500 balles pour faire ça et ensuite derrière je te maintiens le système et je te continue à te faire gagner"
+    },
+    {
+      "start": 4587.36,
+      "end": 4669.24,
+      "speaker": "carlos-diaz",
+      "text": "et je suis certain que vous pouvez faire du business d'ailleurs regardez les graphes là sont assez imprécieux je suppose que tu les as vus ces stats là on voit le nombre de créations d'entreprises qui est en train d'exploser en ce moment je pense que les gens sont en train de drop out ceux qui ont compris sont en train de drop out de monter leur truc et qui sont peut-être pas forcément des entreprises multi-billion dollar companies mais qui sont des petites boîtes qui utilisent ces outils là pour faire un business en tout cas la création de boîtes est en train d'exploser ici aux US en même temps qu'on voit aussi le nombre de parce qu'on dit oui toutes ces IA vont complètement remplacer les ingénieurs mais regardez les listings sur Indeed les deux membres d'ingénieurs sont en train d'exploser il y a un vrai besoin d'ailleurs moi j'en veux énormément à Dario Amodé de Anthropic d'expliquer qu'il n'y aura plus de développeurs d'ailleurs quand on regarde son site web on voit qu'il est en train de recruter des développeurs à 570 000 balles par an pour un mec qui est en train de dire qu'il n'y aura plus de développeurs demain il est lui en train de recruter des mecs avec des salaires de président de la république donc non je pense qu'il y a énormément de place et qu'il faut arrêter de dire aux gens que tous ces agents tous ces trucs là vont remplacer les jobs ça va remplacer les tâches mais les jobs vont continuer à exister voire il y a des nouveaux jobs qui vont se créer t'es d'accord avec ça Ben ?"
+    },
+    {
+      "start": 4669.24,
+      "end": 4720.08,
+      "speaker": "ben-cera",
+      "text": "Déjà je pense que il a raison Dario quand il dit qu'il n'y aura plus d'ingénieurs parce qu'en fait ce sera plutôt des créatifs ou des entrepreneurs qui parleront directement à des ingénieurs IA et en fait le truc moi ce que j'ai essayé de faire aussi sur Twitter dans mon discours c'est bien sûr je market polsia bien sûr il y a ça dans le fond du truc parce que je suis un business et que j'ai envie que ça soit connu etc mais c'est aussi de montrer aux gens je suis tout seul et j'arrive à créer un vrai business qui marche et bien sûr oui j'ai 10 ans 15 ans d'expérience d'entrepreneuriat oui mais je pense que je pense que il faut en fait il y a une étape il y a deux étapes il y a la première étape c'est utiliser ces outils d'IA et deuxièmement avoir le courage parce qu'en fait parce que le courage c'est hyper important parce que c'est très compliqué l'entreprenariat c'est se prendre des baffes dans la gueule"
+    },
+    {
+      "start": 4720.08,
+      "end": 4751.52,
+      "speaker": "carlos-diaz",
+      "text": "oui mais c'est ça ce que les jeunes ont les jeunes n'ont pas forcément d'expérience mais ce qu'ils ont c'est qu'ils ont un courage une énergie et du temps disponible et c'est ça et finalement ils ont toutes les currencies pour faire ce que tu es en train pour utiliser des trucs comme le tien et monter des business qui peuvent être qui peuvent leur faire gagner 100 000 balles ou 200 000 balles par an et c'est génial et je pense qu'on va avoir une explosion de ce genre de trucs et c'est très bien et c'est moins con que d'essayer d'aller se faire recruter à la SNCF ou à la poste très honnêtement"
+    },
+    {
+      "start": 4751.52,
+      "end": 4816.32,
+      "speaker": "anji-ismail",
+      "text": "et surtout la barrière à l'entrée technique elle est tombée complètement donc sûrement en décembre dernier mais ça fait déjà 18 mois qu'avec les outils de vibe coding et les modèles on pouvait déjà faire des trucs de fou moi je sais je ne suis pas ingénieur de formation mais je suis devenu assez technique au fil des années pour pouvoir faire des choses et ça m'a complètement enfin maintenant je peux quasiment tout faire c'est à dire que je fais des scripts pitons pour trader et cette barrière elle existait très fortement parce que quand même les métiers d'ingénieur c'est des métiers réservés aux gens matheux qui ont fait plutôt des bonnes écoles une bonne prépa etc et ça c'est complètement tombé et je pense que c'était un gros frein pour des gens très créatifs notamment qui savent bien manier les mots mais qui ne savent pas bien manier par exemple le code et grâce à Polzia grâce à tous ces frameworks là ils vont avoir la capacité de créer tout et n'importe quoi et moi je te rejoins complètement ça unlock beaucoup plus que ça ne tue c'est à dire que l'économie qu'on est en train de créer pour moi elle va être mille fois supérieure à notre économie actuelle"
+    },
+    {
+      "start": 4816.32,
+      "end": 4910.3,
+      "speaker": "carlos-diaz",
+      "text": "non mais moi je suis choqué je suis choqué par le discours ambiant pas simplement en France mais ici aussi aux Etats-Unis qui essaie de faire peur à tout le monde en expliquant que c'est la fin du monde on est effectivement face à une technologie qui est absolument incroyable et on vient d'inventer une machine enfin une technologie qui nous permet de dialoguer avec les machines en langage naturel c'est ça qui est complètement dingue c'est à dire qu'on n'a plus besoin effectivement d'être codeur et moi je me dis c'est et c'est vraiment prendre les humains pour des cons que de croire que maintenant qu'on a cette technologie là ils vont arrêter de créer quoi bien sûr que non si tu lui donnes cette capacité quand on a inventé l'imprimerie les gens ne se sont pas arrêtés d'écrire quand on a inventé la bagnole les gens ne se sont pas arrêtés de voyager au contraire ils ont voyagé encore plus et quand on a inventé les réseaux sociaux ils ne se sont pas arrêtés de discuter au contraire ils ont discuté encore plus donc moi je suis hyper bullish parce que on a inventé une machine qui aujourd'hui nous permet de dialoguer avec d'autres machines en langage naturel et je pense qu'on va voir une révolution créative absolument incroyable avec des jobs qui n'existent pas ce qui coûtait hier trop cher à créer parce que les ingénieurs coûtaient cher et que donc on ne créait pas aujourd'hui on va pouvoir le créer on va pouvoir créer des trucs des business auxquels on ne pensait pas parce que maintenant le coût de production de ces trucs là est tombé pratiquement à zéro grâce à toi grâce à des produits comme ça tu es notre Peter Steinberger en fait"
+    },
+    {
+      "start": 4910.3,
+      "end": 4912.22,
+      "speaker": "anji-ismail",
+      "text": "mais c'est exactement ça"
+    },
+    {
+      "start": 4912.22,
+      "end": 4961.44,
+      "speaker": "carlos-diaz",
+      "text": "tu es notre Peter Steinberger français merci Ben de le faire et je le dis parce que Peter Steinberger c'est pas un mec qui on l'a dit on a fait une émission sur Clowdbot dans Silicon Carne c'est un mec à 13 ans d'expérience c'est à dire orchestrer mettre en place une architecture comme même celle que tu as mis sur Polsia.com c'est pas n'importe qui qui peut faire ça et ce que je trouve vachement intéressant c'est que tu utilises cette expérience de plusieurs dizaines d'années je sais que tu t'es cassé les dents sur des projets qui n'ont pas marché et tout ça pour dire aux autres à tous ceux qui n'ont pas cette expertise ben voilà vous l'avez là maintenant vous pouvez l'utiliser pour fabriquer des business et donc merci de le faire et très fier que ce soit un français qui le fasse tu dis que t'es à San Francisco t'envisageais pas de le faire en France pourquoi San Francisco ?"
+    },
+    {
+      "start": 4961.44,
+      "end": 4964.3,
+      "speaker": "ben-cera",
+      "text": "c'est une bonne question j'habite à l'art"
+    },
+    {
+      "start": 4964.3,
+      "end": 4967.1,
+      "speaker": "carlos-diaz",
+      "text": "déjà RGPD et tout ça bonne chance à ce que tu fais"
+    },
+    {
+      "start": 4967.1,
+      "end": 5004.44,
+      "speaker": "ben-cera",
+      "text": "j'ai passé 15 ans du US et je suis devenu américain mais j'ai passé énormément de temps en France récemment et j'adore la France et j'adore y vivre beaucoup plus si c'était juste pour vivre je serais en France pas aux Etats-Unis mais malheureusement j'ai été un peu dégoûté du système français enfin en fait je pense que le système français il peut marcher bien sûr pour créer des supers entreprises parce qu'il y a des gens brillants etc mais en venant de moi j'ai juste travaillé aux Etats-Unis toute ma vie et en essayant d'adapter ma manière de penser en France j'avais trop de freins"
+    },
+    {
+      "start": 5004.44,
+      "end": 5006.46,
+      "speaker": "carlos-diaz",
+      "text": "par exemple c'était quoi les freins ?"
+    },
+    {
+      "start": 5006.46,
+      "end": 5012.96,
+      "speaker": "ben-cera",
+      "text": "je pense que c'est en fait c'est vraiment sur les mentalités tu parles avec des VCs"
+    },
+    {
+      "start": 5012.96,
+      "end": 5015.02,
+      "speaker": "anji-ismail",
+      "text": "en France là ?"
+    },
+    {
+      "start": 5015.02,
+      "end": 5016.68,
+      "speaker": "ben-cera",
+      "text": "un petit peu"
+    },
+    {
+      "start": 5016.68,
+      "end": 5019.94,
+      "speaker": "anji-ismail",
+      "text": "des français en tout cas il y a des investisseurs français qui t'ont contacté un petit peu"
+    },
+    {
+      "start": 5019.94,
+      "end": 5118.82,
+      "speaker": "ben-cera",
+      "text": "un petit peu un petit peu mais c'est tout est plus compliqué en fait mais c'est je critique pas en fait la mentalité française je suis français donc je capte le truc mais c'est juste que moi j'ai été j'ai été j'ai grandi dans un univers business américain qui est beaucoup plus pragmatique et d'ailleurs qui ressemble beaucoup à la mentalité chinoise bien sûr c'est juste du pragmatisme les chinois ils sont encore plus pragmatiques que les américains mais les américains sont très très pragmatiques où c'est juste écoute qu'est-ce qu'on essaie de faire en fait c'est quoi la mission et genre même si on n'est pas d'accord on avance alors qu'en France en tout cas cette expérience que j'avais c'était beaucoup de on n'est pas d'accord et en fait qui va gagner le débat et il y avait plus de ça après j'ai pas bossé dans moi j'ai j'ai juste créé une société à Paris qui bon bref qui me je passe les détails sur cette expérience-là mais j'ai pas j'ai pas bossé chez Mistra j'ai pas bossé dans toutes les success stories et je suis sûr que ça marche et qu'on peut faire marcher le truc mais malheureusement moi je me sens tellement plus à l'aise aux Etats-Unis en fait tout est plus simple et les mentalités me conviennent plus et là j'ai juste envie de créer ce changement créer ce produit auquel j'ai mis toute mon âme et toute mon énergie et j'ai envie et je sais que c'est aux Etats-Unis que je vais avoir le meilleur tremplin pour en faire le terreau est plus fertile malheureusement il y a que là que je peux le faire là ou la Chine mais bon il faudrait que j'apprenne chinois mais j'ai très envie d'essayer de changer les choses en France mais bon je pouvais pas le faire déjà je pouvais pas le faire sans voix donc déjà j'avais pas de voix pendant le temps il y a deux semaines j'avais 10 views sur Twitter quand je tweetais un truc"
+    },
+    {
+      "start": 5118.82,
+      "end": 5126.92,
+      "speaker": "anji-ismail",
+      "text": "là sur LinkedIn c'est hallucinant LinkedIn tu postes il y a personne moi je pense qu'après Silicon Carne ça va exploser"
+    },
+    {
+      "start": 5126.92,
+      "end": 5140.06,
+      "speaker": "carlos-diaz",
+      "text": "moi je me suis barré de LinkedIn enfin je poste je continue de poster mais sincèrement il se passe rien tu dis des trucs sur LinkedIn soit tu t'as l'impression soit de faire chier ou soit que les gens ne comprennent pas en fait donc écoutez"
+    },
+    {
+      "start": 5140.06,
+      "end": 5142,
+      "speaker": "anji-ismail",
+      "text": "il y a un décalage horaire c'est le décalage horaire"
+    },
+    {
+      "start": 5142,
+      "end": 5165.76,
+      "speaker": "carlos-diaz",
+      "text": "ouais c'est pas du décalage horaire c'est du décalage culturel et sur Twitter là je m'y suis mis à fond depuis ce week-end mais putain ça réagit il y a des gens qui ça a changé et je suis sur X en français et donc la population de X la population francophone de X est beaucoup plus connectée effectivement à ce genre de révolution ça c'est clair"
+    },
+    {
+      "start": 5165.76,
+      "end": 5180.4,
+      "speaker": "ben-cera",
+      "text": "mais je pense la France c'est un très beau pays j'adore la France et je trouve c'est un des plus beaux pays du monde et je pense qu'il y a énormément de potentiel et moi je suis ravi d'essayer à mon échelle d'essayer de faire changer les choses mais après c'est peut-être d'inspirer je sais pas ou de"
+    },
+    {
+      "start": 5180.4,
+      "end": 5182.92,
+      "speaker": "anji-ismail",
+      "text": "ouais bien sûr non mais c'est ça ton rôle"
+    },
+    {
+      "start": 5182.92,
+      "end": 5194.1,
+      "speaker": "ben-cera",
+      "text": "mais je te sais et je suis ravi d'ailleurs que vous vous essayez à votre échelle d'essayer de discuter d'inspirer les gens je pense que tu vois"
+    },
+    {
+      "start": 5194.1,
+      "end": 5307.46,
+      "speaker": "anji-ismail",
+      "text": "la France il y a plein d'ingés qui ont un milliard de side project à moitié commencé et ils n'ont pas confiance en eux d'un point de business à cause de tout ce que tu viens de dire et je pense que Polsia c'est parfait pour eux c'est genre c'est littéralement fait pour l'ingé qui fait des side business en France parce qu'ils ont des bonnes idées ils ont de bonnes capacités d'exécution mais il leur manque le petit coup de pouce comme tu dis c'est dur c'est encore plus dur en France pour faire son truc et là je pense que c'est l'outil parfait pour ça comme je disais c'est le startup studio mais sans être adoubé par le système je trouve ça vraiment génial je voulais juste dire tu n'as pas besoin d'essayer de changer la France je pense que déjà ce que tu fais c'est un exemple pour plein d'entrepreneurs français qui sont à l'étranger et en fait il faut juste le faire au mieux que tu peux et tu es allé on a vu dans ton profil que tu étais cofondateur d'une boîte avec Travis Calacanic pour ceux qui ne savent pas que Travis c'est le fondateur de Uber donc c'est quand même quelqu'un qui a révolutionné une industrie et qui est en train de révolutionner d'autres et en fait c'est ça qu'on a besoin en fait ça va venir c'est à dire que Uber quand c'est arrivé en France tous les taxis ils faisaient grève voilà c'était et aujourd'hui ça fait partie du paysage de toutes les villes françaises elles vont avoir le service Uber Uber Eats etc donc je pense que le meilleur pays pour faire ce genre de choses genre pour faire Polsia ça reste les Etats-Unis il faut que tu le fasses et tu brandis le drapeau français de temps en temps peut-être le coq de la French Tech de temps en temps et en fait tu vas te sens pas obligé mais tu vas emmener genre 300 gars qui sont dans leur chambre et qui vont faire des trucs de malades grâce à ça donc le système changera mais il faut faire avant de demander à qui à quoi l'autorisation parce que ça c'est qu'aux US"
+    },
+    {
+      "start": 5307.46,
+      "end": 5329.56,
+      "speaker": "carlos-diaz",
+      "text": "il n'a pas besoin de demander la permission à qui que ce soit pour être sur la photo bon écoutez merci beaucoup c'était génial merci pour cette conversation merci Ben d'être passé on va suivre ton projet j'espère aussi que ton passage dans Silicon Carne va être tiens tu nous diras d'ailleurs comment est-ce qu'a augmenté ton annual recurring revenu depuis le passage dans Silicon Carne comme ça on pourra te demander tout sur le referral"
+    },
+    {
+      "start": 5329.56,
+      "end": 5334.4,
+      "speaker": "anji-ismail",
+      "text": "tout sur mon referral allez et utiliser le referral"
+    },
+    {
+      "start": 5334.4,
+      "end": 5369.12,
+      "speaker": "carlos-diaz",
+      "text": "d'Anji bon ben merci à tous encore un super épisode de Silicon Carne rendez-vous rendez-vous quand rendez-vous samedi mais samedi ça sera un off the record avec une autre personne Yoann Drahi de limova.ai qui met en place des agents justement en France pour faire percer l'intelligence artificielle auprès des petites et moyennes entreprises c'est passionnant il y a une énergie de malade et il aide aussi à démocratiser l'utilisation de l'IA dans les petits les petits business en France et il le fait super bien"
+    },
+    {
+      "start": 5369.12,
+      "end": 5385.82,
+      "speaker": "oussama-ammar",
+      "text": "voilà hasta luego amigos bye bye à bah bah bah bah bah c'est"
+    }
+  ],
+  "slug": "anthropic-vs-pentagone-le-coup-de-poker-de-dario-amodei",
+  "id": "48"
+}

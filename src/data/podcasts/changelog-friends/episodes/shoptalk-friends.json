@@ -1,0 +1,710 @@
+{
+  "title": "ShopTalk & Friends",
+  "description": "Chris Coyier and Dave Rupert join Adam and Jerod to discuss web viability, content monetization through advertising, CodePen's future, and how social networks are devaluing links.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/72",
+    "MP3": "https://cdn.changelog.com/uploads/friends/72/changelog--friends-72.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "jerod-santo",
+    "chris-coyier",
+    "dave-rupert"
+  ],
+  "segments": [
+    {
+      "start": 14.54,
+      "end": 33.28,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to changelog and friends our weekly talk show about the viability of the web platform a big big Thank you to our friends and our partners over at fly.io Yes, the home of changelog.com and the home of the public cloud for developers who ship those who are productive. That's you"
+    },
+    {
+      "start": 33.3,
+      "end": 40.22,
+      "speaker": "adam-stacoviak",
+      "text": "That's me. That's us learn more at fly.io Okay, let's talk"
+    },
+    {
+      "start": 40.22,
+      "end": 67.8,
+      "speaker": "adam-stacoviak",
+      "text": "What's up friends? I'm here with Jasmine Casas from Sentry They just wrapped up their launch week and they're always shipping. So yes, what do you think about? Sentry's mantra of always be shipping So to me Sentry always shipping is just in the spirit of iteration and constantly improving what we're doing to make"
+    },
+    {
+      "start": 68.02,
+      "end": 181.63,
+      "speaker": "jerod-santo",
+      "text": "Developers ship with more confidence. We're always listening to our customers needs and pain points We're always iterating on products that we have launched and on top of that We are also even if we look at things that customers haven't explicitly asked for we are trying to innovate and provide Solutions that I think would be really beneficial to help developers debug with more confidence. I love that So I know there's been an addition to one of the features out there that kind of exemplifies that can you share more? Yes so something that the team has been developing for a long time and is currently an open beta is our Mobile replay product so historically replay has always been for web But now we have brought it on to mobile specifically Android iOS and react native So this allows our developers no matter what stack they're using to get video like reproductions that actually help Users see the repro steps that led to an error and also understand the user impact of an error Okay, Sentry is always shipping always helping developers ship with confidence. That's what they do Check out their launch week details in the link in the show notes And of course check out session replays new addition mobile replay in the link in the show notes as well And here's the best part if you want to try sentry you can do so today with a hundred dollars off The team plan totally free you to try out for you and your team use the code change log go to sentry.io again sentry.io You've capital cased Chris with several exclamation points and Dave you you did not you sentence cased I'll fix it. I fixed it. I'm Yeah, here we go. I'm on brand now. Oh, look at that. Do you think a web socket was involved there?"
+    },
+    {
+      "start": 181.63,
+      "end": 267.27,
+      "speaker": "adam-stacoviak",
+      "text": "What technology is used here to to send data? It's a web socket. Yeah I haven't actually looked under the covers, but I would assume it's a web socket. Yeah, it's not we're power We passed long polling is that over? I definitely long pulled in the last years, too Yeah Have you cool? I think I have to I can't remember why exactly but sometimes the basics do you're right? Well, how often do you need to be actually real-time? It's just more and more I've been I've been bathing in it because of our As of yet unreleased codepen 2.0 is just very very real time Okay, and it requires various technologies to do so I was gonna say if you become a mob. Yeah at this point. We're just like I guess it's too hard So we've used this coming up ably. Have you seen them or just like screw it? We'll just send everything through that through that machine Which uses whatever they need to use and it's not always the same thing Depending on what API's of theirs you use, but I love outsource I was gonna say if you become a mob ex dork like podcasts over And The podcast No, I'm a fan though, they're not a sponsor I'm sure but they should be heck yeah cuz they're it's good technology a bly Check it out. Now. Does codepen have sponsors as well as your other properties like shop talk. Yeah, we totally do"
+    },
+    {
+      "start": 267.27,
+      "end": 276.67,
+      "speaker": "jerod-santo",
+      "text": "We're probably you know, there's a piece of the revenue pie. That is that is advertising It's complicated for me because advertising has been good for me in my career for sure"
+    },
+    {
+      "start": 276.67,
+      "end": 284.23,
+      "speaker": "adam-stacoviak",
+      "text": "you know and I'm kind of a fan like advertising at its best is is Companies that are hyper focused on their product that need to reach an audience"
+    },
+    {
+      "start": 284.23,
+      "end": 379.43,
+      "speaker": "jerod-santo",
+      "text": "but they don't have the staff and expertise to do it because They're busy building an awesome product and then they reach out to the media or whatever whose Expertise is building an audience through good content and that's you know, that's a perfect ying-yang to me, right? And I like that I don't I don't think that needs to change really the problem is it's of course The real story is just way grosser than that, you know and companies get you know Crazy with their tracking stuff and that right product companies get into advertising too so the real story is messy, but I I'm still attracted to the Simplicity of of good advertising when done. Well, it's amazing, you know when done well Yeah, and I you know, I would like to you know in codepen It's I'd like to be such a platform that that it would feel silly to have an ad on it Frankly not not no that doesn't offend any marker and advertisers But imagine, you know getting a github email or something and having it there be a big ad on the bottom It just it feels not right like github would never do that. They make their money because they're a Through all the ways that they make money advertising not being one of them. It just doesn't feel right You know, I want to be that someday Grow up tasteful ads. That's what I'm I'm for well placed. Yeah. Yeah when you expect them well considered Yeah, semi opt-in in a way, you know like with a podcast you kind of opt in because you know that your podcast that you're listening to is ad supported and You kind of expect the ad to be there. Where's like a github email or a co pen email? You're like, hey that doesn't belong there. All right, that's not a well placed ad"
+    },
+    {
+      "start": 379.55,
+      "end": 385.51,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I had a carbon ads on my site for a long time and it was great great"
+    },
+    {
+      "start": 385.51,
+      "end": 442.27,
+      "speaker": "jerod-santo",
+      "text": "I know good company and I made like 20 whole dollars a month, you know I'm on Hacker News or whatever $20 man, you know and in the click-through rate on those ads is like a Hundred X industry standard like it gets ten clicks versus one, you know And like so it's a good ad and you're saying, you know I know it's still 20 bucks and it's like at the bottom of a website like it's very discrete Like you're probably doing more for the ad network than they were doing for you at that point because they get to say oh You know get your ad on this the site that you know, other developers will recognize X thousand impressions and yeah but I just kind of like, you know, I I think It just it's like I don't know just seems like even that experience with a good ad company and I was getting clicks I wasn't like Raining, I wasn't making boat money, you know"
+    },
+    {
+      "start": 442.27,
+      "end": 551.13,
+      "speaker": "adam-stacoviak",
+      "text": "And so what would that number have to look like Dave or to become like all of a sudden you start thinking do I need? Maybe I could just write. Well, yeah, I think I think you know, I I've heard like youtubers or something, you know Where it's something like it's the thousand marks, you know at 1,000 Subs or 10,000 subs like, you know, I think you're getting Into the like this is a chunk of change I can pay attention to or have fun with and then like, you know a hundred thousand subs You're in the like quit my job territory, you know And those these are probably like let's say like five thousand dollar increments or something out three thousand dollar increments And so like then you're like but then when you get to like the millions or whatever then it's like yeah I should quit my job, you know, so it's all I don't know. It's interesting I don't know what the I'd kind of contemplate like what if I just gassed it, you know, just Post just doing it, you know every day. Boom. Boom. Boom. Boom doing it and like really this is a secret Dave dream Well, I I tried and it was just like dude I'm going to die doing this I'm I'm a post a week person not opposed, you know five posts a day person, you know So I'm sure somewhere inside of you, you know what the real answer is. It's like you can't it's not good quality vegetables information It's just incendiary crap. It's clickbait. It's you know, five ways to use border radius. It's all that you know, you Find some drama. I mean look at all the biggest channels do that. Yeah, I mean, I don't know Maybe it's not quite that simple But well in my all my best content comes from my job like doing a job that pays money You know, like right like I learned hard lessons by trying dumb ideas, you know We have a tough niche in that way as that all of us do that"
+    },
+    {
+      "start": 551.13,
+      "end": 614.61,
+      "speaker": "jerod-santo",
+      "text": "You none of us would listen to a developer show where the developers weren't developers. All right, you'd see right through it Yeah, that was something I learned pretty young actually in college because I had college professors teaching me computer science and it was Fine, but it was like stodgy and outdated stuff and I was like, why are you teaching Perl when Ruby on Rails exists? Just one question. I asked my web development class teacher and he was kind of like well cuz I know Perl I'm like, okay fine But then I had one adjunct professor who was a databases guy and it was a night class because he worked all day doing databases And then he came and taught a class one night a week when you liked his real-world Action, well, he just understood it in a way that I felt like the other guys didn't And maybe it's just my hat my selection of teachers and all that But I was just like okay adjunct is this guy's living in it every single day And so he doesn't bring back hypotheticals to teach us stuff He like actually shows us all dealing with this at 3 p.m. This afternoon and I thought that I had a lot of weight to it Mmm, and so yeah having actual"
+    },
+    {
+      "start": 615.31,
+      "end": 618.45,
+      "speaker": "adam-stacoviak",
+      "text": "Real world code out there. Mm-hmm and being into it"
+    },
+    {
+      "start": 618.45,
+      "end": 621.75,
+      "speaker": "jerod-santo",
+      "text": "I think is a big part of it which has been a struggle for me"
+    },
+    {
+      "start": 621.75,
+      "end": 624.95,
+      "speaker": "adam-stacoviak",
+      "text": "honestly as I've gotten further and further into the editorial process of like"
+    },
+    {
+      "start": 625.67,
+      "end": 718.4,
+      "speaker": "jerod-santo",
+      "text": "continuing to build and setting a time aside to Actually experiment and tinker and build stuff that ships. I don't want to lose that edge Yeah Do you think that I feel like I came away from I set down for a meeting with as a college here in town In Bend, Oregon, Oregon, whatever School of Cascades. I just butchered that I didn't go to college there Cascading Oregon she's like a CSS school or good State University Whatever it is the Cascades branch of it and in a way we just got to talking about the curriculum that they have for computer science and it was like it they do make an attempt to Have people come in from the real world and talk they have all kinds of mechanisms for this during the classes They have extra stuff There's like ways to have people that are in the industry talking to them and I was happy to do it and did it after That meeting and it went well, I thought it was cool But then she's talking about just the curriculum as it is It's not like stodgy, but it's not I don't even think it's Ruby on Rails, you know Not that it's older than that necessarily, but it's really fundamental stuff That's not that doesn't concern itself with the technology does you are really? because a lot of it is just like here's how you put some data in a database and the purpose of it was so fundamental of technology that it doesn't need to and probably shouldn't change every single year Because there's also human beings that need to teach it and those human beings need a little time to get good at what they're saying And if you change it every year, then then they're just not getting there"
+    },
+    {
+      "start": 718.72,
+      "end": 779.18,
+      "speaker": "adam-stacoviak",
+      "text": "That's part of it and part of it is like it doesn't even matter because it's like the concepts of like whatever an index on An SQL database is like not changing that much right anyway Yeah, striking the balance is definitely important and I don't think that you should just always teach the framework du jour There's a certain point at which you look at a curriculum you say this is 15 years out of date but You know next JS 11 in your College web dev course I know that's so old Jared. It's like 15 now or something that was that's true They just released 15 and it annoyed me because I'm like it's based on a react 19, which is not stable yet So you're like really we're shipping stable frameworks with unstable or unstable meta frameworks with unstable frameworks underneath it That's a mouthful I have just completely avoided next JS not because I'm against it But because I just have been able to avoid it you guys. Yeah, I guess build with that toolkit Dave"
+    },
+    {
+      "start": 779.18,
+      "end": 831.86,
+      "speaker": "jerod-santo",
+      "text": "I do I like Christos. I don't know. I'm in web component land. So full-time. So that's kind of where I'm Existing so is that the promised land? I hear web component land is the promised land. Oh, well Yeah, I'd be happy to share the good news of web components with everybody here at the changelog Let's hear it tell us the good news Dave Dave's the president imagine a war I'm the president web components. That's a well-known fact You know, you can be the president if you just say you are it's funny. It's one It's kind of a cool thing about being a president. So I I mean it's again like Framework turn meta framework turn I don't exactly have that problem because Not using a framework, I mean we in web component land you use the library typically"
+    },
+    {
+      "start": 831.86,
+      "end": 838.48,
+      "speaker": "adam-stacoviak",
+      "text": "You know fast is the one I use for work lit is what I kind of enjoy using"
+    },
+    {
+      "start": 838.7,
+      "end": 841.94,
+      "speaker": "jerod-santo",
+      "text": "But I'll even write a vanilla web component from time to time"
+    },
+    {
+      "start": 842.72,
+      "end": 922.46,
+      "speaker": "adam-stacoviak",
+      "text": "Not my favorite because they're like ergonomically it feels like antiquated but it's totally doable You just chuck some HTML into a shadow root and there you go But hey, but web components are I don't know it's they're pretty easy to write They're super easy to read and reason about their class base, which is drives. I think people who are into functional monads crazy, but they are it's pretty predictable when you hop into a web component and even if like Let's say I've multiple times converted a lit component to a fast component is pretty easy was it Yeah, like a lot of the methods are the same or the concepts are all the same unconnected callback Yeah There's prescribed names and then you know And you you take a template you take some styles and you take a class and you smoosh it together to achieve a Packaged web component and so like, you know switching frameworks isn't a huge deal for me right now I mean if I had thousands of components, it might be a whole weekend of my life, you know But uh, even if like all of these died and I had to go back to vanilla web components, that would be Achievable as well. It wouldn't be the end of the world So I think we're committing like the baby sin though of being like next JS versus web components"
+    },
+    {
+      "start": 922.46,
+      "end": 1080.38,
+      "speaker": "jerod-santo",
+      "text": "Which to pick which is like not the dichotomy that should be painted Because those things even can work in react which I know is always Caveated with the like react didn't like web components for a long time It's still doable and it's getting gotten a lot better and 18 and 19 and stuff But also react isn't the only framework in the world. They sure work great with all kinds of other frameworks, too So it's not a versus thing and in fact I think it's a almost problematic to think of it in that way because it's like web components has no story for Routing and state management and all these things that are the reasons that you pick a Framework or some of the major reasons and that they can work together Dave has convinced me talks about leaf nodes about these little The smallest of the things the ones that don't have a bunch of other children and stuff are great use cases for Web components and that can happily exist in your svelte kit app, you know Your whole design system could be web components. Whereas the website that you're producing can be in a view app or whatever Yeah, it gives you a lot of freedom is kind of the ultimate answer Like I mean you can generate your app with C++ I mean like anything that spits out HTML can generate web components, you know 11d astro are also good candidates because they are Like pretty just HTML forward and how you author and use them But you know, I think you mentioned Ruby on rails like web components work great and Ruby on rails You just put them in there, you know, if you've ever tried to staple Ruby and a react app together If you've had that wonderful experience, it's not my favorite but web components work pretty great in that context Yeah, I think and we're seeing a lot of sort of gains just work on lower end devices less memory usage things like that So it's been kind of a boon for the work. We're doing so I think the false dichotomy Chris has been somewhat promulgated by a lot of the online dialogue specifically coming from some framework authors around web components and calling them things like The most dangerous thing to the future of the web and I can't remember the exact quote But it's like now you're making me feel like there is just two sides and like there's side web component and then there's side Framework component or whatever you want to call it react slash solid slash what-have-you And as working developers, like we're busy We're trying to build stuff and like we're trying to keep up but we don't have All of us the time to like dive into the milieu of that debate and understand that next JS"
+    },
+    {
+      "start": 1081.12,
+      "end": 1122.72,
+      "speaker": "adam-stacoviak",
+      "text": "Doesn't rule me out from using web components in the way that you just described We just see like this versus that and it's hard to break through that and we just write it off and move on Yeah fair enough. I don't know how he actually fixed that but I think it's like there's some of that going on I don't know because they're not entirely wrong either You know That's what makes this such a juicy thing to think about is that is that you might make a card component and react and name it capital C card and call it and use it and You also might make a card web component. Like those are two things you can do that is comparable, right? That is straight up one-to-one comparable and it can be complicated because you're used to and react like well I'll just use the on click"
+    },
+    {
+      "start": 1122.72,
+      "end": 1178.54,
+      "speaker": "jerod-santo",
+      "text": "Attribute then on the button and the on click will call my use state thing and it will will change Some state or whatever. It's all these things that you like can't do in at least not in the exact same way Web component so then how do those two worlds clash? You know, how can't you see having that be your first experience and then being absolutely annoyed with web components like That doesn't work. You know, I'm not gonna wire this up a totally different way. Why would I use this? Yeah, I Don't know Dave's also said that everybody's first experience with the shadow knob sucks Yeah, which is funny too is it takes you a minute to work on them? And then you're like, oh I get what this is for. But that first run-in you have with it. You're like, what the hell? Yeah, I guess the question really is Dave how do you get to live in web component land like how do you get to have That choice to not bounce and dance around the frameworks and you get to live in your own blessed land to be fair"
+    },
+    {
+      "start": 1178.66,
+      "end": 1376.89,
+      "speaker": "adam-stacoviak",
+      "text": "Like, you know, I've come from a lot of like building my own CMS's Ruby on Rails cake PHP things like that And then a lot of you know dynamic stuff and then went into kind of bit by the static bug You know a lot of Jekyll 11 D astro a sort of work Some clients wanted like web flow and stuff like that and then did a startup wrote that in view That was in view in view to Nuxt JS But you know, we were unable to make the jump from two to three because it was just like so much code and so much Work for a small team, but for the last like seven months I've been working at Microsoft and so and their Teams at Microsoft are kind of betting heavy on on web components to solve some pretty what would you say? necessary performance Profiles, you know if you think of Windows a full disclaimer, I don't speak for Microsoft So there may be things I can't say I can't say I don't really know But the like if you think of Microsoft is a company that makes oh an OS, right? It has a browser but then like they don't control the hardware of that OS right the OEM ultimately does and I mean you all have seen different devices that are good and bad and you know, you're like stereotypical Windows devices that like Dell under your uncle's Big wood cabinet that also has like a big CRT monitor in there, you know classic Yeah classic, but then you know at the other end there's like all these gamer pcs with like LEDs and like, you know You know tricked out. Yeah fully tricked out pcs that like mine bitcoins and water-cooled Yeah, exactly stuff and then like, you know, but then there's all these you know, but that's just an example but You can kind of see like when you Break out of the classic $3,000 laptop realm you start to see a wide array of performance profiles that you your Products have to meet and so that's kind of where web components are fitting in So so if we go back to your conversation around your humble website and your age your front page hacker news Traffic that brings you, you know n dollars per month where n is not Significant enough to like double down or triple down the stands for not significant I'm not trying to rub it in. I'm just trying to get this back there No, you think like oh man if I got on hacker news, I would be famous and I would I would be great It doesn't work. It's like literally four hours of like server sweat. That's right. That's like it's just it's not You're just like please don't fall over because I don't want to deal with that Yeah, we front page enough times and though it's like it's like also the most fickle traffic you'll ever get in your entire life That's it, right? You don't want that traffic. I mean you do you'll take it, you know, but you what you want is just like organic Google You know search engine traffic and that story is even changing too, but those people are like looking for something They have a job to be done in their mind They're like I need to learn how to do this thing, right? And then they might find it on your website or they might be like, I don't know Maybe this other link will have it, you know, and that's where you're getting the clicks and stuff, right? which was the beauty of CSS tricks because it acted not only as your blog Chris, but also as this wealth of"
+    },
+    {
+      "start": 1377.73,
+      "end": 1528.99,
+      "speaker": "jerod-santo",
+      "text": "Returnable organic information that people find solutions to their problems. Yeah, it was this long tail thing Exactly and you created a beautiful business around that and what I was trying to bring it back to Dave not to just pick on You about your you know end dollars per month, but just thinking about 2025, you know You guys are very much website folk as are we but I'm wondering about the viability of a website in 2025 like Now, of course, we if we think about content site versus driving a business or apps I mean obviously codepen is a web app website play as a business, right? But if you're starting in today, we're at the end of 24 here for those listening in the future Is the web a viable platform in 25 to start a website and then drive traffic to that website and make money somehow Well, I think in the last year or so we've witnessed the Completely self-inflicted Implosion of an entire social network wouldn't have been nice to have all your stuff on a website as opposed to threads on Popular social media site sure like so in my mind a website has become more valuable in 2025 than years prior even sense of ownership and longevity in owning your content. I mean Literally, there's a case before the Supreme Court where Elon Musk is saying I want to know I own infowars.com Like I the onion I have yeah, I own at infowars. Oh the handle Okay, cuz the website was bought by the onion, right? Yeah onion bought it and they're like that Twitter handle is an asset that we want I see and Elon happens that happened to CSS tricks, you know I had at CSS and part of the sale was it is that digital ocean got that handle and You know Elon in this case could have been like nope. You can't make that part of the business transaction right actually mine It's actually mine, which is technically true Right. I suppose. Yeah, I mean it is even back before Elon Twitter could reassign a handle and I remember doing that Much to the I mean, even if we go to NPM and the kick handle that's what created the left pad debacle"
+    },
+    {
+      "start": 1529.69,
+      "end": 1587.43,
+      "speaker": "adam-stacoviak",
+      "text": "Was the author of the left pad NPM package also owned a package called kick kik Remember that and kik was a startup and they contacted NPM and they said we're a startup and we want to publish a package called kick kik it's true and this guy owns that and NPM took it from him and gave it to the kik startup and then the dude pulled all his packages including left pad That's how that went down. I remember left pad, but I didn't remember that yeah, that's how it it went down He was he was upset like that could happen that you can use pissed Yeah but they but they were within their rights to do that because Every NPM handles owned by NPM and every Twitter handles actually owned by Twitter slash now Elon Musk, right? They're like internal business decisions, there's no law Yeah, which sucks and today's point like you don't own that property, even though you're investing in it all these years, right? Yeah, but you don't own it. Here's one for you github.com slash"
+    },
+    {
+      "start": 1587.43,
+      "end": 1752.61,
+      "speaker": "jerod-santo",
+      "text": "change log Who's got it? Who's got it? Not us. So at 404s, it's protected. This is an example of it Yeah, we're at we're just github.com slash the change law because we cannot be changelog because they Are probably using it internally we've asked over the years from the outside. It's for a foreign. So that just means that Yeah, so what do you care? Yeah, right and we've had plenty of people that like yeah We can get you that because they work there even high up and then they're like now we can't but it's likely being used Or protected that's the thing like it may be used Internally just in case right so and then can you like that's the real tap on the shoulder is like hey Can you give it to me and and redirect every single link? That's right. That's linked from one to the other. Otherwise, it's not that useful to you I don't think right because I'm sure there's all kinds of links to it that you would wreck and it's like why why bother well For us we're just it's just anal retentive. Like we just want to head it the same everywhere, you know, that's kind of us We're like, we just want to be changelog everywhere. See that's where I wonder if reddit one because they have the slash you always Oh, it's so smart. Oh my god in lots of ways reddit did kind of win didn't they? I mean, yeah I mean, they're still kicking well, and they don't sit around like oh, I want to add a route But I have to kick somebody, you know, like they don't have that problem We have a file in our in our app called username underscore blacklist dot RB because the signup process is still rails, right? It's a little service we have and every time we invent some new little thing We need a new route of any kind We have to remember to go into the username blacklist and make sure that that route is not a taken username Otherwise we risk somebody signing up for it or something and having it conflict with the routing. It's just a silly little detail In there has been a few cases where we had to kick somebody off a username, you know Like they have the username account or something. It's like we need slash account to do something. We're like, oh, sorry You can't have that. I don't think anybody's ever cared. There's never been like a high-profile case of it, but it isn't right I originally signed up as slash I am G and Chris kicked me Chris Yeah, try to get API It's a good little hack there, you know, so we got here because Dave's argument was that you don't own your own content the Elon's of the future owners of Twitter slash X slash Meta slash face, whatever pick your platform where you got ownership of some sort of handle you feel like is yours because you Have claimed it but the platform owner and the conglomerate it may or may not be is the true owner and that's the challenge"
+    },
+    {
+      "start": 1752.61,
+      "end": 1758.01,
+      "speaker": "adam-stacoviak",
+      "text": "That's the rub is the viability of the web. Is that it's true on code pen too. I actually own your thing"
+    },
+    {
+      "start": 1758.01,
+      "end": 1844.03,
+      "speaker": "jerod-santo",
+      "text": "Sorry, that's right. You know, like I've tried to be cool about it and I value stuff exportable and and all that Yeah, but if we really need a username or something, I'm afraid that's an internal decision by us Okay, I got it. I got one more thing here code pen dot IO slash changelog slash changelog. It's four fours Come on, Chris fours on our system. That means it's just open and you can just have you can just go Okay, sweet. Go grab it Adam. We'll have to clean that quick. You've got t-minus. However many days Or till Chris rose it in his Ruby file and we can't have it I there was a Hank Green video the other day internet personality Hank Green and You know, it was like a mastodon verse Twitter or versus blue sky kind of thing Which at the time of recording blue sky is the new hotness that we are talking about if you're listening to this in the future Again, yeah, it's the new hotness again. Yeah He was you know, he was kind of saying like sadly like famous guy on internet complaining. He's not getting enough likes I'll give it like he was like I posted this here and I posted this here and I feel like this one got shadow banned because I mentioned blue sky because I posted it Without the word blue sky and it got more likes the next time, you know It got more engagement like eight minutes later or whatever So like it's kind of weird maybe some anek data or evidence there"
+    },
+    {
+      "start": 1844.21,
+      "end": 1863.57,
+      "speaker": "adam-stacoviak",
+      "text": "but it also just goes to show like there's also this theory that he exposes that is like Facebook and in Twitter are and maybe even I guess like LinkedIn I don't even know but these social networks also, let me say that these social networks are kind of like"
+    },
+    {
+      "start": 1864.45,
+      "end": 1869.51,
+      "speaker": "jerod-santo",
+      "text": "Impeding the like views the algorithmic views of things with links in them"
+    },
+    {
+      "start": 1869.51,
+      "end": 2009.97,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, because they are they want you on their own site a link is a bounce out. It's not doesn't keep you there. So Better to like a hundred percent offends me so horrible. It's a hundred percent true, right? Well, yeah I would love to see more data on it It seemed like well, it was right there because Twitter did quote-unquote open source their algorithm Oh, you can go read it right in there than specific Now the other ones are all kind of reading the tea leaves so I won't say it's a hundred percent to run LinkedIn But everybody who studies LinkedIn will tell you that it is true I know at one point in the Twitter open source algorithm. It's right there like devalue if it has an external That makes me so sad just yesterday as I sat down. I saw a cool. This is good content for a podcast Anyway, look look up number flow. It's a really cool Component and they make it for react view and spelt even though it's a web component under the hood It probably should offend Dave personally that they should just let make the web component usable But it's so beautiful. Like just click those numbers the shuffle button at the top of the number flow websites So beautiful, you know and I was like I'm gonna show people this in a video so I just record myself as a little video I'm like, I'm gonna play with I'm gonna show people how to use it on codepen to you know So now I have this little video that I want to share on my social networks And then I go to write a little tweet for it from the from the codepen account codepen is still a little bit on Twitter because I like it's harder to stomach getting rid of that for for business perspectives It's like it's like easier personally, but I don't spend a lot of time there But if I shoot a video like this, I still want to do a tweet for it, you know So I write out the tweet and I say oh look at this is a really classy web component I put the video on there and then I'm like, huh, but it doesn't feel right to not put the link to the thing You know Like I feel like it's too weird to like I'm just playing to the algorithm if I don't put the link or I do this Stupid little thing where you reply to it and then put the link in the reply. It just makes me vomit for some reason I hate it. That's why it's there for a lot of accounts that when you see that on there I've seen they're just playing with the algorithm, you know They're just they just know that if you put an external link in the main tweet It's gonna get devalued and so they put it in. Yeah, that's what makes me just barf in my mouth I can't deal with it. So I put the link in the thing. I'm like, I don't care you just devalue me then I'm putting I'm putting the link in the tweet. I just I'm doing it. So sorry like our little form of rebellion, you know"
+    },
+    {
+      "start": 2009.97,
+      "end": 2022.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah, but it just it like it attacks what's good about the web like like ever sent aggregators people who share links Like I found this this is cool. Like that is like what that's the the fabric"
+    },
+    {
+      "start": 2022.35,
+      "end": 2105.67,
+      "speaker": "adam-stacoviak",
+      "text": "That's the webbing of the web and we just like give it up But you know like my favorite blogs are blogs that link to blogs Followed by blogs that write blog posts about other blog posts. Those are like the two best blogs Like when I'm on the verge and they're talking about a product and they don't link to the products website I get so mad You know, I'm just almost like blood rage Like please just link to the thing you're talking about spend time fleshing out your description link to everything if you can Yeah, well all the pertinent things at least if it was a main highlighted thing for sure try to link out to it You know, yeah, I mean if you're reviewing a thing, yeah, I mean where we probably ebbed and flowed in our in our Ability to fully best execute show notes Jared over the years like sure we've done pretty well I would say right I feel like the more podcast we produce per week the harder it is to make awesome show notes every single time and now back Of the day we used to like hand write sentences and it was a much more bigger deal Well, can you our solution to it, which is not I don't I'm not saying this is the way to go But we don't put links in the transcripts either because I think that's really hard to like the moment I I say the word ably again to link that to ably. Well, that's it's a tall order there Instead we just put a pile of the most relevant links at the top"
+    },
+    {
+      "start": 2105.67,
+      "end": 2327.22,
+      "speaker": "jerod-santo",
+      "text": "Just be like links from the show and it just will just have ably in the list up there That's basically what we do a list of links and we try to get them all I like your stuff with that. You're like, I think you actually use the terminology just links That's cool. Yeah, just just links. Here's links Yeah, and I think we do something similar where it's just like a notes section and it could be a paragraph It could be links. It could be a list. It could be an image, you know It's similarly like it's almost like a blog post in a way and like in terms of what it can contain It's not just links. I've seen people go deep deep deep on their show notes and I have respect for it But I also just think that's a lot of depth on show You are SEO'd bud You know, and now it's all AI there's AI generated show notes and it's all you know, it starts to get where it's like Oh my goodness What's up friends, I'm here with Kurt Mackey co-founder and CEO of fly as you know, we love fly That is the home of changelog.com. But Kurt, I want to know how you explain fly to developers Do you tell them a story first? How do you do it? I kind of change how I explain it based on almost like the generation of developer I'm talking to so like for me I built and shipped apps on Heroku Which if you've never used Heroku is roughly like building and shipping an app on Vercel today It's just it's 2024 instead of 2008 or whatever and what frustrated me about doing that was I didn't I got stuck You can build and ship a rails app with a Postgres on Heroku the same way you can build and ship a next.js app on Vercel But as soon as you want to do something interesting like as soon as you want to at the time I think one of the things I ran into is like I wanted to add What used to be like kind of the basis for Elasticsearch? I want to do full text search in my applications You kind of hit this wall with something like Heroku where you can't really do that I think lately we've seen it with like people wanting to add LLMs kind of inference stuff to their applications on Vercel or Heroku or Cloudflare or whoever these days they've they've started like releasing abstractions It's sort of let you do this, but I can't just run the model I'd run locally on these black box platforms that are very specialized for the people my age It's always like Heroku was great But I outgrew it and one of the things that I felt like I should be able to do when I was using Heroku Was like run my app close to people in Tokyo for users that were in Tokyo and that was never possible for modern Generation devs it's it's a lot more Vercel based It's a lot like Vercel is great right up until you hit one of their hardline boundaries, and then you're kind of stuck There's another one. We've had someone within the company I can't remember the name of this game But the tagline was like five minutes to start forever to master It's sort of how we're pitching fly is like you can get an app going in five minutes But there's so much depth to the platform that you're never gonna run out of things you can do with it So unlike AWS or Heroku or Vercel which are all great platforms The cool thing we love here at changelog most about fly is that no matter what we want to do on the platform We have primitives we have abilities and we as developers can charge our own mission on fly It is a no-limits platform built for developers And we think you should try it out go to fly.io to learn more launch your app in five minutes Too easy. Once again fly.io and I'm also here with Kyle Carberry co-founder and CTO at coder.com and they pair well with fly.io Coder is an open source cloud development environment a CDE You can host this in your cloud or on-premise. So cow walk me through the process a CDE Let's developers put their development environment in the cloud walk me through the process They get an invite from their platform team to join their coder instance"
+    },
+    {
+      "start": 2327.38,
+      "end": 2347.86,
+      "speaker": "adam-stacoviak",
+      "text": "They get a sign in set up their keys set up their code editor. How's it work step one for them? We try to make it remarkably easy for the dev. We never get any features ever for the developer They'll click that link that their platform team sends out They'll sign in with OIDC or Google and they'll really just press one button to create a development environment"
+    },
+    {
+      "start": 2348.3,
+      "end": 2385.5,
+      "speaker": "jerod-santo",
+      "text": "Now that might provision like a kubernetes pod or an AWS VM You know, we'll show the user what's provisioned, but they don't really have to care from that point You'll see a couple buttons appear to open the editors that you're used to like vs code desktop or you know vs code through the web or you can install our CLI through our CLI you really just log into coder and We take care of everything for you when you SSH into a workspace. You don't have to worry about keys It really just kind of like beautifully magically works in the background for you and connects you to your workspace We actually connect peer-to-peer as well You know if the coder server goes down for a second because of an upgrade you don't have to worry about Disconnects and we always get you the lowest latency possible"
+    },
+    {
+      "start": 2385.5,
+      "end": 2440.48,
+      "speaker": "adam-stacoviak",
+      "text": "One of our core values is will never be slower than SSH period full stop And so we connect you peer-to-peer directly to the workspace. So it feels just as native as it possibly could very cool Thank you cow. Well friends It might be time to consider a cloud development environment a CDE and open source is awesome And coder is fully open source. You can go to coder calm right now install coder open source Start a premium trial or get a demo for me my first step I installed it on my Proxmox box and played with it. It was so cool. I loved it again coder.com that's coder.com I understand the networks out there wanting to contain subcontain and not like in deprioritize link. I understand Where that thought process comes from? but at the same time like wow, what if you just play to the strength of"
+    },
+    {
+      "start": 2441.1,
+      "end": 2492.44,
+      "speaker": "jerod-santo",
+      "text": "The people and the aggregators as you said they've or just people who are happy to share where things came from and Like wow, what a social network who embraces that that embraces that like that's kind of reddit in a way like reddit links to everything Right, you can go on there and that's why reddit kind of has stood the test of time one slash He was great and slash are is great Yeah, but at the same time like you don't have these clashes you have a lot of freedom in there There's no idea to my knowledge. No deprioritizing links out. It's kind of like part of the game. I will say that it's a Challenging website to navigate some time like it's it's hard to understand like where the content is It seems like it's not always for me as the reader or the consumer And I don't really like those kind of practices as a design team when you make those choices like let me confuse you by"
+    },
+    {
+      "start": 2492.94,
+      "end": 2499.38,
+      "speaker": "adam-stacoviak",
+      "text": "Where the rest of this conversation actually is. Yes or anything like how do you continue this conversation happens frequently on"
+    },
+    {
+      "start": 2499.86,
+      "end": 2502.26,
+      "speaker": "jerod-santo",
+      "text": "Destroyed all the third-party clients that made me very mad"
+    },
+    {
+      "start": 2502.26,
+      "end": 2571.08,
+      "speaker": "adam-stacoviak",
+      "text": "What's that one where there's like a bunch of people launch their product on it? You know what? I mean the product hunt always had like a weird like get it button that you had to click or something It's just a link to what it is. You're like, what is get it? It's like it often didn't work with the thing being launched to get really so, I don't know what that is Proton was never attracted to me. It's just a regular guy looking for cool stuff. It's just like it felt so It always felt very Promotory to the point where I just didn't really want to use it even though I saw it I remember it the initial launch and people were using I might have I probably have an account I do have an account there once in a while get an email from them like hey somebody followed you on product on I'm like Cool, but it feels like promoters promoting the promoters. What about launch weeks The next best thing after that comes launch weeks when you can't promote it and get attraction on product hunt You create your own week or month even yeah, which has become you know The rage over the last I would say three ish years but more so in the last two years concentrated It's a weird marketing vector. Like it's it's this word. It's so hard to get attention"
+    },
+    {
+      "start": 2571.08,
+      "end": 2617.6,
+      "speaker": "jerod-santo",
+      "text": "We're gonna make a whole week of feature releases to just like we're just doing it. It's going bit Yeah, like everything we're landing it all at the same time, you know I'm way more like let's do it like always be shipping always through the year like let's not do these big drops You know, but I don't know there's got to be a reason around it, you know You know, I just want attention on what they're up to. I mean, I love shipping Consistently, but it is hard to get interest on what you're up to I remember when the App Store first dropped and I used to read all the release notes of the apps that came out because I was a nerd and I was like these are cool I want to see what's new in Tweetbot or whatever it was And over time I'm like, I just can't care anymore. Even with my favorite apps. Like I'm just"
+    },
+    {
+      "start": 2618.48,
+      "end": 2640.7,
+      "speaker": "adam-stacoviak",
+      "text": "I'm over it. So it's hard for Development companies and firms are like hey pay attention to us. Like we got something we want to show you It's not your standard bug fix or minor feature Like we got some big stuff and we want people to know about it because there's so many people shipping stuff all the time Brings me to CodePen 2.0. Oh, yeah. Yeah. Yeah, you're trying to probably bring some attention to that release, right? Yeah"
+    },
+    {
+      "start": 2640.7,
+      "end": 2666.26,
+      "speaker": "jerod-santo",
+      "text": "It's a little early, but it's about time. I've never been in this position in my career I don't think where I have to Pick the moment which you got to start the hype train and that moment is like before it's fully shipped You know, like I generally prefer the like get it done and then just tell people then they can use it but I think that's probably not appropriate when you're trying to Really build a bunch of enthusiasm and stuff I think it's maybe just a smidge too early"
+    },
+    {
+      "start": 2666.26,
+      "end": 2776.88,
+      "speaker": "adam-stacoviak",
+      "text": "But we're in alphas and the alphas in good shape as a as of recently So if anybody listening really wants to check it out and it wants to check it out with me Because that's how we're kind of defining alpha for us is that we do little kind of guided tours You're still using the website and stuff But I kind of want to watch you do it and talk about it and then help find bugs and stuff And then in the next, you know a couple weeks, I think we'll be in beta which is a little more a little more open Don't quote me on that. I don't know when this is gonna ship exactly It's better bet is just to email me Chris at codepen.io and I'd love to show it to any developer But yeah, I don't know you didn't ask me to do that. Why did I go off on that? No, it's all good because we're talking about promotion is a natural motor worried like developers aren't gonna fully understand the revolutionary DX and just Just paradigm shifting all about speed. Yeah. I mean you're you're shifting some paradigms and I love it It's very good. I've seen it. So let's shift in tons of hair. It is actually a little bit It's kind of a it has its own compiler So we're entering that market a little bit and interesting not a little bit. The whole thing is kind of based on the compiling Well, it will your code really so you just kept I hope yeah, of course it does But is it we're not trying to invent any new languages. We're just trying to invent a new way to combine Technological choices like that. So if you want to write in typescript, which most people do these days Yeah, now I've come around on it, I don't know if I'm a typescript stan it yet, but I Know for the audience Dave is gone Let my dogs out, but that was a perfect timing is That's tremendous You do sometimes need to figure think about and figure out how it's going to work with your stack"
+    },
+    {
+      "start": 2776.88,
+      "end": 2860.43,
+      "speaker": "jerod-santo",
+      "text": "Sometimes it needs to be configured. Sometimes it's on you to like well I guess I need to like have a typescript compiler to then or something and I don't I don't think anybody really like Relishes that DevOps work, you know, like how is that gonna work in our build process? I want to add something new to it. I'm compelled by say lightning CSS or something some news thing. You're like well Does it work with Astro though? You know, like that's what I use to build a website So where do I like slot it in am I gonna find docs for that? Am I gonna whatever and it could be a lot of stuff. It's not just a combination of two technologies It could be all kinds of different stuff. I want to you know as a developer I kind of want to like push my cart through the aisles of Technologies and be like I'll have one of these and I'll have some web components and I'll have I want to write them in Typescript and style them with sass and then build build the site with eleventy and all that stuff Wouldn't that be fun? And you know the our idea is that like yeah for sure you can do that Just you literally just click some buttons and then we wire them up for you But the way we're wiring them up isn't like we read the docs and build configurations for you It's the compiler that comes up with a plan to build all these technologies where they don't really need to be wired together So the idea is that like I don't know"
+    },
+    {
+      "start": 2861.11,
+      "end": 2875.83,
+      "speaker": "adam-stacoviak",
+      "text": "If you need to configure Something like Astro or whatever to work with TypeScript. I don't think you need to I think it does it But that's just as an example But you wouldn't if the code wasn't TypeScript by the time Astro got around to compiling it"
+    },
+    {
+      "start": 2875.83,
+      "end": 2902.31,
+      "speaker": "jerod-santo",
+      "text": "Like let's say it was already JavaScript then you did what it doesn't matter It's like what if we dealt with your sass first and then it was CSS by the time that the next technology needed to touch It then you don't need to configure anything because it's already been boiled down to its to its primitive We think we can do that with all all technology all technologies. Could you use that compiler outside of codepen context? Yeah, absolutely. It probably won't be open source on day one"
+    },
+    {
+      "start": 2902.31,
+      "end": 2925.63,
+      "speaker": "adam-stacoviak",
+      "text": "But only for a time constraint not because we're trying to keep it as proprietary technology. I would love to ship it I'd love to just have it be on NPM and you just grab it, you know And it kind of will need to be at some point when you yeah I mean that makes it way more valuable I think for both on and off code then what's the name of it? Good question Adam. I don't know yet. We have a bunch of really cool Burt Rupert AI"
+    },
+    {
+      "start": 2925.63,
+      "end": 2954.85,
+      "speaker": "jerod-santo",
+      "text": "Yeah, we have like I had an awesome name. Yeah, Rupert is actually yeah That's actually a pretty good AI name Rupert I Want I had what I thought it was a name. I was really gonna push for I was like, oh, this is sweet I really like it and then the something shipped pretty notably in our it's very tight industry with a Similar name and I was like, well, that's out. Oh, you can't wait too long No, Jared. Why would you think that was it syntax? It's totally it's totally bold. Is it I called it"
+    },
+    {
+      "start": 2956.95,
+      "end": 2963.49,
+      "speaker": "adam-stacoviak",
+      "text": "That's how tight-knit it is. I guessed it. It's a good name It's that's a little fast dog on the movie and stuff didn't bolt have like a"
+    },
+    {
+      "start": 2964.09,
+      "end": 3011.41,
+      "speaker": "jerod-santo",
+      "text": "There was like a financial company called bolt that kind of tarnished the name of bolt. Yeah, they've come and gone probably They have gone. That's like it's a good name, but we'll come up with something good but yeah, the compiler does need a kind of its own name and Yeah, just gonna sleep on it Double full better than bolts. Well, it has fun. It really is kind of a nice name I mean congratulations to them that product is actually super duper cool Yeah, it is cool bolt not new we're referring to if you want to check it out from well It has other connotations to like you can bolt things together Which is exactly what we're trying to do or both things on later. Maybe you could call it Lego that might work Just call it Lego. Yeah. Yeah You can Lego things. They won't have any trouble with that as a product unavailable in Sweden"
+    },
+    {
+      "start": 3011.65,
+      "end": 3017.29,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, or anywhere else in which they have jurisdiction. Yeah, you got to spell it with all caps to"
+    },
+    {
+      "start": 3017.69,
+      "end": 3201.32,
+      "speaker": "jerod-santo",
+      "text": "Exactly, and you can't pluralize it at all. Not the not to change the subject too deeply but Chris you and I had a short Conversation while it all things open. Yeah, we did and I believe if I recall correctly You were telling me about something where you had written something fully and y'all didn't ship it at all What did every in regards to Copen 2.0 like you had done something massive and you just didn't ship it You spent a lot of time doing something Am I incorrect on that? I'm trying to think I feel like I've done that a number of times But what would I have told you about like it was a big deal It's like a like a rewrite thousands and thousands of dollars you spent doing something and it just didn't ship Oh, that's right. You know what? I bet it was is one time. We were gonna run a Conference. That's right. We're gonna do that's right you're gonna do event called codepen worlds fair and we had hired people and we had done a bunch of custom design work and booked venues and really moved far along on it and that just kind of well You know, there's lots of details involved but it was kind of a Cold feet situation like it didn't feel like it was gonna come together and in a way that we thought was gonna like really Be as cool as we wanted and I think throwing like an embarrassing conference can be Detrimental that what you're trying to do, you know, yeah So there was a there's there we were willing to lose the money to not not embarrass ourselves I don't know what made us talk about that. We only talked for like 15 minutes at most we were at a conference Yeah, you're probably talking about them conferences. You were sharing all your secrets. I liked it. I was like tell me more Yeah, maybe I don't know if I've ever really talked about that but yeah, I was I was you know, we had like the coolest website you've ever seen for cuz you know we're gonna do it in Chicago and Chicago had the Famously through the the world's fair at one time the white city and all that. Oh, yeah the devil in the Winnie City Yeah, we're gonna kind of play off that a bit. That's cool. But you can imagine right like oh we're gonna have the you know We're gonna have screens you know floor to ceiling and we'll have the creators of some of the most amazing visual stuff on code pen coming to do it and we are even had asked and had a bunch of yeses from those those types of people and they were gonna build special exhibits for it and that kind of thing and So sorry to those people But I think we canceled it early enough that we didn't like waste people's time too. Madly. So not having to reveal obviously if there's Embarrassing or specific details that matter but like when what made you finally pull the plug on that stuff Cuz that's a hard thing to do is actually just stop when you're so I mean sunk cost fallacy is very strong Like was there a moment where you're like, you know what we're not doing. Yeah. Well, we had three founders at the time so it's a conversation it was and everybody kind of I Think we coalesced on it pretty quickly because there was some some nervousness and I think I was probably the most for it Just cuz it was that's kind of up my alley, you know, the other two guys aren't as you know conference forward as I am You know But I you know, I also didn't want to embarrass myself I don't remember all the the exact details that made us think that but I you know The ambition I think was felt that's why I was okay with it in the end"
+    },
+    {
+      "start": 3201.32,
+      "end": 3240.04,
+      "speaker": "adam-stacoviak",
+      "text": "I felt like too high, you know, if you're like we're gonna I don't know spend it out, you know $22,000 on this exhibit are like we so sure I don't actually know any of these people that say yes that yes, I'm going to build a experiential Virtual art exhibit on this thing, you know, like it's rolling the dice till the day of the conference High risk how do they even practice doing it? You know, it's not like I can ship them. I don't know there was too much like Worry, I guess I'd rather be in a position as a company because that's when we killed it We said hey what when we have money to burn as a company, let's do it, you know"
+    },
+    {
+      "start": 3240.04,
+      "end": 3289.76,
+      "speaker": "jerod-santo",
+      "text": "But we just kind of didn't at the time and and if we we burned that much money kind of for nothing That would have been dangerous. No, I don't know if any company has money to burn especially these days But in those days it felt like it, you know, if you're if you're a male chimp They were setting money on fire for a while and then it worked for them. Yeah, that's right Mostly have you guys ever considered a shop talk conf? Yeah, I think it's come up. I don't know how serious we ever got Yeah, it would probably just be like six people in a bar in Atlanta You know, sounds cool, but you know, I don't you know, it'd be fun I think it's just a we I think where we've enjoyed is occasionally I don't know if y'all have had this experience but like a Conference invites the podcast out to like put on an after show or something like that. Mm-hmm"
+    },
+    {
+      "start": 3289.76,
+      "end": 3295.34,
+      "speaker": "adam-stacoviak",
+      "text": "Those have been great Like we've met shop of maniacs from coast to coast there and it's been good times"
+    },
+    {
+      "start": 3295.34,
+      "end": 3315.24,
+      "speaker": "jerod-santo",
+      "text": "but I think it's you know, I think that's probably the better way for a Podcast is just to be a bolt-on to a a funded conference a lot less work. That's for sure. Yeah Yeah, you just provide entertainment which you know, I think I assume people listen to this for information or entertainment, you know"
+    },
+    {
+      "start": 3315.24,
+      "end": 3321.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so we don't know why honestly we're still wondering It's one of those two people have to drive. That's kind of"
+    },
+    {
+      "start": 3322.66,
+      "end": 3518.29,
+      "speaker": "jerod-santo",
+      "text": "In the pandemic, but it's Like the key though is Recording it right Jared recording it you do want to record when you put on a cool show. Yeah Yeah, apropos of nothing Adam brings that up. Yes. We're not throwing anybody under any sort of buses But we did something really cool to conference and it just you know They you lost they admit they admitted and it's like hey this happens, but they water under the bridge I think it was actually their first time back Post pandemic too. So they had like a lower key AV team potentially Yeah, not that they were not capable. It was just like it was everybody was sort of like getting back into a groove and We were in a slot where it's not normally recorded It was like an after-party kind of slot highly entertaining as you could probably yeah, but great crowd great interaction and put a game show Yeah, yeah The best Addition of our front-end feud ever because it came down to the final Answer nice and the final answer had the board was down to like four of the five I think it was Firebird to Firebird was the funny was a Thunderbird Thunderbird. Mozilla Thunderbird was the answer I can't remember the question is something about email clients, right? And it was like back and forth and they're all guessing these obscure email clients and then somebody pulled out Mozilla Thunderbird for the win No, and then I go up to the AV people afterwards and I'm like, that was great. When can I get it? He's like, oh, I didn't know you guys want to record that. I Still remember that conversation we were we were IRL entertainment Recorded for a podcast guys wanted to record that I'm like, well, why why do you think I just did this big show? Yeah I'm sorry. It's you remember Thunderbird that they had an awesome story like a year or two ago where they you know People talk about funding open source stuff a lot in this industry, you know, they had like too much money or something Yeah, it was wild because you know, you see like stuff like Veet and stuff do pretty good But for the most start open source stuff doesn't make that much money and you know and when Veet doing good It's like oh we get you know, there's like a hundred thousand dollars a month or I don't know Maybe that's even high for them. I forget what the exact numbers are But all Thunderbird did was put like a little interstitial that's like hey, we don't ask for money very much but we could use your donations and they just got Buckets of so much money just millions of dollars. Just kidding. You're like, holy cow Wow I guess a lot of people like their email client Jeepers. Well listeners. We don't often ask you for money But just this once it is the end of the year it's patreon.com slash the underscore real underscore change log, that's right Don't give that person money. Okay, if that is a real clip that and make a killing I just came up with two businesses in this book Yeah, I think you could do good, you know, I think at the time I was well we started this I'm so talking about I don't know making money on the internet and websites and whatnot and that you always do I'm sure in this show people if you're just listening start to finish of this published episode out there There's probably been a little interstitial already with like one of the two of you talking to some CTO or CEO of some company about some product or something"
+    },
+    {
+      "start": 3518.29,
+      "end": 3531.11,
+      "speaker": "adam-stacoviak",
+      "text": "That's just kind of how y'all roll which I was really liked, you know and wanted to Steal that to some degree although I've so far I found it hard to get people to agree to it So really for you for forcing the issue, that would be Adam"
+    },
+    {
+      "start": 3531.11,
+      "end": 3569.39,
+      "speaker": "adam-stacoviak",
+      "text": "He's the he's the one that organizes that whole side of what we do. It's pretty cool but I thought don't you think you could lift that and do it at a conference to be like you could really reduce the You know, yeah I think it'd be easier to get a sponsor for a conference if you're like Would you like to come not only just sponsor it and like whatever bring your t-shirts? But also sit on stage with me and talk to me about stuff. Mm-hmm could be done. Sometimes that's cringe. You got a timebox it Yeah, it's like we're gonna talk to the CEO of revenue dynamics at I Think the key there is it's got to be"
+    },
+    {
+      "start": 3570.03,
+      "end": 3582.03,
+      "speaker": "jerod-santo",
+      "text": "editorialized by the person conducting the interview it cannot be editorialized or agreed to or You can't share the questions in advance or give them insider secrets to what's being discussed and they have to be to some degree"
+    },
+    {
+      "start": 3582.67,
+      "end": 3620.09,
+      "speaker": "adam-stacoviak",
+      "text": "Willing able and somewhat vulnerable. I would say almost fully vulnerable. Yeah, that's hard to get anybody to agree to honestly The title thing works like I hate to say it all the dev rels out there cuz you know God bless you're doing good work. But like when they send the dev rel to do it. It's like oh, yeah They're doing the thing that they're literally paid to do. Whereas if you get the CTO or the CEO, it's like, whoa They really have made time specially to be here to do this. Yeah, that is not their normal thing Yeah, that's why I think the way we do some of the LA we don't always get CEOs But I would say 80% of the time we get CEOs involved in these ad spots"
+    },
+    {
+      "start": 3620.89,
+      "end": 3632.11,
+      "speaker": "jerod-santo",
+      "text": "That's why I think it works. Well because when you get C level or founder level agreement and participation in Not so much shilling but sharing the story. It's always things like this is your story. Let's share your story"
+    },
+    {
+      "start": 3632.33,
+      "end": 3652.66,
+      "speaker": "adam-stacoviak",
+      "text": "yeah, that's where you get, you know, the true quality and the the the pass-through right not the abrupt oh, this is Marketing, you know, I try to make it anti marketing and that's when you get the you know The Michael Scott win-win-win because if it's interesting content, yeah, and they're actually pointing out something that you don't know about That's a cool service"
+    },
+    {
+      "start": 3652.66,
+      "end": 3662.9,
+      "speaker": "jerod-santo",
+      "text": "Why not? It's still Adam talking to a guy about something interesting which is what the show is and then obviously it's a win for the Company. Yeah, because they got like a decent piece of content"
+    },
+    {
+      "start": 3663.42,
+      "end": 3709.06,
+      "speaker": "adam-stacoviak",
+      "text": "Hopefully better than decent it like doesn't trigger my fast-forward figure as much as much Yeah now we still trigger it if you've heard that particular one and obviously they're hard to produce and so we don't have like A bunch of them. Yeah, I mean that's a challenge for us. So like sometimes you'll hear the same It's the same one a few times and that's gonna trigger you to fast forward But that's fine because like you've already heard it right? Yeah, you've heard it and that kind of thing. Yeah Yeah, once you get big enough, I I saw it once or I think my wife pointed it out to me She was like a whatever was like a Malcolm Gladwell one or whatever So his numbers are super high and he just he would just sell him as like a block I remember when uh, what's the new like cell phone speed technology like? LTE 5 or whatever it is, you know, like they're really there's a keyword. I'm flubbing on 5g"
+    },
+    {
+      "start": 3709.06,
+      "end": 3716.74,
+      "speaker": "jerod-santo",
+      "text": "I don't know 5g. I guess that's what it is yeah, that was like it's better than Wi-Fi kind of thing and he had like the whatever the"
+    },
+    {
+      "start": 3717.1,
+      "end": 3759.86,
+      "speaker": "adam-stacoviak",
+      "text": "CTO of Sprint or something on to do just like a four block but they're all four different and it actually was was kind of Cool on there, you know, they're they're like two minutes long or something like you do, you know It was kind of like what industries will it enable, you know, it's like we you know There's a doctor a rural doctor that it's helping because they can use these Technologies places that they couldn't before and it's like a good ad spot, you know, yeah Yeah, but because the numbers are so high they only used it once it's a one show, you know, right? That's harder to do and were they still interstitial in the other show or was it a standalone show? That was just that no It was interstitial. Okay, cool. Yeah, I don't know That's where we draw the line because we obviously have people who would love to just come on the show and pay to be on"
+    },
+    {
+      "start": 3759.86,
+      "end": 3776.74,
+      "speaker": "jerod-santo",
+      "text": "the show totally we get that too and we will just never do that and we've had to say no to lots of opportunities because of that I was gonna say like y'all seem I like the CEO like ad spot because it is that middle ground of Like oh man, can I my boss come on your show, you know?"
+    },
+    {
+      "start": 3777.26,
+      "end": 3783.18,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, those emails are just so tiresome You know, it's like you just hired a marketing company"
+    },
+    {
+      "start": 3783.18,
+      "end": 3868.7,
+      "speaker": "jerod-santo",
+      "text": "You're blasting right now. Like you don't you just want the like a the SEO and then be the like, you know the bullet point on some resume or whatever like we went on 10,000 podcasts like I just I like It's pay to play but I think it is sort of this like well if you are a CEO you care about the product you Like are committing your life. Maybe you're just in it for the money, but like you're doing this for a reason like Tell us why like why what what makes this thing good that you've made and you're Selling presumably you have money if you paid to be on the show But like so what are other people finding value in you know, like it should be a slam-dunk Story, you know, you're still in the forest Dave. I like it. Keep going Well, I also this is my grand thesis to our own audience. Yeah to podcast listeners I think every podcast I'm a podcast listener. I assume everyone here is just yeah But like I still use products I heard on podcasts in 2006 hundred percent like there is something about how podcasts go into straight into your ear holes or in your car ears and Just they make you feel good. And so like there's apps I use, you know I've tried out and stuff like that just purely because they sponsored a podcast and I don't think anyone I think everyone who listens to Podcasts has had that experience. And so I just think of it as also like I don't know"
+    },
+    {
+      "start": 3868.7,
+      "end": 3874.26,
+      "speaker": "adam-stacoviak",
+      "text": "It's like advertising plus jet fuel, you know, it's like back to this like single ad converts way better"
+    },
+    {
+      "start": 3874.26,
+      "end": 3879.66,
+      "speaker": "jerod-santo",
+      "text": "I think a podcast converts way better. How many mattresses do you guys own that came from a podcast?"
+    },
+    {
+      "start": 3879.66,
+      "end": 3897.64,
+      "speaker": "adam-stacoviak",
+      "text": "I know at least 50% of our mattresses came from a podcast, you know At least Who knows maybe more I literally don't know how we found out about the other tube. So yeah. Yeah. Could you imagine?"
+    },
+    {
+      "start": 3898.38,
+      "end": 4008.4,
+      "speaker": "jerod-santo",
+      "text": "where let's say the sea of Chevrolet or GMC because those are sort of like the same product or Ford did a real do Jeep for no reason No reason just Jeep. Let's just yeah, he actually got fired Is that right? Okay. I was like, I don't know the reason well, could you imagine where they did a a truly authentic? Ad spend in the way we produce CEO driven ad spots that truly spoke to an audience That wasn't here's the spin. Here's the thing You know, here's how things actually work with like let's say cars for example or anything else even mattresses. Here's why the technology in this bed is Revolutionary and it changed the way you sleep kind of thing. Yeah, that's cool. I could imagine that would be good and it Hopefully they live and breathe it so it would be so easy for them to do the only reason you couldn't is because they're busy running a company right and they hire people to do that kind of thing and they That's an acceptable reason in my book. Yeah, it is Yeah, there's a certain size of company that this works well with and I think Ford is bigger than that size you know where it's almost it's almost more important that it's somebody who's Founder or just like living and breathing the company during the lightning launch though That would have been relevant like during a brand new product line like the lightning truck that have been relevant not an everyday Hey, oh, yeah, and I'm not saying it's not relevant. I'm saying is that the person you want to talk to you necessarily? well, I think that's where you get the authenticity is like if the CEO is in it to win it sure there, you know One of the great candidates for it versus like who else would be listenable I would imagine the org structure of Ford though is that there's some other person running the lightning division and the CEOs Yeah, maybe the product designer or the product leader of lightning Yeah, I don't know that that's true or not but I'm just saying there's certain size where it's like the CEO has to be pretty"
+    },
+    {
+      "start": 4008.88,
+      "end": 4013.56,
+      "speaker": "adam-stacoviak",
+      "text": "abstracted away from some of the nitty-gritty that interests us like the thing that's actually gonna nerd snipe you and"
+    },
+    {
+      "start": 4014.72,
+      "end": 4100.87,
+      "speaker": "jerod-santo",
+      "text": "They may or may not have that that's true if it was for this podcast Maybe there's some you know The person who designed the user interface for the thing would be probably even more interesting to talk to you Absolutely potentially yeah, and the beauty is like let the let the platform decide a little bit what's gonna work I think when they I'm sure you've seen these type of spots internally where it's like, you know We have the CEO here to do real fireside chat stuff and it's just like too polished You know, like they're trying to do it, but it they can't like they're too they're too smooth Internally, right feel good. Yeah, they're so well trained that it just always sound shilly. Yeah Exactly always show. Well, I don't even know how we got here. But are you listening tech companies do this? What's up, friends? I'm here with a new friend of ours over at assembly AI Founder and CEO Dylan Fox Dylan. Tell me about universal one This is the newest most powerful speech AI model to date. You released this recently tell you more So universal one is our flagship Industry leading model for speech-to-text and various other speech understanding tasks So it's about a year-long effort That really is the culmination of like the years that we've spent building infrastructure and tooling out assembly to even train Large-scale speech AI models it was trained on about 12 and a half million hours of voice data"
+    },
+    {
+      "start": 4101.45,
+      "end": 4110.01,
+      "speaker": "adam-stacoviak",
+      "text": "Multilingual super wide range of domains and sources of audio data. So it's super robust model We're seeing developers use it for extremely high accuracy"
+    },
+    {
+      "start": 4110.57,
+      "end": 4161.76,
+      "speaker": "jerod-santo",
+      "text": "low cost super fast speech-to-text and speech understanding tasks within their products within Automations within workflows that they're building at their companies or within their products Okay, constantly updated speech AI models at your fingertips while at your API fingertips That is a good next step is to go to their playground You can test out their models for free right there in the browser or you can get started with a $50 credit at assembly AI.com slash practical AI again, that's assembly AI dot-com slash practical AI What do you guys as ambitions with shop talk? What do you guys do it for? Why do you do it still? I've been going for a long time What are your ambitions where'd you like it to go if anywhere and what's exciting still about it for you to?"
+    },
+    {
+      "start": 4162.28,
+      "end": 4183.26,
+      "speaker": "adam-stacoviak",
+      "text": "See where this long slow decline goes You know Dave you're looking very contemplative. Yeah, no Chris summed it up. No, um the I think um, you know We through like the whatever the gully of advertising the the drought of advertising"
+    },
+    {
+      "start": 4183.3,
+      "end": 4283.8,
+      "speaker": "jerod-santo",
+      "text": "We've actually switched to almost a hundred percent Community funded through our discord and that's been really awesome Like our discord is really active a lot of nice people in there great wonderful people the best people So the shop of maniacs have really rallied to kind of make the podcast happen over the last, you know few years I mean Chris and I could obviously Like chip some bucks at it, but you know just editing and stuff, you know adds up transcripts adds up, you know I don't think we're in the we're just gonna hand it to AI Yet, you know, I don't think that's even in our Current plans but you know, so the costs kind of add up but then you know, I don't know it for me It's just turned into a great chance to talk to my buddy Chris every week So that's been like, you know, I'll keep doing that as long as I can As long as he'll let me but then you know but I also really love how we bring in experts who like know what they're doing about a certain thing that maybe I don't know as Much about and that's like benefited me numerous times in my career where I could say. Oh, man I just talked to the person who wrote that thing you're talking about and here's what they said, you know it's kind of a maybe a bit of a douchebag move but it is like super useful to like Talk with people and pick their brain about why something exists like, you know We had the guy from Google Thomas Steiner from Google who does like the AI in Chrome thing And that was super like wow, this is kind of a weird new thing. That's not documented very well And so we got to talk to him about it. Mm-hmm. So, you know stuff like that is yeah It's like a bit of a cheat code for staying on top of the industry without"
+    },
+    {
+      "start": 4284.76,
+      "end": 4290.84,
+      "speaker": "adam-stacoviak",
+      "text": "Too much work, you know, I get to benefit from Dave's insights and people write in and you know"
+    },
+    {
+      "start": 4291.6,
+      "end": 4347.04,
+      "speaker": "jerod-santo",
+      "text": "It's not so much of a lift. We've made so many choices over the years of like what's the easiest possible thing? You can do to keep doing this show, you know, we could have somebody else edit it We cannot change the website very much. We can just stay on this host instead of change around, you know Like it's really it's to the point where we just throw Dave and I throw something on the calendar And we both show up in a Riverside room exactly like this We use the same app and then I forget about it Like our guy Chris ends from lemon productions shout out Chris just he like logs into Riverside extracts the audio Edits it all together Puts the mp3 on our host goes into WordPress gives the show a title writes the links All this and and then hits publish on the day that our schedules it for the day it's supposed to be a voice I literally do nothing, you know I work with the advertisers when we have one which is not very much these days because it's just has fallen through and I don't"
+    },
+    {
+      "start": 4347.04,
+      "end": 4381.12,
+      "speaker": "adam-stacoviak",
+      "text": "Hustle for it because it's like I just don't have the time for it at the moment Even our transcript of lady Tina fam. It has access to the WordPress site So when she's done with the transcript she logs in paste it into the right text area and hit save on the show Nice. No, I hear from nobody The bill arrives in our email and I click the pay bill button and and that's it And so that's helped like it's not when I come up with things that I need to cut in my life to reduce stress This is pretty low on the list because it it doesn't impart much stress"
+    },
+    {
+      "start": 4381.12,
+      "end": 4468.74,
+      "speaker": "jerod-santo",
+      "text": "It might even be a stress relief in a way, right? Feed you back gives you gives you a friend to connect with and the network to right to keep connected with I suppose, you know For the connect and also I would imagine It's got to be great to give somebody who has less light shined on them a light shine on them You know give something to spotlight who's increasingly rare, isn't it? It is increasingly rare, but there's still some mouth I mean like, you know, like recently the departure mono font like they don't need a lot of extra fanfare, but I thought that was a really cool show to do was about a Pixelized font a pixel-based font that was just super cool that I didn't really know of Just loosely before the show and now I'm a huge fan of the departure mono Font all the work they put into it right open source that as well as it was really cool. That's a great I think I missed that one. That's I would I would love to watch that We've David I've had some good shows like that in the last year for sure We're like a tiny little spark turns into like let's just see if we can get up, you know, right? We do and we've been chasing this idea of niche app builders Like somebody who builds an app for really niche specific purpose like Watson comes to mind He has a disability that affects his muscle movement but he builds a bunch of apps to just like make his day better or like so him and his brother can play games and stuff like that and it's like Awesome, like and so it's just he's like home-cooked not gonna be super famous apps"
+    },
+    {
+      "start": 4468.74,
+      "end": 4576.28,
+      "speaker": "adam-stacoviak",
+      "text": "We had the guy from cracking the who wrote cracking the cryptics Sudoku app Like if you've seen that YouTube you're seeing this YouTube channel, it's I have I fell into it for a long time I still watch it to this day at night. What's it called? It's two British dudes cracking the cryptic It may never grab you. So it's this is niches niche can be it's 40 50 year old meds solving Sudoku They're just these really endearing British guys and they solve Sudoku puzzles But they it's like they're charming while they do it and it really requires Some big brain energy to get through these things, you know You're watching them use like like just they're the gears in their head Just churning to figure out what's going on in this puzzle because each puzzles different they each one has different rules when you say Sudoku you Think yeah, you know the numbers one through nine and the boxes or whatever once in a while They'll do a classic Sudoku puzzle like that But in this channel, they call it variant Sudoku each one has it as a bit of a different rule set So they have to learn a new rule set and then churn through it. I find it helps me go to sleep Honestly, you know, it's like it's not so engaging that I a little bit of that Although I don't get the tingles from this, but I do generally get the tingles, but I do like them anyway, it took a bit of programming to make this happen because having a Sudoku puzzle that can be like Programmatically solved in a web browser and then it can tell you if you have the right answer or not required an app It requires somebody to build this app, but because each one has different rules it's actually pretty weird and complicated and the like community that it took to make this thing happen is it's just Surprisingly complex story and we had that guy on the show and he's about as quirky as a person can be"
+    },
+    {
+      "start": 4576.28,
+      "end": 4582.28,
+      "speaker": "jerod-santo",
+      "text": "You know and it ended up being a an interesting show. Yeah, so the person that was from this YouTube channel came on"
+    },
+    {
+      "start": 4582.32,
+      "end": 4615.6,
+      "speaker": "adam-stacoviak",
+      "text": "Nope. No, they're a little too big. I don't think we could get the cracking because it's the good you imagine Developer who made the app that they use on the show. Yeah, he was a personality in and of himself Like he's like my god, if I met Simon at a party, I would drop dead. I think he's so cool Also say this is this is a niche but it's also 621,000 subscribers niche. Yeah, it's a niche that hits I'll say right. It's it's kind of deep. That's cool I'm a fan of that too like inviting out to your show That might not even be"
+    },
+    {
+      "start": 4615.72,
+      "end": 4650.28,
+      "speaker": "jerod-santo",
+      "text": "Developer world necessarily. It's like developer adjacent. What comes to mind is is recently I had Dennis E Taylor, are you all a fan of we are Legion we are Bob the Bob of our series It's an audible audio book series. Oh my gosh sounds up my alley. So Oh Dave. It's right up your alley, bro I've seen your book list and it's it's so far up your alley. You should have listened to this by now All right so I had Dennis E Taylor on this podcast and we just talked about the Bob of our series and we obviously have a Zulu now not a slack and so we have a community similar to discord with you all"
+    },
+    {
+      "start": 4650.96,
+      "end": 4773.11,
+      "speaker": "adam-stacoviak",
+      "text": "Except we what did you call a Zillow Zulip? Zulip Zulip, it's open source threaded team chat. You hear the the hard P at the end there Zulip. Okay, Zulip Okay, so we used to use slack and now we're Zulip and it's threaded conversation for teams essentially It's also open source, but we had Dennis on the show. We talked about the Bob of our series Now Dennis is also a retired programmer. So there is at least that as a connection point but it's also an amazing sci-fi series like this guy is he's He's phenomenal with his writing. Mm-hmm five books deep on the Bob of our series You will have months of listening slash reading if you get into this If you're brand new to it and just talk to Dennis. Yeah, that's awesome. That's cool. You know, we've we had heavy spoilers Paul from heavy spoilers on the podcast before we talked about Tennant the movie nice because Tennant was such a cool movie and This was not the main show what was that at the time was it we call that show backstage backstage Yes which is kind of a precursor to change all good friends which was kind of just like us talking about what we want to and Not feeling like we have to do an interview with a software developer every single episode and that Plus like some of the stuff we do a jazz party and all these other things came together to create our Friday talk show Right, you all are currently on right now. That's right. And so that was on backstage It makes me think about like it was probably a good show just because you're so passionate and you It's a story that you wanted to tell and a person you wanted to talk to and I'm sure everyone enjoyed it just for that Reason alone, you know, even if they had no idea who they were. It's uncovered a Plethora of baba verse series fans and would-be fans inside of our community. Oh nice That's so like now we have this new connection point in our community not just like oh what language or whatever this or that it's now the connection point of similarity and likes with sci-fi and Pauseable science fiction and this whole conversation around baba verse and authoring books and stuff like that What's that series of books where like they live on the back of a turtle or something Moana? No"
+    },
+    {
+      "start": 4779.59,
+      "end": 4897.33,
+      "speaker": "jerod-santo",
+      "text": "There was something like there's like a book called like nights nights night somebody's gonna know what it is But anyway, Terry something is the author I was like out at a bar after a conference with like Jason Langstorf and his partner and Some other people maybe Sarah drasner was there and they just started talking about this book series Which is like 55 books deep and I just was like, I've never heard of this, but they're all like, oh, yeah Did you remember what you would call it? Like the you know book 23 blah blah blah. I just it was 23 yeah, it was like Anyway, I'll let me tear you down old disc world. Yes world. Yeah, you go Terry Pratchett Yeah, anyway, there's a like it's a hundred fifty something books or something I don't even know but then like I just you know I stumbled into a group where everyone had to read it but me and I felt like so out of place But it was like but it's just it's cool when you stumble into that, you know, you're just like do these people love this This is weird. Like this is cool. This is so much cooler There's people I like yeah, you should chase it, you know, I think that's that's okay to podcast I used to get salty when like radio lab would do an Episode about politics or something like you're the science show, but it's like no, I'm just chasing something that they found interesting, you know or 99% invisible did something outside of design and architecture or whatever, but I've loosened up my stance on it You know, I just chase it do what you wanted. We definitely don't do it on the monthly It's more like whenever it might come up or if it really makes sense Like I plan to have a chef on the podcast in 2025 My favorite one of my favorite chefs only because I cook alongside him Frank proto is his name, by the way, when you say alongside him Literally side by side Jared. I'm just kidding. No. No, he's on YouTube and you're cooking right? Yeah"
+    },
+    {
+      "start": 4897.33,
+      "end": 4899.41,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I think I saw what I liked about it"
+    },
+    {
+      "start": 4899.41,
+      "end": 4905.25,
+      "speaker": "jerod-santo",
+      "text": "It's this series from Epicurious and it's like something something 101 and it's like this hard recipes"
+    },
+    {
+      "start": 4905.29,
+      "end": 5030.6,
+      "speaker": "adam-stacoviak",
+      "text": "It could be as simple as scrambled eggs like scrambled eggs 101 how to make the best scrambled eggs How to make the best chicken how to easiest way to fry chicken anything like you pick your thing that you think is kind of like generally hard or You've never really mastered it or it takes multiple steps in this chef and it's Frank and many other chefs on Epicurious this channel on YouTube Breaking down, you know pasta 101 how to like really get the best pasta What the steps are how much salt to put in the water how much water to put, you know? Obviously in the pot, you know at what point you put it in, you know thing just little little subtle things Are you gonna make like heavy-handed metaphors for programming stuff? No, I mean probably not Just focus on the cooking but yeah, you're gonna draw across anything at all I was gonna just be you know what? I like your cooking shut channel, dude I think it was more like could you Get more people than our audience curious to cook, okay, like things that are generally seemingly hard Maybe you subscribe to factor because you heard on a podcast and that's easy because you just get it put in the microwave That's where they send you the meal, right? Yeah, this is where they like send you a non frozen, you know, freshly cooked meal This is not an ad by the way, but we have been sponsored by them before and so it's fresh on my mind on how? that works but like, you know, I enjoy first principles cooking like personally, so I feel like you know The the full episode idea hasn't percolated in terms of like what's gonna be but I know I'm gonna talk to Frank because he said yes And we'll just talk about cooking and it could be as simple as like hey I'm a chef and anybody can do these kind of things if you just break it down to simplistic forms So like step by step, you know, keep it simple 101 style. Yeah, I mean Like especially developers most of us live like a sedentary lifestyle, you know Like Lot of us are in our 20s. Not me. No one here in this chair on this particular call But you know, whatever skews aging out skews young I think but like, you know in the in the in the words of Chris Got to see where this long slow decline goes But like I remember being in my 20s, I didn't know nothing about food"
+    },
+    {
+      "start": 5030.6,
+      "end": 5050.1,
+      "speaker": "jerod-santo",
+      "text": "It was like if I made a bowl of spaghetti is a friggin miracle like You know, I mean like, you know, so I was like an idiot about food, you know, even just like, you know you're talking to in a room of like Developers like, you know, probably not notoriously good at self-care. So like what?"
+    },
+    {
+      "start": 5050.94,
+      "end": 5054.86,
+      "speaker": "adam-stacoviak",
+      "text": "Was the first thing they need to know about, you know making food now"
+    },
+    {
+      "start": 5054.86,
+      "end": 5133.32,
+      "speaker": "jerod-santo",
+      "text": "You make me think we have to get that who's that military guy who like runs forever? Oh, yeah, Elaine Trucks with his mouth. I know his name. So it's it's like right on top He's like, you know the hardest working man in the world. He like destroyed his own body Chris Goggins Goggins something Goggins Anyways, not Chris somebody on here to like, you know motivate all of us to exercise Dave Goggins David Goggins Do you see there you go Chris or Dave pick a name? He's outside of our league He's like Chris's Simon and who's Simon's partner on the Sudoku side? Mark Simon and mark we can never get David Goggins. He'd be like, why would I go on a developer podcast? Let me pitch you this a fake David Goggins. Okay, David Ruppens and Okay, he's a motivational speaker. I know he's very famous on the circuit, you know, and he comes and talks to everybody How long could he stay in character? Oh Well, so he's getting all its really is a Short episode this short show I'd be down but that's all the inspiration you need from David what I call him Ruppin Ruppin. Yeah To be motivated for a whole life, you know, just two minutes with David Ruppins"
+    },
+    {
+      "start": 5133.46,
+      "end": 5137.86,
+      "speaker": "adam-stacoviak",
+      "text": "Did you really read all these books in 2024 Dave? Yes, sir. Yeah"
+    },
+    {
+      "start": 5138.7,
+      "end": 5154.38,
+      "speaker": "jerod-santo",
+      "text": "48 books thus far. Yeah, I'm in the book a week club been in there for a few years now You know, it it looks like a miracle but it's not it's really ADHD like I can't do that I reward myself by doing the dishes with the podcast or a"
+    },
+    {
+      "start": 5155.1,
+      "end": 5196.54,
+      "speaker": "adam-stacoviak",
+      "text": "Audiobook and so that's how it happens. So is it mostly audiobooks? Are you mostly audiobooks? It's you know, I I Used to read a lot of paper or Kindle books, you know But there'll be a lot of graphic novels in there too, which are generally paper But used to read a lot of paper or like Kindle books But I like trained my brain to do that before bed. So I read like one page and fall asleep That's how I'd like like Pavlov to myself into that So audiobooks, I'm pretty successful with so yeah, nice. Nice. Do you rock the 2x or oh for sure man? Oh, yeah, yeah in a week, right? Oh, yeah When it comes to and listen to podcasts, holy cow. Do you guys make a lot of dishes then?"
+    },
+    {
+      "start": 5198.54,
+      "end": 5249.86,
+      "speaker": "jerod-santo",
+      "text": "I don't know how man I Every day of my life. I asked my kids how many cups should a family of four use in a single day? And they're like, I don't know four and I'm like, yeah Why are there 23 right here? And then I had this whole revelation the other day I'll share it with y'all, you know the story of Sisyphus We always use that like analogy of like rolling the boulder up the hill. I didn't we recently got stone plates and That analogy hit so hard No, we literally take these stone plates like earthware plates down and then I wash them and then I put them back up And then they come down again and I just was like this is I am Sisyphus. I Yeah, the morality story is true. I just"
+    },
+    {
+      "start": 5250.82,
+      "end": 5263.38,
+      "speaker": "adam-stacoviak",
+      "text": "Spend the rest of my life. It's a whole different podcast to have that conversation Dave, but yeah, I like it What kind of I guess is it at a negative podcast like we're like just repeats. Oh, yeah it is I am just in a"
+    },
+    {
+      "start": 5264.5,
+      "end": 5358.37,
+      "speaker": "jerod-santo",
+      "text": "Groundhog's Day see pushing these boulders up into my kitchen cabinet. I washed this yesterday Yeah, I put that back yesterday and here it is again Dirty needing my attention. Thankfully. I have this book my favorite is when we go out like we were gone or like and then we even went out for dinner and there's still a Huge pile of dishes to wash Here's a phrase I uttered this morning at my children and I love my children to death, but I heard this phrase Why do you guys suck so bad? They pushed me they pushed me to that by not they didn't run the dishes before bed Like that's like one of the things is like somebody starts to dishwasher It's a button press you just press the button. Oh, man, you're on a higher level than me I'm like if you see trash throw away trash if you make trash also throw away trash. That's where yeah We got that going as well. Oh my god. I stepped over a piece of trash yesterday and I got it. Oh So we have this thing around my house Trash on the counter so much so that I've developed the song trash on the counter trash in the street Just my song sing that whenever you see try. Is that a CCR song? I'll bust yes like that. It's it's it's like that Yeah, I'll bust it out because like I have to find joy in this repeating. Oh my gosh, who did this again?"
+    },
+    {
+      "start": 5358.61,
+      "end": 5361.09,
+      "speaker": "adam-stacoviak",
+      "text": "So, you know, yeah, why do you guys suck so bad? No"
+    },
+    {
+      "start": 5362.61,
+      "end": 5380.57,
+      "speaker": "jerod-santo",
+      "text": "Something else to say I'm gonna start singing that I need a song the next time the dishes haven't been cleaned, you know It's like, you know the cutting of the edge of a bag that you have to open up to take the thing out It's like that thing is now on the counter Or this other thing and I'm blaming nobody my wife listens to this podcast here and there at least the clips"
+    },
+    {
+      "start": 5380.85,
+      "end": 5397.69,
+      "speaker": "adam-stacoviak",
+      "text": "This may be a clip who knows I'm gonna clip this part and send it to and I'm not talking trash about anybody in my house But like OMG and I do it too though. So I'm part of the trash on the counter committee I will I will make this offense Okay, so you're part of the problem as is Chris who clearly just stepped over some I am the problem. Yes"
+    },
+    {
+      "start": 5398.17,
+      "end": 5409.21,
+      "speaker": "jerod-santo",
+      "text": "I didn't mean to be throwing anybody under the bus but myself here. You made that clear Chris. I think you're you've acquitted yourself Yeah, kids kid socks are a problem my socks. Well, that's a lifestyle"
+    },
+    {
+      "start": 5413.89,
+      "end": 5416.61,
+      "speaker": "adam-stacoviak",
+      "text": "I'm don't these socks to the corner. Yeah"
+    },
+    {
+      "start": 5417.53,
+      "end": 5499.77,
+      "speaker": "adam-stacoviak",
+      "text": "Good stuff. Oh, I say why are these socks right here? That's where I put them. That's why they're there. Yeah. Yeah That's where I put them. Well, I think we've experienced now the long slow decline We should Anybody listen to this part is like is there any more good stuff in this show? The answer is no no Apply your software development methodology to this conversation somehow, you know, you're factoring I don't know cleanliness, but if they have time I do have a plus plus topic. Okay Do you guys have time for one more just for our closest friends? Sure. Hey Adam, which we say bye friends first Bye friends. Bye friends Well, it's always good to podcast with your friends and what better friends than Chris and Dave longtime podcasters Longtime friends first time on change logging friends. That's awesome. Yes, there's a bonus That means if you're a change law plus plus subscriber, it's better You can enjoy an extended version of this conversation and all you have to do is go to change log comm slash plus plus Yes, it's better ten bucks a month hundred bucks a year drop the ads get closer to that cool change log metal bonus Content directly support us free stickers in the mail. And of course a generous. Thank you"
+    },
+    {
+      "start": 5500.11,
+      "end": 5602.97,
+      "speaker": "jerod-santo",
+      "text": "So, thank you. Once again change log comm slash plus plus I do want to mention something new from us something coming in 2025 there's big change. I'll link to a blog post, but I want to mention CPU dot FM long story short the change law podcast universe aka CPU dot FM is Extending to a whole new network of world-class developer pods from your friends and extended friends at changelog launching in 2025 CPU Dot FM get notified when we launch go there now, of course, we couldn't do this without awesome sponsors and partners century fly coder assembly AI Check them out century.io Use our code changelog and get a hundred dollars off the team plan so cool and our friends at fly fly.io That is the home of change law comm into our friends over at coder coder comm pairs. Well with fly and assembly AI assembly AI Com to the beat freak in residence those beats are banging. Thank you. Break master cylinder. You are awesome Okay, if your cheese love plus plus member stay tuned if not, hey, we still love you. This is it the show's done All right. We'll see you on Monday This is almost interview Dave you could chime in here"
+    },
+    {
+      "start": 5602.97,
+      "end": 5645.89,
+      "speaker": "adam-stacoviak",
+      "text": "But I think you're I don't know if you have this vantage point considering. I don't think you're part of codepen Oh, it's a coping question. It is a coping question. So I have you ever been Chris. Have you ever been? dribble curious Because co pens are a lot like dribbles, you know Mmm, and you can go and explore code pens, but it's not quite the way you can explore dribble to find a designer Well, that's a great question. Not only curious but Jealous in some ways we even were you remember that the two original founders were Dan cedar home and rich thornet rich Worked with us at codepen for a while post dribble Is that right like apply some some dribble magic to a few things and it's not it wasn't as clear"
+    }
+  ],
+  "slug": "shoptalk-friends",
+  "id": "72"
+}

@@ -1,0 +1,445 @@
+{
+  "title": "Measuring the actual impact of AI coding",
+  "description": "Abi Noda from DX shares data on AI coding tool productivity, revealing a 5-10% time savings per week rather than the 50% claimed by vendors.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/101",
+    "MP3": "https://cdn.changelog.com/uploads/friends/101/changelog--friends-101.mp3",
+    "YouTube": "https://youtu.be/xu0QI0N0EmU",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "abi-noda"
+  ],
+  "segments": [
+    {
+      "start": 15.02,
+      "end": 58.37,
+      "speaker": "jerod-santo",
+      "text": "Welcome to changelog and friends a weekly talk show about taking more walks Thanks to our partners at fly.io the public cloud built for developers and ai agents who ship We love fly you might too learn more at fly.io Okay, let's talk Well friends i'm here with damian shingleman vp of rnd at os zero where he leads the team exploring the future of ai And identity so cool. So damian everyone is building for the direction of gen ai Artificial intelligence agents agentic what is auth zero doing to make that future possible?"
+    },
+    {
+      "start": 58.61,
+      "end": 102.89,
+      "speaker": "abi-noda",
+      "text": "So everyone's building gen ai apps gen ai agents. That's a fact. It's not something that might happen It's going to happen and when it does happen when you are building these things and you need to get them into production You need security you need the right guardrails and identity essentially authentication authorization Is a big part of those cartridges what we're doing at on zero is using our 10 plus years of identity Developer tooling to make it simple for developers whether they're working at a fortune 500 company And they're working just at a startup that right now came out of white combinator to build these things with sdk's great documentation Api-first types of products and our typical atlanta"
+    },
+    {
+      "start": 103.37,
+      "end": 117.85,
+      "speaker": "jerod-santo",
+      "text": "Friends, it's not if it's when it's coming soon If you're already building for this stuff, then, you know go to auth zero dot com slash ai Get started and learn more about auth for gen ai at off zero dot com slash ai"
+    },
+    {
+      "start": 118.41,
+      "end": 121.85,
+      "speaker": "abi-noda",
+      "text": "Again, that's off zero dot com slash ai"
+    },
+    {
+      "start": 126.6,
+      "end": 139.5,
+      "speaker": "jerod-santo",
+      "text": "All right, abhi. We're here to talk about measuring these ai agents that are infiltrating our organizations They're everywhere our lives. They're making us in some cases in some cases. We do it willingly but Somebody's got to track these things. How you doing it"
+    },
+    {
+      "start": 141.28,
+      "end": 176.4,
+      "speaker": "abi-noda",
+      "text": "Well, it's still early days, but okay, it's the the the name of the game right now is You know firstly being able to understand How are we using these ai tools how our developers? Incorporating them into their workflows. How much value are we getting out of them? What's the roi? We spend too much too little. How do we right size amount of spend and then How good are these agents? Is is the other question and how do we measure ai? Gosh, are you asking us? We're asking you"
+    },
+    {
+      "start": 177.36,
+      "end": 226.2,
+      "speaker": "jerod-santo",
+      "text": "Set in the scene set in the scene just set in the scene. It's early days. You said though. It's early days. So you've been in the business of of helping organizations understand the developer experience in terms of Morale ability code being committed how that affects the organization how that affects the bottom line. So you've got organizations that essentially Hire you as a service or consultant or however, you want to frame that And you help them determine if their teams are successful and if code is being deployed properly and all that good stuff you've got to have some sort of pressure from those folks because They're top down at this point. They're they're saying okay developers You must begin to use this because we're seeing this dramatic increase And they've got to deploy it in ways where they can test it and try it So what kind of pressure have you seen from your side?"
+    },
+    {
+      "start": 226.68,
+      "end": 333.61,
+      "speaker": "abi-noda",
+      "text": "quite a lot it's I think I can speak for all of us that I don't think i've ever seen anything like this in the industry where uh you know those at the top are so bought into the promise of a new technology and are Pretty aggressively pushing it down and you know a good example that is you know, one thing that's really common is for for top-down tracking now just adoption and utilization so lots of organizations are looking at monthly active weekly active daily active usage by developers they're segmenting developers into different cohorts based on whether they're super users or low medium moderate adopters and and then starting to Then trying to study. Okay What is that getting us right are the people who are using the ai more? more productive Are they happier? Is their code better or worse? uh, but yeah, the the pressure is unlike anything i've really seen before and I was just talking to some researchers at One of the the prominent ai developer tool vendors and and they said That a lot of this usage that they're saying especially of agentic tools right now they believe is more fear driven than utility utility driven meaning that People are using a lot of these tools Even when they're not really effective right now because They fear that not doing so will mean that they could become obsolete Wow, so that that was a pretty interesting finding from I blame steve yegge"
+    },
+    {
+      "start": 333.61,
+      "end": 338.49,
+      "speaker": "jerod-santo",
+      "text": "He comes on our show. He starts telling people you will be replaced. You better adopt. The id is dead"
+    },
+    {
+      "start": 339.13,
+      "end": 362.38,
+      "speaker": "abi-noda",
+      "text": "the ai vendors Have done a fantastic job in their marketing of infecting. Uh, you know the minds of leaders, uh, I've been so like in tropics What they put together like a economic research Like organization to study the impact of what's going to happen and you know, it's like the best pr sun ever I think"
+    },
+    {
+      "start": 363.42,
+      "end": 373.5,
+      "speaker": "jerod-santo",
+      "text": "for sure Well, have you guys been surveying have you been collecting the data? Do you have anything that you can at the definitive or even just gives us a glimpse into what's actually going down on the streets?"
+    },
+    {
+      "start": 373.98,
+      "end": 588.26,
+      "speaker": "abi-noda",
+      "text": "Yeah, so we are Collecting data from from over 400 different organizations now It's both through surveys as well as looking at their actual telemetry so dx connects to Pretty much all the the leading ai coding tools today. So whether that's copilot cursor windsurf etc cloud code So we're ingesting that telemetry as well uh, which gives us a real-time view into developer usage and and uh utilization You know some of what we're seeing first of all Adoption is is rising extremely rapidly since really about three or four months ago I think that's when we started seeing the top-down mandates. That's when it became the message became You got to get on board or you're going to be left behind. So like we're seeing that in the data Yeah in in terms of impact We see a number of really interesting things. So first of all on average And keep in mind this is it's called q2 2025 because this space is evolving very quickly on average developers report saving about Three hours per week. Thanks ai tools Okay. Now when you think about What what put that into context? Well, that's about what five to ten percent of their work week So about so we're talking about about a five to ten percent boost now That is A lot less than maybe what you might expect if you were just looking at the headlines or scrolling reddit One piece of research it aligns with is google I don't know if you guys saw that, you know, they came out It was about two or three weeks ago saying hey based on our research. We're seeing about a ten percent productivity improvement with our developers things say I Um, so that's one data point couple other data points and we can kind of dive deeper as you guys which is One of the strongest relationships we're seeing the data is actually with engagement meaning developer job engagement and I think that's really interesting because when you Like hear some of these like og's like kent beck getting Into ai augmented coding like one thing you hear them talk about maybe more so than anything about their productivity Is how much fun they're now having right? It's just a it's a more enjoyable paradigm of working and so we're seeing that reflected in the data You don't see that being talked about in the press. I don't think people maybe care about that as much right now It's all about productivity the last thing i'll share is Whereas we are seeing that around ten percent lift in Uh, or you know developer time savings we're not seeing that strong of a correlation in terms of Something like, you know code throughput. I mean actual like rate of deliverables being shipped So that's a little bit perplexing Uh, you know, that's a metric a lot of organizations immediately want to look toward as we're shipping more prs because of sure And there there is a small relationship, but it's it's not We can't say this is like ten ten percent plus lift Across organizations right now there and that raises a lot of interesting questions Well, why and and how are the time savings trans where those time savings going are some of the interesting questions?"
+    },
+    {
+      "start": 588.74,
+      "end": 594.18,
+      "speaker": "jerod-santo",
+      "text": "This research is based on q2 of this year. Is that right? So this time window that you're speaking of is basically just q2"
+    },
+    {
+      "start": 594.9,
+      "end": 618.34,
+      "speaker": "abi-noda",
+      "text": "Q1 ang it's really h1 data. Okay all this year 2025 and I should add that we saw notable Rise in a lot of those numbers compared to each two of last year. So particularly the adoption metrics But time savings those have increased Materially since each two last year. I don't know about you. I want to talk about the fun"
+    },
+    {
+      "start": 618.42,
+      "end": 638.42,
+      "speaker": "jerod-santo",
+      "text": "I feel like we've been talking about all this productivity and the The the fomo and the fear and the slaps in the faces and the you're gonna lose your job. Oh my gosh Let's talk about the fun Can you talk about the fun? I'll be like, what do you know about this camp bag fun aspect? Like what? Is the unlock here that's making this paradigm shift more fun? You know, I think"
+    },
+    {
+      "start": 638.98,
+      "end": 694.82,
+      "speaker": "abi-noda",
+      "text": "When github copilot first came out, it was your ai pair programmer Right, and I think your buddy Your buddy and I think that more interactive more social form of doing development work having Someone or in this case an ai to where you can get unblocked when when you're just in a brain funk or You know get really fast feedback on something you're trying to do or that you just did You know, I think that's that's more fun. We we've heard that from our engineers We see that out in the field when we're doing research and you see that from folks like kim beck Who who are really regime kim right who are talking about how much fun they're happy They haven't maybe been doing as much coding Sure in their careers recently, but but they're getting back in because they're having so much fun"
+    },
+    {
+      "start": 695.62,
+      "end": 864.82,
+      "speaker": "jerod-santo",
+      "text": "Nick nisi, I was making fun of nick a few weeks back on the show. Maybe a few months back because of all his Ai subscriptions he was confessing all of the money he was spending And I was saying he was telling me how he was using it and I kind of made fun of him and said well You're just you're just lonely like you don't actually need help. You just want someone to be there with you He's like, yeah, totally and for him like that is the fun as if it feels more Alive to just not be alone now people who pair program In the past or do it their jobs know what that's like It is it can also be exhausting because you're like, you know, you're interacting you're you're trying stuff. You're bouncing stuff off a person And most of us don't have that. I mean very few orgs buy into let's put two developers on one feature I mean that just is a very hard sell And so people who do it swear by it, but very few people will do that Because it just doesn't make sense in the leadership's eyes. It's like, okay but The pair programming aspect of this and just having someone that it's like the rubber duck But the rubber duck talks back and has ideas and has information And that's really powerful for I think a lot of us for me personally adam said it unlock For me i'm just doing stuff that I wouldn't have tried before because I just don't have time and I don't have Two hours for this random idea. I just had where I thought this would be nice Nah, that's too much work. Like i've done that constantly for the last 20 years and now i'm like this would be nice And i'll just go have claud try it while i'm doing something else And you feel like somebody else is toiling away and you're just getting that thing done And sometimes you throw it away and sometimes you use it and sometimes it just helps you with something else And that for me specifically I know i've sung claud codes praises many times on the pod because i'm just into it right now I'm, just having fun with that particular tool once it was agentic and it was in my terminal And it was good enough that I didn't really have to look at the code as long as I wasn't going to like Check it into our main repository and have to maintain it I'm just coding all kinds of stuff without coding and for me all of a sudden i'm having fun Whereas prior to this like if you go back the last two years, it's been like a google replacement But there's nothing fun about replacing google. You're like you just get faster answers Well, your 10 Is interesting because you know get has been claiming 50 for a long time, haven't they? I mean that's been their advertisement on Copilot is 50 10 to me seems low but that's self reporting and Analytical reporting like you're doing the data on that and people say three hours A week, which would be five percent on a 60 hour week ten percent ish almost ten percent on a 40 hour week. So Yeah, ten percent is just not i wonder why it's not higher"
+    },
+    {
+      "start": 865.54,
+      "end": 984.72,
+      "speaker": "abi-noda",
+      "text": "Yeah, I think first of all, it's important to put The the data from folks like github in context a lot of the research when you hear some of that kind of stuff in the headlines a lot of that research Is based on like controlled studies controlled experiments it's putting Two groups developers in a room. It's a lab. Give them a time. Yeah, and you know, I think That's worth putting into context. I think sure and there's a difference between applying these tools to greenfield projects side projects you know small clean code bases versus applying them to legacy code bases millions of lines of code Messy Yeah with lots of content. Yeah micro services and so I think and and even in programming languages or frameworks that llms aren't as well suited for and so I think You know, there's another interesting trend we're seeing in the same way that There's a big trend Still still today around. Hey, we need to break up our monolith to For a number of reasons right around service reliability and engineering productivity ownership I think There needs to be more of a focus right now on All the things that have mattered for humans as far as a kind of code base readability code base optimization I think the same problems hold true for llms. I've been talking with, you know, larger organizations who Who kind of coming to the realization they're they're at a systemic disadvantage in terms of leveraging these tools because their their code bases and systems just aren't as optimized for Agents and llms. So I think that's a challenge for larger organizations"
+    },
+    {
+      "start": 985.34,
+      "end": 1075.89,
+      "speaker": "jerod-santo",
+      "text": "Something I want to mention i'm not even qualified to really mention this deeply. So I just want to touch on it, but expose it Is back to this fun of like the buddy in the room or the pair programmer? Is this this phenomenon of a human activity that we're more productive At least I personally am when another human is in the room, even if they're not present from my work just The social nature of life I think bleeds into that and I wonder if that's Maybe you know because you've got some doctors on your staff. Maybe you've been exposed or through osmosis. You've learned these things, but What do you know about like just? Brain and not brain activity, but like more like human activity together just being more productive in the same room this is something that i've been studying personally because Whenever I am with someone else for some reason i'm just able to like just have more energy naturally and i'm like why? why is it like that and I wonder if that's the same thing here with like developers tend to in most cases i'm not sure the The percentages but a large percentage is alone solo sometimes paired program, but it's more like a particular scenario it's usually a solo endeavor Team sport solo endeavor right team sport. We're all making it but so endeavors I'm making this feature or i'm in charge of this and so I wonder if there's this social aspect that really is now going to be For the most part here forever if we keep this tool in our life Now we always have a buddy I wonder if that's a thing"
+    },
+    {
+      "start": 1076.45,
+      "end": 1083.09,
+      "speaker": "abi-noda",
+      "text": "Yeah, i'm not sure I haven't Seen research on that specifically. I mean you sound like an extrovert by the way"
+    },
+    {
+      "start": 1084.37,
+      "end": 1121.89,
+      "speaker": "jerod-santo",
+      "text": "Yeah I don't think i'm an extrovert at all. I do not get my energy by hanging out with You all here when i'm done here. I'm gonna go take a nap because I have to i'm just i'm kidding I'm not going to but there's some part of me that needs to decompress after an exposure Like this so i'm definitely not an extrovert I'm more introverted, but there's this idea of body doubling. There's this phenomenon of body doubling. I really wish I had mariel Reese here who co-hosted brain salesman because she knows deeply about body doubling And that's essentially what you do here is you body double you have a mirror you have a buddy either as a fictitious Software program that can act like human"
+    },
+    {
+      "start": 1122.53,
+      "end": 1130.05,
+      "speaker": "abi-noda",
+      "text": "Or literally a human in the room that doesn't interact with you. It's just sort of there Working with you making productive so body doubling is a interesting phenomenon"
+    },
+    {
+      "start": 1130.61,
+      "end": 1193.9,
+      "speaker": "jerod-santo",
+      "text": "So to the 10 And maybe there's some brain science here and i'm not a brain scientist either But i've witnessed it myself more speed and productivity but like the same amount of output because i'm just kind of like Done for the day or just like happy, you know, i'm just like well I wonder if there's like amount of work that a human does in a day And you can like optimize that on the margins and some humans are probably more productive than others and stuff but like for a lot of engineers Especially you've been in the craft for so long you kind of have this idea of like how much you can do in a day And then you feel like satisfied and I wonder if people are and self-reporting you probably wouldn't do this because it might be against your self-interest but like Doing what they normally do but just kind of doing a little bit faster and better and then doing someone else and we're you know working on having another meeting have a Rnd session or you know going for an extra walk I wonder if there's any of that in there because I find myself being like I could do more but i've already done what I was gonna do and so i'm gonna take a walk there absolutely could be"
+    },
+    {
+      "start": 1194.78,
+      "end": 1310.72,
+      "speaker": "abi-noda",
+      "text": "Another theory like a lot of theories on it. I mean another theory could be that in the enterprise or in organizations Application of these ai tools is just still catching up to what? You know, like you were talking about what what you're doing with claud code right like for example, we don't necessarily see claud code As the the leading adopted tool currently in organizations And in fact some companies I talk to are it's on their radar, but it's pretty new It's pretty new another theory I saw a really good write-up on this recently is When you actually back it, so let's say Might need to get a calculator out here That at most companies engineers spend 20 percent 30 percent of their 40 hour work week writing code Mm-hmm. So then if you take that 30 percent and then you start plugging in these numbers, like, okay Let's say they're twice as more effective like twice double the productivity So then you take you know, 30 percent So you double that well that what's that so that means like 15 net critical Like I said, I i'm gonna get this wrong, uh doing this live. So so when you start backing into it that way Again, you the 10 actually You can see how you kind of get there being even even with a pretty high acceleration of the coding part of the job You know, you're you're kind of limited by these other factors and that's not even factoring just like All the other areas of friction like as we've talked about before in the podcast that are holding developers back and that are still Currently constraints even when the writing code part of their job is greatly accelerated"
+    },
+    {
+      "start": 1311.34,
+      "end": 1372.06,
+      "speaker": "jerod-santo",
+      "text": "Right. In other words, it's not as if you're doing coding 100 of your job It's a smaller portion of your job And if you're doing that smaller portion faster Then you're only speeding up that one thing and as many of us know who've been in the industry a long time Is the coding part while it can you know require you to sit down for six hours and do it It's not always the limiting factor. It's not the problem sometimes um code reviews are still very time consuming and of course, we got to code review this stuff right like the Agents aren't quite good enough to just let them to just vibe code in the enterprise now There are people claiming there's vibe coding going on in the enterprise But I think most of that's rogue and just you know trying to beat your colleagues at your job Unless you have data to the contrary. I'm interested. You said clog code isn't very adopted that makes sense I mean these agentic tools, especially I mean gemini cli like the new cli tools. We're talking like the last three four months. Yeah, and so"
+    },
+    {
+      "start": 1373.15,
+      "end": 1375.15,
+      "speaker": "abi-noda",
+      "text": "We're not even gonna date on that it's like two weeks"
+    },
+    {
+      "start": 1375.55,
+      "end": 1418.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly Yeah, I mean things are moving very fast and enterprises move traditionally slow depending on the enterprise Well friends, it's all about faster builds teams with faster builds ship faster and win over the competition It's just science and i'm here with kyle gallbraith co-founder and ceo of depot Okay, so kyle based on the premise that most teams want faster builds That's probably a truth if they're using ci provider for their stock configuration or getup actions Are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 1419.28,
+      "end": 1491.41,
+      "speaker": "abi-noda",
+      "text": "I would take it a step further and say if you're using any ci provider With just the basic things that they give you which is if you think about a ci provider It is in essence a lowest common denominator generic vm And then you're left to your own devices to essentially configure that vm and configure your build pipeline Effectively pushing down to you the developer The responsibility of optimizing and making those builds fast making them fast making them secure making them cost effective Like all pushed down to you the problem with modern day ci providers Is there's still a set of features a set of capabilities that a ci provider could give a developer? That makes their builds more performant out of the box makes the builds more cost effective out of the box And more secure out of the box I think a lot of folks adopt github actions for its ease of implementation and being close to where their source code already lives inside of github And they do care about build performance and they do put in the work to optimize those builds but fundamentally ci providers today Don't prioritize performance performance is not a top level entity inside of generic ci providers"
+    },
+    {
+      "start": 1491.81,
+      "end": 1529.42,
+      "speaker": "jerod-santo",
+      "text": "Yes, okay friends save your time get faster builds with depot docker builds faster GitHub action runners and distributed remote caching for basil go great old turbo repo and more Depot is on a mission to give you back your dev time and help you get faster build times with a one-line code change Learn more at depot.dev get started with a seven-day free trial. No credit card required again depot.dev Who is winning like who's You know, is it windsurf is a co-pilot like from your data who what are people using the most?"
+    },
+    {
+      "start": 1529.82,
+      "end": 1537.42,
+      "speaker": "abi-noda",
+      "text": "Yeah, man, I don't want to we're coming out with some data on that real soon Okay, if you will like, uh, it's called a leaderboard of okay"
+    },
+    {
+      "start": 1537.98,
+      "end": 1543.98,
+      "speaker": "jerod-santo",
+      "text": "Give us a teaser. I don't want to steal your thunder. But yeah, well i'm not gonna i'm not gonna call the winners specifically"
+    },
+    {
+      "start": 1544.06,
+      "end": 1646.02,
+      "speaker": "abi-noda",
+      "text": "I can kind of tell I mean definitely cursor copilot windsurf and then Claude code are what we're seeing Mm-hmm both in the data, but also when we go talk To to organizations about kind of what they're what they're looking toward Um, you know the other interesting thing we've all followed by cursors astounding, you know growth What's really interesting is like most organizations are just in Experimental mode right now. So they're they're going in and saying okay, we're gonna like buy them all We're gonna buy them all give everybody everything Then we're gonna You know figure out what we're actually going to do. So see what sticks. Yeah, very much up for grabs Everyone's talking about like cursors momentum. I'm but I wrote an article last week saying Yeah, their growth is incredible but Who knows what's going to happen? So i'm like 12 months from now companies are going to say, okay We've been trying all these things we need to kind of potentially standardize around You know a uniform tool chain around this As you know dread like clod code like there's even these like workflows shared workflows There's like there will be leverage and standardizing this this tooling because there's going to be a lot of enabling work that needs to happen to to make these tools and agents successful and so uh, yeah, it's it's very much up for grabs, but The tools I mentioned are the ones currently I think we're seeing the most interest in highest levels of adoption by companies. Are you in an extreme growth mode as a result of this?"
+    },
+    {
+      "start": 1646.98,
+      "end": 1662.58,
+      "speaker": "jerod-santo",
+      "text": "Like the dx business. Yeah, because you gotta if you have a large swath of enterprises who need to experiment They need to track how they experiment there, right? So they need frameworks. That's what you've got I'm, just curious that that has resulted into Yeah, extreme growth"
+    },
+    {
+      "start": 1662.58,
+      "end": 1781.14,
+      "speaker": "abi-noda",
+      "text": "six months ago even four months ago, I would say The companies coming at us were Looking for help with all kinds of things and kind of figuring out ai was one of them Say right now Yeah, it's the number one use case. Yeah, it's the only thing it's the only thing anybody cares. So it's data for everything from Bake-offs as you said. Hey, we're We're evaluating five different tools and we want to with data understand which of these are most effective for developers it's Putting a real Turn that into dollars and hours and numbers. Hey, like what is the impact? You know, our cfo is saying we should have 50 improvement. What is the data telling us about what this is actually? yielding right now It's Understanding, you know, what are the downstream effects? So Okay, we're seeing more code throughput faster code velocity Are we also seeing more defects? You know, we like how's that affecting developer flow state? Are we seeing more incidents? Is the code maintainable the developers is developer's ability to then maintain this ai generated code? increasing or decreasing and and finally cost so With the consumption consumptive based spending now There's a real question. Okay, we gotta like figure out what like how much can we spend? Like what's what's the appropriate budget? And then how do we think about making sure? We're spending that money on on good things not like developers screwing around You know burning tokens, uh in ways that aren't a creative for the business. So so yeah adam It's been a really big tailwind for the dx business for sure. Well, it has to be one of the most divisive"
+    },
+    {
+      "start": 1782.14,
+      "end": 1871.09,
+      "speaker": "jerod-santo",
+      "text": "technology hype cycles in human history because I mean maybe blockchain was equally as divisive because there was believers and non-believers in blockchain and there was a lot of hype around blockchain will solve every single problem and then Other people were looking at technology and thinking like well, it's really good if you need decentralized Consensus, you know, which does have some applications And it's finding some use cases, but not like everyone's gonna say blockchain will solve it, right? And so you had a lot of division there And you have a lot of division on this because yeah You have cfo saying we should be 50 more productive and you have people who are boots on the ground saying like That's not gonna happen, you know And so that's a lot of pressure on me and my team Which we think is unwarranted and we're doing all the tools. It's just insane how much Yeah top-down pressure of something that Nobody really knows the upside In any sort of clear way, right? We know a vague upside we can feel it we can maybe report on it a little bit, but We're just not sure where this train is headed. And so it makes sense that dx, you know Your your guys's business is in high demand on that one topic because we want we all want to know Yeah, you know, it's a big open question right now is how much are these tools going to deliver on the promise So far, it's looking like more than blockchain, you know but Yeah, like you said Jerry's still out"
+    },
+    {
+      "start": 1871.09,
+      "end": 1923.36,
+      "speaker": "abi-noda",
+      "text": "It is amazing When I go talk to leaders, I yeah, I think A lot of leaders. I don't know the percentage we haven't surveyed them, but I think a lot of leaders really do believe That a large portion of their engineering workforce will be replaceable like You know a lot of leaders I talked to I can hear it and I can see it in their eyes They they believe that that is wow What's gonna happen? And When I talk to like prospective investors Cios It's it's a question. I get asked a lot about even the dx business. Yeah How is this relevant in a world where There's way less developers, right? It's interesting question. You need ax agent"
+    },
+    {
+      "start": 1924.24,
+      "end": 1926,
+      "speaker": "jerod-santo",
+      "text": "Yeah agent experience"
+    },
+    {
+      "start": 1926,
+      "end": 2029.72,
+      "speaker": "abi-noda",
+      "text": "So it's an interesting thought exercise. I I also talk to leaders who's You know strongly believe This is this is not gonna like result in some any sort of widespread reduction in human headcount I think that's my personal prediction at this time I I was talking with the leader. I think it's sort of it's called javon's paradox Okay. I haven't heard this one. No, okay. It was just shared with me this week, but it's uh, it's on wikipedia, it's the the idea that when a resource becomes more efficient It actually leads to higher utilization so meaning is I think there's an example of something with like oil refineries and You know the the ability to refine oil became much more efficient. So you'd think that The sort of investment in that would be decreased like oh we can have less oil refineries Because we can refine oil faster, but right, you know, it only resulted in like more production more refineries. And so a similar you know applying that to what's happening here like is If we view these tools as making engineers Maybe not replacing engines, but making them engineers significantly more productive You know that that law would then Suggest that well, we're just gonna Have more because yeah, we could get more out of per engineer and we're just gonna have more engineers. We're gonna have more software faster, right so Yeah, it'll be interesting See how this all plays out"
+    },
+    {
+      "start": 2029.72,
+      "end": 2098.54,
+      "speaker": "jerod-santo",
+      "text": "I kind of i'm jiving with that because I think that I hadn't heard of this, uh principle or paradox before but it does make sense that when you make something more efficient you tend to use more of it and that's kind of where i'm leaning towards like you're gonna have a recalibration of what a developer is Because there's gonna be more people willing to do what developers do And so there's gonna be a wider spectrum of what to do so degree of difficulty easier harder And then I think you're gonna see the the definition change so to speak and you're gonna see more people come into it You're still gonna need people to think, you know, there's I can't Extrapolate this big enough, but you're still gonna need humans to think about the problem of humanity You can probably offset a lot of that to ai, but I think you still need like this human intellect this human I don't know how to describe it besides feels like what feels right to humanity I think you still need that in there because it's not quite in the ai that just more Bits and bytes more than true intelligence is It's not the same, you know"
+    },
+    {
+      "start": 2098.7,
+      "end": 2173.34,
+      "speaker": "abi-noda",
+      "text": "And this shows up So we just published this ai measurement framework, uh sent you guys the link. Uh, it'd be great to include in the show notes one of the big questions As We developed this framework was How do we measure agents? so do we treat agents as people Or do we treat agents as extensions of teams and people in the framework? We we discussed this in the paper You know, we advocate for treating agents as extensions of people and teams so another way to think about that is that What that effectively means is that a developer is sort of the the manager of These agents and but we're still measuring The the developer and the the team with the agents being an extension of of that team if that makes sense yeah, so so thinking about how do we measure this you kind of arrive at similar questions to what we were just talking about in terms of The human to agent ratio and balance and relationship and how that will evolve"
+    },
+    {
+      "start": 2173.98,
+      "end": 2197.26,
+      "speaker": "jerod-santo",
+      "text": "Yeah, because the effectiveness of the humans Being extended is another factor because I may be better or worse at leveraging an agent than you might be And so this team plus three agents versus that team plus five agents. There's so many variables there To actually whittle it down to Any sort of usable information? Well, that's that's your job obby not mine"
+    },
+    {
+      "start": 2197.34,
+      "end": 2253.51,
+      "speaker": "abi-noda",
+      "text": "So I'm sure you guys will figure it out and I you hear more about this is another thing when I talk to leaders they're thinking a lot about number of agents Like what's the right? ratio of human to agents and I think that's a Really interesting question. I also think It's not a practical question right now I mean, you know this working with like clod code like it's not We're kind of talking about Like single threaded versus multi-threaded like it's not we're not at a point where we're really talking about You know, I I've won Qa agent and a designer agent and a front-end developer agent, right? That's not really the paradigm I mean, i've seen people kind of there's some people doing that but there's some people doing that they're on the edge. Yeah But that's not really the paradigm right now. So I think right now Human extension is the right way to to think about it, but that could change"
+    },
+    {
+      "start": 2254.15,
+      "end": 2280.31,
+      "speaker": "jerod-santo",
+      "text": "in that paper one of the things that uh You pull quoted actually was companies are no longer limited by the number of engineers they can hire But rather the the degree to which they can augment them with ai to gain leverage it's kind of like what you're talking about there is like your Your counting agents you're counting humans, but you really want to just like augment the human ability Not replace it although some of the leaders have been smirking thinking replace replace"
+    },
+    {
+      "start": 2280.87,
+      "end": 2387.61,
+      "speaker": "abi-noda",
+      "text": "Right. Yeah, they're thinking we'll replace them soon Gosh, as soon as the data shows that we can we will right Bye And thankfully the data is not showing that right and I think the the secondary effects of Yeah software quality understanding the bottlenecks and sdlc like like we talked about things like code review aren't going away decision make human decision making and judgment Actually when you think about it For example, like product management a lot of seasoned engineering leaders when I talk to them know that like product management is actually The big bottleneck not so much like engineering velocity, right? It's really like product velocity. It's it's decision making it's that uh life cycle from idea to to code and I think we're going to see attention on those bottlenecks magnified because because as we optimize that the coding We're already seeing this at dx, you know companies come those. Hey, we thought we were supposed to get 50 productivity improvement We're not seeing that from the ai tools. So now we're asking what really is our problem What really are the bottlenecks? And so it is magnifying attention on The engineering productivity in general because folks Are really focusing on that topic right now because they're expecting these tools to be transformative In their organizations, so I think that's an interesting trend we're seeing as well so this could actually result in people caring more and investing more in the other aspects of developer experience that people maybe haven't focused on before because Those constraints are being magnified"
+    },
+    {
+      "start": 2387.61,
+      "end": 2466.04,
+      "speaker": "jerod-santo",
+      "text": "When you solve one bottleneck, then you see the other one for what it is and you start trying to solve that one Well friends, it's time to build the future of multi-agent software and you can do so with agency. That's agnt Cy the agency is an open source collective building the internet of agents It's a collaboration layer where ai agents can discover connect and work across frameworks for developers This means standardized agent discovery tools seamless protocols for inter-agent communication And modular components to compose and scale multi-agent workflows. You can join crew line chain lambda index browser base Cisco and dozens more the agency is dropping code specs and services with no strings attached build with other engineers who care about high quality multi-agent software visit agency.org that's Agntcy.org and add your support once again"
+    },
+    {
+      "start": 2466.74,
+      "end": 2471.46,
+      "speaker": "abi-noda",
+      "text": "agency.org Agntcy.org"
+    },
+    {
+      "start": 2475.88,
+      "end": 2544.79,
+      "speaker": "jerod-santo",
+      "text": "So budgets i'm curious about budgets because as we look at agents as extensions of engineers Let's imagine that i'm worth a hundred thousand dollars a year whatever plus whatever and If you give me one agent Maybe i'm worth 120 And so are you spending twenty thousand dollars a year on an agent per engineer? Are you because that saves you another engineer? Perhaps i'm probably not going to get to two engineers. I'm not a two xer But maybe i'm 1.1x Maybe i'm only worth 110. How much do we spend on this? I'm sure these people are trying to figure it out because budgets very much have to be actualized and decided on like how much are we going to spend towards this now when you're just Trying every tool there is and my guess is the budget is don't worry about the budget we got to figure this out, but yeah, eventually those things need to be figured out because I don't think we're going to get outright replaced like these ceos want to soon but certainly we're going to be augmented in a way where your budgeting starts to change start to think about You know engineer plus What are your thoughts on that and have you guys done any work with road to?"
+    },
+    {
+      "start": 2545.35,
+      "end": 2707.06,
+      "speaker": "abi-noda",
+      "text": "Yeah pricing these things out in our paper. We talk about cost and we talk about ways to think about cost we I don't think Across the industry are at a point where companies are Focused on this problem. They're talking about it because they know it's coming They know it's the next problem. They need to figure out once they get over the kind of experimentation phase But your example right there. Yeah, you know your Your cost is a hundred thousand dollars per year With an agent your cost is 120 000 per year. Like what does that mean again? This goes back to the well then should there be less developed should there be less People right because like we're offsetting that and so a couple ways that In our paper we talk about like ways to think about this. So what is this idea of like human equivalent hours? and This came up in our conversation here like being able to kind of measure. Okay, how much Of human equivalent work did this agent do so not just looking at Number of prs or right but like how much human equivalent work. So if you can Measure that which is hard Then you can take that against AI spend And you essentially have like this idea of like an agent hourly rate right, so Like like your spend divided by number of hours of work produced work done That's your agent hourly rate. So I think that's one interesting number for that We're working with companies on putting some focus on that's a number you can use to start to rationalize What's the right amount of spend another? interesting metric is Like net time gain per developer. So that would be we talked about the time savings. So how much time is AI saving you? Well, how much Are you spending on AI and then when you take that? um, you know converted into equivalent of what the developer's hourly rate is Are they actually? Saving time or do they spend more money than the time they saved right, right? So those are two so Asian hourly rate and net time gain per developer are two Metrics that again really hard to get at right now I mean a lot of vendors is hard to just get the cost and stay on top of the cost Information in general, but I think those are two good frameworks for thinking about About the net ROI and right sizing the investment"
+    },
+    {
+      "start": 2708.18,
+      "end": 2845.89,
+      "speaker": "jerod-santo",
+      "text": "That's a complicated task. That's for sure But i'm glad we got smart people thinking about it. It'll certainly be a huge concern maybe 12 to 18 months from now Eventually some of these tools got to shake out I think and that's what i've kind of been waiting on is like, you know, i'll let the edge lords do their edging and then i'll just Wait and see what shakes out. But um, it's been longer. It's been a longer grind, you know It's probably been two and a half almost a three year since chat gpt changed the world and um, they're just now getting to where like for the longest time i'd replace google with it, but I wasn't going to use it for any software until This last iteration of models and they've all gotten to where it's like, okay, you know, we've we've reached a threshold which is Which is significant going back to your javan's paradox that actually tracks with me with just as an n of one like I said earlier i'm not replaceable In this sense, but i'm just writing more software Like i'm not just doing less although I did confess to going taking a walk earlier than I would have But i'm also just doing more stuff That I wouldn't have done like it just unlocks me to write more software that I wasn't going to write and i'm imagining all around The world imagine every jira board or pivotal tracker or whatever tool you're using and the icebox, you know the backlog And there's things in that backlog that you know They're just never going to get worked on because other stuff just goes in higher and replaces them and it's just a constant grind And there's so much unwritten software that we're not going to run out. We're not going to We're just going to hire higher higher. We're going to augment we're going to write more software Some of that software is going to be really crappy. We're going to hire more security engineers And then we're going to hire people to replace the software. I mean, it's going to be just fine. I think that's my just I think we're going to be just fine Now we do change how we do our work. Absolutely 100 change how you do your work and I think our teams change slightly I think our enterprises change I think less large enterprises probably smaller teams doing more businesses don't have to grow that head count quite as fast But the large ones stay large. That's just an intuition I don't know that with you guys"
+    },
+    {
+      "start": 2845.97,
+      "end": 2849.33,
+      "speaker": "abi-noda",
+      "text": "well, even with your You know confessing to taking a walk early"
+    },
+    {
+      "start": 2849.33,
+      "end": 2859.73,
+      "speaker": "jerod-santo",
+      "text": "I wonder if maybe during that walk you solved a harder problem that you haven't been able to solve because you were happier You felt more fulfilled and maybe actually had the brain space to just think"
+    },
+    {
+      "start": 2860.45,
+      "end": 2863.65,
+      "speaker": "abi-noda",
+      "text": "You know, so that walk doesn't actually I did i'm pretty sure I did"
+    },
+    {
+      "start": 2863.73,
+      "end": 2912.07,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you probably did. I mean, it's not indicative of less output. That's the problem. I think is And why i'm so thankful dx is here because you got the core four and this, you know Kind of four degree of measurement across teams and you got this newer one for the ai to measure agents We need those checks and balances because i'm curious You know having said that if the d, you know, the dx core 4 needs to change or will change Because of ai like does do we need to add a happiness metric in there our morale I think it's kind of in there, but maybe you can speak to it more so abby but i'm curious if that dx core 4 needs to be the core 5 because We need to measure the human Contentment I would say like as an individual And then that individual is part of a team that team is part of a culture and a culture of of a company I'm curious if that will change because of ai"
+    },
+    {
+      "start": 2912.79,
+      "end": 3095.56,
+      "speaker": "abi-noda",
+      "text": "Yeah, we uh, we talked about this last time I was on the show too, uh, did we gosh We have the idea of happiness encapsulated in our developer experience index measurement okay, very intentionally not called happiness because one of the goals of the core four is to make it palatable for executives and I mean not to sound cynical They don't want to measure Not now Back in 2021. They did when no one could retain developers, right? Um right now they can't Funny thing github recently came out with a white paper on, you know how to think about measurements and Uh, you know, we we consulted, uh with them closely. They they incorporate a lot of like the core four Uh measurements in their article, but one thing specifically I kept telling them With don't call it happiness. They're like github is all about developer happiness. It's all about developer happiness. I said don't call it happiness because You know the the irony if you call it happiness then executives won't measure it and so no they won't care about developer happiness if you call it if you kind of frame it as something else we frame it as developer experience index, which is how you measure effectiveness because we believe like developer happiness is part of Being effective in how you build software Uh, then they'll measure it and it'll get improved and optimized. And so, uh, yeah, it's it's a naming problem adam but it is encapsulated in there in terms of like should the core 4 change we That's something we've looked at closely and and as of now as a Organizational way of thinking about a measuring productivity. We think core 4 Is still holds true What's different about ai is you you need more right? There's a lot of new stuff we're measuring and so the the ai measurement framework actually Includes the core 4 in one aspect of it, which is understanding how is the overall organizational productivity? being impacted pre and post ai or depending on level of adaption so that that's a lot of what we're helping our customers measure right now is You know when we look at the adoption curve in our organization Or the maturity curve. I think it's transitioning into now less about adoption more about maturity. So not just Are people using copilot daily? But how are they using it? Right? Are they using it just for auto complete? Are they using the agentic stuff? Are they? Using the ai to help them create the prompt that they feed back to ai right like so maturity Like how is that mature increases? Does the organization seem more productive based on the data, that's The the big question we're trying to help companies answer right now. What has been your adoption strategy at dx"
+    },
+    {
+      "start": 3096.12,
+      "end": 3098.28,
+      "speaker": "jerod-santo",
+      "text": "For these tools. Yeah. Yeah, you know"
+    },
+    {
+      "start": 3099.08,
+      "end": 3238.79,
+      "speaker": "abi-noda",
+      "text": "we work with netflix and One thing that's been on my mind is how much I have not heard netflix making a fuss about ai Right Meaning like true a lot of these companies are like, you know, we're we need our developers using them We're measuring how much they're using like I haven't heard that from netflix Which makes a lot of sense because netflix is predicated like their entire culture is hey, we just hire really senior people Like like developers kind of rule at netflix, right? Um Because they they entrust their That their developers are the best in the world and that if there's a really useful tool for them to use They'll use it and they're going to use it the right amount They're not going to use it more because we're measuring them And so that's the approach I've taken at dx now I've also encouraged like cloud code for example, so I encouraged a few of our engineers. Hey I'm reading about This workflow, you know voice voice attacks to cloud code to this to that right like one of those more edge and so I asked a few of our engineers to go try this workflow for a little bit and see what you think but We're definitely haven't mandated it It's my understanding that everyone's using one or multiple of the tools and doing their own experimentation. But ultimately, yeah, I trust the engineers to to Use it to the to the degree to the extent that it's useful and I think that's the I haven't put any pressure on people I haven't been like Well, you know if you don't do this You're going to become obsolete. Um, that's not a message i'm uh, i'm bringing we've had some really interesting Conversations around just candid conversations. Like where do we all think this is going? Right, and that's also relevant to dx because we're a product company. We're thinking about products around, you know, ai tooling Enablement tooling and so we're having those discussions as well. Can you say more about that? Well dx the business we've Gone to this interesting point. We've been doing the measurement Right thing for for now almost four years it's going really well, but uh, you know"
+    },
+    {
+      "start": 3239.51,
+      "end": 3242.07,
+      "speaker": "jerod-santo",
+      "text": "A few months ago bored getting bored of measuring stuff"
+    },
+    {
+      "start": 3242.79,
+      "end": 3471.59,
+      "speaker": "abi-noda",
+      "text": "Well a few months ago. I met with drew house and Uh, you know ceo of dropbox and he said to me they've been a customer of ours he goes, you know, you guys are doing Diagnostics really? Well, have you thought about? What about like the interventions like what about like solving the things that that you're you're measuring and so? um You know, that's actually a question. I realize we've got asked in different ways, but but constantly like well, can you actually help us like Like improve and yes, you know, we've We've done a lot of things like you guys saw this partnership. We have with thoughtworks So hey partnering with like consulting companies who can come in and help you like with the transformation Um, you know, we started partnering more with different vendors. Hey, is there a way we can loop in vendors to We don't really want to like play favorites But hey at least we can map different tools out there to different problems, you know areas of the sdlc I think we've gotten a point where it's like hey, you know what actually there's like Gaps in the market, but there is no solution for really some of these problems And you know should dx just just go build them and now with ai we're seeing a whole new generation of problems That are being created uh, I mean like you guys My previous company was like a slack app, right? So like I I got in on that right as slack was just Grown like crazy and so there was just it was an entire new paradigm and the entire generation of businesses were built on slack and so I think ai and ai engineering specifically so this new way of working this new way of doing software development is actually a new paradigm in which You know potentially like the entire tool chain could be rewritten Like the folks at github and gitlab are worried that cursor is going to add Code review and source control management to their Like just go for it, right? I think to completely upend the the status quo and so Um, you know at dx, I don't think we're not going after cursor. We're not going after github. That's for sure um, I think we're going after the adjacent opportunities the the the ones that um, like on the margins that that you know, the the big guys are We're not trying to go to war with the cursor and copilot we're trying to solve The adjacent problems we see some things we've talked about today Like how do you actually you know, how do you upskill developers? How do you um, How do you optimize your code? for llms, how should platform engineering teams think about Sort of self-service and enablement in the same way that if you guys have followed Things like spotify backstage right like big focus on golden paths self-service developer enable. Well, what does that look like? In a post ai world. It's like well enablement on what golden paths around ai tooling ai development workflows uh shared You know claud we talked about like claud has Workflows literally, right? Workflows are so like, you know curating that like how do you create like a Standardized set of like workflows that you hire a new developer in your organization. Boom. They have this You know menu of of superpowers, uh, ai powered superpowers that they can so those are the types of problems Uh, you know, I can't I can't get into specifics But but those types of adjacent problems I think are you know new constraints for enterprises looking to deploy ai at organizational scale so not single player mode, right like But more more multiplayer mode, how does an organization become successful with these right is a different set of problems"
+    },
+    {
+      "start": 3471.59,
+      "end": 3474.31,
+      "speaker": "jerod-santo",
+      "text": "It's like ai adoption best practices as a service"
+    },
+    {
+      "start": 3475.32,
+      "end": 3483.32,
+      "speaker": "abi-noda",
+      "text": "Yeah, that's I mean that that's one potential opportunity, right? That's just one of your ideas Yeah, that's not saying that's what we're doing. What else is adjacent to this like"
+    },
+    {
+      "start": 3484.2,
+      "end": 3492.2,
+      "speaker": "jerod-santo",
+      "text": "You know, don't give us your solutions. But what are the other problems spill the beans avi? He's gonna press you to spill those beans Wow, i'm just kidding"
+    },
+    {
+      "start": 3492.52,
+      "end": 3568.34,
+      "speaker": "abi-noda",
+      "text": "He's just curious. Yeah, I think What we're seeing is there's really two things. Um, one is that there's this new set of problems like some of the things i've You know hinted at I think there's this new generation of problems to be solved. The other opportunity is that there's actually The pre-existing problems that are being more magnified Meaning post-ai, it's even clearer that these are real constraints and in some ways they're a limiting factor to how much value you get out of ai because again if we go back to the idea of agents as extensions of humans then the the ability of that human And the environment in that in which that human is working in is actually a more magnified limiting factor because because now this developer could be getting You know 150 leverage whereas before there's just you know at 100 to use kind of the numbers we were talking about before so What are the constraints to the human? Well, it's probably the same constraints we've had before some new ones but some and and you know, those are the types of things we've been measuring for years and seen Go unsolved and and we think you know, maybe we should go try to solve them. Are you raising money? Where do I invest?"
+    },
+    {
+      "start": 3568.34,
+      "end": 3574.34,
+      "speaker": "jerod-santo",
+      "text": "Dobby, where do I invest? You sound like you're well positioned to actually take this take these adjacent markets over man"
+    },
+    {
+      "start": 3574.9,
+      "end": 3642,
+      "speaker": "abi-noda",
+      "text": "Yeah, I think GitLab GitHub, Atlassian Have a platform advantage over like a cursor. Sure, like that battles on right? It'll be really interesting to see like can GitHub leverage its platform advantage that it has being the system of record for You know code Right And like developer communication Can it convert and you know being embedded into much of the SLC. Can it convert that into a really? Amazing platform that you can kind of win out over Point solutions that are threatening their business model. I think similarly DX has some platform advantages, right? Namely that we can actually measure What's going on? You can prove what's going on. Yeah, and so Uh, yeah again, I don't think we're not gonna jump into the the battle of the AI code agents, but We see opportunity to bring a lot of value to our customers by by helping them Maximize those investments and continue to just optimize their overall engineering productivity"
+    },
+    {
+      "start": 3644.1,
+      "end": 3672.58,
+      "speaker": "jerod-santo",
+      "text": "We're almost out of time, but I gotta ask you for predictions since you mentioned this because when you mentioned the The popular agents you did not mention copilot Curse was mentioned when service was mentioned cloud was mentioned because Jared sort of interjected it cloud code at least But copilot was not can you give me a prediction? What do you think's going to happen over the next year or so? given this tumultuous waters just mentioned to GitHub or get lab the entrenched What what happens if they don't succeed?"
+    },
+    {
+      "start": 3673.82,
+      "end": 3720.7,
+      "speaker": "abi-noda",
+      "text": "In this transitional moment. Yeah, if I were cursed I'd go for it, right? I would go for the full stack like be the platform I think the prediction I'll leave you with is I'm interested in seeing Are we gonna end up in kind of like in the same way? We've sort of ended in like multi-cloud like is the end state of this like kind of like multi-agent like, you know different companies will offer agents and models that are more fine-tuned to different types of work and so For the developer are we gonna be in a world where like based on the task or even sub task? We're kind of delegating to different providers and services and then and then there's an orchestration problem So that's another problem. We're thinking about it dx is you know, is that the paradigm and if so, there's there's a tooling layer needed"
+    },
+    {
+      "start": 3721.02,
+      "end": 3726.22,
+      "speaker": "jerod-santo",
+      "text": "Man, I want to be invited to the one of these think tanks y'all have I want to be in these I want to be a fly on the wall in the room"
+    },
+    {
+      "start": 3726.57,
+      "end": 3734.68,
+      "speaker": "abi-noda",
+      "text": "With all this data, you got this this moat you've got just looking at the landscape and considering less conjecture because they have actual data"
+    },
+    {
+      "start": 3734.68,
+      "end": 3744.2,
+      "speaker": "jerod-santo",
+      "text": "You know adam and I conjecture but we don't have any data. So we're just talking out of our Certain body parts. All right abhi. We know you got a hard stop. We'll let you go. Thanks for stopping by again"
+    },
+    {
+      "start": 3744.2,
+      "end": 3749.64,
+      "speaker": "abi-noda",
+      "text": "You're welcome anytime man. Yeah, thanks so much. Always fun chatting with you guys. Keep up the great work. Bye friends. Bye"
+    },
+    {
+      "start": 3751.53,
+      "end": 3795.49,
+      "speaker": "jerod-santo",
+      "text": "All right, that's all we got for this week. Thanks for changelogging with us. Thanks for friendsing with us Thanks for making your way to denver so you can meet up with us and live show with us and maybe even hike with us You are coming right? I hope you're coming july 26th the oriental theater denver red rocks. Oh my gosh It's going to be so much fun. Learn more about it at changelog.com Live thanks again to bmc for these dope beats to our partners at fly.io And to our sponsors auth zero auth zero dot com slash ai Depot at depot.dev and agency. That's agn tcy.org Tcy.org have a great weekend. Tell your friends about the changelog. Why don't you and let's talk again real soon"
+    }
+  ],
+  "slug": "measuring-the-actual-impact-of-ai-coding",
+  "id": "101"
+}

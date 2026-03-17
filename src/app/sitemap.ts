@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "episodes",
         `${episode.id}.json`,
       );
-      const epPagePath = `/podcasts/${podcast.slug}/episodes/${episode.id}`;
+      const epPagePath = `/podcasts/${podcast.slug}/episodes/${episode.slug}`;
       entries.push({
         url: `${BASE_URL}${epPagePath}`,
         lastModified: fileMtime(epPath),

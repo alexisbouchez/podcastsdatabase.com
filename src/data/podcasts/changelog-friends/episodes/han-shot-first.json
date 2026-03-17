@@ -1,0 +1,1213 @@
+{
+  "title": "Han shot first",
+  "description": "Our ol' friend, Brett Cannon, is back to talk all things Python. But first! Star Wars, Machete Order, Lost, Babylon 5, Game of Thrones, Murderbot, Ted Lasso, Project Hail Mary, David Attenborough, perpetual voice rights, and the AI uncanny valley.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/128",
+    "MP3": "https://cdn.changelog.com/uploads/friends/128/changelog--friends-128.mp3",
+    "YouTube": "https://youtu.be/BfJoZIJxEAY",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "brett-cannon"
+  ],
+  "segments": [
+    {
+      "start": 14.99,
+      "end": 156.78,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and friends, a weekly talk show about open source voting systems. Thanks as always to our partners at Fly.io, the platform for devs who just want to ship, build fast, run any code fearlessly at Fly.io. OK, let's talk. Well, friends, I don't know about you, but something bothers me about GitHub actions. I love the fact that it's there. I love the fact that it's so ubiquitous. I love the fact that agents that do my coding for me believe that my CI CD workflow begins with drafting toml files for GitHub actions. That's great. It's all great. Until, yes, until your builds start moving like molasses. GitHub actions is slow. It's just the way it is. That's how it works. I'm sorry, but I'm not sorry because our friends at namespace, they fix that. Yes, we use namespace to do all of our builds so much faster. Namespace is like GitHub actions, but faster. I mean, like way faster. It caches everything smartly. It caches your dependencies, your Docker layers, your build artifacts so your CI can run super fast. You get shorter feedback loops, happy developers because we love our time and you get fewer. I'll be back after this coffee and my build finishes. So that's that's not cool. The best part is it's drop in. It works right alongside your existing GitHub actions with almost zero config. It's a one line change. So you can speed up your builds, you can delight your team and you can finally stop pretending that build time is focus time. It's not. Learn more, go to namespace.so. That's namespace.so just like it sounds like it said, go there, check them out. We use them. We love them and you should too. Namespace.so. Well, it's been far too long, but finally Brett Cannon is back on changelogging friends. Thanks for having me back guys. John Wick and Dune and we're just not talking about that today though. We're skipping that. We're skipping that. Maybe even a little bit of Andor, you know, Andor. Yeah, I actually watched Andor specifically"
+    },
+    {
+      "start": 157.42,
+      "end": 162.22,
+      "speaker": "brett-cannon",
+      "text": "to come back on for, I think backstage before you stopped doing it. And we're not doing that at all"
+    },
+    {
+      "start": 162.22,
+      "end": 268.4,
+      "speaker": "jerod-santo",
+      "text": "now, but you know what? I'll mention that I've had the pleasure since the holiday break, like summer, December, January, and then obviously we're here in February now. My son, my oldest son has gotten into Star Wars. And so we've watched all nine of the main movie shows, you know, the main movies, you know, and then now which order did you do more chronological? So this is, this is a really interesting phenomenon. I think that was, is it really a phenomenon? Maybe it's not. Maybe it's just a luxury. Is that, you know, we grew up in an era where we got, we had to watch them out of order. And so we kind of watched, you know, episodes four, five, and six with a lot of context missing and a lot of mystery, right? If you watch them in chronological order, you watch four, five, and six with all that context and all that mystery ruined essentially. Which is kind of a sad thing, but it's kind of cool in a way too. So I appreciate the, the watching from two different angles, but we watched them chronologically, you know, we knew that spoiler alert. Okay. Sound the horn. That Anakin is Darth Vader. Okay. If you don't know that by now, then what rock? Okay. What rock? But, you know, you kind of didn't really know, but there was mention of Anakin Skywalker a couple of times in episodes four, five, and six, that we never really probably pinned back to a person that mattered in the story. Although they were mentioned because we didn't know that Anakin was Darth Vader. Unless maybe you were like a super crazy critic and you just knew this stuff. But anyways, we've watched them and now we're watching Rogue One, which I believe is the best, the best. Yeah. The best Star Wars movie of all time is, is yeah. The best. Wow. Awesome."
+    },
+    {
+      "start": 268.4,
+      "end": 272.16,
+      "speaker": "brett-cannon",
+      "text": "Awesome, but not the best. Yeah. I will say it's awesome, but not the best. Maybe the best of the"
+    },
+    {
+      "start": 272.16,
+      "end": 307.44,
+      "speaker": "jerod-santo",
+      "text": "modern era. Well, okay. Let me say where I'm saying it's best from storyline, maybe not so much, but visually. Wow. Such a cinematography, like cinematography, director photography is amazing. The detail in the things we didn't have detail in, like the Death Star, so much detail, like the detail in the ships, the detail in the worlds and the land, like so much detail. That's why I think it's the best. And it has the, I would say the beginning of the cinematic era, like the certain look that it has, that's what I mean by the best. And so that's where I'm kind of coming from. Not so much the storyline itself, but those details, in my opinion,"
+    },
+    {
+      "start": 307.44,
+      "end": 313.76,
+      "speaker": "brett-cannon",
+      "text": "elevated above a lot of them for me. So this brings up a big topic, which is the order that you"
+    },
+    {
+      "start": 314.48,
+      "end": 350.82,
+      "speaker": "jerod-santo",
+      "text": "show your kids the movies in, because discerning parents and Star Wars nerds have been arguing, debating, like, what's the best order. I chose order of release for the reason of, that's the order that I experienced them in. So I'm going to let you experience them in order of release. At the time that my kids were first watching them, the sequel trilogy wasn't out yet. So it was four, five, six, one, two, three. I had known about Machete Order, which Brett, you just mentioned Machete Order, so you must be all about this. The Machete Order is even more intentional than that. Do you know the order that that is and why? Yeah. So just for everyone"
+    },
+    {
+      "start": 350.82,
+      "end": 477.38,
+      "speaker": "brett-cannon",
+      "text": "knows, because it has been a little while since I've been on, I've become a parent since my last parents. And so I've been thinking about this because getting ready for that day, our little one, they're Star Wars enough that they recognize the Imperial March and go Star Wars, Star Wars. So, okay, that's a good start. But yeah, Machete Order is doing one, two, skip over three, four, five, go back to go back and do three and then jump to six. Basically, let you lead up, see kind of how things start. Hide the show on three. Let you kind of go, okay, something happened. And then, oh, my big reveal. And then we'll go plug fill the hole. And now you get to live that and then, okay, we'll finish off the story. Now, this was all prior to the third trilogy. So seven, eight, nine, it's not a part of it. So I haven't decided quite how I want to do this. I mean, one of the reasons I'm interested about Machete is because Phantom Menace was very much made for children. And so it's going to be age appropriate sooner than episode four, which helps me at least kind of sounds a little weird to say this, control the narrative so that our little one can watch as soon as I want think they're ready to watch and not be at a friend's house and have it kind of shown to them without me being there to experience it. Because as a big Star Wars nerd, I want to be the one that sits there with them on the sofa, watch these films, watch their eyes, watch to have a conversation and really be part of that versus some kid on the playground going, Oh, yeah, yeah. Haven't you seen it? Blah, blah, blah, blah, blah, blah, blah. And just like, right. So yeah, that's the machete order. And I haven't quite decided if I'm going to do it or do like Adam did and just do chronological in terms of timeline. Right. But I've got some time. I mean, our little ones, not even two yet. So I'm just planning a time must plan ahead though. Right."
+    },
+    {
+      "start": 477.38,
+      "end": 483.86,
+      "speaker": "jerod-santo",
+      "text": "I mean, the fact that you're even thinking about it, podcasting about it shows you're a great parent. I mean, congratulations. Yeah. Thank you. Really taking care of the important stuff,"
+    },
+    {
+      "start": 483.86,
+      "end": 488.74,
+      "speaker": "brett-cannon",
+      "text": "you know? Oh yeah. They already miss mess it down for Yoda as Grogu. So is that the right order"
+    },
+    {
+      "start": 488.74,
+      "end": 495.06,
+      "speaker": "jerod-santo",
+      "text": "though? I mean, I'm looking at, I did a quick Google curse research, Mercedes movie, Star Wars,"
+    },
+    {
+      "start": 495.06,
+      "end": 500.26,
+      "speaker": "brett-cannon",
+      "text": "and I got back. It could be four or five, one, two, three. What's missing even too."
+    },
+    {
+      "start": 500.26,
+      "end": 503.54,
+      "speaker": "jerod-santo",
+      "text": "I think one is skipped. Yeah. Like one isn't in the list. So it's four,"
+    },
+    {
+      "start": 504.18,
+      "end": 527.94,
+      "speaker": "brett-cannon",
+      "text": "five, two, three, six. Oh, right. I remember they skipped one because they thought it was so bad. It's good for kids. Like we might not appreciate it. And it had a lot of flack. And I know actually apparently generationally the kids who grew up with one, two, and three actually have way more appreciation for that trilogy versus the four, five, six trilogy that we all grew up with."
+    },
+    {
+      "start": 528.5,
+      "end": 538.02,
+      "speaker": "jerod-santo",
+      "text": "That's right. Today ourselves. So who is this person that made this up though? I mean, who's it says Hilton argued. Who's Hilton? I'm trying to catch up to these details person on the internet,"
+    },
+    {
+      "start": 538.02,
+      "end": 550.98,
+      "speaker": "brett-cannon",
+      "text": "I think, but I think actually right now that I have parent brain, so memory is not so great anymore, but yeah, I think you're right. I think it was like four, five, two, three, six to start original trilogy, go. There's a shock, right? Go back, fill the history of it and then continue on"
+    },
+    {
+      "start": 550.98,
+      "end": 584.19,
+      "speaker": "jerod-santo",
+      "text": "without, yeah, that's right. Well, Hey, I'm down for a rewatch. So I mean, at this point, I'm let me just expose myself here. Okay. Right here on the air. My diehard movie fans are gonna love this. I had to go and re reorder all these things in 4k, cause you know, the kind of theater I have. Right. And so I watched it on Disney plus, which is like, it's okay. If you're a, if you're an audio file movie guy, like I am, I just felt like I was just, just taking a bath in your water or something like that. Like I just didn't feel good about my life watching it via"
+    },
+    {
+      "start": 584.27,
+      "end": 594.43,
+      "speaker": "brett-cannon",
+      "text": "Disney plus. Okay. So here's a real quick question. What version of last Jedi do you have? Do you have the Dolby vision, Dolby vision version or the later version that dropped? It only has"
+    },
+    {
+      "start": 594.43,
+      "end": 601.07,
+      "speaker": "jerod-santo",
+      "text": "HDR 10. Oh, I tell you, hang on a second because that's the one I have. Why did I do that in a"
+    },
+    {
+      "start": 601.07,
+      "end": 618.27,
+      "speaker": "brett-cannon",
+      "text": "Plex? Let's see what we got. I don't know. I can't remember, but yeah, the first release of the last Jedi on 4k had Dolby vision support and then they re-released it probably when episode nine or something came out and it dropped the last Jedi, right? Yeah. Episode eight. Let's see here. I have"
+    },
+    {
+      "start": 619.52,
+      "end": 629.31,
+      "speaker": "jerod-santo",
+      "text": "the DTS HD, MA seven one, and I don't know what the vision part of it is. So I got HD that does"
+    },
+    {
+      "start": 629.31,
+      "end": 673.22,
+      "speaker": "brett-cannon",
+      "text": "that indicate anything to you? No, I only know cause I have the disc and I was able to check the back of the disc. What would be different about it? So the key details is Dolby vision versus HDR 10 or 10 plus is just, I don't have Dolby vision on this then. That's for sure. Yeah. So probably not usually that's a disc thing. They don't keep it cause it adds bits because it's, it's the color depth that they're able to record. And also how detailed the color depth is per scene. Like Dolby vision Dolby HDR 10 plus is a per scene slash frame color depth versus the whole movie. Yeah. So Dolby vision can give you slightly more color detail. And I think that there's a little more bits. I have a request for you then"
+    },
+    {
+      "start": 673.78,
+      "end": 700.5,
+      "speaker": "jerod-santo",
+      "text": "when I do purchase this, I would like to screen share live recording stream this for our listeners. Okay. You will help me push the final button on which button to push when I order this. If you're willing to, obviously to make sure, because I'm with you, that's why I want the 4k. I want the HDR. I want the color depth. I want the audio. I want whomever went back to the source and remastered these hopefully with the utmost care and importance. I want that. I want that"
+    },
+    {
+      "start": 700.5,
+      "end": 818.29,
+      "speaker": "brett-cannon",
+      "text": "in perpetuity. That is why I've re-bought Star Wars trilogy and all the versions all in 4k and have bought them from VHS to DVD to Blu-ray into 4k and very much cause I want that disc experience. Like I like, like you out of mine, I care. I actually bought a Blu-ray player so I could play the 4k discs. Now, granted I haven't upgraded my TV yet. I keep postponing shame on you. Well, we, we moved. So as one of those, not shame on you then yeah. Could have bought for our old place, which would have been a certain size and probably for this place and get the proper size. Right. Spousal permitting. We've talked about it. The current recommendation, if you need one, we'll see. So one of the things we're trying to do with our kiddo is we have what we call the screen room, right? So here's my desk. Partner's desk on the other side. Hence, if you hear any weird noises, they're here working too. And the TV is right there. So that lets us isolate screens time for, for our kin so that they don't get tempted, right? The biggest temptation they ever have is if we're on our phones because they've gotten smart enough that they know how to ask for Thomas for Thomas, the tank engine, or ask for Elmo for Sesame street. And we'd say, no, and usually pretty good. But if you started at all and then cut them off, not that not happy tears. Same with music. We even found like getting upset in the car, play some music, maybe some Sesame street. They want to see Elmo, show them Elmo on your phone. Cause it's the artwork, the cover. Still not happy when you cut them off. Cause like where'd Elmo go? I want Elmo. It's like very visual. So it's one of those. We try to be very stringent about that. Just so that they don't get that hook early. But because of that, we have a TV and it's small enough space that a projector wouldn't work. But if for some reason they moved up here, when they became a teenager, cause this is the third floor of our house, we would probably put a projector in downstairs in which case I will reach out to you, Adam, for a good recommendation."
+    },
+    {
+      "start": 818.29,
+      "end": 838.77,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Well, happy to happy to help. However, I can enjoy the best films ever in the world. So you, you guys care about, you know, the, the visual and audio depth and all the information. I just want Han to shoot first, you know, like that's what I care about. It's like, I'll watch the old VHS. If we can have Han shooting first, please don't change things after the case. That's my beef."
+    },
+    {
+      "start": 838.77,
+      "end": 850.21,
+      "speaker": "brett-cannon",
+      "text": "I've always hoped that Disney would re-release the original versions and we'd have those, but yeah. How amazing would that be? Well, part of the problem is George."
+    },
+    {
+      "start": 850.21,
+      "end": 852.77,
+      "speaker": "jerod-santo",
+      "text": "What is this Han shoots first? What is this? What is this detail?"
+    },
+    {
+      "start": 852.77,
+      "end": 876.61,
+      "speaker": "brett-cannon",
+      "text": "Oh, wow. Okay. So there's two things here. First, the redos, uh, George Lucas destroyed a lot of the original copies. So you can't really go back and get them because he claims that the remakes, the, the re-specialization special special effects versions he did are the actual versions he wanted to do. Right. Like he always complained that most easily didn't meet expectations for him in his head. It was supposed to be really busy star port. He didn't have the budget. Yeah."
+    },
+    {
+      "start": 876.61,
+      "end": 883.73,
+      "speaker": "jerod-santo",
+      "text": "But he was able to CG it in later. I'm more sympathetic to that than the actual change of the storyline, which or the characterization."
+    },
+    {
+      "start": 883.73,
+      "end": 887.41,
+      "speaker": "brett-cannon",
+      "text": "Yeah. So what, I mean, do you want to tell Jared or you want me to do it?"
+    },
+    {
+      "start": 887.41,
+      "end": 889.49,
+      "speaker": "jerod-santo",
+      "text": "No, you go ahead. You got, okay."
+    },
+    {
+      "start": 890.85,
+      "end": 910.18,
+      "speaker": "brett-cannon",
+      "text": "So there's a famous controversy that if you look at the original versions of episode four in, uh, the cantina, most wisely Han solo shoots, credo first, right? Like when they're the whole talk and all that, you see him cock the hammer on his, uh, blaster. And then he just,"
+    },
+    {
+      "start": 910.18,
+      "end": 913.7,
+      "speaker": "jerod-santo",
+      "text": "he had it on the table, right? He had it on the table under the table, right? Yeah."
+    },
+    {
+      "start": 913.7,
+      "end": 926.82,
+      "speaker": "brett-cannon",
+      "text": "Han shot Fert. Lucas didn't like that and thought it sent the wrong message. So he changed it so that credo shot missed Han past the head and then Han shot simultaneously."
+    },
+    {
+      "start": 926.82,
+      "end": 933.3,
+      "speaker": "jerod-santo",
+      "text": "He turned it into self-defense. He turned it into self-defense. Which softens Han Solo's character. Exactly. And it doesn't give him the kind"
+    },
+    {
+      "start": 933.3,
+      "end": 948.42,
+      "speaker": "brett-cannon",
+      "text": "of that redemption arc of being that scallywag as it were, or rogue person who suddenly kind of realizes that there's more to life than just me, me, me and Chewbacca. And there's more to it and becomes member of the rebel alliance, blah, blah, blah, blah. So that arc kind of gets taken"
+    },
+    {
+      "start": 948.42,
+      "end": 968.02,
+      "speaker": "jerod-santo",
+      "text": "away. Yeah. So this became a huge thing. There's t-shirts like Han shot first t-shirts by people who are just managers Lucas. Well, because you changed the movie that we loved in small ways, but small ways have big ripple effects, you know? Yeah. I'm fine with him going back to most nicely and like adding creatures and stuff. Like, I think they look bad, so I don't really love it"
+    },
+    {
+      "start": 968.02,
+      "end": 973.14,
+      "speaker": "brett-cannon",
+      "text": "because it's like the digital Java didn't live up to the puppet in the nineties. Like if they"
+    },
+    {
+      "start": 973.14,
+      "end": 1047.6,
+      "speaker": "jerod-santo",
+      "text": "read it now, maybe it looked better, but I thought it looked bad and it sticks out like a sore thumb. The CGI, he went and added in, but it's not changing the actual, it's just like, I get that. He wanted it to be more. He couldn't do that with the budget and the technology constraints. He wants to go back and make it a buzzing spaceport. Don't change the nature of Han Solo, you know? All right. So there we go. This makes sense. I mean, like when you take, especially the character that Han Solo is throughout the entire series from, I guess not episode one, two, three, technically, but you know, four, five, six, seven, eight, nine, especially if you consider seven, eight, nine cannon, whatever. Okay. Okay. We're not gonna slide up in that cannon worms. I mean, he's, he's been in them all. He's, he's, he's really important to Kylo Ren, Ben, you know, it, to the end of the movie, to the, to the very last movie. That's right. In the current cannon, if you call it the cannon. He's there through the whole thing. So that, that story arc really is important. I never, I see, I haven't been this deep. I've been a fan, but not this deep of a fan and even know there was this, you know, Han shot first, you know, fan, iconic fan scenario. I didn't know. Well, we had a lot of free time between the originals and"
+    },
+    {
+      "start": 1047.6,
+      "end": 1052.08,
+      "speaker": "brett-cannon",
+      "text": "the prequel to trilogy, you know, it had a lot of free time. Yeah. You, you really didn't have"
+    },
+    {
+      "start": 1052.08,
+      "end": 1077.82,
+      "speaker": "jerod-santo",
+      "text": "very many opportunities to watch it. Cause you either caught it on VHS or you wait for the rereleases. And when the rereleases were coming out in the nineties nineties, you know, you want to, I mean, typical fans, they wanted to see what they saw on screen the first time. And so when these were coming out and there were changes, you know, people got, you know, hardcore nerds, nerded out and they started saying stuff like hot shot first. Well, and the other thing is, is"
+    },
+    {
+      "start": 1078.46,
+      "end": 1156.18,
+      "speaker": "brett-cannon",
+      "text": "the, the episodes one through three, the second, the, I don't know, pretty cool trilogy. Those all came out if I remember like a turn of the century. Right. So two thousands. And so all that was also coming out when the internet was really booming. So I think it was also a lot, caused a lot of buzz and a lot of real evaluation of four or five and six. And so a lot of this all came out right when we were all like real deep in the internet and reading stuff and you could find your people and just kind of nerd out on this kind of stuff. Yeah, exactly. Right. And part of this, you'd either have to hope you saw a TV special or read a magazine that happened to mention any of this stuff. You can just seek this information out or just share it. Right. Like Wikipedia didn't exist. Right. That whole concept hadn't shown up. So I think it kind of all coincided with that. And everyone just be able to deep dive on the stuff we all nerd about. Right. Cause like I had empire strikes back, but cheats as a child and I had the toys, but all I knew was, yeah, the films when they showed up on TV or as Jared said on VHS or they got released in the theater for some reason. Right. It was just one of those things that I love, but I didn't get to really get into it. And then eventually we got home consumption and then the fandom and you could really dive into it and just really go as deep as you really wanted to. Yeah. And the internet"
+    },
+    {
+      "start": 1156.18,
+      "end": 1212.03,
+      "speaker": "jerod-santo",
+      "text": "really did create a place where fans could gather and discuss and fandom exploded alongside the internet. I remember an early TV shows that played into that, or maybe they didn't even try to, but they ended up playing into that really benefit. I think of lost and all of the mysteries around loss, of course, one of the most disappointing TV shows in human history, but the first three seasons were spectacular. First two seasons were spectacular. This is just my opinion now season three was okay. And then just like a long, slow decline and ultimately disappointment, but there were so many fan essays and what do you call them? Like trying to explain the mysteries of lost and they were so interesting. Like they made the show better because there were so many interesting ideas of what might be going on that I think it made loss more popular than it would have been at all. Yeah. I mean, it was such a phenomenon. It really was. Yeah, exactly."
+    },
+    {
+      "start": 1212.03,
+      "end": 1228.69,
+      "speaker": "brett-cannon",
+      "text": "It was one of those things where, because there were so much potential foreshadowing, everyone was trying to read into everything, knowing full well was designed that way. So everyone knew this stuff was foreshadowing or not and trying to figure it all out. And yeah. Yeah. I mean, and I only watched the first two seasons because everyone warned me,"
+    },
+    {
+      "start": 1228.69,
+      "end": 1272.13,
+      "speaker": "jerod-santo",
+      "text": "you'll be disappointed if you keep watching. That's basically an amazing watch then because it left you on a high and I watched it to the bitter end. And one of the reasons why that particular series made me mad was because Damon Linoloff, the writer, he had stated at some point early on, we have a story arc. Like we have the entire thing figured out. And he was basically lying, I think. Like he later said we had three seasons figured out and they did not have the actual one resolution that was going to satisfy from the beginning, like he said they did. And so we were so expecting, even as it started to get worse and worse, I just kept being like, no, man, they said they're taking care of us. It's going to happen. You know, it's all going to come together. And then I watched the series finale and I was like,"
+    },
+    {
+      "start": 1272.13,
+      "end": 1311.81,
+      "speaker": "brett-cannon",
+      "text": "no. I mean, it's such a rarity to get to plan that all out. Right. Like, I remember that was one of the big deals with Babylon five when that came out. Right. It was Babylon five was written on a five season arc too. And J. Michael Straczynski had the whole plan out in his head of the big beats and where it was supposed to all end up and how he was able to build all that intrigue and all the political machinations and all that stuff in the show and actually have a plan out is because he just said upfront, like, look, I can't, it's, I'm not writing it to end in the number of series. It's going to end at five. That's it. I hope to goodness you give me the funding so I can see it through. And yeah, it's a unique thing. It's not a common thing"
+    },
+    {
+      "start": 1311.81,
+      "end": 1320.45,
+      "speaker": "jerod-santo",
+      "text": "as much as it used to be. Well, I bet the Game of Thrones fans were hoping he'd have it all figured out before. I never got into that show. But I know a lot of people are disappointed with that one."
+    },
+    {
+      "start": 1321.09,
+      "end": 1345.33,
+      "speaker": "brett-cannon",
+      "text": "I read the books and then the show came out and I watched the whole show begin and, and now I don't know if I care about the books, funny enough, because it's one of those things of, I know they're going to diverge, but also being apparent, they're not, they're long and there's a lot of detail to them. And it's been so long since the last book came out. Like, I honestly feel like I'd almost have to read them again. And it's just, oh, yeah, no, I don't have that kind of"
+    },
+    {
+      "start": 1345.33,
+      "end": 1355.41,
+      "speaker": "jerod-santo",
+      "text": "time anymore. And that's why you need either 2X or AI. You know what I'm saying? Yeah. Summarize these books for me, AI, so I can enjoy them. I'm sure the Wikipedia page could catch you"
+    },
+    {
+      "start": 1355.41,
+      "end": 1403.17,
+      "speaker": "brett-cannon",
+      "text": "real fast. But yeah, it's definitely one of those things. This is like why I love the Murderbot series. If you've ever read those books, I have not even heard of it. You may have heard the TV show on Apple TV, Murderbot. It's a great sci-fi series, but the deal is, is Martha Wells who wrote them originally wrote them all as novellas. So they're short and to the point, they're like under 150 pages. She didn't actually write a full book until like the fifth one and just kept doing it as novellas. And they're great if you like sarcasm and like pointing out the ridiculousness of people, very funny sci-fi book series. And it's, as I said, really quick and easy to pick up because they're all novellas to begin with. And they started off as a short story in Wired magazine. So I highly recommend it. It's one of my favorite book series actually."
+    },
+    {
+      "start": 1403.17,
+      "end": 1408.61,
+      "speaker": "jerod-santo",
+      "text": "Okay. I'm looking at that. Murderbot. Cool. So you recommend the show or the books?"
+    },
+    {
+      "start": 1408.61,
+      "end": 1427.65,
+      "speaker": "brett-cannon",
+      "text": "I actually haven't watched the show. The books. This is all based on the books, but someone wised up to take the books and turn it into a TV show because the writing is so good and the stories are so great. But I actually haven't watched the Apple TV show because I haven't had time yet. I'm just finishing up Ted Lasso. I'm behind on TV. I'm almost my second time"
+    },
+    {
+      "start": 1427.65,
+      "end": 1432.61,
+      "speaker": "jerod-santo",
+      "text": "through Ted Lasso. I'm at like season two, second time through middle of season two."
+    },
+    {
+      "start": 1432.61,
+      "end": 1467.46,
+      "speaker": "brett-cannon",
+      "text": "Yeah. When the kiddo showed up, we really tried to make sure we didn't watch anything that required any thought or anything really new. So we're like rewatch part of, I think, Superstore. And then we kind of stopped when you hit that six month stage of, okay, baby ain't just napping all day long. It's now engagement time. And so TV time really fell back. And then we only just started, I don't know, like a couple of months ago, starting to watch actual watch TV. And so just trying to squeeze in the occasional movie. And yeah, so current one's Ted Lasso, but yeah, we haven't watched the TV show, although it is on my list because I'm really curious to see how they"
+    },
+    {
+      "start": 1468.02,
+      "end": 1494.34,
+      "speaker": "jerod-santo",
+      "text": "did stuff, how they handle it. Yeah. What's, uh, how many seasons they have three or just two, uh, three now fourth is coming. Oh really? Okay. So I fell off on the second season. It kind of slowed down for me. Is that that same? Yeah. Yes. It's like changed. I can't recall how it changed, but it just felt different. Not bad, but it's like the pace of the story slowed. Yeah. And I couldn't keep up with my excitement anymore, I guess. Yeah. It does slow down. It becomes,"
+    },
+    {
+      "start": 1495.3,
+      "end": 1504.66,
+      "speaker": "brett-cannon",
+      "text": "yeah, it like the first season almost felt like how to be a good manager story. And then it becomes a bit more about the people later on. Uh, season three actually makes the episodes longer."
+    },
+    {
+      "start": 1504.66,
+      "end": 1545.46,
+      "speaker": "jerod-santo",
+      "text": "They go from half hour to an hour. I thought season three was really good. There's only so long you can keep up the fish out of story thing or fish out of story, fish out of water trope. Yeah. Like there's only so long and they that's like season one. And then like they have to go somewhere else. And so a lot of it falls into like the life of Ted and you know, his history and a lot of the troubles that he has and dealing with those troubles. And it does slow down and it's pace. Um, but there's still some interesting, there's an episode in season two where it's just coach beard, like having a wild night. Oh yeah. It's just crazy. It's like the craziest episode ever that it doesn't attach to anything. It's like a standalone. I mean, it has a little bit of an attachment, but it doesn't matter. It's just so cool. So what a friend told me was supposedly"
+    },
+    {
+      "start": 1545.46,
+      "end": 1565.94,
+      "speaker": "brett-cannon",
+      "text": "they wrote that season two episodes short of what they contractually had to do. So they had to write two extra episodes to fill it in. And my real assuming that information is correct. My guess is that's one of the episodes is a filler episode. Yeah. Cause it is kind of off the wall. It's no need to be there whatsoever. If you took it out and never watched it, it would not affect. No,"
+    },
+    {
+      "start": 1565.94,
+      "end": 1570.5,
+      "speaker": "jerod-santo",
+      "text": "it's like an overnight session of him going on a wild journey, you know, and it's weird."
+    },
+    {
+      "start": 1570.5,
+      "end": 1584.26,
+      "speaker": "brett-cannon",
+      "text": "No, I definitely changed the tone after season one. It's still a comedy or an exam, but it came a bit more dramatic and about the people and character study and less just flat out as Jared said, the fish out of water comedy. What happens if you drop someone from Kansas"
+    },
+    {
+      "start": 1584.82,
+      "end": 1635.5,
+      "speaker": "jerod-santo",
+      "text": "in London? Yeah. Cause I mean, eventually become a native, right? And then you speak the tongues. Next thing you know, you're get the British accent and all the right, you know, like you only so long. He can make jokes about not understanding football or soccer because like he gets it, you know, he's been there for three years. And even those little special treats he makes like, I want to, I want the recipe for those. I want to try one. Yeah. The biscuits, the biscuits. Yeah. I forgot. I knew they were like a surprise and I don't know all the characters names, but a surprise to the kind of main Rebecca. Yeah. That doesn't, that makes some sense. Then obviously Rebecca and Ted, Ted, but yeah, they keep that going. He keeps handing her those things every single morning. Yeah. I mean, what a sweet guy, what a sweet guy, you know, only because we're on this kick here. I have to mention two words. Hail Mary. Oh, I'm, I'm looking forward"
+    },
+    {
+      "start": 1635.5,
+      "end": 1647.02,
+      "speaker": "brett-cannon",
+      "text": "to it. I did not watch the super bowl. So I did not see the trailer. Uh, but I know Adam hasn't either. Absolutely not. I'm interested. I'm very interested to see, uh, where this, where,"
+    },
+    {
+      "start": 1647.02,
+      "end": 1692.62,
+      "speaker": "jerod-santo",
+      "text": "how that movie does. I've done some trailer peaking. I will peek at a trailer. Okay. Watch it. Yeah. I just want to get it like the cinematography, like, how's it going to look? Okay. Look away. You know, that's, that's me with trailers. Okay. To add some context for everyone, this is the upcoming movie based on the Andy Weir novel project. Hail Mary. It's starring Ryan Gosling. I think, uh, Adam and I right. You've read the book. No. Okay. He just knows the movie's coming out. Adam and I have read the book. I think you audible it. I've seen the trailer and that's it. I audible it about 17,000 times. He audible it. And I read it with my eyeballs, which means I didn't know how to pronounce Astrophage. Is it Astrophage? When you read the words on the page, you just say it the way that it sounds in your head. How did you say it, Jared? Astrophagy. You know, it looks like Astrophagy. Astrophagy. And I was"
+    },
+    {
+      "start": 1692.62,
+      "end": 1695.9,
+      "speaker": "brett-cannon",
+      "text": "like, do you mean Astrophage? And I'm like, you know, that's how they pronounce it. He's like,"
+    },
+    {
+      "start": 1695.9,
+      "end": 1703.66,
+      "speaker": "jerod-santo",
+      "text": "well, because I listened to it on audible. I'm like, okay, good. That's one advertisement for listening to books. That's right. They help you understand how to say things. Yeah. It's like,"
+    },
+    {
+      "start": 1703.66,
+      "end": 1716.3,
+      "speaker": "brett-cannon",
+      "text": "how am I supposed to pronounce this character's name? I have no idea. Like no idea. You gotta just guess and hope it's somewhat, I mean, who cares? I bet the author doesn't care, but I wonder what they had in their head. Right. Well, that's the thing about audible is like"
+    },
+    {
+      "start": 1716.3,
+      "end": 1743.34,
+      "speaker": "jerod-santo",
+      "text": "the person who's reading it, the narrator, they can go ask the author, you know, how did you have it? And they're directed to, this is Ray Porter, by the way. I mean, let's just be very clear. The person who narrate is Ray V, the great narrator, Ray Porter. I mean the best of all time for scifi. I mean, anything he voices is going to sound good or be good. Okay. Better than David Attenborough. I mean, they're two different claws. I mean, they're not the same cloth."
+    },
+    {
+      "start": 1743.34,
+      "end": 1746.78,
+      "speaker": "brett-cannon",
+      "text": "I know. I'm just trying to think of another great voice. You know, actually, I was actually thinking"
+    },
+    {
+      "start": 1746.78,
+      "end": 1801.62,
+      "speaker": "jerod-santo",
+      "text": "about that recently because I'm going to, I know he's getting older and I'm going to mourn the day when he actually passes because like, wow, well, any earth type narrate narrated documentary, uh, what would you call those? They're not documented like. Yeah, they are. They're documented, I guess, but like there are different kinds. They're like science based documentaries, you know, they're not like crime based documentaries, for example, nature stories. I don't know what you call them. Nature's yes. Great. Nature stories. Yes. Nature documentaries. Like he is the quintessential voice for all those things. I was just telling my wife about this. I was like, babe, he's going to pass away soon. Like I'm not wanting this. I mean, it's just how it works. Okay. Y'all and how's it going to be when we can't watch these films documents with our kids and he's not the one voice them anymore. Like that would be a sad day or year and really just pause making them. I don't know. Yeah. Well, so we have us. So here"
+    },
+    {
+      "start": 1801.62,
+      "end": 1837.86,
+      "speaker": "brett-cannon",
+      "text": "in Canada, uh, we have David Suzuki, who was kind of our similar version. Uh, David Suzuki did a TV show on CBC, uh, the nature of things. And he retired a few years ago from it still pops up and does political stuff because the David Suzuki foundation is a big nonprofit fighting for the environment and everything. Uh, actually, uh, think, uh, PC local. Um, but yeah, similar thing, but he just, yeah, he retired and just slowly did less and less and just kind of stopped making public appearances. And that's how he did it. Devin Abbru, though, seems to just keep doing it. He's like, I just love talking to a microphone about animals and fan flora and fauna. And I'm just"
+    },
+    {
+      "start": 1837.86,
+      "end": 1853.14,
+      "speaker": "jerod-santo",
+      "text": "going to keep doing it until I can't do it. His pace is uncanny. Oh, it's insane. Now here's a, here's a question of future morals and ethics. So here's a guy whose voice I know where this is going. Well, you guys are thinking it too. I'm just going to say it. Well, and we can tie this,"
+    },
+    {
+      "start": 1853.14,
+      "end": 1857.06,
+      "speaker": "brett-cannon",
+      "text": "go ahead. And I know where this is going and I've had Star Wars tied back for this. Okay, cool. Yeah,"
+    },
+    {
+      "start": 1857.06,
+      "end": 1918.53,
+      "speaker": "jerod-santo",
+      "text": "yeah. There. I know where you're going with that. So we have hours and hours of just like lossless, amazing quality recordings of the guy's voice, and we can deploy those into the future at better and better usages to the point where right now you can still tell, but 10 years from now, it's going to be indiscernible. I assume from his, his actual person, because you've never seen it. I mean, I know what he looks like, but you don't have to see his face. You just hear his voice. I can hear his voice in my head right now. I can't picture his face. What happens when he dies at him? I mean, what couldn't his foundation, you know, license that out and w and the world could continue to benefit from this guy's amazing pace and vocals. Well, now we're getting into, I just want to throw one more thing in there, because I think you might like this too. Now we're getting kind of into ready player twos territory. If you watched or read ready player one great film fun yet nostalgia, but the book is better. And ready player two goes into really great. Well, really interesting places, let's just say. So tonight is the Star Wars. Apparently,"
+    },
+    {
+      "start": 1919.65,
+      "end": 2022.46,
+      "speaker": "brett-cannon",
+      "text": "James Earl Jones did recordings of his voice with you with a Ukrainian company actually for Disney so that they can keep using his voice for Darth Vader specifically. And I think that's an interesting distinction here of Dana Attenborough, the person versus a character. Right. And so for me, I don't think I'd want to hear a AI generated David Attenborough just isn't the same. I know it's the voice and the intonation and the pacing is what we all associate with that. But I think it's not gonna be the person right. And that's who I mean, if it was really just the voice, we would not care whether this person was alive or dead. But the point is, we do we care about David Attenborough, the person for what they have done and accomplished and given to the world. So for me, it's more than just the voice for Darth Vader as a fictional character. I'm less bothered by it, especially in specifically because the actor has given permission to do it right. So if the actor is given the permission to say yes, Disney, you can keep using my voice for Darth Vader for whatever you need it for. I'm okay with that. I get that. And I won't personally have problems with it because it's a totally fictional character to begin with. And the actor said, Okay, David Attenborough, though, I know it just has a weird different feel when it's literally the person and a fictional character. So I, I'd rather just hope someone else kind of comes up through the works and kind of becomes the next great BBC nature voiceover person versus just this just keep reusing David Attenborough forever and never have a human being ever do this again. Because it'd be tempting. Let's be honest. Like, do you really want to try something new with someone or just stick with what you know? And especially if"
+    },
+    {
+      "start": 2022.46,
+      "end": 2048.48,
+      "speaker": "jerod-santo",
+      "text": "it's a certain nationally recognized that everybody loves we already know everybody loves it. Yeah. Now, what if they in that world did the same thing? He said, I want my voice to live on perpetuity. I love nature docs. So you know, whatever permissions you need from now on, after I die, my last will and testament is, use my voice for any nature doc you want. Go have fun. Now, what would you listen? Would you not listen? Would you care? Would that change your perspective?"
+    },
+    {
+      "start": 2048.48,
+      "end": 2056.72,
+      "speaker": "brett-cannon",
+      "text": "I wouldn't stop me. But it's Yeah, I still would prefer a person but I wouldn't be upset about it if you said sure. But it still feels a little weird."
+    },
+    {
+      "start": 2057.28,
+      "end": 2135.28,
+      "speaker": "jerod-santo",
+      "text": "You know what, man? I don't know. I'm really, I'm really, this is a really fine line that we're, we're presented with and potentially crossing. Because I don't know if I care, I guess I just don't know if I care. I think in particular, if that was true, if David said, Hey, super fan of my work, perpetuity, all that good stuff, it was his wish, then I wouldn't I certainly would care at that point. But if it was against his wish, then I would certainly care. Same, you know, so like, if he was for it, he's like, I donate in all the ways to an audio lab that can do this stuff and do it in a way that presents his desires and those desires kind of have a license or a criteria set to it. And they're always, it's always used in that criteria in that license. I'm for it. I'm for it. If the man wants to live on, I mean, he's earned it. By all means, I'm gonna enjoy it because if it's David, and they can kind of like, kind of keep it in the David way, the personhood of David, shoot for the moon, man, go for it. We can't stop this stuff. I mean, we just can't stop this stuff. It's just going to happen. And we have to work around it. We have to be augmented by it. Not it's just, it's coming. It's like a freight train. It's coming. You can't stop."
+    },
+    {
+      "start": 2136.08,
+      "end": 2140.56,
+      "speaker": "brett-cannon",
+      "text": "Tickety tack, tickety tack. Well, hey, if there's any union that can stop it, it's going to be the"
+    },
+    {
+      "start": 2140.56,
+      "end": 2151.52,
+      "speaker": "jerod-santo",
+      "text": "film industry unions. I do. I don't think he would do that. That's true. Okay. We should be clear. He didn't say this stuff. This is hypothetical. Yeah. Nor would I think anybody say all the"
+    },
+    {
+      "start": 2151.52,
+      "end": 2162.32,
+      "speaker": "brett-cannon",
+      "text": "things I said just now, because it's like, I mean, you could ruin your legacy. If someone can literally put words in your mouth, you know, after you're gone, they can just say, you're saying things and you never said those things. And that could ruin your legacy. You"
+    },
+    {
+      "start": 2162.32,
+      "end": 2188,
+      "speaker": "jerod-santo",
+      "text": "could maybe say, well, that's where I say, like, if you can do under a license, if you can say in these contexts with this kind of supervision, with this kind of specification, and then the ending result has to deliver on this contract, this promise, then I think that that's a version of a last will and testament as a contract, right? Yeah. So you're going to use something in that regard and it adheres to that regard and it's desired by the original person. But I would say"
+    },
+    {
+      "start": 2188,
+      "end": 2272.62,
+      "speaker": "brett-cannon",
+      "text": "David Attenborough is also in a unique position, right? Where he could say like, okay, only the BBC, only for nature documentaries. You can never make a political statement, et cetera, et cetera, in which case that's very locked in. But if it's a character from a movie or something and the movie series go, oh, you know, if we have them say this slightly spicy thing, but then it sounds like it's somewhere from that person and that's not so great, right? Like the air tightness you'd have to have, plus, I mean, by the way, David Attenborough's voice got used digitally and said something wrong. I mean, forget the British public, like the world would get really upset. Compare that to somebody else, right? You'd have to have such an air tight contract of really what you couldn't, couldn't do and have to be really careful. And somehow if he's another human being that's not like the studios or whoever to trust to make that call, like you'd have to be, you'd have to be really air tight with that. I mean, I'm sure it's coming and they're going to do it. And some people are going to accidentally sign a little too loose of a contract and something's going to happen at some point. I mean, it's going to happen, but it'll be in, but I think the question is, yeah, how, how it's all going to play out and how that's going to look. And I mean, I know there's the, uh, Actors Guild, uh, like the last strike was all about this stuff, right? With the writers and the actors, like, no, you can't just force anyone automatically to have to give you your, their rights in perpetuity to recreate the character and all that because they don't want to see that happen. So I think it's"
+    },
+    {
+      "start": 2272.62,
+      "end": 2288.62,
+      "speaker": "jerod-santo",
+      "text": "going to be a lot of baby steps along those lines. Did you guys see the ad in the Super Bowl, which was the Dunkin Donuts ad Ben Affleck, where he was, um, Goodwill Duncan, I think it was just"
+    },
+    {
+      "start": 2288.62,
+      "end": 2293.26,
+      "speaker": "brett-cannon",
+      "text": "this year. Oh, did they do it again? They did that previously. They might've done it previously."
+    },
+    {
+      "start": 2293.26,
+      "end": 2392.46,
+      "speaker": "jerod-santo",
+      "text": "And I was just, I was literally at a party and watching it. So maybe I'm speaking out of turn here, but it had, um, Steve Urkel. It had, um, Joey Tribbiani. Yeah. It had Ben Affleck, a handful of, uh, sign who's a Seinfeld George, uh, from Seinfeld. Oh, Jason Alexander. Yeah. Jason Alexander. And they were in character as if they were those actual people in the shows, not as the Actors, like it wasn't Jason Alexander. It was science. It was George, you know? Oh, okay. And they were acting, but they seemed clearly AI acting. This is where I might be on a term. Maybe they like just had some sort of like, maybe the Actors really got together and recorded it. And then they put something on top of them that made them look fake, but I'm pretty sure they weren't there. Like, I'm pretty sure they had permission. They probably got money for it and all these things that was all on the up and up, but like, it wasn't really Jason Alexander. It wasn't really Jaleel White or whoever plays Urkel. I think that's the right name. Cause he's much older now. It looked like the end. And I'm thinking like, well, this is coming too. But when I watched that particular ad, I was a bit offended because I felt like this is uncanny Valley. It's almost them, but it's not them. And now I'm just thinking about the production and how it was made. I'm not, it's actually a really funny spot. Had it been the actual, all the Actors it would have been hilarious because they're all, it's like Goodwill hunting was like Goodwill dunking and the whole thing is like Ben Affleck acting like he's a smart one. And there's a lot of good jokes in it, but if you guys didn't see it, maybe you can't comment. But my, my, my thing is I feel like we're in this place where it's like uncanny Valley of AI generated people. And so it's strange, but like I said, a few minutes ago, 10 years from now, I think"
+    },
+    {
+      "start": 2392.46,
+      "end": 2400.22,
+      "speaker": "brett-cannon",
+      "text": "it's going to be gone. Well, the interesting thing with those is those people are alive, so they can okay or sync it. But the other thing is, is if they allow it, they don't even have to"
+    },
+    {
+      "start": 2400.22,
+      "end": 2430.54,
+      "speaker": "jerod-santo",
+      "text": "show up to cash the check. Well, that's why I assume that you would do it that way. Right. It's like, you don't, all you have to do is get their likeness and their permission and send them the money and they can stay at home and you don't have to have a studio time. There's no, there's no airplanes, there's no scheduling coordination of schedules. So it's way more efficient capital efficient and still has a pretty good result. Although I feel like this one fell short of the mark personally, just an interesting time where it's like, it's changing. Like that's a Superbowl ad. So that's a huge budget thing where maybe they spent way more on the time slot"
+    },
+    {
+      "start": 2430.54,
+      "end": 2464.29,
+      "speaker": "brett-cannon",
+      "text": "than they had to spend on the production. Yeah. Or maybe, yeah, they just are, I mean, I'm sure it was not cheap, getting those people to license out their look, their likeness to do that commercial. So I'm sure they still made, made bank, but yeah, I don't know. Yeah. As you said, it'd be more fun to know it was actually them. Cause like, did they go do mocap? Was it entirely just auto-generated? Like it'd be a little more interesting if it was mocap and at least it would have their motions, but if the motions were a little off, I mean, that's part of the mannerisms of the character. And if that's not there, that's where you get that weird uncanny value. Like"
+    },
+    {
+      "start": 2465.25,
+      "end": 2473.97,
+      "speaker": "jerod-santo",
+      "text": "it's not quite right. So, and if you're doing motion capture, you might as well just have the actor on screen, right? Like maybe it's just the coordination. That's a problem. I'm"
+    },
+    {
+      "start": 2473.97,
+      "end": 2485.73,
+      "speaker": "brett-cannon",
+      "text": "assuming scheduling would get in the problem at that point too, right? Those people are somewhat popular enough to think they're like, eh, I just don't feel like flying to wherever they're doing the filming. I just don't care or whatever. Now on the actor side,"
+    },
+    {
+      "start": 2485.73,
+      "end": 2503.74,
+      "speaker": "jerod-santo",
+      "text": "if you can get to that point where your, your name, image and likeness is so valuable that you can just, you know, sign contracts all day and not have to go anywhere. That's pretty cool for them. And it makes it harder to be an up and comer, but the, the ones who are already there, you know, it's kind of like Radiohead had no problem with internet streaming because"
+    },
+    {
+      "start": 2503.74,
+      "end": 2521.1,
+      "speaker": "brett-cannon",
+      "text": "they were already Radiohead. Yeah. It's like, what's that service where you can like pay to get like cameo cameo. Yeah. It's like that, right? Like where you get big enough. I can just pay, pay me a couple hundred bucks and I'll write, record you at like a 30 second little personal message of happy birthday or something. Knock a couple of those out in an hour."
+    },
+    {
+      "start": 2521.1,
+      "end": 2524.78,
+      "speaker": "jerod-santo",
+      "text": "Now you can do those without even doing that. You just have your, yourself, your likeness,"
+    },
+    {
+      "start": 2524.78,
+      "end": 2531.74,
+      "speaker": "brett-cannon",
+      "text": "do it for you. I would not be shocked if that comes someday. Strange times."
+    },
+    {
+      "start": 2532.9,
+      "end": 2695.1,
+      "speaker": "jerod-santo",
+      "text": "This is the year we almost break the database. Let me explain. Where do agents actually store their stuff? They've got vectors, relational data, conversational history, embeddings, and they're hammering the database at speeds that humans just never have done before. And most teams are duct taping together a Postgres instance, a vector database, maybe elastic search for search. It's a mess. Our friends at Tiger data looked at this and said, what if the database just understood agents? That's agentic Postgres. It's Postgres built specifically for AI agents. And it combines three things that usually require three separate systems, native model context, protocol servers, MCP, hybrid search, and zero copy forks. The MCP integration is the clever bit. Your agents can actually talk directly to the database. They can query data, introspect schemas, execute SQL without you writing fragile glue code. The database essentially becomes a tool your agent can wield safely. Then there's hybrid search. Tiger data merges vector similarity search with good old keyword search into a SQL query. No separate vector database, no elastic search cluster, semantic and keyword search in one transaction, one engine. Okay. My favorite feature, the forks. Agents can spawn sub-second zero copy database clones for isolated testing. This is not a database they can destroy. It's a fork. It's a copy off of your main production database. If you so choose, we're talking a one terabyte database Fort in under one second, your agent can run destructive experiments in a sandbox without touching production. And you only pay for the data that actually changes. That's how copy on write works. All your agent data vectors, relational tables, time series metrics, conversational history lives in one queryable engine. It's the elegant simplification that makes you wonder why we've been doing it the hard way for so long. So if you're building with AI agents and you're tired of managing a zoo of data systems, check out our friends at tiger data at tiger data.com. They've got a free trial and a CLI with an MCP server. You can download to start experimenting right now. Again, tiger data.com. I can't think of a clean segue into leaving the Python steering council. Here's a segue. What if you just had a version of yourself that could just go do the steering council? Would you still be part of it at that point? That's not a very good"
+    },
+    {
+      "start": 2695.1,
+      "end": 2734.29,
+      "speaker": "brett-cannon",
+      "text": "transition at all. No, I mean, you want people, right? Like you want turnover. You don't want the same gray beard showing up or gray hair, but we'll make it more gender neutral. Sorry. People running stuff. You want the new people to come in with some old people around who have inherent knowledge of how things ended up and why they're there and to kind of help keep things going without it being a dramatic shift. But you got to let people come in and change the project as they want. You just don't. Yeah. You don't want stacked in a way that doesn't let fresh people come in and contribute. So no, I would not want an AI version of me to be on forever."
+    },
+    {
+      "start": 2735.41,
+      "end": 2771.41,
+      "speaker": "jerod-santo",
+      "text": "No, I know you wouldn't. I was just trying to have some sort of way of making a segue. So you're in rare company, you know, somebody who's like had the means of power. Like you've had it in your hands. You've had the power in your hands, like George Washington, you know, he let it go. And you know, you're in, you're in rarefied air here, Brett, you had power and you just said, nah, I don't want this power anymore. I'm going to, I'm going to let it go. It's been a couple of years now. Yeah. It's been two, two years since you've retired from the steering council. Any regrets? You ever went back in? How's it working out? Regrets. Regrets. No, I mean,"
+    },
+    {
+      "start": 2771.41,
+      "end": 2894.75,
+      "speaker": "brett-cannon",
+      "text": "so I was on the steering council from its inauguration through the first five years of its existence. That was great. I love it. It was great seeing friends of mine every week and having an excuse to hang out and to help out and all that stuff. But when we were choosing our governance model, one of the things I suggested the way is that we had terminal specifically. So we had guaranteed turnover. I didn't win that argument and there was enough going on. We were trying to make those decisions. I didn't press it. It was more of an idea. But I decided to stick to it plus potential get on the way. And it's like, yeah, this is just a good time to just step back and let someone else come on and have that guaranteed slot to be open. So no, I don't have any regrets. Would I ever do it again? Possibly given enough time. Once again, I think the kid would have to be a little older and just I'd be able to focus a little bit more on it because it's one of those things that's kind of always, I don't know about YouTube, but my brain never shuts off. So it's always going, the stuff's always going back in my head. And so right now it's a lot of kids stuff and I want to make sure that it's not pushing kids stuff out of my head. So I want the kid to be a little older before I do that. But like I do miss hanging out with the people in the steering council because I am luckily know most core devs personally, at some extent. So it was just a great excuse to hang out and just talk every week. Yeah, no, I don't, no regrets. Yeah, it was just a thing. I just stopped doing it. And it was no weird anything. It's not like I felt like, Oh my goodness, I don't have the power anymore. It's just, I mean, even when I was on it, I still had to go through the same process as everybody else. So it's not like I was in any way privileged for the stuff I wanted. The only, the closest I had a privilege is I could ask my other student council members, I have this idea for something. What do you all think? And they could shoot it down on maybe a little earlier than somebody else, but everyone else can also still email the steering council and ask the same question. So it's still not that privilege. I might just get response time. That's faster. So yeah, no, it's, it was, it was fine. It was over too stressful to begin with. It was just, just took time. So I just have that time now to focus on other stuff."
+    },
+    {
+      "start": 2895.39,
+      "end": 2909.63,
+      "speaker": "jerod-santo",
+      "text": "It's interesting to be in that position now. So what did you, if it didn't have a lot of power, what kind of lack of power did you, or I guess what kind of power did you share with everyone else in the community? Well, I mean, did you have uniquely that was, you know, part of the"
+    },
+    {
+      "start": 2909.63,
+      "end": 2988.13,
+      "speaker": "brett-cannon",
+      "text": "steering council? I'm just saying from my perspective and not being on it anymore, my power wasn't unique and that the steering council does have power as a, as a whole, right. As a council, right? Because the steering council ultimately decides what perhaps, what Python has proposals get accepted for Python, right? And that drives which way language goes. So that's where its power comes from is its ability to make those kinds of steering decisions. But the council had enough workload when I was on it. And I think it's continued sense that there's not a lot of, you know, we think we should steer things this way. There's no, like when we first started it, we thought, oh, we'll have these grand plans. And we'll try to spec out kind of where we want things to go long-term and where we think people should focus on. Nah, don't have the time. Enough stuff's coming in from the community and other core devs asking for stuff that just, there's not enough space to kind of come up with how to steer things. So we never even had to worry about that, right? So there's no power of like, you know, I want to make Python go this way. As a steering council member, you have power in terms of having an opinion that people know matters to an extent, but it's not a, I'm going to drive this huge project. And only steering council can make it happen. It's just the steering council may list can say yes or no. And that's really it. It's just a body that says yes or no"
+    },
+    {
+      "start": 2988.91,
+      "end": 3004.43,
+      "speaker": "jerod-santo",
+      "text": "for stuff that they get asked. What is the driving direction of the steering council? Like when you, is everyone voted in? Do you keep the seat in perpetuity? Do you want to let go of it? You know, what are some of those mechanics around, you know, being a part of it?"
+    },
+    {
+      "start": 3004.43,
+      "end": 3138.4,
+      "speaker": "brett-cannon",
+      "text": "What does it do? Yeah. So the way I've always raised is the steering council's job is to effectively be the final decider of things related to the Python project. Really sum it up, right? Like if there's any disagreements about how to handle something, deciding peps, anything that we've just decided needs a final arbiter, the same councils, it basically what Guido would have done previously before he retired. Now how the mechanics work is we hold elections. There are five seats. Everyone goes up for election every year. We call for candidates. You can self-nominate for candidacy, or you can nominate someone else and actually do not have to be a core developer. They have, you just have to be nominated by a core developer. So you can actually have someone outside be nominated, but it's never happened. At least no one's ever been elected. I can't remember if anyone's, I think maybe someone outside has actually been proposed and didn't get on, but no one's ever actually been elected that's not been accorded. So that all happens in November, October, November. And then the first half of December, we do the voting. We just switched voting systems to star voting. We can go into that if you want. And then that gets all resolved December 14th, 15th. And then I think it's 14th typically. And those people start January 1st and they serve for the year. And that's basically it. So we kind of have a lame duck steering council in December, maybe a little bit in November, but still some things still get decided where the city and steering council doesn't feel like it'd be a burden on the next steering council or in any way controversial if they had made make the decision. So they're not totally stuck. Basically, December is taking off, which kind of makes sense based on holidays around the world. The only abbreviated one was the very first steering council because that all happened February, just because it was the first one. It's just timelines of choosing this actual governance model and all that. It happened to start in February and then decided, you know, let's have it end and start on January 1st. So that was a little abbreviated, but not that much. So yes, if we want to talk voting systems, we can totally talk voting systems."
+    },
+    {
+      "start": 3138.4,
+      "end": 3142.32,
+      "speaker": "jerod-santo",
+      "text": "Do you have opinions about voting systems? Is it worth talking about voting systems?"
+    },
+    {
+      "start": 3142.32,
+      "end": 3428.64,
+      "speaker": "brett-cannon",
+      "text": "Well, so I mean, maybe depends on who you ask. So if you actually watch the Python documentary, disclaimer, I'm in it. I mentioned how I found the whole thing of Quito rage quitting being BDFL stressful, really stressful to the point that I actually started to choke on my own throat at a restaurant once due to the stress of this or that it's past tense now. And a lot of it was around voting systems because the problem is when Quito quit, Quito said, I'm leaving it up to you to decide how you want to run yourselves. Yeah. Period. Like he literally just said it and then Mike dropped and backed off right now. He was still around and he was listening and watching, but he was not driving anything, which meant we actually had to decide how we were going to decide how to run ourselves. Right. Which is tricky. Right. So how do you decide how you're going to decide? Like we've never had to worry about bear is sticky with honey. Yeah, exactly. Right. When you've never had the system in place because you always just propagated things up to Quito to make a call. We didn't have anything in place. There was no concept of voting on the Python core team because we never had to vote for anything. It was just we don't might ask for our hands or just people to say like plus one, plus zero, minus zero, minus one. But there was never like a formal way to do it. And voting systems are one of these things you can really geek out on if you want because there's a whole bunch of literature about how certain voting systems are lead to certain gamification and stuff versus not like first past the post, which is how like governments like North America are typically voted on whereas whoever gets the most votes, but that can lead to games with stuff. And then there's like approval voting where it's more like you just say, I like this person or I don't. There's a whole bunch of stuff. So that took a long time just to choose how we were going to choose how to govern ourselves though. Eventually nine months, a baby level. No, it was July till November. I think October maybe. But the deal was is there was a lot of strong opinions. We're like really strong opinions. And it was one of these things where there were times where it didn't look like we were going to reach agreement. And because there was no way to even choose that system, it had to be kind of just general like feeling consensus. Because there's no way they really know, right? There's no way to like, yeah, we've all agreed. How do you know that you just had to have a feel on a mailing list? Or maybe at a core dev sprint, just kind of a room feel that we all kind of basically agree and we think this is going to go and no one's going to throw a fit and cause a big stink over this. So even that was hard, right? The way I always said it is there was a lot of soft power being thrown around by some of us core devs who'd been around for a long time and had respect of enough other people to go like, okay, I think we all have this going. What do you all think? And kind of like push and force people to make it kind of vocally say yes, no, or stay abstain. And just kind of get a feel of the room like, okay, okay, everyone good? Everyone good? And just kind of like declare, okay, we've all good and move on and hope no one throws a fit, right? It was really weird. But it was stressful too, because you never knew you never knew if someone was going to come forward and go, I don't like it. Right? Because it's not like we're in an office where we're all chatting at the water cooler all day long. It's just emails. So it's like sometimes you're talking to someone, sometimes you're not and someone can just disappear and not say anything. And so just drop in and say something where if you're an office, you could totally see it in their eyes, right? Like, oh, yeah, they're not happy. Something's going on. Right. So it was hard. And it was very stressful. And a lot of it was around voting systems and choosing how we were going to choose that voting system. And then once we chose once we chose the voices, it was pretty smooth sailing. Right? Because that was when we had all the peps to propose governance models, and we just use the voting system to choose which one. Which pep was this? The one that one in the end, it became pep 13. But it originally is pep 8000 something or 6000, maybe. I think it's 6000. I can't remember off the top of my head. But there's a section of peps that had all the proposed governance models. And we just voted on all of them. And the one that one was the council one. Gotcha. There was even one that was basically anarchy. Like it really ran the game. There was another BDFL option that kind of didn't land because the pep didn't name who the BDFL would be. And some people like that. Some people didn't like that. Some people were honestly afraid people they didn't like would be named BDFL. So like, they wanted to hedge their bets against that. Right. It kind of ran the gamut. Yeah. But yeah, so voting system, a big topic."
+    },
+    {
+      "start": 3428.64,
+      "end": 3432.8,
+      "speaker": "jerod-santo",
+      "text": "Oh, my gosh. Yeah, it seems like and then you recently switched to stars. He said,"
+    },
+    {
+      "start": 3432.8,
+      "end": 3488.26,
+      "speaker": "brett-cannon",
+      "text": "yeah, so we originally started with approval voting, where basically you just said, here are the people I'd be happy if they ended up on the same council. So if you had 10 candidates for five seats, you didn't weren't limited to five votes, you could vote for 10 people, or nine or eight or seven. And basically, it kind of makes you go like, okay, you're just basically saying I approve, I don't care if anyone I approve gets on as just these are the people I want. But it kind of waters down your vote in a bit because you can't really say, I really hope this person gets on. But I'd be okay if this person gets on. Right. So like, I might really want Adam to be on. But if Jr gets on, I'm okay. Right. There's no kind of like, expression of preference with approval voting. So star voting, and it's all caps for stars. So I think it's an acronym star voting actually lets you rate. So here's my favorite, here's my least favorite, but you can rank them anywhere you want a range of zero to five, or zero obviously means"
+    },
+    {
+      "start": 3488.26,
+      "end": 3531.01,
+      "speaker": "jerod-santo",
+      "text": "like, no, no, thank you. There's a meaning behind this. You want the meaning behind star voting? Sure. Would it add context? I don't know. I don't know if Wikipedia is accurate or trustworthy, but let me just let me just say that's the source. Okay. Star voting is an electoral system for seat or sorry, single seat elections, the name and allusion to star ratings stands for score, then automatic runoff, referring to the fact that this system is a combination of score voting to pick two finalists with the highest total scores, followed by and in quotes, automatic runoff, in which the finalist who is preferred on more than on more ballots wins. It is a type of cardinal voting electoral system. Yeah. Would you guys do the automatic runoff part?"
+    },
+    {
+      "start": 3531.01,
+      "end": 3748.16,
+      "speaker": "brett-cannon",
+      "text": "Yeah, we did. So what happens is basically you rank all your candidates from five to one and or zero, right? If you don't want them at all. But the interesting thing with this is you really want to rank the people you really want on as five and the people you're just okay with, or totally don't care about being on as one and then spread everyone else across like peanut butter, right? So you really do want to show a preference. You don't want to put everyone at five because it's like, no, no difference. You really want to show a preference, which is the big shift from approval. But yeah, it just does a runoff and it goes like, okay, who's above in all these ballots at this point? And then okay, well, it seems these are the top two. If we just have these two run, what does that look like? Okay, this person wins, they're on, take them out of the ballots. Now we do it all over again and then just keep slowly kind of pulling it down to see where people's preferences land in terms of, well, this person got all the fives. Because there's balancing between like, oh yeah, this person got fives, but only got like 10% fives versus someone else who got like 30% fours and just how all the machinations of the numbers and the math and all that work out. But it was just interesting that we did that shift to really kind of let people express that preference, right? It's not just a binary on or off on the council. It's a, no, I want you on versus yeah, I really want you on too. I'd be okay. I won't be upset. But if you don't get on, I'm not going to cry either. And that was the big shift. And that all just happened in this last election was the first time we ran it. And it went just normal, probably. Yeah, it was. It was interesting. It was smooth. No one, everyone seemed to be good with it because it didn't, it didn't change it such as it was like only vote for your five people. Like you could still express yourself, but it wasn't really complicated to express yourself, right? The only trick was you had to understand you wanted to run the full five point gamut. You didn't want to just pull like a five. And then Tim Peters, core developers, more or less is retired from participation actively, but still comes around on occasion as a big protein nerd and run a whole bunch of things on it and show that the outcome actually matched up with what would have been expected. And that, yeah, the system worked and it was, people got in the way you want to, even if you ran different kind of voting systems and all that. So people's preferences were expressed appropriately and the people who, the top five people who were preferred got on. The more interesting thing was on this council run for five slots, only six people ran. So there was a good chance you were going to get on. Actually one person who didn't get on actually was previously on the council. So they got basically voted off, but there was a new person who got voted on. So there was still a good turnover. But yeah, we're talking about like, we have talked about as a team, like, okay, why was there so few people? And I mean, it's the usual thing, right? As I said, there's a time commitment, you've got weekly meetings, you have office hours, right? Which I went to, like once again, I'm just a normal core dev now. So I still have to book office hours with the steering council, talk to them about ideas and stuff. And just, as I said, you talk about it, you read peps on your spare time, you respond to things, answer questions carefully, because as I said, your opinion now has a bit more weight to it. So yeah, it's just, there's that aspect. We also didn't know if people were worried about turnover or not. And it just seems like, yeah, people just kind of honestly just busy. There's also, there was some community stuff. There was some code of conduct issue stuff that happened about a year ago. And that complicated some things. I probably made some people go like, yeah, you know what, I don't know if I want to deal with code of conduct stuff. But the steering council kind of fell on their lap, as I said, final decider on"
+    },
+    {
+      "start": 3748.16,
+      "end": 3752.48,
+      "speaker": "jerod-santo",
+      "text": "stuff. You got to steer things, you got to do things. The bug has to stop somewhere. Yeah. And"
+    },
+    {
+      "start": 3752.48,
+      "end": 3761.84,
+      "speaker": "brett-cannon",
+      "text": "I think that may have scared some people off. Like, I do not want to be that person who has to publicly say that person did something bad, and they need to take a step back."
+    },
+    {
+      "start": 3762.56,
+      "end": 3777.25,
+      "speaker": "jerod-santo",
+      "text": "Well, it's hard enough to volunteer your time and thoughts and efforts and then to also have to like, do stuff that nobody wants to deal with. Like, well, volunteering to do that is much harder to get people to volunteer to do all the things, but someone's got to do it."
+    },
+    {
+      "start": 3777.25,
+      "end": 3826.69,
+      "speaker": "brett-cannon",
+      "text": "Well, and you hear you find out stuff you did want to know, right? Like I was on, I mean, I was on the steering council. I was also on the code of conduct working group for the PSF for the Python South for foundation is like, you get emails for reports of about people, you know, it's like, I really wish I didn't know this. And so it's also got that aspect to it. So it's not even what publicly you have to say, Oh yeah, this calls someone out for doing something bad. It's like, you also get told stuff that you just didn't want to know, even if it doesn't lead to something that's like, yeah, like personally, I'm not happy with what you did, but not professionally, but at least from an open source perspective, it doesn't affect the project and it's none of our business. So it's, it's right. We don't know, not necessarily, I don't know why you told us, but it's like, we hear you, you've been heard, but now I have this weird little secret in the back of my head that the public doesn't know. And I, I have to live with it. You never wanted to know it in the first place."
+    },
+    {
+      "start": 3826.69,
+      "end": 3860.53,
+      "speaker": "jerod-santo",
+      "text": "You can't unlearn, well, it's what we tell our children, especially with like movies and certain things you want to like, my friend saw this or whatever, why can't I not watch this? It's like, well, you can't unsee things, you know, especially like horror movies or certain things you just don't want them to be exposed to early on. It's like, you can't unsee certain things. You should really protect your innocence as a kid. And it's not exactly the same thing, but it's, it's a version of that. Like you want a version of, I would say bliss, right? You want some version of bliss to operate from just cause bliss is kind of nice, you know, it's kind of nice. And when you can't have it, cause it was taken from you because of your responsibility or"
+    },
+    {
+      "start": 3860.53,
+      "end": 3957.12,
+      "speaker": "brett-cannon",
+      "text": "role, you might regret or resent your role. Our little, our little ones really, really sweet kid, no stranger danger at all. Like totally will say hello, goodbye to strangers and wave and all that wonderful stuff at this age, the day, someone is a jerk to them. Oh man. And that innocence is a bit lost and not versus just like what, cause right now at this, at this age, they're just going like, what do you, what do you mean mine? I thought we'd all just shared everything. What's going on is still kind of like, I don't get ownership, like no big deal. Like, why won't you share? Why'd you take it from me? But whatever kind of shrugs it off. But the day where like that kind of starts to click is like, Oh, people can be pushy and not be nice. And all that stuff is, that's going to be a sad day. So, you know, it's one of those, you want to make sure that as a parent, that it's coming and hopefully you give them the tools to understand like why the world works that is that way sometimes, but it's not always and how to cope with and deal with and try not to let that kind of that glimmer, not hope, but kind of the innocence kind of carry on as the age of innocence. Yeah. Let them carry on being good people and understanding like, it's okay. It's like, it's going to happen, but here's how you deal with it. And here's, you continue to be a good person and don't let it totally darken your view of the world and get bitter and et cetera, et cetera. I mean, it's one of the reasons I actually stopped being like, beyond the code kind of working group is like, I'm going to have to be done with this, my kid, I don't want to be doing with this open source community as well. I need to kind of not compartmentalize, but kind of step aside from that aspect of dealing with that stuff. And I'll just worry about with my kid and let that be that. So as a regular old core dev,"
+    },
+    {
+      "start": 3958.56,
+      "end": 3963.68,
+      "speaker": "jerod-santo",
+      "text": "did you have to go to the steering council for this whole lock file standard you've been working"
+    },
+    {
+      "start": 3964.32,
+      "end": 4060.1,
+      "speaker": "brett-cannon",
+      "text": "out of that? Tell us, how did that come to be? So actually, no, because the same council has devolved power for packaging to select people. So this is another kind of side effect from when Guido did things. So Guido did never cared about packaging. It was not his thing. He's just like, nope, not my thing, but the community handle it. So the community handled it. And what ended up developing was kind of, I mean, not camps, but basically just groups of people who were working on packaging outside of the core dev team. Now there were people like me who were core devs and working on packaging stuff, but it's always been a separate group of people. And so when the steering council got set up, they actually there's a pep that says for packaging decisions, we perpetually be perpetually defer to the select people to make calls for anything related to packages. So technically the steering council still gets final say, but they've just said, yeah, but these people are the experts in the area, so we're going to let them do it. And this happens sometimes. They're called pep delegates where the same council goes like, we don't have the expertise in this area. You do, we're going to let you make the call. Now it doesn't happen too much with the steering council. It's happened more under Guido just because the steering council is broad enough, usually across the five people that council can get enough information to do it. And they'll just expertise, opinion and help. But with that, actually they just said like, yeah, forget over there. You all can handle it. You've been doing it this long. You keep doing it. So I had to make Paul Moore, who's one of the perpetual pep delegates for packaging happy. So that's actually who I had to make happy in the end."
+    },
+    {
+      "start": 4060.1,
+      "end": 4061.7,
+      "speaker": "jerod-santo",
+      "text": "Okay. And that took you four years."
+    },
+    {
+      "start": 4062.74,
+      "end": 4081.54,
+      "speaker": "brett-cannon",
+      "text": "Yeah. Six, if you measure from when I first mentioned it on Twitter. Okay. Yeah. I mentioned that's back when it was called Twitter. It was. Yeah. Six years ago. Yeah. We're actually getting close to, we're coming up on seven now actually based on these timelines. Okay. So yeah."
+    },
+    {
+      "start": 4081.54,
+      "end": 4103.87,
+      "speaker": "jerod-santo",
+      "text": "Well, as my, uh, as the guy who built our house, I used to say, it's just stuck with us. It's a long and winding road, Brett. It's a long and winding road. Yeah. It sounds like this has done a long ways. Now we're talking lock files. So, so, um, couldn't you just look at the, what MPM did and just be like, I got to figure it out. Just do that thing."
+    },
+    {
+      "start": 4103.87,
+      "end": 4107.79,
+      "speaker": "brett-cannon",
+      "text": "I don't know. If you ask the yarn people, I don't know if they had agreed back."
+    },
+    {
+      "start": 4109.23,
+      "end": 4114.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Okay. So maybe the cargo cult isn't the move. What was the move? How did you figure it"
+    },
+    {
+      "start": 4114.35,
+      "end": 4656.34,
+      "speaker": "brett-cannon",
+      "text": "out? And what'd you figure out? Well, so when I, so after the Python two to three transition, right. I had a goal during that time to try to make, make it so that anything that was in language that changed would either be an error or be a warning, or there would be tooling to help you just make the transition for you and don't worry about it. Right. So there'd always be some way where you didn't have to magically look at things. Something would warn you or your code would just make it happen. Right. When I got that done, I looked around for other projects to work on. I, you know what, packaging is a thing. People always complain about packaging in Python being hard, blah, blah, blah. Now, granted, this is like well over a decade ago, obviously. So like, okay, I'm going to go help out packaging people. So I went over and started to participate over there. And I viewed it as kind of a trying to make things a choice and not a requirement when it came to tooling. Right. So set up tools for those of you who, you know, Python packaging and all was the long time tool everyone used to package up stuff for Python, but it was the only thing people used to package up for Python because it just kind of was there, you know, just continuously had, was there and the thing everyone used. And so what happened was everyone just through convention, just assumed sub tools was there. And that's what you had to use. Right. So it was, it had a lock on everything, not necessarily by design or choice. It was just, it was there, which kind of sucks for the sub tools people. Cause like, we can't change anything. We're going to break the internet. Right. Like it's one of those, we do something and everything's going to go awry because we were everything everyone's uses for this stuff. And so we work towards making it so that it was set up tools was a choice on a requirement. Right. So if you know, Python packaging, there's a thing called pyproject.toml that I helped create with a bunch of other people. And inside of that, you can specify your build system. And in that, so you can say, I want to use this tool from this version requirement to build my package, right. Or build my project. So that kind of separated out set up tools. Right. And so that put me down the road of realizing that the artifacts are really the key thing you were, you really care about, right. It's the things that get produced, not how you, not what tool you use to produce them. Right. Like that's the real commonality and the compatibility layer that you really care about. And so I sort of look around at the next kind of thing of what was kind of locking people into PIP, right? What were some of the things that PIP were doing that PIP was doing as an installer that wasn't shared by the community, right? That was very PIP specific, not once again by, not because the PIP developers were trying to trap people in PIP, but it was just convention and what they had done. And it just kind of got pulled forward and everyone would use it. And requirements.txt files, if you're familiar with those, was one of those things where you just kind of write down line by line what your requirements are. And that was it, but it had like no structure. It was PIP specific and it just had some quirks to it and all that stuff. So like, yeah, you know what? I'm going to try to tackle lock files because also at that time tools were starting to come out that were managing workflows and they all started to do their own lock file format. I was like, okay, so like if you want to deploy to your favorite cloud host and they want to do the install for you, how do you make sure they support the tool you want to use? Well, you can't. You have to list, I am going to support this tool, this tool, this tool, this tool, because your lock file that says what to install is only made for that project. That kind of sucks. So I said, okay, you know what? I'm going to try to solve this one. And so I tried and failed initially because I tried to lean in really hard on security, which cut out building from source because for anyone who tries to build from source and you don't know what compiler you're going to use, it might compile on Tuesday, but good luck having compile on Wednesday. So I said, I don't want that headache. So I may only use wheels, which are the binary artifacts for packaging that Python has versus source distributions, which is the source thing. And I did it and the community said, nope, don't want it. If you can't do source distributions, not going to work for me. And Paul went like, yeah, I know people are saying that they don't want this without this, that I'm not going to take this. So it killed that first version. So I went back to the drawing board and I'm like, okay, I had some coauthors on that pep. I felt bad that we did all this work and it got canned. I used their time up to do this. So I'm going to try again on my own. And as part of that, I'm going to try to develop my own tool, basically almost a pip competitor as a proof of concept to show how this would work. So I started to have to kind of re-implement pip from the ground up. It was partially why it took so long, right? Like I had write my own resolver. I had to be able to read metadata from packages to figure out what they listed as to install, like literally everything ground up redo because pip's not, it's spelled as some libraries, but not all of it. So not all of it was available to me. So it was like, started to tease stuff out and do all that. And then I finally got far enough along with that. And I just came back and said like, look, okay, here's the format. It's readable. I can do it myself. So I know it's doable. Here's all your other log file formats. I've looked at all of them. Here's the common alley across all of them. So there's no, I'm not doing anything revolutionary here. It's more just taste decisions of like how to format it and what information to keep and all that. But it's all there. And it was just a lot of talking and a lot of figuring out what everyone wants and their log files and all that stuff. And it's just, once again, a lot of players where it's basically working for me right now. So I don't have, I don't feel the need to have to change. And some going like, I love this because suddenly their tool, which isn't maybe not the most widely used, would pretend to use more because now they don't have to do it. Or I don't have a log file format. I'd love to have one. I'd use this. So it was kind of all over the map, but it just, yeah, it's a lot of conversations. And I started to butt up against the due date for our kid. So I actually had to start putting down deadlines, which actually worked out really well. Saying like, you have a week to give me opinions on this. It's not listening to you pass this. And people are totally cool and understanding cause they'd been going on for so long. I've totally listened to the deadlines and all got done March 31st, 2024. But yeah, the reason we couldn't just use package lock.json and all that is Python's packaging story is complicated because we allow you to be, to use Python as the glue of the internet. Like the fact that you can ship pre-built binaries of like C code that you pull into Python. Node doesn't have this. If you look at any node package that has like pre-built binaries, they have their own little hack in their install script to like, I'm going to go download this custom thing based on what I think you're running on. But Python packaging can solve that for the community overall. And so there's a lot of complexity around that. And it's how do you handle that? How do you make sure you grab the right thing on Mac versus thing on windows or things that are only on Mac that you care about, but not on windows, right? Cause that happens too. And what then there's got version compatibility and all this stuff. And it's a lot of stuff to have to keep track of, right? To the point that we're starting to see people try to shove stuff on PyPI that are not Python related, just because we solved these problems already and their community hasn't. So they're trying to piggyback on PyPI. Now I would suggest you don't do that because the discussion is suggesting legally, it might not be a good idea. At least for PyPI, right? Because it's legally specified only for the Python community. So don't take this as an idea. Please don't do this, but if it's Python related, go ahead. Anyway, it's being discussed, but that's why it's complicated, right? And we can't just steal someone else's approach, right? Like Rust has their nice thing with cargo, but they just compile everything from scratch into a binary. Same with Go, right? Node's a little different because you can have multiple versions of different things, right? As we know, Node modules can get really big with a percent copies left pad with different versions. We don't have that. We have a flat namespace. So you got to have one version of anything ever installed at once by choice. And so it just leads to different decisions, different complexities. And it just took a lot of work to get everyone on board and get it all lined up and make sure everyone who had a log file was mostly happy. UV was like kind of one feature shy of being happy, but the thing that they weren't happy with is not standardized. And I was not about to be the one that standardized it. So I'm kind of waiting to see if they ever propose workspaces, basically kind of for monorepos like workspaces from Rust for Python, because they said that was like the one big missing thing. So I'm hoping someday they'll do that and get that into the spec. And then they'll actually even use the standard as their primary. So they're uv.lock, but everyone else is on board and doing it. The other holdback is pip will write out a log file, but they don't read install from them yet just because it's all volunteer running. People just have to have time. So it's interesting to think about how"
+    },
+    {
+      "start": 4657.62,
+      "end": 4669.54,
+      "speaker": "jerod-santo",
+      "text": "the package manager shapes or could shape the language like workspaces, for example, right? Like, can you hypothesize how that may translate to language change given that you've"
+    },
+    {
+      "start": 4669.54,
+      "end": 4694.66,
+      "speaker": "brett-cannon",
+      "text": "steered before? Well, it wouldn't be language change as much as just how do you specify like potential like stacking of requirements, right? Because like, if you're thinking of like a microservice, that's all microservice run app, that's all in one monorepo, right? So you're going to have sub projects that are designed to run independently, and that's the whole point of microservices, but you might want to make sure everything runs smoothly. So you might want some of those requirements to propagate up to a bigger log file and have that all. I suppose you're"
+    },
+    {
+      "start": 4694.66,
+      "end": 4710.72,
+      "speaker": "jerod-santo",
+      "text": "right in the case of cargo cargo probably handles a lot of that for rust. Yeah, well, and because it's all language thing, it's like the way the language. What exactly is cargo to rust? I don't know. What is it? Is the compiler? Is it the many things, you know, there's a lot for it. So how do"
+    },
+    {
+      "start": 4710.72,
+      "end": 4750.53,
+      "speaker": "brett-cannon",
+      "text": "you like describe what it is? Yeah. So cargo is a, so rest C is the compiler and cargo is kind of the workflow tool for rust. So cargo is the thing that will download stuff from crazy.io for you tooling. Yeah, it'll run rust C for you. So I'd call it the workflow tool. And because rest made the decision that we're going to the pilot, you list all your dependencies and we'll compile that into a single binary. They don't have some of the complexity that we need to say, but they're the whole workspace thing is you can say like update everything out once with one command, it goes into all your sub projects. Or you can say I, I require this, this crate that I keep in my monorepo as a dependency and it treats as like a local dependency and has it all worked out. So it all kind of plugs"
+    },
+    {
+      "start": 4750.53,
+      "end": 4760.45,
+      "speaker": "jerod-santo",
+      "text": "together. Right. And it's all kind of just works. And it'd be UVs job to manage that, not the language Python. I was incorrect on saying the language change. I get that. Yeah. Yeah. And UV"
+    },
+    {
+      "start": 4760.45,
+      "end": 4822.93,
+      "speaker": "brett-cannon",
+      "text": "and because Python is that flat new spaces goes, it kind of becomes a question of like, okay, like, all right, you, your microservice over here says I've required this version of spam. This other one here says they need that version. How do you match it all together? So that if you have a single deployment on a single Python version and you all sold the same place, even though you're all developed independently, how do you have that all kind of propagate up or how do you do it independently and then have it still kind of pulled together and all that stuff. So there's a bit of complexity to it. Hence why, Astrill said, yeah, this is something we really need, before we can use this as our defacto lock file version. Now they support it. So to be very clear here, UV will export to, a pylock.toml file, which is the file from that I developed and they will install from it. So they're totally supportive and they were participants of the discussion. That's just not what they will use by default. They still have their uv.lock because that feature was missing. As I said, I was not in a position to want to try to standardize a new thing. I just wanted to have a way to write down stuff we already knew or had and did in a way that everyone could kind of just rally around."
+    },
+    {
+      "start": 4822.93,
+      "end": 4834.85,
+      "speaker": "jerod-santo",
+      "text": "What do you think about the rise of Astrill and UV in the Python community? It seems like they've gone from relatively obscure to like almost everyone's default suggestion, just use UV."
+    },
+    {
+      "start": 4835.41,
+      "end": 4856.94,
+      "speaker": "brett-cannon",
+      "text": "What do you think? Okay. I'm going to preface everything I'm about to say here with, I know Charlie. I know multiple people at Astrill. They're lovely people. I want to see them succeed, et cetera, et cetera, et cetera. I have nothing against Astrill. Okay. To be very clear, all the people there. Cause I get accused, I've been accused of trying to kill the company before."
+    },
+    {
+      "start": 4856.94,
+      "end": 4864.78,
+      "speaker": "jerod-santo",
+      "text": "This is Rigby all over again, man. That's two Silicon Valley jokes that dropped in the show and nobody's gotten them. Okay. Just so you're all clear. I don't acknowledge on purpose now."
+    },
+    {
+      "start": 4865.82,
+      "end": 4885.66,
+      "speaker": "brett-cannon",
+      "text": "It's part of my game. I honestly, when I booked to come back on after y'all called me out and say a lot to come back, I almost tried to figure out if I could somehow squeeze in time to rewatch Silicon Valley before I came on, but I couldn't make it work. So unfortunately that was a lot of squeezing considering your time constraints. That's why it didn't happen at all. So,"
+    },
+    {
+      "start": 4885.66,
+      "end": 4897.34,
+      "speaker": "jerod-santo",
+      "text": "right. That's the thought that counts though. We appreciate that. Adam appreciates it. I don't care. Continue. I'm sorry. No, it's all good. All those things, but we're at the butt. The cliffhanger has been set. Yeah. We're going to, we're going to cut it right here. So this is the"
+    },
+    {
+      "start": 4897.34,
+      "end": 5206.19,
+      "speaker": "brett-cannon",
+      "text": "only part that's going out. Yeah. UV came out February of 20, 20, three. I know this because that was when they in February. Yeah. I think they announced February. Cause I think my version of the PEP, my pep for a lock for us came out July and I was like, and I was totally taking my surprise. Like I I've been working on my own resolver and the stuff and some of the features you have for like a year by myself here. And suddenly it just drops on me. Like, Oh, we're doing that. Like, Oh, okay. So hence why I know the date. All right. Yeah. So one of the things that UV, I think popularized, but actually predates them is the idea of workflow tools whose focus is to get your Python code running, not getting your Python interpreter running. And it's a very succinct distinction, but it's a key one, right? So PDM hatch are the other two big ones next to UV. What happened was is they, there was a project called Python build standalone. That does people Python binaries that are relocatable. So they could drop the target. I don't know what, if it's GZ or exit or whatever on your desk anywhere. And it just works right. So what happened was his projects realize, Oh, you know what, if I can auto install Python, cause it's one of the big complaints that some people have is installing Python's a pain because we don't come in box and all OS is anymore. Like we used to, and it then stalls are different per OS. So people are like, Oh, there's no universal explanation of how to do this. And there's a lot of little details and how to get things working right. Like we have virtual environments, which is our isolation mechanism for it. So when you install stuff, you don't stop on other things in your, in your machine. And so it was like, all right, you got to get Python somehow get that installed. Okay. Now I've got to create a virtual environment. Okay. Now I got to get everything installed into my virtual running. Now I can run my project. Right. Lots of little steps and what UV popularized in a hatch PDM the decent argument they did prior was go like, you know what, we're going to give a unified tool that does all that for you. Right. So like UV run hatch, run PDM run, they all do the same thing. They go like, all right, you need Python version, something based on the metadata of your project. Do you have it now? Okay. I'm going to go download it from Python build standalone, which is an astral project at this point. Cause the maintainer didn't want to run it anymore. And astral graciously took it on for the community, download Python installed on your machine now that you got it. Okay. Going to create a virtual environment in your in your projects. So that's done. I'm going to figure out what you, what needs to get installed based on what you said, which could be nothing, just the default install, whatever you may be added extra fields for extra stuff, install that. And then he said, run now I can get the Python. I just installed through the virtual environment that has little things, run your stuff, get your code running and just one command all done. Right. And that's a breath of fresh air for a lot of people. Right. Cause cause as you heard, that's a lot of little steps that are easy to miss. And for people and AI to throw shade at everybody and UV really popularized it. Right. Cause UV got such a big splash when they came out with UV due to the performance numbers that they were getting that I went, Oh my God, this is amazing. And then they did, it's like, Oh my goodness. And it does all this stuff. And so total credit to them. They're great at marketing and they land out a good time. The performance is exquisite and they are really good about launching new features when they land in the packaging ecosystem. And so they get out really fast with them and people see it. And so that's it. But the concern, I mean, the reason we brought this up is just brought having concerns. And so this is the usual it's great, but UV is a VC backed company. They have to make money, right? Not that I think there's any ulterior motive here, but they might, that might implode. I hope they don't, as I said, I know the company, I know people who work there. I hope they also have jobs long in the future and I hope they're very successful, but there's always that concern. We've all seen tech just kind of have problems, right? I know some people do not love how certain things in the node community happen behind companies because of how they manage things. Right. It's a concern. And once again, you never know what the future is going to hold. You never know if it's going to be somehow money pressures are going to cause them to have to make a decision. I, as I said, I fully expect that that'll never happen, but there's always that risk. And when everyone's instructions are used, use UV, it's a bit of, it's a slight concern. It's not a huge concern. Like I don't think anyone's panicked, but I do know people, for instance, who flat out refuse to use UV specifically because if it goes away on them, it's going to suck to have to transition everyone else over other stuff. So they'd rather just use their own thing. So Brett's doing his thing of, all right, how do we help push things in a way that there's kind of agreement among the workflow tools of how things should work, right? Standardized so that other things can"
+    },
+    {
+      "start": 5206.19,
+      "end": 5228.27,
+      "speaker": "jerod-santo",
+      "text": "do the same things and that we don't have epic lock-in in case of a massive failure. Now UV is open source, right? MIT license even. Yeah. MIT license, so very permissive. There's probably, you know, company things that are required. I imagine it's, I mean, does it touch server-side stuff? That's like actual run server-side things or I don't know."
+    },
+    {
+      "start": 5228.27,
+      "end": 5254.03,
+      "speaker": "brett-cannon",
+      "text": "They've announced that I think they're, they, they have a enterprise thing. That's right. That they will run on your behalf as a index server for serving up Python files. So that's what they have and it's designed to tie directly into UV. So this kind of plays into it, right? Like UV has stuff specifically for their enterprise products. I mean, it's typical freemium, right? Which I don't think anyone's going to be upset with. No, but you know, how,"
+    },
+    {
+      "start": 5255.15,
+      "end": 5281.79,
+      "speaker": "jerod-santo",
+      "text": "you know, props by the way to Astro for picking up that, what'd you say it's called? PDB or something? This project that was no longer maintained? Oh, that kind of was PBS, Python Build Standalone. Python Build Standalone. So that's cool. You know, like that guy didn't want to do it anymore. It couldn't. And so here comes somebody else. And so hypothetically and probably even practically UV as a project could be the exact same thing in the case that Astro fails, like somebody else could pick up and run with it, right? Yeah, exactly. And this is why some people"
+    },
+    {
+      "start": 5281.79,
+      "end": 5413.36,
+      "speaker": "brett-cannon",
+      "text": "don't worry at all, right? They, you have some people going like, whatever, I don't care. If it, if they misstep, we'll just fork immediately because it's MIT and we'll just maintain it ourselves. Although granted it is in Rust, not in Python. So the, the talent pool for taking off from the community is not as broad as if it was in Python. But other people are like, yeah, but I don't want to have to worry about that step to begin with. And the longer they go as the leader, the more, the more graciated they get and the harder it's going to be to switch, right? Right. So me being me, I'm trying to make sure that the stuff UV is doing from a very baseline experience is kind of less, less special, not special because there's things they all do is just trying to get them to all kind of go like, yeah, this works. And if you do this, everyone kind of agrees in some way, right? So like I'm currently working to try to get python.org to be the producer of these prebuilt binaries, not just Python build standalone, right? Like there's nothing magical they're doing. There's, they, they've got some patches that I'm working with them to get upstreamed, which they've always said they wanted to do. It's just a lack of time, right? This is one of the things, right? Startup, they only time crunch all the time. So they're trying to slowly get them up and I'm helping them as best I can. So props to them for trying to help that. And they honestly want us to own it because it's way easier for a whole group of people to own how these builds work versus just them. So they're working with us to get that so that we can start just being baseline prebuilt binaries from python.org. And then they'll probably have some like optimized extra optimized or like more esoteric platforms that like enterprise customers might care about that we don't, which is like a perfect fit, right? Like letting them own enterprise is great. Like that's really where I want to see them shine. And for the general community, like let them be an option, not a requirement. The other thing is, is I have a another pep that I are talking with some people behind the scenes, including them about standardizing virtual environments and where they go, right? Cause weird problem here because everyone kind of sticks virtual environments, wherever they want tools like vs code or your editor, whether if you're a supplied text user, like Jared, I assume you still are. Maybe you're"
+    },
+    {
+      "start": 5413.36,
+      "end": 5419.02,
+      "speaker": "jerod-santo",
+      "text": "on Zed now. I can't keep track. You're on Zed now. Okay. I finally made the switch and it's stuck"
+    },
+    {
+      "start": 5419.02,
+      "end": 5604.74,
+      "speaker": "brett-cannon",
+      "text": "for the first time. Congratulations. So whether you're vs code or Zed or whatever, right? Your, your tool doesn't know where to find this virtual environment. That's so critical to your project. Cause every, every tool does it their own way. So I've written a pep to try to standardize where it goes, or at least to have a marker file to tell you where to go to get it so that all the tools can kind of just know where to go to look to find the thing, right? Cause it's such a fundamental thing for discovery, but it's a little stuff like that, but I'm just trying to kind of clear up so that if I recommend using UV and for some reason it doesn't work out, you just have to say, go use hatch. It's kind of gonna flow through and just kind of work nicely together. Right? So that's where I'm taking it from. And it's not, not because I want to take away from enterprise or anything for the company from a company perspective is just the baseline. Everyone in the community kind of wants experience should be universal enough that swapping tools is small. And then when you want the enterprise special stuff, totally get attached to UV, totally grown up that you can totally just attach to the hip to it and go for it. Like that makes total sense to me, work at an enterprise company, right? It's just the way it is, enterprises have such special needs that that's not something we're ever going to standardize, but for the stuff we're like kids, right? Educators, hobbyists, right? When your AI writes you, when your models write you a little Python script and you're just like, okay, I just need to run this real fast. Right? Like UV is totally a good reasonable thing to say and use right now. And I'm, as I've tried to be very clear, I have no problems with that being the thing is that I want to make sure that that never becomes a problem. And just hedger bets really is more of the thing. So that's, that's kind of what my current big project is, right? Cause I want my little, my little kid when they go to school and if they learn Python in school, I don't want them coming home and say, daddy, why is it so hard to get Python going? Like, I want to make sure like I can say like, amen, Amen. So I want to make sure that they have and everyone on the planet subsequently has a good experience getting Python running. And I think that was one of the big things that happened in 2025 was the community going like, you know what? I like this workflow. I like this tool that I just say, run my code, Python code. And it does all the other little details. They have my code running. Like that was, I think the big, big thing. And that's what I want to work towards making the norm and doing what I can to help UV and these other tools out to make it so it's acceptable to more and more people to do, because it doesn't lead to weird issues with your cloud provider or your tooling. It's like, eh, it's not going to plug in with Zed. It's like, well, no, Zed just plugs into the standards. You could totally use PDM, you could totally use hash, you could totally use UV and it's just going to work and no one gets left behind either. Right. Cause I always like to help the help projects thrive because they all have little innovations that help with their projects or anything else. And that's kind of helps builds up. And then every people try workspaces, right. If UV helps and then they try it out and then we get a good experience. Cause everyone's trying to learn the thing and now we can standardize that. Right. So take away the drudgery lower bit and make it one be able to innovate at a higher level."
+    },
+    {
+      "start": 5604.74,
+      "end": 5626.62,
+      "speaker": "jerod-santo",
+      "text": "Well, if they're a, if they're a business, right, when you go to astral.sh and you hover over products, you see tools and platform, all their tools are liberally open-sourced right. UV is dual licensed. It's actually Apache 2 and MIT, and you can choose. Whereas the platform PYX,"
+    },
+    {
+      "start": 5627.98,
+      "end": 5643.18,
+      "speaker": "brett-cannon",
+      "text": "would you call that PIX? I don't know. PYX. PYX. That's what I say in my head. I think all of those are not are acronyms. So you actually say all the letters like T Y is not tie. It's T Y. So I, for, for all their, for all actual stuff, I say all the letters. Would you say UV then?"
+    },
+    {
+      "start": 5643.18,
+      "end": 5738.69,
+      "speaker": "jerod-santo",
+      "text": "UV. This is UV, man. You've been saying it wrong the whole time. I'm just kidding. But okay. So PYX, if I'm leading in on business model, they are trying to build massively adopted tooling in the Python world and they're venture backed. It seems like PYX is the way they jettison into products. Correct. Although I just, you know, caveat to the fact that I hovered over products on the website. Sure. Tooling is products, but they're not products that you generate income from. They're products that you extract income from by way of more like your future child not being upset about getting Python running more easy because maybe UV solved that problem or X, Y, or Z. Maybe it is truly X, Y, or Z with them considering PYX. What are your feels on that? What do you feel? How do you feel about, I mean, I suppose we get back into NPM world a little bit, right? They were a separate venture backed company acquired by GitHub. We know the story there to some degree. There's some challenge there with NPM inside of GitHub, security concerns, massive usage. I mean, it's success, a major success, but just has some security challenges and, you know, a lot of, not a lot of resources behind it. And we speculate on that in recent episodes. We'll link them up. But if PYX, the next step in Python packaging is it, how do you think this will fare for them to turn this into a revenue generating packaging manager? I mean, so without having talked to Charlie"
+    },
+    {
+      "start": 5738.69,
+      "end": 5876.62,
+      "speaker": "brett-cannon",
+      "text": "about the business model, other than what he said publicly yeah, I think basically what happened was is Charlie made rough while he was in between jobs and really knocked it out of the park and got really popular and he's, Oh, this is really cool. And people came forward like, Hey, I want to give you VC money to try to fix Python tooling. And he took it and he built an amazing team. There's a lot of Python developers and really top people in the community who went, yeah, you know, I'd love to help you do that because this is a problem I see and I care. And I want to see that happen. And it's why I I'm not really concerned about actual every stepping wrong. This is all just hedging bets just cause we're all paranoid. And so he built that team and they were able to build UV and get a really popular and get really broad uses usage, right. Which I think has won them a lot of name recognition and a lot of just getting into companies, right? Like, yeah, just use UV, just use UV, just use UV, which makes it way easier for them now as a business. Like, Hey, if you need an internal package index for Python, that's highly performant. We'll give you whatever enterprise stuff you need, like, like backups and just check, making sure you only give packages that you've vetted or only has certain licenses, like all the enterprise stuff you ever, ever, you typically need, and a level come use UVX, buy UVX from us and we'll, we'll work with you. Right. Cause I know Charlie's also done a lot of work talking to enterprises to find out what they need. Right. Which is why UV has certain knobs on it that are very good for enterprises. That's just most of us will never care about. And I think that's what they've done is they've gotten enough name recognition and have already just gotten into enough people's workflows that it just becomes the second nature thing to just pick up. Right. It's like when you're on any of the cloud providers, whether it's Azure or AWS or whatever, it's very easy to just like, Oh, I need a solution for this. Oh, you already got on, on this cloud on the cloud platform. We're on fine. Click a button. You're done. And you're in, I think there is a similar play here and which totally makes total sense. And once again, PYX is totally an enterprise thing. And Charlie's made it very clear, like that's why it's not an MIT thing. It's an enterprise thing where we expect to make money and it's just going to do whatever enterprises need to happen in that school. And he's used that to help fund UV. I mean, private registries makes sense,"
+    },
+    {
+      "start": 5876.62,
+      "end": 5898.62,
+      "speaker": "jerod-santo",
+      "text": "obviously. Right. Enterprises, private registries, you got you know, maybe even internal tooling, lock and key. You got a lot of opportunity there. I think. Oh yeah. How does, there's a lot. You've said PI PI, which I thought was, did you catch that Jared PI PI PI? Okay. I'm going to check you on that. Cause I think that was a little strange. I've never heard it PI PI, but that's"
+    },
+    {
+      "start": 5898.62,
+      "end": 5902.46,
+      "speaker": "brett-cannon",
+      "text": "cool. Okay. It's because I haven't done an audio book for you, Adam. That's why I was going to say,"
+    },
+    {
+      "start": 5902.46,
+      "end": 5906.38,
+      "speaker": "jerod-santo",
+      "text": "okay, I was going to take Brett's pronunciation as gosh, Astro phase."
+    },
+    {
+      "start": 5906.38,
+      "end": 5929.58,
+      "speaker": "brett-cannon",
+      "text": "So, yeah. Okay. I actually did a whole, let me talk on this, a PyCon one year. So does PI PI and in PI PI, which predates PI PI is the Python JIT interpreter written in Python. So P Y P Y that's PI PI PI P Y P I is the Python package index. And that is why there's the distinct"
+    },
+    {
+      "start": 5929.58,
+      "end": 5936.7,
+      "speaker": "jerod-santo",
+      "text": "pronunciation difference. So people don't, that makes sense. PI makes sense. Package index. Okay. I stand. Correct. I thought it was a private investigator."
+    },
+    {
+      "start": 5937.66,
+      "end": 5977.98,
+      "speaker": "brett-cannon",
+      "text": "Well, that's that's a funny backstory. And to let you know that Python has a sense of humor originally was willing to cheese shop after the cheese shop sketch for Monty Python. Cause Python's named after Monty Python, not the snake, but people were worried pointy here. And to also date me pointy haired managers. Wouldn't take Python seriously. If our pack, if our index was named the cheese shop. So we went with PI PI. Now, if you get a 404, by the way, on PI PI and scroll down, you will hit the cheese shop sketch as hosted on YouTube by Monty Python. So we've kept the name around. That is nice trivia. Let me see if I can get this done"
+    },
+    {
+      "start": 5977.98,
+      "end": 5978.22,
+      "speaker": "jerod-santo",
+      "text": "here."
+    },
+    {
+      "start": 5990.22,
+      "end": 6000.14,
+      "speaker": "brett-cannon",
+      "text": "Cheese. Not today, sir. Now this guy's not a liar. People trying works. I do have a dad brain though. So it means I do forget and maybe get a little fax wrong, but it's not on purpose. Yeah."
+    },
+    {
+      "start": 6000.14,
+      "end": 6005.5,
+      "speaker": "jerod-santo",
+      "text": "I've had machete order out of order, but you got the cheese shop. So like, I think it's great that"
+    },
+    {
+      "start": 6005.5,
+      "end": 6114.08,
+      "speaker": "brett-cannon",
+      "text": "Asheville has gotten this money and they're putting them back into the community and stuff. As I said, I view this as a hedging our bets as a community to kind of just help alleviate the load on them and anyone else who does this workflow stuff from my perspective and just trying to do that. But it's tricky, right? Like I admittedly, I went and went to office hours for the steering council last week and I talked about them about this, like, bar, would you, would you be up for leading this kind of stuff? And they were like prebuilt binaries. We get, that's totally something that's in our wheelhouse as it were, but like running workflow tooling is outside our purview, right? We're in charge of the language. We don't do this kind of high level stuff. And we also don't want to kind of step on people's toes. They kind of want to not, Python very much tries to not like tell people what to do, right? Like this is why we have multiple type checkers that will try to type check to a single spec, but there's not one shipped inbox with Python, right? It's the community drives a lot of this, right? This is one of the drawbacks of not being driven by a company, but it's also one of the great things about not being run by a company. People are allowed to flourish and create a thing, and it's allowed to make things happen. And people, you learn, you kind of rattle around stuff and it slowly propagates through the community. Then you can standardize that and then everyone gets it automatically. And so it's, they just said like, yeah, we don't want to kind of cut people off by kind of blessing a workflow. So I'm just talking with people on the scenes right now and going like, okay, how do we all kind of coordinate as, among workflow tools? And it kind of included me because I wrote the Python mantra for Unix, which kind of does very, very lightweight workflow stuff to just like, how do we communicate? How do we do that? And how do we just, yeah, once again, just try to keep the stuff moving so that, yeah, the community just keeps working towards things so that we all just work together and everyone benefits, right? As I said, UV included, right?"
+    },
+    {
+      "start": 6114.08,
+      "end": 6132.11,
+      "speaker": "jerod-santo",
+      "text": "So that's what I'm working towards right now. You know, the, the world is led by the daring man. I think Charlie's one of the daring, you know, to, to undertake Rust for Python, bold, and that's daring, uh, to just to like, I did it first. No, you did it for,"
+    },
+    {
+      "start": 6132.11,
+      "end": 6297.02,
+      "speaker": "brett-cannon",
+      "text": "okay. Well, you're bold too, Brett. So if you, so here's the backstory. So there's a Python launcher for windows. So the PY command, if you're on it with, I know anim is no longer a windows user, that, that, that, that, uh, little Trist is over back windows, get back back in your proverbial box. So on windows, there's a PY command because back in the day, the way when you ran the installer, Python wasn't put on your path. It was installed in a place and you just saw the PY command, which would know where to look on your machine to get it. Just cause the way windows historically has done things. Okay. Backwards. Yeah. No comment. On Unix though, you didn't have this basically as Python ended up on your path, but there was an interesting benefit to the PY command on windows was when you ran PY, it always choose the newest version of Python that you had installed on Unix though, if you type just Python or Python three, it would oftentimes be the latest Python you installed, right? Like if you install Python three 14, but I think three is the latest release and then you can solve Python three dot 13 dot 11, I think is the latest one. If you didn't that order, who's sim link would win in your user bin. It was usually the last one you installed. Sounds like the older one. Yeah. Right. Which sucks. Like why do I always have to try to remember what's the like having to type Python three dot 14, or always under remember what the latest one is, or if you have scripts, right. Where it's like, I want to shebang it to the newest version of Python. You can't really, because it might not choose the right one. All right. So I wrote the launch for Unix in rust as my rust starter project, uh, long ago. I remember this long time ago, because I wanted this on Unix to have this command that automatically search your path and find the newest Python three dot whatever version and use that. And then on top of that, I added a little nicety where if it finds a virtual variety in a dot V E N V directory from your current directory up to your parent, it would automatically select that instead of trying to find a Python on your path, which has a nice benefit where when I start a project right now, I just go pie dash M VEM space dot V E N V. And that's the command to create a Python environment using the newest version of Python I have installed. And then from that point forward, I just type PI and just always picks it up. And I want to think about it. I don't even have to activate my virtual environment in my shell. It always is just the thing in that project and I'm done. And I don't even have to think about it. It's, it was kind of my little prehistoric precursor to workflows tools doing this way more involved, but this is why I, I, I, I'm totally saying to Adam, I did it first because I wrote that in, in Russ before you were bold,"
+    },
+    {
+      "start": 6297.02,
+      "end": 6308.62,
+      "speaker": "jerod-santo",
+      "text": "Brett, you were bold. Charlie is still both your ideas. He's still rusted Python. He's told us, Oh, dang you, Charlie. I mean, he did already solve my problems. He did a great job. I mean,"
+    },
+    {
+      "start": 6308.62,
+      "end": 6428.83,
+      "speaker": "brett-cannon",
+      "text": "brush is really, really fast in a really great, uh, UV is fast, although funny enough, um, a guest of yours on change, like a friends, uh, Andrew Nesbit, I think. Yeah. So Andrew wrote a blog post in December of 2025, uh, talk about why UV is so fast. And if you read it, he points out a lot of it's not to do with rust. It actually has to do with some of the algorithmic choices in terms of what they use for resolver. Cause they use pubcrum and also not having backwards compatibility concerns. So they get to wash away all the cobwebs that PIP has to continue to support and avoid all that overhead. So that that's not to say rest isn't faster, right? Like I think it's my last blog post section of my blog. I wrote, should I rewrite the Python launcher for Unix in Python? Cause it's in rust partially because it was my rest starter project. Boy, if I ever get pre-built binaries done, hopefully I will, uh, theoretically you could do what, um, UVX dot SH does. Um, if you don't know that one, that's a new one from astral. If you go to uvx.sh, it's a website where they will auto-gen a shell script to download UV. I think it's UV and maybe they'll do a direct download, but they basically will download, install Python privately on your machine, then download and install the project from PyPI and then make sure it all ends up on your path. So you don't even have to make sure you have Python. So it basically makes it a one-stop shop for a shell script so that the old like curl pipe essays run thing works for Python projects. Now, thanks to that website. So I've gone like, well, maybe I should do something like that. I mean, I had the idea. They, they implemented it nicely. So now I don't have to think about it, but I keep beating you to your punches. Hey, I'm a one person dad versus a startup with, uh, this is why Brett's trying to kill astral. I do not need more comments from people online saying I'm trying to kill a company. I'm not trying to, I want Charlie to be successful and I hope Charlie gets and everyone at astral gets"
+    },
+    {
+      "start": 6428.83,
+      "end": 6438.03,
+      "speaker": "jerod-santo",
+      "text": "very rich. So you say, so you say, yeah, you said one thing there that stuck out to me was pre-built binaries. What is your, what are you doing there?"
+    },
+    {
+      "start": 6438.03,
+      "end": 6659.55,
+      "speaker": "brett-cannon",
+      "text": "All right. This is getting really into the weeds of binary man, get your hatchet out. So think about your, uh, your historical configure, make, make, install steps to get some C code on your machine, right? From, from source, right? When you do that pass to where to look for data, so files for dynamic linking, get hard coded into the binary. And it's actually, it's in the R path setting, uh, or R path field in your, um, elf, uh, or dwarf file or whatever file format your OS uses, uh, Unix OS, but basically a hard codes with absolute pads, where to look on your machine to load these.so files. Okay. That means it also is very much tied to your machine and where it ends up. So like when you do like dash prefix, it kind of hard codes, some stuff that this is where things are going to be, and I expect them to be there. And if you move me, I'm going to break. All right. So dash prefix does a bit more with compiler instead. Anyway, there's stuff and it gets hard coded in the thing and it makes it non-portable it's tied to your machine. And the reason Linux operating systems can get away with it is because they control the layout for everything you install. So like when you do DNF install, whatever, or apps install or whatever, they've already done all these builds with knowing where everything's going to end up. So they're not, this just works. People like homebrew though, that you actually install in different locations and stuff, and you don't know what they're going to pull in. They can do that too, right? To an extent, but not really, they have to make it portable. Uh, Conda does this as well. Cause when you, a thing people did for a long time was they use Conda to install Python and then actually we'd use PIP to then do installs for the packages. Cause Conda was the easy way to get Python in your machine, but UV is starting to kind of eat into that. I think personally, but the deal is, is this stuff gets hard coded and it's not portable across machines. So what Python builds standalone did was they patched some stuff in C Python that made some assumptions about things being static about where they ended up. And then also have some scripts to patch or to set certain settings on the resulting binaries so that they also use relative paths of where to look and what to do. And just let you just drop the bind, the C Python binary anywhere in your machine. And it was just basically work. And that's the deal is it's just Python never was structured for that. And we didn't work worry about it. Cause people just, it just, it's a thing, but it was never a critical thing. And then it slowly has become more of a critical thing because people have found that there's a really good workflow. That's nice, right? Cause this is one way to kind of like package Python in with your pre-existing application as like a scripting backend. If you don't want to compile it directly into your binary itself. So that's what I'm talking about. When I say pre-built binaries is basically right now for python.org, right? You can get a windows installer, although you should honestly install the Python manager from the Microsoft store, if you're on windows and then let that do the downloads for you. You can get the Mac installer, which is a graphical installer. And that will also install. And then on Linux, it's, there's nothing, it's just source. You can get the tarball. So what I want to do is I want to get it so that for windows, for Mac, for Linux, and for any other tier one, well, that's all the tier one platforms, but even hopefully tier two platforms that Python supports. Cause we, I, I created a tier system for our platform support for VSD tier two. No, we can talk about tears after this. So Jen, to explain to Adam too far"
+    },
+    {
+      "start": 6659.55,
+      "end": 6668.7,
+      "speaker": "jerod-santo",
+      "text": "in the weeds, come back a little bit. I said, go in the weeds, but I didn't really mean it. This is a machete order. He's machete in these weeds, man. I'm sure this has something to do"
+    },
+    {
+      "start": 6668.7,
+      "end": 6673.58,
+      "speaker": "brett-cannon",
+      "text": "with some home lab where he's running free BSD to run a ZFS server. So that's why I'm"
+    },
+    {
+      "start": 6673.58,
+      "end": 6693.02,
+      "speaker": "jerod-santo",
+      "text": "assuming he's asking. No, I've moved on from that. No, Adam moves on very quickly. I'm in some good spaces now. I've been playing with, okay, Incas, latest and greatest, man. So much fun. I mean the best zinc is a plus ZFS the world, man, the world so cool. Okay. I will look forward"
+    },
+    {
+      "start": 6693.02,
+      "end": 6724.54,
+      "speaker": "brett-cannon",
+      "text": "to the show notes to find out the link to the thing you just mentioned. I live vicariously through you, Adam. I don't have the time right now with, with, uh, I'll get my machete out and I will lead you through the weeds. Anyway. Uh, so that's what, so I want to get it so that you can get like basically as zip files, hardball, whatever, uh, for windows, Mac, Linux, hopefully wazzy as well. Uh, maybe one or two other platforms you can just download and just unpack and just have Python ready to go. Cause you just don't have that. Yeah. And that's what I,"
+    },
+    {
+      "start": 6724.54,
+      "end": 6742.78,
+      "speaker": "jerod-santo",
+      "text": "beautiful world, right? So that would bypass the need for them to, they would have to compile it, right? It's the saving that it's just a demo on how to do it. 17 steps to learn how to do it. Cause just to play with Python, you have to learn how to compile Python and install Python, a version Python and all the things Python. Like, can we skip that step, please? It's more,"
+    },
+    {
+      "start": 6742.78,
+      "end": 6775.42,
+      "speaker": "brett-cannon",
+      "text": "honestly, it's more about making the install step universal, right? Like right now, if you're on Linux, you can get it, but you have to know what command to use to get it. And to be Frank, people like Debbie and mess with the Python install in ways that we don't on the core team fully agree with, but you also have to know what to get like on Debbie. And they don't install them, which is one of the key steps I listed. They consider it an application. So they rip it out based on Debian policy. So you have to know to install Python three dash full to get PIP and VEM installed and not just have Python without them and without PIP,"
+    },
+    {
+      "start": 6775.42,
+      "end": 6778.94,
+      "speaker": "jerod-santo",
+      "text": "which are kind of critical. Yeah. See, this is too many steps. That's some thick weeds,"
+    },
+    {
+      "start": 6778.94,
+      "end": 6783.74,
+      "speaker": "brett-cannon",
+      "text": "man. That's too many steps. This is why Jared's been upset all these years and you're here to"
+    },
+    {
+      "start": 6783.74,
+      "end": 6792.86,
+      "speaker": "jerod-santo",
+      "text": "clear the air. I've got, I got Python PTSD. Yeah. He's like, I'm not, I'm like a resistant, like the plague. I don't do. I'm just like, but once again, instructions on Mac are different"
+    },
+    {
+      "start": 6792.86,
+      "end": 6803.74,
+      "speaker": "brett-cannon",
+      "text": "instruction on windows are different, right? Everyone's got a different way. There's no universal kind of just like run this command to recursive OS, or just get this one tool installed and then it'll automatically just get you Python. Right. And that's why people love you. You got to"
+    },
+    {
+      "start": 6803.74,
+      "end": 6812.46,
+      "speaker": "jerod-santo",
+      "text": "have a build pipeline, right? You got your GitHub actions going, you got your containers going, you got right. Are you in that world? Are you in the CI crazy GitHub actions? Oh my,"
+    },
+    {
+      "start": 6813.02,
+      "end": 6817.42,
+      "speaker": "brett-cannon",
+      "text": "oh my gosh. World. Well, I helped set it up for Python. So yeah. Well, then you're going to want"
+    },
+    {
+      "start": 6817.42,
+      "end": 6821.98,
+      "speaker": "jerod-santo",
+      "text": "to play with Incas then. Okay. We should talk. Well, I don't want it anymore. That is one thing"
+    },
+    {
+      "start": 6821.98,
+      "end": 6839.42,
+      "speaker": "brett-cannon",
+      "text": "I've handed off to the youngsters. Oh, okay. Well, you can guide. I'm the guy who got Python, C Python's development on the GitHub. And thus we actually used all we predate GitHub actions. But once I got us over there, I helped get us on to GitHub actions and not rely on Travis and stuff"
+    },
+    {
+      "start": 6839.42,
+      "end": 6844.3,
+      "speaker": "jerod-santo",
+      "text": "and circle CI. That's the name I haven't heard in a long time. Just shut up right now. This"
+    },
+    {
+      "start": 6844.3,
+      "end": 6892.38,
+      "speaker": "brett-cannon",
+      "text": "show's over y'all. He said Travis. So you, so you see how old this old stuff goes, right? And all the stuff we've had to move on because things don't last. Oh, nice. I started to want Jenkins. But now you get it right. But this, this is why I make, I there's any hedging of concerns around companies. Like we outlasted people caring about CVS. We outlasted source forge. Like Python is Python came out in February of 91 resilient, right? Before Linux came out that August, right? We're an old project. We outlasted a lot of stuff and we're kind of not going anywhere. We're enterprise level. We're not COBOL level yet. Cause we're just not that old, but effectively you can't get rid of Python at this point. We're everywhere. So it's one of those, we kind of have to plan for the future in terms of making sure we are to an extent, self-sustaining."
+    },
+    {
+      "start": 6892.38,
+      "end": 6903.5,
+      "speaker": "jerod-santo",
+      "text": "So you've explained it. You took us in the weeds. What is the state? Give me a brief version of the state of pre-built binaries. Is this close? Is it shipped? Who's running it? Where can you go?"
+    },
+    {
+      "start": 6903.5,
+      "end": 6914.96,
+      "speaker": "brett-cannon",
+      "text": "So I'm running it. So if you go, so I have a pro so there's a, get a project, kind of coordinate stuff. Go to github.com slash Python slash, I believe it's prebuilt dash C"
+    },
+    {
+      "start": 6914.96,
+      "end": 6920.72,
+      "speaker": "jerod-santo",
+      "text": "Python, but it's on the Python org, right? Yeah. It's under the Python org. Basically"
+    },
+    {
+      "start": 6920.72,
+      "end": 6985.47,
+      "speaker": "brett-cannon",
+      "text": "it's all discussions really there of just like, here's the goal. And then talk with the stakeholders who care and just trying to work stuff up. I'm trying to work with Python builds standalone to get their key patches upstream that they apply when they do builds. I said, they're busy, so it's a bit slow, but they're working with me slowly through them. Once those are all up, then we're going to figure out exactly what needs to happen for a build to patch or tweak or whatever, the script to make the actual build happen. So it's no longer just tweaks the source, it's actually the steps to do the build. And then at that point, the release managers will just do it as part of their releases and it'll just happen. So I'm going to say it's being worked on whether or not it is a 2026 thing or a 2027 thing. I don't know, because I'm kind of depending on other people on being the experts and I'm just acting as product manager in a way for this stuff to kind of make it happen. So I'm driving it, but I have to ask other people for help so I can't just make it happen all on my own. So it's at the speed of me and other people being able to work together to get stuff done."
+    },
+    {
+      "start": 6985.47,
+      "end": 6996.51,
+      "speaker": "jerod-santo",
+      "text": "But if you need some help with the actions part of it and the builds pipeline part of it, I got some wisdom, if not all of it, some of it, because I've been tinkering on this front here and I'm like knee deep in solving a problem right now."
+    },
+    {
+      "start": 6996.51,
+      "end": 7022.59,
+      "speaker": "brett-cannon",
+      "text": "I mean, we can talk when it comes time if you want to contribute to Python somehow, but right now I'm at the stage of just trying to make it so that if you did a build on your own machine, it would work. Then we can talk about what it's going to look like on GitHub actions, because that's when we talk about like, OK, like what Linux distro do we use to make sure we get an old enough version of glibc that it runs everywhere we want to run on, that kind of thing. It's probably going to be all on the Linux, I think, because that's already what..."
+    },
+    {
+      "start": 7022.59,
+      "end": 7040.43,
+      "speaker": "jerod-santo",
+      "text": "What if you could build it yourself? Container up, brother. Container up, man. Yeah. Container up, brother. Let's talk later. We're going too far in the weeds. I love it, though. My gosh, it's the best. GitHub.com slash Python slash pre-built dash C Python. That's the URL, right?"
+    },
+    {
+      "start": 7040.43,
+      "end": 7041.39,
+      "speaker": "brett-cannon",
+      "text": "Yeah, I think so."
+    },
+    {
+      "start": 7041.39,
+      "end": 7042.19,
+      "speaker": "jerod-santo",
+      "text": "That's what we're talking about."
+    },
+    {
+      "start": 7042.19,
+      "end": 7043.07,
+      "speaker": "brett-cannon",
+      "text": "If you pulled it up, that's it."
+    },
+    {
+      "start": 7043.07,
+      "end": 7050.27,
+      "speaker": "jerod-santo",
+      "text": "BMO. That's what I got. I went to the Python org. I searched for pre, found pre-built dash C Python."
+    },
+    {
+      "start": 7050.27,
+      "end": 7062.91,
+      "speaker": "brett-cannon",
+      "text": "That's it. So it's in the getting patches upstreamed and then after that is getting the scripts so that can be done as a release and then it's getting it in as a release. I don't think it's going to happen for 3.15, but hopefully for 3.16."
+    },
+    {
+      "start": 7062.91,
+      "end": 7087.55,
+      "speaker": "jerod-santo",
+      "text": "This needs to happen. This needs to happen. It's going to increase the use of Python. It's going to make onboarding newcomers, onboarding agents even so much easier, especially when the agent is taking a brand new machine and helping a new developer get to that next level. This is paramount. You need to put the gas, the pedal down, gas all the way, burn the fire, hatch it with the weeds, all the things. Get this done tomorrow."
+    },
+    {
+      "start": 7087.55,
+      "end": 7092.67,
+      "speaker": "brett-cannon",
+      "text": "If you need some security, I also got you a Wazzy build too, so you can totally have it use Wazzy so that it can't run amok."
+    },
+    {
+      "start": 7093.23,
+      "end": 7093.71,
+      "speaker": "jerod-santo",
+      "text": "Right on."
+    },
+    {
+      "start": 7094.91,
+      "end": 7099.07,
+      "speaker": "brett-cannon",
+      "text": "That's a whole other topic. That is. We might have to bring you back for that one."
+    },
+    {
+      "start": 7099.71,
+      "end": 7117.79,
+      "speaker": "jerod-santo",
+      "text": "Snarky.ca, y'all. Snarky.ca. Get it while it's hot. It's a free USB on the end. It's a gift. It's just sitting there. It's a free USB stick on the on the curb. Good throwback. Pick it up. Pick it up and give it a little love. Give it a little love."
+    },
+    {
+      "start": 7117.79,
+      "end": 7121.31,
+      "speaker": "brett-cannon",
+      "text": "This guy did it before you did it. He's going to keep doing it while you're long gone."
+    },
+    {
+      "start": 7121.31,
+      "end": 7130.83,
+      "speaker": "jerod-santo",
+      "text": "That's Brett Cannon. Brett, you're the best, man. Python will last forever. Brett Cannon for life. You're the best, man. Anything left in closing here?"
+    },
+    {
+      "start": 7130.83,
+      "end": 7145.15,
+      "speaker": "brett-cannon",
+      "text": "No, just love to see you too. Thanks for having me back on. It's always good catching up and shooting, shooting stuff about movies and TV shows and all that good stuff. Movies and software, man. It doesn't get much better. TV shows, movies, software."
+    },
+    {
+      "start": 7145.15,
+      "end": 7154.46,
+      "speaker": "jerod-santo",
+      "text": "Movies and software, y'all. That's how we do it around here. Brett, you're a friend. Thank you so much. We love you so much, man. Stay cool. Stay awesome. Bye, friends. Bye."
+    },
+    {
+      "start": 7157.01,
+      "end": 7164.85,
+      "speaker": "brett-cannon",
+      "text": "All right. That is the changelog for this week. Thanks for listening. So which Star Wars order is the best Star Wars order?"
+    },
+    {
+      "start": 7165.41,
+      "end": 7195.57,
+      "speaker": "jerod-santo",
+      "text": "Would you listen to AI David Attenborough? Do you have strong opinions on open source voting systems? Let us know in the comments. Links in the show notes. We love hearing from you. Thanks again to Fly.io for partnering with us and Breakmaster Cylinder for producing a steady stream of the best beats in the biz. Next week on the changelog, news on Monday, Steve Ruiz from TLDraw on Wednesday and changelog and friends on Friday. Have yourself a great weekend. Set up a blog if you haven't already and let's talk again real soon."
+    }
+  ],
+  "slug": "han-shot-first",
+  "id": "128"
+}

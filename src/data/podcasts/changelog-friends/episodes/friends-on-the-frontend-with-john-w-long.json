@@ -1,0 +1,1117 @@
+{
+  "title": "Friends on the frontend with John W. Long",
+  "description": "Adam discusses AI usage, design tools, and tech stacks with John Long. Topics include Next.js vs Rails, maintaining open source, building websites with Framer, and their mutual love for Figma.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/84",
+    "MP3": "https://cdn.changelog.com/uploads/friends/84/changelog--friends-84.mp3",
+    "YouTube": "https://youtu.be/bCT3WFxUTVU",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "adam-stacoviak",
+    "john-long"
+  ],
+  "segments": [
+    {
+      "start": 14.8,
+      "end": 60.35,
+      "speaker": "adam-stacoviak",
+      "text": "Welcome to changelog and friends your weekly talk show about tools on the front end a big Thank you to our friends over at fly dot IO Deploy in 35 regions fork off VMS like their processes and so much more learn more at fly dot IO Okay, let's talk Well friends. I'm here with a good friend of mine David shoe the founder and CEO of retool So David, I know so many developers who use retool to solve problems, but I'm curious help me to understand the Specific user the the particular developer who is just loving"
+    },
+    {
+      "start": 60.87,
+      "end": 113.39,
+      "speaker": "john-long",
+      "text": "Retool, who's your ideal user? Yeah, so for us the Ideal user of retool is someone whose goal first and foremost is to either deliver value of the business Or to be effective where we candidly have a little bit less success is with people that are extremely opinionated about their tools if for example You're like, hey, I need to go use WebAssembly and if I'm not using WebAssembly, I'm quitting my job You're probably not the best ritual user, honestly, however, if you're like, hey I see problems the business and I want to have an impact and I want to solve those problems Retool is right up your alley and the reason for that is ritual allows you to have an impact so quickly You could go from an idea you go from a meeting like hey, you know This is an app that we need to literally having the app built to 30 minutes, which is super super impactful on the business So I think that's the kind of partnership or that's the kind of impact that we'd like to see with our customers"
+    },
+    {
+      "start": 113.39,
+      "end": 125.59,
+      "speaker": "adam-stacoviak",
+      "text": "You know from my perspective my thought is that well retool is well-known retool is Somewhat even saturated. I know a lot of people who know retool, but you've said this before What makes you think that retool is not that well-known"
+    },
+    {
+      "start": 126.27,
+      "end": 175.09,
+      "speaker": "john-long",
+      "text": "Retool today is really quite well known amongst a certain crowd Like I think if you had a poll like engineers in San Francisco or engineers in Silicon Valley Even I think it'd probably get like a 50 60 70 percent recognition of retool I think where you're less likely to have heard of retool is if you're a Random developer at a random company in a random location like the Midwest for example or like a developer in Argentina For example, you're probably less likely and the reason is I think we have a lot of really strong word-of-mouth From a lot of Silicon Valley companies like the Brexis coin bases door dashes stripes, etc of the world There's a lot of chat Airbnb's another customer and videos. There's a lot of chatter about retool in the valley But I think outside of the valley I think we're not as well down and that's one goal of of ours to go change that well friends now"
+    },
+    {
+      "start": 175.09,
+      "end": 264,
+      "speaker": "adam-stacoviak",
+      "text": "You know what retool is, you know who they are You're aware that retool exists and if you're trying to solve problems for your company You're in a meeting as David mentioned and someone mentions Something where a problem exists and you can easily go and solve that problem in 30 minutes an hour or some margin of time that is basically a nominal amount of time and you go and use retool To solve that problem. That's amazing. Go to Retool.com and get started for free or book a demo It is too easy to use retool and now, you know, so go and try it once again retool.com Okay, John, so I saw a post on LinkedIn from you three months ago This is Kelly maybe old news technically Especially in the world of AI and it has to do with AI as many know you may they may know you as a product designer a developer a front-ender Maybe even just a designer, you know, not to just just you but just a designer But design front-end all that good stuff and you used AI To do some cool stuff and I thought hey, you're a friend Let's get you on this show and totally friends do about fun stuff. Yeah. Sure. There you go. So"
+    },
+    {
+      "start": 264.52,
+      "end": 330.92,
+      "speaker": "john-long",
+      "text": "I guess in my daily work, I've been doing kind of a mix of product design and Marketing work and You know, I've been working with a local startup opine. They kind of make software for salespeople and You know, we're a handful of people we've got everybody's sort of sharing roles doing, you know spread across multiple things and so we use AI a lot for four different things and basically for The documentation side of things and then the marketing side of things when I'm writing content. I created a custom GPT just through chat GPTs like standard interface Uploaded all the content I could find from the website and LinkedIn so it knows about everybody that's involved and Then started writing marketing content and eventually we did the documentation site as well with chat GPT"
+    },
+    {
+      "start": 330.92,
+      "end": 346.92,
+      "speaker": "adam-stacoviak",
+      "text": "So what do you think about that? Are you obviously you're for it because you did it but like in retrospect was it? You know in your job, I'm sure it made your job a lot easier, but you know as a human being consuming content Generated how does that make you feel?"
+    },
+    {
+      "start": 347.52,
+      "end": 560.88,
+      "speaker": "john-long",
+      "text": "yeah, I mean I would I would describe it if you haven't done it is very much like Working with someone who is fast at generating drafts, right? like in chap at GPT writes better marketing content there on Dare I say it most marketing people I know Mmm that are kind of doing that in their day job so it if you're not using it kind of has your drafting system and I and I think there are certainly times where you want to You want to slow down and and just write out what what you're doing, right? but You know think about your positioning and get all of those things to figure it out Like those those kinds of documents on the marketing side Like you need to spend time writing that right about your angle all that kind of thing But then once you have that like why not create a custom GPT and and let it write your drafts for you You can you know give instructions about the style that you want it to compose in and for me, I I'm one of those people that can like come to the blank page and Like I don't know what to do kind of thing And it's not that I can't get there. It's just it takes me like 40 minutes to write my first rough draft so like chat GPT will Shortcut that for me so that in five minutes I have my draft I go back and forth with it a little bit and Then I jump in there and edit it myself because you know, you can't quite get what I want it to do So there's a lot of sort of back and forth and I have I have some of these chats where You know, it depends on what I was doing. I think the the documentation one The the most epic thing that I did was to do a full walkthrough as as kind of the documentation so it was a full walkthrough of the product and That was a ton of back and forth with chat GPT first I had it write the outline for what I wanted to do and then I took the outline Major point by major point and asked it to write the content. I would review it. I'd say no, that's too long make it shorter I would tell it when it got things wrong because it it's really good at reading in between the lines, but sometimes it will Say things that aren't true about your product too. So you you have to hold it accountable but I mean, I don't think that's any different from working with You know a writer on on things so It's it's really interesting my perspective on the GPT is is like they're here to stay whether we like it or not right But learning how to like work with them, whatever your role is if you write marketing content in your J job If you're a developer that needs to write marketing content, whatever it is They they can definitely increase your throughput be the way that I would describe it And You can do things in days now with GPT is that used to take You know weeks to pull off when it comes to writing"
+    },
+    {
+      "start": 561.48,
+      "end": 599.66,
+      "speaker": "adam-stacoviak",
+      "text": "so do you think the so you think the writing is is similar to the drafts you might get with a you know staff right or something like that and you think that Some of the they call them hallucinations, you know, I hallucinates or it makes things up Essentially they call them that the terminology has been hallucinations. So it hallucinates you think those are similar to the way You know a staff writer a human writer would be not fully correct on everything because they're trying to Massage words and make it sound cool. It's not much different than that"
+    },
+    {
+      "start": 600.24,
+      "end": 652.56,
+      "speaker": "john-long",
+      "text": "Yeah, I would say it's not much different than that you might have to so I another usage that your listeners might be curious about is is I've been using it to write cover letters for job applications, right been in between jobs and It is similar in the sense that like Sometimes it gets things wrong. And sometimes it repeatedly gets things wrong. I think humans are better at not getting Repeatedly things wrong than chat chat GPT is would be the way that I would describe it But it's probably better at writing than maybe 80% of the people out there So, mm-hmm, I don't know I don't know those numbers are exact but it it does write remarkably good copy"
+    },
+    {
+      "start": 655.02,
+      "end": 679.27,
+      "speaker": "adam-stacoviak",
+      "text": "How much So you're a product designer you teeter and marketing a little bit as you've said In your most recent role at opine. We've had you on the show years ago Creative serve an open source project that written in Ruby. I think a lot of people may know of You've designed icon sets. I think is it open source? Is it open source?"
+    },
+    {
+      "start": 680.76,
+      "end": 682.76,
+      "speaker": "john-long",
+      "text": "200 of them are 200 of them are"
+    },
+    {
+      "start": 683.2,
+      "end": 711.06,
+      "speaker": "adam-stacoviak",
+      "text": "Prior contributor to radiant CMS. I don't know if you did you start it or did you can yeah, I created it Yeah creator of I mean geez, I'm forgetting. I mean, I'm so old. I'd forgotten what you've made You know, so you've been around doing this stuff and now you find yourself more More in designer land and marketing land than maybe developer land. Is that pretty accurate to like your current? Maybe not your most current role, but like in the last couple years. Yeah, so"
+    },
+    {
+      "start": 712.34,
+      "end": 767.54,
+      "speaker": "john-long",
+      "text": "originally, I Think when my career kind of kicked off I was doing a bit of both. I did Programming and design for a period of time. I think in my first role. It was more more front-end than it was design and I sort of like Encouraged the people that like hey, I could actually like do the full designs and then in my second role it was You know designing coding But I think it was by the time I made it to my third like I wasn't doing the coding anymore So, I mean it that was that was ten years of Code I've I've maintained code on the side. I have my own own projects I'm pretty into next.js these days. And of course, I went deep down the rails rabbit hole years ago But rails has changed so much"
+    },
+    {
+      "start": 769.37,
+      "end": 774.93,
+      "speaker": "adam-stacoviak",
+      "text": "Since I used it. Yeah, it was just a good or bad this change, you know"
+    },
+    {
+      "start": 774.93,
+      "end": 813.97,
+      "speaker": "john-long",
+      "text": "I have a ton of admiration for DHH and his like ability to just say no, this is the simpler way. Let's let's walk in it. It's very different from The great way the rest of the world seems to have evolved. I love the react ecosystem You know, I'm very aware. Of course, you can use react with with rails, but the rails way is is different than that, right? and So, yeah, I have a lot of respect for that. I haven't used rails in the new configuration. So I Can't speak to it"
+    },
+    {
+      "start": 814.21,
+      "end": 816.72,
+      "speaker": "adam-stacoviak",
+      "text": "What's the last version you play with?"
+    },
+    {
+      "start": 817,
+      "end": 822.16,
+      "speaker": "john-long",
+      "text": "Okay, I should probably would be like rails five That's a gosh"
+    },
+    {
+      "start": 822.16,
+      "end": 852.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it's been a bit then Yeah, it's been a long while. Yeah, I believe we're on rails 8 I believe right Something like that. Yeah. Yeah rails 8 is like the latest thing out there. I want to say We're about to play with some rails again Over here. We you know, we've we've been yeah rails 8.0.1. I had to make sure released December 13th This last year. So basically on the tip 8.0.1. So you're a next JS"
+    },
+    {
+      "start": 852.93,
+      "end": 968.49,
+      "speaker": "john-long",
+      "text": "Lover or just user? Oh, yeah. It's it's a life frame. Thanks. Yes for life. Oh, I Mean as much as anything right like I would start another project in it tomorrow, right but like so to me next JS is a really great choice if you're using if you decide you want to go with react and On the front end, you know, I I have mixed feelings about it. I Do think that the rails 8 like there is something well not rails 8 but but back back at rails 3 Let's just stay there. There was something sure about Doing views and CSS and like a little bit of JavaScript like it was great that was it that was a I mean It was so easy to sort of comprehend the ecosystem compared to like next today, right? But at the same time and there's stuff when I look at next where I'm like man if they only provided like a default Or in you know database system like out of the box like it could be so much more like so I looked at it that like that, but every language or framework seems to like pick a line as to like how far they will go and Like I get it. I mean, there's there's different choices on the ORM side for for next all that Everything I've done has been like Prisma with it I think Prisma might be the leading candidate and there is a sense in which it seems like the default Stack is very much evolving around for cell and like the options that they give you that are easy I guess you could say. Mm-hmm, but next next is still You know doesn't have as many defaults as rails does you have to configure it?"
+    },
+    {
+      "start": 969.49,
+      "end": 998.82,
+      "speaker": "adam-stacoviak",
+      "text": "I wonder why that is honestly, especially since that Versailles had an opportunity to create a convention over configuration, right which is the whole adage that David has been pushing for a very long time It still does does to this day like it's not changed just to give a date for rails 3. Okay the release date You want to take a guess rails 3 is release date? I mean, it's like 20 years ago, isn't it? I mean, it's pretty close to 20. What is it?"
+    },
+    {
+      "start": 999.56,
+      "end": 1001.16,
+      "speaker": "john-long",
+      "text": "2015"
+    },
+    {
+      "start": 1001.16,
+      "end": 1004.68,
+      "speaker": "adam-stacoviak",
+      "text": "No, really 15 years ago August 29th 2010"
+    },
+    {
+      "start": 1005.48,
+      "end": 1008.4,
+      "speaker": "john-long",
+      "text": "2010 what is rails 3 rails 4?"
+    },
+    {
+      "start": 1009.08,
+      "end": 1014.96,
+      "speaker": "adam-stacoviak",
+      "text": "Was released in 2013? Okay, and you didn't touch rails for right on the rails 3 is the last version you touched"
+    },
+    {
+      "start": 1015.48,
+      "end": 1045.12,
+      "speaker": "john-long",
+      "text": "So we did some upgrading with radiant before The the really brutal thing with maintaining radiant was upgrading between the major rails versions because so many things broke And we would spend a couple of weeks trying to well It was it's probably more like a couple of days But when you're working part-time on it, it's a couple of each time and eventually it was just it was too difficult for I Think us to maintain at the current, you know, you're not in the project anymore"
+    },
+    {
+      "start": 1045.88,
+      "end": 1047.88,
+      "speaker": "adam-stacoviak",
+      "text": "Radiance done for you. Ah"
+    },
+    {
+      "start": 1048.32,
+      "end": 1066.44,
+      "speaker": "john-long",
+      "text": "Radian is kind of parked There were two different maintainers after me that that took over the helm Jim Gay is the current maintainer But there's not a lot of activity on the project and it has not been upgraded to the latest version of rails"
+    },
+    {
+      "start": 1067.16,
+      "end": 1074.04,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm. So it's unlike it's it's unlikely to have any users and if they're users, they're not choosing it"
+    },
+    {
+      "start": 1074.04,
+      "end": 1140.13,
+      "speaker": "john-long",
+      "text": "They're still there every once in a while something will come along and it seemed like it it will have new life There was a there was a fork of it At one point I think I feel kind of gratified like on two fronts like it was a lot of effort early in my career to maintain and I think a lot of people got something out of it and were inspired by it and I I Mean, it's incredible like as a developer to have gone through that experience but there comes a point where like is open source gonna be your life right and for some of us like You know, that's what they that's what you choose. But for me, I I've like I I Sort of feel like I have two professional careers design and development right and maintaining both of those is is difficult And then family life as well. I've got an Eight year old a six year old and a three year old now, so things are busy at our house. So busy. Yeah Wow"
+    },
+    {
+      "start": 1140.73,
+      "end": 1142.76,
+      "speaker": "adam-stacoviak",
+      "text": "Three kids will keep you busy. That's for sure"
+    },
+    {
+      "start": 1143.24,
+      "end": 1160.43,
+      "speaker": "john-long",
+      "text": "It's so good. That's a triple zigzag right there. Yeah, it's tough because they're all close to the same age at the moment, but Yeah, there's going to be at least yeah. Yeah, they're very they're each incredible wonderful people"
+    },
+    {
+      "start": 1161.11,
+      "end": 1175.31,
+      "speaker": "adam-stacoviak",
+      "text": "We love kids around here. Of course. I got three myself Jared's got six Gosh six children you got three I'm looking at this commit history for radiant and I don't know if this is accurate or not But it says four years ago as the last commit"
+    },
+    {
+      "start": 1175.83,
+      "end": 1191.59,
+      "speaker": "john-long",
+      "text": "That that makes sense. I think radius which is the core templating language under it We've had some commits in the last six months So but the main project doesn't surprise me that it's been four years so back to"
+    },
+    {
+      "start": 1192.15,
+      "end": 1212.05,
+      "speaker": "adam-stacoviak",
+      "text": "Back to sort of establishing some of the things that you're dabbled in so an icon designer some of them open source That zest. It's all right zest icons. That's zest. Yep. Now now you're you know more front-ender Designer right then then you would say back-end"
+    },
+    {
+      "start": 1213.08,
+      "end": 1215.47,
+      "speaker": "john-long",
+      "text": "definitely, yeah, and"
+    },
+    {
+      "start": 1216.27,
+      "end": 1230.59,
+      "speaker": "adam-stacoviak",
+      "text": "No longer dealing with Ruby hanging out in JavaScript land loving as best you can next. Yes missing some Convention over configuration it seems yeah, but pretty happy. Yeah"
+    },
+    {
+      "start": 1231.59,
+      "end": 1299.31,
+      "speaker": "john-long",
+      "text": "I mean like I'm not coding in my day job right like in my day job I'm generally just focused on like figma and I've done a lot of framer recently for the marketing site side but I have a side project I've been working on in next and I often find myself in react land from time to time needing to like Do a component to demonstrate something to a developer, right? So I do a lot of like code pins react stuff from time to time it depends but when you when you're doing developer handoff like that's that's kind of when You know, I might do a little bit of code on something and it would typically be more complicated interactions the point where it's Too difficult to just write it out or draw pictures of what you want it to do It's just easier to"
+    },
+    {
+      "start": 1300.03,
+      "end": 1326.54,
+      "speaker": "adam-stacoviak",
+      "text": "You know do some code. What's good? You have that history of Being a developer not that you're not today, but in practice on the day-to-day, you're not Developing you're designing primarily, but you have that language that History that Lexis that that ability to sort of still spike something out Like you'd mentioned a component to To sort of get somebody a developer the speed to an idea. Yeah, it's funny"
+    },
+    {
+      "start": 1326.54,
+      "end": 1433.1,
+      "speaker": "john-long",
+      "text": "I I know it's a sort of controversial thing that comes up design should designers learn how to code From from time to time and I'm I'm of the opinion like heck Yeah Like and learn how to do business to and learn like all the things like take it what take it one at a time Don't just stay in one late That's that's that's my opinion because it like makes you better at communicating better as a designer across the board There's so much stuff right now We're like even just looking at figma. It seems like it it's going about 90% of the way there Framer framers better on that side on some things but both of them I'm just like could you just learn a little bit more about what components are and You know Provide the the things that we need to make handoff easier essentially, mm-hmm, and I I I've talked with a lot of designers from time to time and one of the big challenges when you come just from UX land is Understanding How it's going to be built into a system because we're all designed systems now Whether you want to or not and If you design with the grain of the system you might say Things are easier if you design against the grain of this the way that the system has been built then things are hard so You know, yeah learn a little bit about coding Get get it get into the CSS a little bit But also get into the to the react side a little bit and try and learn some of that"
+    },
+    {
+      "start": 1433.6,
+      "end": 1489.05,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, what would you say? That you like a lot about what you're doing now like if you're on that front-end side of things and you're sort of in Design marketing world and you're building with framer even like I I think framer is pretty awesome. Haven't personally used it myself But I think there's a lot happening in the in the ability to build out a front-end website That looks really good that doesn't require you to touch a lot of code if any really at all But I think familiarity like it like a past for an ender who has hand-coded front to back Would thrive in my opinion on some of these new newer tooling because you know a lot of what it can do You know what the web can do even though you're not doing it, you know where the Limitations and peripherals are in terms of where the boundaries might be. Yeah, it's very much like that"
+    },
+    {
+      "start": 1489.57,
+      "end": 1692.07,
+      "speaker": "john-long",
+      "text": "So The thing that I'd say is as a designer There's only so far that you can go with just like static pictures in particularly when it comes to like motion and scroll driven Designs and in that kind of thing almost anything that you produce in figma is going to be kind of hand wavy as you try and hand off to the to the developer and there's this thing that happens designer fatigue where You're trying to get a project out the door you have some ideas for how the motion should work and you could spend a lot of time in in figma like trying to Articulate that and hopefully your developer can come along and pick up those notes and like make it awesome, right? But you're not you're not necessarily always working with people who who can do that and tools like framer and web flow now are They're they're sort of speaking both languages and and sitting really well in this niche of You can't do anything you want with the tools but you can do a lot like 90% of the common use cases now and What that means is that as a designer you spend less time like trying to articulate these interactions because you can just Design and prototype them in the tool and that's that's pretty incredible. It's It's really neat to see these web-based tools now You know the hilarious part about this is like I remember Dreamweaver like dreamer was what I cut my teeth on right? Yeah, man, and but but it's taken us what 20 years to get to this point where we have Web based tools that are kind of like of a similar caliber To what what they had in desktop apps way back when so And when when you're doing that one of the really cool things about framer is that it's managing deployments in kind of a modern way And it does it all for you, but you can roll back to older versions Right, which is kind of like I get get hub, you know kind of feel to it so Yeah, I mean I'm coming off a framer high right now so, okay, you might uh, you might take it with a grain of salt, but I think that's time to Aspouse your thoughts. Yeah, I kind of think like why if you were a web startup, would you not use framer right now like Or maybe web flow like and I haven't done anything about flow. Are they similar? I mean another they are similar. Yeah, they are similar I've heard that In kind of looked at at web flow I need a web flow project is what I what it is But web flows component system looks like it's a little more developed than framer at this point It's funny. I would say that framer feels like figma but I developed but but a tool that you can build website with and then Web flow feels like Dreamweaver to me like it's kind of this like on the web That's kind of the difference between the tools It's it's really cool"
+    },
+    {
+      "start": 1692.47,
+      "end": 1699.51,
+      "speaker": "adam-stacoviak",
+      "text": "For those who don't know Dreamweaver. What do you mean by that? It's like code and the view in the same tool kind of thing. Is that what you mean by that? Yeah, it's"
+    },
+    {
+      "start": 1700.07,
+      "end": 1783.45,
+      "speaker": "john-long",
+      "text": "Web flow from my memory and it's been about five years since I played with it or maybe four years For my memory it seemed like it had more like you could code to do things in it when you need it to and Framer doesn't Really do the same things framer doesn't have like events Like an events system would be the way I would describe it It can do like simple like interactions on click and things like this for components and component transitions Which is enough for like most things that you're you're going to do But if you're trying to build something a little bit more interactive you almost it feels like you have to break out of the matrix in framer and Right, you can write react that works with framer, right? But like the world's don't really coexist very well Would be the way that I would describe it. I think framer will eventually get better and better in this regard But it feels very much like I have to be a pretty smart coder to do coding in framer Or I just don't have access to that world"
+    },
+    {
+      "start": 1784.01,
+      "end": 1819.32,
+      "speaker": "adam-stacoviak",
+      "text": "Essentially well friends. I'm here with Scott Dietzen CEO of augment code augment is the first AI coding assistant that is built for professional software engineers and large code bases that means Context-aware not novice but senior level engineering abilities Scott flex for me Who are you working with who's getting real value from using augment code?"
+    },
+    {
+      "start": 1819.48,
+      "end": 1831,
+      "speaker": "john-long",
+      "text": "So we've had the opportunity to go into hundreds of customers over the course of the past year and show them how much more AI could do for them companies like lemonade companies like"
+    },
+    {
+      "start": 1831.08,
+      "end": 1854.14,
+      "speaker": "adam-stacoviak",
+      "text": "Codem companies like lineage and webflow all of these companies have complex code bases by take codem For example, they help their customers modernize their e-commerce infrastructure. They're showing up in and having to digest code They've never seen before in order to go through and make these essential changes to it we cut their migration time in half because they're able to much more rapidly ramp find the"
+    },
+    {
+      "start": 1854.22,
+      "end": 1865.1,
+      "speaker": "john-long",
+      "text": "Areas of the code base the customer code base that they need to perfect in an update in order to take advantage of their new Features and that work gets done dramatically more quickly and predictably as a result"
+    },
+    {
+      "start": 1865.42,
+      "end": 1877.18,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, that sounds like not novice, right? Sounds like senior level engineering abilities sounds like serious coding ability required from this type of AI to be That effective"
+    },
+    {
+      "start": 1877.18,
+      "end": 1892.62,
+      "speaker": "john-long",
+      "text": "100 you know these large code bases when you've got tens of millions of lines in a code base You're not going to pass that along as context to a model, right? That is would be so horrifically inefficient being able to mine the correct subsets of that code base in order to deliver AI"
+    },
+    {
+      "start": 1892.7,
+      "end": 1924.14,
+      "speaker": "adam-stacoviak",
+      "text": "Insight to help tackle the problems at hand how much better can we make software? How much wealth can we release and productivity? Can we improve if we can deliver on the promise of all these feature gaps and tech debt AIs love to add code into Existing software, you know, our dream is an AI that wants to delete code make the software more reliable rather than bigger I think we can improve software quality Liberate ourselves from tech debt and security gaps and software being hacked and software being fragile and brittle"
+    },
+    {
+      "start": 1924.46,
+      "end": 1932.64,
+      "speaker": "john-long",
+      "text": "There's a huge opportunity to make software dramatically better, but it's going to take an AI that understands Your software not one that's a novice"
+    },
+    {
+      "start": 1933.04,
+      "end": 1985.03,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends augment taps into your team's collective knowledge your code base your documentation dependencies The full context you don't have to prompt it with context. It just knows ask it the unknown unknowns and be surprised It is the most context-aware developer AI that you can even tap into today. So you won't just write code faster. You'll build Smarter it is truly an ask me anything for your code. It's your deep thinking buddy It is your stay in flow antidote. And the first step is to go to augment code.com. That's a u g m e n t C-o-d-e.com create your account today start your free 30-day trial. No credit card required once again augment code.com You said you're coming off a high. What did you build?"
+    },
+    {
+      "start": 1985.73,
+      "end": 2010.83,
+      "speaker": "john-long",
+      "text": "So we built the opine website tryopine.com uh in in framer and How many people were involved in this project I I did all the the design on it we worked with a company Fletch They're also based in Texas on the home page copy but everything else I wrote or design on the site, so"
+    },
+    {
+      "start": 2011.43,
+      "end": 2015.55,
+      "speaker": "adam-stacoviak",
+      "text": "Everything you see a tryopine.com is you that's right from copy"
+    },
+    {
+      "start": 2015.83,
+      "end": 2124.52,
+      "speaker": "john-long",
+      "text": "and I mean you can see this sort of scroll animations and things like that and We did we did it was really interesting. This is what I'm saying. It's hard to prototype interactions We did actually more complicated animations in framer and as we were talking about it the founders and I we kind of backed away from it because We it was feeling like we were hijacking the scroll bar. I don't know if you've ever been on a site where You scroll and like it just everything's like You know reacting to it, but but that I mean I say that because you can go overboard with it And I don't know how I would have articulated to a developer to build the site without having a lot of back and forth and Iterations and things like that and just being able to get that instant feedback of designing it in the tool the other thing that's interesting there is we They have an import from figma Which is pretty good and it basically turns all your figma stuff into devs and You know with borders and you know a little bit of SVG code here and there and what's really interesting about that Is you can build responsive screenshots in a way that like if you had if you had Screenshot them or exported them to PNG or even SVG like you can't quite achieve So on both of those sides like I'm Pretty stoked about like what we were able to achieve with out development in the tool"
+    },
+    {
+      "start": 2125.08,
+      "end": 2173.29,
+      "speaker": "adam-stacoviak",
+      "text": "So, I mean just browsing the site. I mean not that I'm trying to Say that framer or webflow or tools like this are bad But I can't tell that it's not a hand coded kind of front-end marketing site it's not it's not easy to tell that it's Something more simple I suppose or maybe you can speak to the in quotes more simple that I'm suggesting I'd imagine it's just as hard as you got to put the design work into it you got to you probably have less control over Everything and so maybe it's actually slightly harder than Handrolling your own code to get to the result. Was there much code involved in building the site out? This one this one"
+    },
+    {
+      "start": 2174.13,
+      "end": 2322.21,
+      "speaker": "john-long",
+      "text": "they have something called a behavior and There were a couple of little things that I had to work around Framer stuff with like a I don't know a ten line behavior This is What's the language for that behavior it's it's JavaScript obviously, right it's kind of like I think it's basically What do they call that? It's in react where you compose components by like they call them higher order components. So That's how you dedicate you decorate things if I'm using the right terms. Mm-hmm This is what I'm saying, I'm a so I come to react and I enjoy using just react the library I've never used state management Stuff things like that and I know JavaScript very well But and I love using just react on its own. It's such a beautiful little library It feels like jQuery to me And like I have a lot of joy Using it there's so little code required to pull off interactive things It's crazy with it But then when you try and do it in framer You have to learn the framer way and it does use some of the things that I'm less familiar with So, yeah, hmm, but framer has so much that's just available from like drag-and-drop Sort of perspective It's interesting to like I run across designers that don't use auto layout in Figma, right and auto layout is just like figmas version of flexbox, right and Framer is built on auto layout right because you're actually trying to build something responsive essentially, so there is a there is a little bit of a change to it when you go to the tool, but Like you if you're not used to Draw drawing in figma with auto layout and building things in figma with auto layout Then you have to change that as you as you learn how to use framer Framer does have absolute positioning like you can do that But of course like you don't want to have absolute position everything your website will be a nightmare to maintain, right?"
+    },
+    {
+      "start": 2322.93,
+      "end": 2350.97,
+      "speaker": "adam-stacoviak",
+      "text": "So this is where I think having that background and CSS makes sense. Somebody who doesn't come to a tool like framer Like I actually came up in the day whenever you would absolutely position when you would absolutely position everything, but you would float Everything the whole layout was float based. That's right. This is prior to The new tools these kids have these days, you know, I'm saying like yeah best era of CSS is today in my opinion"
+    },
+    {
+      "start": 2350.97,
+      "end": 2374.83,
+      "speaker": "john-long",
+      "text": "But it's still hard. Yeah, it's still hard and I think it's a little more overwhelming than it was I guess there was a lot of things in the beginning with CSS It was the beginning you would come across somebody's site and you'd be like, whoa How did they achieve that and then you'd look at it and it'd be like, oh, it's all floats everywhere. This is weird Why would they do that? That's so gross. And then you'd start doing it, right?"
+    },
+    {
+      "start": 2377.41,
+      "end": 2389.98,
+      "speaker": "adam-stacoviak",
+      "text": "Who wrote the book there was a famous book I want to say pre 2010 I'll find it and I'll put in the show notes cuz it's it's the oldest of old school books. Yeah"
+    },
+    {
+      "start": 2391.02,
+      "end": 2393.02,
+      "speaker": "john-long",
+      "text": "Are you talking about Mike Myers?"
+    },
+    {
+      "start": 2393.9,
+      "end": 2421.56,
+      "speaker": "adam-stacoviak",
+      "text": "It was like a black-and-white book It read more like a novel than a CSS training tutorial book. I might even still have a library But Mike Myers, I think you're talking about Eric Myers so Eric Myers was the godfather I think still might be of CSS and I think you and I both came up in the days whenever The entry was transitioning from tables literally from tables"
+    },
+    {
+      "start": 2421.72,
+      "end": 2436.29,
+      "speaker": "john-long",
+      "text": "Yeah, so some of the first websites I did were in the new mindset, right So using CSS for layout essentially that was unheard of it was just it was just formatting just"
+    },
+    {
+      "start": 2436.41,
+      "end": 2464.16,
+      "speaker": "adam-stacoviak",
+      "text": "Decoration for a little while if you use it at all, you know, it was very it was always in the head of the document there wasn't a separate document that was strictly for the CSS and then it became Well, no tables is the old way we have screen readers so we have to you know screen readers can't read tables well and you need to do all these different things and then you had web standards and Jeffrey Zeldman and all these things that popped up and then you had even things like what was it called micro formats"
+    },
+    {
+      "start": 2464.16,
+      "end": 2468.92,
+      "speaker": "john-long",
+      "text": "Remember micro formats? Yeah, micro formats are still around and you should learn"
+    },
+    {
+      "start": 2468.92,
+      "end": 2476.31,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, now you just sort of like You know expect that to be metadata that you don't even know how it gets there these days, honestly"
+    },
+    {
+      "start": 2476.35,
+      "end": 2481.39,
+      "speaker": "john-long",
+      "text": "Well, it should be about like your platform knows about about it and spits it out, right"
+    },
+    {
+      "start": 2481.39,
+      "end": 2497.47,
+      "speaker": "adam-stacoviak",
+      "text": "So as a developer, you're not like hand coding those things anymore now you're putting in variables and you're plugging into a database and you're part of a front-end code to some sort of back-end and You know the CMS or the platform takes care of sprinkling in the goods"
+    },
+    {
+      "start": 2497.47,
+      "end": 2519.71,
+      "speaker": "john-long",
+      "text": "There's there's so many good things though now in CSS The the grid layout was kind of the biggest thing recently Mm-hmm that has made so much easier to build these things but flexbox, of course and then there's all kinds of niches to get into like This the scrolling stuff in CSS to get the snapping and everything just right. Mm-hmm things like that"
+    },
+    {
+      "start": 2520.99,
+      "end": 2552.03,
+      "speaker": "adam-stacoviak",
+      "text": "well, I think we got there by talking about really framer, but it From it from the lens of having been steeped in Building front ends yourself Yeah, and I think having that those battle scars if you wanna call them that going into a tool like framer one You could probably appreciate it more but then command it more because you literally know How the web should work if you were hand rolling the code. Yeah, I mean, it's it certainly helps"
+    },
+    {
+      "start": 2552.35,
+      "end": 2641.3,
+      "speaker": "john-long",
+      "text": "I Will I will say it's wonderful to see a tool like framer Taking an approach that's that's probably More for people like me. I guess you could say I think there was a lot originally of Envisioning the tool in a way that was maybe not that practical, right? like the you know, I mean just no one would argue over like using tables, but like When we when we first got started you would export your your Fireworks image to a table and then in Dreamweaver you would tell it like how to size it Appropriately, it was crazy but the way that the two the tools are built that like framers built on all that good layout stuff and and Everything that CSS has and they they have catered to like designer terminology For that kind of stuff, I don't think it says flexbox anywhere, but it supports the flexbox stuff Right. So if you're already in that mindset you can It does give you an edge For using a tool like that I also used a lot of YouTube stuff to learn framer as I was doing it and I Do I do more with YouTube learning for some of this stuff now than than I did in the past"
+    },
+    {
+      "start": 2641.5,
+      "end": 2675.86,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I'm I'm with you on that. I feel that I waste a lot of time Especially on beginner content. I feel like almost everyone on YouTube assumes the person is new and novice and That just drives me nuts. I was gonna ask you, you know in regards to that because like if you're using YouTube You're probably leveraging You know chat GPT for example to say, okay I'm using framer and I want to do this kind of thing that you could do in CSS What's the equivalent in X and XB? Yeah"
+    },
+    {
+      "start": 2676.34,
+      "end": 2791.19,
+      "speaker": "john-long",
+      "text": "So actually it's interesting that you say that because I did use chat GPT from from time to time I've found it had mixed results And part of it is that framer has different libraries that it knows about so sometimes it couldn't discern whether I was asking about the application or about the programming api's that they have So that was a little interesting One of the great things about framer, I know I know I'm glowing about it a little bit But like there really is a large community and there's a large community on YouTube, too. So You know in my most recent role I was building a content management system content management world, right and There are a lot of things it was called unstack There were a lot of things about it that were great and we were building the component system and and things like that but we didn't have a ton of users in the way that like framer does and so Using a tool like framer now It does cater towards a more technical kind of person to be able to pull off a site in it Then then what we were doing with unstack unstack was strictly for the business user marketing people But there's there's such a big community like learning the two different tools is is Is a very different process like you can just go and you know, they have beginner focus stuff But they also have a lot of niche stuff as well Some of the things I was looking at was like, how do I get my menus to be responsive? So that was like one thing that I was consulting on YouTube and there were two or three videos that I looked at for that So you you can get kind of niche in in And that that's a really interesting spot to be in for for a tool when you're when you're on top, I guess you could say"
+    },
+    {
+      "start": 2792.99,
+      "end": 2804.07,
+      "speaker": "adam-stacoviak",
+      "text": "So interesting So what is this unstack? Where was this? What were you doing there again? Or were you you're building the CMS itself you were doing the front end stuff it doesn't suck"
+    },
+    {
+      "start": 2804.07,
+      "end": 2935.8,
+      "speaker": "john-long",
+      "text": "I was head of product and design. It's my first role doing both product and design It's funny. So the company was at before then we were going through this phase where They had a WordPress website and they brought me on as a designer and I was again in a sort of like mixed marketing I was helping marketing a lot role and doing product design and We were looking at the website and it was something that the founders had stood up like six months ago before they had funding and It was really just to begin to put content on the web about what they were doing so the design was not great and So designer, of course, I want to upgrade that and so I was looking for tools and I stumbled across unstack and Unstack at the time was really focused on the sort of SAS Businesses that was that was their heart to make it easy for SAS businesses to to have a website Something that's not as complicated as WordPress to set up with a lot of pre-built components to do things and I was blown away because I Built the first version of our home page in about four hours on unstack Unstack You have to you have to design for the system But it was pretty good and it was pretty good in the sense that like The founders could use the tool as well to like build pages and that was important to me I love tools that you can be collaborative and with people and build content together and build build things together I still think unstack Is a great tool for this but we did pivot more towards e-commerce for a while. We were focused on Shopify We were eventually acquired by this company elastic path and The tool is now called studio and it's been integrated with elastic paths for offering So, you know you can you can build elastic path storefronts and"
+    },
+    {
+      "start": 2936.24,
+      "end": 2962.8,
+      "speaker": "adam-stacoviak",
+      "text": "Studio, are you using AI a lot in your processes aside from this obvious one with opine where you did the You know the awesome sort of guide I suppose I imagine was a PDF as well as maybe a website Potentially, but do you find yourself using a lot of or even being open to? Tools that help you as a designer developer get further faster better. Yeah, you know, it's"
+    },
+    {
+      "start": 2963.88,
+      "end": 3144.08,
+      "speaker": "john-long",
+      "text": "It's one of those things that on the design side Sometimes it's easy to feel sort of conflicted about it because now it's my profession The Way that I think things are evolving and not just my opinion, but it seems like a lot of people's opinion is really more that people who use AI Like we're you'll become more It's not that designers will disappear it's that design a lot of the designers work will be augmented by it and the designer will be more of an operator of the The AI is kind of thing in order to build build things out. That's that's kind of my view of it and I think you'll see you know lightweight design being done by the You know, there's things like for cells v0 right now bolt new Lovable that are that are doing the full coding one shot prompt kind of things I think you'll see these things get better and better As as things go by so people with expertise and then We'll be able to do more and better and they'll be you won't even know they're using AI sometimes But they know the right AI tool to reach for to do the job And get it done quickly chat GBT. I've done a lot with more recently we did a logo for our swim club and It's it's very interesting using it as a tool I Could generate like lots of different versions with different texts get different ideas and then you can mashup Right, and so you your skills and figma are still important because you're gonna take like the different ideas and put them together But it's a different workflow in order to to build these things To build these things Figma is is getting more and more AI as well It's not quite to the point where it can use my design system to build screens I think that's the killer application when you when you can give it your design system and and say hey build a workflow for this and then the hard part of design comes which is that like editing like what really needs to be on the screen and Right now The work that we do as designers a lot of times we're like building up to that point where we can do editing Right, but imagine if you could spend that time that you would normally spend just building up to it like focusing on the You know the really important Editing getting it just right fouled in Activities I think I think that's the near future"
+    },
+    {
+      "start": 3144.08,
+      "end": 3257.38,
+      "speaker": "adam-stacoviak",
+      "text": "I think you're right. I think in a lot of applications which are you're on the edge of like and what I think will happen is It's already happening is you have a lot of entrepreneurs who have a vision or a big idea or a direction and They don't necessarily need to camp out and let me learn how to build the best XYZ in Figma specifically, it's more like what does my user need communicated to You know as that might be a be testing Laney page that might be a be testing or like even just iterating on the design of and the editing as you said of a home page what really captivates The essence of our brand and what we offer and what we aim to offer Sometimes you call that working on the business versus in the business and that kind of reminds me of that It's like do I want to be working on the business which is vision? systems people direction product customer analysts, you know analysis capital raising or do I want to be You know do I want to work in the business which is moving this from here to there? Literally hammering if it's a physical thing or literally coding it if it's a digital thing and obviously we're talking about digital here But I feel like this is like this era where that line begins to blend because you got a lot more Possibility for the non. I don't want to say non talented Necessarily, but someone who doesn't really need to gain the talents in a particular area just to achieve their outcome You know, I mean and that might seem like a shortcut But it's it's sort of this weird world worrying where that's more real than it has ever been before or more possible"
+    },
+    {
+      "start": 3258.65,
+      "end": 3447.98,
+      "speaker": "john-long",
+      "text": "Yeah, I mean let me give you an analogy when I was a kid growing up I was home-schooled in high school interestingly enough and I Can remember having this argument with my mom? That I didn't need to keep doing spelling. She had me doing spelling in high school because I was bad at it because Microsoft Word can spell check my work. Why do I need to learn it kind of there and I I Still I didn't get me out of my vocabulary. I still had to learn the spelling of all these things and but later on in life, I really look back on that and Came to value it because there's there were so many It's getting better, but there's so many applications where If you don't know how to spell it just shows up in your work, right like You know whether you're hand coding a web page I Were some component or doing something in figma figma's finally got some spell checking there So for much of my professional career, it's been valuable to like know how to spell know when words are spelled wrong, right? I think that I think it's gonna be similar for us in the future We're probably gonna have arguments with our kids about Like why do I need to learn how to do this the AI can do it, right? But the people that are gonna be like the true craftsmen in the trades of what we're doing are the people that are gonna understand like How to do it at the very lowest level kind of thing and that's that's sort of always been true in This type of work, right? Yeah That's what gives you an edge because you're able to quickly jump down to the point where I mean playing around with GPTs today Right in code they can get pretty far, but they tend to get stuck And if you don't know how to code you you don't know how to give them the instructions to tell them what's wrong, right? so it can it can be There will be a lot of sort of lightweight applications of this where I'm a marketing person. I need to Have a tool to collect Email addresses for some event or something that I'm doing I want it to be done a certain way and to feed it into this spreadsheet on Google like Chat GPT can do that stuff all day kind of thing, right? But you're not going to see those people Transitioning into the like full-on development stuff until they learn a little bit more as well And I think these things will get better They'll be you know, chat GPT will be able to do more complicated applications But there's always that little bit that it's not quite good at yet that's left over I guess you could say and then for the the practitioners like the people that like are doing design or doing development They're gonna be a benefit because again, they can spend more time focusing on what really matters But they're still they still get another stuff to do it. Well, right"
+    },
+    {
+      "start": 3448.62,
+      "end": 3467.86,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm. When you look at your the stack you use and Your your process, you know, you're I think you have a new job that you need a job. We didn't catch up I did. Yeah, just just over the weekend over the weekend accepted something. Can you mention that yet? Or is it still well"
+    },
+    {
+      "start": 3467.86,
+      "end": 3499.03,
+      "speaker": "john-long",
+      "text": "I'm going to geared. I'll be head of design at geared geared is a another startup in the e-commerce space so it's kind of my my background right now and what they do is they help brands like You know AT&T with a lot of refurbished cell phones for instance be able to list them on platforms like eBay and Amazon So and we're building a product that does that and"
+    },
+    {
+      "start": 3500.35,
+      "end": 3505.1,
+      "speaker": "adam-stacoviak",
+      "text": "So, yeah. Oh, yeah. How do you spell geared? Is it just geared?"
+    },
+    {
+      "start": 3506.34,
+      "end": 3508.34,
+      "speaker": "john-long",
+      "text": "GI ER D"
+    },
+    {
+      "start": 3509.06,
+      "end": 3537.86,
+      "speaker": "adam-stacoviak",
+      "text": "G I ER D Dot-com. Well first I would start with like gosh, let's spell that a way that It's a short domain name, right? I mean, it's awesome short domain name, but You have to ask, you know, don't make me think yeah It's old but Steve probably had best don't make me think you know when it comes to Web UX or brand UX it's it's true"
+    },
+    {
+      "start": 3537.86,
+      "end": 3548.18,
+      "speaker": "john-long",
+      "text": "It's but it's I mean there's trade-offs like I think once you know it you'll you'll know how to spell it Yeah, you know every time you know GI ER D"
+    },
+    {
+      "start": 3548.98,
+      "end": 3556.14,
+      "speaker": "adam-stacoviak",
+      "text": "Dot-com it is a short domain name. So you're starting there soon. What are you full? What's your role there same?"
+    },
+    {
+      "start": 3556.62,
+      "end": 3558.88,
+      "speaker": "john-long",
+      "text": "So I'll be head of design there head of design"
+    },
+    {
+      "start": 3559.42,
+      "end": 3567.5,
+      "speaker": "adam-stacoviak",
+      "text": "So is there an existing? Design system that you're aware of or designer. Yeah. Yeah, so I'll be the first designer. Okay, and"
+    },
+    {
+      "start": 3568.58,
+      "end": 3602.05,
+      "speaker": "john-long",
+      "text": "Yeah, we'll ultimately build out a team But yeah, I mean right right now it's still relatively small. I think geared is like Haven't actually asked the exact number, but I think it's around 60 people at the moment. They were really interesting because They have kind of built the relationship with customers and have done the effort manually And now they're building the product That will replace a lot of the manual effort of their processes right now. So the website looks good. I mean, I'm on"
+    },
+    {
+      "start": 3602.57,
+      "end": 3645.97,
+      "speaker": "adam-stacoviak",
+      "text": "geared comm GI ER D dot-com Not a bad website. I mean you couldn't tell that they don't have a designer or haven't traditionally hired one I'm sure they've probably outsourced or consulted. Yeah, they've worked with a Agency, right? I guess what I'm trying to drive towards really is when you Not that you know your marching orders already But if you had to choose your stack when it comes to rethinking or implementing something new What will you do? Will you sketch something out on paper first, but you begin literally directly in framer? What's how will you go about it? Will you do some market analysis with a GPT or an LLM or some sort of inference model? How will you approach what your next role will be here and apply your skill set there?"
+    },
+    {
+      "start": 3646.27,
+      "end": 3670.21,
+      "speaker": "john-long",
+      "text": "Well, it sort of depends on like what what the ask would be, right So at geared I will be supporting the Marketing team, right? So I think there will be some things that we like collaborate on Essentially, I think I will have a relationship with the agency as well some of these details"
+    },
+    {
+      "start": 3670.21,
+      "end": 3678.27,
+      "speaker": "adam-stacoviak",
+      "text": "We've still got to kind of work out. Let's let's maybe zoom out instead of it Let's instead of literally what's gonna happen with ya. Yeah, let's make an assumption"
+    },
+    {
+      "start": 3678.27,
+      "end": 3758.35,
+      "speaker": "john-long",
+      "text": "Well, let me limit it. I think what the question you're asking is decide if I'm a start-up today and right That's all I want to start. How will you approach this? What would you do? So Like some of these questions are like what what your objective is So for me, I would probably go with framer because it's a tool that I know right now and I Know it can get us like really far It does all the standard startup II stuff that that I'm gonna want, right? I Might compare it with a tool like web flow Because I haven't used it yet like in earnest so I might look at that There's other options that are more technical One of the ones that we were exploring for opine was just doing it with next JS, you know Even in the next six months depending on how the LLM stew Like there's been talk of the idea that like perhaps marketing people in the future just ask the LLM to code the page Right and bypass the coding side of things Maybe maybe but in this moment, like I think framers the perfect choice for a sass-based startup if you have design talent In one of your founders or your early people so you're not going to paper"
+    },
+    {
+      "start": 3759.03,
+      "end": 3770.64,
+      "speaker": "adam-stacoviak",
+      "text": "How are you thinking about this you're going in framer you should start building the website You got artifacts and figma you got artifacts and are using illustrator still yet. Like what other tool are you using?"
+    },
+    {
+      "start": 3770.72,
+      "end": 3850.91,
+      "speaker": "john-long",
+      "text": "I'm still enough of a designer where I would have to start in figma on this stuff but the interesting thing about the opine site is that It the way it came together was I left figma a lot earlier than I normally would have so the the conceptual side of it started in figma with the Development of the brand I guess you could say and the the implementation of the brand on the website started in figma But after I had kind of done the home page Basically gotten it figured out then It was pulled into framer, right and I got it all set up. I got header footer and then Just iterated and it's iterated to the point where what's in framer it resembles what was in figma, but like there's a lot of little changes and Most of the other pages were just built out in framer without any work in figma I tend to have to go back to figma if I need to do illustration of some kind But when you you kind of build your brand assets and get them set up inside of framer You know, if you're just reusing you you can build up, you know full pages without ever touching, you know figma"
+    },
+    {
+      "start": 3851.11,
+      "end": 3862.67,
+      "speaker": "adam-stacoviak",
+      "text": "So figma and framer figma is is I mean your blank page beginner spot, right? I mean, that's And back in a different day. You may have used illustrator. You may have used potentially even Photoshop"
+    },
+    {
+      "start": 3862.91,
+      "end": 3989.9,
+      "speaker": "john-long",
+      "text": "Yeah, I mean, I think illustrator has its edge and some things still Photoshop is well, of course if you need it for photo editing For a lot of things. I think people tend to be using other tools and it's only for Like very specific things. So in my last role I Were taught speaking of AI I did use Photoshop for the AI features Which is interesting. I so combining it with mid journey mid journey could do the initial conceptual work and then you could get Photoshop to Replace this part of the picture that mid journey couldn't quite get right So combining the tools together That was a really nice workflow But I personally I try to stay out of the Adobe Landscape I it's it's funny because it I I don't know if I have any legitimate Reason to not like Adobe these days, but there was a point where it felt like they Took over your computer with like in order to use it. You had to have their little thing sitting in your taskbar that like ran all the apps and updated all the apps and I Remember anytime I installed Adobe products all of a sudden my computer ran slowly With figma running in the browser now, you know, it seems like everything runs in the browser It just feels so much more native than then some of their tools but Adobe has also been a kind of like acquirer of good software and killer and sometimes killer so Yeah, I mean they killed the fireworks which was my first love and design tools, right so many people love it Yeah, and then there's a short period of using illustrator and then sketch came along and then it was figma"
+    },
+    {
+      "start": 3990.3,
+      "end": 3994.08,
+      "speaker": "adam-stacoviak",
+      "text": "So even with like zest icons that was all in sketch"
+    },
+    {
+      "start": 3994.74,
+      "end": 4139.18,
+      "speaker": "john-long",
+      "text": "No, I did zest in figma from the beginning and really I would say From what I understand there. You should probably compare illustrator to figma if you're doing icon work but I'm such a lover of figma at this point like and Figma has something called Vector networks is what they call them Which is a fancy way of saying that you can join any point to any point in in figma Which was a novel concept at the time that they invented it. I'm not sure if it's supported by illustrator now it might be but essentially like You can build shapes that are all connected and then tell it where you want the filth to be and in figma Inside that shape and that that is a nice Sort of upgrade for doing icons I'm I'm not convinced that figma is the ultimate tool for icons I feel like something native to SVG probably is and I say that because I often have to I Export from figma to SVG and it at least historically I'm not sure if they would approve this but it would convert the paths to filled shapes which is interesting because figma has slightly different rules for the way that it curves paths and then SVG So there's some things where it feels like figma. Why'd you go to the other direction? Why'd you choose to be a non sort of web tool Technology From what I understand the originally implemented or an early version of figma was SVG but they went away from it because the Web GL was so much faster than SVG SVG has a hard time rendering in browsers or it did I don't know if it still does Massive SVG is a very hard to render. Mm-hmm, but for icons like you your Output you want is SVG. So if you could have a tool that was there probably is one out there That spoke pure SVG and was kind of tailored to the icon workflow"
+    },
+    {
+      "start": 4140.74,
+      "end": 4182.12,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, I'm here with Samara Abbess co-founder and CEO of temporal temporal is the platform developers used to build invincible Applications so Samara, I want you to tell me the story of snapchat. I know they're one of your big customers Well known obviously Operating at scale but how do they find you did they start with open source then move to cloud? What's their story?"
+    },
+    {
+      "start": 4182.2,
+      "end": 4258.12,
+      "speaker": "john-long",
+      "text": "Yes, snapchat has a very interesting story So first of all, the thing which attracted them to the platform was an awesome developer experience It brings in for building reliable applications One of the use cases for snap was snap discover team where every time you post a snap story There is a lot of background processing that needs to happen before that story starts showing up in other people's timelines and all of that architecture was build composing using queues Databases timers and all sorts of other glue that people kind of deal with while building these large-scale asynchronous applications and with temporal the developer model the programming model is what attracted them to the technology So they start using our open source first But then eventually start running into issues because you can imagine how many snap stories are being posted every second Especially let's say on a New Year's Eve so This is where temporal cloud was a differentiated place for them to power those core mission critical workload Which has very very high scalability needs although they started with open source but they very quickly moved to temporal cloud and then start leveraging our cloud platform and they've been running on top of Temporal cloud for the last two three years and then a pretty happy customer"
+    },
+    {
+      "start": 4258.64,
+      "end": 4426.08,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so maybe your application doesn't require the scale and resilience that snapchat requires But there are certain things that your application may need and that's where temporal can come in so if you're ready to leave the 90s and develop like it's 2025 and you're ready to learn why companies like Netflix DoorDash and Stripe trust temporal as their secure scalable way to build invincible applications go to temporal.io Once again temporal.io you can try their clever free or get started with open source It all starts at temporal.io Yeah, I could speak to the Your sentiment about figma. I had to go recently to to help somebody out with something I was messing with figma and I happen to have two computers, you know, I'm like that kind of person where I've got like a Laptop and I've got an older machine that I still use every once in a while I actually I retire it I bring it back and I retire and I bring it back sometimes but it's an older iMac Pro that still has so much firepower in it that I just can't in good conscience get rid of it And so I'll I'll use it. And so I've had my studio which I'm in now and Then my home office which is about to merge, you know I'm about to start producing my version my side of the show from a different location But it's been a while. And so I've been a two location person for almost three years now and so I've I've had to embrace this mobility requirement to my to my flows and so I was I don't do a lot of front-end stuff in terms of design and I had to be in figma for some things recently and I was like wow, this is kind of cool because I Can be on my laptop Figma cool, then I'm on my desktop, you know in air quotes desktop this iMac Pro different machine Figma, everything's still there Extensions are still there. All the things are still there. I didn't have to like install the application I didn't have to make sure plugins were enabled I didn't have to do anything besides just log in to Figma and Figma was and like it was the first time I'd personally experienced it and I was like That's pretty crazy. That's pretty crazy. Like the thing I need to use is a web-based tool, which means It's not operating, you know operating specific operating system specific I can probably even hop on a Windows machine and open up Figma And Figma is still Figma. Is that is that pretty is that true? That's true. Yeah I mean I feel like an idiot even asking is that true? I mean like obviously it's true, right?"
+    },
+    {
+      "start": 4426.4,
+      "end": 4430.48,
+      "speaker": "john-long",
+      "text": "Yeah, so that's true and this was true, let's say"
+    },
+    {
+      "start": 4431,
+      "end": 4436.8,
+      "speaker": "adam-stacoviak",
+      "text": "Six years ago. So this is a six-year-old thing. This is not new news to anybody. Yeah, so"
+    },
+    {
+      "start": 4437.64,
+      "end": 4562.95,
+      "speaker": "john-long",
+      "text": "this this was The the funny part about this is I was at a company at the time and I was leading the design team we had about eight designers working for us and the team had just grown from three to eight and The new guys were all sketch people and they were like we got a switch back to sketch So we had we had reviewed tools and we decided to go with Figma when there were just three of us But the new people all wanted to do sketch and I was I was pushing against it pushing against it well, I eventually Left that company and the team adopted sketch Right and at the time the only thing sketch had going for it was the plug-in system and there were a lot of designers that were dependent on the plug-in system for certain workflows things like that and Figma was like new and different, but I could do almost everything sketch could do Except for the plug-in system. So that was sort of the big big beef. I think they eventually switched back to Figma I can't see how they wouldn't at this point But it was funny to me that like I I got it out at a little too early with that team and Then Figma introduced its plug-in system, which is great and Yeah, it seems like that was the point where a lot of design teams started choosing Figma and it really is because that collaboration the the root of the crazy part is Doing any kind of design review now with other people you want to do it in the tool if you can Like give them that Figma link Don't share your video I mean you can if you want but do it in the tool click on that person's face and and Follow them around the tool as they are presenting and you get it you get it so much clearer You know, you can have the window as big as you want on your screen. You can zoom in on a particular detail It's it's the way it's so much fun"
+    },
+    {
+      "start": 4564.23,
+      "end": 4568.73,
+      "speaker": "adam-stacoviak",
+      "text": "It seems like your stack is pretty pretty simple then Figma is where you begin"
+    },
+    {
+      "start": 4569.13,
+      "end": 4570.17,
+      "speaker": "john-long",
+      "text": "Yeah"
+    },
+    {
+      "start": 4570.17,
+      "end": 4583.81,
+      "speaker": "adam-stacoviak",
+      "text": "Framer cuz yeah, yeah some mid journey Yeah, you need to do some image generation some finishing touches in Photoshop Begrudgingly reluctantly. Yeah, I love Adobe tools. So"
+    },
+    {
+      "start": 4584.69,
+      "end": 4665.67,
+      "speaker": "john-long",
+      "text": "using mid journey and Photoshop what I was doing was generating a product catalog for a fake store right and it was amazing experience like You could do you could do different things with it we also used so we had two different ones one was a furniture store and the other was Apparel and we used a tool called humans dot AI for humans generating humans And that one's pretty incredible But you would end up sometimes with something not quite being right like and in either case like furniture or people You could just quickly pull that into Photoshop select the area have it regenerate it Photoshop can upscale pretty easily with AI and it can generate more of the background. So One of the things sometimes that's hard about mid journey Would be that it's not zoomed in quite right for you and you can do some of this with mid journey They've added more and more tools on that But you have to send it off to the server to like regenerate and it's kind of slow. So When you get it pretty close to what you want just jumping into Photoshop. It's a it's can be a time saver"
+    },
+    {
+      "start": 4666.15,
+      "end": 4671.72,
+      "speaker": "adam-stacoviak",
+      "text": "I'm on the humans AI website. So this will do what what does it what does humans do?"
+    },
+    {
+      "start": 4672.24,
+      "end": 4678.88,
+      "speaker": "john-long",
+      "text": "Human and generated dot photos. That's the one I use. Sorry. I gave you the wrong generated dot photos"
+    },
+    {
+      "start": 4679.56,
+      "end": 4683.64,
+      "speaker": "adam-stacoviak",
+      "text": "Dot photos, well, we just gave humans that AI a little bit"
+    },
+    {
+      "start": 4684.88,
+      "end": 4692.82,
+      "speaker": "john-long",
+      "text": "necessarily Maybe they should be provided. I don't know that makes a lot of us generated dot photos human generator"
+    },
+    {
+      "start": 4694.24,
+      "end": 4710.68,
+      "speaker": "adam-stacoviak",
+      "text": "So this is crazy so unique real-time face generator Yeah future is here. You can create a unique purse with your parameters in one click So skin tone hair color emotion age head pose gender"
+    },
+    {
+      "start": 4710.68,
+      "end": 4737.08,
+      "speaker": "john-long",
+      "text": "The last time I used this my one critique of the tool is That it tends to generate really beautiful people only beautiful people so try and generate an average programmer in it and they're either like too heavy or they are like Really skinny, right? Like there's doesn't a Profession. No, I'm just saying like trying to generate someone who looks like a programmer like he picked their clothes"
+    },
+    {
+      "start": 4737.08,
+      "end": 4739.4,
+      "speaker": "adam-stacoviak",
+      "text": "That's bias. Come on, John. Are you trying to say?"
+    },
+    {
+      "start": 4739.96,
+      "end": 4745.67,
+      "speaker": "john-long",
+      "text": "No, no, I'm like an average human like I don't you so this is so joke"
+    },
+    {
+      "start": 4745.67,
+      "end": 4749.35,
+      "speaker": "adam-stacoviak",
+      "text": "Come on, what am I times one of my criteria for?"
+    },
+    {
+      "start": 4749.99,
+      "end": 4794.46,
+      "speaker": "john-long",
+      "text": "This type of stuff is I don't want it to look too many. I should read it even though I'm using it So if they're too pretty if they're too pretty then like you just like oh these are all fake people great So But it's it's pretty good. It's pretty good at what it does and one of the things that's cool About it particular in that particular use case was you can use basically the same model in different poses different clothing, whatever and that's useful for generating fake storefronts because You need multiple images of the same person wearing the clothes from different angles So That tool has a lot of promise and it's already very very good"
+    },
+    {
+      "start": 4795.3,
+      "end": 4815.65,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so generated that photos framer obviously figma mid journey here and there if you really need to Photoshop for the final touch if you really need to like go and replace something in the image What else is in your stack? Well chat GPT"
+    },
+    {
+      "start": 4816.37,
+      "end": 4833.33,
+      "speaker": "john-long",
+      "text": "For copy and then it tends to do because it's good. They've got Dolly built into it. Now. It tends to do better Line art sometimes you have to compare with mid journey, but if you're doing a logo, I like chat GPT, okay"
+    },
+    {
+      "start": 4834.07,
+      "end": 4846.63,
+      "speaker": "adam-stacoviak",
+      "text": "Let's let's go there then. So what what do you do? You just log into your own chat GPT you open up a new chat Are you are you wordsmithing for a bit there? You're kind of getting some emotion some words"
+    },
+    {
+      "start": 4846.77,
+      "end": 4964.39,
+      "speaker": "john-long",
+      "text": "You go right into I'm probably the worst at this it's some ways like I know that I know the idea of prompt engineering, but I'll just be like Generate a logo for my swim club Competition named, you know carry city swim meet because that's that's what we were doing and then It'll do it You a lot of times I'll forget to say. Oh, I want line art or oh, I want a particular style I want hand-lettered you can you can say things like that. What's the swim club named? It's carry swim club. I spell that Carry is our town. C ary. Yeah. Okay carry, North Carolina It is jokingly referred to as the containment area for relocated Yankees A lot of us that have come down to North Carolina. So carry swim clubs was called. Yes carry swim club So we have a meet every two years called carry city and We did a logo just this week. We were playing around with it I found a figma plugins speaking of plugins that I could take that generated text and Vector eyes it and it vector eyes it for me and it's funny. You'll find that when it generates logos So the one that we really liked it said Sari city swim club Instead of carry for some reason it changed the C into an S. So you have to do touch-ups audit right now But I think it's a great way to get inspiration And you might just get lucky with a one-shot did the right thing for you. It can do icons as well I think it does pretty pretty good at icons But I mean if you really need icons you should check is asked out first, right but after that chat GPT"
+    },
+    {
+      "start": 4964.39,
+      "end": 4975.43,
+      "speaker": "adam-stacoviak",
+      "text": "Last time I checked is this was a little dated though, wasn't it? Is it dated? I mean, it's been a few years I mean, you know, it's it's not as as on the up as some of these other ones, you know"
+    },
+    {
+      "start": 4977.39,
+      "end": 5027.17,
+      "speaker": "john-long",
+      "text": "At the time And I still do a lot of custom Icons as part of my job if you want to pixel stroke Zestas That's I think was leading the pack at the time. I found another one. There's a Untitled UI that has the two pixel strokes. What is this? Why is it important to have two pixels? So if you're if you're an icon nerd like I am the the great thing about two pixel strokes is that it's bolder Than one pixel which people tend to want a little bit bolder and That you can align it perfectly to pixels, right? Because one is on easy, right? it'll be sharper as long as it's not curved now curved icons are are gonna look great at whatever resolution, but"
+    },
+    {
+      "start": 5028.39,
+      "end": 5032.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you familiar with iconic dot app bunny chance"
+    },
+    {
+      "start": 5033.5,
+      "end": 5038.65,
+      "speaker": "john-long",
+      "text": "Iconic I think I have played with this one. Is this what you use these days?"
+    },
+    {
+      "start": 5038.65,
+      "end": 5075.49,
+      "speaker": "adam-stacoviak",
+      "text": "I'd really don't use much but I pay attention to Orman Clark He started dunked.com. I think he's done some design at stripe I've just generally followed some of his work over the years. I would say like literally probably 15 years or more and I've always enjoyed it I've always enjoyed his style and his his attention to detail and I know he has Iconic out there, which is like free icons for designers and developers And so there's like a mix of free ones there, but I'm not an icon nerd like you are where I'm like Well, there's two pixels here. I just never thought about it. It just depends"
+    },
+    {
+      "start": 5075.49,
+      "end": 5088.9,
+      "speaker": "john-long",
+      "text": "I mean, I can't quite tell I'm looking at it right now I think he is he using 20 pixels or at least 20 by 20 20 not this is 24 by 24. You got some free ones in there"
+    },
+    {
+      "start": 5088.9,
+      "end": 5104.2,
+      "speaker": "adam-stacoviak",
+      "text": "So if you go to the free ones, you can at least let's say use the airplay to TV Option or the archive option because that's something you can use everywhere. I think it's at different sizes You can do it different sizes, obviously"
+    },
+    {
+      "start": 5105.16,
+      "end": 5163.7,
+      "speaker": "john-long",
+      "text": "Yeah, I think if I'm looking at this So if I'm looking at the airplane TV one in particular, you'll notice that it's sort of blurry around the inside of it So this is the challenge when you choose like a 1.5 which is probably what he's done Pixel stroke. It means that you have to sort of when you do straight lines You have to decide like is it going to be right in between two pixels or is it going to be aligned to one pixel? so it'll be darker on one edge and The inside in this case is fuzzier essentially because it's using gray right because it doesn't hang a lissy. So Yeah as a nerd I Love it when my lines can like line up with the pixels so that it's as crisp as it can be So that was what I did The one that if you like a little bit lighter touch I've I've been using on Projects lately is heroic ons. Have you played with that one?"
+    },
+    {
+      "start": 5164.27,
+      "end": 5165.67,
+      "speaker": "adam-stacoviak",
+      "text": "No"
+    },
+    {
+      "start": 5165.67,
+      "end": 5177.04,
+      "speaker": "john-long",
+      "text": "hero comes is the tailwind guys and I've you know, some of this is a style thing, but they seem to mostly make the same stylistic choices"
+    },
+    {
+      "start": 5179.32,
+      "end": 5186.06,
+      "speaker": "adam-stacoviak",
+      "text": "Like they're in the same family who see it says here's the outline one says 24 by 24 1.5 pixels stroke"
+    },
+    {
+      "start": 5187.36,
+      "end": 5224.98,
+      "speaker": "john-long",
+      "text": "Yeah, so they use 1.5 pixels strokes So you tell you what's interesting is you can scale up I think to 32 pixels Yeah, 32 pixels and it'll align Alright, see what I did there. Mm-hmm math is fun. But um Yeah, I mean there's there's differences. I have thought for a long while that I might want to do a zest medium and as us light But it's finding the time to kind of kind of pull it off"
+    },
+    {
+      "start": 5225.18,
+      "end": 5231,
+      "speaker": "adam-stacoviak",
+      "text": "So have you abandoned zest completely in in your in your updating or is it is it active it's"
+    },
+    {
+      "start": 5231.78,
+      "end": 5237.38,
+      "speaker": "john-long",
+      "text": "How active is it if it is active? I think it's been about two years since I did an update on it"
+    },
+    {
+      "start": 5237.38,
+      "end": 5311.22,
+      "speaker": "adam-stacoviak",
+      "text": "So that's pretty inactive John. Yeah. Yeah, but this in this day and age you gotta be you know, here's all I like about icon Iconic at least is they're frequently adding things to the library and there's a business model here They're frequently adding things to it and you can I believe get the probe What is Ivan? I'm not trying to advertise for him, but I think their model is kind of cool Let me see if I go back there. It's like I can speak eloquently about it. Okay. What is their pro? Okay, so if you go pro, oh wait, hang on it says it up here 24 24 by 24 bounding box 1.5 pixel stroke, so you're right that That one is a little blur. So you're a fan of two pixel because it's even okay So the iconic pro package hey Orman if you like this pay us but listeners just check it out Okay, don't buy this don't go and buy this. I'm kidding. You do what you want Solo is 99 bucks a year and team is 249 a year. Yeah, and you get access to all the icons There's new icons every week. So I think if you revisited this as Your as your passive income plan John. Yeah, you know Still their model bar their model. Yeah, it's it's interesting"
+    },
+    {
+      "start": 5311.22,
+      "end": 5406.84,
+      "speaker": "john-long",
+      "text": "I think I think it takes me about four hours to do an icon update, right? And So when I do it the the so that's just to do a release and I could be faster Don't could be wrong with like automating all the way faster John. I believe yeah, I can speed up Maybe it could maybe it could one hour But the last time I did it it took four hours And some of that's that like you there's not an easy way to automate sketch output automate figma output So there's there's a number of manual steps that are that are in in the way of it, but yeah, I so where I am as a dad right now is that I've got a side project that I'm working on that's kind of that takes my time and So once a week, I mean together with my friend who we're working on it together and That's where where I'm spending my time zest zest is interesting I think I make a sale at this point every couple of months, so it's not doing great But I You know if I was to pitch it to you it's a one-time price it's now only $30 I've sold it at different price points. It's over 600 icons, and they are pixel aligned For 24 pixels So yeah, it's a it's a baby. I want to get I want to get back to it at some point Adam"
+    },
+    {
+      "start": 5407.5,
+      "end": 5436.78,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I'm here to encourage. I'm not here to make you feel bad, and hey you know what when it comes to children, man I'm the first person say family comes first. I think you have to have some things to keep you. You know creatively alive Let's just say yeah, that's if your job doesn't do it for you And you're you're gonna have some version of a hobby whether it's a project money making or not to sort of like Keep your own personal creative juices go in and flow in yeah, because it's how it is as a creative. You know"
+    },
+    {
+      "start": 5437.3,
+      "end": 5468.02,
+      "speaker": "john-long",
+      "text": "well, I mean it's interesting to I it's it's it's cool putting stuff out because It's gonna eventually become dated and you can kind of track your own progress by like seeing And so I would make different choices today like on that particularly on the landing page for zest like I'd love to do some different Things there, but I'm also pretty proud that like it's got some staying power. It's it's uh It's lasted. It's still in style Adam. It hasn't gone out of style"
+    },
+    {
+      "start": 5469.14,
+      "end": 5500.7,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe maybe Let's say you let's say you took your 30 bucks And you turn it to 29 bucks a year because you sold it once for the license and let's say you started updating it Yeah, somewhat frequently. Let's whatever you would define that as somewhat frequently enough to make it valuable to somebody to pay you yearly Roughly 30 bucks 29 bucks a month and let's say you had 500 sales in a year. That's $15,000 rounded up of course it's 14. Yeah, it's funny though"
+    },
+    {
+      "start": 5500.86,
+      "end": 5571.93,
+      "speaker": "john-long",
+      "text": "Like I don't know if I'm too much Too close to it like as a customer, but like that's not how I want to pay for icons like I I want to Pay once and be done with it like the subscription gives you a chance to keep them Involved why I understand as a seller but I'm saying as a person who purchases and I also sort of I like I want people that are buying it so I Did structure it so that it's not a multi-use license it's it's purchased for your work on a project if you are a Agency, you would need to buy a new license for each site that you did for a customer kind of thing But partly the reason is like I wanted to have that purchase once And you can use as much as you want and you get the updates. I Sort of model as a user like that's the way I want to want to purchase icons I get I get it. I get that. There are people that are playing around with those models and and you know particularly on the I Would say like there's other sites that have thousands and thousands of icons on them that use that subscription model"
+    },
+    {
+      "start": 5572.09,
+      "end": 5574.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it's almost too much"
+    },
+    {
+      "start": 5574.09,
+      "end": 5602.62,
+      "speaker": "john-long",
+      "text": "Yeah, it does overwhelming too too much but for like picking it for a project to me like I I wouldn't I wouldn't want to use a site like that because I don't want to just Like I have to negotiate with my boss like to purchase a new icon set like that's the last thing I want to do But if I can say like hey, it's 30 bucks. It's like great do it Like that's 600 icons. You don't have to design. Well, if it's any"
+    },
+    {
+      "start": 5603.26,
+      "end": 5606.34,
+      "speaker": "adam-stacoviak",
+      "text": "Consolation I am NOT an iconic pro"
+    },
+    {
+      "start": 5607.1,
+      "end": 5609.1,
+      "speaker": "john-long",
+      "text": "Purchaser oh"
+    },
+    {
+      "start": 5609.34,
+      "end": 5647.19,
+      "speaker": "adam-stacoviak",
+      "text": "I'm not saying this as a buyer. I'm seeing this as as somebody who pays it I mean, I don't even pay attention to that many Yeah icon sets out there I mean I could I didn't even know hero icons from the tailwind folks But I think the table stakes though in this game is you have to offer a figma file You have to offer React and view type components or some sort of integrations because that's the way That is the front end world. We live in You still get SVG and PNG of course, and I think that I don't know how is here icons. Is it free?"
+    },
+    {
+      "start": 5648.44,
+      "end": 5666.64,
+      "speaker": "john-long",
+      "text": "Yeah, here. I think it's a very sad. It's hero. It's like comes from like hero heroic heroic heroic yeah heroic cons Yes, free. This is free by the way. It's it's it's possessed icons not zest icons"
+    },
+    {
+      "start": 5667.04,
+      "end": 5669.52,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, did I call zest icons? No?"
+    },
+    {
+      "start": 5669.52,
+      "end": 5675.02,
+      "speaker": "john-long",
+      "text": "I'm just if you read the domain name because I couldn't say that I call zest icons. No you did not"
+    },
+    {
+      "start": 5675.02,
+      "end": 5681.16,
+      "speaker": "adam-stacoviak",
+      "text": "You did that all right zest icons. I didn't I just heroic ons hero icons"
+    },
+    {
+      "start": 5681.16,
+      "end": 5684.44,
+      "speaker": "john-long",
+      "text": "I like I think this is a problem with icon sets"
+    },
+    {
+      "start": 5685.4,
+      "end": 5687.4,
+      "speaker": "adam-stacoviak",
+      "text": "heroic heroic ons"
+    },
+    {
+      "start": 5687.76,
+      "end": 5710.44,
+      "speaker": "john-long",
+      "text": "That's weird, but whatever. I'm gonna call him hero icons so so he did it. He did a set that was much larger Originally they were called hero icons right and then they developed a smaller set which I Think is ended up being the more popular. It's the default sort of tail windy So if you're in the tailwind world you're aware of it"
+    },
+    {
+      "start": 5711.92,
+      "end": 5731.47,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you know it's really hard to compete with with icons out there. There's so many of them out there free not free paid not paid subscribe subscription not subscription You know it's it's like unless you're Unless you're in to win it. It's kind of hard to compete. You know that's that. That's the thing"
+    },
+    {
+      "start": 5731.47,
+      "end": 5770.64,
+      "speaker": "john-long",
+      "text": "I like I think it's great that there there are people doing this I have an itch I have I was in between jobs At the time I and I did most of the icons during that short window while I was searching for a job so You know and one of the things that to me Like I still benefit from zest even today I was pulling an icon over and making it look like the heroic on 1.5 because I'm using hero cons on another project because zest has things that hero cons doesn't have so it's great for me personally just have a library of"
+    },
+    {
+      "start": 5771.32,
+      "end": 5798.41,
+      "speaker": "adam-stacoviak",
+      "text": "Things that I can pull from and build from it's better than starting from zero, right? Yeah, that's cool though So as as one note of a feedback Maybe I'm just so used to this 1.5. World these designers force us into but when I go from iconic to heroic to zest zest feels bold and thick a"
+    },
+    {
+      "start": 5799.05,
+      "end": 5863.1,
+      "speaker": "john-long",
+      "text": "Yeah, a little at the branding. That's the branding. That's all that's by design. Huh bold and Refreshing there's even a sass logo in here John. Oh, yeah, man, I'm deep on certain areas I'm pretty proud of so zest comes in three flavors you can have social which is like what you need for a website and it's got stuff like sass in there and other things that you might want but it's got you know Instagram and all the different types of logos that you want. I'm sick and those are pretty juicy I haven't seen and I'm a nerd but I haven't seen a set that has as many and You know feels current and all that so there's that and then there's free free which is 200 free icons and I actually tried to put my best icons in zest free Okay, but when you're ready to pay for it You'll get all the extensions of the best icons and that's what zest Pro is. So There you go. There you go"
+    },
+    {
+      "start": 5863.1,
+      "end": 5882.23,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you know as as a as a word of encouragement, I think if If you want to be seen as not Dated and I don't want to say that's necessarily true, but it's been two years You got to update the brand marks at least Twitter's now X"
+    },
+    {
+      "start": 5882.23,
+      "end": 5884.23,
+      "speaker": "john-long",
+      "text": "That's true, right"
+    },
+    {
+      "start": 5885.19,
+      "end": 5894.72,
+      "speaker": "adam-stacoviak",
+      "text": "I'm not sure Google is that rounded GitHub's Octocat is not that anymore. It's more a different Silhouette version of it"
+    },
+    {
+      "start": 5894.72,
+      "end": 5919.29,
+      "speaker": "john-long",
+      "text": "Less of a caricature. Oh, no. No, these are these are my my take on the best version always say so But you are right. You're right. I do need to get X in there. I've actually have the icon designed I just haven't done before I put it in there shit that update John. So yeah So so they they queue up and I've got about 20 right now that I need to need to do another update"
+    },
+    {
+      "start": 5919.37,
+      "end": 5932.03,
+      "speaker": "adam-stacoviak",
+      "text": "Well need to and and have time to different things always choose children and your wife over possessed You know or your friend in this and this side project or whatever you're doing"
+    },
+    {
+      "start": 5932.03,
+      "end": 5934.59,
+      "speaker": "john-long",
+      "text": "Why make it a choice if it doesn't have to be a choice?"
+    },
+    {
+      "start": 5937.52,
+      "end": 5981.85,
+      "speaker": "adam-stacoviak",
+      "text": "Any final things to share any final, you know, you know wisdom pieces, you know I think one thing you may have that Not a lot of people have is this ability to be both a designer and a developer and you speak development as well as design we have a lot of developers in this audience, and so I'm hoping some of them come to this conversation with the Curiosity of what a designer thinks of when they choose their stack when they choose how to leverage These AI tools to get their job done in different things and so I thought we'd have a grab bag of a conversation here, but any words of wisdom for a Designer Developer working with developers what developers should know about a designer anything anything on that front? I mean"
+    },
+    {
+      "start": 5982.84,
+      "end": 6051.5,
+      "speaker": "john-long",
+      "text": "Probably probably my little my biggest Thing for developers would be like hey do a figma course. It's easier than you think and Focus like learn how to draw with it But also focus on how to get the development stuff that you want out of it Because there are plugins that are written that will like write half the code for you When you export it From from figma So it's it's well worth spending a little bit of time on the figma side like like doing that if you have it for designers I mean again, it's it's probably a challenge to like spend some time on the other side of the fence I think the AI coding tools are pretty impressive but it but it is nice to just sit down and Learn a little bit about CSS learn a little bit about JavaScript. You know the basics of these things But I don't know I on the design side I think sharing what you what you know and what you've learned maybe maybe teach some developers how to use"
+    },
+    {
+      "start": 6051.98,
+      "end": 6059.38,
+      "speaker": "adam-stacoviak",
+      "text": "Figma kind of thing like any particular courses, you know of that you've seen or recommended for figma or they have some of their own"
+    },
+    {
+      "start": 6060.42,
+      "end": 6095.47,
+      "speaker": "john-long",
+      "text": "educational content figma figma is interesting I Haven't really explored that because I haven't been learning figma in a while But when people ask me about it. I generally say go to the figma website. They do have a lot of resources And they've invested in that for like teaching people how to use figma So you can kind of go down the outline on figma.com And in learn it You know my experience recently with framer would say hey go to youtube as well, and you'd probably find"
+    },
+    {
+      "start": 6096.39,
+      "end": 6108.47,
+      "speaker": "adam-stacoviak",
+      "text": "Some good people there. Maybe you can do a figma crash course. You know revisit figma as a From a developer and say well, but I want to know yeah, and in all my 10 minutes or less"
+    },
+    {
+      "start": 6110.03,
+      "end": 6186.12,
+      "speaker": "john-long",
+      "text": "All your free time. I I love it actually you know I used to sit down With every developer that joined the company like my goal was to to just walk through figma Give them an introduction, but even in just 30 minutes It's not quite possible to pull out like how to get the most as a developer So so that's why I like doing some Exploration like it it will pay dividends if your designers are asking you to look at figma then spend some time learning it and It'll be easier for you, and you might eat the other thing that's that's interesting is is that figma has recently gotten things like variables and Things like that so as a Developer you should be getting all your design system stuff into figma and a lot of your designers Don't know how to do that, so you may end up having to educate them on how how to do that But the world is better when the systems that we're working in are very similar And it I see a lot of teams that don't seem to quite understand how to use Figma yet from either design or the development side, so yeah"
+    },
+    {
+      "start": 6187.06,
+      "end": 6235.82,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm well this episode as you may know listeners was not brought to you by framer Although we did talk about framer calm quite a bit. I would happily have them as a sponsor, so if you're if you're from framer Say hello, you know I'm down for that. I like framer though. We've We've been sponsored by Wix. We've been sponsored by I think what was the other one you mentioned before? Web flow web flow I think web flow sponsors before But I like framer if you like framer. I like framer John. I trust your your judgments. Why I do on the show Well John has been it was been It's been a pleasure catching up. It's been a while since you and I have spoken Face-to-face, I think probably years right you think it's been years. Yeah, it's it's been a while"
+    },
+    {
+      "start": 6235.82,
+      "end": 6252.36,
+      "speaker": "john-long",
+      "text": "I think our last conversation was on radiant well last time. I talked to you. You may have been pre kids Yes, that was pre kids so I mean You got three now, so it's been almost a decade John. Yeah, I was unmarried as well the last time you talked to me"
+    },
+    {
+      "start": 6252.36,
+      "end": 6282.41,
+      "speaker": "adam-stacoviak",
+      "text": "I think you were engaged. I think you're right. I think you're engaged Okay, now. You're hopefully happily married. You know don't it's a podcast transcribed. Don't say it if you're not yeah And if you are boast of course yeah, yes, so it's been fun. Yeah for the listeners I guess in this little extended outro John, and I've known each other for many many years. We started the sass way together What else do we do together John how do I meet you where did I meet you at I think we"
+    },
+    {
+      "start": 6282.99,
+      "end": 6290.19,
+      "speaker": "john-long",
+      "text": "Were wary of each other's so there was a time where we were maybe less Yeah, probably less calm"
+    },
+    {
+      "start": 6290.27,
+      "end": 6305.07,
+      "speaker": "adam-stacoviak",
+      "text": "For you. Do you realize Stephen Bristol? Did you do rails come back in the day? I? Think I've done one I did not meet you there that I've only done one and it was in Portland I believe okay 2008"
+    },
+    {
+      "start": 6305.07,
+      "end": 6310.97,
+      "speaker": "john-long",
+      "text": "Yeah, I'm gonna come 2008 done that one. Yes. I think maybe you did maybe I met you there"
+    },
+    {
+      "start": 6310.97,
+      "end": 6321.89,
+      "speaker": "adam-stacoviak",
+      "text": "I know Steve and Alan were there yeah, I remember being with Steve in the Trolley tram thing that goes around the town. I don't know yeah, it's cool stuff cool day less guys less guys are cool"
+    },
+    {
+      "start": 6321.89,
+      "end": 6327.13,
+      "speaker": "john-long",
+      "text": "Did you see Alan is running for mayor mayor city vote for him if you're in Panama City"
+    },
+    {
+      "start": 6327.13,
+      "end": 6342.64,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, I would like to become a resident just to vote for Alan. I would vote for Alan for anything pretty much Miss Alan love Alan Obviously miss Steve as well But don't make me cry on a show man. John has been fun man catching up. It's been fun"
+    },
+    {
+      "start": 6343.2,
+      "end": 6345.68,
+      "speaker": "john-long",
+      "text": "Stay cool always a pleasure"
+    },
+    {
+      "start": 6348.47,
+      "end": 6441.17,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, it's been a couple years since I've talked to John. I want to say gosh John and I Spent a few minutes after the show actually catching up on some family stuff and some other things and It's been I think a decade is what we said a decade since John and I last talked. He wasn't married he was Engaged he had no children now. He has children. You know it's just a different time then so this show was a fun catch up with John, and I've always loved John's front end and Design I and I've been really curious about his tools and stack and choices over the years because I've always appreciated his taste when it comes to front end work and design work If there's one thing worth taking away from me from this conversation it is Two pixel lines when it comes to icons because John clearly believes in that But I would say framer framer got a big shout out on this show And I think it's probably worth checking out You know I'd love to get somebody on the show from the framer team, and if you know somebody let them know We'll have them on the show. It'll be fun. Okay big. Thank you to our friends over at retool retool.com augmentcode.com and our friends over at temporal temporal.io And of course to our friends and our partners over at fly fly.io And those beats are banging the best beats in the business break master cylinder so good Okay, friends. We'll see you on Monday"
+    }
+  ],
+  "slug": "friends-on-the-frontend-with-john-w-long",
+  "id": "84"
+}

@@ -18,6 +18,7 @@ export interface EpisodeSegment {
 
 export interface Episode {
   id: string;
+  slug: string;
   title: string;
   date?: string;
   description?: string;
@@ -101,27 +102,27 @@ export function getEpisodes(podcastSlug: string): Episode[] {
     .readdirSync(dir)
     .filter((f) => f.endsWith(".json"))
     .map((f) => {
-      const id = f.replace(".json", "");
+      const slug = f.replace(".json", "");
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), "utf-8"));
-      return { id, ...data };
+      return { slug, id: data.id ?? slug, ...data };
     })
     .sort((a, b) => Number(b.id) - Number(a.id));
 }
 
 export function getEpisode(
   podcastSlug: string,
-  episodeId: string,
+  episodeSlug: string,
 ): Episode | null {
   const file = path.join(
     DATA_DIR,
     "podcasts",
     podcastSlug,
     "episodes",
-    `${episodeId}.json`,
+    `${episodeSlug}.json`,
   );
   if (!fs.existsSync(file)) return null;
   const data = JSON.parse(fs.readFileSync(file, "utf-8"));
-  return { id: episodeId, ...data };
+  return { slug: episodeSlug, id: data.id ?? episodeSlug, ...data };
 }
 
 export function getPersonLanguages(slug: string): string[] {

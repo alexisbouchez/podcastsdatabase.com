@@ -1,0 +1,672 @@
+{
+  "title": "The indispensable cog",
+  "description": "Johnny Boursiquot discusses not making the initial cut at Go Time, applying Founder Mode as a regular employee, fake engineering job postings, and the potential demise of the .io domain.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/65",
+    "MP3": "https://cdn.changelog.com/uploads/friends/65/changelog--friends-65.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "segments": [
+    {
+      "start": 0.98,
+      "end": 25.94,
+      "speaker": "SPEAKER_00",
+      "text": "It's time for changeloggin' friends With Adam and Jared and some other rental We hope that you love it and stay until the end We're not a fan We know you're probably busy coding Coding Your caffeine intake is an actual problem So why don't"
+    },
+    {
+      "start": 25.94,
+      "end": 35.18,
+      "speaker": "SPEAKER_01",
+      "text": "we walk outside And we can listen to changeloggin' friends With Adam and Jared and Silicon Valley We"
+    },
+    {
+      "start": 35.18,
+      "end": 52.05,
+      "speaker": "SPEAKER_00",
+      "text": "know one day the gag will come to an end But honestly that will probably be our finale Anyone's emcee"
+    },
+    {
+      "start": 57.81,
+      "end": 66.45,
+      "speaker": "SPEAKER_01",
+      "text": "of to -do's will be waiting for you So why don't we walk outside And we can listen to changeloggin' friends"
+    },
+    {
+      "start": 67.09,
+      "end": 80.16,
+      "speaker": "SPEAKER_00",
+      "text": "With Adam and Jared and people you know changeloggin' friends Let's get back into the flow changeloggin' friends changeloggin' ever show"
+    },
+    {
+      "start": 99.77,
+      "end": 158.84,
+      "speaker": "SPEAKER_01",
+      "text": "Welcome to changeloggin' friends A weekly talk show about the British Indian Ocean Territory Thanks to our partners at Fly .io Over 3 million apps have launched on Fly Including ours You can too in 5 minutes or less Learn how at Fly .io Let's talk What's up friends I'm here with Dave Rosenthal CTO of Sentry So Dave when I look at Sentry I see you driving towards full application health Error monitoring where things began Session replay, being able to replay a view of the interface A user had going on when they experienced an issue with full tracing, full data The advancements you're making with tracing and profiling Chrome monitoring, code coverage, user feedback And just tons of integrations Give me a glimpse into the inevitable future What are you driving towards?"
+    },
+    {
+      "start": 158.84,
+      "end": 206.14,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah one of the things that we're seeing is that in the past People had separate systems where they had like logs on servers, written files They were maybe sending some metrics to Datadog or something like that Or some other system They were monitoring for errors with some product, maybe it was Sentry But more and more what we see is people want all of these sources of telemetry Logically tied together somehow And that's really what we're pursuing at Sentry now We have this concept of a trace ID Which is kind of a key that ties together all of the pieces of data That are associated with the user action So if user loads a web page We want to tie together all the server requests that happened Any errors that happened Any metrics that were collected And what that allows on the back end You don't just have to look at like three different graphs"
+    },
+    {
+      "start": 206.14,
+      "end": 223,
+      "speaker": "SPEAKER_01",
+      "text": "And sort of line them up in time And try to draw your own conclusions You can actually analyze and slice and dice the data And say, hey, what did this metric look like for people with this operating system Versus this metric look like for people with this operating system And actually get into those details So this kind of idea"
+    },
+    {
+      "start": 223,
+      "end": 235.08,
+      "speaker": "SPEAKER_00",
+      "text": "of tying all of the telemetry data together Using this concept of a trace ID or basically some key I think is a big win for developers trying to diagnose and debug"
+    },
+    {
+      "start": 235.08,
+      "end": 237.96,
+      "speaker": "SPEAKER_01",
+      "text": "real world systems And something that is, we're kind"
+    },
+    {
+      "start": 237.96,
+      "end": 239.84,
+      "speaker": "SPEAKER_00",
+      "text": "of charged the path for that for everybody"
+    },
+    {
+      "start": 239.84,
+      "end": 255.16,
+      "speaker": "SPEAKER_01",
+      "text": "Okay, let's see you get there Let's see you get there tomorrow perfectly How will systems be different? How will teams be different as a result? Yeah, I mean, I guess again, I'll just keep saying it maybe But I think it kind of goes back to this debugability experience When you are digging into"
+    },
+    {
+      "start": 255.16,
+      "end": 271.94,
+      "speaker": "SPEAKER_00",
+      "text": "an issue You know, having a sort of a richer data model that's, you know Your logs are structured, there's sort of this hierarchical structure with spans And not only is it just the spans that are structured They're tied to errors, they're tied to other things So when you have the data model that's kind of interconnected It opens up"
+    },
+    {
+      "start": 271.94,
+      "end": 279,
+      "speaker": "SPEAKER_01",
+      "text": "all different kinds of analysis That we're just kind of either very manual before Kind of guessing that maybe this"
+    },
+    {
+      "start": 279,
+      "end": 292.52,
+      "speaker": "SPEAKER_00",
+      "text": "log was, you know Happened at the same time as this other thing Or we're just impossible We get excited not only about the new kinds of issues that we can detect With that interconnected data model But also just for every issue that we do detect How easy it is to get to the bottom of it"
+    },
+    {
+      "start": 292.52,
+      "end": 381.72,
+      "speaker": "SPEAKER_01",
+      "text": "I love it, okay, so they mean it when they say code breaks Fix it faster with Sentry More than 100 ,000 growing teams use Sentry to find problems fast And you can too Learn more at Sentry .io That's S -E -N -T -R -Y dot I -O And use our code CHANGELOG Get $100 off the team plan That's almost 4 months free For you to try out Sentry Once again, Sentry .io I'm afraid of bears, you know There's not many things that I'm afraid of in life But bears is one of them Like, I don't want to be anywhere near a bear I'm afraid of just wildlife Like, you know, I'm afraid like I have deer Like, you know, like parking on my lawn Like all day all night I'm afraid that, you know, usually they like Shy away from you, like if I'm walking on the path or whatever They might, you know, give me a white bird But I'm like one day they'd be like We outnumber you, man Right We could take you out And I got horns There's like a dozen of us out here Have you seen the movie Revenant? No, but I know, doesn't he get eaten by a bear? Not quite Almost Almost eaten by a bear Yeah, Leonardo DiCaprio, his character I believe his name was Howard Glass But this guy is like famous In the,"
+    },
+    {
+      "start": 381.93,
+      "end": 382.73,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 382.73,
+      "end": 507.18,
+      "speaker": "SPEAKER_01",
+      "text": "don't know, the era before There was electricity basically I don't know, there may have been electricity But it was like The days of yore Yeah, the Back in the day when you used to have to fill The weapon or the gun with the Powder and the gunpowder and all that To fire it, you know That kind of day And I won't tell you because it's worth checking out But it would make you fear bears even more That'd be hard because I'm pretty afraid of them already It would solidify, how about this? It was icing your cake It would confirm, it would confirm your suspicions Yes I'm not that afraid of deer though, Johnny I just don't think they can organize like we can You know, you're giving them too much credit They're not going to organize against us I mean, in the age of AI, anything's possible, you know Put a chip in that deer head Yeah, well maybe That's true Hugh Glass, to close a loop Hugh Glass, H -U -G -H Glass A very famous person like his It's like Paul Bunyan Right A tall tale He was, he had conquered such Massive encumbrance, I would say You know, in life, bears, you know He recovered from this, you know I guess I'm going to kill that one plot for you Well, we already know that he almost died from a bear, so Obviously But like, he survived circumstances no one should survive And has been through things that Not many people have been through And so his tale is bigger than Him, and so that's why Hugh Glass is a well known Name if you pay attention to those kind of stories There's a, I'm also noticing that there's a Dad joke here somewhere, which Hugh Glass Yeah, no, I was going, I was going to go onto that And I'm just like, let it go, Jared, let it go What's the, tell the dad joke No, I mean, you're a dad, Adam, you should have already gotten it Nope, don't get it Oh man, we need to work on your dad joke Abilities School me, give me a quick schooling I want to know what you're laughing about Hugh Glass, Hugh Glass H -U -G -H Okay, gotcha Gotcha Can I connect these dots for you, Adam? Hugh Glass Okay, alright Hugh Glass I've been schooled, thank you"
+    },
+    {
+      "start": 507.18,
+      "end": 508.04,
+      "speaker": "SPEAKER_00",
+      "text": "I'm"
+    },
+    {
+      "start": 508.04,
+      "end": 554.24,
+      "speaker": "SPEAKER_01",
+      "text": "there now, and I've tracked with you And I'm laughing with you now That was, I actually met somebody yesterday Or the day before, who was quite Witty, and he would Joke a lot, right, sarcastically And I'm cool with that, except For when you're laughing and I'm not Cause your joke is funny, but it's only Funny to you because it's so insider baseball It's only insider to you And I had to explain, I'm like, I want to Laugh with you, and I can't Because the joke is only for you And so you make me feel foolish And I want to laugh with you, so just Give me a little bit more, I don't mind the Sarcasm, I don't mind the witty jokes And stuff like that, but just bring me Inside a little bit on this one You ever just laugh anyways, like you don't get it, but you're like Eh, I'll laugh with this person And I do, and I do, but like, it was so, the person had done it so much I was like,"
+    },
+    {
+      "start": 554.8,
+      "end": 555.22,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 555.22,
+      "end": 706.86,
+      "speaker": "SPEAKER_01",
+      "text": "can only Laugh a few times like that Until I'm like, I'm not getting that one, okay Yeah, I'll give you a couple And after like three or four, I'm like Explain that one to me, because I want to laugh with you And I feel like a fool, because it sounds funny Give it to me So anyways, it's been a minute Johnny, like way too many minutes You're like one of my favorite people in the entire world Every time I see you in person, I want to Give you the biggest hug ever, you're such a cool dude You're such an inspiration really Too, and I think you're The joy you have for all you do Is infectious, that's my favorite Thing about you, yeah Always the big smile, always Welcoming the people, always Kind, you know, and I think that's Those are some traits we admire to have in life Thank you, appreciate that It's not always easy to be all those things But, you know, that's That's what makes it rewarding, right? Right? Things like that, right? Yeah, absolutely No matter how hard you have it in life I've come to learn that, you know, there's always Probably somebody who's having it harder than you, right? So, you never know, right? If you cross paths With somebody, maybe a smile Maybe a hello, right? Something It could be that one thing that tips them over You know, prevents them from Themselves from tipping over, right? Yeah, it's just, you know, try to keep it positive Whenever you can I don't have my journal near me, but I do journal And I just journal the other day, that kind of thing And the paraphrase of what I Journaled was, it could always be worse It doesn't mean you should always be like Oh man, I can't be sad about my circumstances It's more like, you know what, It really could be worse I mean, because my family has been through some things We've had loss, we've had just Various things throughout our years And it really could Always be worse So find the joy The glass half full versus Half empty in life And so I don't know that That's specific for you, but You just said so, but My demeanor for you has always been Or my assumption of your demeanor has always been Man, you're just so joyful to be around You're always happy Always smiling Always bringing something fun Never a downer, never a complainer In any way, shape or form So I've always appreciated that about you Thank you, appreciate that Well for those who don't know Johnny He's also known as Golang Johnny Is that right? Golang Johnny? Oh yeah, don't you have that website, Johnny? I do, it was like a joke We came up with during an episode During our Go Time episode And then it was so funny And I went ahead and registered it anyway Because on the following show I wanted to come back You wanted to say I got"
+    },
+    {
+      "start": 706.86,
+      "end": 709.28,
+      "speaker": "SPEAKER_00",
+      "text": "it If"
+    },
+    {
+      "start": 709.28,
+      "end": 789.61,
+      "speaker": "SPEAKER_01",
+      "text": "you go to golangjohnny .com Is that what it is? Then you're going to find Johnny Borsico Does it just redirect to your website? No, that's its own thing It just has a picture of me on stage At GopherCon That's one way to get Google juice Is just go ahead and buy that sucker So you are Golang Johnny One story that I would love for you to tell From your perspective and ours I think you hinted at it On Go Time 300 Which was very much a look back And a look forward at Go Time's past And future And you mentioned, the reason I want to bring it up here Is because the three of us were involved in that And I don't think anybody else really was Was that while you are a staple And a regular Go Time host And have been for years You were initially cut from the ranks He didn't make the team The first time around Talk about some perseverance Adam, you were heavily involved in that decision Do you guys want to drudge this out? I remember it vividly Because it felt like firing And I'm not a firing kind of person I don't like to deliver bad news to anybody But I'm also Naturally comfortable In confrontation Not fist fight confrontation But more like if I've got to deliver bad news I think You could probably tell me right here Now on the podcast, Johnny If I was gracious about it, I feel like I was"
+    },
+    {
+      "start": 789.61,
+      "end": 790.35,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah"
+    },
+    {
+      "start": 790.35,
+      "end": 811.53,
+      "speaker": "SPEAKER_01",
+      "text": "you were But I really try to be kind hearted In delivering not always positive news And I really can't remember What it was I think we were early on I would say potentially even green We hadn't had the network yet Jared and I had only done this single podcast It was our first non -changelog show Not the changelog, it was our first one"
+    },
+    {
+      "start": 811.53,
+      "end": 812.25,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah"
+    },
+    {
+      "start": 812.25,
+      "end": 938.73,
+      "speaker": "SPEAKER_01",
+      "text": "And there were a few factors I think very little of it was personal to Johnny A lot of it was just the fact that we already had three And four is a weird number of hosts Three is a magic number So there was like, well There can be only three It is a nice conversational magic number Especially if you're going to have a guest Now you already have four Four with a guest is like That's just too many cooks And a lot of it was because Eric and Brian were the Original team And Yeah we were just like, well I would say our Invitation to Go Was Brian Kettleson and then Eric And so I feel like We were in some ways Being shepherded into the Go world By them You know I think the two of you It was more Logistics than anything else I didn't take it personally At all Nobody owed me Anything So it was a conversation that we were having Still trying to put together a show Still trying to figure out how is this going to actually Operate And it was Bill Kennedy who reached out and said Hey this thing might be happening Would you be interested in things like that And he started connecting the dots And I'm not sure how you came across My name Adam But to me that's What's the genesis of it Bill says hey I think you'd be a good Fit here and let's see who can make that happen And then conversations went on and I'm like Oh this sounds great And truth be told I was very excited about it I mean my imposter syndrome was kicking very hard I'm like what am I going to do I started trying to understand What do podcasts Hosts do How did they interview I started studying the process I wanted to do it as good a job as I could But then by the time Things started rolling We had that conversation I was bummed But you delivered the message Very kindly And I understood why And I'm like you know what Hopefully this is not my last opportunity"
+    },
+    {
+      "start": 939.37,
+      "end": 939.77,
+      "speaker": "SPEAKER_00",
+      "text": "And"
+    },
+    {
+      "start": 939.77,
+      "end": 990.93,
+      "speaker": "SPEAKER_01",
+      "text": "I think you said so yourself We've got a lot of things in the works We've got a lot of things coming Let's keep that door open And low and behold Eventually I made it onto the team And the rest is history I try not to When I think about it there's a couple ways I could have handled it I could have been like These guys I could have been bitter about it Or I could be like you know what Almost got this one Let me just keep moving forward And hopefully another opportunity Shows up But I keep doing my thing I can't hand my Contentment And my joie de vivre I am a French speaker after all I can't hand that over to somebody else I am responsible for my own happiness So I can't be bitter and Take on things That I have no control over So I have to be like you know what"
+    },
+    {
+      "start": 990.93,
+      "end": 991.55,
+      "speaker": "SPEAKER_00",
+      "text": "Next"
+    },
+    {
+      "start": 991.55,
+      "end": 1037.01,
+      "speaker": "SPEAKER_01",
+      "text": "time. And it happened The universe works in interesting ways It does. I'm also You know and Jared I think this is why We make great partners is that we're I'll say we cause this is how I am and I'm assuming this is how you are cause I don't see you Acting this way. I do not like the Burned bridges with anybody I'm never like you don't measure up You're out of here for any reason Even if the person has owed that response I would never I would always be kind In my delivery of any negative news whatsoever And I just do not Desperately do not like the burning the bridge I like to leave opportunities open Leave doors open. Now if there's scenarios Where there clearly need to be I will close the door and lock it But I won't burn the door down"
+    },
+    {
+      "start": 1037.01,
+      "end": 1037.37,
+      "speaker": "SPEAKER_00",
+      "text": "You"
+    },
+    {
+      "start": 1037.37,
+      "end": 1237.35,
+      "speaker": "SPEAKER_01",
+      "text": "know or the bridge down To keep using the bridge metaphor I would just be like you know this bridge shall not be crossed ever again But I won't burn it down You know and That's just how I operate in life really I don't like to burn bridges Well thankfully that bridge Wasn't burned and I think The original trio that was Brian, Carlesia And Eric did almost a hundred High 80s, low 90s Episodes and then we Put it on hiatus for a while and when it came Time to reboot go time Which we weren't sure if we'd ever reboot go time It was out there for probably About a year maybe 18 months of no Production but when we decided To get a team together and give it A second shot which we did the Exact same thing with JS party by the way I'm not sure if it's like making the same mistake twice Or was it even a mistake I don't even think it was necessarily a mistake Just the way the history went There's Johnny like right there on our short list Of like well we need some more people And because you didn't burn the bridge And we still you know had fond Feelings for you just didn't work out the first time It was like an obvious choice Second time around can you believe that initial Conversation was probably Very early in the year 2016 So we're talking about You know 8 years ago And then you've been on the show for probably 5 I don't even know how long Yeah I've lost track at this point It's been a minute One thing you said early on was like How are we going to keep doing a show about Go every week? Like aren't we going to run out of stuff? So far no but I mean I know it gets hard sometimes How do you come up with new stuff All the time to talk about because Go is a niche inside of a niche And so you know there's only So many Go releases and functions To call and you know I think we started diversifying The kinds of things we were Talking about right so we started talking about Things that are adjacent to Go right Not just the language itself and you know there's only So many episodes you can have you know on The actual syntax and you know The concurrency and all these things you know There's been dozens and dozens of blog posts About oh why I like Go I hate I mean wherever you fall on the Fence there but you know the things That are being built will go you know The productivity gains people are getting out of It what companies are being are building The entire stack around like these things became Sort of where we spent a lot of Times and then as time went on I think We've also sort of bringing Even non -technical But still adjacent to some degree Right topics into the mix as well Now I don't know how Much our audience Appreciates that sort of diversity Of topics you know I'm sure Some people would prefer the hardcore technical Stuff all the time and nothing But I'm sure you know I've heard from Other people as well say hey remember that episode you did On something that is not Go specific but you know it was something that Maybe they were investigating or going through It and they heard from One of the hosts about something That resonated so I hear It on both sides right so I think the For me it's unless somebody says Hey you can't do that I think a lot of topics Should extend beyond Go specific things as long as there's some Connection back right because Life is not one dimensional right so there's Going to be some things that are relevant right That makes sense to touch on For instance I'm listening to the founder Mode conversation"
+    },
+    {
+      "start": 1237.35,
+      "end": 1238.17,
+      "speaker": "SPEAKER_00",
+      "text": "right"
+    },
+    {
+      "start": 1238.17,
+      "end": 1569.32,
+      "speaker": "SPEAKER_01",
+      "text": "now I'm a few weeks behind of course as I always am Catching up with go time And founder mode Conversation with you Chris and Angelica When you're not a founder you're just a regular Employee at an organization like How does this Paul Graham essay Apply to us and I think it's fine I think it's totally Legit for a go time conversation because Of course we all live In this world where we're using our skills To make a living or to Create stuff or to start a business Or working for a startup founder Or working in a large organization we're all in These different areas and these facets all Affect us and so It's easy to tie back to the programming language Or to the people Using the programming language because We're all kind of in this similar Lifestyle I don't think it hit the nail on the head with the word Facet there I think that's what it is is like Perspectives and facets within an ecosystem It doesn't have to be oh What is the latest feature That's being scrutinized which There's you know some In the go world you know What's the latest feature what's the latest release How does that work I think it's more About the culture of Being a developer that I think Shows are more interesting around It's like I know that you're steeped in This cloud native go world Where that is You know very much the way things are However You know I also want to know why you think the way You think or how you react to a Certain piece of news that affects Every developer to some degree Shade reform I Will say however I am totally Unschooled on founder mode I have purposely Not I've heard of it I know it's out there I can assume what it means but I have not Read the essay I have not Even read Brian Cantrell's Response to it and other people kind of like Jumping on the bandwagon Of it and how great it is I've only been on the Peripheral to know it exists I do not know the details of the essay And I have not begun to listen to this Episode either to hear y 'all's perspective So just Put my card out there I am Non steeped in founder mode Are you hoping that we steep you or are you hoping That we move on? What are you trying to do here? Close some loop if you don't mind What is important what are the cliff notes Of founder mode? TLDR at Johnny What's founder mode and what was the overall Takes on go time I know Chris was Kind of meh Angelica was Excited I'm only halfway in you seem To be in the middle yeah so For some context right the the Every once in a while you have these Sort of let's just say Influential for one way or another By some definition right you know video Or blog or whatever it is that comes From a popular figure right In this case you know it was Paul Graham Right you know which Hopefully most famous for his essays Right yes famous for the essays you know they tend to be So impactful you know short to the point You know no flowery language people love that About those essays And founder mode was one such Essay and sort of focused on Sort of what happens when You especially start To go from a startup and you become a scale up You know as they use terminology And you start to grow as a company and now you have Multiple layers being added You know you know between the top and The people on the ground you know writing Software you know shipping things so You have all these sort of levels these managerial Levels you know that that come into the picture And the founder right The founders you know with the original idea The original vision right they start getting sort of Decoupled right further and further Away from the people with the Boots on the ground implementing the thing implementing the vision Pushing things forward right and then now Because of all these sort of managerial Layers right there becomes Sort of a different ways you can work In a company with these different managerial layers You have the people that are sort of action oriented And you have the people that are sort of discussion Orientated right so and you can see it's The moment you read it you're like oh yeah I've been in those situations where I have The managers who have to have you know a meeting You know set up a meeting for a meeting Like your dog I heard you like meetings right so I got you Some meetings right And you have the people And the other people are sort of more action oriented right So all that basically there's this You know this aspect of the founder Sort of you know or an Individual sort of going founder mode Basically saying hey boots to the ground let's Do this remove the layers remove the Sort of the fluff be actionable Like be action oriented and sort of do Things at least that's what I took away from The whole thing so it's like basically saying Do whatever it takes to move the Mission forward move the product forward whatever it is that You're working on move that forward and Sort of know exactly what kind Of management you want around You if at all right that kind of thing so Again I think it was he was speaking to You know startups and scale ups You know companies that are not Sort of huge massive Sort of empires Because those companies Once you get that big there's naturally Going to be multiple layers of management I don't know if you can even avoid that That's just what happens the more people You have in an organization but if you Are a startup or scale up perhaps Sort of push back against that tide Right of sort of that Of all those layers because you're going to be more effective And you're going to be delivering stuff so to me I'm like okay if I'm just A cog in the machine I'm just low On the totem pole right I'm not a founder Right the founder is saying hey Let's push let's go let's get in There and deliver things let's work on things right That zeal that passion that energy If I'm just getting a paycheck Every couple of weeks from you I'm putting In my 40 hours or whatever"
+    },
+    {
+      "start": 1569.32,
+      "end": 1569.96,
+      "speaker": "SPEAKER_00",
+      "text": "like"
+    },
+    {
+      "start": 1569.96,
+      "end": 1640.82,
+      "speaker": "SPEAKER_01",
+      "text": "Should I care because it's your company Right unless I'm getting some equity or stock Or something right from doing More right than you're paying me for Right like how should I view founder mode if I'm a software Engineer writing go code right How should I and you come at me with Founder mode like should I Care is it relevant to me like So basically I'm trying to the way I Understood this is okay I understand the spirit Of the essay but how do I Make it applicable how do I take the good Parts so to speak right and make them Applicable to what I do on a day to day basis If I'm not a founder right and that's what our Discussion focused on you Think founder mode if you're not in that Founder position you you get positioned As a cog is that right I would I would say if you're not so I think my Attitude on sort of Being a quote unquote cog in the machine Has sort of shifted over the years Before I used to think and early on in my career Or perhaps not even Not even sort of my career but Early on or rather let's say Let's go back 10, 20 25 years right Companies right that's bad hey I've been doing this for a while. He's been around man I've been around I've been around people have been paying me the right code For 26 years now"
+    },
+    {
+      "start": 1641.76,
+      "end": 1642.24,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 1642.24,
+      "end": 1668.92,
+      "speaker": "SPEAKER_01",
+      "text": "calculated it and I'm like I don't do it by that fact but anyways If I go back To the early days you know A few years ago where Companies had a I think had a Had a softer edge At least one that appeared That way you know they You know companies just talk about oh we are family Here right you know we Care about our people like all of That sort of language I think underneath everybody sort"
+    },
+    {
+      "start": 1668.92,
+      "end": 1669.72,
+      "speaker": "SPEAKER_00",
+      "text": "of"
+    },
+    {
+      "start": 1669.72,
+      "end": 1718.41,
+      "speaker": "SPEAKER_01",
+      "text": "Knew what you know you pay me to do A job and I know if I stop doing A job or if I don't do it you know Well by some definition you know I'm Out of here right people knew that but companies Were more willing at least In the tech sector right were more Sort of you know softer on the edges so to speak But you know Nowadays I don't think anybody who works in Tech especially in light of the recent You know rounds and rounds and Layoffs and everything else and You know you got people you know Recording and putting their Layoffs on TikTok and Like the attitude you know Towards companies With those languages I say oh we care about Our people whatever it is yet you know executives Are reeking in you know Millions and bonuses while they're letting off People like there's this dissonance Right between what they're saying or have been Saying"
+    },
+    {
+      "start": 1718.41,
+      "end": 1719.13,
+      "speaker": "SPEAKER_00",
+      "text": "in"
+    },
+    {
+      "start": 1719.13,
+      "end": 1973.03,
+      "speaker": "SPEAKER_01",
+      "text": "the reality Right of you being an employee or cogging That machine right no matter how Good a job you do Right you are always at risk No matter how good a job you do Like you're performing while they might They might position right your Layoff right or you're firing As a performance thing We all know right That's not always true right We know at the end of the day companies Especially publicly traded companies They don't have your best interest at heart They have the shareholders Best interests at heart that is Priority one the shareholder Right so you as an Employee you are means to that end Right so the more you understand Sort of that reality Right the more you can calibrate your relationship With an employer or whatever you're Involved in right so that doesn't Mean however that you stop caring About your craft what you do Right how you the professionalism With which you bring you know That you bring to your work right the Passion that you bring to your work that is A personal thing no Company is ever going to be able to take My level of interest Of passion of wanting to do The right thing right no Company holds sway over That right if you hire me for a job I'm going to do that job because I'm a Professional that's what I do Right you pay me we exchange Services right you know I give you I give you the what you're looking For and you pay me in exchange for My time right so that's a very Professional thing and I see clearly The nature of that relationship the Problem comes when when when you start Adding things around it to Make me feel a particular way About your company like you don't need all that Flowery stuff right I will do the Job so I think in this day and age I think for me I took founder mode to mean Okay care about what You do right at the at the deepest Level if you stop caring about maintaining A code for your company or If you think you know your coworkers are Annoying for whatever reason or You stop loving going to work and Stop loving that loving that job Then maybe move on right maybe your Time there is over right but don't Sort of lower yourself to the point where You're just doing a crappy job because you don't like Where you are just move somewhere else and Be your best self right Mm -hmm gotcha I did some googling While you were talking there just briefly I wrote one thing into I actually kind of enjoyed this about Google now where You can just sort of treat like a prompt And so I just said summarize founder mode So rather than going to chat GPT or some Paid product I'm just like okay let me just throw this Into Google and it's for the most part on On par they summarized It by saying that founder mode is a way Of running a company that involves direct Involvement and oversight Or quote micro management And it says great founders Have hired executives And it's not worked this is Summarized from Sam's Newsletter on substack this part of it at least Is in summary that Great founders have hired great executives And it's not worked instead the Thing that works is in quotes founder mode Which is direct involvement And oversight of what would typically Be called micro management And then the lens for this Mode is towards Startups and scale ups so Likely the founders should be directly involved In raising new funds or directing The product or micro Managing to some degree this User experience or this Developer experience which has become you know All the rage the last several years is like We are DX focused We are developer experience focused And not our friends over at GetDX .com focus A different kind of developer experience but similar Cut from similar cloth What's up friends I'm here in the breaks with Cal Carberry co -founder And CTO over At Coder .com Coder is An open source cloud development Environment a CDE You can host this in your cloud or on Premise so Cal walk me through The process a CDE Lets developers put their development environment In the cloud walk me through the process They get an invite from their platform team to Join their Coder instance They got to sign in set up their Keys set up their code editor How's it work"
+    },
+    {
+      "start": 1973.03,
+      "end": 1980.99,
+      "speaker": "SPEAKER_00",
+      "text": "step one for them we Try to make it remarkably easy for The dev we never get any features Ever for the developer They'll click that"
+    },
+    {
+      "start": 1980.99,
+      "end": 2409.41,
+      "speaker": "SPEAKER_01",
+      "text": "link that their platform team Sends out they'll sign in with OADC or Google And they'll really just press one button to create a Development environment now that might provision Like a Kubernetes pod or an AWS VM you know will show The user what's provisioned but they don't really have to Care from that point you'll see a couple Buttons appear to open the editors That you're used to like vs code desktop Or you know vs code through the web Or you can install our CLI through our CLI You really just log into Coder And we take care of everything for you When you SSH into a workspace you don't have to worry About keys it really just kind of like Beautifully magically works in the background For you and connects you to your workspace We actually connect peer to peer as well You know if the Coder server goes down for a second Because of an upgrade you don't have to worry about disconnects And we always get you the lowest latency possible One of our core values is we'll never be Slower than SSH period full stop And so we connect you peer to peer directly to the workspace So it feels just as native as it possibly could Very cool thank you Kyle Well friends it might be time to Consider a cloud development environment A CDE and open source is Awesome and Coder is fully Open source you can go to Coder .com right now install Coder Open source start a premium Trial or get a demo For me my first step I Installed it on my Proxmox box and Played with it it was so cool I loved it Again Coder .com that's C -O -D -E -R .com And then in light of being Pressured into this founder mode World where I've got skills Abilities growth opportunities But the organization was Very hearing this and hearing You it was founder mode and we Were a startup we were a scale up and so It makes sense why this pressure was there And so I wrote and I'll Share more if you'd like but I'll just share what I think Is probably the essence of how I felt at the time About being at COG It was acceptance As I'll say this is this quote I'm a very sharp Highly specific purposely purposeful COG As part of a much bigger much more Grand machine I play a Very specific part highly Needed part so that others can do the same I serve the unit The team and its mission Not myself I also have a military background so I came from Sounds like a military person speaking Yeah I have this military background too So it was always team it was never Never I it was always we And so after reading Seth Godin's linchpin which I think is not really Founder mode but it's founder mode ask It tells you to be It tells you to be a linchpin don't go into an Organization and just be A COG be somebody who Is a change maker somebody who could be Leaned upon a linchpin in the In the true terminology Is back in the day you know back In Hugh Glass's day The wagon wheel had to be held on To the wagon via this thing called a what A linchpin and that linchpin Was not there We still use them on trailers and all You know all kinds of things Right The wheel was no longer on the thing that made The wheel purposeful anymore And so to summarize how I felt here I really felt like I was fine with being a COG I was cool with that that doesn't mean I want to be Truly crap or be You know not treated well it was that I was Okay with being not a linchpin I said later on I said I'm starting to wonder if the concept Shared in Seth's book Linchpin was a bit arrogant Or self -centered aren't we all Indispensable aren't we all Replaceable like and so to like To strive for being A linchpin was Almost like striving for perfection You know like perfection is just Seemingly unattainable And almost the enemy of profits and the enemy Of done right we've heard that Several times and it's like you know what I'm cool With being a COG I'll just recognize My purposefulness In being a COG and what role I Play so that others on My team can do the same So we all win So Let's carry that thought alright let's pull on that thread a little Bit if it meant You get laid off Or fired or whatever Whatever term they want to put around it In order for the hole To keep moving forward do you also Happily accept that How many times have I been laid off Almost maybe once I think maybe I haven't ever really been fired To answer that question I would not be happy about being let go Let go laid off I don't care how you term it It's never a positive thing But if my experience There was positive If the founder or founders Treated me with respect And I was removed from my position In a way I think was Kind And my team still had care for me When I left Pure Charity the thing I did prior to Jared was like Dude you should do this full time And in 2015 I finally listened to Jared And my wife and I left Pure Charity And I wrote this post When I was at Pure Charity And so the founder was applied to me there That was later on penned by Paul Graham I think that if I'm treated well and I'm removed From a position In order for it to move along I think I'd be okay with that I would not be happy about being let go But if I was treated with respect And let go properly But I think if I was let go improperly Or not treated with respect or kindness On the way out by my team Or the founders then yeah I'd have a I'd have a personal problem with that And not be okay with it If the mission continues Having been an entrepreneur And a runner or a leader I've had to share some bad news As you know Johnny we shared that early on And so I think that I have both sides of those Coins in my brain When I share my sentiment back to you To respond to that question So I think no I would not be okay with it But if it was done well And with respect and kindness Then I would be okay with it And I would find a way to move on to the next thing Disappointment not resentment Yeah certainly disappointed Like man I really want to be on that train I was working hard to be on that train I was purposely purposeful As a cog as I've written here I was on my own personal mission I'm serving the team not myself And so that's my DNA As Adam when I apply myself In any organization whether I run it or not Whether it's a volunteer Group at church or My business you know I apply myself similarly So I think yeah disappointment Right I think some of that Assumes that you are mission oriented With the organization that you're in For sure yeah Because you can be a cog"
+    },
+    {
+      "start": 2409.41,
+      "end": 2410.21,
+      "speaker": "SPEAKER_00",
+      "text": "And"
+    },
+    {
+      "start": 2410.21,
+      "end": 2483.79,
+      "speaker": "SPEAKER_01",
+      "text": "just be there for the paycheck And you're fine with like it's not against your morals What they do you think it provides Some value obviously the marketplace Appreciates it that's why it's still a business But you're just there To do your work and to do the best your ability And to be a cog and to make some money And in that case I think For the mission to continue I must be let go like for me that doesn't hold Weight anymore because Yeah the mission's the mission it's their mission not my mission I think in a place like Pure Charity Adam you are very aligned And there are times where you are working somewhere where you're like I totally believe in what we are doing And so maybe there it's a bitter pill But one that is worth swallowing Because yeah now at least The organization isn't going to crumble I have to go but it will continue But in cases where it's more about the money Or maybe the relationships or you like The work you're doing but you're not like You know it's Walmart Or something where it's like fine It's a grocery store slash department store Yeah a much bigger mission than you can have An impact on as a cashier I guess you can actually do a lot As a cashier too Sure I'm just saying I think in that case Mission oriented matters if you're Going to have that kind of I wouldn't have that outlook myself I've never been laid off I've never Worked in a large organization so I have a very"
+    },
+    {
+      "start": 2483.79,
+      "end": 2484.33,
+      "speaker": "SPEAKER_00",
+      "text": "Me"
+    },
+    {
+      "start": 2484.33,
+      "end": 2490.13,
+      "speaker": "SPEAKER_01",
+      "text": "too always small Yeah always small like But I'm not exactly happy to be a cog you know I want to"
+    },
+    {
+      "start": 2490.13,
+      "end": 2491.19,
+      "speaker": "SPEAKER_00",
+      "text": "try"
+    },
+    {
+      "start": 2491.19,
+      "end": 2787.55,
+      "speaker": "SPEAKER_01",
+      "text": "my best To be indispensable I want to be the person where they're like We're laying off 20 % And we can't get rid of this guy because he's too useful Jared Sorry 60 % Jared I have a quote for you Okay ego is the enemy Okay ego is the enemy Ego is the enemy You don't want to be indispensable Johnny? No I can understand what he's saying too Oh sorry I can't respond to my bad No you can but let Johnny respond Sorry Johnny go ahead You can chime in Adam I'll wait I'll be patient In my 26 year career I've been laid off twice I've worked at very large companies I've worked at very small companies So I've Lived enough life as a professional To have seen all matter of Ways like layoffs are done well Or people are treated fairly or unfairly Kindly, unkindly So I've been exposed to enough of that So I speak from that standpoint I speak from a position of privilege because I've experienced all these facets The one thing I think Is like consistently That it wasn't always like this When I was younger and more foolish And more sort of hot blooded If somebody said hey you're not doing a good job Or we have to lay you off Or we have to fire you because of recent x, y, and z And I have been fired once The initial reaction is always visceral No matter how Stoic you are Or try to be Because it's disappointing Especially if you know you've been doing a good job To be told It's like a rejection Nobody loves rejection To be told hey we're going to have to let you go Because like you say Jared You thought you were indispensable But at the end of the day really you're not So at the end of the day Again The business, a company doesn't exist To serve your needs Or cater to your feelings It exists to make other people Wealthy Now if you happen To also get some level of wealth By some definition Relatively speaking from where you were And what you've been able to earn at an organization That's great It just keeps you happy It keeps you chugging along But ultimately businesses are designed To make a certain group of people at the top Wealthy There's nothing wrong with it You start a business for that reason You want to be well off, you want to take care of your family You want to have money in the bank There's absolutely nothing wrong with that So you get hired as a tool For that purpose When you get that Okay I've been let go I thought I was indispensable And I'm not I've experienced enough of that To now basically if I'm going into an engagement With an employer or doing consulting Whatever it is I have to go in I have to check my ego at the door I'm going to go in here and I'm going to do as best a job As I can based on what I know The customer or the employer Or whatever it is wants And I know that at any point I could be removed from this position This could be taken away I believe There's an ancient Chinese Proverb or something that says Maybe it's not Chinese but I'm misremembering It's the idea that a wise person Gets given this beautiful Ornate teapot Very elegant Very beautiful to look at Custom made and gifted to them And then they have A child or sibling or something like that That keeps coming to them and says hey don't you love the teapot Don't you admire it Yes I do but it's already broken And the child is like What do you mean it's already broken? Yeah it's already broken It is what it is but it's already broken I can't continue to have this forever It's already broken And through conversation You come to learn that the way that This person is able to Stabilize themselves So that eventually When the teapot does indeed get broken Maybe it's the child that knocks it over Accidentally or whatever it is The teapot is now broken This beautiful very enjoyable Thing is now No more That person is now Huh okay Because it was already broken in their mind So they didn't lose Their world wasn't shattered along with that teapot Because they didn't invest so much Of themselves into it So I have to go into these things saying hey It's already broken I'm here to do as best that I can do For as long as I can do But if this thing were to be taken away from me Tomorrow, next week, next year That's okay too That's all fair and good I didn't say I am indispensable I said I want to be that And so I don't think it's egotistical to desire To be that And to be more than a cog Fully knowing that at the end of the day Maybe I'm still just a cog And it's already broken That's all well and good"
+    },
+    {
+      "start": 2787.55,
+      "end": 2789.65,
+      "speaker": "SPEAKER_00",
+      "text": "You can lie to yourself No"
+    },
+    {
+      "start": 2789.65,
+      "end": 2796.09,
+      "speaker": "SPEAKER_01",
+      "text": "not delusion, desire Yeah drive I really feel like I should just read this whole blog post to you guys Nah don't do"
+    },
+    {
+      "start": 2796.09,
+      "end": 2797.99,
+      "speaker": "SPEAKER_00",
+      "text": "that Like"
+    },
+    {
+      "start": 2797.99,
+      "end": 2980.89,
+      "speaker": "SPEAKER_01",
+      "text": "everything Johnny just said There's like echoes of what I wrote down here I'll read two lines for you Okay I say this, I'm going to read this to you Jared Appreciating what I think Is your You're not desiring to be perfect But you're striving to Be an indispensable Member of the team If not owner of the organization So this is what I wrote To think that you can truly Be indispensable Is a farce It's not possible It's a trap of the prideful What are you going to say about that Jared? Maybe I won't show up to work tomorrow I say that though while appreciating While appreciating the worth that goes into Strive for being indispensable Not literally to be Indispensable but to strive to be Indispensable like That's a great trait too See but being indispensable Implies that Others must see you as such Now you're putting That level of Self worth in the hands of others To me I don't understand where you're coming from Jared To me the way I And I used to approach it like this Because I like For people to like me We all do It's ingrained in us as human beings We want to be like We're a tribal kind of entity So we don't want Rejection from the tribe We want to be welcomed and liked And say oh Johnny hey how you doing By Being that Likeable By being the one that always delivers You're the one teammate Everybody can just call in And boom you just solve all the problems By being that You get that little hit Of dopamine I love when people love me But you're putting That sort of self worth In the hands of others And nobody will tell you Like a stoic Nobody will tell you how much How dangerous that is Than those who know how it feels When all that adoration and admiration gets pulled back For one reason or another Because it's not in your control What is in your control Is how good a job you do How well you deliver on The mission, the work, whatever you've been assigned to do However small it might be If you can deliver and objectively say hey I did a good job there What people think of me as a result Is not in your control Whether that praise comes or goes It doesn't matter to me Because at the end of the day I know if I get laid off It's not going to matter how much praise I got or didn't get Because that too is outside of my control The only thing I have control over Is the work that I'm doing right now And how good do I feel When I've delivered it And get up and walk away from this keyboard How do I feel about myself Yeah I don't need I guess I don't need the Other people noticing it Aspect of what you're talking about I"
+    },
+    {
+      "start": 2980.89,
+      "end": 2982.21,
+      "speaker": "SPEAKER_00",
+      "text": "don't"
+    },
+    {
+      "start": 2982.34,
+      "end": 3028.15,
+      "speaker": "SPEAKER_01",
+      "text": "derive myself Worth from that And so I think if I was laid off in that circumstance If I was indispensable And they didn't know I was Then I would be like this is a huge mistake they're making And I would like for that to be true Like then they go ahead and lay me off I'm sure Johnny you've left huge holes In whatever organizations you got laid off from And they probably didn't realize What a big mistake that was And I think maybe even though you are A cog In some sense you are an indispensable cog And that organization will never be the same without you That's what I strive for Yeah they're gonna really regret this one Not that they have to recognize me As the guy who fixes all the things and all that That's not where I derive myself worth But my desire is to be As great A teammate as I can"
+    },
+    {
+      "start": 3028.15,
+      "end": 3028.71,
+      "speaker": "SPEAKER_00",
+      "text": "be"
+    },
+    {
+      "start": 3028.71,
+      "end": 3103.59,
+      "speaker": "SPEAKER_01",
+      "text": "Can I speak for you For a second Jared having been Am I not doing a good job? No I think you are I want to layer it on I guess One more layer for you Having worked with Jared for many many years Jared is not the kind of person that requires praise To show up and be effective And to be on mission To be driven None of his, to my knowledge My experience with working with him for many years He doesn't require praise To have his ambition And I think Jared Has a high standard set by himself And it doesn't matter if you Agree with the standard or not He's gonna strive for it And he doesn't need you to recognize he's striving for it Or reaching it to continue to show up and be effective Did I do a good job Jared? You can keep your job Jared Yeah thank you Well I guess at a certain point It's probably why I've done the things that I've done Which is I've stayed in small businesses I've found, I've started or you know Had ownership in companies that I work for Because at the end of the day That is where I thrive I guess In circumstances more Not as an employee for somebody else in founder mode But actually in I guess founder mode You know, which I don't really I try not to I hate micromanaging people so not that"
+    },
+    {
+      "start": 3104.33,
+      "end": 3104.85,
+      "speaker": "SPEAKER_00",
+      "text": "Not"
+    },
+    {
+      "start": 3104.85,
+      "end": 3273.77,
+      "speaker": "SPEAKER_01",
+      "text": "like that Tactical founder mode but like basically I've been at the head of businesses Small, very small businesses Most of my career I have worked You know for other people as well But usually with some autonomy Because that's where I thrive I guess Probably because I have that Self -driven thing going on So Maybe I couldn't make it in a large org You know, it's quite possible I don't have the breadth of experience you have Johnny, I have the same time duration But I've been doing the same thing Like I've done three I had the advantage of being A contractor and so While I was my own boss I had a lot of abroad Experience of like working with teams And different code bases and Different businesses, you get a lot of experience that way But not in like a typical 9 to 5 Engineering team I've never had a product manager Right, I've had customers So those were like proxies for that relationship So I don't have those kind of relationships Just because I haven't had that experience that you have In so many different roles Interesting enough, something you said earlier Brought back a fond memory One of the positions in the past That I got laid off from Actually no, that one was I can call it a firing, right It wasn't, oh we're making cuts Because finances or whatever You typically hear these days It was like, we didn't think We were expecting something else But we got something different Which I'm like completely fine with What happened though I think maybe six months later Or less than a year later To piggyback on what Adam was saying about never burning bridges We parted ways Very amicably That was not resentful We did the thing, we sat down From each other in the eye I was expecting this, I didn't get that I was like, okay, completely understand We remained friends And this was back in Boston, so we remained friends And six months later Or however long, we actually Go and have lunch together We sit down and say, hey how's the business How are things going And literally Again, the same experience Sitting from across the table We made a mistake in letting you go So when I heard that When I heard that I was like, holy smokes Internally, I'm jumping for joy I knew it, I knew it So you were indispensable, man Yeah, I guess I was I just didn't hang a lot On it, but I understand what you're saying Feeling like when you leave You leave a hole that is noticeable Yeah, I love that I'm not going to lie It's feeling like you have that kind of impact But the thing is, the higher ups are Probably never going to feel It as much as your team Or as much as people you work with closely day to"
+    },
+    {
+      "start": 3273.77,
+      "end": 3274.39,
+      "speaker": "SPEAKER_00",
+      "text": "day And"
+    },
+    {
+      "start": 3274.39,
+      "end": 3290.35,
+      "speaker": "SPEAKER_01",
+      "text": "maybe the word indispensable is saying too much I like what you just said there I want to be impactful I want to make an impact And when that person leaves That impact is now a hole And to me, that's meaningful That means I'm bringing value in big ways I'm a hole maker"
+    },
+    {
+      "start": 3290.35,
+      "end": 3291.01,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 3291.01,
+      "end": 3325.13,
+      "speaker": "SPEAKER_01",
+      "text": "make some holes Yeah, I can dig a hole, man That's cool, though, that you got that Yeah, man, I had to feel great It felt amazing I was in cloud nine I knew it, you know I think that people should do that more frequently If they know Especially if the person kept thriving In the community like you have Circle back and be like, hey I don't know how this all panned out for you I can kind of see what you've done since then By the way, when you left It really hurt the organization It was a mistake I almost feel like that could be a good"
+    },
+    {
+      "start": 3325.73,
+      "end": 3326.15,
+      "speaker": "SPEAKER_00",
+      "text": "Just"
+    },
+    {
+      "start": 3326.15,
+      "end": 3343.13,
+      "speaker": "SPEAKER_01",
+      "text": "a good feeling to give people Something to say to people It's certainly a good reconnection moment Hey, by the way I think if that happened And you meet up with that person like Johnny did Absolutely be the person that tells them that As long as it's true, right Because it does feel good to know that"
+    },
+    {
+      "start": 3343.13,
+      "end": 3343.83,
+      "speaker": "SPEAKER_00",
+      "text": "And"
+    },
+    {
+      "start": 3343.83,
+      "end": 3416.94,
+      "speaker": "SPEAKER_01",
+      "text": "it is validating I think there was a Google engineer recently Who I don't remember, I'm fuzzy on the details But they either left or Was laid off Went and started, and they're like a machine learning Guru, went and started a thing And Google had to pay something Like two and a half billion dollars to get them back On to the employee payroll Basically to rehire this person So there's some validation Of like, well that was a big mistake, right Should have just kept me around in the first place The details are fuzzy, so that could be Or they need to hang their hat on somebody, a patsy Something went wrong Come back here and run this thing So we can fire you nine months later It's a setup That's an even better story Well that happened in Silicon Valley I hear that's a good show This is a good show At Assembly AI Founder and CEO Dylan Fox Dylan, tell me about Universal One This is the newest, most Powerful speech AI model to date You released this recently, tell me more"
+    },
+    {
+      "start": 3416.94,
+      "end": 3460.02,
+      "speaker": "SPEAKER_00",
+      "text": "So Universal One is Our flagship industry leading Model for speech to text And various other speech understanding Tasks, so it's about a year Long effort that really is the culmination Of like the years that we've Spent building infrastructure and Tooling at Assembly to even train Large -scale speech AI models It was trained on about 12 and a half Million hours of voice data Multilingual, super wide Range of domains and sources Of audio data, so it's a super robust model We're seeing developers use it for extremely High accuracy, low cost Super fast speech to text And speech understanding tasks Within their products, within automations Within workflows that they're building at their Companies or within their products"
+    },
+    {
+      "start": 3460.02,
+      "end": 3477.14,
+      "speaker": "SPEAKER_01",
+      "text": "Very cool, so Dylan one thing I love Is this playground you have You can go there, assemblyai .com Slash playground And you can just play around with all the Things that is Assembly Is this the recommended path Is this the try before you buy experience What can people do?"
+    },
+    {
+      "start": 3477.52,
+      "end": 3498.08,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, so our playground is a GUI experience over the API That's free, you can just go to it on our website Assemblyai .com slash playground You drop in an audio file You can talk to the player around and it's a way to In a no code environment, interact With our models, interact with our API To see what our models And what our API can do without having to write Any"
+    },
+    {
+      "start": 3498.08,
+      "end": 3498.92,
+      "speaker": "SPEAKER_00",
+      "text": "code, then once"
+    },
+    {
+      "start": 3498.92,
+      "end": 3501.1,
+      "speaker": "SPEAKER_01",
+      "text": "you see what The models can do and you're"
+    },
+    {
+      "start": 3501.1,
+      "end": 3512.1,
+      "speaker": "SPEAKER_00",
+      "text": "ready to start building With the API, you can quickly transition to the API Docs, start writing code, start Integrating our SDKs into your code To start leveraging our models And all our tech via our SDKs"
+    },
+    {
+      "start": 3512.1,
+      "end": 3553.48,
+      "speaker": "SPEAKER_01",
+      "text": "Instead. Okay, constantly Updated speech AI models At your fingertips, well at your API fingertips that is A good next step is to go to their playground You can test out their models for free Right there in the browser Or you can get started with a $50 credit At Assemblyai .com slash Practical AI Again, that's Assemblyai .com Slash Practical AI And I'm also here with Dennis Pilarinos Founder and CEO of Unblocked, check them out at Get Unblocked .com Unblocked helps developers to find The answers they need to get their jobs Done. So Dennis, you know we speak to Developers, who is Unblocked Best for? Who needs to use it?"
+    },
+    {
+      "start": 3553.82,
+      "end": 3623.28,
+      "speaker": "SPEAKER_00",
+      "text": "I think if you are a team That works with a lot of co -workers If you have like 40, 50, 60 100, 200, 500 Co -workers, engineers, and you're working On a code base that's old And large, I think Unblocked is going to Be a tool that you're going to love. Typically The way that works is you can Try it with one of your side projects But the best outcomes are when You get comfortable with the security Requirements that we have. You connect Your source code, you connect A form of documentation, be that Slack or Notion Or Confluence, and When you get those two systems together It will blow your mind. Actually Every single person that I've seen On board with the product Does the same thing. They always ask A question that they're an expert in. They want to Ask a question that I know the answer to And people are generally blown away By the caliber of the response And that starts to build a relationship Of trust where they're like, no, this thing actually Can give me the answer that I'm looking for And instead of interrupting a co -worker Or spending 30 minutes in a meeting I can just ask a question Get the response in a few seconds And reclaim that time."
+    },
+    {
+      "start": 3623.66,
+      "end": 3668.62,
+      "speaker": "SPEAKER_01",
+      "text": "The next step to get Unblocked for you and your team Is to go to getunblocked .com Your source code is Yourself, your team can now find the Inch they need to get their jobs done And not have to bother Anyone else on the team, take a meeting Or waste any time whatsoever Again, getunblocked .com That's G -E -T -U -N -B -L -O -C -K -E -D .com And getunblocked Speaking of Silicon Valley, Johnny What's going on in Silicon Valley with these Fake job postings? I mean, you've been on to this For a little while because I've heard you talking about it on GoTime And then I covered it in news this week Because there was an Ask Hacker Speaking of Paul Graham"
+    },
+    {
+      "start": 3668.62,
+      "end": 3669.28,
+      "speaker": "SPEAKER_00",
+      "text": "There"
+    },
+    {
+      "start": 3669.28,
+      "end": 3920.66,
+      "speaker": "SPEAKER_01",
+      "text": "was an Ask HN Which was posted 7 days ago Who is pretending to be hiring And it turns out there's people out there with jobs That are not real jobs What's going on man? It's just a hunch that I got So one of the things that I do And have always done as a professional Is I'm always looking at job postings So while you have A YouTube Influencer saying, hey, this framework Is the best thing or whatever Geeks get excited, nerds get excited About technologies and programming And everything else I'm like, okay, that's one lens The other lens is what are Companies actually hiring for What list of technologies do you see On those job descriptions So I'm always looking at those job descriptions Hey, what do SREs need to know these days? Hey, what does a full -stack Developer need to know these days? So I'm always keeping an eye out to see Where the trend is going Regardless of what the hype is doing I'm looking at what people are actually getting paid for So I started noticing The same job I would literally bookmark it I would take a screenshot of it And I started noticing the same job Almost the same description Maybe a word change here and there Often from the same recruiter Other times from different recruiter But the same job again with a word change Here and there asking for the same exact thing And I'm seeing the same thing Come up over again week after week After week after week after week Before I didn't pay any attention Because we didn't have Back in the heyday everybody had a job So less of that Companies were just tripping over themselves to hire people At the start of the pandemic And everything else When all the over hiring was happening So you didn't notice it as much But now that so many people Are on the job market You're seeing the influx of these job postings And you're like okay How come there are so many job postings Especially on places like LinkedIn or Indeed or Dice So many job postings And so many people are saying they can't find jobs Going from six months From three to six months Before they find a job Getting an interview is harder Than it's ever been Something is not making sense here What are all these job postings And I started seeing the pattern Repeating over and over and over again And I'm like something doesn't add up here Is somebody just training a model Or something People just keep sending their resumes into this void Like what is going on here I have no evidence No empirical evidence To say hey this is what's happening If anybody is going to Step up and say yep we do that I don't think it would be in their best interest Something smells odd Something smells fishy here Did you see the comment thread on that Hacker News post Because there's a lot of people Validating your intuition The top comment Now this is also anecdotal So none of this is like Journalism or anything like that However these are people who are working In these places This is a person consulting with a startup in the bay area They say we have nine job openings Listed on the website But in reality one position Is really open And the bar is sky high By that I mean that the founders would hire the right person But the other eight positions are just There for signaling And nobody looks at the applications we get Yikes Yeah For when I'm asked the CEO told me to say that we are prioritizing Finding the senior dev first And that position has been open for six months So that's a situation That's about as clear as validation At least one company is Explicitly doing exactly what you think they're doing Yikes Yeah it's smoke and mirrors Right And it seems to be the reason is because it makes them look better Right That's what most of the people are saying on this thread Is that because VCs are using I mean this goes back to Goodhart's law Right When a measure becomes known it's no longer a good measure Right Is that VCs are now looking at company health This sounds like And they're saying well if the company is hiring Then that's a healthy company And so it's an indicator of company health"
+    },
+    {
+      "start": 3920.66,
+      "end": 3922.16,
+      "speaker": "SPEAKER_00",
+      "text": "And so then the company"
+    },
+    {
+      "start": 3922.16,
+      "end": 3933.06,
+      "speaker": "SPEAKER_01",
+      "text": "is like Oh that's an indicator of company health Let's act like we're hiring Bam Just no good candidates out there Yeah exactly We're holding out for the right one"
+    },
+    {
+      "start": 3933.06,
+      "end": 3934.42,
+      "speaker": "SPEAKER_00",
+      "text": "Apparently no"
+    },
+    {
+      "start": 3934.42,
+      "end": 4157.08,
+      "speaker": "SPEAKER_01",
+      "text": "one's out looking for jobs I saw this video I think it was on YouTube Of that kind of thing and it was one of those things Where the person plays both Roles you know They're like the recruiter and then they're like the person And it was like A company It was like an HR person at a company Was one role and the other person Was somebody who would go out and find the talent Like a talent scout And they would say Probably kind of like nod into what you're saying here Johnny Is they would go out and find People and they would say those are all great candidates And all but we're holding out for that One that one Now those are ten great candidates Keep them on ice for us keep them on ice keep them interested Let them know we're interested I need you to go out and find me five more That are better than those folks there But keep those ten on ice And then they come back with the five and we're like You know what those are good too But I really feel like there's like There's a winner out there Keep all fifteen on ice Let them all know we're still interested And that might even like Play into the whole multiple interviews These song and dances That people you know And here you are on the other side In between Siphoning through savings or ranking Up credit card debt or whatever it might be To make ends meet and somebody's playing you Not cool Not cool at all Not cool at all This goes back to understanding The relationship between you And a full profit entity Fine I want to be a cog then Okay I'm fine with being a cog Sorry don't have any positions for cogs I interrupted real quick I want to throw a joke out there You have nine cogs available but they're all I can't find any good cogs I'm a cog now You are not a priority my friend You are a cog in the machine And that's okay too that's the thing We all I think In this market we've all accepted That it is what it is but you know what You know what though you know what As they say the pendulum will swing the other way Mark my words The pendulum will swing the other way Right when it does Right as a cog Don't be a douche don't go in you know Walking in This was a huge mistake I told you mofos Not to do what you did but you did it Now you're gonna pay the price I was indispensable Don't be that guy Don't be that guy Or gal Again this is not This is not about them Ultimately I think it's about you As a person I keep throwing that term around This one I take to your heart greatly Like being a professional There's a way a professional carries themselves There's a way a professional does things You're a professional you get paid for money Hopefully you love what you do To get paid that money right But as a professional you are always a professional Good times bad times happy times Side times sad times You are a professional See let people go with respect Hire with respect Show up as an employee With respect right Some care in the process Not everybody's gonna do that though They're not Fake jobs man fake jobs Fake jobs I mean seriously So to your pendulum Comment Johnny Does the current crop of Language models Stop the pendulum For the developer Is it swinging away from us And will it continue to stay that way Or is it gonna swing back anyhow There's a natural thinning Of the herd happening Or that has happened with any Innovation right Something that changes the way things have always been done"
+    },
+    {
+      "start": 4157.4,
+      "end": 4158.36,
+      "speaker": "SPEAKER_00",
+      "text": "Whether"
+    },
+    {
+      "start": 4158.36,
+      "end": 4450.15,
+      "speaker": "SPEAKER_01",
+      "text": "it's in tech or in Farming or You name an industry right There's innovation that comes and disrupts the way of things And that should be expected I think tech For so long we were so comfortable With the fact that Basically we were untouchables No one could do What we did was Magical right Absolute gods We have memes And movies and things Like we were You know Hailed as these Powerful beings who They only were the ones who understood How to make the computer do things Right that mere mortals couldn't even aspire to Right and we went through that And that whole notion was Sort of you know amplified Back when in the Obama era When we had all these learn to code Everybody should learn to code like that whole thing Remember that whole push towards everybody Left and right Organizations were spinning up To run workshops Heck I ran go bridge workshops I would go in my local community in Baltimore I would find people who wanted to learn How to code I would get them in a room on a Saturday or Sunday Work with local businesses To get people into the room to learn how to code Because I truly believe and I still do That a career in tech Is a life changing Generational Sort of impact kind of skill To develop right So we went through that phase Now you barely hear about these workshops Happening anymore you know dev boot camps You barely hear about those things anymore Because the market is not Suitable for these things right So all that to say Is that now Getting into tech Is going to be a little harder You can get into tech but getting a job in tech Is going to be a little harder Because there are different skills that are not expected That you need to Bring to the table Understanding what an LLM is and how to work with them I'm not saying you need to go Get into the math The machine learning math of it all You need to become a data scientist But you need to know how to understand What an LLM is and how to use it How to build a rag system which is basically The hello world of AI development You need to understand how to build a rag system So these things need to Not be foreign to you So the skill sets you need is just changing Because there is new innovation So I think there is always going to be Room For software engineers It's just the skill sets are changing Will there be fewer jobs Because those jobs now the skill sets required for them The bar is a bit higher So some of those things That you used to hire a junior for You can now outsource to An LLM or Gen AI So people are becoming more productive So it just changes The bar a little bit but I don't think People are generating a lot of AI slop That people like me Are going to have to come in and fix anyway So I'm like hey I'm okay with that I said it probably a year ago now But I'll say it again There's never been a better time To go buy that domain AIrescue .io Don't get the .io Get the .com Maybe that leads us into our final topic If you want to start an AI I remember when there was rails rescue companies They were going to rescue you from your heaping Pile of rails app that your Team created in a Hurry and then left Scaffolding And now they'll be like hey I got this unwieldy Thing that was written by an LLM And I need someone to save me from this Get the domain now that way the Google juice will be there When people are searching for you By all means everybody If you're out there you want to let AI Generate your initial App thing for you Please go right ahead Make more of those things Please No code it all day long It's fine just go right ahead Because the only thing you're doing is making sure That I and people like me Are going to have jobs So that pendulum will swing Yeah for sure 100 % well I mentioned the .io Let's call this chapter .io no mo Because Due to geopolitics I mean this is a crazy Story Speculation though it's not Guaranteed Yeah it's possible Here's what happened We got all these fancy Tld's Some of them are country code tld's That we've just co -opted To be domain hacks For our websites One of those is called .io You've probably heard of it And that one might be going away Because it was Given to it was used for The Chagos Islands The IO stands for Indian Ocean I believe"
+    },
+    {
+      "start": 4450.15,
+      "end": 4451.07,
+      "speaker": "SPEAKER_00",
+      "text": "And"
+    },
+    {
+      "start": 4451.07,
+      "end": 4528.64,
+      "speaker": "SPEAKER_01",
+      "text": "according to a piece By Gareth Edwards called The Disappearance of an Internet Domain The British government On October 3rd announced that it was going to Give sovereignty Up give it up it has Ownership I suppose It's giving it up to a small tropical Atoll which I'd never even heard that word before This article apparently it's like a small island Or something a ring shaped reef In the Indian Ocean known as the Chagos Islands the islands would be handed over to the Neighboring island country of Mauritius Mauritius thank you Apparently more well versed in these Geographies than I am About 1100 miles off the south eastern Coast of Africa long story short Is that IO is for Indian Ocean Now it's going to be Mauritius And .io May Be going away Due to some people Getting some sovereignty which is always a nice thing to have Who would have thought that your Tech startup with a .io domain name As its identity would now Be impacted by a 99 year Lease coming up Yes that's what exactly What would make it go away It can't exist anymore because the Relationship doesn't exist And so the IO I mean I get how It's applied but what makes it go away That they can repurpose it"
+    },
+    {
+      "start": 4528.64,
+      "end": 4529.24,
+      "speaker": "SPEAKER_00",
+      "text": "So"
+    },
+    {
+      "start": 4529.24,
+      "end": 4660.54,
+      "speaker": "SPEAKER_01",
+      "text": "the IO domain Is technically going to be Within the if you want to call it The jurisdiction of basically The Mauritius Right now I would Imagine that if they decided to get into The TLD business Right they could become the Administrators for such a thing More than likely I think they will Probably outsource the thing And bring it to One of those registrars who would be More than happy to take that over And manage it and have the Cost because that's going to be business for them and people Register .io domains us developers And startups love the IO domain so that's Good business right there so Yeah they can just have a partnership with some Sort of registrar and sort of outsource The whole thing or get into the business themselves but It's too much of an opportunity There's too much money there to just Let that go away I don't think it's Going to go away and there's precedence for this right There's the .su for the Soviet Union Right which is still around The .yu for Yugoslavia right These things are still around right So there's precedence for this I don't think it's going to go away honestly .es España is that at risk I think that's still around Well I think it's out there I'm just like I'm just joining your name in them now Just throwing some stuff in the bucket with you .co .uk So here's one that I have familiarity with Because I thought it'd be really cool speaking of domain Hacks to have san .to So I went out and tried to find The .to TLD stands for Tonga and Maybe that's an atoll I don't know it's a small Island or series of islands I believe somewhere in the South Pacific And Somebody has taken San .to They have this like small little website They run it themselves it seems Tonga is running this website And every year for a long Time I finally give up on it I had a reminder to email Tonga People again and see if I could get that domain Because they're not using it they're just camping On san .to and I really wanted It because that was back when URL shorteners were like All the rage Having your own personalized shorteners Which is too cool So yeah I've Been aware of countries that are running their own little You"
+    },
+    {
+      "start": 4660.54,
+      "end": 4661.16,
+      "speaker": "SPEAKER_00",
+      "text": "know"
+    },
+    {
+      "start": 4661.16,
+      "end": 4691.72,
+      "speaker": "SPEAKER_01",
+      "text": "registrars On their own little TLD And so I agree with you Jonny I think this is A fun fact of history And an exchanging of Opportunity to these people And that's awesome for them I think that they're gonna have An opportunity to make a decent amount Of cash just by Proxying this thing to somebody else who can run it Or something like that Yeah and the British Legacy I guess Gets smaller a little bit Gets smaller and smaller No longer the British Indian Ocean This"
+    },
+    {
+      "start": 4691.72,
+      "end": 4693.48,
+      "speaker": "SPEAKER_00",
+      "text": "is"
+    },
+    {
+      "start": 4695.11,
+      "end": 4705.37,
+      "speaker": "SPEAKER_01",
+      "text": "kind of an oxymoron Isn't it the British Indian Ocean I know right but hey It is what it is I couldn't help but look up Nomo .io"
+    },
+    {
+      "start": 4708.85,
+      "end": 4709.37,
+      "speaker": "SPEAKER_00",
+      "text": "Because"
+    },
+    {
+      "start": 4709.37,
+      "end": 4812.27,
+      "speaker": "SPEAKER_01",
+      "text": "I was thinking if that's available That's a pretty good joke isn't it It'd be kind of cool to use that as a Drum to beat on to petition To not let I .O. go Nomo Maybe you list out all of the companies That use .io and say hey Sign the Nomo petition Or it could be one of those websites That just says yes or no and the question is Is there still a .io domain? It just says yes As long as Nomo .io responds There's still a domain See we are indispensable Oh man that's indispensable Yes an LLM could never be that witty and fun Maybe Eventually Good stuff Well that is all we have For today Johnny Too much fun man I miss you Johnny I can't wait to see you again in person man It's been too long You coming to All Things Open man It's nearby How many weeks It's in Raleigh You're in Baltimore It's not too bad right While we're at it let's give away 20 % off if you're thinking about Going to All Things Open You can go to the registration site and use the code MediaChangelog20 And then we have some free passes Jared Are they gone? Have we given them away yet? I think we have a few left You got to join Zulip which is our new place It's the new Slack Zulip's the new Slack Sign up today for free changelog .com slash community Hop into Zulip Say hey I want a free ticket we'll hook you up As long as we have some left It's probably less than a single hands worth But"
+    },
+    {
+      "start": 4812.27,
+      "end": 4813.41,
+      "speaker": "SPEAKER_00",
+      "text": "we'll"
+    },
+    {
+      "start": 4813.41,
+      "end": 4824.85,
+      "speaker": "SPEAKER_01",
+      "text": "be there Let's get rid of them We need hugs high fives and handshakes And we can't do that unless you Acquire the free pass and come to the conference That's the two requirements You got to acquire the free pass Or"
+    },
+    {
+      "start": 4824.85,
+      "end": 4825.61,
+      "speaker": "SPEAKER_00",
+      "text": "pay"
+    },
+    {
+      "start": 4825.61,
+      "end": 4837.25,
+      "speaker": "SPEAKER_01",
+      "text": "your own way if you're that kind of person Except the 20 % off And then show up And we're booth 66 Oh it's official 66 is our booth So this is like a big deal"
+    },
+    {
+      "start": 4838.37,
+      "end": 4838.87,
+      "speaker": "SPEAKER_00",
+      "text": "It's"
+    },
+    {
+      "start": 4838.87,
+      "end": 4858.27,
+      "speaker": "SPEAKER_01",
+      "text": "going down man Have you been to All Things Open before Johnny? No never Oh it's a great one It's like the biggest open source conference If you come we'll buy you some steak At Sullivan's Oh just you Johnny Not everybody listening This is just Johnny As"
+    },
+    {
+      "start": 4858.27,
+      "end": 4859.29,
+      "speaker": "SPEAKER_00",
+      "text": "an"
+    },
+    {
+      "start": 4859.29,
+      "end": 4873.45,
+      "speaker": "SPEAKER_01",
+      "text": "I'm sorry As an I'm sorry I'm welcome back officially Six, seven years later I'm sorry from a decade ago Man I don't know If you throw a scotch in there Oh there's scotch too There's scotch Smoked scotch"
+    },
+    {
+      "start": 4874.69,
+      "end": 4875.35,
+      "speaker": "SPEAKER_00",
+      "text": "Alright"
+    },
+    {
+      "start": 4875.35,
+      "end": 4888.09,
+      "speaker": "SPEAKER_01",
+      "text": "Johnny's booking his Would you drive? How'd you get there? Oh I'd probably fly I'd probably fly through the nearest thing Cool Oh man you make it hard to say no Why say no when it feels so good to say yes Absolutely"
+    },
+    {
+      "start": 4889.55,
+      "end": 4889.99,
+      "speaker": "SPEAKER_00",
+      "text": "If"
+    },
+    {
+      "start": 4889.99,
+      "end": 4982.2,
+      "speaker": "SPEAKER_01",
+      "text": "you're feeling the same way Johnny's feeling you know what to do Media change log 20 Get 20 % off Or come into Zulip and get a free pass from Jared While supplies last Very limited supply We love All Things Open Todd and team run an amazing conference It's worth going to And uh yeah All that good stuff Alright that's all for today. Bye friends We've heard from quite a few people Who are heading to All Things Open At the end of the month Most of those free tickets are gone So if you want one, act now Head to changelog .com slash community And join It's totally free Then send yourself a Zulip invite From your change log homepage And holla at your boy Thanks again to Johnny For hanging out with us Go listen to Go Time already Even non Go devs like me love that show The latest episode is a round up And ranking of a bunch of Unpopular opinions That'd be a good starter for ya Thanks once again to our partners At fly .io the home of changelog .com And to our Beat Freak in residence Breakmaster Cylinder is the GOAT Finally, thanks again to our long time Sponsors at Sentry We love Sentry, you might too Use code changelog, save 100 bucks Why not, give it a shot Have a great weekend Leave us a 5 star review If you like our shows And let's talk again real soon"
+    }
+  ],
+  "slug": "the-indispensable-cog",
+  "id": "65"
+}

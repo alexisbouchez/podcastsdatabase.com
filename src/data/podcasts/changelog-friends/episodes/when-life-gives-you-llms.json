@@ -1,0 +1,1682 @@
+{
+  "title": "When life gives you LLMs...",
+  "description": "Zeno Rocha from Resend discusses email etiquette, AI SEO trends, LLM enshittification concerns, and the new SLATE Auto electric truck. The conversation covers design philosophy, building in public, and emerging strategies for optimizing content visibility in AI-powered search systems.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/91",
+    "MP3": "https://cdn.changelog.com/uploads/friends/91/changelog--friends-91.mp3",
+    "YouTube": "https://youtu.be/PEq2NNvcLFE",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "zeno-rocha"
+  ],
+  "segments": [
+    {
+      "start": 15.31,
+      "end": 58.09,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about modular EV trucks. Big thanks to our partners at Fly.io, the public cloud built for developers who ship. Try Fly like we did and you may find yourself deploying all your apps there like we do. Fly.io. Okay, let's talk. Well friends, I'm here with Terrence Lee talking about what's coming for the next generation of Roku. They're calling this next-gen fur. Terrence, one of the biggest moves for fur in this next generation of Roku, it's being built on open standards and cloud native. What can you share about this journey?"
+    },
+    {
+      "start": 58.09,
+      "end": 68.17,
+      "speaker": "zeno-rocha",
+      "text": "If you look at the last half a decade or so, there's been a lot that's changed in the industry. A lot of the 12 factorisms that have been popularized and are well accepted even outside"
+    },
+    {
+      "start": 68.17,
+      "end": 91.31,
+      "speaker": "jerod-santo",
+      "text": "the Ruby community are things that are think table stakes for building modern applications. And so being able to take all those things from 10, 14 years ago, being able to revisit and be like, okay, we helped popularize a lot of these things. We now don't need to be our own island of this stuff and it's just better to be part of the broader ecosystem. Like you said, since Heroku's existence, there's been people who've been trying to rebuild"
+    },
+    {
+      "start": 91.31,
+      "end": 102.23,
+      "speaker": "zeno-rocha",
+      "text": "Heroku. I feel like there's a good Kelsey quote, when are we going to stop trying to rebuild Heroku? It's like people keep trying to build their own version of Heroku internally at their own company, let alone the public offerings out there."
+    },
+    {
+      "start": 102.23,
+      "end": 105.51,
+      "speaker": "jerod-santo",
+      "text": "I feel like Heroku has been the gold standard."
+    },
+    {
+      "start": 105.51,
+      "end": 117.83,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. I mean, I think it's the gold standard because there's a thing that Heroku's hit this piece of magic around developer experience, but giving you enough flexibility and power to do what you need to do."
+    },
+    {
+      "start": 117.83,
+      "end": 127.29,
+      "speaker": "jerod-santo",
+      "text": "Okay. So part of Fur and this next generation of Heroku is adding support for .NET. What can you share about that? Why .NET and why now?"
+    },
+    {
+      "start": 127.29,
+      "end": 133.63,
+      "speaker": "zeno-rocha",
+      "text": "I think if you look at .NET over the last decade, it's changed a lot. .NET is known for being this Windows-only platform."
+    },
+    {
+      "start": 133.63,
+      "end": 218.81,
+      "speaker": "jerod-santo",
+      "text": "You have WinForms, use it to build Windows stuff, double IS, and it's moved well beyond that over the last decade. You can build .NET on Linux, on Mac. There's this whole cross-platform open source ecosystem, and it's become this juggernaut of an ecosystem around it, and we've gotten this asked to support .NET for a long time. It isn't a new ask. And regardless of our support of it, like people have been running .NET on Heroku in production today. There's been a monobill pack since the early days when you couldn't run .NET on Linux, and now with .NET Core, the fact that it's cross-platform was .NET Core bill pack that people are using to run their apps on Heroku. The kind of shift now is to take it from that to a first-class citizen. And so what that means for Heroku is we have this languages team. We're now staffing someone to basically live, breathe, and eat being a .NET person, right? Someone from the community that we've plucked to be this person to provide that day-zero support for the language and runtimes that you expect and like we have for all of our languages, right? To answer your support and deal with all those things when you open support tickets on Heroku and kind of all the documentation that you expect for having quality language support in the platform. In addition to that, one of the things that it means to be first class is that when we are building out new features and things, it is now one of the languages as part of this ecosystem that we're going to test and make sure runs smoothly, right? So you can get this kind of end-to-end experience."
+    },
+    {
+      "start": 218.81,
+      "end": 228.57,
+      "speaker": "zeno-rocha",
+      "text": "You can go to Dev Center, there's a .NET icon to find all the .NET documentation, take your app, create a new Heroku app, run get push Heroku main, and you're off to the races."
+    },
+    {
+      "start": 228.57,
+      "end": 263.49,
+      "speaker": "jerod-santo",
+      "text": "So with the coming release of Fur and this next generation of Heroku, .NET is officially a first-class language on the platform, dedicated support, dedicated documentation, all the things. If you haven't yet, go to Heroku.com slash changelog podcast and get excited about what's to come for Heroku. Once again, Heroku.com slash changelog podcast. So Zeno Rocha is back on the show. Welcome Zeno."
+    },
+    {
+      "start": 263.49,
+      "end": 276.09,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. Hey Adam. Hey Jared. Super happy to be here. Uh, I told the team that was going to chat with you today, they were like, Oh my gosh, the changelog folks, it's our favorite podcast."
+    },
+    {
+      "start": 276.09,
+      "end": 279.98,
+      "speaker": "jerod-santo",
+      "text": "That's our favorite thing to hear. It's been a bit, man. How you been?"
+    },
+    {
+      "start": 279.98,
+      "end": 284.21,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. It's been wild. How long has it been?"
+    },
+    {
+      "start": 284.21,
+      "end": 285.37,
+      "speaker": "jerod-santo",
+      "text": "A year?"
+    },
+    {
+      "start": 285.37,
+      "end": 289.62,
+      "speaker": "zeno-rocha",
+      "text": "Year, year and a half. Yeah. I think so."
+    },
+    {
+      "start": 289.62,
+      "end": 316.45,
+      "speaker": "jerod-santo",
+      "text": "That's too long, man. What a shame. Yeah. The last time though, I want to say like, okay, so this is Friends. We're not interviewing Zeno. We're just digging into some details, but the last time I go deep, we went to Getting to Resend. That was the last time. That's right. We went through all the history. Getting to Resend. If you want to know that journey for Zeno, check that podcast out. Sadly, that was before we were a video first on YouTube and stuff, so you won't see his face, but today you will."
+    },
+    {
+      "start": 316.45,
+      "end": 318.45,
+      "speaker": "zeno-rocha",
+      "text": "That is a shame. Cause look at that face."
+    },
+    {
+      "start": 318.45,
+      "end": 330.39,
+      "speaker": "jerod-santo",
+      "text": "You gotta have that face in there, Zeno. You gotta have it. I've been seeing your face a lot on LinkedIn lately. Are you a, are you like a LinkedIn guy now or are you just on all the platforms?"
+    },
+    {
+      "start": 330.39,
+      "end": 351.99,
+      "speaker": "zeno-rocha",
+      "text": "You know, it's crazy. I'm definitely not on LinkedIn. What I do is I'm on X, I'm on Twitter. That's my home. And then I just repost stuff on LinkedIn, but somehow the algorithm is, I've been hearing that a lot. Like, oh, you're, I see you all the time on LinkedIn. I'm like, it's not my fault. I'm just reposting stuff. It's not my fault."
+    },
+    {
+      "start": 351.99,
+      "end": 366.29,
+      "speaker": "jerod-santo",
+      "text": "Well, you should be happy about it. It's a good thing. I swear every time I log in, I see a new post from you and then I realize, no, this was three weeks ago. Because LinkedIn doesn't care at all about recency, which is strange to me, but they"
+    },
+    {
+      "start": 366.29,
+      "end": 372.49,
+      "speaker": "zeno-rocha",
+      "text": "care about Zeno. They're like, is it like a special trigger in there? Is this a Zeno post? Cause we're going to put it back at the top of your feed."
+    },
+    {
+      "start": 372.49,
+      "end": 389.01,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I wonder if it's because you use a mixture of mixed media. Like I've seen videos of you all in there. I've seen, you know, obviously your marketing images, you attach to announcements and stuff, which I think is, you know, just super well done. Are you the originating designer of recent? I feel like you are."
+    },
+    {
+      "start": 389.01,
+      "end": 405.75,
+      "speaker": "zeno-rocha",
+      "text": "Man, I would never in a million years introduce myself as a designer because I'm an engineer that loves design. I feel like that's the best way of putting it. My sister's a designer."
+    },
+    {
+      "start": 405.75,
+      "end": 411.14,
+      "speaker": "jerod-santo",
+      "text": "Dude, you designed the Dracula theme and the website, right?"
+    },
+    {
+      "start": 411.14,
+      "end": 412.14,
+      "speaker": "zeno-rocha",
+      "text": "True."
+    },
+    {
+      "start": 412.14,
+      "end": 413.14,
+      "speaker": "jerod-santo",
+      "text": "But still."
+    },
+    {
+      "start": 413.14,
+      "end": 414.14,
+      "speaker": "zeno-rocha",
+      "text": "Man, no designers."
+    },
+    {
+      "start": 414.14,
+      "end": 446.58,
+      "speaker": "jerod-santo",
+      "text": "You have more design skills in your right pinky. Than I have in my entire body. Well, I've been following recent since the beginning and I feel like the design started obviously your original co-founder founder. So I think I've always seen you as the designer for your things. And then I just assumed that you, you established the, the foundation, let's just say of the design process for recent. So it looks a lot like your stuff in my opinion."
+    },
+    {
+      "start": 446.58,
+      "end": 467.9,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. We had a lot of folks helping us, so I can definitely not take the credit. But I feel like what we really were trying to do is like, man, there's so many competitors out there. We're not the first email API in the world. So how can we differentiate and branding was the thing that we're like, we got to double down branding otherwise."
+    },
+    {
+      "start": 467.9,
+      "end": 469.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 469.02,
+      "end": 478.38,
+      "speaker": "zeno-rocha",
+      "text": "Like people need to go to the website and they need to see those cover posts and be like, Oh, okay. That's something that same grid wouldn't do, male gun wouldn't do and so on."
+    },
+    {
+      "start": 478.38,
+      "end": 539.16,
+      "speaker": "jerod-santo",
+      "text": "Right. So the recent design is really solid. I like it a lot. It's definitely of a era or a, an ilk. Like it's very much in the linear kind of a, is it S Shaw DC and I don't know, like the, like whatever that toolkit is that I don't know the initials, which produces really polished, really kind of high quality black, mostly in dark mode, mostly designs which have been very popular the last five years. And I don't keep up with design trends, but I'm starting to, I mean, I keep up with them as far as I eventually noticed them, but I'm not like at the front end of that, but I wonder a company starting today, if you were starting a recent today, would it look like this or is, cause you always tend to be at the very front edge, I think of, of trends or would it look more what's new and going on in, in design world, that's going to be trending maybe next year."
+    },
+    {
+      "start": 539.16,
+      "end": 638.78,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. I feel like when you're getting started, you should try to lean on the trendy movement because you want to position yourself as this modern player in the market. So following the trend is actually a good thing. As you evolve, just like linear, you go to the linear website. Now it's way less fancy than it used to be because now you can afford to build more timeless design once you establish yourself, once you establish the brand, which probably is a step that we might take a year or two from now, something like that, but you need to show that you're different. So for us, it was like, yeah, let's go dark mode first, dark mode only, and that's just a different move. Let's go with like a WebGL on the hero because we need to show right away that we're different. So those were decisions that we made that were very intentional and the covers on social too, because it's like, okay, we know that developers, they appreciate when this other developer ships a lot. So that's something that when we see other companies doing or other developers doing, you're like, wow, this is so great. They're always moving, always shipping. So we wanted to get that feeling of like always shipping. So every day we got a post, like that's a part of like, there are days that I hate and I don't want to post, but I feel like it's my duty as a founder. It's my duty to be investing on my personal brand along with the company brand. And those two need to evolve in different ways, but they need to exist both."
+    },
+    {
+      "start": 638.78,
+      "end": 676.31,
+      "speaker": "jerod-santo",
+      "text": "Is there anybody breaking that rule? Because I definitely feel like that's true. And yet I imagine there's probably founders out there who never post and just do their thing and are still killing it for some reason, but it's so hard to get attention nowadays. How would you do it? And so you have to post, I don't know. Is there anybody who just, and this is not necessarily for you Zeno, but even Adam, like, is there a startup or a scale up that just kills it and doesn't have constant marketing and social media stuff going on? Or is it pretty much part of the game now?"
+    },
+    {
+      "start": 676.31,
+      "end": 677.87,
+      "speaker": "zeno-rocha",
+      "text": "I think it's part of the game personally."
+    },
+    {
+      "start": 677.87,
+      "end": 678.87,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 678.87,
+      "end": 683.7,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. It's, it's been my biggest fear for a decade now that eventually everybody will have to"
+    },
+    {
+      "start": 683.7,
+      "end": 758.04,
+      "speaker": "jerod-santo",
+      "text": "become some version of a media company. I mean, I was even looking at this, like, as you know, Jared, I've recently gotten back into golf. Jared visited and we tore some golf courses and, you know, it's a connection point for us. I'm trying to improve my game, you know? And I'm just learning that, wow, like TaylorMade and Ping and Titleist and these major brands, they are basically media companies. Now, if you go on YouTube and look at this stuff, you just see, you obviously see the PGA tour stuff, but you see the brand specific things, even like this thing called Trackman and that it's a hardware slash software product that's used to track your swing and ball and speed and stuff like that. Like they are a, you know, hardware software manufacturer for the golf industry and you go to their YouTube, they've got really good content. And the reason why they have really good content is because they're focused on creating media that pulls people in. And I kind of feel like it's funny to ask this question because like literally last night I was thinking to myself, there are infinite channels in this world to subscribe to. As I said, just got back into golf and I'm just discovering this plethora of content. It's just there waiting for you, you know, tap into the channel."
+    },
+    {
+      "start": 758.04,
+      "end": 837.48,
+      "speaker": "zeno-rocha",
+      "text": "Man, that's so true. I'm glad you brought that up because I'm thinking about it a lot, about that a lot recently. I even, I chatted with Gary Tan from YC last Friday because I was like, man, this is so top of mind for me. And I feel like when he joined YC, he brought up that, you know, he was a solo character on his initialized fund before he joined YC. So he was, he had his YouTube channel, he was doing his thing. But then when he joined YC, he could have just doubled down on the PGSA type of content because that's a proven content strategy, you know, for the past 20 years. But no, they just revamped their whole YouTube thing. And now you can definitely tell YC is a media company and you'll see they have multiple shows with multiple characters. Each character plays a different type of role. My placebo is different than Dalton. And so it's just, yeah, for me, it's extremely inspiring. And that's a playbook that HubSpot did, Ahrefs, like other companies may be outside of DevTools, but I can totally see DevTools going down that path too."
+    },
+    {
+      "start": 837.48,
+      "end": 912.7,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it has to be media though, content for, not a sales content, content to show off who you are, to tell your story, to tell your customer's story, to tell the bottleneck, the breakage story, the it's broken story kind of thing. Not this let's buy our thing, here's how it works only story. I feel like that's where maybe folks will hear us talk about this and go and explore and examine themselves and come back and say, oh, we should do this. Let's just sell our stuff on YouTube. I think that's not the way to do it. I think you need to talk about your world and your ecosystem, but not here's how you buy our thing. There may be a channel for that, but I feel like that's a specific layer of the funnel that you address. And that's more like sales content, literally. Can it live in YouTube? Sure. But I wouldn't, I wouldn't overly saturate that channel with two different types of content because now you got this, let's capture some people, let's get some attention, let's kind of distribution or become more exposed to certain folks in the world. And then you have, you know, Hey, I want to buy your thing. Help me buy your thing. That's a whole different content slice, but do they belong in the same channel? I don't know about that."
+    },
+    {
+      "start": 912.7,
+      "end": 954.66,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. And it's definitely not about YouTube, right? Like what we're talking here is about storytelling and where do you do that doesn't matter. Like you see all these indie hackers going down that path of building in public, which is amazing. They should do that. They're inspired by levels, they're inspired by Mark Liu and it's amazing. I guess what people typically fail is like, they just do the, they just show the good side of things, right? So they are always promoting like, Oh, this is great. This is great. This is amazing. And if you're never vulnerable, then there's no way I can connect with you on a human level, right? It's just sales."
+    },
+    {
+      "start": 954.66,
+      "end": 993.38,
+      "speaker": "jerod-santo",
+      "text": "And you know, that's the, that's the challenge though, is like how it, not that I'm not honest with the world, but how, how much of the filter do I want to remove from not so much the perfectness or the, the perfectness, casting this perfect vision of who I am or what I do or what this business does or somebody else's business does. Like it's scary to remove that filter to sort of only post the good stuff and not show the bad stuff. It's a little scary to do the bad stuff or the, the, the, the challenges not so much like, Oh, we're, we're stuck or sunken or whatever, but more like, here's a whoa, not just here's a high moment."
+    },
+    {
+      "start": 993.38,
+      "end": 1046.3,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. There's a paradox. I forgot the name now, but there's a Wikipedia page on this where you can transform a bad experience into something that's actually good. And that's the paradox. Like you go for something super bad, like an incident, but because you do the post-mortem because you were transparent about the issues that caused because you, you show like, Hey, here are the next steps. Then that actually creates more trust. So something that was bad at downtime becomes a good thing because of the transparency, because of the accountability and ownership and all that. But when you're in the middle of the fire it's hard to, you know, like want to be vulnerable like, and there, there's a line between like, okay, I can only go so far. Like if I cross this line, then yeah, it's super tricky. Super difficult."
+    },
+    {
+      "start": 1046.3,
+      "end": 1050.9,
+      "speaker": "jerod-santo",
+      "text": "I think that Wikipedia page is called when life gives you lemons, you make lemonade."
+    },
+    {
+      "start": 1050.9,
+      "end": 1052.02,
+      "speaker": "zeno-rocha",
+      "text": "Is that right?"
+    },
+    {
+      "start": 1052.02,
+      "end": 1060.82,
+      "speaker": "jerod-santo",
+      "text": "That's the page. Oh my gosh. Did you see that? I don't watch the show. I think it's from millions or billions. I don't know what this show is. I don't even know the actor."
+    },
+    {
+      "start": 1060.82,
+      "end": 1064.92,
+      "speaker": "zeno-rocha",
+      "text": "It's gotta be billions because millions is not impressive anymore."
+    },
+    {
+      "start": 1064.92,
+      "end": 1072.58,
+      "speaker": "jerod-santo",
+      "text": "But they said that he's like, Hey, when life, well, when life gives you lemons, make lemonade. He's like, no. When life gives you lemons. And then he goes on."
+    },
+    {
+      "start": 1072.58,
+      "end": 1187,
+      "speaker": "zeno-rocha",
+      "text": "First, you roll out a multimedia campaign to convince people lemons are incredibly scarce, which only works if you stockpile lemons, control the supply, then a media blitz. Lemons are the only way to say I love you. The must have accessory for engagements or anniversaries, roses are out. Lemons are in. Billboards that say she won't have sex with you unless you've got lemons. You cut the beers in on it. Limited edition lemon bracelets, yellow diamonds called lemon drops. You get Apple to call their new operating system OS lemon, little accent over the O. You charge 40% more for organic lemons, 50% more for conflict free lemons. You pack the capital with lemon lobbyists. You get a Kardashian to suck a lemon wedge in a leaked sex tape. Timothée Chalamet wears lemon shoes at Cannes. You get a hashtag campaign, something isn't cool or tight or awesome, no, it's lemon. Did you see that movie? Did you go to that concert? It was effing lemon. Billie Eilish, OMG, hashtag lemon. You get Dr. Oz to recommend four lemons a day in a lemon suppository supplement to get rid of toxins because there is nothing scarier than toxins than you patting the seeds. You write a line of genetic code that makes lemons look just a little more like tits, and you get a gene pattern for the tit lemon DNA sequence. You cross pollinate, you get those seeds circulating in the wild, and then you sue the farmers for copyright infringement when that genetic code shows up on their land. Sit back, rake in the millions, and then when you're done and you've sold your Lempire for a few billion dollars, then and only then you make some fucking lemonade. But yeah, life, lemons, lemonade, sure."
+    },
+    {
+      "start": 1187,
+      "end": 1194.94,
+      "speaker": "jerod-santo",
+      "text": "Yeah. So you're selling lemonade. So Zeno, what are some failures you posted?"
+    },
+    {
+      "start": 1194.94,
+      "end": 1195.94,
+      "speaker": "zeno-rocha",
+      "text": "Oh boy."
+    },
+    {
+      "start": 1195.94,
+      "end": 1205.5,
+      "speaker": "jerod-santo",
+      "text": "You're willing to talk about what are some, you got an incident, you got a fail, bad decision, bad hire, don't name names. What do you got?"
+    },
+    {
+      "start": 1205.5,
+      "end": 1313.59,
+      "speaker": "zeno-rocha",
+      "text": "Something vulnerable? Man, so many of those. I think the incident is a good one because, you know, I think we went for some pretty bad stuff. Like there was one last chance. So it's been more than a year since we had those two incidents, but the timing of them were terrible. Like, so there was one incident where it happened right before our launch week. And then this other incident that happened after we were announcing something else. And it's so weird because I remember when the incident was happening. So one of them was related to data being leaked. So that's like the worst possible type of incident because it's not just a downtime. It's like, you're actually, you know, and it's, it was so hard to navigate those moments and I felt like, okay, this is it. Like there's no way we're going to recover from them. There's absolutely no way. But then you're like, okay, this, this is what I'm doing and yeah, like what I'm going to do, am I going to hide or just like go with it and, and trying to make the most out of it and, and learn it. So the weird thing about the bad stuff is that when you look back in retrospect, everything is different. Today I'm extremely grateful for those things to happen in the very early days of recent because it changed the way I see security how often I run pen tests and so many other things like how often we run stuff on the CI. So we detect stuff before it goes to production. And I could, you know, say so many things about this, but yeah, I feel like when bad stuff happens, you always have to try to see the good side. Otherwise yeah, you don't recover from it."
+    },
+    {
+      "start": 1313.59,
+      "end": 1326.31,
+      "speaker": "jerod-santo",
+      "text": "I heard it said maybe it was Adam that said this, that, and maybe an Adam original, maybe not, but you're, it's only a failure if you don't learn anything. Like if you don't learn, is that an Adam original?"
+    },
+    {
+      "start": 1326.31,
+      "end": 1328.31,
+      "speaker": "zeno-rocha",
+      "text": "I don't know. It sounds good."
+    },
+    {
+      "start": 1328.75,
+      "end": 1330.75,
+      "speaker": "jerod-santo",
+      "text": "Go on. I'll not say that one."
+    },
+    {
+      "start": 1330.75,
+      "end": 1331.75,
+      "speaker": "zeno-rocha",
+      "text": "Say it again."
+    },
+    {
+      "start": 1331.75,
+      "end": 1335.42,
+      "speaker": "jerod-santo",
+      "text": "Fresh. It's only a failure. If you don't learn something."
+    },
+    {
+      "start": 1335.42,
+      "end": 1336.42,
+      "speaker": "zeno-rocha",
+      "text": "Yeah."
+    },
+    {
+      "start": 1336.42,
+      "end": 1341.46,
+      "speaker": "jerod-santo",
+      "text": "That's not an original. If you learn from your failure, then it's not a failure anymore. You've actually turned it into lemonade really."
+    },
+    {
+      "start": 1341.46,
+      "end": 1342.46,
+      "speaker": "zeno-rocha",
+      "text": "Yeah."
+    },
+    {
+      "start": 1342.46,
+      "end": 1365.52,
+      "speaker": "jerod-santo",
+      "text": "And I mean, the fact that you can be thankful for what was potentially a catastrophic incident shows that you actually learned and adjusted and, you know, are now more resilient than you used to, than you would have been had you not had that situation. So that's all good. Now if it actually kills you, then it's not good. Right. Whatever."
+    },
+    {
+      "start": 1365.52,
+      "end": 1366.52,
+      "speaker": "zeno-rocha",
+      "text": "It doesn't kill us."
+    },
+    {
+      "start": 1366.52,
+      "end": 1371.48,
+      "speaker": "jerod-santo",
+      "text": "Make you stronger, right? But if it kills us, then it's not, no, you're not thankful. We're dead."
+    },
+    {
+      "start": 1371.48,
+      "end": 1396.18,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. So many catchphrases. Right. Yeah. Like remember Twitter back in 2010, like the, the, the blue whale, like all the time. Like that was the, yeah, it was so unstable. Today we don't even think about it anymore. You know, like it's just works. But yeah, I think about that a lot."
+    },
+    {
+      "start": 1396.18,
+      "end": 1430.88,
+      "speaker": "jerod-santo",
+      "text": "There was something about the fail whale that it became cultural. It became like Twitter culture and also produced this, not FOMO, but like fear because we're all missing out. Like you're basically, you're hitting refresh waiting for the fail whale to go away. Cause like you want the site to come back up. And so it was almost one made you want to use it more even in a weird way. Cause you're like, Oh, it's down, you know? So that was kind of a weird deal where it kind of produced more demand, which probably was really bad for the engineers that are trying to get it back up again. Like stop hitting refresh guys."
+    },
+    {
+      "start": 1430.88,
+      "end": 1432.84,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, for sure."
+    },
+    {
+      "start": 1432.84,
+      "end": 1443.94,
+      "speaker": "jerod-santo",
+      "text": "As far as the addiction factor, I think it probably helped us all get addicted to it back in the early days. Cause sometimes you don't realize the addiction until something gets pulled away from you. You know?"
+    },
+    {
+      "start": 1443.94,
+      "end": 1445.94,
+      "speaker": "zeno-rocha",
+      "text": "Oh yeah. Oh yeah."
+    },
+    {
+      "start": 1445.94,
+      "end": 1472.04,
+      "speaker": "jerod-santo",
+      "text": "That's so true. Well friends, it's all about faster builds teams with faster builds, ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith co-founder and CEO of Depot. Okay. So Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or get up actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 1472.08,
+      "end": 1544.37,
+      "speaker": "zeno-rocha",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is if you think about a CI provider, it is in essence a lowest common denominator, generic VM. And then you're left to your own devices to essentially configure that VM and configure your built pipeline effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast, making them fast, making them secure, making them cost effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features, a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes the builds more cost effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top level entity inside of generic CI providers."
+    },
+    {
+      "start": 1544.37,
+      "end": 1576.78,
+      "speaker": "jerod-santo",
+      "text": "Yes. Okay, friends. Save your time, get faster builds with Depo, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depo.dev. Get started with a seven day free trial. No credit card required again, depo.dev. Who here is addicted to their phone?"
+    },
+    {
+      "start": 1576.78,
+      "end": 1581.04,
+      "speaker": "zeno-rocha",
+      "text": "Mmm, probably. Don't want to admit it."
+    },
+    {
+      "start": 1581.04,
+      "end": 1615.98,
+      "speaker": "jerod-santo",
+      "text": "I'm happy to admit, I mean, I'm not happy to admit it, but I'm happy to admit that at least I'm aware because if I don't have this black mirror near me, I'm like, can I do life? And I think it's just because it's become this tool that I use in so many ways, right? It's a necessary thing to navigate my daily life, but it's also my boredom, you know, antidote so to speak, you know? And so there's a fine line between utility tool and, you know, the other thing, which"
+    },
+    {
+      "start": 1615.98,
+      "end": 1618.66,
+      "speaker": "zeno-rocha",
+      "text": "is not a good thing."
+    },
+    {
+      "start": 1618.66,
+      "end": 1652.31,
+      "speaker": "jerod-santo",
+      "text": "Right. And that's why it's such a mixed bag is because it's both, I mean, some things are tools, other things are entertainment, but your phone is like a thousand and one things. And so, yeah, I've left it at home and had to stop and think like, am I turning around the car or am I just going, you know, and I can live without the entertainment part, but then you're like, yeah, but what if somebody has to get ahold? I mean, it's always that, right? What if somebody has to get ahold of me and it's like, they probably don't and they'll find a way."
+    },
+    {
+      "start": 1652.31,
+      "end": 1654.11,
+      "speaker": "zeno-rocha",
+      "text": "And that's the one time they will though."
+    },
+    {
+      "start": 1654.11,
+      "end": 1659.99,
+      "speaker": "jerod-santo",
+      "text": "I know, but you know that people lived, you know, hundreds of centuries without these things and life continued."
+    },
+    {
+      "start": 1659.99,
+      "end": 1661.44,
+      "speaker": "zeno-rocha",
+      "text": "Yes."
+    },
+    {
+      "start": 1661.44,
+      "end": 1691.26,
+      "speaker": "jerod-santo",
+      "text": "Like even in the nineties when we were kids, pagers, maybe if you were, well, you had a pager. Pagers are awesome because you didn't, they had a plausible deniability built right in, you know, cause you can page somebody, but that doesn't mean they have a phone to actually call you back. And so they always had a reason to be like, sorry, I couldn't find a phone. And then you just can't argue against that. But life went on. Life was fine. Maybe it was even better."
+    },
+    {
+      "start": 1691.26,
+      "end": 1695.78,
+      "speaker": "zeno-rocha",
+      "text": "Where did you buy your pager, Jared? You know, recall I didn't, I wasn't cool enough."
+    },
+    {
+      "start": 1695.78,
+      "end": 1724.4,
+      "speaker": "jerod-santo",
+      "text": "I didn't have a pager. So I had a friend who had a pager, which is even better. Page Cody. Page Cody. Now he's like my personal assistant. I was right on the cusp of like flip phones and pagers, so pagers were just going out and my first personal device was like a little Motorola flip phone at probably the age of 15 or 16. What about you Zeno?"
+    },
+    {
+      "start": 1724.4,
+      "end": 1790.71,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, I got the flip phones too. Yeah. Yeah. I totally relate to that feeling of like, almost like addiction, borderline addiction, right? Like I remember last year, Twitter was blocked in Brazil. Like there was like a whole thing between like Elon Musk and the government and then they blocked all the internet providers. So then I traveled there, I arrived at the airport, and I have like a few hours in between flights. And I noticed this thing, like whenever I was going to do a task, I was like doing something and then if I had to wait for like three seconds for the thing to finish, then I would go to the browser and it would be like, okay, command T, TW enter. And that was just like a movement I would do. So I would always go to Twitter in between tasks, but because the website was blocked, then I would always get like this page of like, no, it's offline, it's offline. To the moment where like I was doing that for like 30 minutes, I'm like, okay, I just need to get into a VPN because I have to go there, like it's just so addicting. It's crazy."
+    },
+    {
+      "start": 1790.71,
+      "end": 1825.05,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I definitely have the pull to refresh thing, like in grain deep down in there where I'll do it without thinking about it sometimes, because I don't let my email just come in. I have to go check it because I don't want to just be pushed, but at the same time I check it all the time. That's pretty stupid. But you know, I opened the mail app and I pulled a refresh and I'll do that just habitually without even thinking about it, you know? And that's when you know, you, something's tightly ingrained email, man, email is necessary"
+    },
+    {
+      "start": 1825.05,
+      "end": 1832.95,
+      "speaker": "zeno-rocha",
+      "text": "as you can probably assume, but is it though, but is it though, do they have to get ahold of me right then?"
+    },
+    {
+      "start": 1832.95,
+      "end": 1853.46,
+      "speaker": "jerod-santo",
+      "text": "You know, you know, I'm going to wipe you on that. I think, uh, I think it was David hammer hands at one time that talked about this around the hay launch or somewhere along their storyline discussing this idea. I think I'm not too familiar. They have like an inbox, right? Where it's like not an inbox, it's an M box."
+    },
+    {
+      "start": 1853.46,
+      "end": 1854.46,
+      "speaker": "zeno-rocha",
+      "text": "What's that mean?"
+    },
+    {
+      "start": 1854.46,
+      "end": 1878.14,
+      "speaker": "jerod-santo",
+      "text": "I think it's actually, I am, I don't know. I don't know their terminology. I'm not going to try and sell the product, but the idea was essentially that just because you email me, does that mean I owe you my time as a response? And I feel like there's this, you know, just because you can find my email on the internet or maybe even book time on my cow, you know, cause we have links out there. I'm like, yeah, we'll do that sometimes."
+    },
+    {
+      "start": 1878.14,
+      "end": 1879.62,
+      "speaker": "zeno-rocha",
+      "text": "I don't like, who is this person?"
+    },
+    {
+      "start": 1879.62,
+      "end": 1922.72,
+      "speaker": "jerod-santo",
+      "text": "It's like, no, I'm sorry. That's not how this works. Right. You know, you have to be invited and you can't just get on my calendar. Uh, I think it's the same thing with the email that like, just because you emailed me, does that mean I owe you my time to respond to you? And it's a little pretentious to think that way, I think, but I think we have to be protectors of our, I would say probably our most important asset to manage is time. You can't get it back. This moment we're sharing now is gone forever. You know, this is time you can not rewind and do differently. And so you dedicate that time to something that you think is important. Does that mean I have to dedicate it to respond to you? Cause you email me, I'd say no, no."
+    },
+    {
+      "start": 1922.72,
+      "end": 1924.24,
+      "speaker": "zeno-rocha",
+      "text": "And it's so hard to say no."
+    },
+    {
+      "start": 1924.24,
+      "end": 1940.19,
+      "speaker": "jerod-santo",
+      "text": "Right. Yeah. And I do not reply to every email, but I read almost all of them, you know, and that, that upsets me. That's an even different question. Like, do I, do I owe you the time to read your email? Exactly."
+    },
+    {
+      "start": 1940.19,
+      "end": 1942.19,
+      "speaker": "zeno-rocha",
+      "text": "Exactly. Gosh."
+    },
+    {
+      "start": 1942.19,
+      "end": 1946.6,
+      "speaker": "jerod-santo",
+      "text": "You know, I think it's like the sixth time that you sent it just following up."
+    },
+    {
+      "start": 1946.6,
+      "end": 1948.96,
+      "speaker": "zeno-rocha",
+      "text": "Oh my gosh."
+    },
+    {
+      "start": 1949.6,
+      "end": 2004.92,
+      "speaker": "jerod-santo",
+      "text": "So Adam and I get a lot of the same emails because we share editors at change dog.com. So many of them are pitches and so many of them are so bad. And so many of them follow up without response. Like we have not said a word, but they'll send four, five, six emails, just professional courtesies. They call it. And so every once in a while, one of us will reply with an all caps unsubscribe, but one person who neither one of us engaged with at all, finally emailed back for like the fifth time with no response and accused us of ghosting them. I was like, you can't ghost somebody you've never talked to, you know, like, what are you talking about ghosting you? We've just ignored your emails. It's like, that's the first for me is like being accused of like mistreatment from somebody I've never met and has only stolen like, you know, 30 seconds of my time. Five times."
+    },
+    {
+      "start": 2004.92,
+      "end": 2007.92,
+      "speaker": "zeno-rocha",
+      "text": "I don't know. We're talking about it now though. Can I read it verbatim?"
+    },
+    {
+      "start": 2007.92,
+      "end": 2010.92,
+      "speaker": "jerod-santo",
+      "text": "I have it pulled up. I'm turning it into lemonade. You see, I've created content out of this."
+    },
+    {
+      "start": 2010.92,
+      "end": 2011.92,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, you are."
+    },
+    {
+      "start": 2011.92,
+      "end": 2017.92,
+      "speaker": "jerod-santo",
+      "text": "Where am I? Haha. I win. Can I read this email verbatim? Just get this for context. Sure."
+    },
+    {
+      "start": 2017.92,
+      "end": 2019.92,
+      "speaker": "zeno-rocha",
+      "text": "We're going to get our. Yes."
+    },
+    {
+      "start": 2019.92,
+      "end": 2027.16,
+      "speaker": "jerod-santo",
+      "text": "It says, Adam and Jared, this was my last email I send to you. Come on."
+    },
+    {
+      "start": 2027.16,
+      "end": 2028.52,
+      "speaker": "zeno-rocha",
+      "text": "Finally some good news."
+    },
+    {
+      "start": 2028.52,
+      "end": 2035.22,
+      "speaker": "jerod-santo",
+      "text": "Either you ghosted me or you don't want so-and-so on your podcast. If anything changes, let me know."
+    },
+    {
+      "start": 2035.22,
+      "end": 2036.22,
+      "speaker": "zeno-rocha",
+      "text": "Yeah."
+    },
+    {
+      "start": 2036.22,
+      "end": 2045.57,
+      "speaker": "jerod-santo",
+      "text": "I mean, I applaud their efforts. I really do. I mean, they're getting creative at least. Yeah. But we never ghosted you. No. Because we never talked."
+    },
+    {
+      "start": 2045.57,
+      "end": 2046.57,
+      "speaker": "zeno-rocha",
+      "text": "Haha."
+    },
+    {
+      "start": 2046.57,
+      "end": 2059.65,
+      "speaker": "jerod-santo",
+      "text": "That's right. You've only stolen our time here in this podcast and in our emails five or so times. Oh gosh. And we've never engaged with you. And just because we create podcasts and invite people on our shows doesn't mean we owe you a response."
+    },
+    {
+      "start": 2059.65,
+      "end": 2060.65,
+      "speaker": "zeno-rocha",
+      "text": "That's right."
+    },
+    {
+      "start": 2060.65,
+      "end": 2064.89,
+      "speaker": "jerod-santo",
+      "text": "And then we have a phone number on our website, Zeno. And they call us. I got a phone call last week, Jared."
+    },
+    {
+      "start": 2064.89,
+      "end": 2067.9,
+      "speaker": "zeno-rocha",
+      "text": "Well, that's your fault. You put our phone number on our website."
+    },
+    {
+      "start": 2067.9,
+      "end": 2069.9,
+      "speaker": "jerod-santo",
+      "text": "It's been useful. Whose fault is this?"
+    },
+    {
+      "start": 2069.9,
+      "end": 2070.9,
+      "speaker": "zeno-rocha",
+      "text": "Haha."
+    },
+    {
+      "start": 2070.9,
+      "end": 2071.9,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2071.9,
+      "end": 2075.9,
+      "speaker": "zeno-rocha",
+      "text": "Whose fault? This is my fault. This is my fault. All right."
+    },
+    {
+      "start": 2075.9,
+      "end": 2090.35,
+      "speaker": "jerod-santo",
+      "text": "So we can't complain too much when people call that phone number. You know? No. But then they call and they're like, hey, I've emailed a few times about getting so-and-so on your podcast. Are you guys taking, accepting guests? Yeah. I respect that. If you've emailed us, we haven't responded."
+    },
+    {
+      "start": 2090.35,
+      "end": 2097.86,
+      "speaker": "zeno-rocha",
+      "text": "It's unlikely that either we're to your email or we're interested. So it's just like, don't call. Come on."
+    },
+    {
+      "start": 2097.86,
+      "end": 2146.93,
+      "speaker": "jerod-santo",
+      "text": "No, I've definitely cold emailed people. I'm sure Zeno you have as well in our lives and sent them an email and asked them for something or to come on our show and tell them why it'd be a good idea and why we would appreciate it and have gotten no response back. And maybe a couple of times, maybe like six months later when they come back across my radar and I'll be like, you know what? They never replied. I'll try one more time. Maybe I'll try it another time, especially if I really want them to come on the show. Guido van Rossum. I mean, come on, man. Many others. Yeah. But I couldn't, and I appreciate the hustle, but I do not appreciate somebody who's going to send the same person five unanswered emails. What's your limits? How many emails would you send somebody if you don't get a response?"
+    },
+    {
+      "start": 2146.93,
+      "end": 2229.97,
+      "speaker": "zeno-rocha",
+      "text": "I, as a receiver, but my technique is like, I just blocked the domain. So I, if people are like sending me these extremely like automated code emails, like zero context, they're offering me a position as a software engineer or I don't know, as something I'm like, what the hell, like not interested. That's not me. I don't know how you, you, you really put me on this list. And then if you can tell when the followups are automated, right. Because like, one thing is like, what you were doing is like, okay, as a human, I really want you on the show. And then you, you come in, you're explaining why and all that versus like, you know, you are in a sequence. Like, it's just so clear. And people have these hooks that get your attention, like, Oh, you're ghosting me. And then you're like, no, I don't want to ghost you. So then you'll reply because now they, like, they trigger something on your psyche that that makes you want to reply or there's the subject line that they use, right. To get your attention. I've seen all sorts of crazy things, like people sending emails with typos on purpose. And then they send a follow up email saying like, Oh, I fixed that. But then they get your attention."
+    },
+    {
+      "start": 2229.97,
+      "end": 2234.57,
+      "speaker": "jerod-santo",
+      "text": "That's actually hilarious because, so I just had Kendall Miller on the show a couple of"
+    },
+    {
+      "start": 2234.57,
+      "end": 2235.57,
+      "speaker": "zeno-rocha",
+      "text": "weeks ago."
+    },
+    {
+      "start": 2235.57,
+      "end": 2270.68,
+      "speaker": "jerod-santo",
+      "text": "That's true. And he was given some top tips about how to get people's attention. And one of them was that he's like, you can just spell their name wrong on purpose, which shows them that you're a real person. Like that was his reason why he does it is to just get past that immediate cause we all have that, that Bayesian filter where it's like, this is just spam, you know, but like a typo is kind of proof that you hand typed it. And so you're just, and personally, I wouldn't do that. I'm with you on it, but it's certainly a technique that people do and Kendall seems like he's okay getting that one out there if it's effective."
+    },
+    {
+      "start": 2270.68,
+      "end": 2278.4,
+      "speaker": "zeno-rocha",
+      "text": "So we all have our, our little borders of where we think is, you know, over the line and is kosher."
+    },
+    {
+      "start": 2278.4,
+      "end": 2319.64,
+      "speaker": "jerod-santo",
+      "text": "Let me go on record too and say, well, I want to say like, even though I'm personally, and we all are collectively, I would say loosely, just like griping about this as someone who's an encourager, keep going. Don't stop. Do that stuff. You may upset me. I may go on a podcast and not name you, but literally verbatim read your email out loud. I might, I might, I might, I might ghost you. I'm just saying, but still do it, man. Like push whatever buttons you got to by any means necessary, push through those boundaries and find your way. Right. But we get to push back, you know, like we get to come on a show and say, this is not cool. That's right. And that's just part of life. Like that's just, that's just how it works."
+    },
+    {
+      "start": 2319.64,
+      "end": 2351.32,
+      "speaker": "zeno-rocha",
+      "text": "There's definitely something beautiful about a protocol that you can reach anyone in the world if you know that one, that there's just something beautiful. Right. And then you can try your shot. Like, Oh, let me see if I can get a hold of Jeff Bezos. I don't know. I'm sure that he has an email and there's an executive assistant that like triages that. But yeah, like you hear stories of like Tim Cook answering stuff like, like you can always just try your luck."
+    },
+    {
+      "start": 2351.32,
+      "end": 2373.75,
+      "speaker": "jerod-santo",
+      "text": "That is so true. And it's such a, an equalizing technology where it's like, as long as you can get the email address and craft the email in the proper way, like if you can find the magic combination of characters to put into this little box and send it, you can get the attention of anybody in the world."
+    },
+    {
+      "start": 2373.75,
+      "end": 2374.75,
+      "speaker": "zeno-rocha",
+      "text": "That's true."
+    },
+    {
+      "start": 2374.75,
+      "end": 2421,
+      "speaker": "jerod-santo",
+      "text": "I mean, theoretically, but yeah, that's, I mean, it happens, although it also doesn't happen, you know, like sometimes they ghost you sometimes, oh, that's hilarious. But yeah, I, I mean, email is probably to this day, like top five coolest things in technology, right? Like the way it works, it hasn't, you know, of course it has its problems that I'm sure you know all of them very well as a email sending provider. You know, a lot of the technical problems, of course, spam is an issue. I mean, there's so many issues, but it's not siloed. It's federated in like old school ways."
+    },
+    {
+      "start": 2421,
+      "end": 2426.85,
+      "speaker": "zeno-rocha",
+      "text": "It works and yeah, you can reach anybody in the world just by having their address."
+    },
+    {
+      "start": 2427.29,
+      "end": 2440.64,
+      "speaker": "jerod-santo",
+      "text": "Theoretically, nobody owns it. And then maybe you can speak to the deliverability aspect because I think there's some layer of ownership or centralization. It's like there's a cabal, so to speak, that gate keeps the protocol to some degree."
+    },
+    {
+      "start": 2440.64,
+      "end": 2443.45,
+      "speaker": "zeno-rocha",
+      "text": "Google and Microsoft, basically."
+    },
+    {
+      "start": 2443.45,
+      "end": 2456.73,
+      "speaker": "jerod-santo",
+      "text": "You know, like I imagine deliverability is probably the biggest thing and like somebody controls deliverability of email. And if you don't send from a certain IP address or a range of IP addresses, you have less likely the ability to actually utilize the protocol."
+    },
+    {
+      "start": 2456.73,
+      "end": 2463.41,
+      "speaker": "zeno-rocha",
+      "text": "You may send it to the ether, but it won't actually arrive because the system says no, essentially."
+    },
+    {
+      "start": 2463.41,
+      "end": 2497.13,
+      "speaker": "jerod-santo",
+      "text": "Which is that fair, Zeno? Is it basically Gmail and Outlook or Yahoo? I mean, there's probably just a few centralized providers who have so many people's emails hosted that if they lock you out for whatever reason, they think that you're a bad actor, then you're kind of locked out and you can't hit, you know, a third of email addresses in the world. I mean, Gmail is so massive. I'm not sure how big Microsoft's email hosting is, but I'm sure it's just massive. And I'm sure there's other big players like that, but those are the two that come to mind."
+    },
+    {
+      "start": 2497.13,
+      "end": 2652.28,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, they're absolutely right. Like Gmail definitely dominates. And then you have like Yahoo is super popular in Japan, for example, still. And then Outlook still and Hotmail, like those ones, like for Microsoft. What is cool about them and not cool too is like they have to keep improving their game, otherwise their products get obsolete. And especially now with AI, you can generate like so many different emails and they're highly personalized and it gets even more tricky, right? But I think the beauty is like, or the challenge for them is like, okay, how do we evolve? And in the beginning, you're totally right, Adam, like there was a lot of emphasis on the IP level. So then you would have like an IP, if the reputation of that IP is good, then just let all those emails go through. And then email providers came up and they're like, okay, now I have this big IP pool and I just shove people there and then the good actors balance the bad actors. So then these inbox providers, they're like, oh, okay, so now we have to go up the different abstraction layer and look at the domain more than just the IP. And they have like different techniques, like they look at how fast you send emails and that's something that dictates like, are we going to throttle the emails or not? They look at the engagement early on for like emails that are coming to the inbox and based on that, they dictate like the inbox placement. Are we going to keep it on the primary inbox, the promotional tab, the spam folder? And those things are constantly evolving. But what my, the thing I don't like is like, I wish they would evolve as fast as the web, for example, because I feel like the web was like super slow, maybe like the two thousands and then 2010 HTML five comes in and CSS tree and ECMA script six. And it's like, oh wow. Like there's so much movement and now we don't care so much about like how this website looks on opera versus Firefox versus IE6. Like it's just like the same website, very little things like that are different in Safari than Chrome and all right. But with email is still, man, so hard."
+    },
+    {
+      "start": 2652.28,
+      "end": 2707.23,
+      "speaker": "jerod-santo",
+      "text": "Tell me about it. I'm facing an uphill battle right now because Gmail just decided that they're going to start ignoring our styles in our newsletter with zero changes from me, like it's the exact same thing. It worked fine last week. I can, I can send the same email I sent two weeks ago and if I go in my archive the two weeks ago, one looks like it looks like in every other email client. And if I resend the same exact content today, it looks different. Specifically they're ignoring our fonts and our link colors, the form, like the, the actual form of the email is still there, but it just looks kind of whack and there's no announcements. There's no nothing. It's just like, you know, they just change the way they handle rendering. And now I have to go chasing down whatever it is different in order to get my rules to work. And that just makes me mad, you know? And there's, I mean, I can't ignore it's Gmail."
+    },
+    {
+      "start": 2707.23,
+      "end": 2731.51,
+      "speaker": "zeno-rocha",
+      "text": "And at least with browsers, like, you know, there's an engine behind and that engine is open source. So you're like, okay, Gekko for Firefox and Blink for Chrome. And then there's an actual change log publicly available. But for those, right? Yeah. Email engines like, no, there's nothing that it's like, oh, here's what we change in terms of rendering. No. Like you cannot find it."
+    },
+    {
+      "start": 2731.99,
+      "end": 2744.27,
+      "speaker": "jerod-santo",
+      "text": "I want to pause for a second, just to reflect on the idea that Jared just said, resend. And then you just said change log. I just think that's kind of cool how both show up in natural conversation. Wow. That's beautiful."
+    },
+    {
+      "start": 2744.27,
+      "end": 2746.27,
+      "speaker": "zeno-rocha",
+      "text": "You know, that's good. Naming by us, by all of us."
+    },
+    {
+      "start": 2746.27,
+      "end": 2762.47,
+      "speaker": "jerod-santo",
+      "text": "Do you like that a lot? And I had to go sign in Jared to Gmail and look at it cause like, you're right. Like it, it looks fine. It's not the worst ever, but it's not respecting the styles. It's respecting the overall framework of how the email looks and stuff. It's all gone."
+    },
+    {
+      "start": 2762.47,
+      "end": 2763.47,
+      "speaker": "zeno-rocha",
+      "text": "What's up with that?"
+    },
+    {
+      "start": 2763.47,
+      "end": 2826.73,
+      "speaker": "jerod-santo",
+      "text": "They're over, they're using their own fonts. It's like the care more and Microsoft has done this a while specifically. Like if you log into whatever it is live 365, or if you use like the, the Microsoft office in the cloud thing and read the email there, it's also ugly cause they want, they want to look like their UI inside their web app. And so like all the links are blue cause that's what Microsoft wants. Now if you read that same email, still hosted by Microsoft, but inside of outlook.app or you know, the exe, sorry, I hadn't been on windows in a while. Forgot what their extension was. Outlook.exe. It'll look fine. It'll look just like it does everywhere else. But in the web app specifically, they override things and Google, I think just started doing that is my guess because Gmail just this last couple of weeks now it's like Roboto Sans or Google Sans. I don't know. I'm surprised this is news to you Zeno. Has anybody else told you this?"
+    },
+    {
+      "start": 2826.73,
+      "end": 2830.73,
+      "speaker": "zeno-rocha",
+      "text": "Oh, he knows this. No, man. He knows this. You don't know this?"
+    },
+    {
+      "start": 2830.73,
+      "end": 2838.48,
+      "speaker": "jerod-santo",
+      "text": "You hear that all the time. I hear that all the time."
+    },
+    {
+      "start": 2838.48,
+      "end": 2872.56,
+      "speaker": "zeno-rocha",
+      "text": "And then super human does their thing as well. And the Gmail mobile app will invert the colors to be like, if you're using dark mode on your phone, then there's absolutely no control like, but they will invert everything. And then you just hope that they will invert right with their inversion algorithm too. So it's just crazy like how, yeah, you just have to, still feels like super archaic even though he knows around for like 20 plus years, right? 30 plus years."
+    },
+    {
+      "start": 2872.56,
+      "end": 2958.21,
+      "speaker": "jerod-santo",
+      "text": "And I've been talking with my research assistants, Chad GBT, I've asked Grok, I think those are the only two that I asked this particular question. What I can do about this? Is there anything that they know? And they both have pushed me towards litmus, which is a commercial product. I'm sure you're aware of that one, Zeno litmus. They do take the guesswork out of email marketing. And so what I want is like a way I can like send my preview email into like all of the weirdest places that might be rendered and see how it looks and then like somehow open a dev tools kind of thing. And I think litmus offers you something like this, but you know, I'm just a guy with a newsletter. I'm not like an enterprise where litmus is like, come get our suite of tools for 150 bucks a month or whatever it is. And it doesn't feel like a product for me. And so that brings me up two thoughts, a as a recent guy, like what is there in this world or are you guys trying to solve this problem? And then B, I think this leads us into our AI SEO because both grok and chatgpt push me towards litmus. That's great for litmus, right here, potential new customer, because they were the thing that showed up that these things knew about. So let's start with the email side, like what's out there for people to be able to send the preview email into like all the weird places that might render and look at it."
+    },
+    {
+      "start": 2958.21,
+      "end": 3038.12,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. So yeah, litmus is definitely the most popular one and it's almost like a browser stack kind of product. Like they run VMs that take screenshots and then you see how it renders. So that saves you time, like you don't need another windows machine to check how things look on outlook. So that's great, but it's still like, okay, now I see that it's different. What do I do? So there are other tools like, can I email, which is the alternative to, can I use where it shows like, okay, here's how this like is Flexbox supported or not. And then they will tell you. So I was like, just like, can I use email? Exactly. That's cool. It's like SVG. You still cannot use SVG on emails. So then the tool will tell you like, no, you cannot do that. So that helps. And then if you try to like, we try to put things like that in the product, like, okay, let's add a linter compatibility checker powered by can I email on react email. So we try to shove as much tooling on the email template creation process. So then when you go live, you don't see as much inconsistencies, but there's always like a little thing here and there."
+    },
+    {
+      "start": 3038.12,
+      "end": 3125.15,
+      "speaker": "jerod-santo",
+      "text": "That's cool. And then one up, of course, if you can, if you know, can I use, replace, use with the email and you'll hit the website. So I'll definitely bookmark that. I don't think it helps me with my particular problem because I'm not using anything weird and it just like, what I might need to do is I'm, I'm putting my styles, not in line on the elements, but in the head. And I think that perhaps if I inline them, I mean, that's inlined, it's not a separate style sheet that you're like a separate resource, but it is in the head and maybe I need to get them even closer and inline everything and just bloat out all my elements and see if that fixes it. I have a, that's probably my next step is to do that. But then let's take up this other thing, which you've put some work into and I've been sharing some of your findings on is, you know, litmus is probably very happy that when I said I got this problem that these LLMs are sending me to litmus cause I didn't know about their product prior. And there was one other one. I think it was like, yeah, I forgot what it was. It wasn't as a memorable of a product name. So they lose. But when people ask for like the best developer podcast, I would love for the changelog to be the answer, right? Let's just get down to brass tacks. So how do we do that? How can I help us do that? How do we get our stuff at the top of SEO, of AI's SEO?"
+    },
+    {
+      "start": 3125.79,
+      "end": 3130.35,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, I think everyone is trying to answer that question right now."
+    },
+    {
+      "start": 3130.35,
+      "end": 3131.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3131.35,
+      "end": 3440.36,
+      "speaker": "zeno-rocha",
+      "text": "Man, for me, what really clicked. So I've been ignoring AI for the past two years, not like from a company perspective as an individual, I use AI a ton. I love it. I'm optimistic about it. I think it's great. But like on a company level, I was like, man, we just need to find product market fit. Nothing else matters. Let's just ship stuff that's going to help users. But then in January this year, I just started seeing some stuff that I couldn't ignore. So what do we do now is like, every time someone signs up for recent, we send unwelcome email. And that welcome email comes from me. And when they reply, it's very personal. So then when they reply, it comes to me and then I reply as well. And then this one day, I'm just waiting, I started to get into running. And then I'm waiting for this Nike store to open. So I'm just sitting there. It's like 30 minutes until the store opens. I'm just replying to those emails. And then one person is like, oh, I came from lovable. Like, oh, it's cool to reply that. Next person is like, oh, Claude recommended you. Reply. Chat DPT recommended you. V0 recommended you. Bolt. I just started seeing those things. It was like, six or seven emails in a row. So I was like, whoa, there's just something here. I don't know what changed, but it is the new mod, like a new version of the LLL. I don't know. But something clicked. And I was like, okay, I cannot ignore this anymore from a company perspective. I just have to keep pulling that thread. And then I started finding like, okay, who is thinking about this problem? Who is like, digging into that and, you know, it's a huge rabbit hole. And then what are the techniques to, you know, what you're saying, like, I just want more of that. Like, I want to change the log to be the default solution here, default answer. And man, like, there's so many interesting things like, for example, from a SEO perspective, we care a lot about Google, and we care about Google Search Console as the tool to see how we're doing in terms of SEO. Turns out, if you want to be the first one in ChatGPT, you've got to care about Bing, because Bing, it's what's powering the ChatGPT because of the Microsoft partnership. So that's how the whole indexing of the web came from Bing as the data source for ChatGPT. So then, okay, now that's different. How do I rank number one on Bing versus Google? Which is something you would never really pay attention to. And then you have to start thinking about, how do I structure my content on my website? Because people are asking questions to LLMs. So if they're asking questions, then it's a Q&A type of format. So then what we started doing was, let's just have more FAQs on every single page we have. And let's turn our knowledge base to be more of a question and answer to feed the LLM. And then yeah, just start playing with LLMs.txt, which is this protocol for you to just strip all the HTML and just have the content ready for LLMs to consume. So we did that as well. And man, just start going down that path using tools like Profound. So there's a tryprofound.com tool that shows you all the traffic. This one is fascinating, by the way. So the way this works is they hook into your server. And then whenever the server gets a hit, they will look at the origin of the request and then break it down between, okay, where's this request coming from? The reason why that works is because when you ask chatgpt, what is Recents pricing? For example, if you do that now, chatgpt wasn't trained in that data. So there's no way that they know that. So that's different than if you ask chatgpt, write me a poem. They can do that without using the train data. But if you ask pricing for any product, they need to look at the web. Because they are able to search the web nowadays, you get a citation. And then when you get a citation, it's basically them crawling your website, getting information. So then you get that request. You see like, okay, chatgpt went to my pricing page. And then you can start looking at the breakdown between every model. Like, okay, cloud users, they actually go to this page and chatgpt users go here. Just fascinating. It's a completely new way of looking into SEO. That's for sure."
+    },
+    {
+      "start": 3440.36,
+      "end": 3445.1,
+      "speaker": "jerod-santo",
+      "text": "That is cool. So are you using this Profound platform with Recents?"
+    },
+    {
+      "start": 3445.1,
+      "end": 3446.4,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, we are."
+    },
+    {
+      "start": 3447.62,
+      "end": 3448.62,
+      "speaker": "jerod-santo",
+      "text": "Is it worth it?"
+    },
+    {
+      "start": 3448.62,
+      "end": 3485.28,
+      "speaker": "zeno-rocha",
+      "text": "Man, right now, you got to try everything, right? I think what I love about Profound gives me the information. I think they still have a long way to go in terms of like, how do I take the beautiful graph and turn into action points? So then I can, as a team, I can be like, okay, allow them to change this content. Let's do this. Let's do that. Now you get the data. So you still have to parse the data yourself, I guess."
+    },
+    {
+      "start": 3485.28,
+      "end": 3502.44,
+      "speaker": "jerod-santo",
+      "text": "While we were discussing these things, I couldn't help myself but go to Claude and chatgpt 4.0 and say, what are the best software developer podcasts? And we'll start with Claude because that's the one that made me smile. The very first one, the changelog."
+    },
+    {
+      "start": 3502.44,
+      "end": 3503.44,
+      "speaker": "zeno-rocha",
+      "text": "Nothing else."
+    },
+    {
+      "start": 3503.44,
+      "end": 3505.44,
+      "speaker": "jerod-santo",
+      "text": "Just kidding. There's so many others."
+    },
+    {
+      "start": 3505.44,
+      "end": 3506.44,
+      "speaker": "zeno-rocha",
+      "text": "Nothing else."
+    },
+    {
+      "start": 3506.44,
+      "end": 3507.44,
+      "speaker": "jerod-santo",
+      "text": "Nothing else."
+    },
+    {
+      "start": 3507.44,
+      "end": 3508.44,
+      "speaker": "zeno-rocha",
+      "text": "Number two, Recents."
+    },
+    {
+      "start": 3508.44,
+      "end": 3532.78,
+      "speaker": "jerod-santo",
+      "text": "Wait. That's right. There was 10 listed, but we were first. I couldn't believe it. I was like, do you know? That's why you logged in. Yeah, do you know who I am? Is it in sycophant mode? That's the thing this week. Chatgpt is too sycophant. And then the chatgpt had software engineering daily first and then us second, which is just as good as first in my opinion."
+    },
+    {
+      "start": 3532.78,
+      "end": 3559.39,
+      "speaker": "zeno-rocha",
+      "text": "And what's fascinating is if you have the same prompt in like cursor or windsurf, those models, they cannot do web search. So then you will get different answers than the ones like when you use the web. So you can rank differently depending on where you're asking stuff. And yeah, just, it's crazy, man."
+    },
+    {
+      "start": 3559.39,
+      "end": 3579.59,
+      "speaker": "jerod-santo",
+      "text": "I've been really curious about how this will all play out because I think we've talked about this several times here. I think I re you said recently on these podcasts you produced that you don't really Google much anywhere. You pretty much go right to the LM, right? To ask a question for the most part, for the most part, when you're asking questions, not"
+    },
+    {
+      "start": 3579.59,
+      "end": 3580.59,
+      "speaker": "zeno-rocha",
+      "text": "finding things."
+    },
+    {
+      "start": 3580.59,
+      "end": 3698.94,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Google, Google, if I know I can just get like, sometimes you're searching for something and you know, it's the first hit on Google as long as you just type it in. And so that will be faster than going and asking, and it'll save the world some energy. I heard recently that every chatgpt question is 10X the cost of a Google search. We're just talking about not the training, but the inference cost of energy. And I'm thinking that makes sense. It's basically a database lookup versus an inference call. And so if I can save, if I can do a database lookup, I'll do it, but anything serious or that I don't know the answer to, or I can't find it quickly, then yeah, I'll pretty much ask an LLM first. And I have noticed that they started to push me towards, I don't, I mean, push me is okay. That's a, that's an implied, like I'm adding that a little bit of, although I, I hear they just added today shopping results and people are complaining that they're getting like really heavily pushed towards products on questions that don't have to do with that. I haven't used much today, so I can't say, but that's kind of a topic that's hitting the social web right now. And so maybe it's really going to push you towards products here. Now they've added some shopping stuff into chatgpt specifically, but I have noticed that like, whereas in the past it would try to answer my question, but it was always very generic. And now it's like, here are some potential things you could buy, you know, like I was trying to get my DJI sparks batteries to work again. I'm not sure if you guys know about this cause I sure as heck didn't, but the DJI spark, which is their small drone has these batteries, rechargeable batteries that if you don't use them for a while, and I haven't used my drone for maybe two years, I don't know. It's been sitting in the, in the drawer until we just got it out. If you don't use these batteries for a long time, they go into like hibernation mode and they won't charge."
+    },
+    {
+      "start": 3698.94,
+      "end": 3700.94,
+      "speaker": "zeno-rocha",
+      "text": "Really? That's good."
+    },
+    {
+      "start": 3700.94,
+      "end": 3749.42,
+      "speaker": "jerod-santo",
+      "text": "I guess it's supposed to save the battery life, but really all it does is make me think as a guy who doesn't want to go open it up and do surgery on it. Like my drone is worthless unless I buy new batteries now I can't get it to charge. So on. So of course I'm talking to chatgpt about this and it takes me down this long road of figuring out here's different things you can try at the end. It's like, you're gonna have to buy this little, I don't know, gizmo and a cable and I can give you links to ones that you can go buy on Alibaba or somewhere. And whereas it not to used to do that, but here it's like, here's an actual product you should go buy, you know, which is very helpful if I'm going to, if I'm going to go do that. But anyways, I started just ranting after you asked me a simple question, Adam, and the answer was yes, I asked my LLM."
+    },
+    {
+      "start": 3749.98,
+      "end": 3755.38,
+      "speaker": "zeno-rocha",
+      "text": "Well, I don't even know what I was going to say, but I think more of this is like five minutes ago."
+    },
+    {
+      "start": 3755.38,
+      "end": 3788.06,
+      "speaker": "jerod-santo",
+      "text": "I'm sorry. That's okay. No, that's okay. That's totally fine. I think this is definitely a conversation. I think when it comes to the way I find out what I'm curious about, let's just say there's two places I go, an LLM lately, it's been Claude first, then chatgpt. And then obviously YouTube, those are the two places I tend to go because I highly research. Like I, I just bought some new clubs. I'm going to admit it, you know, they were more than I wanted to spend because that's just how it works. But I researched that."
+    },
+    {
+      "start": 3788.06,
+      "end": 3789.06,
+      "speaker": "zeno-rocha",
+      "text": "He researched it."
+    },
+    {
+      "start": 3789.06,
+      "end": 3855.46,
+      "speaker": "jerod-santo",
+      "text": "I researched that. And then I just wonder like if, if the research isn't just confirmation bias, sometimes it is for sure. But you know, how do you research the things you want to buy or consume or enjoy in the world? And I, I really feel like the place I go to learn, I'm more conversationally asking questions to this thing versus just throwing keywords into Google and hoping I get a webpage that may help me out. I feel like the internet is dramatically changing as we speak in so far as how we find information. And I wonder how that will impact publishing of information, you know, cause like if you don't go to the website anymore to get the info and the LLM just consumes it in a case like recent it's, you don't really care cause you're just trying to get them to become a customer and enjoy your product. But in the case of something else, you may really want them to come to your website cause that's the value to your brain is like a, a captured consumer, whether they're a curious person, an advocate, a customer, you name it. I just wonder how this is going to change things."
+    },
+    {
+      "start": 3855.46,
+      "end": 3896.14,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. I was just thinking like how much of a buying decision is just confirmation bias, you know, like I think like I bought a new barbecue this weekend and I remember watching a lot of YouTube videos just so I had more excuses to buy that one barbecue that I wanted to buy, right? Like, Oh, now that I know the specs, now that I know this one thing or another, now I can justify to my engineer brain that I'm allowed to spend that much money at a barbecue."
+    },
+    {
+      "start": 3896.14,
+      "end": 3984.89,
+      "speaker": "jerod-santo",
+      "text": "Well, especially the way that, so I've been, I've been mostly a chat GPT user. I've tried llama, I've tried all these other things, but I keep coming back to that one. And I have found recently, that's why I brought up the sycophant mode, which they're working on. recently that it's been way too affirmational to my ideas and to my plans. And I'm like, I don't really want that. I don't want you to just to tell me that I'm right all the time. Cause talk about confirmation bias, like, yes, you should buy this thing that you want to buy. I'd rather just have the truth and not a yes, man. And so that made me start to think like, wow, these people who run these companies have so much power right now. Cause all it takes is a little tweak to that algorithm. And all of a sudden I got a sycophant and I'm detached from reality cause I got a yes man that I didn't, that wasn't a yes man yesterday, but today it is, you know, or that wasn't pushing a certain grocery products yesterday, but today it is. And so that's just very concerning. That's why I've been using Grok today. Cause I want to just use them both cause there's like, you know, Grok, you know, a different company obviously and different purpose. You know, like the, like the idea being truth should be the ultimate goal. I mean, that's of course the idealistic spin that Elon Musk puts on it. But I feel like if I can use both those two, then maybe I'll get the truth out of one of them or something."
+    },
+    {
+      "start": 3984.89,
+      "end": 4020.51,
+      "speaker": "zeno-rocha",
+      "text": "I don't know. I keep coming back to like, yeah, like how is this different than traditional SEO? And when Google came out, I guess it was the same concern. Right. And oh, like before I could just go to the web and now Google is like putting more results in front of me and it's influencing what I see. And then social media comes up and you were like, oh yeah, now there's this algorithm controlling what I consume. Yeah. There's, it's, it's always scary, right? Yeah."
+    },
+    {
+      "start": 4020.51,
+      "end": 4083.94,
+      "speaker": "jerod-santo",
+      "text": "Maybe we just leave the phones at home, you know, maybe that's the answer sometimes it's just let it go ahead and go out there and touch grass as the kids say. Okay. Well at least that is good information. I'm glad you've done that research on how to position yourself. I didn't know about that profound platform. I didn't know that Bing was the backing for that. And I'm sure that this is an ever evolving landscape and one that every internet phasing business is going to want to engage with. Right. Just like SEO, even though it became such a snake oil business was such an important business because everybody needed to rank well on Google to exist. And I think that whether we like it or not, that's going to be the case over the next five, 10 years. Like if you are not getting surfaced by one of these tools, you are not going to exist,"
+    },
+    {
+      "start": 4083.94,
+      "end": 4094.7,
+      "speaker": "zeno-rocha",
+      "text": "which is sad. And if you are, that's so true. And if you are number one right now, like you guys are, then you want more of that. Like you, you, you definitely want to be number one in every LLM."
+    },
+    {
+      "start": 4094.7,
+      "end": 4106.82,
+      "speaker": "jerod-santo",
+      "text": "Stay there. Yeah. I bet there's, I mean, I guess Profound might, might do this, but you need like a, you know, like here's how you rank and all these different ones. Is that one of the screens they give you on that Profound thing?"
+    },
+    {
+      "start": 4106.82,
+      "end": 4116.54,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. They show you like not exactly where you rank, but like how each LLM is consuming your data."
+    },
+    {
+      "start": 4116.58,
+      "end": 4120.5,
+      "speaker": "jerod-santo",
+      "text": "Yeah. But not necessarily pushing you out there."
+    },
+    {
+      "start": 4120.5,
+      "end": 4125.98,
+      "speaker": "zeno-rocha",
+      "text": "Because they don't have access to the prompts, right? None of us have. Right. We don't know what people are asking necessarily."
+    },
+    {
+      "start": 4125.98,
+      "end": 4153.3,
+      "speaker": "jerod-santo",
+      "text": "Well, they could ask them, like, you could plug in, like what I would like to have is here's my prompt. What are the best developer podcasts? What are my best email sending platforms or whatever? Who should I use for sending my email? And then just something monitors, like here's where you are on cloud. Here's where you're on this, this, this, this, this. And they could do that by just having an account and just asking it the question or something without needing the prompts necessarily."
+    },
+    {
+      "start": 4153.3,
+      "end": 4158.18,
+      "speaker": "zeno-rocha",
+      "text": "But yeah, they could sort of like host the prompt for you. That sort of triggers like a cron job almost."
+    },
+    {
+      "start": 4158.18,
+      "end": 4165.1,
+      "speaker": "jerod-santo",
+      "text": "That's all it is. I mean, it's basically an API key and a cron job across a set of providers. Yeah. This is probably an open source tool already."
+    },
+    {
+      "start": 4165.1,
+      "end": 4166.1,
+      "speaker": "zeno-rocha",
+      "text": "Yeah."
+    },
+    {
+      "start": 4166.1,
+      "end": 4173.58,
+      "speaker": "jerod-santo",
+      "text": "There's a YC company out there screaming into the podcast. There's a YC company? Yeah. Yeah. There's probably someone screaming into the podcast."
+    },
+    {
+      "start": 4173.58,
+      "end": 4176.46,
+      "speaker": "zeno-rocha",
+      "text": "ProductRank.ai is the one."
+    },
+    {
+      "start": 4176.46,
+      "end": 4193.14,
+      "speaker": "jerod-santo",
+      "text": "ProductRank.ai. See, Zeno has all the links. Zeno. This guy's like an LLM with good training data. There you go. AI product rankings. Understand how the top AI models promote products and brands with citations. Show notes."
+    },
+    {
+      "start": 4193.14,
+      "end": 4200.01,
+      "speaker": "zeno-rocha",
+      "text": "Well, you know, the point I think you're bringing up though, Jared, I think is important, which is this bias, right?"
+    },
+    {
+      "start": 4200.01,
+      "end": 4331.3,
+      "speaker": "jerod-santo",
+      "text": "This new technology ushered onto the world. I mean, humanity has changed because of this, at least the ones that are in like first world countries using this. I don't know how to describe, you know, access and availability to the world in this, in this idea I'm sharing. But just that if you've got access to these models and you're using the stuff, there's a lot of things you can do that isn't just generate the best email or find the best podcast or email platforms to send with, but a lot more stuff that I go back to golf, man. I mean, I literally made a club inventory list with lofts and field notes for myself because I'm a new golfer and back to being the new golfer again. And I'm reminding myself, like, when do I use my wedge? When do I use my gap? You know, how should I stand with my seven wood kind of thing, like different things like that. And so I'm like making my own club inventory. And this thing is like, rather than me type it all up and make the spreadsheet and create the table and all this tedious stuff is doing it for me and with me. And it's a very much, I would say to some degree collaborative in the fact that I know what I want. I'm asking you to produce it, but it's not just generated in the email kind of thing, but it, it knows a lot of this stuff. And if there's, if there's bias injected into this new magic box, we all have access to like from yesterday, like yesterday, it wasn't promoting this and today it is. I'm just, I don't want it to ruin what they are. Like search has been ruined, I would say over the years. Like search is not, it's reliable in the fact that like you said before Jared, if you know kind of what you're looking for, you can find it pretty easily, but you've got seven sponsored before you even get to the real content, the real content is there because it was gained in some way, shape or form. They've done things with backlinks and all this trickery to get there. Maybe they've earned it because they are the brand, who knows? And then you get the sidebar and it's just become just icky. And I don't want this new found thing that humanity has to be ickified like that."
+    },
+    {
+      "start": 4331.3,
+      "end": 4369.28,
+      "speaker": "zeno-rocha",
+      "text": "I think we should assume that's what's going to happen the same way that, you know, Google didn't have ads and then it introduced ads. ChatGPT doesn't have ads today, but Entropic is playing with ads for their results. It's like a private beta program or something. So I think you will have to pay to be among like the first ones to be, but hopefully they show as an ad. But then something else will come and they, once it starts to be so bad, then a new disruption will come up."
+    },
+    {
+      "start": 4369.28,
+      "end": 4548.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Don't you think this is where open models could win though? I mean, there was not an open alternative to Google search. I mean, that was comparable, but the current technology, at least with transformer models, there's ample opportunity and slight leads by the proprietary models for the open models to be used by somebody to come along and productize a model and create an actual product that they're going to use, not just a model you can call. That could be that disconnected, quote unquote, unbiased, it's not going to be perfect, but not like in s***fide, which is what we're all afraid of, right? That's what we're afraid of, is this going the way that everything else has gone over time. I think that that's a possibility because there's open models. There was not an open Google, there just wasn't that could compete. There was an attempt to create an alternative product like DuckDuckGo, great attempt, but maybe this time around we'll have options and maybe those options will actually keep the proprietors more honest, less crabby because they'll have more competition and people will just won't put up with it. But I mean, Google has been a search monopoly for a very long time. We haven't had options. No, we haven't. You know, you may be really sad when you said that because I was trying to think like, okay, the next thing coming out is ad supported, Claude. And that just just makes me super sad. It's like, well, now you're going to have a tier that sure, maybe it may be affordable, but I'm just so tired of these things coming out with like, here's the ad supported version of it. Like, do you want to spend the double money to get the non ad supported version of it? Maybe it might actually backfire with this kind of product because it is so personal and real. Whereas like Google search is a list of results and it's like, yes, you can pay money to just be listed before these other results, but we all know that that's what's going on. But like the way you treat Claude or chat GBT or grok or whatever it is you're using, you treat it like your little research assistant. I don't know why it's so little to us, but I like here's a little guy, you know, and you treat it like a friend and we come to a friend for something and they're shoving sponsored stuff as answers. Like that's, that's so unappealing and so unattractive as a friend. Like I wouldn't do that. Like, you know, if you came to me and I was like, you should use recent cause I'm an affiliate, you know, maybe I'll tell you, Hey, I'm an affiliate use recent and I'll get 10 bucks. I'll give you five or whatever that's friends do that kind of stuff. But if like everything I told you and as far as advice in life was just a sponsored piece of advice, I wouldn't be your friend anymore. Like you'd be so turned off by that, wouldn't you?"
+    },
+    {
+      "start": 4548.36,
+      "end": 4630.04,
+      "speaker": "zeno-rocha",
+      "text": "And maybe what changed is the memory portion of it, right? I see my wife using it and it's just so interesting because she builds like these little coaches for her. So she was like, Oh, I want to improve my health. Can you tell me like health tips every day? And then she already fed the memory with like, you know, the fact that she's married and that she has a daughter and the model knows their name. So they would tell like, okay, maybe you should go with Zeno and Victoria to like, to a brunch and just drink more water than normal. And the, the voice and tone, it cheers her up and I'm like, that's crazy. That's beautiful because it has memory now. And maybe that's the moat, you know, like if people keep talking about like, Oh, what's the moat for Ella lands? Like maybe that's, what's going to be like the fact that now they have memory, the one that has the best memory, the one that knows like, okay, Jared, like, I just want the truth. Don't try to be nice, like no fluff, right? Get me to the truth. Okay. I know that's how I'm going to communicate with him. And I would just follow that, right? Yes."
+    },
+    {
+      "start": 4630.04,
+      "end": 4646.12,
+      "speaker": "jerod-santo",
+      "text": "I did try putting, there are problems you can put in that have been able to disable sycophant mode, by the way, but go ahead, Adam. I was gonna say, I agree with you Jared on this front, because you, you want the LLM to be for you and I guess you could say your friend in a way or friendly. Yeah."
+    },
+    {
+      "start": 4646.12,
+      "end": 4647.12,
+      "speaker": "zeno-rocha",
+      "text": "Helpful."
+    },
+    {
+      "start": 4647.12,
+      "end": 4694.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Like for me, not against me. And I would say if you're advertising to me, if you've got some sort of alternate alternative motive that you're suggesting these things for, like help me find the version of truth I'm trying to seek, whether it's health tips or business advice or what's the best podcast or email platform to consider, you know, I want, I want whatever the consensus of the world, I suppose, deems as truthful and honorable versus, you know, not fabricated or made up or for some sort of, I get paid behind the scenes motive kind of thing. I want the real, and I would, I would probably immediately stop using whatever doesn't respect"
+    },
+    {
+      "start": 4694.02,
+      "end": 4695.49,
+      "speaker": "zeno-rocha",
+      "text": "that."
+    },
+    {
+      "start": 4695.49,
+      "end": 4722.22,
+      "speaker": "jerod-santo",
+      "text": "And then I would use the one does obviously, and I'd pay more, I'd probably pay more for that. I hate to even say that because I feel like everything is rented, man. They said it before. You will, you will, you will own nothing and, and, uh, and be happy. Everything is rented. Everything's a service and a rent, tired of it. I'm over it."
+    },
+    {
+      "start": 4722.22,
+      "end": 4731.38,
+      "speaker": "zeno-rocha",
+      "text": "You didn't rent those golf clubs, did you? I bought them, but I mean, a license to use those for a certain amount of time."
+    },
+    {
+      "start": 4731.38,
+      "end": 4747.98,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I didn't. I mean, honestly though, I think golf clubs are one of those things that are too personal that you couldn't, um, you really couldn't rent them. Not if you're a serious golfer. You wouldn't rent clubs. No, you certainly rent a golf cart to go on the course because who the heck's gonna take"
+    },
+    {
+      "start": 4747.98,
+      "end": 4753.86,
+      "speaker": "zeno-rocha",
+      "text": "their golf clubs and their cart to the course. That's just, that doesn't make any sense."
+    },
+    {
+      "start": 4753.86,
+      "end": 4760.7,
+      "speaker": "jerod-santo",
+      "text": "Like, wait, wait, wait, wait. Do you drive the cart to the course or you got like a trailer? You pull the cart in the trailer?"
+    },
+    {
+      "start": 4760.7,
+      "end": 4763.7,
+      "speaker": "zeno-rocha",
+      "text": "Exactly. Like who would do that? That no one would do that."
+    },
+    {
+      "start": 4763.7,
+      "end": 4764.7,
+      "speaker": "jerod-santo",
+      "text": "This is my cart."
+    },
+    {
+      "start": 4764.7,
+      "end": 4769.22,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. Can I bring my own cart? I don't want to. That's kind of like, you're really committed."
+    },
+    {
+      "start": 4769.22,
+      "end": 4776.78,
+      "speaker": "jerod-santo",
+      "text": "The only time you rent clubs is when you're in like Maui or something and you didn't bring your clubs with you. Cause you know, traveling with clubs is a pain in the butt."
+    },
+    {
+      "start": 4776.78,
+      "end": 4781.42,
+      "speaker": "zeno-rocha",
+      "text": "It is. Now I will say that a serious golfer will take their clubs with them."
+    },
+    {
+      "start": 4781.42,
+      "end": 4783.7,
+      "speaker": "jerod-santo",
+      "text": "A hundred percent, but it's still a pain in the butt."
+    },
+    {
+      "start": 4783.7,
+      "end": 4792.82,
+      "speaker": "zeno-rocha",
+      "text": "I've rented a mountain bike before when I was in Sedona and I have my own mountain bike. I didn't send mine there. I'm like, it's impractical to send my mountain bike to Sedona so I can ride it in Sedona."
+    },
+    {
+      "start": 4792.94,
+      "end": 4819.69,
+      "speaker": "jerod-santo",
+      "text": "I'll rent the exact same one that's owned by a bike shop there. And I did. I rented my literal same bike, same travel, most of the same specs, but it was pretty much on par for, to use a pun, pretty much on par for what I actually own. So it was like renting my bike close enough, but in Sedona, which is kind of cool. Ah, man. Why do we always end up dystopian when we're talking about AI?"
+    },
+    {
+      "start": 4819.69,
+      "end": 4824.29,
+      "speaker": "zeno-rocha",
+      "text": "We always kind of end up a little depressed about where it might be going."
+    },
+    {
+      "start": 4824.29,
+      "end": 4880.47,
+      "speaker": "jerod-santo",
+      "text": "I think it's kind of overwhelming because we just don't know. And there's, we have such a history of things going from like great to worse that, I mean, the internet's gone, I think from great to worse in many small and big ways. And I think Cory Doctorow has done a good job of documenting a lot of that. So we can't help to be a little bit skeptical or cynical or whatever the term is, dystopian with where we think it's going to go. I mean, in the small though, like I'm not pessimistic in the small, but when I think about the bigger pictures and like the implications, it starts to overwhelm. And a lot of it's just because we don't know. And so, you know, what you don't know is scary. That's my take. And then why do you think we always, although Zen is not always here, so he doesn't realize that we always tend to do this. We always get to hear, here we are at the end of the show, we're all a little bit like contemplative and concerned."
+    },
+    {
+      "start": 4881.15,
+      "end": 4914.47,
+      "speaker": "zeno-rocha",
+      "text": "Why is it important to think about the end result of a technology? Maybe it isn't. Like right now it works great. Right now I can come in and ask, based on what you know about me, give me your sincere opinion on my flaws and then it will give something, maybe it's great, maybe it's not, maybe it's just fluff. I mean, now there are no ads, let's just enjoy it while that's the case, you know."
+    },
+    {
+      "start": 4914.47,
+      "end": 4948.94,
+      "speaker": "jerod-santo",
+      "text": "Let's just enjoy it. Well it's still called today, we will enjoy today. I would say that life is better with these tools than it is without these tools. And that's why we all have our phone addictions, because our phone has actually provided so much value to us on a recurring basis that we've become addicted to it. I mean, you can take your phone and nothing else and travel the world, okay that would be a big stretch because there's parts of the world that probably wouldn't work, but you have to plan for that. You can travel America, let's go there."
+    },
+    {
+      "start": 4948.94,
+      "end": 4949.94,
+      "speaker": "zeno-rocha",
+      "text": "And a charger."
+    },
+    {
+      "start": 4949.94,
+      "end": 4980.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you need a charge. Take a charger. That's about it though. No, actually most hotels will have a charger for you or whatever. You know, I'm just saying like, okay, you know, maps, communications, emergencies, transactions, local touristy questions, like what could you not get? Like what else would you need? Obviously you need to eat. That's about it. That's all in there. It's a pretty valuable thing. That's amazing."
+    },
+    {
+      "start": 4980.96,
+      "end": 4990.4,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, provide your connected, provide your connected, you have access. I would rather have that than a book with the map and carry that with me. Right?"
+    },
+    {
+      "start": 4990.4,
+      "end": 5034.22,
+      "speaker": "jerod-santo",
+      "text": "Well, it's kind of like that iPad commercial gone bad where they were smashing all the stuff. They're smashing the creative stuff and all the creatives got mad about it. I wasn't mad about it, but apparently maybe I'm not creative enough, but it was a good idea like in concept because it has replaced, I think there's a better one where it's like sitting on a desk and like the phone replaces all the different things you used to have on your desk and they really have done that. They just, they can be so many different things that, yeah, you don't want to have a giant map and your, you know, your shotgun person sitting next to you in the driver's seat, you know, they've got the map open real wide and they're trying to find where you are, but then they're holding it upside down and you know, like it used to be rough and he"
+    },
+    {
+      "start": 5034.22,
+      "end": 5036.7,
+      "speaker": "zeno-rocha",
+      "text": "used to be rough."
+    },
+    {
+      "start": 5036.7,
+      "end": 5040.18,
+      "speaker": "jerod-santo",
+      "text": "Then you, then you leave your wallet on a, you're filling up gas and you leave your wallet"
+    },
+    {
+      "start": 5040.18,
+      "end": 5045.38,
+      "speaker": "zeno-rocha",
+      "text": "sitting there and you drive away at the gas station. Not speaking from personal experience or anything."
+    },
+    {
+      "start": 5045.38,
+      "end": 5112.86,
+      "speaker": "jerod-santo",
+      "text": "You know, I was, this weekend we had this thing called Founders Weekend, Founders Day here in Dripping Springs where I live at and it's this big old festival basically, you know, Friday, Saturday, Sunday, it's like everybody's there, the whole town's there. It's a small town. Everybody's there. And, and I thought I lost my phone and I freaked out. Like I was like, I was like, I didn't like cry and fall down and you know, whatever, but I was like, I was like, I knew where I left it. I knew I set it down and I was just praying when I got back, it was there still yet. But the whole time I'm like, oh my gosh, like what would I do? Sure I can go get a new one, but like, you know, I don't have the thing and it's got all my info for me. I was just like, this cannot happen. I've never literally lost my phone like this ever in my life. Today can't be the day. No, no, no. You know, I don't know what I would do if I lost my phone. I would be pretty sad. And I'd have to wait for this new one to come in, which would probably be days. So here's me days without a phone. Could you imagine that? Like, nah, let's not do that. Yeah, I can do hours, but I wouldn't want to do days. Too valuable."
+    },
+    {
+      "start": 5112.86,
+      "end": 5121.86,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. Then you're jealous. You're like, look at them. They got their phone over there. They got their phone. She's got their phone. He's got his phone. Where's my phone? Where's my phone?"
+    },
+    {
+      "start": 5121.86,
+      "end": 5138.03,
+      "speaker": "jerod-santo",
+      "text": "I don't know. Well, Zeno, your goal is to make Resend so valuable that people talk about it. Like we talk about our phones, like, where's my Resend? Come on. That guy's using Resend. She's using Resend. Where's my Resend? If you do that, you'll be a very rich man on his way."
+    },
+    {
+      "start": 5138.03,
+      "end": 5143.53,
+      "speaker": "zeno-rocha",
+      "text": "I would say on his way. What's left? What's left unsaid? What else can we be friends about?"
+    },
+    {
+      "start": 5143.53,
+      "end": 5145.65,
+      "speaker": "jerod-santo",
+      "text": "You guys want to talk about that new car?"
+    },
+    {
+      "start": 5145.65,
+      "end": 5147.52,
+      "speaker": "zeno-rocha",
+      "text": "What car is that?"
+    },
+    {
+      "start": 5147.52,
+      "end": 5150.23,
+      "speaker": "jerod-santo",
+      "text": "The new Slate Auto."
+    },
+    {
+      "start": 5150.23,
+      "end": 5153.31,
+      "speaker": "zeno-rocha",
+      "text": "Oh, I didn't see that."
+    },
+    {
+      "start": 5153.31,
+      "end": 5210.85,
+      "speaker": "jerod-santo",
+      "text": "All right. Slate.auto. I'm on it. A slate truck can be anything, even an SUV. This is a brand new company. I think they're about three years old. Just came out of stealth. Based in Michigan, I believe, but they're going to be, they're going to be a, their factory is going to be in Indiana. So it's all US based, mostly American made. A slate is a radically simple electric pickup truck that can change into whatever you need it to be. So the idea here is as an EV, it does not have great, it's not really called gas mileage anymore. It is still mileage though. Range. Yeah. It doesn't have a great range. Thank you. I'm not up to date on my EV. Yeah. It doesn't have great range. I think it's like 150 to 200, but you can buy a bigger battery. But the idea here is it's cheap. It's less than $20,000 for a truck. Now this is a small truck. It's a two seater."
+    },
+    {
+      "start": 5210.85,
+      "end": 5211.85,
+      "speaker": "zeno-rocha",
+      "text": "No way."
+    },
+    {
+      "start": 5211.85,
+      "end": 5308.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Less than 20 after EV credit. That's crazy. It's like in the range of 25 to start and it's bare bones on purpose. It's completely bare bones. There's nothing to it. Wow. There's no like dash with a computer screen that is not even painted. It's like carbon fiber. And so it's built to be wrapped, not painted because that's kind of the cool thing nowadays too. It's like, get your car wrapped and they call it slate because it's a blank slate and get it. You're supposed to customize the heck out of it. So it's like modular. You can buy different parts. You can turn it into an SUV by like buying the SUV add on. You can add battery. You can add like roof racks, like you can do that in regular cars, but you name it like the dash. You can do stuff and then you can wrap it and you can even, it's so easy to wrap. They're saying this is all just marketing fluff. It doesn't exist yet. The truck exists, but not anywhere that you can buy it. You can only reserve it, but it's so easy to wrap that you can actually do it yourself in an afternoon. Like you don't have to actually have a professional is what they're saying is the plan. And then like everything is self maintained. So like if you break off your rear view mirror, they're just going to ship you a new rear view mirror and a little tutorial on how to like put the note, the other one in. So it's kind of a cool new take, I think on reinventing the personal vehicle. And I'm into the idea. I'm not sure if I'm into the product because time will tell. I think it doesn't ship until like end of 2026. But that's the slate. What do you guys think?"
+    },
+    {
+      "start": 5308.45,
+      "end": 5310.51,
+      "speaker": "zeno-rocha",
+      "text": "I almost bought one just now."
+    },
+    {
+      "start": 5310.51,
+      "end": 5351.93,
+      "speaker": "jerod-santo",
+      "text": "This is a little truck. Well no, I know that. So I think there is, it's very popular. Not in the US. I want to say like Japan, maybe even China, India, places like that, that they have this tiny little truck and I think they only make them there and that there's been a few imported to the US and you can like, you can even like buy on the internet for like 10 grand. It just arrives. You just unbox this truck. It reminds me of that. This little simplistic thing. I think this is a revolutionary idea. Like this is the way it should be. Give me a bare bones vehicle that just drives that's modular that I can maintain that doesn't"
+    },
+    {
+      "start": 5351.93,
+      "end": 5359.77,
+      "speaker": "zeno-rocha",
+      "text": "cost Tesla prices and that you can spend more if you want to spend more and upgrade it, you know, and put all kinds of stuff on it."
+    },
+    {
+      "start": 5359.77,
+      "end": 5414.52,
+      "speaker": "jerod-santo",
+      "text": "But if you go through the little customizer, I mean, it's pretty cool. Like you can pick these different wraps, pick your color, they'll show you some different examples of people who have, you know, not real people have customized it, but what real people might do to really make it your own. And I feel like my phone is like a no case standard bog standard iPhone and I'm a weirdo because so many people have like cases and designs and like they want to trick out their phone because we all have one. You want yours to be yours. I'm just a boring loser. So I just leave it. But I feel like with these slate trucks potentially could be very popular with people that want to customize and not spend an arm and a leg doing it. I mean, you customize a Tesla and just like, well, I spent 50 K on the Tesla and now I got to get it wrapped for another five K or whatever. Like this is so much cheaper."
+    },
+    {
+      "start": 5414.52,
+      "end": 5418.24,
+      "speaker": "zeno-rocha",
+      "text": "Yeah. I think that this will be very popular with younger folks for sure."
+    },
+    {
+      "start": 5418.24,
+      "end": 5459.2,
+      "speaker": "jerod-santo",
+      "text": "Especially the way young folks that I know of at least like to stand out or be different or go countercultural, so to speak, it's a, it kind of reminds me of like the, the model T. I mean, I wasn't alive in those days, but it reminds me of like when the Ford truck first came out, the model T is like, you can have any color you want as long as it's black. Yeah. It's like, you can have any of these, you want as long as it's simple when we give it to you and then you can do whatever you want to at that point. You know, here's how simple it is. And this might be like a bridge too far for some people. You actually have to, uh, wind the window down, like with the old windy thing. Oh wow. Really? Yeah. Yeah. That might be a deal breaker for me."
+    },
+    {
+      "start": 5459.2,
+      "end": 5461.2,
+      "speaker": "zeno-rocha",
+      "text": "Okay. That's too simple."
+    },
+    {
+      "start": 5461.2,
+      "end": 5471.86,
+      "speaker": "jerod-santo",
+      "text": "Here's how simple it is. No seatbelts. No, just kidding. No seatbelts. But what do you think? I don't know. Are you going to, uh, you buy one of these? Would you get one?"
+    },
+    {
+      "start": 5471.86,
+      "end": 5482.38,
+      "speaker": "zeno-rocha",
+      "text": "I've been an optimistic this whole podcast and I'm going to be the skeptical one now. Uh, I remember seeing the modular phones. Remember those?"
+    },
+    {
+      "start": 5482.38,
+      "end": 5483.38,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 5483.38,
+      "end": 5508.51,
+      "speaker": "zeno-rocha",
+      "text": "Uh, right. It's just so tricky to build like super highly niched modular products. Uh, I love the idea, uh, but I feel like people want, they like the idea of personalization more than they actually personalize things themselves. So maybe it's great that it has an option."
+    },
+    {
+      "start": 5508.51,
+      "end": 5546.69,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I think that's true. I think that I would be with you if it wasn't so cheap. It's super cheap. To get into it, to get in, to get an EV truck for under 20K, that's bringing the price into a lot of people's wheelhouses who wouldn't otherwise not be able to afford it. So I feel like that's probably why I'm more bullish. But yeah, I agree. Customization people want, but completely modular ends up having like a Lego feel to it or something. Like it just doesn't, like when things kind of snap together, you're like, Oh, can I even trust this? So yeah, I can understand your skepticism."
+    },
+    {
+      "start": 5546.69,
+      "end": 5556.17,
+      "speaker": "zeno-rocha",
+      "text": "It has different charging options too. Like you plug it into a normal plug, a normal 120 volt plug. Yeah. It takes a little longer. I think it charges longer."
+    },
+    {
+      "start": 5556.17,
+      "end": 5622.58,
+      "speaker": "jerod-santo",
+      "text": "I appreciate a company that comes out and just like really does think about everything differently. Every assumption, like here's an assumption you have to paint your car. Like, no, you don't. Here's some carbon fiber. It's crazy. Maybe you want to wrap it. Maybe not. Yeah. Like, so that's cool. The company's kind of interesting. I think there's two women at the top founders and there's some backing by, it hasn't been confirmed, but Jeff Bezos allegedly is an early investor. And so it's kind of a Tesla competitor in that way, in every way that Bezos wants to compete with Musk. And so there's some of that going on, but they're very young, three years, who knows if they can even ship this thing. But yeah, I think it's a cool, different take on trucks. Like you said, Zenno, whether it's win, lose or draw, I think it's cool that it exists and that they're trying it."
+    },
+    {
+      "start": 5622.58,
+      "end": 5628.5,
+      "speaker": "zeno-rocha",
+      "text": "I think it needs to exist, honestly. What was that? There's like a Kia Soul or something like that. This like little ugly little box thing."
+    },
+    {
+      "start": 5628.5,
+      "end": 5638.44,
+      "speaker": "jerod-santo",
+      "text": "It's so popular with young folks like that. They're buying their first vehicle. This is going to be like that. I think there's no way they can not succeed. I'll say this now."
+    },
+    {
+      "start": 5638.44,
+      "end": 5640.44,
+      "speaker": "zeno-rocha",
+      "text": "So you're the most published of all of us."
+    },
+    {
+      "start": 5640.44,
+      "end": 5644.8,
+      "speaker": "jerod-santo",
+      "text": "I think the world needs the simplest choice to get a vehicle because I mean, that's..."
+    },
+    {
+      "start": 5644.8,
+      "end": 5646.8,
+      "speaker": "zeno-rocha",
+      "text": "Would you invest? Yeah, I'd invest."
+    },
+    {
+      "start": 5646.8,
+      "end": 5649.8,
+      "speaker": "jerod-santo",
+      "text": "Okay. I'd invest right this second. Right this second."
+    },
+    {
+      "start": 5649.8,
+      "end": 5650.8,
+      "speaker": "zeno-rocha",
+      "text": "Would you buy one?"
+    },
+    {
+      "start": 5650.8,
+      "end": 5679.01,
+      "speaker": "jerod-santo",
+      "text": "I'd invest right this second. Would you buy one? I got Apple Pay right here. I think, no, I really do. I think that this is, I agree with you, Drew. I think I applaud new companies, not just like this specifically, but ones that throw out all the rules and say, is that true? Do you really need to paint your car? Do you really need power windows? I think that's the yes. That's a yes for me. I know. I want some power windows."
+    },
+    {
+      "start": 5679.01,
+      "end": 5681.13,
+      "speaker": "zeno-rocha",
+      "text": "Yeah, that's a bridge too far."
+    },
+    {
+      "start": 5681.13,
+      "end": 5690.09,
+      "speaker": "jerod-santo",
+      "text": "But maybe that actually, I mean, the eighties is a big thing. Like I was just... There's no stereo. There's no stereo? Nope. Oh gosh. Add on."
+    },
+    {
+      "start": 5690.09,
+      "end": 5697.88,
+      "speaker": "zeno-rocha",
+      "text": "I love how the optimism is like dropping little by little."
+    },
+    {
+      "start": 5697.88,
+      "end": 5710.96,
+      "speaker": "jerod-santo",
+      "text": "I'm still optimistic. I did see that actually when I was watching, I was looking at some of these photos and I saw like a JBL kind of speaker. Well, if there's places to put things, like things can snap into the dash. Yeah, totally."
+    },
+    {
+      "start": 5710.96,
+      "end": 5719.72,
+      "speaker": "zeno-rocha",
+      "text": "But they're like, you can buy one of ours or bring your own Bluetooth stereo and just like set it in the dash. I'm like, this is crazy. But you know, it just might work."
+    },
+    {
+      "start": 5719.72,
+      "end": 5812.54,
+      "speaker": "jerod-santo",
+      "text": "I'm still for it. I think this is a good thing. I think worst case, in my opinion, is this a great place to begin? They'll probably have always this model that's like, you know what? It's bare bones. It's the OG. It's just like ZSA and our friend, you know, with the Voyager, the original ergodox, the keyboard kind of thing. Like go back in the day, you've got the OG ergodox, right? But here you've got this OG simplistic, everybody can afford it for the most part. Like it's in the... If you're in a certain income bracket or below a certain income bracket, you can likely afford this thing and plug it into your 120 volt outlet. It's that accessible. You don't really need a radio. It's nice to have it. You don't need it. You don't really need power windows. It's nice to have it. You don't need it. You don't really need the dashboard and all this stuff to show you maps. You don't need it. You have a phone. It's nice to have. I think this will spark something new for them. They will probably come out with slate, other slate versions of it. But this will be a good baseline to build from, I believe. I think so. And not that I'm a nationalist or US only. One thing they say that is touching to me as an American forever is that on their about page they say, we believe an American vehicle should be engineered and manufactured in America with slate. We're proud to remanufacturing jobs back to the Midwest. That's cool. I mean, I admire that. It's born in the USA, made in the USA."
+    },
+    {
+      "start": 5812.54,
+      "end": 5815.54,
+      "speaker": "zeno-rocha",
+      "text": "Cool, cool, cool. So Adam has reserved his."
+    },
+    {
+      "start": 5816.5,
+      "end": 5853.9,
+      "speaker": "jerod-santo",
+      "text": "He's waiting to see what happens. He's skeptical. I'm in the middle. I think it's cool. I showed it to my wife and she's like, that does not fit into our life anywhere. Of course, I got six kids, so I'm never going to drive anywhere with just me and one other person. And it's a two seater. And so as much as I think I like that form factor, I like the idea of a small truck because it's so useful, but you're also not like this big, massive thing on the road. Probably not. Probably not. She's probably right. Even though, you know, under 20K, why not grab a couple of them just for the just for just for giggles? You know, I'll take two."
+    },
+    {
+      "start": 5853.9,
+      "end": 5862.26,
+      "speaker": "zeno-rocha",
+      "text": "I'll tell you one thing. It's the it seems like a great first car for a son or a daughter. Right."
+    },
+    {
+      "start": 5862.26,
+      "end": 5869.3,
+      "speaker": "jerod-santo",
+      "text": "Like if it's roadworthy, safe, reliable, I would love to see the crush test on it. Things like that. Like, yeah."
+    },
+    {
+      "start": 5869.3,
+      "end": 5876.94,
+      "speaker": "zeno-rocha",
+      "text": "Where you give it if it's safe for the person, but bare bones is a vehicle. It's great. I'd buy that for my son any day."
+    },
+    {
+      "start": 5876.94,
+      "end": 5885.98,
+      "speaker": "jerod-santo",
+      "text": "In The Verge, they asked about safety and they said they're shooting for a five star safety rating. And then I thought to myself, who wouldn't shoot for a five star? That's the baseline. We're going for three."
+    },
+    {
+      "start": 5885.98,
+      "end": 5887.98,
+      "speaker": "zeno-rocha",
+      "text": "OK. Three point five."
+    },
+    {
+      "start": 5887.98,
+      "end": 5894.37,
+      "speaker": "jerod-santo",
+      "text": "We're going for it. Yeah. So they're shooting for it. But yeah, I don't know. Carbon fiber."
+    },
+    {
+      "start": 5894.37,
+      "end": 5906.43,
+      "speaker": "zeno-rocha",
+      "text": "I don't know. Yeah. I'm glad you brought this up, man. It's been a fun conversation. I think I think the world needs this slate. Dot auto. So cool. We should get them on the plot if they can. I'd love to talk to engineering or anybody there."
+    },
+    {
+      "start": 5906.43,
+      "end": 5907.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5907.43,
+      "end": 5911.9,
+      "speaker": "zeno-rocha",
+      "text": "If you know somebody, tell them to search Claude for us. We're first."
+    },
+    {
+      "start": 5911.9,
+      "end": 5919.9,
+      "speaker": "jerod-santo",
+      "text": "There you go. All right, guys. Should we call it a show? That's it. That's it. That's awesome. Thanks so much for hanging out with us."
+    },
+    {
+      "start": 5919.9,
+      "end": 5920.9,
+      "speaker": "zeno-rocha",
+      "text": "Yeah."
+    },
+    {
+      "start": 5920.9,
+      "end": 5928.27,
+      "speaker": "jerod-santo",
+      "text": "Good to see you, man. Check out Resend, y'all. It's the best email service, according to all the LMs."
+    },
+    {
+      "start": 5928.27,
+      "end": 5929.79,
+      "speaker": "zeno-rocha",
+      "text": "Bye, friends."
+    },
+    {
+      "start": 5929.79,
+      "end": 6002.6,
+      "speaker": "jerod-santo",
+      "text": "Bye. See ya. That is changelog for this week, unless you are a plus plus member. In that case, we have a bonus for you right after this. Zeno updates Adam on the state of the Dracula theme. And if you're not a changelog plus plus member, now's a good time to sign up, to ditch the ads, to get bonus content like this, to receive free stickers in the mail, and to directly support our work. Learn more about it at changelog.com slash plus plus. Thanks once again to our partners at Fly.io, to our sponsors of this episode, Heroku and Depot, and to our mysterious friend, Breakmaster Cylinder, for these dope beats. Oh, and did you know BMC will be joining us on Friends for a game of Pound Define? Get excited for that one. I know I am. Next week on the changelog, news on Monday, Nathan Sobow from Zed on Wednesday, and Gerhard Lazu returns for Kaizen 19 on Friday. Have a great weekend, send the changelog to your friends, who might dig it, and let's talk again real soon."
+    }
+  ],
+  "slug": "when-life-gives-you-llms",
+  "id": "91"
+}

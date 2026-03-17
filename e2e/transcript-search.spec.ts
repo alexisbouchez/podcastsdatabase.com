@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 // Use a known episode with transcript segments
-const EPISODE_URL = "/podcasts/code-to-market/episodes/34";
+const EPISODE_URL = "/podcasts/code-to-market/episodes/triangle-man-and-the-merchants-of-complexity";
 
 test.describe("Transcript search Enter key", () => {
   test("pressing Enter scrolls to matching segment and highlights it", async ({
@@ -83,7 +83,7 @@ test.describe("Transcript search Enter key", () => {
     page,
   }) => {
     // Episode 33 has 87 segments - last segments will be off-screen
-    await page.goto("/podcasts/code-to-market/episodes/33");
+    await page.goto("/podcasts/code-to-market/episodes/browserbase-s-growth-engines");
 
     const searchInput = page.locator('input[type="search"]');
     await expect(searchInput).toBeVisible();

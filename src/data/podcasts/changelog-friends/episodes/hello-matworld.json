@@ -1,0 +1,3722 @@
+{
+  "title": "Hello, Matworld!",
+  "description": "A journey to make-believe worlds with Mat Ryer, Jerod Santo, and Adam Stacoviak as they imagine fantastical worlds with invented gadgets and new rules.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/90",
+    "MP3": "https://cdn.changelog.com/uploads/friends/90/changelog--friends-90.mp3",
+    "YouTube": "https://youtu.be/2gf97Hl4fUI",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "mat-ryer"
+  ],
+  "segments": [
+    {
+      "start": 14.74,
+      "end": 67.49,
+      "speaker": "jerod-santo",
+      "text": "All right, friends, welcome to changelog and friends, the weekly talk show about building worlds. Big thank you to our friends over at fly.io. That is the home of changelog.com. Learn more at fly.io. Okay, let's talk. Well, friends, it's all about faster builds. Teams with faster builds ship faster and win over the competition. It's just science. And I'm here with Kyle Galbraith, co-founder and CEO of Depot. Okay, so Kyle, based on the premise that most teams want faster builds, that's probably a truth. If they're using CI provider for their stock configuration or GitHub actions, are they wrong? Are they not getting the fastest builds possible?"
+    },
+    {
+      "start": 67.49,
+      "end": 139.86,
+      "speaker": "mat-ryer",
+      "text": "I would take it a step further and say, if you're using any CI provider with just the basic things that they give you, which is, if you think about a CI provider, it is in essence a lowest common denominator, generic VM. And then you're left to your own devices to essentially configure that VM and configure your build pipeline, effectively pushing down to you, the developer, the responsibility of optimizing and making those builds fast, making them fast, making them secure, making them cost-effective, like all pushed down to you. The problem with modern day CI providers is there's still a set of features and a set of capabilities that a CI provider could give a developer that makes their builds more performant out of the box, makes their builds more cost-effective out of the box and more secure out of the box. I think a lot of folks adopt GitHub actions for its ease of implementation and being close to where their source code already lives inside of GitHub. And they do care about build performance and they do put in the work to optimize those builds. But fundamentally, CI providers today don't prioritize performance. Performance is not a top level entity inside of generic CI providers."
+    },
+    {
+      "start": 139.88,
+      "end": 182.74,
+      "speaker": "jerod-santo",
+      "text": "Yes, okay friends, save your time, get faster builds with Depo, Docker builds, faster GitHub action runners and distributed remote caching for Bazel, Go, Gradle, Turbo repo and more. Depo is on a mission to give you back your dev time and help you get faster build times with a one line code change. Learn more at depo.dev. Get started with a seven day free trial, no credit card required. Again, depo.dev. I was in a different Dan Tan recently. And it was just a typical Dan Tan. So cool, so cool. But he's not gonna tell us where it was, it was too cool."
+    },
+    {
+      "start": 182.74,
+      "end": 188.16,
+      "speaker": "mat-ryer",
+      "text": "I've seen some amazing downtowns in America. I've traveled, I'm very well traveled."
+    },
+    {
+      "start": 188.16,
+      "end": 191.24,
+      "speaker": "jerod-santo",
+      "text": "I'm sorry, downtowns, I'm not familiar. Do you mean Dan Tans?"
+    },
+    {
+      "start": 191.24,
+      "end": 200.48,
+      "speaker": "mat-ryer",
+      "text": "Dan Tans. Thank you. So I've visited lots of them. And there's some really lovely ones in Colorado. There's like proper olden days, probably all over all across the country."
+    },
+    {
+      "start": 200.48,
+      "end": 201.32,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 201.32,
+      "end": 203.18,
+      "speaker": "mat-ryer",
+      "text": "Where you feel like you're in a Western film."
+    },
+    {
+      "start": 203.44,
+      "end": 208.12,
+      "speaker": "jerod-santo",
+      "text": "Break that down for me when you say proper and then olden days. What does that mean?"
+    },
+    {
+      "start": 208.12,
+      "end": 210.64,
+      "speaker": "mat-ryer",
+      "text": "Oh, it just means like for real olden days."
+    },
+    {
+      "start": 210.64,
+      "end": 215.68,
+      "speaker": "jerod-santo",
+      "text": "Like the Wild West movies that you've seen. Just break it down. Break it down though."
+    },
+    {
+      "start": 215.68,
+      "end": 227.76,
+      "speaker": "mat-ryer",
+      "text": "Right, so you've got like. All the way. There's basically like a lot of dusty area, wooden like buildings, wooden buildings, saloon doors. There's a guy in there chewing tobacco."
+    },
+    {
+      "start": 227.76,
+      "end": 237.84,
+      "speaker": "jerod-santo",
+      "text": "Yeah. You see any of those, what do you call those things? Tumbleweed? Tumbleweeds, yeah, not dust bunnies, but tumbleweeds just rolling through."
+    },
+    {
+      "start": 237.84,
+      "end": 240.56,
+      "speaker": "mat-ryer",
+      "text": "Well, I get a lot of them in my normal life as well."
+    },
+    {
+      "start": 240.56,
+      "end": 241.68,
+      "speaker": "jerod-santo",
+      "text": "Really?"
+    },
+    {
+      "start": 241.68,
+      "end": 258.52,
+      "speaker": "mat-ryer",
+      "text": "Yeah, just after a joke or a witty remark, sometimes I'll do a little rhyme, little comment, something and then, you know, just silence for a bit. You can hear it blow past, but adds to the effect."
+    },
+    {
+      "start": 258.76,
+      "end": 260.8,
+      "speaker": "jerod-santo",
+      "text": "I think the thing about crickets."
+    },
+    {
+      "start": 260.8,
+      "end": 262.6,
+      "speaker": "mat-ryer",
+      "text": "Yeah, same, same thing."
+    },
+    {
+      "start": 263.1,
+      "end": 264.18,
+      "speaker": "jerod-santo",
+      "text": "Tumbleweeds and crickets."
+    },
+    {
+      "start": 264.18,
+      "end": 273.26,
+      "speaker": "mat-ryer",
+      "text": "If you make a joke and no one laughs, if you listen carefully, you can hear a game of cricket being played. Okay. And it's one of those rare things, yeah."
+    },
+    {
+      "start": 273.26,
+      "end": 288.94,
+      "speaker": "jerod-santo",
+      "text": "I would never play cricket. No, see, now here again is a misfire because I was talking about crickets, which is what you hear when you tell a joke when nobody laughs, silence. Where'd you go, Matt? Where did you visit here in the States, the state of Colorado?"
+    },
+    {
+      "start": 288.94,
+      "end": 292.64,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, well, I used to live there in Denver and in Boulder."
+    },
+    {
+      "start": 292.64,
+      "end": 293.48,
+      "speaker": "jerod-santo",
+      "text": "Boulder?"
+    },
+    {
+      "start": 293.48,
+      "end": 294.3,
+      "speaker": "mat-ryer",
+      "text": "Colorado."
+    },
+    {
+      "start": 294.3,
+      "end": 296.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Boulder. How do you say Boulder?"
+    },
+    {
+      "start": 296.76,
+      "end": 298.36,
+      "speaker": "mat-ryer",
+      "text": "Well, I say Boulder."
+    },
+    {
+      "start": 298.36,
+      "end": 299.68,
+      "speaker": "jerod-santo",
+      "text": "Boulder. Say it again."
+    },
+    {
+      "start": 299.68,
+      "end": 300.5,
+      "speaker": "mat-ryer",
+      "text": "Boulder."
+    },
+    {
+      "start": 300.5,
+      "end": 301.8,
+      "speaker": "jerod-santo",
+      "text": "Can you say Balderdash?"
+    },
+    {
+      "start": 301.8,
+      "end": 305.72,
+      "speaker": "mat-ryer",
+      "text": "I can say Balderdash, but I can't, oh, Balderdash. Yeah, but I can't say-"
+    },
+    {
+      "start": 305.72,
+      "end": 307.7,
+      "speaker": "jerod-santo",
+      "text": "Sounds cooler when you say it."
+    },
+    {
+      "start": 307.7,
+      "end": 310.74,
+      "speaker": "mat-ryer",
+      "text": "I don't think so. To me, you're the cool ones."
+    },
+    {
+      "start": 310.74,
+      "end": 317.24,
+      "speaker": "jerod-santo",
+      "text": "I think we have a friendship because we sound cool to you and you sound cool to us and it kind of just makes up for our overall lack of-"
+    },
+    {
+      "start": 317.24,
+      "end": 331.36,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I mean, if you sound like me, I just wouldn't like you, you know? Yeah, but you sound, like Adam, I can't believe someone exists who talks like you at all. Like that's a thrill for me. Imagine that, it's like being in a movie."
+    },
+    {
+      "start": 331.36,
+      "end": 341.05,
+      "speaker": "jerod-santo",
+      "text": "It's awesome, Adam. I guess so. What is it about his voice? Is it the mellifluous sounds? Is it the words he's using or the combination?"
+    },
+    {
+      "start": 341.05,
+      "end": 343.53,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it's just the whole sort of package really."
+    },
+    {
+      "start": 343.53,
+      "end": 345.58,
+      "speaker": "jerod-santo",
+      "text": "He has the entire package."
+    },
+    {
+      "start": 345.58,
+      "end": 346.42,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 346.42,
+      "end": 359.23,
+      "speaker": "jerod-santo",
+      "text": "The whole package. Yeah, I love that, you know? Well, you know, ditto, Matt. I mean, I think if we had a world where your voice didn't exist, it would not be Matt's world."
+    },
+    {
+      "start": 360.15,
+      "end": 363.13,
+      "speaker": "mat-ryer",
+      "text": "No, my world, my voice."
+    },
+    {
+      "start": 363.13,
+      "end": 382.82,
+      "speaker": "jerod-santo",
+      "text": "We're getting ahead of ourselves, or perhaps we're trying to get ahead of ourselves because perhaps a world where Jared's in charge, Matt's voice also wouldn't exist. Let's not reveal any spoilers. Matt, you brought a strange idea to us today. Actually, you didn't bring it to us today, but you brought it for today."
+    },
+    {
+      "start": 382.82,
+      "end": 383.7,
+      "speaker": "mat-ryer",
+      "text": "Sure did."
+    },
+    {
+      "start": 383.7,
+      "end": 389.98,
+      "speaker": "jerod-santo",
+      "text": "Which is what? I'm coming over, here's some toys. And how did you come up with it and why are we agreeing to it?"
+    },
+    {
+      "start": 389.98,
+      "end": 404.1,
+      "speaker": "mat-ryer",
+      "text": "Well, the why-ing we're agreeing, that's on you. And I do think why-ing, I do think why-ing should be a word. But you can't just make up words like that, can you? People look at you strangely or there's a tumbleweed."
+    },
+    {
+      "start": 404.78,
+      "end": 418.12,
+      "speaker": "jerod-santo",
+      "text": "Let's introduce it, why-ing. What does it break down to mean? Is it like when you're thinking about something, that's the process of why-ing? You're thinking about why it should or should not be a thing? You're why-ing it, you're trying to figure it out."
+    },
+    {
+      "start": 418.12,
+      "end": 420.44,
+      "speaker": "mat-ryer",
+      "text": "Yeah, why is that? You're why-ing it, you're thinking about it."
+    },
+    {
+      "start": 420.44,
+      "end": 427.92,
+      "speaker": "jerod-santo",
+      "text": "It's kinda like how-ing. Sometimes you how something, other times you why-ing. So you're why-ing or you're how-ing. Sometimes you're who-ing."
+    },
+    {
+      "start": 427.92,
+      "end": 441.56,
+      "speaker": "mat-ryer",
+      "text": "Well, if I owned the world, I'd be able to just make these new words anything I like. If someone's eating a sausage, I could say, yeah, sausage, like I could make that socially normal in this world."
+    },
+    {
+      "start": 441.56,
+      "end": 443.4,
+      "speaker": "jerod-santo",
+      "text": "That one's not that weird."
+    },
+    {
+      "start": 443.4,
+      "end": 445.8,
+      "speaker": "mat-ryer",
+      "text": "No, it's not, it doesn't have to be weird, it's just what I like."
+    },
+    {
+      "start": 445.8,
+      "end": 450.6,
+      "speaker": "jerod-santo",
+      "text": "Tell me this is a throwback to your time in Germany. Oh yeah, Berlin, when they were all calling you bad names."
+    },
+    {
+      "start": 450.6,
+      "end": 452.72,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, yeah, yeah, I love Berlin."
+    },
+    {
+      "start": 454.68,
+      "end": 460.56,
+      "speaker": "jerod-santo",
+      "text": "Isn't it because you said some other sausage, though? Wasn't there something involved with sausage? Yeah, he said, yeah, sausage,"
+    },
+    {
+      "start": 460.56,
+      "end": 471.52,
+      "speaker": "mat-ryer",
+      "text": "and they said, what did they say, Matt? They're like, oh, we don't really, we don't want to just be associated with that, we've got a lot going on also. So yeah, and that's fair enough."
+    },
+    {
+      "start": 471.52,
+      "end": 473.56,
+      "speaker": "jerod-santo",
+      "text": "Didn't some lady call you a donka?"
+    },
+    {
+      "start": 473.56,
+      "end": 481.28,
+      "speaker": "mat-ryer",
+      "text": "Yeah, everyone was saying like, donka, donka, donka. But originally I thought they were calling me names. But I didn't know that, that just means thank you."
+    },
+    {
+      "start": 481.28,
+      "end": 485.32,
+      "speaker": "jerod-santo",
+      "text": "It does. Probably for leaving, probably thanking you for leaving."
+    },
+    {
+      "start": 485.32,
+      "end": 497.74,
+      "speaker": "mat-ryer",
+      "text": "Oh, they're a lot more polite than I was, than I had any experience. Oh my gosh. The sausage bit, the sausage bit. Well, if you're not tracking, you should go back in time and listen to past shows. We can't catch up, I'm sorry."
+    },
+    {
+      "start": 497.74,
+      "end": 500.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's just a callback that's just too deep in the stack."
+    },
+    {
+      "start": 500.46,
+      "end": 501.62,
+      "speaker": "mat-ryer",
+      "text": "It is a deep cut."
+    },
+    {
+      "start": 501.62,
+      "end": 533.96,
+      "speaker": "jerod-santo",
+      "text": "You're gonna overflow. Matt, there's a strange dichotomy with British people, and you're my best example, because I know you probably better than any British person. And that's this politeness juxtaposed with tomfoolery, tomfoolery, or like just calling names and being mean. So what's up with that? It's like there's like a polite society aspect and a properness, and there's also like this underhanded, I'm gonna call you a name, you're not gonna realize it's a bad word."
+    },
+    {
+      "start": 533.96,
+      "end": 561.7,
+      "speaker": "mat-ryer",
+      "text": "Yes, well, I think what's really going on is, there is the politeness thing, where if you bump into somebody in the street, you say sorry, even if they've bumped into you, you're not really, it's not in the same way that you might say sorry in other places, where you're sort of taking responsibility, you're not. Everyone knows it was their fault. Now, they have to also say sorry, and then everything's okay. Just socially, the social rule."
+    },
+    {
+      "start": 561.7,
+      "end": 565.54,
+      "speaker": "jerod-santo",
+      "text": "Sorry might mean it's your fault, and we both know it."
+    },
+    {
+      "start": 565.54,
+      "end": 591.92,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it's like, oh, sorry. But it's almost like a polite way of just acknowledging something's happened that shouldn't have happened, and you both say it, and then everything's okay. You haven't really had to assign blame or anything. You can kind of just get, sweep it under the carpet. But if the second person doesn't say the sorry back, and it was their fault, that's the worst thing that can happen on the street."
+    },
+    {
+      "start": 591.92,
+      "end": 595.64,
+      "speaker": "jerod-santo",
+      "text": "Or one of them. So them just fighting words, fighting non-words."
+    },
+    {
+      "start": 595.64,
+      "end": 609.6,
+      "speaker": "mat-ryer",
+      "text": "Kind of, yeah. Although in London, people are from everywhere, so you can never really assume. But if it's a British person that bumps into you, and then you say, oh, sorry, and then they don't say sorry, they just look at you or just carry on with their lives, they've crossed the line."
+    },
+    {
+      "start": 609.6,
+      "end": 619.32,
+      "speaker": "jerod-santo",
+      "text": "That you assume they're a tourist then, maybe. Maybe those guys, those folks are tourists, and everyone else is Brits, and those are the people that say."
+    },
+    {
+      "start": 619.32,
+      "end": 623.38,
+      "speaker": "mat-ryer",
+      "text": "Yeah, although in London, everyone's from everywhere, so it's kind of like."
+    },
+    {
+      "start": 623.38,
+      "end": 628.5,
+      "speaker": "jerod-santo",
+      "text": "You can't be from everywhere. You have to be from one place, generally. You just walk around being upset then, basically?"
+    },
+    {
+      "start": 628.5,
+      "end": 640.1,
+      "speaker": "mat-ryer",
+      "text": "No, you just sort of get on with it, don't you? But then there's the banter side, where you basically try and be. It's a way of making friends, is you sort of mean to strangers sometimes."
+    },
+    {
+      "start": 640.1,
+      "end": 643.02,
+      "speaker": "jerod-santo",
+      "text": "Right, and friends too, right?"
+    },
+    {
+      "start": 643.02,
+      "end": 643.86,
+      "speaker": "mat-ryer",
+      "text": "Oh, definitely friends."
+    },
+    {
+      "start": 643.86,
+      "end": 646,
+      "speaker": "jerod-santo",
+      "text": "More mean to your friends than you are to strangers."
+    },
+    {
+      "start": 646,
+      "end": 647.02,
+      "speaker": "mat-ryer",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 647.02,
+      "end": 650.54,
+      "speaker": "jerod-santo",
+      "text": "Which explains why you're not very nice to me very often. I take it as a compliment, sir."
+    },
+    {
+      "start": 651.38,
+      "end": 660.04,
+      "speaker": "mat-ryer",
+      "text": "Yeah, you should do. But you have American friends that are just always just nice to you, and just say nice things like, oh, neat hat, Jared, stuff like that."
+    },
+    {
+      "start": 660.04,
+      "end": 667.6,
+      "speaker": "jerod-santo",
+      "text": "I'm gonna prefer it, but those people are hard to find. Oh, neat hat, Jared. Neat hat, Jared."
+    },
+    {
+      "start": 667.6,
+      "end": 668.44,
+      "speaker": "mat-ryer",
+      "text": "Neat hat, Jared."
+    },
+    {
+      "start": 668.44,
+      "end": 679.24,
+      "speaker": "jerod-santo",
+      "text": "Thank you, sir. I like the word proper, in places. I assume it's in the place of the word good, or I'm gonna get something nice, or the best."
+    },
+    {
+      "start": 679.24,
+      "end": 700.54,
+      "speaker": "mat-ryer",
+      "text": "It's like real. It's like, if it's proper, yeah, it's like, imagine there's a traditional way of making something. Yeah, it's authentic. And someone makes it that authentic way, you'd be like, oh, that's a proper, that's a proper drink. Or someone will sometimes come out with a cup of tea that they've made, and it's horrible, because it's too strong, and they're like, that's a proper cup of tea. Go on, get that down you. Get that down you."
+    },
+    {
+      "start": 700.54,
+      "end": 708.54,
+      "speaker": "jerod-santo",
+      "text": "What do you say when it's not good? No, they just say it's proper, but they say it in a way that you know they mean the opposite. It's like the sorry thing. Then you say, donka."
+    },
+    {
+      "start": 714.32,
+      "end": 718.98,
+      "speaker": "mat-ryer",
+      "text": "So, would you guys like to come to Matworld?"
+    },
+    {
+      "start": 718.98,
+      "end": 729.84,
+      "speaker": "jerod-santo",
+      "text": "Oh, yes, I'm sorry. That was a proper sidetracking. We sidetracked you. Back to Matworld. This is a world in which you decide, or what do you decide, Matt? What happens?"
+    },
+    {
+      "start": 729.84,
+      "end": 762.83,
+      "speaker": "mat-ryer",
+      "text": "Yeah, so I'm gonna take you to Matworld, and it's basically a place that I've just sort of designed. It's my planet. I get to choose what it's like there. You know, there's gonna be interesting places. There's gonna be some interesting food and drink to explore. And then maybe a new gadget, a new rule for society. And then something that you would just, you just like to be a little bit different. Just like, maybe it's like this world, but you would like it to be slightly tweaked. What would you do? Yeah."
+    },
+    {
+      "start": 762.83,
+      "end": 769.39,
+      "speaker": "jerod-santo",
+      "text": "Okay, so this is the idea here. Of course, we have Jared's world and Adam's world waiting in the wings."
+    },
+    {
+      "start": 769.39,
+      "end": 770.35,
+      "speaker": "mat-ryer",
+      "text": "Or to visiting."
+    },
+    {
+      "start": 770.35,
+      "end": 773.87,
+      "speaker": "jerod-santo",
+      "text": "But this is Matt's idea, and you are our guest, so."
+    },
+    {
+      "start": 773.87,
+      "end": 774.71,
+      "speaker": "mat-ryer",
+      "text": "You go first."
+    },
+    {
+      "start": 774.71,
+      "end": 777.49,
+      "speaker": "jerod-santo",
+      "text": "Take us to Matworld. What is this place like, Matworld?"
+    },
+    {
+      "start": 777.49,
+      "end": 796.68,
+      "speaker": "mat-ryer",
+      "text": "Let's go. Let's go. Get in your rocket. Put your seat belts on. We're gonna take off it now. In the unlikely event of an emergency, I want you to sort out your own masks first. That's very important. Don't be helping someone else. Oxygen mask, okay? Don't try and help anyone else. I thought we had to sort our masks."
+    },
+    {
+      "start": 796.68,
+      "end": 799.8,
+      "speaker": "jerod-santo",
+      "text": "It's like we had more than one of them. We were gonna sort them by size or something."
+    },
+    {
+      "start": 799.8,
+      "end": 821.48,
+      "speaker": "mat-ryer",
+      "text": "Oh, I see, yeah. No, this is a British, sorry. I'll do the American version after. Yeah, if you're feeling unwell, there's a little, tiny little bag in the seat in front of you, in your seat pocket in front of you. So if you could please use that. It's really tiny though, so don't do any big, doesn't it?"
+    },
+    {
+      "start": 821.48,
+      "end": 823.45,
+      "speaker": "jerod-santo",
+      "text": "Just a little, puh, puh."
+    },
+    {
+      "start": 823.45,
+      "end": 824.45,
+      "speaker": "mat-ryer",
+      "text": "Yeah, just do a little one."
+    },
+    {
+      "start": 824.45,
+      "end": 827.79,
+      "speaker": "jerod-santo",
+      "text": "Sounds like Wayne's world, remember that? If you're gonna spew, spew into this."
+    },
+    {
+      "start": 827.79,
+      "end": 871.27,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, that guy designed a lot of our hospitality on board, the rockets to Matworld. Yeah, cause it's a kind of funny world. It's, you know, it's kind of silly, isn't it? It's gonna be my world. Yeah. I hope you enjoy your time with us. Remember to please visit the dungeon for over-engineers. This is a place where if you over-engineer things and make loads of complexity where it's not needed, you go in this dungeon. It's a simple thing, harsh, but fair, I think. You know, you have to build an MVP before you're legally allowed to build anything more complicated. Otherwise you might not be able to build MVPs. And that's why we have the dungeon of over-engineers. Any questions about this place?"
+    },
+    {
+      "start": 871.27,
+      "end": 872.43,
+      "speaker": "jerod-santo",
+      "text": "How do you get out?"
+    },
+    {
+      "start": 872.43,
+      "end": 874.55,
+      "speaker": "mat-ryer",
+      "text": "You just have to build something really simple."
+    },
+    {
+      "start": 874.55,
+      "end": 875.47,
+      "speaker": "jerod-santo",
+      "text": "Oh."
+    },
+    {
+      "start": 875.47,
+      "end": 876.31,
+      "speaker": "mat-ryer",
+      "text": "But good."
+    },
+    {
+      "start": 876.31,
+      "end": 878.26,
+      "speaker": "jerod-santo",
+      "text": "Like a Fizzbuzz or?"
+    },
+    {
+      "start": 878.26,
+      "end": 882.54,
+      "speaker": "mat-ryer",
+      "text": "He can do. Hello World. He can try. I don't know about Hello World."
+    },
+    {
+      "start": 882.54,
+      "end": 884.98,
+      "speaker": "jerod-santo",
+      "text": "Well, does it get any simpler than that?"
+    },
+    {
+      "start": 884.98,
+      "end": 886.02,
+      "speaker": "mat-ryer",
+      "text": "Hello Matworld you could do."
+    },
+    {
+      "start": 886.02,
+      "end": 895.68,
+      "speaker": "jerod-santo",
+      "text": "Hello Matworld, I like that one. Okay, so dungeon for over-engineers and really small puke bags in the."
+    },
+    {
+      "start": 895.68,
+      "end": 922.79,
+      "speaker": "mat-ryer",
+      "text": "Yeah, but that's not part of the world. Oh, I'm sorry. I was just giving you the, that's just in case anyone's feeling unwell on the flight. Gotcha. When you get to Matworld, please, please do not forget to sample the delights of clever coffee. You play podcasts into the beans as they're growing. And then when you brew the coffee, that information actually can get into you, into you, into your body."
+    },
+    {
+      "start": 922.79,
+      "end": 924.93,
+      "speaker": "jerod-santo",
+      "text": "Oh, wow. Osmosis."
+    },
+    {
+      "start": 924.93,
+      "end": 953.99,
+      "speaker": "mat-ryer",
+      "text": "Kind of like that, yeah. But through coffee. And yeah, you get that, you just get the knowledge. So that's really cool. Like you'd be like, oh, I want to learn about politics. I'll drink some politics coffee or maybe the Peruvian coffee, you can learn about Machu Picchu. Oh my gosh. Maybe it's the place. Yeah, maybe. Would you like a cup? What would you have in your coffee? And wouldn't you like that? You could just have a coffee and you get an API docs in your brain."
+    },
+    {
+      "start": 953.99,
+      "end": 966.1,
+      "speaker": "jerod-santo",
+      "text": "Sounds kind of amazing, actually. I'm wondering about how diluted it might be because you're really just passing water through the beans. Maybe if you actually ate the coffee beans, you would just become all knowing."
+    },
+    {
+      "start": 966.1,
+      "end": 969.32,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I think it's just like caffeine though. It only lasts that long."
+    },
+    {
+      "start": 969.32,
+      "end": 970.7,
+      "speaker": "jerod-santo",
+      "text": "Oh, it goes away."
+    },
+    {
+      "start": 970.7,
+      "end": 972.12,
+      "speaker": "mat-ryer",
+      "text": "Yeah, you forget it."
+    },
+    {
+      "start": 972.12,
+      "end": 987.72,
+      "speaker": "jerod-santo",
+      "text": "Not as cool now. Nowhere near as cool. So you just drink it for your morning coding session and you just know the Stripe API inside out, for instance, if you're drinking Stripe's coffee and then you lose it later in the day."
+    },
+    {
+      "start": 987.72,
+      "end": 999.99,
+      "speaker": "mat-ryer",
+      "text": "You lose it, it wears off. Yeah, but you might be like, oh, I'm going to write a Grafana dashboard. How do I do that? Let me drink the Grafana brew. And then you've got that, you've downloaded, oh, I've downloaded the wrong bit."
+    },
+    {
+      "start": 999.99,
+      "end": 1001.37,
+      "speaker": "jerod-santo",
+      "text": "So it's an advertisement?"
+    },
+    {
+      "start": 1001.37,
+      "end": 1016.51,
+      "speaker": "mat-ryer",
+      "text": "No, no, no. I'm just saying for another example, another example. No, this coffee doesn't exist. It's not real. It's not for sale. You can't play podcasts into the coffee beans and then that information goes into the beans as far as I know."
+    },
+    {
+      "start": 1016.51,
+      "end": 1024.67,
+      "speaker": "jerod-santo",
+      "text": "Now, what if you played this podcast right here that we're recording into the coffee beans and then drank the coffee? What would you know afterwards?"
+    },
+    {
+      "start": 1024.67,
+      "end": 1027.03,
+      "speaker": "mat-ryer",
+      "text": "This entire, everything we talk about in this."
+    },
+    {
+      "start": 1027.03,
+      "end": 1030.15,
+      "speaker": "jerod-santo",
+      "text": "This is some high quality coffee."
+    },
+    {
+      "start": 1030.15,
+      "end": 1034.39,
+      "speaker": "mat-ryer",
+      "text": "Yeah, when you order them, I think you choose the audio file. They would call that proper coffee"
+    },
+    {
+      "start": 1034.39,
+      "end": 1035.23,
+      "speaker": "jerod-santo",
+      "text": "and that would be proper."
+    },
+    {
+      "start": 1035.23,
+      "end": 1036.51,
+      "speaker": "mat-ryer",
+      "text": "Proper, yeah."
+    },
+    {
+      "start": 1036.51,
+      "end": 1040.25,
+      "speaker": "jerod-santo",
+      "text": "Okay, so clever coffee. This is your best beverage."
+    },
+    {
+      "start": 1040.25,
+      "end": 1041.07,
+      "speaker": "mat-ryer",
+      "text": "That's the best beverage, yeah."
+    },
+    {
+      "start": 1041.07,
+      "end": 1042.17,
+      "speaker": "jerod-santo",
+      "text": "What else you got?"
+    },
+    {
+      "start": 1042.17,
+      "end": 1053.45,
+      "speaker": "mat-ryer",
+      "text": "Well, while you're here, please, please try, if you can, the falafel wraps, they're lovely. There's nothing special about them. Just love a falafel wrap."
+    },
+    {
+      "start": 1053.45,
+      "end": 1057.61,
+      "speaker": "jerod-santo",
+      "text": "You have complete creative freedom to come up with anything that you want."
+    },
+    {
+      "start": 1057.61,
+      "end": 1058.59,
+      "speaker": "mat-ryer",
+      "text": "You can't beat it though."
+    },
+    {
+      "start": 1058.59,
+      "end": 1060.49,
+      "speaker": "jerod-santo",
+      "text": "And you just go with a falafel."
+    },
+    {
+      "start": 1060.49,
+      "end": 1067.99,
+      "speaker": "mat-ryer",
+      "text": "The only way I think you could beat a falafel wrap is if you had a headache and you made the falafel wrap also take away headaches."
+    },
+    {
+      "start": 1067.99,
+      "end": 1073.51,
+      "speaker": "jerod-santo",
+      "text": "Well, why didn't you do that then? I mean, you can do whatever you want here, Matt. It's Matt world."
+    },
+    {
+      "start": 1073.51,
+      "end": 1077.11,
+      "speaker": "mat-ryer",
+      "text": "Yeah, because I don't have a headache."
+    },
+    {
+      "start": 1077.11,
+      "end": 1078.4,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1078.4,
+      "end": 1083.4,
+      "speaker": "mat-ryer",
+      "text": "Yeah, and plus, there's gonna be more regulations with that sort of food, isn't there? So I can't be bothered with that."
+    },
+    {
+      "start": 1083.4,
+      "end": 1086.72,
+      "speaker": "jerod-santo",
+      "text": "What about the clever coffee? I think they'd probably regulate that, wouldn't they?"
+    },
+    {
+      "start": 1086.72,
+      "end": 1093.88,
+      "speaker": "mat-ryer",
+      "text": "Yeah, they'd try. But we're outsmarted them because, listen, we've had a cup of business strategy."
+    },
+    {
+      "start": 1093.9,
+      "end": 1101.66,
+      "speaker": "jerod-santo",
+      "text": "If you're drinking the business brew, so to speak, and you get a comedic latte instead."
+    },
+    {
+      "start": 1101.66,
+      "end": 1102.5,
+      "speaker": "mat-ryer",
+      "text": "Yeah, you get a legal."
+    },
+    {
+      "start": 1102.5,
+      "end": 1105.7,
+      "speaker": "jerod-santo",
+      "text": "You learn about comedy versus business."
+    },
+    {
+      "start": 1105.7,
+      "end": 1112.36,
+      "speaker": "mat-ryer",
+      "text": "You get a legal flat white and then you've got yourself armed to the teeth, really, representing yourself in court."
+    },
+    {
+      "start": 1112.36,
+      "end": 1119.1,
+      "speaker": "jerod-santo",
+      "text": "What do they call those? Those builds, deterministic builds? No, not deterministic, where you know the build"
+    },
+    {
+      "start": 1119.1,
+      "end": 1121.28,
+      "speaker": "mat-ryer",
+      "text": "end to end, reproducible."
+    },
+    {
+      "start": 1121.28,
+      "end": 1137.72,
+      "speaker": "jerod-santo",
+      "text": "Reproducible builds, you know? You have to be able to reproduce the fact that, you know, you gotta document what knowledge went into this coffee so that I'm not drinking some, you know, some of your politics. I just wanna drink some business brew."
+    },
+    {
+      "start": 1137.72,
+      "end": 1139.76,
+      "speaker": "mat-ryer",
+      "text": "Yeah, there we go. There's that whole."
+    },
+    {
+      "start": 1139.76,
+      "end": 1144.34,
+      "speaker": "jerod-santo",
+      "text": "Don't be slippin' them, you know, that proper politics up in here."
+    },
+    {
+      "start": 1144.34,
+      "end": 1157.74,
+      "speaker": "mat-ryer",
+      "text": "No, that's it, there was that big scandal where they were worried about that because everyone just suddenly got into wearing mullets again and they were worried that someone had spiked the clever coffee. And everyone's got, they look lovely, but."
+    },
+    {
+      "start": 1157.74,
+      "end": 1160.74,
+      "speaker": "jerod-santo",
+      "text": "I've been waiting for an explanation for this."
+    },
+    {
+      "start": 1160.74,
+      "end": 1161.82,
+      "speaker": "mat-ryer",
+      "text": "Yeah, that's what it's coming from."
+    },
+    {
+      "start": 1161.82,
+      "end": 1175.99,
+      "speaker": "jerod-santo",
+      "text": "That is plausible. Sneaking it in. I tell you, you gotta do it right there, microdosing. Microdosing in the mullet coffee. I was in a podcast about mullets, though. So first you have to find a podcast about mullets and you turn that into the coffee and then people grow mullets."
+    },
+    {
+      "start": 1175.99,
+      "end": 1177.59,
+      "speaker": "mat-ryer",
+      "text": "They're doing fade mullets now."
+    },
+    {
+      "start": 1179.36,
+      "end": 1185.26,
+      "speaker": "jerod-santo",
+      "text": "We have like really high hair, a fade, and then it fades into a mullet off the back."
+    },
+    {
+      "start": 1185.26,
+      "end": 1186.78,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it's a good idea."
+    },
+    {
+      "start": 1186.78,
+      "end": 1192.5,
+      "speaker": "jerod-santo",
+      "text": "Perms are back, too. Yeah, they're spiky fade mullets. Keep going, Matt, what else you got?"
+    },
+    {
+      "start": 1192.5,
+      "end": 1210.99,
+      "speaker": "mat-ryer",
+      "text": "Well, I'd love to show you, well, you know, if you wanna come into my house, have a sit down, notice that the sofa doesn't have any legs. It's just floating. You're welcome. Now don't be scared. It's perfectly fine, sit on it. It moves a bit more than normal, but sit down. That's not even it."
+    },
+    {
+      "start": 1210.99,
+      "end": 1214.17,
+      "speaker": "jerod-santo",
+      "text": "So when you sit down on the sofa, it kind of moves a little bit?"
+    },
+    {
+      "start": 1214.17,
+      "end": 1221.81,
+      "speaker": "mat-ryer",
+      "text": "Well, it does, it doesn't have any legs. Is it hovering or? Yeah, it's hovering, but it moves when you sit on it. It's got, it's like suspension because."
+    },
+    {
+      "start": 1221.81,
+      "end": 1224.04,
+      "speaker": "jerod-santo",
+      "text": "Is there any way to make it not move?"
+    },
+    {
+      "start": 1224.04,
+      "end": 1228.04,
+      "speaker": "mat-ryer",
+      "text": "Like a lock? The more expensive ones will are more sturdy."
+    },
+    {
+      "start": 1228.04,
+      "end": 1231.08,
+      "speaker": "jerod-santo",
+      "text": "Is it loud? Is it displacing air underneath it?"
+    },
+    {
+      "start": 1231.08,
+      "end": 1233.32,
+      "speaker": "mat-ryer",
+      "text": "No, you didn't sound it, it just floats."
+    },
+    {
+      "start": 1233.32,
+      "end": 1238,
+      "speaker": "jerod-santo",
+      "text": "All right, awesome. Levitates, they would call that levitating, actually."
+    },
+    {
+      "start": 1238,
+      "end": 1240.91,
+      "speaker": "mat-ryer",
+      "text": "What's the difference between levitating and floating?"
+    },
+    {
+      "start": 1241.57,
+      "end": 1253.57,
+      "speaker": "jerod-santo",
+      "text": "That's a great question. Is that a great question? Yeah, that is a great question. That's a great question, as honestly. Never thought about that. If you're floating. I think that's two different words that mean essentially the same thing."
+    },
+    {
+      "start": 1253.57,
+      "end": 1255.61,
+      "speaker": "mat-ryer",
+      "text": "Yeah, but they've got a bit of something different."
+    },
+    {
+      "start": 1255.61,
+      "end": 1269.89,
+      "speaker": "jerod-santo",
+      "text": "I think floating might be the act of like being a certain weight. And that there's no, there's neither pull nor push when gravity is concerned. But when you're levitating, you're resisting gravity, staying in the same position."
+    },
+    {
+      "start": 1269.91,
+      "end": 1274.91,
+      "speaker": "mat-ryer",
+      "text": "Yeah, so if it's density then, if you're less dense, you float, that's floating."
+    },
+    {
+      "start": 1274.91,
+      "end": 1277.47,
+      "speaker": "jerod-santo",
+      "text": "Yeah, because you're floating, you're buoyant with gravity."
+    },
+    {
+      "start": 1277.47,
+      "end": 1283.67,
+      "speaker": "mat-ryer",
+      "text": "Right, but if you are magically, or some other means, lifting yourself up. Okay, there we go."
+    },
+    {
+      "start": 1283.67,
+      "end": 1291.44,
+      "speaker": "jerod-santo",
+      "text": "Okay, so that's what your sofa levitates, which is the reason for the movement."
+    },
+    {
+      "start": 1291.44,
+      "end": 1298,
+      "speaker": "mat-ryer",
+      "text": "Yeah, they just move a little bit when you sit down. I'm just saying, don't be scared when you sit down. This isn't even my main gadget. I want to tell you about this new gadget."
+    },
+    {
+      "start": 1298,
+      "end": 1304.27,
+      "speaker": "jerod-santo",
+      "text": "I'm going into the details here. This levitating couch is, you know, stop the press."
+    },
+    {
+      "start": 1304.27,
+      "end": 1306.53,
+      "speaker": "mat-ryer",
+      "text": "Yeah, but it's good. Imagine big magnets."
+    },
+    {
+      "start": 1306.53,
+      "end": 1309.29,
+      "speaker": "jerod-santo",
+      "text": "Go, I'm ready, I want more. Give me the rest."
+    },
+    {
+      "start": 1309.29,
+      "end": 1330.34,
+      "speaker": "mat-ryer",
+      "text": "So, I might have talked about this before, but it's coming back. Knight Rider, or sleepy car, I call it. It's essentially, it's like a night vehicle. You can fall asleep in a car and it's a self-driving car. So if you wanted to go, what's a place that's like eight hours away from where you live, Jared?"
+    },
+    {
+      "start": 1330.34,
+      "end": 1331.54,
+      "speaker": "jerod-santo",
+      "text": "Denver."
+    },
+    {
+      "start": 1331.54,
+      "end": 1362.87,
+      "speaker": "mat-ryer",
+      "text": "Denver, so you want to go to Denver for the day. It's a pain to do that now, but with Nanaita car vehicle, you can get in the car. It will drive you there while you sleep. You then wake up, you're in Denver for the day. You go back to bed in the car and it drives you back. So as far as you're concerned, you've just slept in a car or slightly better than a car, but you've teleported, essentially. You have a day where you are now, and then the next day in Denver, the day after that, back where you are now."
+    },
+    {
+      "start": 1362.87,
+      "end": 1366.43,
+      "speaker": "jerod-santo",
+      "text": "Well, I think teleporting might be a stretch. I mean, you're sleeping the whole time, right?"
+    },
+    {
+      "start": 1366.43,
+      "end": 1373.27,
+      "speaker": "mat-ryer",
+      "text": "You're sleeping, but it's close to teleporting, isn't it? Because you're not really, unless you're conscious of where you are every time while you're asleep. I'm certainly not."
+    },
+    {
+      "start": 1373.27,
+      "end": 1374.56,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm."
+    },
+    {
+      "start": 1374.56,
+      "end": 1376.26,
+      "speaker": "mat-ryer",
+      "text": "I don't even know I'm still in the bedroom."
+    },
+    {
+      "start": 1376.26,
+      "end": 1389.56,
+      "speaker": "jerod-santo",
+      "text": "I'm kind of appreciating how much Matt undershot on these. They're understated, you know? Like, he had a complete freedom to do whatever he wants. Comes with a falafels and full self-driving, basically. These are, this is a really good Waymo, isn't it, Matt?"
+    },
+    {
+      "start": 1389.56,
+      "end": 1392.86,
+      "speaker": "mat-ryer",
+      "text": "It's basically a good, it's a nice Waymo."
+    },
+    {
+      "start": 1395.26,
+      "end": 1396.82,
+      "speaker": "jerod-santo",
+      "text": "All right, all right."
+    },
+    {
+      "start": 1396.82,
+      "end": 1397.66,
+      "speaker": "mat-ryer",
+      "text": "It's a sleepy bedtime Waymo."
+    },
+    {
+      "start": 1397.66,
+      "end": 1403.94,
+      "speaker": "jerod-santo",
+      "text": "Matt world is like the current world we're in, but maybe like six months earlier or later."
+    },
+    {
+      "start": 1403.94,
+      "end": 1406.74,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Okay, I like it. I hope so, I hope so."
+    },
+    {
+      "start": 1406.74,
+      "end": 1411.22,
+      "speaker": "jerod-santo",
+      "text": "I hope so, too. It's the floating couch thing. I mean, we're not quite there yet, but."
+    },
+    {
+      "start": 1411.22,
+      "end": 1416.16,
+      "speaker": "mat-ryer",
+      "text": "No, well, you can if you have a big, strong magnets, but I think clever coffees are gonna be at least eight months out."
+    },
+    {
+      "start": 1416.16,
+      "end": 1423.7,
+      "speaker": "jerod-santo",
+      "text": "Clever coffee is a great idea. Yeah. All right, so you've got a gadget, which is a nanite Waymo. Sleepy car. Yeah, sleepy car."
+    },
+    {
+      "start": 1423.7,
+      "end": 1427.98,
+      "speaker": "mat-ryer",
+      "text": "Yeah, yeah, yeah. It's hush-hush bedtimes vehicle van."
+    },
+    {
+      "start": 1427.98,
+      "end": 1434.06,
+      "speaker": "jerod-santo",
+      "text": "And you're a salesman, because you claim it teleports you, but what it does is it drives you places while you're sleeping."
+    },
+    {
+      "start": 1434.06,
+      "end": 1446.36,
+      "speaker": "mat-ryer",
+      "text": "It's like tele, it's the closest we'll get. I fell asleep on a flight to the U.S. once. I got on the plane, they'd messed around, tried to warn me about not to put someone else's mask on. Like, no one's even gonna-"
+    },
+    {
+      "start": 1446.36,
+      "end": 1448.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you sort your own mask."
+    },
+    {
+      "start": 1448.2,
+      "end": 1481.98,
+      "speaker": "mat-ryer",
+      "text": "Well, I wasn't even thinking of helping anyone else at all, so I don't know what they're playing at. And they're like, oh, do you want this tiny little packet of peanuts? Yes, please. Would you like some even smaller pretzels? I've never seen a pretzel that small, have you? Anyway, this is just in my head, but this happens. So I get on the plane, I fall asleep, I wake up in America, that's where you all live. Correct. And that was, to me, that was like two hours of my life, conscious. So that was like teleporting."
+    },
+    {
+      "start": 1481.98,
+      "end": 1490.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I used to do it all the time when we go on family vacations and I was a child. I just sleep in the car and you leave your house and then you wake up and you're there."
+    },
+    {
+      "start": 1490.74,
+      "end": 1491.64,
+      "speaker": "mat-ryer",
+      "text": "There you go."
+    },
+    {
+      "start": 1491.64,
+      "end": 1493.7,
+      "speaker": "jerod-santo",
+      "text": "So I'm excited for MatWorld, what else you got?"
+    },
+    {
+      "start": 1493.7,
+      "end": 1496.28,
+      "speaker": "mat-ryer",
+      "text": "Did you like that when you were a kid doing that, Jared?"
+    },
+    {
+      "start": 1496.28,
+      "end": 1497.64,
+      "speaker": "jerod-santo",
+      "text": "I loved it."
+    },
+    {
+      "start": 1497.64,
+      "end": 1505.86,
+      "speaker": "mat-ryer",
+      "text": "Yeah. See, that's what I'm saying, I love it. What has happened, you forgot about that love? Because of when I pitched the startup."
+    },
+    {
+      "start": 1505.86,
+      "end": 1519.46,
+      "speaker": "jerod-santo",
+      "text": "Just my parents were driving the car, I wasn't teleporting really. I understand from my perspective, I get 100% what you're saying. I'm just feeling like complete creative freedom to invent a gadget, that's all."
+    },
+    {
+      "start": 1519.46,
+      "end": 1524.22,
+      "speaker": "mat-ryer",
+      "text": "Okay, good. So just to be clear, you're just making clear for your listeners that, okay, good."
+    },
+    {
+      "start": 1524.22,
+      "end": 1530.18,
+      "speaker": "jerod-santo",
+      "text": "This is your game, by the way, so just keep that in mind. What else you got? I can't wait to hear this rule."
+    },
+    {
+      "start": 1530.18,
+      "end": 1549.57,
+      "speaker": "mat-ryer",
+      "text": "Well, exactly, the laws are different on each of our planets, of course. And there's a law that's actually quite a strange one that was passed a few years ago. If you want a doc at work, you have to write it, okay? Can't say, let's have this doc and then make someone else write it. It's a law."
+    },
+    {
+      "start": 1549.57,
+      "end": 1550.67,
+      "speaker": "jerod-santo",
+      "text": "It's a law."
+    },
+    {
+      "start": 1550.67,
+      "end": 1552.45,
+      "speaker": "mat-ryer",
+      "text": "Yeah, on MatWorld."
+    },
+    {
+      "start": 1552.45,
+      "end": 1559.79,
+      "speaker": "jerod-santo",
+      "text": "In MatWorld, okay, this is a good one. You want something written, write it yourself. You cannot request that somebody else write some documentation."
+    },
+    {
+      "start": 1559.79,
+      "end": 1578.31,
+      "speaker": "mat-ryer",
+      "text": "Yes, you have to write it yourself. And if you can't, because you don't know, then you have to find out in order to write it, yeah. But it proves that you need it, first of all, because it's easy to just imagine, here's six docs we should have. That's easy."
+    },
+    {
+      "start": 1578.31,
+      "end": 1600.27,
+      "speaker": "jerod-santo",
+      "text": "All right, let's play this out for a moment. So let's say in MatWorld, you write a new microservice. It's perfectly engineered, so you're not in danger of the dungeon, and I need to use your microservice, and it's got no docs. I can't come to you and be like, hey, Matt, you should write some docs for this."
+    },
+    {
+      "start": 1600.27,
+      "end": 1619.05,
+      "speaker": "mat-ryer",
+      "text": "Yeah, this is true. You've found an immediate place where this doesn't apply. I should write the docs. I'm not talking about docs, really. I'm talking about like a design. I'm talking about like some pre-designed thing or write a doc that explains something about the system."
+    },
+    {
+      "start": 1619.05,
+      "end": 1619.89,
+      "speaker": "jerod-santo",
+      "text": "Gotcha."
+    },
+    {
+      "start": 1619.89,
+      "end": 1622.37,
+      "speaker": "mat-ryer",
+      "text": "Yeah, which you have the knowledge."
+    },
+    {
+      "start": 1622.37,
+      "end": 1626.17,
+      "speaker": "jerod-santo",
+      "text": "It's one of these laws that like lots of small fine print."
+    },
+    {
+      "start": 1626.17,
+      "end": 1628.51,
+      "speaker": "mat-ryer",
+      "text": "Yeah, changed over time."
+    },
+    {
+      "start": 1628.51,
+      "end": 1638.49,
+      "speaker": "jerod-santo",
+      "text": "Yeah, well, you have to adjust it as the world advances. Okay, so not a bad idea. Yeah. Tiny little law. Adam, you like this one? Write your own docs."
+    },
+    {
+      "start": 1638.49,
+      "end": 1642.05,
+      "speaker": "mat-ryer",
+      "text": "I think it's probably hard to enforce."
+    },
+    {
+      "start": 1642.05,
+      "end": 1647.83,
+      "speaker": "jerod-santo",
+      "text": "Wait, what kind of consequences are there if you ask somebody else to write some docs? Three nights in the dungeon?"
+    },
+    {
+      "start": 1647.83,
+      "end": 1651.11,
+      "speaker": "mat-ryer",
+      "text": "No, no, it's basically decriminalized at this point."
+    },
+    {
+      "start": 1651.11,
+      "end": 1654.19,
+      "speaker": "jerod-santo",
+      "text": "Decriminalized? So it's a misdemeanor."
+    },
+    {
+      "start": 1654.19,
+      "end": 1655.11,
+      "speaker": "mat-ryer",
+      "text": "Yeah, not even, yeah."
+    },
+    {
+      "start": 1655.11,
+      "end": 1656.27,
+      "speaker": "jerod-santo",
+      "text": "Not even that, you're just fine."
+    },
+    {
+      "start": 1656.27,
+      "end": 1657.35,
+      "speaker": "mat-ryer",
+      "text": "It's like jaywalking."
+    },
+    {
+      "start": 1657.35,
+      "end": 1663.63,
+      "speaker": "jerod-santo",
+      "text": "Okay, so everybody does it. Yeah. So it's a worthless law. All right, what else you got? It's mostly a request."
+    },
+    {
+      "start": 1665.07,
+      "end": 1672.47,
+      "speaker": "mat-ryer",
+      "text": "It is, yeah, and that's what laws are really, isn't it? They just request it like, please, please don't. Yeah. Pop his head off."
+    },
+    {
+      "start": 1672.49,
+      "end": 1675.54,
+      "speaker": "jerod-santo",
+      "text": "If you do this, I'm gonna have to do that."
+    },
+    {
+      "start": 1675.54,
+      "end": 1676.38,
+      "speaker": "mat-ryer",
+      "text": "Yes."
+    },
+    {
+      "start": 1676.38,
+      "end": 1678.16,
+      "speaker": "jerod-santo",
+      "text": "And you don't want that."
+    },
+    {
+      "start": 1678.16,
+      "end": 1683.34,
+      "speaker": "mat-ryer",
+      "text": "It's a good idea to have laws written in code though, I think, which has given me the idea. It's quite a good one."
+    },
+    {
+      "start": 1683.34,
+      "end": 1685.02,
+      "speaker": "jerod-santo",
+      "text": "You should try that. Yeah."
+    },
+    {
+      "start": 1686.08,
+      "end": 1698.56,
+      "speaker": "mat-ryer",
+      "text": "All right, the laws of physics aren't exactly the same on this planet, by the way. I know what you're thinking, Jared. You're thinking laws of physics are probably identical to earth. Why would they be? It's a just matte world, it's different."
+    },
+    {
+      "start": 1698.56,
+      "end": 1699.4,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1700.4,
+      "end": 1704.54,
+      "speaker": "mat-ryer",
+      "text": "All the rain falls in one go. Like just down, like bam."
+    },
+    {
+      "start": 1704.54,
+      "end": 1706.62,
+      "speaker": "jerod-santo",
+      "text": "Just a single drop?"
+    },
+    {
+      "start": 1706.62,
+      "end": 1711.38,
+      "speaker": "mat-ryer",
+      "text": "It's just an enormous, just smash. Everything does it. That's awesome."
+    },
+    {
+      "start": 1711.38,
+      "end": 1712.22,
+      "speaker": "jerod-santo",
+      "text": "Finally, it delivers."
+    },
+    {
+      "start": 1712.22,
+      "end": 1717.06,
+      "speaker": "mat-ryer",
+      "text": "None of this delivery in little bits and pieces and taking hours."
+    },
+    {
+      "start": 1717.06,
+      "end": 1720.04,
+      "speaker": "jerod-santo",
+      "text": "This is one big massive drop. Like worldwide?"
+    },
+    {
+      "start": 1720.04,
+      "end": 1721.62,
+      "speaker": "mat-ryer",
+      "text": "Yeah, just bang."
+    },
+    {
+      "start": 1721.62,
+      "end": 1724.54,
+      "speaker": "jerod-santo",
+      "text": "Does everybody get hit at once? Are there holes in it?"
+    },
+    {
+      "start": 1724.54,
+      "end": 1728.34,
+      "speaker": "mat-ryer",
+      "text": "Everybody's wearing pointy hats at this point."
+    },
+    {
+      "start": 1728.42,
+      "end": 1732.1,
+      "speaker": "jerod-santo",
+      "text": "How do they know? We got really good weather people?"
+    },
+    {
+      "start": 1732.1,
+      "end": 1734.26,
+      "speaker": "mat-ryer",
+      "text": "They just wear them all the time. You never know when it's coming."
+    },
+    {
+      "start": 1734.26,
+      "end": 1735.18,
+      "speaker": "jerod-santo",
+      "text": "Just in case."
+    },
+    {
+      "start": 1735.18,
+      "end": 1736.02,
+      "speaker": "mat-ryer",
+      "text": "You can see it."
+    },
+    {
+      "start": 1736.02,
+      "end": 1737.02,
+      "speaker": "jerod-santo",
+      "text": "Is that a law?"
+    },
+    {
+      "start": 1737.02,
+      "end": 1745.12,
+      "speaker": "mat-ryer",
+      "text": "No, but- The pointy hat law? No, but of course you're gonna do it. Otherwise you have to try and dive through it. Like in a reverse dive."
+    },
+    {
+      "start": 1745.12,
+      "end": 1747.14,
+      "speaker": "jerod-santo",
+      "text": "If you don't have the hat on, like could it kill you?"
+    },
+    {
+      "start": 1747.14,
+      "end": 1756.7,
+      "speaker": "mat-ryer",
+      "text": "It probably could. You certainly guess, you could certainly get a slapped red back. Have you ever jumped into a pool and just landed on your belly on the top of the water?"
+    },
+    {
+      "start": 1756.7,
+      "end": 1758.36,
+      "speaker": "jerod-santo",
+      "text": "I have, yeah. It hurts."
+    },
+    {
+      "start": 1758.96,
+      "end": 1759.78,
+      "speaker": "mat-ryer",
+      "text": "Belly flop."
+    },
+    {
+      "start": 1759.78,
+      "end": 1762.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah. What's on top of your head?"
+    },
+    {
+      "start": 1762.11,
+      "end": 1764.67,
+      "speaker": "mat-ryer",
+      "text": "Smash, all the buildings are pointy."
+    },
+    {
+      "start": 1764.67,
+      "end": 1766.91,
+      "speaker": "jerod-santo",
+      "text": "Okay, those are big ramifications."
+    },
+    {
+      "start": 1766.91,
+      "end": 1773.14,
+      "speaker": "mat-ryer",
+      "text": "Yeah, but once it's done, you can go out for the day. Do what you want."
+    },
+    {
+      "start": 1773.14,
+      "end": 1775.28,
+      "speaker": "jerod-santo",
+      "text": "Just one big drop."
+    },
+    {
+      "start": 1775.28,
+      "end": 1778.84,
+      "speaker": "mat-ryer",
+      "text": "Just comes down in one big slab."
+    },
+    {
+      "start": 1778.84,
+      "end": 1782.24,
+      "speaker": "jerod-santo",
+      "text": "Love it. Matt's world sounds fascinating."
+    },
+    {
+      "start": 1782.24,
+      "end": 1806.08,
+      "speaker": "mat-ryer",
+      "text": "Welcome, have a coffee. You know, this one's from Kenya, so this will actually teach you about the sort of rich experience of that country. And the rich culture. So have it, enjoy. That's the Kenya one. Or I can offer you this cold blend from Brooklyn, New York. For half an hour, you'll know how to look cool wearing a hat."
+    },
+    {
+      "start": 1806.08,
+      "end": 1920.4,
+      "speaker": "jerod-santo",
+      "text": "This cold blend. You got some crazy podcasts in that world. Well friends, you know I love Notion. It is the number one tool in my tool chest. It is a daily driver for me. I'm using Notion, constantly organizing everything I possibly can with Notion. And I just love it. Of course, there's other specialized tools out there that have you jumping from app to app to app, but I find that Notion lets me do most of everything I need to and collaboratively with the rest of my team and even extend a team. And now it has AI built right in. I can ask Notion AI, hey, can you help me build this new page for this new purpose? And it goes and builds it. So I don't have to go and build each independent new workflow by hand. Notion AI is there for me. It helps me find things, solve things, write things, draft things, build things. It's amazing. So yes, Notion combines your docs, your notes, your projects all in one place for you and your team to collaborate on. And the fully integrated Notion AI suite lets you work faster, smarter, easier, better, all the things. And I know because I use it every single day. You can try Notion today for free when you go to notion.com slash changelog. Use that link to try the powerful, easy to use Notion AI today. And of course, when you use our link, you are benefiting us and letting Notion know that we work. There you go. Once again, notion.com slash changelog. All right, Adam, do you want to take us to Adam world?"
+    },
+    {
+      "start": 1920.4,
+      "end": 1921.24,
+      "speaker": "mat-ryer",
+      "text": "I'd love to go."
+    },
+    {
+      "start": 1921.24,
+      "end": 1935.78,
+      "speaker": "jerod-santo",
+      "text": "I don't even think I want to do any more of this stuff. I'm done with this imagining stuff. I don't know if it'll be as cheeky as Matt, but I will take it to Adam world."
+    },
+    {
+      "start": 1935.78,
+      "end": 1937.74,
+      "speaker": "mat-ryer",
+      "text": "Let's hear it. I'd love to go."
+    },
+    {
+      "start": 1937.74,
+      "end": 1952.84,
+      "speaker": "jerod-santo",
+      "text": "I really struggled because I was between a couple of different worlds here. But I figured I'd stay stereotypical and take it to what I would call Adam world. Okay, let's hear it. Silicon Valley."
+    },
+    {
+      "start": 1952.84,
+      "end": 1956.36,
+      "speaker": "mat-ryer",
+      "text": "Am I supposed to read this script that you shared with me, Jared? Is that the rule?"
+    },
+    {
+      "start": 1956.36,
+      "end": 1959.04,
+      "speaker": "jerod-santo",
+      "text": "Matt sent me the script. Should he read the script?"
+    },
+    {
+      "start": 1959.04,
+      "end": 1960.28,
+      "speaker": "mat-ryer",
+      "text": "He didn't read the script."
+    },
+    {
+      "start": 1960.28,
+      "end": 1963.04,
+      "speaker": "jerod-santo",
+      "text": "Yeah, he sort of did. He used it as an outline."
+    },
+    {
+      "start": 1963.04,
+      "end": 1963.88,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 1963.88,
+      "end": 1968.04,
+      "speaker": "jerod-santo",
+      "text": "Okay. You can read verbatim if you want, or you can do it like Matt did, or you can do whatever you want. It's your show."
+    },
+    {
+      "start": 1968.04,
+      "end": 1971.4,
+      "speaker": "mat-ryer",
+      "text": "I will do my best, okay?"
+    },
+    {
+      "start": 1971.4,
+      "end": 1973.08,
+      "speaker": "jerod-santo",
+      "text": "Okay. That's all we can ask for."
+    },
+    {
+      "start": 1973.08,
+      "end": 1973.9,
+      "speaker": "mat-ryer",
+      "text": "Please."
+    },
+    {
+      "start": 1979.24,
+      "end": 1981.08,
+      "speaker": "jerod-santo",
+      "text": "A lot of pomp and circumstance."
+    },
+    {
+      "start": 1981.08,
+      "end": 1982.16,
+      "speaker": "mat-ryer",
+      "text": "Welcome, gentlemen."
+    },
+    {
+      "start": 1982.16,
+      "end": 2013.16,
+      "speaker": "jerod-santo",
+      "text": "Thank you. I didn't write that. Welcome, gentlemen, to Adam world. I hope you enjoy your time with us. Remember to visit the Silicon Valley Museum and the food court, and try the Hooli Pied Piper Burger today, and sample the delights of the uptick mineral water, which might reduce bed-wetting. But first, can I introduce you to our favorite gadget, the most revolutionary compression algorithm ever that the world has ever seen."
+    },
+    {
+      "start": 2013.16,
+      "end": 2014.36,
+      "speaker": "mat-ryer",
+      "text": "Oh."
+    },
+    {
+      "start": 2014.36,
+      "end": 2021.08,
+      "speaker": "jerod-santo",
+      "text": "That's it. Middle out? That's the script. Middle something. I didn't name it. It was already named."
+    },
+    {
+      "start": 2021.08,
+      "end": 2022.92,
+      "speaker": "mat-ryer",
+      "text": "That's right. All right, so."
+    },
+    {
+      "start": 2022.92,
+      "end": 2028.33,
+      "speaker": "jerod-santo",
+      "text": "The new gadget is a revolutionary compression algorithm."
+    },
+    {
+      "start": 2028.33,
+      "end": 2029.45,
+      "speaker": "mat-ryer",
+      "text": "Yeah, we could use one of those."
+    },
+    {
+      "start": 2029.45,
+      "end": 2035.52,
+      "speaker": "jerod-santo",
+      "text": "It remains unnamed. Like Voldemort, you can't say the name."
+    },
+    {
+      "start": 2035.52,
+      "end": 2036.36,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 2036.36,
+      "end": 2045.63,
+      "speaker": "jerod-santo",
+      "text": "The new rule, new law is this. Everything is nothing and nowhere, but also kind of everywhere."
+    },
+    {
+      "start": 2045.63,
+      "end": 2047.06,
+      "speaker": "mat-ryer",
+      "text": "Cloud."
+    },
+    {
+      "start": 2047.06,
+      "end": 2047.9,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2047.9,
+      "end": 2049.8,
+      "speaker": "mat-ryer",
+      "text": "Compressed. Compressed."
+    },
+    {
+      "start": 2049.8,
+      "end": 2062.4,
+      "speaker": "jerod-santo",
+      "text": "And the thing I'd love to change most about the world that I live in. Yeah. Is I want to live. This is heartfelt, okay? This is hard to even say."
+    },
+    {
+      "start": 2062.4,
+      "end": 2070.3,
+      "speaker": "mat-ryer",
+      "text": "Okay, you can do it. You can do it, mate."
+    },
+    {
+      "start": 2070.3,
+      "end": 2081.87,
+      "speaker": "jerod-santo",
+      "text": "You can say it. I want to live in a world where everyone can watch Silicon Valley in peace and harmony."
+    },
+    {
+      "start": 2086.28,
+      "end": 2090.36,
+      "speaker": "mat-ryer",
+      "text": "Well, this is, this is very touching."
+    },
+    {
+      "start": 2090.36,
+      "end": 2095.76,
+      "speaker": "jerod-santo",
+      "text": "Okay, I've said it. That's it. That's it. Wow."
+    },
+    {
+      "start": 2095.76,
+      "end": 2098.47,
+      "speaker": "mat-ryer",
+      "text": "That's it. Wow."
+    },
+    {
+      "start": 2098.47,
+      "end": 2100.13,
+      "speaker": "jerod-santo",
+      "text": "That's all I can say. Thank you for listening."
+    },
+    {
+      "start": 2100.13,
+      "end": 2106.04,
+      "speaker": "mat-ryer",
+      "text": "I like to be on Adam's World. I've just started rewatching Silicon Valley. And it is so good."
+    },
+    {
+      "start": 2106.04,
+      "end": 2107.76,
+      "speaker": "jerod-santo",
+      "text": "I'm proud of you. I'm proud of you."
+    },
+    {
+      "start": 2107.76,
+      "end": 2110.08,
+      "speaker": "mat-ryer",
+      "text": "How many times have you seen it, Adam?"
+    },
+    {
+      "start": 2110.08,
+      "end": 2113.72,
+      "speaker": "jerod-santo",
+      "text": "Endless. It's constantly playing in my brain."
+    },
+    {
+      "start": 2115.2,
+      "end": 2123.68,
+      "speaker": "mat-ryer",
+      "text": "Yeah. So if you had that compression, Albert, by the way, you can't name it because the name is so small that it can't be spoken by humans. Is it compressed that much?"
+    },
+    {
+      "start": 2123.68,
+      "end": 2126.54,
+      "speaker": "jerod-santo",
+      "text": "They wanted to call it FTL."
+    },
+    {
+      "start": 2126.54,
+      "end": 2128.74,
+      "speaker": "mat-ryer",
+      "text": "Good, that's great. That is great."
+    },
+    {
+      "start": 2128.74,
+      "end": 2129.56,
+      "speaker": "jerod-santo",
+      "text": "FTL."
+    },
+    {
+      "start": 2131.25,
+      "end": 2133.13,
+      "speaker": "mat-ryer",
+      "text": "Faster than light, yeah?"
+    },
+    {
+      "start": 2133.13,
+      "end": 2147.53,
+      "speaker": "jerod-santo",
+      "text": "Faster than light, yeah. For the loss. It's lossless though. It's lossy. For the loss is good too. But it was actually faster than light. But I like FTL for the loss as well."
+    },
+    {
+      "start": 2147.53,
+      "end": 2159.26,
+      "speaker": "mat-ryer",
+      "text": "Or flossing. Well, so if you had that for real then, what would that, I mean, because we did have a bit of a problem before recording this where my hard drive is unnecessarily full."
+    },
+    {
+      "start": 2159.26,
+      "end": 2169.03,
+      "speaker": "jerod-santo",
+      "text": "Well, that would have never happened. Okay. Because based on the new rule, new law, everything is nothing and nowhere, but also kind of everywhere."
+    },
+    {
+      "start": 2169.03,
+      "end": 2170.71,
+      "speaker": "mat-ryer",
+      "text": "I don't know what that means."
+    },
+    {
+      "start": 2170.75,
+      "end": 2198.71,
+      "speaker": "jerod-santo",
+      "text": "Well, everything is nothing and it's nowhere because it's just so small. But it's also kind of everywhere because it's so small, it can move so fast. So this problem Matt had with moving his data and all that disk space issue is that it just basically renders disk space obsolete because it's infinite. It's just the thing that something becomes nothing but also something and everywhere."
+    },
+    {
+      "start": 2198.71,
+      "end": 2200.39,
+      "speaker": "mat-ryer",
+      "text": "Yeah, so let's clear it up."
+    },
+    {
+      "start": 2200.39,
+      "end": 2202.12,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 2202.68,
+      "end": 2213.72,
+      "speaker": "mat-ryer",
+      "text": "I always found compression to be sort of bonkers that you could just have a file and then do something and then it's a smaller file and then do something else and put it back."
+    },
+    {
+      "start": 2213.72,
+      "end": 2226.06,
+      "speaker": "jerod-santo",
+      "text": "You know, sometimes, Matt, I just uncompress and decompress things constantly just to see if somewhere someone's pulling something over on me, okay?"
+    },
+    {
+      "start": 2227.26,
+      "end": 2228.92,
+      "speaker": "mat-ryer",
+      "text": "Yeah, that's good. We should find out."
+    },
+    {
+      "start": 2228.96,
+      "end": 2235.16,
+      "speaker": "jerod-santo",
+      "text": "Constantly compressing, recompress, compressing, recompress. It's like it's back and forth."
+    },
+    {
+      "start": 2235.16,
+      "end": 2236.58,
+      "speaker": "mat-ryer",
+      "text": "Yeah, yeah, yeah."
+    },
+    {
+      "start": 2236.58,
+      "end": 2244.7,
+      "speaker": "jerod-santo",
+      "text": "One day, I don't know for sure if they're truly compressing those things and then pulling them back out and they work again."
+    },
+    {
+      "start": 2244.7,
+      "end": 2249.08,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I'll never know. Or they're just saving the main file in a different folder."
+    },
+    {
+      "start": 2249.08,
+      "end": 2267.67,
+      "speaker": "jerod-santo",
+      "text": "And that's why we have the Silicon Valley Museum. If we didn't have this museum, these critical cultural icons in our world today would just be gone forever. Yeah. You would never know why or how."
+    },
+    {
+      "start": 2267.67,
+      "end": 2281.44,
+      "speaker": "mat-ryer",
+      "text": "I thought this was the Silicon Valley, now we know where it is, it's an Adam world. But I thought when you meant Silicon Valley, I thought you meant like the actual computer area."
+    },
+    {
+      "start": 2281.44,
+      "end": 2283,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah, sorry, Matt."
+    },
+    {
+      "start": 2283,
+      "end": 2283.84,
+      "speaker": "mat-ryer",
+      "text": "But you don't, you're really weird."
+    },
+    {
+      "start": 2283.84,
+      "end": 2293.04,
+      "speaker": "jerod-santo",
+      "text": "This is where you're sorely mistaken, man. This is the TV show. You don't listen to the show enough, man. It's never the computer. Silicon Valley, the TV show. It's always the TV show. Gotta keep it alive forever."
+    },
+    {
+      "start": 2293.04,
+      "end": 2297.29,
+      "speaker": "mat-ryer",
+      "text": "It's rich in my blood, deep, deep, deep."
+    },
+    {
+      "start": 2297.29,
+      "end": 2310.9,
+      "speaker": "jerod-santo",
+      "text": "One time I tried to reference the actual geography of Silicon Valley and this guy dinged me anyways. He overruled it and he just dinged it. He's like, nope, that's the TV show. So good luck trying to talk about the geography."
+    },
+    {
+      "start": 2310.9,
+      "end": 2312.68,
+      "speaker": "mat-ryer",
+      "text": "Okay, no, forget it."
+    },
+    {
+      "start": 2312.68,
+      "end": 2314,
+      "speaker": "jerod-santo",
+      "text": "Not in Adam's world."
+    },
+    {
+      "start": 2314,
+      "end": 2315.88,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Not in Adam's world."
+    },
+    {
+      "start": 2315.88,
+      "end": 2350.07,
+      "speaker": "jerod-santo",
+      "text": "Now, I don't know about you, but I'm just sick and tired. Sick and tired of. He's gonna start crying again. It's tough to talk about, okay. He's getting choked up. I've got some friends, okay. They're still a little scarred. They were trying to watch Silicon Valley. That was too close to home. Okay, and some people came in the house, started throwing some things, okay. They were throwing things. It was not cool. No peace, no harmony. Trying to watch Silicon Valley."
+    },
+    {
+      "start": 2350.07,
+      "end": 2355.94,
+      "speaker": "mat-ryer",
+      "text": "So everyone is allowed to watch it and that is the law."
+    },
+    {
+      "start": 2355.94,
+      "end": 2358.62,
+      "speaker": "jerod-santo",
+      "text": "No, no, that's not the law. This is the law."
+    },
+    {
+      "start": 2358.62,
+      "end": 2360.28,
+      "speaker": "mat-ryer",
+      "text": "What's the law? Oh, that's the change."
+    },
+    {
+      "start": 2360.28,
+      "end": 2391.96,
+      "speaker": "jerod-santo",
+      "text": "If you want everyone who wants to watch it, you can do so in peace and harmony. So now there was this cult, this uprising, trying to abolish and get rid of and erase Silicon Valley culture and everything that this TV show stands for. And people were trying, they were on eBay. They were on eBay and they were trying to get the TV show."
+    },
+    {
+      "start": 2391.96,
+      "end": 2392.8,
+      "speaker": "mat-ryer",
+      "text": "Trying to buy it?"
+    },
+    {
+      "start": 2392.8,
+      "end": 2418.58,
+      "speaker": "jerod-santo",
+      "text": "HBO had revolted, there was insiders. It was a mess, okay, it was a mess. And then whenever you watched Silicon Valley, the TV show, there was never any peace and never any harmony. And so the new rule is this, is that you have to abide by peace and harmony. You cannot disrupt. They will watch Silicon Valley forever if they want to."
+    },
+    {
+      "start": 2418.58,
+      "end": 2420.66,
+      "speaker": "mat-ryer",
+      "text": "Sounds like the Streisand effect."
+    },
+    {
+      "start": 2420.66,
+      "end": 2428.22,
+      "speaker": "jerod-santo",
+      "text": "I'm getting a little worked up now. Now, I was sad for a second there, but now I'm mad. Well, maybe you should come to Jared's World."
+    },
+    {
+      "start": 2428.22,
+      "end": 2438.26,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it sounds like you've made a world, Adam, it sounds like you've made a world that's really just tormenting you. Pop in the rocket, let's go to Jared World. Would you like an enormous pretzel?"
+    },
+    {
+      "start": 2438.26,
+      "end": 2443.31,
+      "speaker": "jerod-santo",
+      "text": "Welcome, gentlemen, to Jared World."
+    },
+    {
+      "start": 2443.31,
+      "end": 2445.59,
+      "speaker": "mat-ryer",
+      "text": "Oh, hello. Yay, Jared World."
+    },
+    {
+      "start": 2445.59,
+      "end": 2469.76,
+      "speaker": "jerod-santo",
+      "text": "I hope you do enjoy your time with us. Remember to visit The Loo, which is our Lou Gehrig themed restaurant. And when you're there, be sure to order the number two, which is the best chili nachos smothered in baked beans."
+    },
+    {
+      "start": 2469.76,
+      "end": 2470.66,
+      "speaker": "mat-ryer",
+      "text": "Lovely."
+    },
+    {
+      "start": 2470.66,
+      "end": 2498.33,
+      "speaker": "jerod-santo",
+      "text": "And then of course, when you're all finished, you can watch it wash it down with our world famous cocktail. You're gonna love this cocktail, Matt. It's an homage to Allen Iverson and his mechanical horse named Tintin. Sorry, this is too good. Tintin is so good. Yeah, you know Allen Iverson, the famous basketball player here in the United States? Yeah. Well, did you know he had a mechanical horse?"
+    },
+    {
+      "start": 2498.33,
+      "end": 2500.75,
+      "speaker": "mat-ryer",
+      "text": "Named Tintin? Was it?"
+    },
+    {
+      "start": 2500.75,
+      "end": 2505.61,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Iverson's mechanical Tintin. We call the drink Ivermectin."
+    },
+    {
+      "start": 2505.61,
+      "end": 2508.17,
+      "speaker": "mat-ryer",
+      "text": "Nice, does it come in a Tintin?"
+    },
+    {
+      "start": 2508.17,
+      "end": 2509.79,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 2509.79,
+      "end": 2511.63,
+      "speaker": "mat-ryer",
+      "text": "Like a Trojan horse?"
+    },
+    {
+      "start": 2511.63,
+      "end": 2514.71,
+      "speaker": "jerod-santo",
+      "text": "It'll finish you off nicely after that number two."
+    },
+    {
+      "start": 2514.71,
+      "end": 2517.97,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, it sounds big that number two as well."
+    },
+    {
+      "start": 2517.97,
+      "end": 2518.95,
+      "speaker": "jerod-santo",
+      "text": "It is big."
+    },
+    {
+      "start": 2518.95,
+      "end": 2520.55,
+      "speaker": "mat-ryer",
+      "text": "It sounds really big."
+    },
+    {
+      "start": 2520.55,
+      "end": 2524.07,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you almost can't finish it in one sitting."
+    },
+    {
+      "start": 2524.07,
+      "end": 2524.89,
+      "speaker": "mat-ryer",
+      "text": "Right, yeah."
+    },
+    {
+      "start": 2524.89,
+      "end": 2529.99,
+      "speaker": "jerod-santo",
+      "text": "Now that's just our fine cuisines. We also have amazing new gadgets."
+    },
+    {
+      "start": 2529.99,
+      "end": 2537.2,
+      "speaker": "mat-ryer",
+      "text": "Oh, I'd love to hear about your gadget. Is it better than a levitating chair or a sleepy nighttime car?"
+    },
+    {
+      "start": 2537.2,
+      "end": 2576.04,
+      "speaker": "jerod-santo",
+      "text": "Yes, I think it might be more useful than a really good Waymo. This is called the dis-incinerator. And it does exactly what it sounds like. It's the opposite of an incinerator. It's so useful. So if you have a great campfire and you want to do it again, same wood, just dis-incinerate it. California wildfires, no need to rebuild your home, just dis-incinerate your home. Right back to good as new. Or the Amazon forest, ravaged by loggers. First you have to incinerate the logs."
+    },
+    {
+      "start": 2576.04,
+      "end": 2576.88,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 2576.88,
+      "end": 2580.16,
+      "speaker": "jerod-santo",
+      "text": "And then let's get those trees back in the ground with the dis-incinerator."
+    },
+    {
+      "start": 2580.16,
+      "end": 2581.8,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 2581.8,
+      "end": 2582.92,
+      "speaker": "jerod-santo",
+      "text": "I think you get the point."
+    },
+    {
+      "start": 2582.92,
+      "end": 2585.08,
+      "speaker": "mat-ryer",
+      "text": "This is very good. And grandma?"
+    },
+    {
+      "start": 2585.08,
+      "end": 2595.56,
+      "speaker": "jerod-santo",
+      "text": "That's right. Oh yes, the ultimate of dis-incinerating values is your loved ones."
+    },
+    {
+      "start": 2595.56,
+      "end": 2596.4,
+      "speaker": "mat-ryer",
+      "text": "Bring them back."
+    },
+    {
+      "start": 2596.4,
+      "end": 2598.75,
+      "speaker": "jerod-santo",
+      "text": "As long as they don't choose traditional burial."
+    },
+    {
+      "start": 2598.75,
+      "end": 2599.59,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 2599.59,
+      "end": 2601.39,
+      "speaker": "jerod-santo",
+      "text": "We can dis-incinerate them too."
+    },
+    {
+      "start": 2601.39,
+      "end": 2607.55,
+      "speaker": "mat-ryer",
+      "text": "This is exciting because I sometimes burn things and then think afterwards I shouldn't have burned that."
+    },
+    {
+      "start": 2607.55,
+      "end": 2609.43,
+      "speaker": "jerod-santo",
+      "text": "I think we all do that from time to time, don't we?"
+    },
+    {
+      "start": 2609.43,
+      "end": 2612.17,
+      "speaker": "mat-ryer",
+      "text": "It happens. Yeah."
+    },
+    {
+      "start": 2612.17,
+      "end": 2613.01,
+      "speaker": "jerod-santo",
+      "text": "Pretty good gadget."
+    },
+    {
+      "start": 2613.01,
+      "end": 2614.31,
+      "speaker": "mat-ryer",
+      "text": "Yeah, this is a good gadget."
+    },
+    {
+      "start": 2614.31,
+      "end": 2622.04,
+      "speaker": "jerod-santo",
+      "text": "Thinking outside the box, you know? Not just renaming existing vehicles, but just brand new things."
+    },
+    {
+      "start": 2622.04,
+      "end": 2622.88,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2622.88,
+      "end": 2628.69,
+      "speaker": "jerod-santo",
+      "text": "Of course there are some people who would not like this dis-incinerator, serial killers."
+    },
+    {
+      "start": 2628.69,
+      "end": 2631.84,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, it's annoying for them."
+    },
+    {
+      "start": 2631.84,
+      "end": 2636.09,
+      "speaker": "jerod-santo",
+      "text": "Or people with really mean grandmas. Mm-hmm."
+    },
+    {
+      "start": 2636.21,
+      "end": 2638.34,
+      "speaker": "mat-ryer",
+      "text": "Some grandmas are horrible."
+    },
+    {
+      "start": 2638.34,
+      "end": 2646.06,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and you just want to leave them as they are, as they lay, or as they lie. Liars, they are."
+    },
+    {
+      "start": 2646.06,
+      "end": 2646.9,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2646.9,
+      "end": 2648.86,
+      "speaker": "jerod-santo",
+      "text": "But for everybody else, there's the dis-incinerator."
+    },
+    {
+      "start": 2648.86,
+      "end": 2649.82,
+      "speaker": "mat-ryer",
+      "text": "This is it, yeah."
+    },
+    {
+      "start": 2650.82,
+      "end": 2655.86,
+      "speaker": "jerod-santo",
+      "text": "That's my gadget. I got nothing else there. That's how Jared's world works."
+    },
+    {
+      "start": 2655.86,
+      "end": 2666.44,
+      "speaker": "mat-ryer",
+      "text": "I once made a pizza and I didn't really know what I was doing, so I sort of put it under the grill, which is the broil thing in the US, I think. You know where it's just got the heat on the top?"
+    },
+    {
+      "start": 2666.44,
+      "end": 2667.28,
+      "speaker": "jerod-santo",
+      "text": "Sure."
+    },
+    {
+      "start": 2667.28,
+      "end": 2679.54,
+      "speaker": "mat-ryer",
+      "text": "And I thought, that's kind of like a pizza oven. But I was essentially just grilling or toasting a frozen pizza. And anyway, cut a long story short, it was on fire. It was very quickly on fire."
+    },
+    {
+      "start": 2679.54,
+      "end": 2680.38,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 2680.38,
+      "end": 2695.92,
+      "speaker": "mat-ryer",
+      "text": "And I knew it was a spicy pizza, but that I don't think it was meant to be on fire. And it certainly, when I checked the box, it said nothing about that. If anything, it implied it wouldn't be on fire. Like it didn't say explicitly, but yeah. You just can read between the lines."
+    },
+    {
+      "start": 2695.92,
+      "end": 2700.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you can't return it at that point unless you had a dis-incinerator. Now, in that case, I think it pays for itself."
+    },
+    {
+      "start": 2700.88,
+      "end": 2704.48,
+      "speaker": "mat-ryer",
+      "text": "You can just take cooking too far and then just rewind it, basically."
+    },
+    {
+      "start": 2704.48,
+      "end": 2711.68,
+      "speaker": "jerod-santo",
+      "text": "You can get yourself a dis-incinerator for four easy payments of 29.99 and one really hard payment."
+    },
+    {
+      "start": 2711.68,
+      "end": 2716.6,
+      "speaker": "mat-ryer",
+      "text": "So just look out for that one. Same amount, but you have to pay in pennies."
+    },
+    {
+      "start": 2716.6,
+      "end": 2726.15,
+      "speaker": "jerod-santo",
+      "text": "That's right. You know, your check's gonna get lost in the mail. Yeah. Your credit, your bank account's gonna bounce. Something's gonna go wrong on that last one."
+    },
+    {
+      "start": 2726.15,
+      "end": 2742.2,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Put the wrong number in. When you try to put your destination bank account number, you put it all in correctly, but you got something wrong in the address. So it's just slowed it down. It's just, it's not much. The system has been flagged, but it's bank holiday. It's a long weekend, so."
+    },
+    {
+      "start": 2742.2,
+      "end": 2758.01,
+      "speaker": "jerod-santo",
+      "text": "Shout out to Mitch Hedberg. That's an old Mitch Hedberg gag that he does quite a bit better than I do. And if I can dis-incinerate him, I certainly would. All right, now there are some new rules here in Jared World. We don't live after the same rules that you all live by."
+    },
+    {
+      "start": 2758.01,
+      "end": 2761.84,
+      "speaker": "mat-ryer",
+      "text": "These are gonna be dark, aren't they? This is gonna make Adam cry."
+    },
+    {
+      "start": 2762.76,
+      "end": 2793.23,
+      "speaker": "jerod-santo",
+      "text": "Here's what we're gonna do. We're gonna return to champions, okay? We're gonna bring back champions. In Jared World, we do not wage war by killing millions of young men, women, and innocent children. All disputes are resolved by champions. Just like we used to do in the neighborhood growing up. You know, my dad can beat up your dad, that kind of a thing. Or the old school David versus Goliath, you know? Send out your best, we send out our best. And whoever wins, wins the dispute."
+    },
+    {
+      "start": 2793.23,
+      "end": 2798.43,
+      "speaker": "mat-ryer",
+      "text": "Is David the best one? Because that statue of him, he's got no arms. Have you seen it in Italy?"
+    },
+    {
+      "start": 2798.43,
+      "end": 2801.63,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I think Michelangelo screwed that part up, didn't he, or is that?"
+    },
+    {
+      "start": 2801.63,
+      "end": 2806.11,
+      "speaker": "mat-ryer",
+      "text": "And he didn't have any clothes on. He's got his willy out. He can't go to battle."
+    },
+    {
+      "start": 2806.11,
+      "end": 2809.39,
+      "speaker": "jerod-santo",
+      "text": "All he needed was five smooth stones, I guess, but not any."
+    },
+    {
+      "start": 2809.39,
+      "end": 2814.59,
+      "speaker": "mat-ryer",
+      "text": "He just had two. The, he must have read a different account."
+    },
+    {
+      "start": 2814.59,
+      "end": 2844.15,
+      "speaker": "jerod-santo",
+      "text": "So yes, this is the old champions. Here's how it would work. Now, I got practical here. I want to actually explain this, because you know, you can't just come out and say, whoever's champion wins, wins. I still did not want there to be murder, okay? So there's no, all wars now are done this way instead. And it is based on champions. How it works is each disputing group will pick their contest, okay? It could be MMA, it could be Wii Sports, chess, vibe coding, whatever."
+    },
+    {
+      "start": 2844.15,
+      "end": 2845.61,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 2845.61,
+      "end": 2874.15,
+      "speaker": "jerod-santo",
+      "text": "There's nine events, and the smallest population picks first because they need a little help. Right. And then each contest has a new champion. So you name, here's our vibe coding champion, right? Here's our chess champion. And they battle it out. First one to five wins the dispute. Here's the kicker though. Each champion that loses is disqualified from ever being a champion in that category ever again. And so choose wisely."
+    },
+    {
+      "start": 2874.15,
+      "end": 2875.57,
+      "speaker": "mat-ryer",
+      "text": "What do you think?"
+    },
+    {
+      "start": 2875.57,
+      "end": 2876.87,
+      "speaker": "jerod-santo",
+      "text": "This would work, right?"
+    },
+    {
+      "start": 2876.87,
+      "end": 2880.87,
+      "speaker": "mat-ryer",
+      "text": "I mean, I think this, I think we should do this just as a TV show."
+    },
+    {
+      "start": 2880.87,
+      "end": 2886.15,
+      "speaker": "jerod-santo",
+      "text": "I think we should. Yeah. It's kind of like the Olympics, but higher stakes and more categories."
+    },
+    {
+      "start": 2886.15,
+      "end": 2886.99,
+      "speaker": "mat-ryer",
+      "text": "More random categories."
+    },
+    {
+      "start": 2886.99,
+      "end": 2894.91,
+      "speaker": "jerod-santo",
+      "text": "What are the rules in that last part again? Like, how does that go? Well, you got nine. So let's say it's United States versus Great Britain, for instance, okay?"
+    },
+    {
+      "start": 2894.91,
+      "end": 2896.51,
+      "speaker": "mat-ryer",
+      "text": "Oh, come on, that'd never happen."
+    },
+    {
+      "start": 2896.51,
+      "end": 2898.95,
+      "speaker": "jerod-santo",
+      "text": "I know it wouldn't, but just for giggles."
+    },
+    {
+      "start": 2901.15,
+      "end": 2902.11,
+      "speaker": "mat-ryer",
+      "text": "Hilarious."
+    },
+    {
+      "start": 2902.11,
+      "end": 2910.29,
+      "speaker": "jerod-santo",
+      "text": "Yes. So we would pick, oh, we have a bigger population. So they would pick a category, probably cricket."
+    },
+    {
+      "start": 2910.29,
+      "end": 2911.39,
+      "speaker": "mat-ryer",
+      "text": "Could be."
+    },
+    {
+      "start": 2911.39,
+      "end": 2912.99,
+      "speaker": "jerod-santo",
+      "text": "Probably a surefire win for them, right?"
+    },
+    {
+      "start": 2912.99,
+      "end": 2917.11,
+      "speaker": "mat-ryer",
+      "text": "I mean. Could be the Beatles. And then we put Paul McCartney in."
+    },
+    {
+      "start": 2917.11,
+      "end": 2918.99,
+      "speaker": "jerod-santo",
+      "text": "It could be, yeah, he's still kicking."
+    },
+    {
+      "start": 2918.99,
+      "end": 2920.15,
+      "speaker": "mat-ryer",
+      "text": "Yeah, he's still kicking."
+    },
+    {
+      "start": 2920.15,
+      "end": 2922.67,
+      "speaker": "jerod-santo",
+      "text": "We put Willie Nelson against him. See what happens."
+    },
+    {
+      "start": 2922.67,
+      "end": 2925.33,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Good, fair enough."
+    },
+    {
+      "start": 2925.33,
+      "end": 2938.25,
+      "speaker": "jerod-santo",
+      "text": "They would pick cricket. We don't have any cricket players, so we might just give them that one. We're like, fine, whatever, you win that category. And then we would pick a category, and you could name pretty much any other game of skill, and then we would have more people on that one."
+    },
+    {
+      "start": 2938.25,
+      "end": 2944.58,
+      "speaker": "mat-ryer",
+      "text": "And then they would pick one. What's that? You say burgers, and we're like, we'll let them just have that one. Exactly."
+    },
+    {
+      "start": 2944.58,
+      "end": 2957.06,
+      "speaker": "jerod-santo",
+      "text": "Take your battles. Apple pie. You know, a pie baking contest. Yeah, so food, we pretty much win. But it could be like Fortnite. I'm sure there's probably some really good Fortnite players over there."
+    },
+    {
+      "start": 2957.06,
+      "end": 2958.9,
+      "speaker": "mat-ryer",
+      "text": "Yeah, even Minesweeper. Curling."
+    },
+    {
+      "start": 2958.9,
+      "end": 2988.7,
+      "speaker": "jerod-santo",
+      "text": "Minesweeper. Minesweeper. Yeah, there's a whole kinds of esports that could move into this. And then whoever wins is best of five. So you got nine different events. So you can go, it can go four to four, all the way down. Whoever wins the last one wins the dispute. So whatever we're disputing about, be it land or money or how many yous to put in the word favorite, I'm looking for zero, we win or they win. And that's it. The dispute's over. Like there's no ifs, ands or buts about it, it's over."
+    },
+    {
+      "start": 2988.7,
+      "end": 2995.2,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I think everyone could get behind that. You'd be like, okay, fair enough. We're all gonna lose."
+    },
+    {
+      "start": 2995.2,
+      "end": 3005.94,
+      "speaker": "jerod-santo",
+      "text": "It'd be great entertainment too, right? Like, they're already trying to entertain us with these monstrosities, right? Like they're like showing us war and stuff and ugh. Yeah, it's horrible. How about like something fun?"
+    },
+    {
+      "start": 3005.94,
+      "end": 3007.14,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I like this idea."
+    },
+    {
+      "start": 3007.14,
+      "end": 3018.58,
+      "speaker": "jerod-santo",
+      "text": "We have to get the violent people to really buy into this idea. I don't think it's the... Well, it's Jared world, so I just dictate it. This is just how the world works. Yeah, that's true. You have to. Yeah."
+    },
+    {
+      "start": 3018.58,
+      "end": 3025.14,
+      "speaker": "mat-ryer",
+      "text": "This is a good one. It puts my Doc's one into sharp perspective, doesn't it? That one really seems unimportant."
+    },
+    {
+      "start": 3025.14,
+      "end": 3054.88,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah, it sure does. In fact, if you had a dispute over Doc's, well, we would just champion it, you know? And I think in this world, it's probably pretty easy to watch Silicon Valley TV set on a piece of harmony. I think, yeah, you might exist happily in this world, Adam. Yeah, there's no need for tears, no need for sessions and groups and fellow Silicon Valley people to cry with."
+    },
+    {
+      "start": 3055.2,
+      "end": 3058.32,
+      "speaker": "mat-ryer",
+      "text": "Well, the AI best friend is helping you through it."
+    },
+    {
+      "start": 3058.32,
+      "end": 3076.3,
+      "speaker": "jerod-santo",
+      "text": "What a beautiful world, Jared. So I've described to you guys my gadget, which is the dis-incinerator. I've told you my new rule, which is a return to champions and skill-based competition to settle disputes. My thing I would like to change, and Matt, you did say this does not include physics. I can just do whatever I want, right?"
+    },
+    {
+      "start": 3076.3,
+      "end": 3079.58,
+      "speaker": "mat-ryer",
+      "text": "Yeah, anything you want, mate. Don't forget, I had the big rain that all comes down."
+    },
+    {
+      "start": 3079.58,
+      "end": 3097.49,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that was epic. I might adopt that. Can I adopt some of your stuff? Well, let me just go a little bit bigger than that even and say everything that tastes good, ice cream, Snickers, the extra large number two from Lou's, they're all actually good for you."
+    },
+    {
+      "start": 3097.49,
+      "end": 3098.33,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 3098.33,
+      "end": 3108.53,
+      "speaker": "jerod-santo",
+      "text": "And everything that tastes bad, you know, cucumbers or cucumbers gone bad, AKA pickles, avocados, you know, gross stuff, they're actually bad for you."
+    },
+    {
+      "start": 3108.53,
+      "end": 3109.53,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 3109.53,
+      "end": 3121.8,
+      "speaker": "jerod-santo",
+      "text": "So this is not a creative one, because I think a lot of people would like this, but it really is going to bring people into Jared world, because wouldn't it be amazing if the best things that tasted the best to you actually were the best for you? Wouldn't that just be epic?"
+    },
+    {
+      "start": 3121.8,
+      "end": 3145.16,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it would be epic. I think a lot of people would be happy with that, and I don't want to take anything away from them, but just for me, just only speaking just for me personally, I don't really like cakes and that, and the stuff I like is good for your stuff. Like I love avocado, cucumber, oh, yes, please. Pickled, hello."
+    },
+    {
+      "start": 3145.16,
+      "end": 3146.64,
+      "speaker": "jerod-santo",
+      "text": "Well, you must be pretty healthy then."
+    },
+    {
+      "start": 3146.64,
+      "end": 3148.64,
+      "speaker": "mat-ryer",
+      "text": "I think I am, but not deliberately."
+    },
+    {
+      "start": 3148.64,
+      "end": 3150.92,
+      "speaker": "jerod-santo",
+      "text": "Yeah, just because you like the taste of good things."
+    },
+    {
+      "start": 3150.92,
+      "end": 3151.76,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 3151.76,
+      "end": 3159.94,
+      "speaker": "jerod-santo",
+      "text": "Well, here's the thing is, I didn't describe how it works especially, I was naming things that I think taste good or bad, but it's completely subjective. So whatever you think tastes good is good for you."
+    },
+    {
+      "start": 3159.94,
+      "end": 3161,
+      "speaker": "mat-ryer",
+      "text": "Oh, here we go."
+    },
+    {
+      "start": 3161,
+      "end": 3165.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so I wouldn't everybody with that, right? Like there's, who's gonna not want that?"
+    },
+    {
+      "start": 3165.18,
+      "end": 3169.36,
+      "speaker": "mat-ryer",
+      "text": "I didn't. Yeah, I think so."
+    },
+    {
+      "start": 3169.36,
+      "end": 3175.96,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's kind of like what they did in the matrix. You know, they made, they made taste steaks, made steak taste so good."
+    },
+    {
+      "start": 3175.96,
+      "end": 3176.8,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 3176.8,
+      "end": 3191.2,
+      "speaker": "jerod-santo",
+      "text": "That he just wanted to go red pilled. So this is a personal preference. This is not a, I make your food taste bad, you make my food taste whatever. Whatever tastes good is good for you. And that's you personally."
+    },
+    {
+      "start": 3191.2,
+      "end": 3194.34,
+      "speaker": "mat-ryer",
+      "text": "So all your favorite stuff that's guilty pleasure."
+    },
+    {
+      "start": 3194.34,
+      "end": 3204.52,
+      "speaker": "jerod-santo",
+      "text": "Everything is good, is good. So let's say I have a bag of Swedish fish. Swedish fish? Swedish, Swedish fish. Known to have red 40 in it."
+    },
+    {
+      "start": 3204.52,
+      "end": 3208.33,
+      "speaker": "mat-ryer",
+      "text": "Okay. What the heck, what the heck is red 40?"
+    },
+    {
+      "start": 3208.33,
+      "end": 3210.41,
+      "speaker": "jerod-santo",
+      "text": "Let me tell you about red 40."
+    },
+    {
+      "start": 3210.41,
+      "end": 3211.99,
+      "speaker": "mat-ryer",
+      "text": "Tell me about it, man."
+    },
+    {
+      "start": 3211.99,
+      "end": 3219.6,
+      "speaker": "jerod-santo",
+      "text": "What is red 40? Let's see how biased this is. This is deep seek R1."
+    },
+    {
+      "start": 3219.6,
+      "end": 3221.26,
+      "speaker": "mat-ryer",
+      "text": "Right. It's gonna tell you what China thinks red 40 is."
+    },
+    {
+      "start": 3221.26,
+      "end": 3235.15,
+      "speaker": "jerod-santo",
+      "text": "What is red 40? Thinking. Red 40, also known as Alorra Red AC, is a synthetic red dye widely used in food, beverages, cosmetics, and pharmaceuticals."
+    },
+    {
+      "start": 3235.15,
+      "end": 3236.71,
+      "speaker": "mat-ryer",
+      "text": "Right."
+    },
+    {
+      "start": 3236.71,
+      "end": 3237.55,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 3237.55,
+      "end": 3238.37,
+      "speaker": "mat-ryer",
+      "text": "Okay."
+    },
+    {
+      "start": 3238.37,
+      "end": 3261.48,
+      "speaker": "jerod-santo",
+      "text": "And you like that too. It is known to have health concerns, hyperactivity in children. Children lead to in some studies to allergic reactions and some other stuff, I don't know, whatever. Yeah. Anyways. It's fat of food. It's approved in the US. Not in Jared world. Not approved everywhere else. Not in Swedish fish, in Jared world."
+    },
+    {
+      "start": 3261.48,
+      "end": 3264.04,
+      "speaker": "mat-ryer",
+      "text": "Well, it's good for you in your world, isn't it Jared?"
+    },
+    {
+      "start": 3264.04,
+      "end": 3286.15,
+      "speaker": "jerod-santo",
+      "text": "That's right. I mean, this is just how it works. Yeah. Well, I mean, the point is you got Swedish fish, red 40, I think it tastes good. Okay, they're pretty solid. I've never had them. In Jared world, they don't taste good? Or is it up to me for them to taste good? If it tastes bad to you, it's bad for you. It's a simple equation. If it tastes good to you, it's good for you."
+    },
+    {
+      "start": 3286.15,
+      "end": 3294.99,
+      "speaker": "mat-ryer",
+      "text": "Yeah, so your Swedish fish would be good for you. Doctor would be like, you make sure you're getting enough Swedish fish. You get that red 40, you need that red 40."
+    },
+    {
+      "start": 3294.99,
+      "end": 3299.74,
+      "speaker": "jerod-santo",
+      "text": "That's right. So you're telling me it tastes good to me,"
+    },
+    {
+      "start": 3299.74,
+      "end": 3301.88,
+      "speaker": "mat-ryer",
+      "text": "good for me, no matter what?"
+    },
+    {
+      "start": 3301.88,
+      "end": 3309.56,
+      "speaker": "jerod-santo",
+      "text": "Exactly. I mean, this is a win, win, win. There's no losing here. I mean, you would just want this real change. This is why I changed it."
+    },
+    {
+      "start": 3309.56,
+      "end": 3312.96,
+      "speaker": "mat-ryer",
+      "text": "So let's say you got somebody who's like really done with broccoli."
+    },
+    {
+      "start": 3312.96,
+      "end": 3314.02,
+      "speaker": "jerod-santo",
+      "text": "They're down with it?"
+    },
+    {
+      "start": 3314.02,
+      "end": 3322.72,
+      "speaker": "mat-ryer",
+      "text": "They're down with the broccoli. They love it. They have in the past, they'd say things like, I love you broccoli."
+    },
+    {
+      "start": 3322.72,
+      "end": 3329.72,
+      "speaker": "jerod-santo",
+      "text": "I love you broccoli. Okay, so they have like a speech impediment kind of a thing? Yeah. Okay."
+    },
+    {
+      "start": 3330.36,
+      "end": 3331.48,
+      "speaker": "mat-ryer",
+      "text": "Such a cartoon."
+    },
+    {
+      "start": 3331.48,
+      "end": 3336.52,
+      "speaker": "jerod-santo",
+      "text": "This is a dated, that was a dated caricature of the person. That was when they were seven."
+    },
+    {
+      "start": 3336.52,
+      "end": 3337.72,
+      "speaker": "mat-ryer",
+      "text": "I didn't know you dated the person."
+    },
+    {
+      "start": 3337.72,
+      "end": 3339.5,
+      "speaker": "jerod-santo",
+      "text": "Maybe four or three."
+    },
+    {
+      "start": 3341.56,
+      "end": 3348.24,
+      "speaker": "mat-ryer",
+      "text": "I love you broccoli. Go ahead, do it again. He wants to do it again. Go ahead. It's cold."
+    },
+    {
+      "start": 3348.24,
+      "end": 3349.24,
+      "speaker": "jerod-santo",
+      "text": "I love you broccoli."
+    },
+    {
+      "start": 3350.68,
+      "end": 3357.14,
+      "speaker": "mat-ryer",
+      "text": "It tastes like candy. Okay. So if you love broccoli, it tastes like candy. Yes. Good for you, no matter what."
+    },
+    {
+      "start": 3357.14,
+      "end": 3378.39,
+      "speaker": "jerod-santo",
+      "text": "It's good for you. It's not a complicated algorithm. There's no holes in this algorithm. You can't poke a hole in it. All right, so who's moving where? That's the way I know. Who's moving where? Now I'm kind of want this, I think my world's the best, but I really do want Matt's all the rain at one moment thing. So I'm kind of on the fence there."
+    },
+    {
+      "start": 3378.39,
+      "end": 3383.91,
+      "speaker": "mat-ryer",
+      "text": "And you know you want people watching Silicon Valley in peace and harmony, man. I'm not against that. You know that's your goal."
+    },
+    {
+      "start": 3383.91,
+      "end": 3413.54,
+      "speaker": "jerod-santo",
+      "text": "That's not my goal in life, but I do want them to have that freedom. So yeah, I mean, all these worlds sound pretty good. What I'm kind of boned about is you don't have any musical accompaniment for any of this. Matt, can you sing, how about theme songs? I mean, now you know our worlds. You've heard everything about Matt world. Everything about Adam world. Everything about Jared world. Maybe a ditty for each or one that encompasses all three, whatever you're thinking here. Get that guitar out."
+    },
+    {
+      "start": 3413.54,
+      "end": 3543.69,
+      "speaker": "mat-ryer",
+      "text": "Right, let's do it. Let's go on a trip around this weird solar system. You come with journey. We're gonna make sure you put your own mask on first before you help anybody. You can sit on a floating sofa. You can ride a slippery car. If you wanna ride ducks though, you're the only one who has to do it though, okay. Cause all the rain, everybody we're pointy and all the buildings are also pointy. Why, why? Well, it's because of the rain. Do you like Silicon Valley? If you do, you're gonna like this place. You can watch it anytime you like peace and harmony. If you don't like it though, happens to you. I assume that it's not great. Maybe you get shunned. You can go to Jared world now. Jared world."
+    },
+    {
+      "start": 3543.69,
+      "end": 3551.7,
+      "speaker": "jerod-santo",
+      "text": "All things you eat that are nice, that means they're good for you."
+    },
+    {
+      "start": 3551.7,
+      "end": 3596.52,
+      "speaker": "mat-ryer",
+      "text": "Like you could eat a bad, bad sandwich, but you like it anyway. Well, I got news for you. Will you pay attention? That sandwich is now good for you. You're gonna like Jay. Don't just get in the rocket. We'll take you to space. Take you back home. Would you like a little packet of pretzels in the event of an emergency, please put your own mask on. Helping anyone else."
+    },
+    {
+      "start": 3603.54,
+      "end": 3604.38,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 3604.38,
+      "end": 3611.41,
+      "speaker": "mat-ryer",
+      "text": "It is. Poof indeed. That's the sort of reaction you look for after a song."
+    },
+    {
+      "start": 3611.41,
+      "end": 3618.45,
+      "speaker": "jerod-santo",
+      "text": "Not one mention of compression. Sad. Not one mention of compression, man."
+    },
+    {
+      "start": 3618.45,
+      "end": 3620.13,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah. Well, it was in there."
+    },
+    {
+      "start": 3620.13,
+      "end": 3622.97,
+      "speaker": "jerod-santo",
+      "text": "I'm so disappointed. You might start crying again."
+    },
+    {
+      "start": 3622.97,
+      "end": 3624.73,
+      "speaker": "mat-ryer",
+      "text": "No, it was in there between all the words."
+    },
+    {
+      "start": 3624.73,
+      "end": 3626.43,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you compressed it."
+    },
+    {
+      "start": 3626.43,
+      "end": 3627.99,
+      "speaker": "mat-ryer",
+      "text": "Oh, I sure did."
+    },
+    {
+      "start": 3627.99,
+      "end": 3629.91,
+      "speaker": "jerod-santo",
+      "text": "This is not what we call peace and harmony."
+    },
+    {
+      "start": 3629.91,
+      "end": 3636.36,
+      "speaker": "mat-ryer",
+      "text": "I got out of that so good. I got out of that because of the compression thing."
+    },
+    {
+      "start": 3636.36,
+      "end": 3651.21,
+      "speaker": "jerod-santo",
+      "text": "I think Matt really highlighted his points more than ours. Don't you think, Adam? I mean, he even brought back the little pretzels. It's like none of us were talking about pretzels, but Matt. I don't know about you, but when he said. I mean, no mention of a dis-incinerator at all."
+    },
+    {
+      "start": 3651.21,
+      "end": 3659.71,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Coolest gadget of the free. Yeah. I was trying to remember that stuff, but what I should have done is written it down."
+    },
+    {
+      "start": 3659.71,
+      "end": 3665.65,
+      "speaker": "jerod-santo",
+      "text": "That would have been good. We gave you plenty of time, you know? I mean, Adam cried for a good 45 seconds."
+    },
+    {
+      "start": 3665.65,
+      "end": 3684.85,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I know, but that was just so touching. It was like watching a Morgan Freeman film at the end where he does a long speech that tells you all about something. Which one's that? In your heart. All of them, where he's like, I'm Morgan Freeman and I'm gonna tell you now about this moral of the story. That sort of thing."
+    },
+    {
+      "start": 3684.85,
+      "end": 3686.24,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3686.24,
+      "end": 3687.08,
+      "speaker": "mat-ryer",
+      "text": "Is that right?"
+    },
+    {
+      "start": 3687.08,
+      "end": 3689.86,
+      "speaker": "jerod-santo",
+      "text": "What's probably your favorite Morgan Freeman movie?"
+    },
+    {
+      "start": 3690.92,
+      "end": 3695.14,
+      "speaker": "mat-ryer",
+      "text": "I like that one where he's God. Bruce Almighty. That's a good one."
+    },
+    {
+      "start": 3695.14,
+      "end": 3696.98,
+      "speaker": "jerod-santo",
+      "text": "Such a short role, though."
+    },
+    {
+      "start": 3696.98,
+      "end": 3698.37,
+      "speaker": "mat-ryer",
+      "text": "God?"
+    },
+    {
+      "start": 3698.37,
+      "end": 3701.51,
+      "speaker": "jerod-santo",
+      "text": "Yeah, but important. He wasn't really in the film a lot. Well, you know."
+    },
+    {
+      "start": 3701.51,
+      "end": 3709.15,
+      "speaker": "mat-ryer",
+      "text": "Not bad. He only really did his thing for a week there, didn't he? And it took him a week to build all the universe and all the people. That's right."
+    },
+    {
+      "start": 3709.15,
+      "end": 3710.52,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 3710.52,
+      "end": 3715.6,
+      "speaker": "mat-ryer",
+      "text": "Bruce Almighty, on the other hand, had to do loads of work and had to keep his main job."
+    },
+    {
+      "start": 3715.6,
+      "end": 3724.44,
+      "speaker": "jerod-santo",
+      "text": "A lot of emails. A lot of emails. A lot of emails. I think that movie pales in comparison to Shawshank Redemption, which is one of the best movies of all time."
+    },
+    {
+      "start": 3724.44,
+      "end": 3727.12,
+      "speaker": "mat-ryer",
+      "text": "That's probably true. It's often in the lists of top movies."
+    },
+    {
+      "start": 3727.12,
+      "end": 3729.63,
+      "speaker": "jerod-santo",
+      "text": "It is, because it's just that good."
+    },
+    {
+      "start": 3729.63,
+      "end": 3731.79,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it really is good, too, so."
+    },
+    {
+      "start": 3731.79,
+      "end": 3732.63,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3732.63,
+      "end": 3733.45,
+      "speaker": "mat-ryer",
+      "text": "It's fair enough."
+    },
+    {
+      "start": 3733.45,
+      "end": 3741.81,
+      "speaker": "jerod-santo",
+      "text": "Sometimes you'll have a popular album and you're like, yeah, I don't really like that band because everybody else likes them. Yeah. Of course you're gonna pick Godfather II, you know?"
+    },
+    {
+      "start": 3741.81,
+      "end": 3743.35,
+      "speaker": "mat-ryer",
+      "text": "Yeah, Shawshank really is the..."
+    },
+    {
+      "start": 3743.35,
+      "end": 3755.78,
+      "speaker": "jerod-santo",
+      "text": "But it's like Shawshank's just so good, you can't even get mad at people. I think because it's so long. Shawshank's long? It's a pretty long movie. It's not a short movie. No. It's not a three-hour movie, but it's long."
+    },
+    {
+      "start": 3755.78,
+      "end": 3773.78,
+      "speaker": "mat-ryer",
+      "text": "I heard it was a flop when it first came out and people were like, meh. And then it just grew and grew. It wasn't like a big opening weekend. Not like, you know, The Flust, what's the Fast and the Furious cars? Right. What are those angry cars? Or, you know, Marvel."
+    },
+    {
+      "start": 3773.78,
+      "end": 3774.9,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3774.9,
+      "end": 3775.74,
+      "speaker": "mat-ryer",
+      "text": "But Shawshank is great."
+    },
+    {
+      "start": 3775.74,
+      "end": 3808.24,
+      "speaker": "jerod-santo",
+      "text": "You know, Shawshank can probably thank TBS, or perhaps TNT, which might be the same company, I don't even know, because its rise to fame really was over the course of 10 to 15 years when it was just on TBS on a Saturday afternoon, probably every Saturday or Sunday, for years. And it gave an entire generation an opportunity to watch it and watch it over and over again and just fall in love with it. Because yeah, it wasn't like it moved, changed the world when it was in theaters or anything."
+    },
+    {
+      "start": 3808.24,
+      "end": 3818.84,
+      "speaker": "mat-ryer",
+      "text": "But it is classic. And if you look at those lists, which I sometimes do, and I'm like, I'm going to start at the top film of all time, which is usually a Godfather or two."
+    },
+    {
+      "start": 3818.84,
+      "end": 3819.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3819.8,
+      "end": 3836.36,
+      "speaker": "mat-ryer",
+      "text": "And go down the list until I haven't seen one. And then that's the one I have to then watch. And honestly, they really are all good. That is true. Like good film, like when they're like the best film in the top 50 films of all time or whatever, they're probably all pretty good films."
+    },
+    {
+      "start": 3836.36,
+      "end": 3837.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah, they're all pretty stinking good."
+    },
+    {
+      "start": 3837.4,
+      "end": 3842.64,
+      "speaker": "mat-ryer",
+      "text": "And if you're like the guy in the room going, I don't like that one because you're probably wrong."
+    },
+    {
+      "start": 3842.64,
+      "end": 3843.6,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3843.6,
+      "end": 3844.44,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 3844.44,
+      "end": 3875.67,
+      "speaker": "jerod-santo",
+      "text": "But let me do that for a second. Okay, so Citizen Kane though, like that one's like well-known top number one. And that's the one I'm always like, yeah, I've seen it, but I wouldn't go back and watch it. I appreciate it for its quality, whatever, whatever. But I'd watched Shawshank like a hundred times before I watched Citizen Kane again. Maybe just because it's that old of a movie. I mean, it was very early on, but it's always there. And I don't think it doesn't deserve it. I just feel like I could take it or leave it myself. So there, there I'm that guy."
+    },
+    {
+      "start": 3876.59,
+      "end": 3879.27,
+      "speaker": "mat-ryer",
+      "text": "It sucks. No, but I'm that guy with Citizen Kane as well."
+    },
+    {
+      "start": 3879.27,
+      "end": 3880.47,
+      "speaker": "jerod-santo",
+      "text": "Okay, cool."
+    },
+    {
+      "start": 3880.47,
+      "end": 3881.99,
+      "speaker": "mat-ryer",
+      "text": "But we're probably wrong."
+    },
+    {
+      "start": 3881.99,
+      "end": 3884.75,
+      "speaker": "jerod-santo",
+      "text": "We probably are, but at least we're wrong together."
+    },
+    {
+      "start": 3884.75,
+      "end": 3887.23,
+      "speaker": "mat-ryer",
+      "text": "Yeah, exactly. And that's why I come on this podcast."
+    },
+    {
+      "start": 3887.23,
+      "end": 3900.48,
+      "speaker": "jerod-santo",
+      "text": "That's right. We can watch Shawshank in peace and harmony. One would pray. All right, what else? Should we hard segue into a different topic? Should we say goodbye?"
+    },
+    {
+      "start": 3900.48,
+      "end": 3904.64,
+      "speaker": "mat-ryer",
+      "text": "Should we reinvent new worlds beyond?"
+    },
+    {
+      "start": 3904.64,
+      "end": 3908.04,
+      "speaker": "jerod-santo",
+      "text": "I just wanna mention one thing that was like not really talked about much."
+    },
+    {
+      "start": 3908.04,
+      "end": 3909.1,
+      "speaker": "mat-ryer",
+      "text": "Okay."
+    },
+    {
+      "start": 3909.1,
+      "end": 3911.99,
+      "speaker": "jerod-santo",
+      "text": "Uptick mineral water."
+    },
+    {
+      "start": 3911.99,
+      "end": 3913.83,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah. I don't know what that is."
+    },
+    {
+      "start": 3913.83,
+      "end": 3922.67,
+      "speaker": "jerod-santo",
+      "text": "Uptick. You drink this mineral water, not only do you get a physical uptick, you get a website traffic boost as well."
+    },
+    {
+      "start": 3922.67,
+      "end": 3923.51,
+      "speaker": "mat-ryer",
+      "text": "Yeah, this is good."
+    },
+    {
+      "start": 3923.51,
+      "end": 3927.52,
+      "speaker": "jerod-santo",
+      "text": "Uptick mineral water. Brings you growth."
+    },
+    {
+      "start": 3927.52,
+      "end": 3929.04,
+      "speaker": "mat-ryer",
+      "text": "Makes your internet fast."
+    },
+    {
+      "start": 3929.04,
+      "end": 3931.24,
+      "speaker": "jerod-santo",
+      "text": "And. Well, I mean, you know."
+    },
+    {
+      "start": 3931.24,
+      "end": 3932.48,
+      "speaker": "mat-ryer",
+      "text": "That's the."
+    },
+    {
+      "start": 3932.48,
+      "end": 3937,
+      "speaker": "jerod-santo",
+      "text": "It helps you get the people to buy your thing. Uptick."
+    },
+    {
+      "start": 3938.24,
+      "end": 3943,
+      "speaker": "mat-ryer",
+      "text": "It does a lot of things, this uptick. Is it natural? Does it come out of a spring?"
+    },
+    {
+      "start": 3943,
+      "end": 3944.56,
+      "speaker": "jerod-santo",
+      "text": "It's a mineral water."
+    },
+    {
+      "start": 3944.56,
+      "end": 3945.64,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 3945.64,
+      "end": 3954.75,
+      "speaker": "jerod-santo",
+      "text": "Best thing for you. Not if you don't like the taste of it. Some would call it amazing. Some would call it amazing. Honestly."
+    },
+    {
+      "start": 3954.75,
+      "end": 3955.79,
+      "speaker": "mat-ryer",
+      "text": "I would."
+    },
+    {
+      "start": 3955.79,
+      "end": 3965.59,
+      "speaker": "jerod-santo",
+      "text": "Mineral water that gives you a physical and a digital uptick. Uptick. Who doesn't want an uptick?"
+    },
+    {
+      "start": 3965.59,
+      "end": 3966.87,
+      "speaker": "mat-ryer",
+      "text": "Who doesn't indeed?"
+    },
+    {
+      "start": 3966.87,
+      "end": 3970.01,
+      "speaker": "jerod-santo",
+      "text": "You know what? I live daily for an uptick."
+    },
+    {
+      "start": 3970.01,
+      "end": 3972.81,
+      "speaker": "mat-ryer",
+      "text": "Can you see my, this gadget that I have in real life?"
+    },
+    {
+      "start": 3972.81,
+      "end": 3979.19,
+      "speaker": "jerod-santo",
+      "text": "Oh wow. What is this? So there's like two lights around your neck. Those are personal headlights."
+    },
+    {
+      "start": 3979.19,
+      "end": 3981.27,
+      "speaker": "mat-ryer",
+      "text": "Kind of like. What?"
+    },
+    {
+      "start": 3981.27,
+      "end": 3983.79,
+      "speaker": "jerod-santo",
+      "text": "So you have like, what is this man?"
+    },
+    {
+      "start": 3983.79,
+      "end": 3996.23,
+      "speaker": "mat-ryer",
+      "text": "This is kind of like personal headlights. It's sort of joking. If you're reading a book, you wear these light kind of collar. There's a sort of collar to it."
+    },
+    {
+      "start": 3996.23,
+      "end": 4000.21,
+      "speaker": "jerod-santo",
+      "text": "It looks like the kind of thing you'd, like the pillow you'd put on an airplane."
+    },
+    {
+      "start": 4000.21,
+      "end": 4012.84,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Pop it around your neck. Put your own mask on before helping anyone else's. Put your own headlights on before helping your friends or your children. And then you can read because there's more light on you."
+    },
+    {
+      "start": 4012.84,
+      "end": 4028.52,
+      "speaker": "jerod-santo",
+      "text": "It shines light on your book. What if you just had instead right here, Matt, see this part of my head? Oh yeah, face it back into you. What if you just had like these, like they were magnets, those same lights and they would call it power over skin."
+    },
+    {
+      "start": 4028.84,
+      "end": 4029.68,
+      "speaker": "mat-ryer",
+      "text": "Okay."
+    },
+    {
+      "start": 4029.68,
+      "end": 4040.7,
+      "speaker": "jerod-santo",
+      "text": "P.O.S. Your skin would electronically transmit the power. You click the lights to your neck. Power via your heartbeat and boom light."
+    },
+    {
+      "start": 4040.7,
+      "end": 4042.73,
+      "speaker": "mat-ryer",
+      "text": "So would they pulse?"
+    },
+    {
+      "start": 4042.73,
+      "end": 4063.09,
+      "speaker": "jerod-santo",
+      "text": "I don't know if they would pulse. I mean, maybe they have different, you know, your body's providing the power at that point, you know, but they can use the power to blink or to go blue or green or to be this, you know, I'm thinking maybe like 3,600 Kelvin right now, roughly. Yeah. 4,700 maybe."
+    },
+    {
+      "start": 4063.09,
+      "end": 4071.65,
+      "speaker": "mat-ryer",
+      "text": "I mean, I wish you could do that. I wish you could like experiment more with stuff in your body. Like, yeah, I've gone for LEDs or extra arms."
+    },
+    {
+      "start": 4071.65,
+      "end": 4074.53,
+      "speaker": "jerod-santo",
+      "text": "Imagine it. Just extra arms."
+    },
+    {
+      "start": 4074.53,
+      "end": 4095.2,
+      "speaker": "mat-ryer",
+      "text": "Yeah, if you have, imagine an extra arm coming out of your side. Here's a weird thing because, well, imagine picking something up with it now. You kind of know how to feel. You kind of know how that would feel. Yeah, like an arm. Yeah, but like imagine, I think, imagine it. You've got an arm coming out of your side."
+    },
+    {
+      "start": 4095.2,
+      "end": 4099.8,
+      "speaker": "jerod-santo",
+      "text": "I am. You keep saying that, like I'm not imagining it, but I am. Yeah, you are, right."
+    },
+    {
+      "start": 4099.8,
+      "end": 4104.36,
+      "speaker": "mat-ryer",
+      "text": "I just can't tell. I can't tell what you're imagining. I can't tell what you're imagining or not."
+    },
+    {
+      "start": 4104.36,
+      "end": 4124.46,
+      "speaker": "jerod-santo",
+      "text": "Well, I'm wondering, could you feel when the power over your skin, like would you feel the electricity running through your veins? Inperceptible. Oh, wow. The reason why is you're already, would you, do you feel it now? You're already electrical. I'm kind of nervous. Or your nerves touch your fingertip. That's an electrical pulse."
+    },
+    {
+      "start": 4124.46,
+      "end": 4125.3,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I do feel that."
+    },
+    {
+      "start": 4125.3,
+      "end": 4128.36,
+      "speaker": "jerod-santo",
+      "text": "That's electricity inside your body. Low voltage, baby."
+    },
+    {
+      "start": 4128.36,
+      "end": 4131.3,
+      "speaker": "mat-ryer",
+      "text": "Yeah, but I mean, you're talking like lighting up a light bulb, dude."
+    },
+    {
+      "start": 4131.3,
+      "end": 4146.3,
+      "speaker": "jerod-santo",
+      "text": "A light bulb is, that's low voltage. It's five volts or less, man. You don't feel that. Have you ever peed on electric fence? No, because they say don't do that. In my world, one of the laws that I didn't have to mention was that. You don't pee on the electric fence. You just don't do it."
+    },
+    {
+      "start": 4146.3,
+      "end": 4147.14,
+      "speaker": "mat-ryer",
+      "text": "Oh, yeah."
+    },
+    {
+      "start": 4147.14,
+      "end": 4162.04,
+      "speaker": "jerod-santo",
+      "text": "There's a song about it too. Did you hear the song? Oh, yeah, yeah, yeah, yeah. The song about not peeing on the electric fence. Don't pee. Matt, how's that one go again? On the electric, go ahead, Matt. Give us some rendition of the don't pee on the electric fence. There you go."
+    },
+    {
+      "start": 4162.04,
+      "end": 4163.16,
+      "speaker": "mat-ryer",
+      "text": "Yeah, yeah, I got it."
+    },
+    {
+      "start": 4163.2,
+      "end": 4164.08,
+      "speaker": "jerod-santo",
+      "text": "Okay, good."
+    },
+    {
+      "start": 4164.08,
+      "end": 4168.69,
+      "speaker": "mat-ryer",
+      "text": "I wonder what genre this is gonna be. Nursery rhyme."
+    },
+    {
+      "start": 4168.69,
+      "end": 4178.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, kinda like a kid's song in a way. Very happy. Very happy. Too fast, too fast."
+    },
+    {
+      "start": 4178.46,
+      "end": 4182.06,
+      "speaker": "mat-ryer",
+      "text": "Yeah, that's a good piece."
+    },
+    {
+      "start": 4182.06,
+      "end": 4186.5,
+      "speaker": "jerod-santo",
+      "text": "No rush, you're in no rush to pee on that fence."
+    },
+    {
+      "start": 4186.5,
+      "end": 4235.72,
+      "speaker": "mat-ryer",
+      "text": "Hey, when you're going out for a walk. Little too fast. Something I gotta tell you, let's have a talk. Cause if you need to go, there's something you should know. Don't go on that electric fence. I did it once and not again. I'm electric now and then. I couldn't even really believe how it made me feel. Oh man, it hurts, it stings. Oh yeah, it burns, it stings."
+    },
+    {
+      "start": 4236.28,
+      "end": 4240.56,
+      "speaker": "jerod-santo",
+      "text": "It hurts, it burns, it stings. Is the idea there that you actually peed on it while you were singing the song even?"
+    },
+    {
+      "start": 4240.56,
+      "end": 4242.52,
+      "speaker": "mat-ryer",
+      "text": "Yeah, you're getting your songs going."
+    },
+    {
+      "start": 4242.52,
+      "end": 4245.8,
+      "speaker": "jerod-santo",
+      "text": "You're doing it to show them what not to do. That's why I sped up, cause he's just."
+    },
+    {
+      "start": 4245.8,
+      "end": 4248.68,
+      "speaker": "mat-ryer",
+      "text": "It hurts, it burns, it stings. Yeah."
+    },
+    {
+      "start": 4248.68,
+      "end": 4249.6,
+      "speaker": "jerod-santo",
+      "text": "That's like, that's gonna be a classic."
+    },
+    {
+      "start": 4249.6,
+      "end": 4253.68,
+      "speaker": "mat-ryer",
+      "text": "That's good stuff, man. You had your headlights on, your personal headlights."
+    },
+    {
+      "start": 4253.68,
+      "end": 4260.96,
+      "speaker": "jerod-santo",
+      "text": "Now Matt, when you wear those on the airplane, can you see to the very bottom and get that very last little pretzel? Is that what those are for?"
+    },
+    {
+      "start": 4260.96,
+      "end": 4263.36,
+      "speaker": "mat-ryer",
+      "text": "You can take these on an airplane."
+    },
+    {
+      "start": 4263.36,
+      "end": 4265.2,
+      "speaker": "jerod-santo",
+      "text": "Get down there in the bottom of the bag."
+    },
+    {
+      "start": 4265.64,
+      "end": 4274.64,
+      "speaker": "mat-ryer",
+      "text": "But the problem is, when they turn all the lights off, where everyone goes to sleepy time, then you got your lights on, it's really annoying for everyone."
+    },
+    {
+      "start": 4274.64,
+      "end": 4278.84,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you gotta say sorry. Is there a dim mode, you know, maybe a, you know."
+    },
+    {
+      "start": 4278.84,
+      "end": 4280.12,
+      "speaker": "mat-ryer",
+      "text": "Yeah, like."
+    },
+    {
+      "start": 4280.12,
+      "end": 4281.8,
+      "speaker": "jerod-santo",
+      "text": "Where it's like less bright."
+    },
+    {
+      "start": 4281.8,
+      "end": 4286.88,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, there's more bright. There's like three levels."
+    },
+    {
+      "start": 4286.88,
+      "end": 4287.8,
+      "speaker": "jerod-santo",
+      "text": "Oh, intermittent."
+    },
+    {
+      "start": 4287.8,
+      "end": 4290.35,
+      "speaker": "mat-ryer",
+      "text": "Yeah. So I can have it in the low mode,"
+    },
+    {
+      "start": 4290.35,
+      "end": 4297.43,
+      "speaker": "jerod-santo",
+      "text": "that's what you do with it. Three modes, yeah, that low mode's actually kinda high. Then we need to get a little lower at that. Do they measure that nits?"
+    },
+    {
+      "start": 4297.79,
+      "end": 4304.39,
+      "speaker": "mat-ryer",
+      "text": "I don't, because that's what we call head lice. And just as a unit for measurement, it went out of fashion years ago."
+    },
+    {
+      "start": 4305.81,
+      "end": 4307.97,
+      "speaker": "jerod-santo",
+      "text": "What do you measure it in then? Nits widths."
+    },
+    {
+      "start": 4307.97,
+      "end": 4315.86,
+      "speaker": "mat-ryer",
+      "text": "We just, we still use inches. Oh yeah. Oh, for light, not for light. Yeah, for light. Just for like squinting."
+    },
+    {
+      "start": 4315.86,
+      "end": 4317.98,
+      "speaker": "jerod-santo",
+      "text": "Lumens, what's the lumen count on that?"
+    },
+    {
+      "start": 4317.98,
+      "end": 4319.46,
+      "speaker": "mat-ryer",
+      "text": "No, it's like if it's a big squint,"
+    },
+    {
+      "start": 4319.46,
+      "end": 4321.28,
+      "speaker": "jerod-santo",
+      "text": "you know, it's bright. How many inches is that light?"
+    },
+    {
+      "start": 4321.28,
+      "end": 4324.98,
+      "speaker": "mat-ryer",
+      "text": "If it's like, oh, what are you doing? Turn that off. Then you know it's really bright."
+    },
+    {
+      "start": 4324.98,
+      "end": 4329.65,
+      "speaker": "jerod-santo",
+      "text": "So it's more or less squints? It's a medium squint light."
+    },
+    {
+      "start": 4329.65,
+      "end": 4333.21,
+      "speaker": "mat-ryer",
+      "text": "Yeah. You can get candles that are a thousand squints."
+    },
+    {
+      "start": 4333.21,
+      "end": 4337.61,
+      "speaker": "jerod-santo",
+      "text": "Well, listeners, I'm so glad you tuned in today."
+    },
+    {
+      "start": 4337.61,
+      "end": 4341.7,
+      "speaker": "mat-ryer",
+      "text": "Me too. It was, I think we all learned something."
+    },
+    {
+      "start": 4341.7,
+      "end": 4498.91,
+      "speaker": "jerod-santo",
+      "text": "It was, this was a really interesting tune on France, I'm telling you. I just don't even know where we're going with this. I'm loving the guitar picking as we outro this, like as if it's an undercurrent or an undertone, so to speak to these words I'm speaking. Well, thank you, friends, loved ones. Choose your world wisely and we'll see you in Zillow. Bye, friends. Bye, friends. Well, friends, which world was your favorite world? I just want to say that, I don't know if I got the memo on the assignment. Like Jared did a really good job. He made a real world. I was trying to be funny. I was just trying to like do my thing with Silicon Valley. You know, I don't know. Matt, of course, is always cheeky, polite, funny, witty, comedic, and I suppose pretty decent with a song, but let us know which was your favorite world, Jared world, Matt world, or Adam world, where you can watch Silicon Valley in peace and harmony forever. Big thank you to our friends over at Depot and our friends over at Notion. Check them out, depot.dev, and of course, notion.com slash changelog. There you go. And of course, big thank you to our friends and our partners over at fly.io. That is a public cloud for developers, those of us who ship, those of us who love to remove the infra and deploy our apps wherever we want. And that place is fly.io. Check them out. To the Beat Freak in residence break master cylinder, yes. Those beats are fresh, those beats are banging, and we have a new album. Check it out. Also, you can buy it, the MP3 digital version of it at the merch store, merch.changelog.com. Check it out if you wanna buy it. And if you wanna stream it, it's your heart's content. It's all the places, Apple Music, Spotify, you name it. Enjoy those beats. Okay, that's it, the show's done. We'll see you next week."
+    }
+  ],
+  "slug": "hello-matworld",
+  "id": "90"
+}

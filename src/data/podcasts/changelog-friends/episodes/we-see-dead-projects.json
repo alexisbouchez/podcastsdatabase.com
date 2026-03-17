@@ -1,0 +1,937 @@
+{
+  "title": "We see dead projects",
+  "description": "Jerod and Adam explore the lifecycle of failed and abandoned projects -- both open source and commercial.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/115",
+    "MP3": "https://cdn.changelog.com/uploads/friends/115/changelog--friends-115.mp3",
+    "YouTube": "https://youtu.be/8cvYeLjsDmU",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 3.92,
+      "end": 128.3,
+      "speaker": "jerod-santo",
+      "text": "Welcome to changelog and friends the spooky edition, whoo Big thanks to our friends over at fly dot IO Getting our back hosting our stuff being the thing that makes our thing just that much better. Check them out at fly dot IO Okay, let's talk Well friends, I don't know about you, but something bothers me about get up actions. I love the fact that it's there I love the fact that it's so ubiquitous I love the fact that agents that do my coding for me believe that my CI CD workflow begins with drafting Tomo files forget about actions. That's great. It's all great until Yes until your builds start moving like molasses get of actions is slow. It's just the way it is That's how it works. I'm sorry, but I'm not sorry because our friends at namespace they fix that. Yes We use namespace dot so to do all of our bills so much faster Namespace is like get up actions, but faster. I'm like way faster It caches everything smartly it cast your dependencies your docker layers your build artifacts So your CI can run super fast you get shorter feedback loops Have your developers because we love our time and you get fewer. I'll be back after this coffee and my build finishes So that's that's not cool the best part is it's drop-in it works right alongside Your existing get up actions with almost zero config. It's a one line change so you can speed up your builds you get to light your team and you can finally stop pretending that build time is Focus time it's not learn more go to namespace dot S. Oh, that's Namespace dot S. Oh, just like it sounds like it said go there check them out. We use them We love them and you should to namespace dot S. Oh"
+    },
+    {
+      "start": 128.86,
+      "end": 258.61,
+      "speaker": "adam-stacoviak",
+      "text": "So I got a confession to make okay One time one time when I was doing an interview for this show, okay I went about 20 minutes into the show and I realized that I did not hit the record button. Yeah And it was a guest like I had just met that day and we were groovin Oh, we were having a blast and then I stopped and I Said I'm so sorry because I've done this how many times we've done this Just so many so many. In fact, I think my personal episode count has broke the 1000 mark at this point And I think you're getting close to that. I wouldn't doubt it. Yes, and I said, I am so sorry I'm not gonna I'm not gonna dox him and I said, but I have not been recording this now I said hopefully You're recording a local of your own and he said I am and I said I'm recording a local of my own He said okay I think we're good then and We stopped and made sure that he was recording and it was good and you could hear him and miners recording and it was good and relief sudden Rush of relief when we realized we hadn't wasted 20 good minutes now That was a couple years ago, and I got another confession to make oh gosh Session to you Adam because this is because you know, this this I do fashion to our to our dear listeners. I Did it a second time? Yeah sure did however This time we did not have any backups. No, my quick time has been on the fritz It keeps crashing on me or something or other mines running, but you can't do it with one voice. So we just spent 45 minutes recording some dynamic dialogue for y'all some really good stuff really good and It's now in the into the ether, you know, we were piping it to dev Knoll the whole time. That's not cool"
+    },
+    {
+      "start": 258.61,
+      "end": 269.15,
+      "speaker": "jerod-santo",
+      "text": "That's a bad place to go. If you want the good stuff. The good stuff does not go to dev Knoll Okay, it goes to maybe temp temp temporarily. I would be very happy if we found that conversation of temp"
+    },
+    {
+      "start": 269.29,
+      "end": 278.77,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna restore it and give it to Jason and say at this what it is. There's a temp But we think it's dev that we're pretty sure we're 100% sure it's dev Knoll. So"
+    },
+    {
+      "start": 279.75,
+      "end": 284.19,
+      "speaker": "jerod-santo",
+      "text": "Riverside should tell you this though, right? Like this should be a great feature. Like you're getting dramatic"
+    },
+    {
+      "start": 284.19,
+      "end": 318.21,
+      "speaker": "adam-stacoviak",
+      "text": "Are you recording right now? It's similar to like how your watch says. Are you working out? Yeah, like hey Are you doing a run and you're like, no, I'm just tax on this walk. Okay Don't make fun of me. I know it's kind of insulting. Sometimes you're like, I'm not actually working out I'm just a little bit out of shape and I'm breathing heavy. Okay? But when it does get it when you do forget to start your workout, it's pretty nice. It is nice And had we got a notification even like three or five minutes into that diatribe We would have been so happy so happy because you can't just go back and redo the same conversation"
+    },
+    {
+      "start": 318.21,
+      "end": 322.17,
+      "speaker": "jerod-santo",
+      "text": "No, we can't we we have to leave that one in the ether for you guys. It was really good"
+    },
+    {
+      "start": 322.17,
+      "end": 324.17,
+      "speaker": "adam-stacoviak",
+      "text": "It was so good. You guys you should"
+    },
+    {
+      "start": 327.73,
+      "end": 331.71,
+      "speaker": "jerod-santo",
+      "text": "You should have been there. Okay. All right, so let's do a new show then"
+    },
+    {
+      "start": 331.71,
+      "end": 336.01,
+      "speaker": "adam-stacoviak",
+      "text": "Let's do a brand new show saying all of that aside which none of you guys know what we're talking about"
+    },
+    {
+      "start": 336.01,
+      "end": 345.71,
+      "speaker": "jerod-santo",
+      "text": "But that's fair we do if you see it on our faces, right? You can't know what we're talking about from like a little white like a ghost. That's why today's episode is all about death"
+    },
+    {
+      "start": 346.23,
+      "end": 458.85,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so much death the death of projects the death of open source projects the death of closed source projects this show is called I see dead projects and it is a episode request from a good friend Thomas Eckhart Who Requested it last year for last Halloween and we didn't do anything about dreams come true Now Thomas you get what you asked for a year later And his idea was hey what if you just go out and find some of these stories of open source and other projects that have gone by the Wayside whether they were abandoned whether they were beat out by competitors whether money destroyed them or maybe they were just finished whatever it was find some stuff and And tell those stories now, we're not gonna tell you all about quicksilver Can't do it because hurt each other about it And it hurts too bad it hurts so good but That gives us more time to talk about other things That aren't quicksilver and I got off onto a tangent while researching this I got off onto a killed by Google Tangent because when I think of the death of many pieces of software that many people have loved people have loved Don't you just think Google's murdered so many of them? Well find your way to killed by google.com where We have a three by three grid maintained by Cody Ogden on github an open source project that loads a cool website from a JSON file with 298 things That Google has killed over the years. I Haven't even built that much software in my life. Have you had 298 software projects? Probably not. No, that's a lot"
+    },
+    {
+      "start": 459.49,
+      "end": 467.81,
+      "speaker": "jerod-santo",
+      "text": "There's one I didn't even know it was dead right here You just found out chromecast. Yeah, I don't even use it, but I'm surprised by that one"
+    },
+    {
+      "start": 467.81,
+      "end": 477.77,
+      "speaker": "adam-stacoviak",
+      "text": "I think they're like decided they were in a discontinue that and Replace it with like some new Google TV thing or something. I think it's still software right? It's still a protocol"
+    },
+    {
+      "start": 477.77,
+      "end": 480.89,
+      "speaker": "jerod-santo",
+      "text": "You can still cast. Oh, I think maybe chromecast the hardware"
+    },
+    {
+      "start": 481.61,
+      "end": 539.94,
+      "speaker": "adam-stacoviak",
+      "text": "It does say hardware the actual chromecast. Yeah, they're not gonna produce those anymore But there's so many things of course the big ones, right? So the biggest one That kills me to this day would be Google Reader Yeah killed over 12 years ago faithfully served from 2005 to 2013 And not only did goodling Google Reader kill Google Reader it kind of killed RSS as a social phenomenon. I mean except for us weirdos and Hippies never let it go who are still using our RSS readers like feed bin or feed layer What have you but Google Reader really drove away the death of Google Reader drove away? What would say like mass adoption of RSS as a as a thing? And That was a big bummer. Mm-hmm. How about Google Wave or Google Wave a lot of buzz around that one, right?"
+    },
+    {
+      "start": 539.94,
+      "end": 546.06,
+      "speaker": "jerod-santo",
+      "text": "Was that um, it was so weird. What was wave was that the Austin my Google Plus. Oh"
+    },
+    {
+      "start": 546.58,
+      "end": 586.44,
+      "speaker": "adam-stacoviak",
+      "text": "That was a follow-up. I think Google Wave came first. Yeah, it attempted to wave released in 2009 Yes, it was like real-time collaborative Stuff like there was like you hop it was like a collaborative editing tool Kind of like in a social network fashion of like we're all working on this thing together and talking to each other and that was the idea like you hop on the wave and you ride it for a while and It was very interesting. I think it was like very much a single page app with all the Google engineering in it got tons of people super excited I'm seeing a trend here. I'm looking at these. Maybe I'm just in a certain era looking at these but"
+    },
+    {
+      "start": 587.08,
+      "end": 636.51,
+      "speaker": "jerod-santo",
+      "text": "Killed almost 13 years ago killed about 13 years ago killed 13 years ago. Like what happened? 13 years ago Google right and something something going on a lot of them died 13 years ago Or just the ones I'm looking at. Yeah reader was a tough one because I I agree. I mean that one seemed misplaced Misplaced like a thriving project Second you just figure out how to make some money from it and not kill it But you know just like you can't go to Target today and buy a blu-ray What's up with that? Who's killing the blu-rays man? Death physical medias is dying. It really is dying and my plex catalog is suffering as a result"
+    },
+    {
+      "start": 637.31,
+      "end": 648.62,
+      "speaker": "adam-stacoviak",
+      "text": "Such a shame. Well, this website also catalogs open source things angular.js Killed almost four years ago. I was about 11 years old you have"
+    },
+    {
+      "start": 649.22,
+      "end": 651.5,
+      "speaker": "jerod-santo",
+      "text": "Wait polymer angular.js is dead"
+    },
+    {
+      "start": 652.52,
+      "end": 655.28,
+      "speaker": "adam-stacoviak",
+      "text": "Angular.js is dead according to killed by google.com"
+    },
+    {
+      "start": 656.08,
+      "end": 671.14,
+      "speaker": "jerod-santo",
+      "text": "That's so wild because I think I know somebody who's was just talking about it. I won't name them because it's embarrassing and They weren't aware of this. This is not this is news to them. So I think This is news they're excited"
+    },
+    {
+      "start": 671.98,
+      "end": 704.81,
+      "speaker": "adam-stacoviak",
+      "text": "That's not good. Sorry y'all. No, I think they replaced it with angular without the JS Oh, so it's like I don't know if that's a spiritual successor or a fork or a rebrand I don't know what it is in relation because I don't play in this pond However, angular.js as a thing is dead. Okay angular Which you can find an angular dev is probably the same thing I don't know. Some of our angular fans out there can let us know What's up with that? But angular.js was killed. So I guess rest easy to Adams"
+    },
+    {
+      "start": 705.79,
+      "end": 738.92,
+      "speaker": "jerod-santo",
+      "text": "Unspoken-of friend. Yeah, I mean, yeah, maybe they were talking about angular. Maybe they already know angular dev vs. Angular JS org Right to be clear a lot of death over there Google, you know I mean they I think about two years ago when we were first talking about this AI hype wave and what's happening there? I think I was even bullish saying that Google would not win they would die. What's wrong with me? But they're all playing this case. I say that on this show I just said they're in trouble if they don't change and they seem so Google search as it currently exists"
+    },
+    {
+      "start": 738.92,
+      "end": 741.64,
+      "speaker": "adam-stacoviak",
+      "text": "It certainly was being yes was being assaulted"
+    },
+    {
+      "start": 742.28,
+      "end": 777.95,
+      "speaker": "jerod-santo",
+      "text": "It's I mean, it's dead to me. I only Google something if like I'm just trying to find a thing so it's usefulness has degraded to about 10% of my needs It hasn't become less useful. It's just not as useful as other things. My my needs have shifted, you know This is how it works. Well, I want a recipe. Give me the recipe riff with me make Mexican chicken with me. Okay, don't point me to 17 Mexican chicken recipes Let's let's be chefs. Let's make some food. Let's go"
+    },
+    {
+      "start": 778.51,
+      "end": 818.72,
+      "speaker": "adam-stacoviak",
+      "text": "Good rant. I like that. I was a solid rant Alright so lots of stuff killed over there by Google of varying qualities and interests but that's just kind of how they do what they do and Sometimes we feel a pain other times. We don't really know What it was a Google revolve. I have no idea what that was. No Google now No idea Songza beats me Google flu trends heard about for the first time right now. It's been dead since 2015 So a lot of engineers over there and lots of engineering so let's turn to now to Something else. Oh"
+    },
+    {
+      "start": 818.72,
+      "end": 952.84,
+      "speaker": "jerod-santo",
+      "text": "Well didn't fully prepare for this one, but mostly let's just say mostly. Okay, I would say, you know There's been a lot of advancements on the front end one in particular that has evolved Naturally is CSS it it lagged for a bit there. I think There were things like sass and gosh, there was something else less Was a thing as a last day. Yes, and my my brain just now don't know about less never really caught on personally for me for some reason, but the original sass was created by the Person which I can't remember his name in the moment, but he's a close friend. I'm so sorry Created Hamel, which was popular to rubious back right? It was white space aware similar to Python is and the original sass syntax was just that it was a pre Preprocessor. So yeah, it was a pre processed Before you got the actual CSS, it's kind of cool. It's not a terrible job of explaining it but sass To me. I don't know this is true. Don't be offended if you're still working on this It's kind of like dead or dying. You know, it's evolved it did its job Just like quicksilver Didn't hear about that now. Did you listener? No, you didn't That's okay. Just like quicksilver. We discussed that in the The ether show so to speak quicksilver enabled this first mover phenomenon to help Apple since you bake a lot of features in the quicksilver launched with Gotta bring that pun back and then sass did the same thing, I believe in a great spirit to CSS I mean like the goal was never let's make sass the thing it was Let's make CSS better by adding sass to it. You pre-processed this, you know this super set of CSS is what sass was it set above and on top of CSS proper and it gave you a lot of superpowers. You just didn't have on the front end and I Don't know where it's at right now, honestly"
+    },
+    {
+      "start": 953.51,
+      "end": 1022.08,
+      "speaker": "adam-stacoviak",
+      "text": "well, I went to sass-lane.com slash blog and It's officially dead. Is it posted the 23rd of October? 2025 those are five days ago. Okay libsass Timely great time. This is breaking news Yeah Sasses end of life libsass has reached end of life Libsass and the packages built on top of it have been deprecated since October of 2020 So that's five years ago in the five years since we made that announcement the sass language has continued to evolve to support the latest CSS features like color spaces and embedded sass made it easy to run dart sass across numerous different languages and platforms dart sass now meets essentially all the use cases that libsass once did At the same time development of libsass has faltered there hasn't been a new commit to the source code repository since December of 2023 And there are numerous issues languishing unaddressed The time has come to be clear libsass is no longer maintained and will receive no future updates So that's libsass. I don't know what it says. I don't know what dart sass is cuz I'm not in that world"
+    },
+    {
+      "start": 1022.08,
+      "end": 1083.39,
+      "speaker": "jerod-santo",
+      "text": "But I think this is I can give you a little bit of that picture. So I remembered Hampton Catlin So I remember the name that's the person mission Hampton Created him will created sass. I believe sass was I don't know c++. Maybe I know libsass was definitely c++ And so the engine I believe for sass was slow and the challenge for a while the argument for many was it's slow Can you make it faster and I believe they extracted out the engine which was libsass and that was rewritten It was it came many years after sass was even a thing I think it was originally written in Ruby now that I remember maybe was Ruby and Libsass was written in C and c++ It was meant to be the language that or the the library that others could leverage to make their sass better So if you had a different sass implementation, you have one in Ruby you have one for Dart. Dart was a language Google language actually, I believe"
+    },
+    {
+      "start": 1083.41,
+      "end": 1090.7,
+      "speaker": "adam-stacoviak",
+      "text": "Darla should see if they've killed it yet. Hold on. Let's go see killed by google.com. Oh Dart you are safe"
+    },
+    {
+      "start": 1090.92,
+      "end": 1148.7,
+      "speaker": "jerod-santo",
+      "text": "Using Dart you are safe that is not cake and that's pretty much it, you know, you got libsass Which was the promise of the future? Get that thing Extracted out of that slow Ruby world if I'm speaking correctly if I'm not just assume it's truth. Okay, I believe There was a node sass because the node ecosystem needed a special way and they leverage libsass to make node sass S CSS, which was more like the traditional sass or sorry CSS syntax which had parentheses and curly braces all the fun stuff Yeah, it's uh, and now what we have got tailwind, right? Is that so we have I Resist the front end if I have to go to the front end these days, but I'm just upset I'm just upset, you know put it in the terminal Put the terminal that's where I live now. Okay"
+    },
+    {
+      "start": 1149.28,
+      "end": 1187.16,
+      "speaker": "adam-stacoviak",
+      "text": "So sass was the radically different look in one right like it was no curly braces it was right white significant Okay, and just like Hamel was very much minimal and white space significant templating language sass looked different than CSS And so you kind of had to learn a separate may call it a dialect of CSS in order to use it and then s CSS. So that was sass dot sass s CSS which was also part of I think libsass and the whole sass community Was the as you said kind of the more CSS looking version that still got the features that you wanted Because the features that it had that you really wanted well, you could drop it in for CSS"
+    },
+    {
+      "start": 1187.16,
+      "end": 1194.64,
+      "speaker": "jerod-santo",
+      "text": "You can surely take a dot CSS. I call it dot s CSS and you were using because it was a super set of CSS"
+    },
+    {
+      "start": 1194.64,
+      "end": 1220.14,
+      "speaker": "adam-stacoviak",
+      "text": "Correct. Yeah, but what you really wanted was nesting and variables and then it got fancier from there and people who are you know Hardcore front-enders and Designers who love CSS and all the features you could like use it as a polyfill basically to get new CSS features before they existed Precisely, and that's what the attraction was was that totally and that's about and now most of that's pretty much built in I mean"
+    },
+    {
+      "start": 1220.66,
+      "end": 1221.9,
+      "speaker": "jerod-santo",
+      "text": "Yeah"
+    },
+    {
+      "start": 1221.9,
+      "end": 1228.12,
+      "speaker": "adam-stacoviak",
+      "text": "Variables and nesting. I'm happy camper. I don't need much else includes and"
+    },
+    {
+      "start": 1228.66,
+      "end": 1330.58,
+      "speaker": "jerod-santo",
+      "text": "Imports and a lot of that stuff was all I mean hats off to everyone involved there Natalie. I think there's Chris I forget his last name in the moment These were dear friends of mine over the years just paid attention closely to that I mean, thankfully all that work went into it because it all poured into eventually a better CSS world and it's no longer needed. So I think To say dead in this case end of life, I believe is better the better term like they did in the blog Because it did its job, right? It was not meant to replace CSS it was meant to augment and be a superset of it to Push it forward and give you features that you just couldn't have otherwise because you could just use CSS It was actually kind of hard to use SAS because of the SS version because of the S CSS version because of the eventual libsass and just it seemed like a challenging space to get into I will say though that the original syntax that mimicked the beauty of what Hamill brought which was this white space aware white space significant World, you can easily see what you said before which was important, which was the nesting you could see how far based on indentation You were being and you could tell pretty quickly while looking at a sass dot s a s as file how terrible your CSS nesting and inheritance and Tree essentially was your specificity was just way off or way too way too deep way too deep"
+    },
+    {
+      "start": 1330.58,
+      "end": 1403.02,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, too specific too many selectors Yeah And that I think to this day is the the pro argument for white space significant languages is that you can add a glam see if you're getting crazy with your indentations that being said I Well, I understand that stance. I think you can also see it even with curly braces. I guess you're not required to indent But anybody who's not indenting their code like talk about death. You're dead to me, you know, just Just don't care don't care to collaborate with you. So that code That's right Or you may have a another thing coming so the indentation as advantage of white space significance is Like the scan ability I get it I just think it's not such an advantage that being said I'm not a white space hater. I've Enjoyed I liked Hamel quite a bit I like how clean it looked and I appreciate Python at times as well Although even with white space significant, I've seen some pretty gnarly Python code So, you know, you can make a mess no matter where you are in the world just start being messy"
+    },
+    {
+      "start": 1416.53,
+      "end": 1614.38,
+      "speaker": "jerod-santo",
+      "text": "Well friends agentic postgres is here and from our friends over at tiger data This is the very first database built for agents and it's built to let you build faster You know a fun side note is 80% of Claude was built with AI over a year ago 25% of Google's code was AI generated. It's safe to say that now it's probably close to 100% Most people I talk to most developers I talk to you right now almost all their code is being generated. That's a different world Here's the deal agents are the new developers. They don't click they don't scroll they call they retrieve they parallelize They plug in your infrastructure to places you need to perform but your database It's probably still thinking about humans only because that's kind of where postgres is at tiger data's philosophy is that when your agents need to spin up sandboxes run Migrations query huge volumes of vector and text data. Well, no postgres it might choke and so they fix that Here's where we're at right now agentic postgres delivers these three big leaps native search and retrieval instant zero copy forks and MCP server plus your CLI plus a cool free tier now if this is intriguing at all head over to tiger data Dot-com install the CLI just three commands spin up an agentic postgres service and let your agents work at the speed They expect not the speed of the old way the new way agentic postgres It's built for agents is designed to elevate your developer experience and build the next big thing again Go to tiger data comm to learn more You know, there's nothing like a good project that was brand new though that can use the original the og Saa SS syntax cuz like you didn't have to compete with old CSS to move around and support you could just start this new world with this indented world and Until you had to copy CSS from Stack Overflow or something like that. You're like you're pretty happy You know and and then you had like paste it and then do a bunch of deletion We didn't have AI back then to like automate this stuff Gosh that's why I'd even say that we didn't have AI back then. Yeah, they could the bad old days Yeah, like why would I write that code? It would do it for you. Okay, it will do it for you. Listen today Took a little break. I just want to think about a feature. I just want to think about a feature Here I am an amp and I'm like, hey amp. Can we can we talk? Okay Can we talk? Okay, I got an idea For the future and I just want to think about it with you man, I dropped that idea in there I'm not kidding you dude. I got an email when read it Responded back was happy. Okay. Let me get back to my aunt. Let me see what they did Feature was done. I said, let's think about it. Okay, let's talk about this. Let's not do the work What made a bunch of changes all correct and stuff shit the production and everything gosh In a blink of an eye I meant to think about it that feature was done What a world what a world That's not even a joke man still hyperbole. That's true I was not that was not fabricated for podcast material. That was straight-up truth"
+    },
+    {
+      "start": 1614.38,
+      "end": 1620.1,
+      "speaker": "adam-stacoviak",
+      "text": "I just got a little bit concerned when you started talking to amp kind of like a Marvin Gaye style voice"
+    },
+    {
+      "start": 1620.1,
+      "end": 1743.01,
+      "speaker": "jerod-santo",
+      "text": "You know, let's talk about listing about well, I was being I Really was like can we just I know you're a doer Okay, I know you're a doer amp. You just go and do stuff. Can we just talk about no, I'm a doer It says I'm gonna go do this. I can't plan I only do It plans. Well, it's got the Oracle comes back with good stuff But I went and got that email taken care of came back and it was done and I was like, all right, cool I was kind of upset cuz I really want to think about it, but it wasn't necessary. It's like gosh, man Just want to think about that feature for a second. No, I can't it's done. Yeah, no input. Yeah, but it was a good It was a pretty simple feature It didn't require a lot of thinking I'm just trying to incrementally inch into this one because I had a whole field version of it Mmm, I will reveal to you right now what it is. I I've been itching this scratch for a while to replace Pilehole with DNS hole. I like it a lot. It's got a good ring to it. I can't let it go I failed the first project version of it just total failure. I was vibing all over the place Slinging code slop everywhere rust rust memories unsafe things just literally just dead code everywhere like if you're a Rustation, you're just pissed at my code. Okay, you're just slapping my code all around Well, I learned my lesson. Okay. I just went ahead and said that's v1 It is now a reference only project and just started off simple and now simple so much better. In fact DNS simple is sitting at It is it's resolving all my DNS queries as we speak on this podcast Dan simple is sorry Dean simple Dean simple DNS hole DNS hole is is resolving all of my DNS queries right now it is Yeah, that's pretty cool excited about that"
+    },
+    {
+      "start": 1743.01,
+      "end": 1853.98,
+      "speaker": "adam-stacoviak",
+      "text": "I have a new phenomenon when I try to start a new project now, or I don't know what language it should be in anymore Like I used to have opinions Yeah, and but I do eventually resolve so for instance I started up this it's like static site generator thing That doesn't crawling blah blah blah and I just tell it what I want I'm just like, you know, this is a cloud code and I'm like you just do your thing and come back to me And it came back to me with a Python script, you know, and I was like, well, I guess I didn't add in specify I didn't want to specify but now I'm looking at this and I'm thinking yeah, no, not really And I'm like, let's rewrite this in JavaScript. No typescript, please. Just pure JavaScript. Keep it clean You know, keep it loose. Give me options No types. No types. Do not constrain me. I'm vibe coding Okay, that's right. And so it ports it to JavaScript in a blink of an eye and I'm like, that was cool And then I build out some features and I get going I realized I want this actually to run on a remote server Which it's a shared server. So I don't have access to NPM. I have node there. It's an older version I can run it, but I can't run NPM And of course this thing vibe coded up a couple of packages. I think mostly around requests and stuff like that. Mm-hmm maybe like HTML parsing and query stuff So I'm like, well that sucks and I'm like, you know what port yourself to go and then BAM go And I said compile yourself to always been on go. I like go for that reason, you know, you're just compile yourself to go I've got everything in one binary. I just scp that sucker to the remote server It's compiled against the Linux that they expect over there on my shared hosting It even embeds the HTML templates and the CSS and everything you embed it all in one binary, dude"
+    },
+    {
+      "start": 1855.24,
+      "end": 1859.58,
+      "speaker": "jerod-santo",
+      "text": "So cool one binary to save money just how it goes right there"
+    },
+    {
+      "start": 1859.58,
+      "end": 1872.37,
+      "speaker": "adam-stacoviak",
+      "text": "Either our sink or scp that sucker anywhere you want and just run it. Mmm. No dependencies. No package managers Mmm now the code is kind of you know verbose and ugly"
+    },
+    {
+      "start": 1873.11,
+      "end": 1876.7,
+      "speaker": "jerod-santo",
+      "text": "Who cares do the test pass doesn't work?"
+    },
+    {
+      "start": 1877.3,
+      "end": 1915.01,
+      "speaker": "adam-stacoviak",
+      "text": "That's glad that you said the second part Because I did not request any tests Well thing about cloud code is you know, if you give cloud code a task It's gonna write the task and if you don't specify, please also write specs or whatever if you're just like do this thing It's gonna actually test that it does it via its own little You know shell scripts and stuff it's gonna like You know output to a test directory and it's gonna grip the thing and it's gonna set and it's gonna auk and it's gonna You know count lines and whatever it's got to do to make sure that it's right And then I'm done and you're like that's testing. That's testing"
+    },
+    {
+      "start": 1915.01,
+      "end": 1920.33,
+      "speaker": "jerod-santo",
+      "text": "I don't have an automated test suite the other day, but that's right. Those tests are like one done by Sia"
+    },
+    {
+      "start": 1920.77,
+      "end": 2331.44,
+      "speaker": "adam-stacoviak",
+      "text": "But yeah, they were all those it's all low-stakes stuff. Anyways, you know, that's what I use it for It's like low stakes, you know, I'm not like resolving my own DNS with it or something in that case. It is higher stakes Yeah, it is I'm you. All right. Well, we're up. We're upstream here. Let's go to another project That is dead for various Definitions of the word dead. We aren't calling we aren't declaring death. In fact, I know this one still lives in a sense But it doesn't live in the way that originally was pitched to live which was as the future of web Development. Yes. I'm talking about meteor JS. Oh, yeah Wow. Remember meet here JS Often something called meteor is open source. It was a full stack JavaScript framework Came out around 2011 Back in the early days of jQuery backbone node stuff like that Initially developed by some folks at white combinator yes, this was one of the reasons why it's Now being declared dead because it was VC backed from the start But built by some cool devs Jeff Schmidt David Greenspan. He co-created etherpad remember etherpad Rings a bell. Yeah etherpad is one of the very first things that was like collaborative Editing like Google Docs and it was open source and self hostable And so people would stand it up and they would use it for like their own little You know real-time collaborative editors inside their web apps. It was very cool I'm not sure what's going on either paddock boy to be another story there Matt Deberg Alice I'm not sure how to say your last name Matt and Nick Martin. That was the team Dropped huge fanfare April 2012 largest hacker news debut of all time according to this Probably since then there's been larger ones, but at least at the time It was huge Got lots of fanfare lots of people trying it Exploded in popularity Kind of a typical hockey stick growth kind of thing raise more money raise more money This is an MIT licensed project that just keeps raising more money and June July 2012 They secure eleven point two million dollars in seed funding from a 16 Z They hire people they buy infrastructure by 2013 They release a package manager By Tom Coleman that was actually integrated into the core there's this discover meteor which was either a newsletter or some sort of website co-authored by friend of the so Sasha grief and Tom Coleman, of course, you know Sasha was big into meteor for a long time really big yeah and You know things continued up into the right 2014 they raised 20 million dollars series B round and they've told over three thirty one million dollars raised Fathom DB comes out. So they have a database a cloud database galaxy They launched galaxy, which is like a hosting platform for meteor apps So that's kind of the play was like, you know, it's all open source and free but if you want to be hosted by us on our galaxy, that's how you pay money and Performance monitoring so they started to productize around 2013 Continued to grow I mean the package registry had thousands of community packages Start to integrate NPM and 2015 They got worldwide Production apps out there. So I mean not unsuccessful by any means I call this success For many definitions of that word things continue to go. Okay 2016 they were making like Exceeding their revenue goals according to them But community debates arose. There was purists who loved the all-in-one simplicity Others demand a deeper modern tooling integration. So the the community started to disagree on the tech itself and the direction that it should go They started moving towards graph QL and that laid the groundwork for Apollo remember Apollo graph QL that's still out there Which was a spin-off? And then you know what happened basically was just like new JavaScript frameworks came out that were more interesting to more people and because they were like so fueled by VC money They needed to grow faster than they could grow Eventually discover meteor grew outdated, you know people started moving on the state of JavaScript survey Of course is a such a grief thing. He's been doing it for a long time now to the state of Yeah, the state of JS actually catalogued meteors interest and then you can start to see the decline and sometimes that is a What do you call a self-fulfilling prophecy like people start to see it declining in interest? And so they are less likely to be interested in it and just that momentum downwards can actually be a problem and so the transparency around that actually perpetuates it but still got worked on and then in 2019 all of a sudden they read it and they changed MDG, which is the company behind it all pivoted from meteor to Apollo graph QL Hmm they saw more money in that I think this deprioritized meteors core development Frustrating people and then in October 2019 tiny capital who are owners of dribble and other things acquired meteor dot JS and galaxy, that's their hosting service assets for an undisclosed sum so it got sold off and renamed meteor software Got put in the maintenance mode this I mean More emphasizing maintenance than growth and Tiny, which was a company that bought it pledged they'd support it for long term like five years Still out there still going. Yep That's wild to think about that. They call it a Renaissance meteor 3.0 and beyond People still working on it has a small community. And so by no means dead legacy, perhaps the influence endures It helped birth the UJS Apollo obviously other things storybook But by no means it had take the world over as it was supposed to and so in that sense You know the original mission of meteor as the future of web development"
+    },
+    {
+      "start": 2334.11,
+      "end": 2341.34,
+      "speaker": "jerod-santo",
+      "text": "It's gone with the wind, you know, I never get on the train. I never understood it personally. It was always confusing to me"
+    },
+    {
+      "start": 2341.68,
+      "end": 2425.87,
+      "speaker": "adam-stacoviak",
+      "text": "They did a interesting thing like munging server and client code early on Which of course, you know with react team has been struggling to Make that a thing In the public's eyes at least like they made it technically a thing but in terms of adoption and and people understanding it It's been a upward uphill battle for them as well meteor had that from the very start I did use it one time for a hackathon Had a lot of fun with it built a game for a for a hackathon and It was very strange like Knowing am I writing server code or am I writing client code and they were syncing stuff for you It was very kind of advanced at the time that it was out There had a lot of cool innovations in it Maybe because of the time that I tried it But also what I tried it for to me it felt more like a toy than a tool that I would build a business around Not that it necessarily was but that's just the way that it felt to me so I never took it super seriously, but obviously lots of people did and They've had lots of they got 44,000 get up stars 508 thousand installs 29,000 stack overflow questions. So I mean they definitely got out there people use it, but yeah No longer as culturally relevant surely as it was back in the good old days, I mean the"
+    },
+    {
+      "start": 2426.93,
+      "end": 2440.43,
+      "speaker": "jerod-santo",
+      "text": "to be honest about the The dead bodies in the JavaScript world is just plentiful. Yeah, that's true, right? I mean Good luck Winning that war, you know, just"
+    },
+    {
+      "start": 2441.1,
+      "end": 2445.86,
+      "speaker": "adam-stacoviak",
+      "text": "Just be happy when you're winning like two years later all of a sudden. They're like, yeah, we're just not interested anymore"
+    },
+    {
+      "start": 2445.86,
+      "end": 2472.34,
+      "speaker": "jerod-santo",
+      "text": "You know, we needs the new we don't even we don't even actually you still solve our problems. Okay, you're still good We don't like anymore. Okay, we're just we're just used to getting new things. Okay, where's the new thing, right? that's that's my feeling as a front ender in the JavaScript world is just like expect change expect churn and Honestly, it's what tired me out of really wanting to play in that world at all. It's just like trying to keep up is"
+    },
+    {
+      "start": 2473.34,
+      "end": 2535.86,
+      "speaker": "adam-stacoviak",
+      "text": "Basically impossible that being said if you look at it today It's basically the same thing as it was five years ago. I mean what's popular in JS land front-end world today It's react basically its next JS And you have people, you know raging against next JS you have other I mean, there's always experimentation There's always people saying React is dead react is this or that but it's still just the 800 pound gorilla right now and Yeah, there's been innovations along the way and alternatives along the way, but it's not like there's been a in upheaval, you know, there's this HTMX movement a return to form of Multi-page apps as they call them now used to just be how you rebuilt things Versus single page apps and multi-page apps server-side rendering MBA Wow full-stack frameworks I think are are more interesting to the JavaScript community than they ever have been but besides from that I mean, it's kind of the business. It's been more steady in the last probably five years than it was"
+    },
+    {
+      "start": 2535.86,
+      "end": 2627.79,
+      "speaker": "jerod-santo",
+      "text": "I wonder if that's because of entrenchment though. I think it is. Oh for sure It's just too hard Like there's too much sunk cost in the world of react and next to move away from it easily Right. There's too much investment into the infrastructure the usage of it I was thinking about this recently with git and You know you make any piece of software Almost everything thinks you're using github to host it like it's gonna be there and then you're gonna have actions And so CI begins with you know actions files essentially, you know that's where your CI begins if you're starting fresh and then everything's assumed to be around git and github and I Love git. I think it's great But there I just saw our friends over at fall through time about the newest thing I'm not even sure what's called but there's a new thing in town to check out that is around. What's it called? Jiu-jitsu jiu-jitsu. There you go Which I'm not even versed in but I'm just thinking like how in the world do you even how does the world move away from? At this point git it's too entrenched. All you can do is really improve it. You know, maybe you have some people Try and use me the five to ten to twenty percenters when I try and use something different but you're just going against the current and it's it's just more challenging Until it's not I guess"
+    },
+    {
+      "start": 2628.35,
+      "end": 2643.23,
+      "speaker": "adam-stacoviak",
+      "text": "Well slowly and then all at once that's what they say. That's true. I'm only And then quickly slow them fast. That's right. That's how you get rich. That's how you get poor That's how you get entrenched. That's how you get disrupted"
+    },
+    {
+      "start": 2643.63,
+      "end": 2652.75,
+      "speaker": "jerod-santo",
+      "text": "So fast it is things happen in one fell swoop as they say, you know, that's what I heard so many swoops So meteor this is on your list meteor. Well angular"
+    },
+    {
+      "start": 2653.27,
+      "end": 2659.9,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I know I just saw on the website. Okay, and but meteor was on my list. Yeah, I listen meteor. Yeah"
+    },
+    {
+      "start": 2660.8,
+      "end": 2667.47,
+      "speaker": "jerod-santo",
+      "text": "You know, is that how you spell the word? Meteor I don't even know"
+    },
+    {
+      "start": 2667.47,
+      "end": 2681.5,
+      "speaker": "adam-stacoviak",
+      "text": "M-e-t-e-o-r meteor. That's how you spell meteor That's something that has more meat in it than something else. It's meteor meteor That's why I kept calling it meteor because I didn't want to actually say meteor like let's talk about something with more depth, too"
+    },
+    {
+      "start": 2681.5,
+      "end": 2687.46,
+      "speaker": "jerod-santo",
+      "text": "Right, let's get something. Let's get some meal these bones in here, right? Let's get these meteor out here"
+    },
+    {
+      "start": 2688.94,
+      "end": 2693.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, another one you wanna we can loop and I think it's been long enough. We can loop back to quicksilver"
+    },
+    {
+      "start": 2693.26,
+      "end": 2747.16,
+      "speaker": "jerod-santo",
+      "text": "It's gonna feel fresh. I think fresh. Yeah, the the pain is a little less fresh of our losses Yeah, time heals all well, I'll give it another try. Let's talk quicksilver people want to hear it Take two. Here we go. Okay. All right quicksilver if you're not familiar with this is a software from your 2003 Long time ago. Okay, that's the beginning of the internet essentially It's not actually be in the internet, but it's not at all. It's not at all It's about 15 years after the beginning maybe more Depends on who you ask but quicksilver was a app launcher for Mac At that time OS 10 not Mac OS. This is our OS X as a lot of people call it OS X OS X Yes, unless you're a Mac geek That likes gab. Oh That was a good one"
+    },
+    {
+      "start": 2747.52,
+      "end": 2763.78,
+      "speaker": "adam-stacoviak",
+      "text": "Got lost in that one. You just sideline yourself with My friends It's 2003 you wrote a Mac OS X probably like Probably like lion or a leopard or some sort of cat. It was a big cat. Yes"
+    },
+    {
+      "start": 2764.98,
+      "end": 2768.86,
+      "speaker": "jerod-santo",
+      "text": "Who the heck knows which one it was. It was it was a kitty cat. Yeah, that's right and"
+    },
+    {
+      "start": 2769.78,
+      "end": 2771.54,
+      "speaker": "adam-stacoviak",
+      "text": "Quicksilver was launching your stuff man"
+    },
+    {
+      "start": 2771.54,
+      "end": 2902.01,
+      "speaker": "jerod-santo",
+      "text": "You wanted to launch things and you would go and you would go to your app directory Or you would go to your dock bar and you know, you're you'd click the button for your your your your app You see a bounce you'd wait for it. That was cool No, that was not cool and bounce forever. No, it's not cool Yeah You had to do command space to conjure this new thing called a HUD a heads-up display and it would give you the ability to Conjure these things to happen look apps to launch math to be done terminals to be opened Finder windows to be discovered is what quicksilver gave the world so many things so many things It was made in 2003 by a fellow named Nikolas did cough Made in 2003 released several versions of it always seemed to be in beta basically in beta for 10 years But it was the darling it was what launched literally the ability to have You know these launch bars these these launch apps to do this It didn't win though. It only led to innovation being done by Apple Absorbing it or our friends over launch bar yet absorbing a copy. Yeah absorb. Yes. It's pretty not the truth Copying the features breaking them into the into the operating system First mover advantage did not work out for them Launch bar Alfred raycast. That's what I use now. I did use I did use offered. I'm still a Semi happy how would I be I'm not sure if I'm happy or not? I guess less than happy because I spent my money and not using the value anymore owner of a lifetime license of Alfred, I'll never use it again just saying Just saying if you want to win you back I mean, I just don't think so. I don't never say never though My buddy Justin taught me that but you know, I don't see it happening. Okay, I don't see happening"
+    },
+    {
+      "start": 2902.01,
+      "end": 2906.71,
+      "speaker": "adam-stacoviak",
+      "text": "Well quicksilver you ever gonna go back to quicksilver. I don't even know how I don't even know where to go"
+    },
+    {
+      "start": 2906.73,
+      "end": 2910.37,
+      "speaker": "jerod-santo",
+      "text": "Where would I find quicksilver these days? I think it's still a thing, but"
+    },
+    {
+      "start": 2911.44,
+      "end": 3007.36,
+      "speaker": "adam-stacoviak",
+      "text": "Raven ask install. I have no idea. I Will say this quicksilver was the coolest. I mean I'm not gonna say I bought a Mac because of it, but it was certainly in the calculus I was like, I want a Mac because I want to use quicksilver. It was it was minimally Attractive, you know, like it was aesthetically pleasing, but it was also minimal almost invisible at times I mean, it's obviously invisible when you don't invoke it, but it had a cool kind of purple ish translucent vibe to it and then the Combination of things you could do like the actions you could take beyond just you know, if it was just an app launcher then I don't think it would have been quite as popular but it had this like extensibility extensibility and like combinability That made it really powerful and you could like take a fight, you know find a file pass it to a thing Have it output something Transmogrify it. I don't know capital case it and then spit it back out the other side like and So the power users and the nerds they were like Show you how many cool stuff you could do with quicksilver and that's why I wanted to run it Not being said I only ever use it basically for math and for app launching which you know to this day is when I use All my app launchers for which is why I'm a spotlight user. It does both those things just fine But I wanted the the power. I wanted the quicksilver power. And so your story is basically competition Why didn't it get why didn't it get better? Why didn't it get competed? Why did they win?"
+    },
+    {
+      "start": 3007.36,
+      "end": 3068.19,
+      "speaker": "jerod-santo",
+      "text": "I think it just died in the vine. I think it just It got there. I'm not in beta It seemed to not move and so when something seems to not move and it says beta you kind of think well Maybe it's not moving. Maybe there's no true maintenance behind this thing and So your appreciation and belief in something kind of wanes Launch bar comes around seems to be newer seems to be fresher more Mac native Feeling same thing. I think with Alfred Alfred is still amazing software. No offense to Alfred whatsoever I'm not gonna use it anymore because Well, I moved on but I suppose I suppose if raycast died. I probably fall back on my free lifetime license You could you could use it again raycast don't die. Well quicksilver was open source though, and these other ones aren't Yeah, I mean, I guess mean anything to you"
+    },
+    {
+      "start": 3068.19,
+      "end": 3072.95,
+      "speaker": "adam-stacoviak",
+      "text": "Does that not sell you on it more or make you want to support it or use it? I think in the"
+    },
+    {
+      "start": 3074.11,
+      "end": 3173.27,
+      "speaker": "jerod-santo",
+      "text": "Altruistic terms of open source, of course, but I'm not gonna personally maintain it. So the fact that it is or is not Doesn't personally matter to me because I'm not doing the maintenance of it and I'm not gonna care enough to step in It's not a problem. I want to solve. That's why I'm thankful for raycast. They did it. They've done a great job I think raycast is by far. They got a great free version of it. You can pay to use it as well and it's I think it's The best version of an app launcher. They've got a lot of cool stuff In in there and obviously they even have I think it's like what is it called? I don't even use it too often but here and here and there they got raycast AI a whole chat Window mmm, I believe it ships free with all the free models Now if you actually have raycast AI I believe you can pay to use other models. You can swap models. You can save things. I think they could do have they could have done and should still potentially do a Better job of that chat app like it lives in raycast a launcher. So arguably potentially the best thing they built a Unified chat app for Mac. That's Mac native is buried in somewhere you wouldn't expect Yeah, it's like you turn with that rock. Boom. Go. What's the what's what's up with that? Why is the gold under the rock right along there belongs in my pocket or my? On the shelf where you can see it. Yeah, I want to see the gold not don't put on the rock. So, I don't know Gold and I'm and raycast is venture backed. They could fail as a company for those reasons. I don't think they will"
+    },
+    {
+      "start": 3175.13,
+      "end": 3184.03,
+      "speaker": "adam-stacoviak",
+      "text": "In fact, I haven't talked to in a while. A lot of those meteor users didn't think they were gonna fail either That's true, man. That's true. Not that you all failed, but you know what I mean? Yes"
+    },
+    {
+      "start": 3184.03,
+      "end": 3190.41,
+      "speaker": "jerod-santo",
+      "text": "I did find quicksilver though on github. So it is naturally github.com slash quicksilver slash quicksilver"
+    },
+    {
+      "start": 3192.02,
+      "end": 3199.76,
+      "speaker": "adam-stacoviak",
+      "text": "Recent commits recent activity anything going on over there. This is a bot so I don't know for sure"
+    },
+    {
+      "start": 3201.96,
+      "end": 3237.42,
+      "speaker": "jerod-santo",
+      "text": "5,909 commits total one yesterday from Trends trends effects integration bot So I'm not sure about that one in particular although on the 23rd of October There was a merge pull request pull request 3080 Which was from the branch quicksilver copy configuration build step if you got to use quicksilver There it is It's there for you waiting and it's open source"
+    },
+    {
+      "start": 3238.14,
+      "end": 3247.53,
+      "speaker": "adam-stacoviak",
+      "text": "What is it like you're listening to this and you do use quicksilver to this day? Let us know in the comments. We want to want to hear from you. Yes. What's did you did you move it all?"
+    },
+    {
+      "start": 3247.53,
+      "end": 3249.78,
+      "speaker": "jerod-santo",
+      "text": "Did you come back?"
+    },
+    {
+      "start": 3249.78,
+      "end": 3257.83,
+      "speaker": "adam-stacoviak",
+      "text": "Apache to AV to are you still running Mac OS lion? Sorry OS 10 lion"
+    },
+    {
+      "start": 3258.48,
+      "end": 3268.55,
+      "speaker": "jerod-santo",
+      "text": "OS 10. Yeah 76 issues to pull requests open Not that bad it seems to be tended there's not like a thousand issues for example"
+    },
+    {
+      "start": 3268.55,
+      "end": 3270.67,
+      "speaker": "adam-stacoviak",
+      "text": "Are you wishing you took it off your dead list, huh?"
+    },
+    {
+      "start": 3271.23,
+      "end": 3428.52,
+      "speaker": "jerod-santo",
+      "text": "No, it's still dead You guys are working on this I can't say that's just rude. I'm sorry for being rude It it's just good podcast nature to say that Okay, don't don't if I was standing next to you in the hallway track of a great conference. I wouldn't be that rude It's dead to me. I'm not gonna use it. Can I come back? Man, absolutely Give it a try raise some raise some money That's the way you get the to prosper is raise some cash sounds like that's the way that you die Maybe well the last time I checked there's only one of me only one of you I'd like to have more than one of me because the world expects so much from me I can't possibly do it all but let's be honest. That's probably a good thing There's just one of you and one of me, but what if there was? Another version of you one that already knows your projects your notes your team's quirks and can actually Finish the work for you. Well, that sounds like more of me More of me time. That's what notions new AI agent feels like I've been using notion AI for a while, but the new agent is Revolutionary it's built right into notion your docs your notes your projects all in one connected space that just works It's seamless, it's flexible and you can actually have fun using it But here's the crazy part your notion agent doesn't just help you with work. It finishes it It could do anything you can do in notion write pages organize databases Summarize projects connect with slack or Google Drive. He could even clean up post me notes and assign tasks It plans it executes and if something breaks it just tries again Basically, it's like delegating to another version of you that already knows how you think Teams that open AI ramp and vercel They're all using notion agent to send less email cancel More meetings and get more done and now you can to try notion today now with notion agent at notion.com Slash changelog. That's all our case again notion.com Slash change a lot to try your new AI teammate today and support our show while you're at it. Love notion Check them out notion.com"
+    },
+    {
+      "start": 3429.22,
+      "end": 3441.5,
+      "speaker": "adam-stacoviak",
+      "text": "Slash change look speaking of how about rethink DB? Ooh Gosh, man, where am I from the past?"
+    },
+    {
+      "start": 3443.46,
+      "end": 3448.05,
+      "speaker": "jerod-santo",
+      "text": "Slava Akhmat check. That's right Akhmat check. That's right"
+    },
+    {
+      "start": 3449.78,
+      "end": 3501.37,
+      "speaker": "adam-stacoviak",
+      "text": "Whichever you say it. I'm gonna say it's right. They're both right rethink was a very Interesting database a scalable no sequel back in the craze of no sequel Database with a declarative query language for real-time apps launched in 2009 was active for Probably till 2016 the company actually declared bankruptcy in 2016 The core team was disbanded. The repo was archived. I mean this one's dead dead so dead They did inspire some community community forks such as elephant DB Rethink DB you can go back and find that one in our archives. Of course We've had Slava Akhmat Chet on the show I think probably at the beginning of rethink DB and I think at the end of rethink DB"
+    },
+    {
+      "start": 3501.79,
+      "end": 3516.14,
+      "speaker": "jerod-santo",
+      "text": "at least I'm thinking two times during this heyday and one potentially on its Way day. I see you. Oh, I like that. It's a way to hey day in the way day It's right. You're gonna go on your way. I see you"
+    },
+    {
+      "start": 3516.82,
+      "end": 3560.93,
+      "speaker": "adam-stacoviak",
+      "text": "You're on your way now. Now. Why did everything DB fail? I would only speculate at this point I don't really don't know my speculation and this is just speculation. I just think they couldn't capture market share I think Mongo DB was just too dominant in the no sequel database department of the world and rethink Just couldn't get there but didn't they write I mean now we're going deep into my brain archives I'm trying to remember didn't they actually even write up a thing? Why everything DB failed and Didn't we actually do an episode maybe even call everything? I'm starting to like remember something like this. Check out our last episode with rethink DB. What was called? Yeah, I'm"
+    },
+    {
+      "start": 3562.49,
+      "end": 3566.15,
+      "speaker": "jerod-santo",
+      "text": "Scouring the internet right now. Okay for information. I"
+    },
+    {
+      "start": 3566.73,
+      "end": 3610.28,
+      "speaker": "adam-stacoviak",
+      "text": "Think the long and the short of it is like no product market fit I mean, that's what that's what a startup guy would say. They had some design choices that were Odd, I think they cuz they had their own language This is why when the fauna DB people came on the show and in fact, I think fauna DB also At this point, can we consider that one dead? I'm not sure but I haven't heard about it a long time they also created their own query language and I remember saying like are you sure you guys want to do that because It's very difficult to get people to just use your query like can you have a be sequel alike? That means that Mongo did it. So I mean, they're all kind of following the Mongo playbook But Mongo really did succeed where so many others failed"
+    },
+    {
+      "start": 3611.55,
+      "end": 3668.57,
+      "speaker": "jerod-santo",
+      "text": "Hmm if this is true Founder slava up and chat Said there were two main problems. They picked a terrible market and then they optimized the product for the wrong metrics of goodness So they optimized for correctness simplicity and consistency Which are all great engineering goals, but those were not with the market valued This is also in a day when a lot of things were happening on a BOS. A lot of databases were popping up. So We're now past all a lot of this you had cockroach DB you had a lot of databases come out of seemingly nowhere to solve problems Some of them open-source some of them not I would say the ones who are not just didn't have a chance and then ultimately it came down to just competition AWS and adoption elsewhere and There's a lot of motion around databases. And so you have a lot of choice"
+    },
+    {
+      "start": 3669.23,
+      "end": 3674.4,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm. Yeah, there was a thriving market of offerings"
+    },
+    {
+      "start": 3676.27,
+      "end": 3699.59,
+      "speaker": "jerod-santo",
+      "text": "Now he's from Postgres right Postgres Postgres for life man. Why not? You know, why would you choose anything else than Postgres? I just don't know they were eventually acquired by the Linux Foundation the CNCF a Few months after the shutdown in 2016 and it continues to be an open-source project to this day But I don't know who's using it. I don't know"
+    },
+    {
+      "start": 3699.61,
+      "end": 3709.06,
+      "speaker": "adam-stacoviak",
+      "text": "Doesn't everything continue to be an open-source project to this day though. I mean, it's not like the source goes away Otherwise, it's like you could say that about anything. That's dead"
+    },
+    {
+      "start": 3709.54,
+      "end": 3731.52,
+      "speaker": "jerod-santo",
+      "text": "Is this I want to know if this is Claude trying to get get into my good graces Considering what I just said a little bit ago about amp at the very end. It says why is that fun fact? I see one of the discussions mentioned an Episode from the changelog About rethink DB you folks have quite the archive"
+    },
+    {
+      "start": 3732.14,
+      "end": 3742.67,
+      "speaker": "adam-stacoviak",
+      "text": "Come on, Claude. It told you that that's what I said. Do you have that in your Claude MD? Like by the way, I host the changelog podcast. We have the archive. I think it knows it knows who I am"
+    },
+    {
+      "start": 3744.19,
+      "end": 3747.91,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's it's definitely pandering to me because it's like yo"
+    },
+    {
+      "start": 3748.51,
+      "end": 3755.36,
+      "speaker": "adam-stacoviak",
+      "text": "Great job. That is pandering. Yes, but it worked. Did it work? You do prefer Claude now"
+    },
+    {
+      "start": 3755.86,
+      "end": 3785.49,
+      "speaker": "jerod-santo",
+      "text": "Okay, so fauna.com actually Doesn't go anywhere which was the location of fauna DB FA you and a.com It's either my block list DNS hole or it's dead. I'm fine redirected the fauna robotics, which is a different company Yeah, I'm using Safari. So mine don't redirect man. Safari does its own thing. Okay It really does. Let me go into chrome. What does chrome do?"
+    },
+    {
+      "start": 3785.49,
+      "end": 3825.48,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, fauna DB org is what you're looking for Okay, so it's a strongly consistent all to be database with a hybrid blah blah blah Open-source project is still very early stage. Yeah, you're looking at it used to be calm well, you're probably talking about the company and I'm talking about the open source and The company might be gone, but the project still open source because they all are right fauna DB last Commit to the fine DB repo was six months ago. Oh and the only commit was all six months ago So I think they like open-sourced it and moved on. Yeah, they're like listen crunch the history"
+    },
+    {
+      "start": 3826,
+      "end": 3871.24,
+      "speaker": "jerod-santo",
+      "text": "Put it out there Cash that no don't cash the check that did that was about that'll bounce and get out of here. Just get out of here It's over. We didn't do it. That's right. I mean they had some really good ambition though I mean, I remember that conversation really smart guy the CTO was I recall no offense to him, but I recall him just being a little just Monotone monotone. He was right very monotone. Yeah, and I think he left Months after our conversation. I don't know some things are meant to live and some things are meant to die. That's very Final if we keep going I just keep making stuff up. Okay, I'll just keep making it up"
+    },
+    {
+      "start": 3872.96,
+      "end": 3883.72,
+      "speaker": "adam-stacoviak",
+      "text": "Well, should we keep going or should we? Call it. We do have a couple things Just quick mentions. I see Q. Oh gosh. Remember I see Q. Oh, yeah, let's do a little"
+    },
+    {
+      "start": 3884.76,
+      "end": 3893.4,
+      "speaker": "jerod-santo",
+      "text": "Leave it list Leave it list. Yeah, like I see Q is cool man for sure and you were cool if you had a low ICQ number"
+    },
+    {
+      "start": 3893.4,
+      "end": 3897.04,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I don't used to be able to buy the numbers off of eBay and stuff, too"
+    },
+    {
+      "start": 3897.44,
+      "end": 3902.05,
+      "speaker": "jerod-santo",
+      "text": "Did you know that probably so can probably can I was not that cool?"
+    },
+    {
+      "start": 3902.05,
+      "end": 3921.78,
+      "speaker": "adam-stacoviak",
+      "text": "I came way late to ICQ. In fact, I got you I used it because someone made me use it You know, sometimes people are talking like yeah, we use this. I'm like dang it. I have to install a new app but I did have There was a open source project that actually combined a bunch of chat Messengers of which I see Q was one aim"
+    },
+    {
+      "start": 3922.65,
+      "end": 3924.01,
+      "speaker": "jerod-santo",
+      "text": "Yeah"
+    },
+    {
+      "start": 3924.01,
+      "end": 3956.21,
+      "speaker": "adam-stacoviak",
+      "text": "Others I think it was called pigeon Yeah, I recall pigeon. Yeah our game GA I am games a bird. There was a bird one Is it the pigeon one you think? Yeah pigeon was a bird. It also means like it's like a It's spelled not like the bird but like the language feature. I think a pigeon language is like a language that like multiple people use like as a crossover Let me google that instead of just talking out my butt while you're doing that. There's a"
+    },
+    {
+      "start": 3957.09,
+      "end": 3974.74,
+      "speaker": "jerod-santo",
+      "text": "Reddit post one year ago. So this is actually 28 years Not 27 as I read it. So it says after 27 years ICQ is officially shutting down today Yeah, and of an era for one of the first messaging apps It's 28 years ago"
+    },
+    {
+      "start": 3974.74,
+      "end": 4016.84,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so pigeon at PID gi n dot I am also dead last modified in 2020 In a chat program that which lets you log into account on multiple chat networkers simultaneously XMPP IRC Bonjour Simple silk suffer. I mean tons of these I've never heard of same time I thought there was an ICQ. Oh and then that's a Windows Linux and Other units like client on Mac OS try adm. Do you remember adm? That's what I was talking about Yeah, the pigeon. I was being an idiot. That's the that's the bird adm. Yeah, I use that one. Yep. Jabber"
+    },
+    {
+      "start": 4017.36,
+      "end": 4028.16,
+      "speaker": "jerod-santo",
+      "text": "Oh, yeah, Google talk all remember G talk. Yeah, Google probably also killed you talk There's still some there's still some chat up in there and medium is also open source"
+    },
+    {
+      "start": 4029.06,
+      "end": 4107.05,
+      "speaker": "adam-stacoviak",
+      "text": "G should see latest release of adm runs on Mac OS X Mac OS 10 10.7 point five or newer So this is also dead man, all this dead stuff, but I mean these guys it's because It's because you know this audience they serve is gone. I mean who needs to connect to These different chat apps nowadays, no, but Last commit here is like four years ago. So we're finding all kinds of dead projects as we just talk To go back to the word pigeon PID got PID gin is A grammatically simplified form of a contact language that develops between two or more groups of people that do not have a language in common That's a great name then for a program that does what it did. Yeah And so if you speak You know Swahili and I speak English And we don't have a crossover language. We would develop between our people groups this third simpler language So we could actually communicate we call that a pigeon language. So Interesting, very interesting. So I see Q was rad. I see Q was gone Skype was cool for a minute"
+    },
+    {
+      "start": 4107.69,
+      "end": 4114.61,
+      "speaker": "jerod-santo",
+      "text": "Dude, that was crucial. It really was a lot of good days on Skype and now it's gone"
+    },
+    {
+      "start": 4114.79,
+      "end": 4116.39,
+      "speaker": "adam-stacoviak",
+      "text": "I assume"
+    },
+    {
+      "start": 4116.39,
+      "end": 4123.87,
+      "speaker": "jerod-santo",
+      "text": "Microsoft still ship new versions of Skype. It's dead. Okay. It's lonely of teams. It's irrelevant Oh, yeah, I would never use I'll never use teams"
+    },
+    {
+      "start": 4124.31,
+      "end": 4129.63,
+      "speaker": "adam-stacoviak",
+      "text": "What are non? Microsoft people using I guess discord for voice. It's quite discord at this point"
+    },
+    {
+      "start": 4130.68,
+      "end": 4143.19,
+      "speaker": "jerod-santo",
+      "text": "Even real-time I guess zoom won that zoom for a while. There was it was Skype You would Skype somebody you would never zoom somebody right then we would WebEx. Oh god"
+    },
+    {
+      "start": 4143.19,
+      "end": 4146.85,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, yes. Well, I'm a splash my screen is now dude"
+    },
+    {
+      "start": 4147.37,
+      "end": 4153.32,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it was a bad situation. I'm sitting back book. It was almost it was almost a situation here"
+    },
+    {
+      "start": 4153.76,
+      "end": 4160.59,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you say WebEx and that's like worse than roshambo, you know, like hey box. It's like yeah"
+    },
+    {
+      "start": 4161.76,
+      "end": 4175.12,
+      "speaker": "jerod-santo",
+      "text": "WebEx is just nasty nasty man, you know, I I do miss the fact that is is a Gosh, I'm just like brain farting not ICQ. I RC is our see still a thing"
+    },
+    {
+      "start": 4175.52,
+      "end": 4194.72,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean it's as niche as ever. I think it had a moment when people were interested in it But then like free node freaked out I can't remember what happened free node, but like people that were running free node ended up being weirdos or something somebody can fill us back in on that and IRC just Never had a chance in that way. That's a shame because like"
+    },
+    {
+      "start": 4195.6,
+      "end": 4287.7,
+      "speaker": "jerod-santo",
+      "text": "There's a lot of people who found their love for the thing they do On a mail list or some sort of or the original like chat rooms call their like PDP hubs or something like that or like I don't know what they were called. I'm not even from that era but like I kind of missed the days I didn't take a part in it away Just one was simpler, you know, like now everything's commercialized like if I can't make money doing this It doesn't belong, you know and And that's just kind of sad man, you know, it really is I Think you should scratch your own itches. That's just you know, I'm just scratching itches. I got it. That's all Mm-hmm, you know, it's it's a it's a pretty wild world up there these days, you know one one thing I was Taking note of when I was looking at Wikipedia for quicksilver was how cool that logo was man That's what my quicksilver cord had a lot of cool things Initially, yeah the cool HUD the cool logo the colors the new thing It just doesn't work out sometimes and if you go to meteors I said it to a meteor Meteor software on YouTube, they're thriving like one month ago 135 views Seriously, I mean four months ago 3x faster builds 409 views They're thriving on there. They're they're just busting it up putting their content out there"
+    },
+    {
+      "start": 4288.4,
+      "end": 4290.64,
+      "speaker": "adam-stacoviak",
+      "text": "So should I take it back now they're"
+    },
+    {
+      "start": 4293.2,
+      "end": 4315.75,
+      "speaker": "jerod-santo",
+      "text": "They're dead, you know, I think that was me being politely facetious, you know, I think it's dead Mmm, I think this episode is dead, you know folks. I'm just really sad for you because the version one Was better perfect software it was man. It was it was good stuff, you know And I think we like we did a good job with this episode, but I feel like we kind of botched it"
+    },
+    {
+      "start": 4315.93,
+      "end": 4321.57,
+      "speaker": "adam-stacoviak",
+      "text": "Well, we botched it when we didn't hit the record button, you know, we're the rest of time we've been kind of just"
+    },
+    {
+      "start": 4322.37,
+      "end": 4326.89,
+      "speaker": "jerod-santo",
+      "text": "Gradually here just podcasting like we gotta be here now, you know, we just kind of been coping"
+    },
+    {
+      "start": 4327.68,
+      "end": 4332.88,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, you know hard. It's been so I guess, you know, sorry, but also you're welcome"
+    },
+    {
+      "start": 4333.16,
+      "end": 4351.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you know it is what it is as they say in closing. I do want to say one thing Okay off the you know off the the forever in there But I did mention amp and I do want to say that amp is free. You see this Jared amp code Com I"
+    },
+    {
+      "start": 4351.25,
+      "end": 4356.69,
+      "speaker": "adam-stacoviak",
+      "text": "Did see this this is interesting amp is free but free as in how?"
+    },
+    {
+      "start": 4357.35,
+      "end": 4360.44,
+      "speaker": "jerod-santo",
+      "text": "Free is in you're the product again. Okay, they're gonna advertise"
+    },
+    {
+      "start": 4361.72,
+      "end": 4362.96,
+      "speaker": "adam-stacoviak",
+      "text": "straight"
+    },
+    {
+      "start": 4362.96,
+      "end": 4392.56,
+      "speaker": "jerod-santo",
+      "text": "Backwards on this thing. You're the product again. Yeah, they're gonna sell your eyeballs that being said that I don't know they're tracking So I can't say that for sure But it it's the first that I'm aware of where you can use a I've said it before my favorite AI agent Coding agent for free and I've hit limits with it. So I think it's a couple hours I don't know what the actual limit is. But After a bit they're like listen, we've only got six"
+    },
+    {
+      "start": 4393.18,
+      "end": 4398.22,
+      "speaker": "adam-stacoviak",
+      "text": "Advertisers you've seen them all and the way it works is they show you ads in the terminal, right?"
+    },
+    {
+      "start": 4399.24,
+      "end": 4421.03,
+      "speaker": "jerod-santo",
+      "text": "Right above so you have your prompt area then you have the chat area That's been what's been going by and right between those two perfectly sandwiched I think they've done a great job with you on this too. Is this subtle text-based ad it's It's not even a bother honestly, and I've actually enjoyed them like oh sweet. They're doing that cool. Nice. I"
+    },
+    {
+      "start": 4421.72,
+      "end": 4443.98,
+      "speaker": "adam-stacoviak",
+      "text": "Find myself actually want to see the it. I want to see the ads doesn't bother me. I mean you're getting what you you're You're opting into this free thing with like it's all straightforward the way it works, right? so if you need to use it for free and You're okay with that supported like I think it's a great option. So I would say there's no shame in that game whatsoever"
+    },
+    {
+      "start": 4443.98,
+      "end": 4456.21,
+      "speaker": "jerod-santo",
+      "text": "You know if you wanted to deep think for you. Well ask nicely. Okay, cuz it's Like there ain't no singing here we just do around here if the whole time it's deep thinking"
+    },
+    {
+      "start": 4456.67,
+      "end": 4465.4,
+      "speaker": "adam-stacoviak",
+      "text": "It could it show you like a video ad like like that'd be kind of cool like turn it into Askinima style like in your terminal"
+    },
+    {
+      "start": 4466.64,
+      "end": 4468,
+      "speaker": "jerod-santo",
+      "text": "Watch those"
+    },
+    {
+      "start": 4468,
+      "end": 4474.96,
+      "speaker": "adam-stacoviak",
+      "text": "Here's Star Wars ask you Star Wars. No, not Star Wars. That's not an ad asked to be like like dawn soap or something"
+    },
+    {
+      "start": 4474.96,
+      "end": 4476.52,
+      "speaker": "jerod-santo",
+      "text": "You know like even worse"
+    },
+    {
+      "start": 4476.52,
+      "end": 4488.89,
+      "speaker": "adam-stacoviak",
+      "text": "All they need to do is take typical advertisements like TV commercials and they need to turn them into askinima with some sort of Software program and feed those into your terminal. That'd be sweet. There's"
+    },
+    {
+      "start": 4489.61,
+      "end": 4494.78,
+      "speaker": "jerod-santo",
+      "text": "There's a dog that hunts there. I think maybe but hmm. I don't talk to our friends at Sourcegraph and"
+    },
+    {
+      "start": 4496.25,
+      "end": 4502.57,
+      "speaker": "adam-stacoviak",
+      "text": "At very least get a changelog Add up in there, you know like hey while you're sitting here waiting for this thing to go"
+    },
+    {
+      "start": 4502.57,
+      "end": 4572.36,
+      "speaker": "jerod-santo",
+      "text": "I'll just listen to the changelog dudes. So my prescription though for people is this is like don't sleep on this free It doesn't have to be your daily driver But what about free docs who wants some free docs Cuz this thing will just wind up and do whatever you want for a couple hours unfettered every day so you basically have two to three hours per day of AMP code that you can just use it still has the Oracle so as everything else that it has it's nothing different about it I can tell seems just as smart just as able and Get yourself some free documentation. Maybe some free thinking some deep thinking Have it write some tests for you Stuff you don't really want to do and maybe you're not gonna do maybe do a code review for you Every day for free. Oh You're wasting it. It's like free labor. Just sitting there scoop it up. Take it. All right. Well Thank you for hanging out with us. Yes friends. Thank you so much Remind me. This is our spooky episode spooky man. This is spooky. What was it a little spooky?"
+    },
+    {
+      "start": 4572.86,
+      "end": 4575.25,
+      "speaker": "adam-stacoviak",
+      "text": "Well, you act a little spooky there you're like"
+    },
+    {
+      "start": 4576.21,
+      "end": 4584.67,
+      "speaker": "jerod-santo",
+      "text": "Dad, it's dead. Oh, I did get it. I was just trying to like lean into it. Okay Trying to play trying to play a role here, you know my job"
+    },
+    {
+      "start": 4585.41,
+      "end": 4595.78,
+      "speaker": "adam-stacoviak",
+      "text": "Get the sixth sense, you know, I see dead projects up in there. That's right Oh, I got pike cut before we started hitting record. Yeah, you might have it"
+    },
+    {
+      "start": 4596.74,
+      "end": 4605.34,
+      "speaker": "jerod-santo",
+      "text": "Let's say goodbye twice. That's cool though. Oh good. Enjoy your Halloween eat lots of candy brush your teeth and"
+    },
+    {
+      "start": 4605.62,
+      "end": 4613.82,
+      "speaker": "adam-stacoviak",
+      "text": "Supportable source space friends. My friends stay spooky. Oh my gosh"
+    },
+    {
+      "start": 4613.82,
+      "end": 4676.84,
+      "speaker": "jerod-santo",
+      "text": "We recorded about 48 minutes of absolute gold Jared and I were having a ball We were just really in a good groove riffing having fun And then Jared realized that we did not push record. Yeah, we've been doing this for a long time, but still yet Somehow some way we didn't push the button and that's not cool now I do believe that Riverside could have saved us hear me out if you're in a Riverside Session where you normally record for a long period of time and you're talking and the record button has not been pressed You probably should change the interface or do something to let people know more clarity The whole point of Riverside is to record and we lay down gold and you missed it and we did too because hey That's how it works. Anyways, it's it's Halloween. I gotta go we got Costumes we got crazy. It's literally Halloween right now. I'm leaving I'm going to be spooky go out with my kids have some fun and you should too stay spooky Oh, we love you into your Halloween"
+    }
+  ],
+  "slug": "we-see-dead-projects",
+  "id": "115"
+}

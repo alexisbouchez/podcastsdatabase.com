@@ -1,0 +1,390 @@
+{
+  "title": "Cursor (Leerob) DevRel vs Sanity CMS Marketing",
+  "date": "2026-01-05",
+  "description": "A $260 DIY CMS sparked debate on Twitter last month. Hank and Gonto break down Lee Robinson's (Cursor) post, Sanity's response, and why both sides actually won from a marketing perspective. They dig into the gap between CMS theory and real-world practice, the rise of vibe coding, and why DevRel's real job is expanding imagination. Then Hank brings back field notes from AWS Re:Invent with a rapid-fire 'worth it or not' game on booths, swag, and side events.",
+  "links": {
+    "youtube": "https://www.youtube.com/watch?v=QS8vHJFfZvg",
+    "spotify": "https://open.spotify.com/episode/7xAvfBQ29A9QDDGXnghoy5",
+    "apple": "https://podcasts.apple.com/us/podcast/cursor-leerob-devrel-vs-sanity-cms-marketing/id1772967744?i=1000743844406"
+  },
+  "speakers": [
+    "hank-taylor",
+    "martin-gontovnikas"
+  ],
+  "segments": [
+    {
+      "start": 0,
+      "end": 88.26,
+      "speaker": "martin-gontovnikas",
+      "text": "Which team are you are you more team lee or more team Sanity oh geez I don't know anymore I don't know what to believe hi everybody we're back here we have so much stuff to talk about today hank last week was in AWS prime event so we'll talk a bit about that but before that we wanted to start with a topic that was very hot actually yesterday and the day before and it came from lee lee posted a fantastic blog post Lee Rob he was at Vercel now at Cursor he did a fantastic blog post on how he ditched the CMS that they had in Cursor and he just spent 260 dollars to replace the existing CMS with a homemade one that in his mind is much better because it's all in GitHub it's all in markdown much easier to make changes and now with vibe coding he says any marketer anybody can just do a new blog post do a new landing page do something else he didn't mention what CMS it was but the CMS that was the one that was changed which was Sanity actually also wrote the blog post pushing back on what I actually think they did a good job but they they talked about what things lee said correctly and then what things lee didn't say correctly and they say they shared their thoughts there but all of Twitter has been talking now about yes CMS no CMS will the same happen to other tools what's your feeling about that like how would you feel if you were Sanity how do you feel"
+    },
+    {
+      "start": 88.26,
+      "end": 193.2,
+      "speaker": "hank-taylor",
+      "text": "Being Cursor like what's your opinion on on this one so my biggest opinion here is everyone like both Lee Rob and Cursor and Sanity everyone did a great job on like the marketing front of this like as best they could so why do you hire a Lee Rob why do you hire a DevRel we talk about DevRel a lot you hire a DevRel to show people how to build great stuff with your product and why you need it and how you can use it and to expand their imagination so lee successfully expanded a lot of people's imaginations on how they could use Cursor he's also showing that he a bona fide developer how a bona fide developer like him vibe codes because there's a lot of FUD around do developers like should they do vibe coding whatever and what kind of problems it causes he talks about this he talks about abstraction and vibe coding and all these requirements and like he talks about the trade-offs quite a bit so fantastic job by him and then Sanity did a good job because Lee's nice he's famously a nice guy he didn't name which CMS it was you could have written it off as Contentful or whatever Sanity said hey that was us and here's some stuff that you know Lee Rob didn't talk about that we're gonna talk about and they had fair points you know they talked about certain stuff with scaling and working with other people that you know Lee Rob didn't get as far into and they made all their points of like hey you actually need a CMS for these reasons and we predict they planted a little flag they're like in six months Cursor's gonna regret this whatever and so lots of people responded really well to that tweet and to that blog post so I just thought everybody did a good job and then I don't know we can talk more about that we can talk about actual beliefs on CMS or whatever but those are my reactions initially"
+    },
+    {
+      "start": 193.2,
+      "end": 273.24,
+      "speaker": "martin-gontovnikas",
+      "text": "I'll start with I really like your first framing on how a DevRel or a dev education's job is to increase the imagination of all developers on what they can do with the platform I just love that phrase and I think that I agree that lee did a fantastic job with that I agree also that lee is very classy and I think you have to do that if you are him I also really like that he did a really good job on the blog post on it you could read the blog post without diving deeper into user management and content and etc but if you want to dive deeper you could expand it that small detail I think matters a lot because that means that even people who are not developers could read this and get a vibe of what it was but if you were a dev you dive deeper into each of them so I 100 think he did a fantastic job and he also got people like i'll talk first a bit more about the Sanity and then i'll move a bit on my opinion but on the Sanity I agree they did a fantastic job because they didn't call bullshit on lee they said the things that lee said right and they also said how some of the things he said are actually fixed now one example was like lee was saying that you can't access the content and what they said is that's true before because it was in our platform but now with our MCP you can actually access it so I think they did a really good job as well with explaining some of the things that yes but and then a really good job with what might happen at scale with that yeah which team are"
+    },
+    {
+      "start": 273.24,
+      "end": 358.24,
+      "speaker": "hank-taylor",
+      "text": "You are you more team lee or more team Sanity oh geez I don't know anymore I don't know what to believe I know you want me to have an opinion so I used to be very team CMS because I always have non-technical marketers on my team and it's always such a pain in the butt to get content onto the site but we've had I don't know like it's it's always a struggle with or without the CMS once you have a CMS set up and you get through that pain and you have it set up for certain pages boy it's awesome to be able to just fly with those pages but then setting up like the next type of page is such a pain and what's funny is if I go way back in my career to when I was at GitLab at GitLab any site on the page as an employee I could scroll down and there's a little edit button and I could just edit it like that was the most free i've ever felt I could just edit any content at any time and yeah i've always missed that and now I have to go through an engineer on everything I feel like so even though a CMS gives you a clear runway on certain types of pages it still doesn't give you a clear runway on the whole site and that's where things like like Framer or Webflow are allegedly a little more enabling but they're actually not like then you have this whole other skill set like it's a pick your poison type of thing like no matter what you do you're picking your poison I am optimistic though I think in two years five years max Lee Rob's way is going to be the way i'm not optimistic"
+    },
+    {
+      "start": 358.24,
+      "end": 508,
+      "speaker": "martin-gontovnikas",
+      "text": "On CMS's i'm team lee for sure i've always felt like i've always used CMS because in theory I think CMS makes a lot of sense it's like okay anybody can change the content anybody can do it at any time it works for marketers and developers and it just works for everybody however even before lee wrote this i've never lived the theory I love this phrase on in theory there's no difference between theory and practice but in practice there is and in practice the CMS do not work every time i've used the CMS for a landing page i'll tell you what happened we went back because we said like okay we have a new feature we want to update the content of this landing page but then because we have a new feature we maybe want to change a bit the page or change a bit the image and it's not just a text or maybe we want to show two things so then when that happens every time we got into that we actually needed to change the landing page entirely not entirely but at least a section we had to make a section that was for three make it for four we had to add an animation we had to add an image and maybe animation was a bit bigger so any change in real life that we need to do on the landing page actually required something that couldn't be done with the CMS so in reality we had a CMS we never used it that was at first then at Auth0 we ended up building something that was more custom so we built a custom CMS for us which is very similar to what I think Storyblok does now so I like Sanity and Storyblok to me are the best CMS Storyblok is a very componentized approach Sanity is more of a page template approach if that makes sense at Auth0 we want like these components and what we learned at least was the CMS was useful for shit landing pages so the CMS was useful when we needed to like a custom page for an ABM program we need to do a custom page for an ad or something like that but we would never use a CMS for product landing pages solution landing pages and home so and in the end the CMS was used for these disposable landing pages that we used for I know we need 100 of them for ABMs or 200 of them for different apps and for that specific use case that we used in the past the CMS I actually think that vibe coding works much better because for those cases it's still disposable and their argument that okay Sanity's biggest argument was it's hard to find all of the places you need to change something and also like if you change the pricing in one place it will change it automatically in multiple places when you implement the CMS in real life that never happens when you change the pricing in one place it's only on the pricing page it's never in anywhere else so the theory of how good a CMS is in practice i've never lived it in any company I worked at yeah I like your framing too"
+    },
+    {
+      "start": 508,
+      "end": 529.48,
+      "speaker": "hank-taylor",
+      "text": "On this just like the theory does not match the actual practice and I we could probably talk about a lot of software that's sold to go-to-market people that fits this exact description but let's not get into it because we still have a lot of other stuff to talk about today what else on this anything else I think you know it's the Twitter game was great like the debate is everything was"
+    },
+    {
+      "start": 529.48,
+      "end": 566.76,
+      "speaker": "martin-gontovnikas",
+      "text": "Great the only last comment I have is in one of the companies I work with is brain thrust and ornella has been doing this vibe coding thing like the vlogs she just vibe codes new blog posts and then has a link in versell for the draft she also vibe codes new landing pages like she just vibe coded a new landing page for a product that they just shipped and she's been doing what lee has been saying for months and she's so much faster and so much better than when we had a CMS in other companies so I don't know I I even think that now your your vet is in two to five years lee will be right I think lee is right now because the dream of the CMS is alive yeah I think you're right maybe it's faster for"
+    },
+    {
+      "start": 566.76,
+      "end": 579.26,
+      "speaker": "hank-taylor",
+      "text": "Some you're thinking in theory though in practice how teams build their web pages and the types of approval flows and who can approve the pr and the security of it that's hard to change that's what's"
+    },
+    {
+      "start": 579.26,
+      "end": 583.38,
+      "speaker": "martin-gontovnikas",
+      "text": "Hard to change it's not the tech I agree with that it's like how they always say they always say"
+    },
+    {
+      "start": 583.38,
+      "end": 596.7,
+      "speaker": "hank-taylor",
+      "text": "That the law always lags behind the tech right it's the same with the laws of your startup or your your software company like your rules and security stuff always lags behind what's possible I agree"
+    },
+    {
+      "start": 596.7,
+      "end": 617.52,
+      "speaker": "martin-gontovnikas",
+      "text": "And by the way I want to be called on this so if you're the founder or you work at a CMS company and you think I should have there's a way that I could have implemented this correctly and that the practice works similar to theory please tweet at us like I want to learn it i've never been successful but maybe it's a me problem and not a CMS problem yeah well it could be both"
+    },
+    {
+      "start": 617.52,
+      "end": 644,
+      "speaker": "hank-taylor",
+      "text": "That's not what you're reminded could be gonto and the CMS's I will say like they have a chance though like in theory they can make this easier you know one tool I was playing around with last month was a tool that there's a few of these but it just like looks at your pages and your components it pulls in your components and then you can kind of have a quasi CMS like a vibe CMS type of thing so maybe there's a future for CMS's if they figure it out but I don't know I think it'll be so easy"
+    },
+    {
+      "start": 644,
+      "end": 649.9,
+      "speaker": "martin-gontovnikas",
+      "text": "To build your own CMS it'll be interesting let's switch topics let's do our AWS game okay we've"
+    },
+    {
+      "start": 649.9,
+      "end": 664.98,
+      "speaker": "hank-taylor",
+      "text": "Got two more topics one is AWS reinvent and we've got a little game and then we're going to talk about all the spotify wrapped madness uh which we thoroughly enjoyed okay so we're going to try first off I hope you're watching video audience because we're going to try a little screen share"
+    },
+    {
+      "start": 664.98,
+      "end": 669.48,
+      "speaker": "martin-gontovnikas",
+      "text": "Here let's see if this works yeah and if you don't you should skip to the third topic maybe"
+    },
+    {
+      "start": 669.48,
+      "end": 728.96,
+      "speaker": "hank-taylor",
+      "text": "No jump over on youtube or spotify we've got the video subscribe comment like please all of that all of them all so ganto what i'm going to do is i'm going to show you a picture i'm going to explain what it is and then you're just going to tell me quickly if you think worth it or not worth it let's do it okay first thing or this is click house they had a chain smokers concert now apparently last year our mutual friend angelica she joined in the last year and the ceo was like there weren't enough people there last year it was embarrassing please get people there they had 6 000 people register for this I think they could only fit not even 600 people in this it was packed they were turning away people people were fighting the security to try to get in it was absolute madness this is it I didn't take a picture of the chain smokers like an idiot but uh it was packed obviously massively expensive even though chain smokers are investors you still have to pay through the nose to get them"
+    },
+    {
+      "start": 728.96,
+      "end": 757.16,
+      "speaker": "martin-gontovnikas",
+      "text": "To come worth not worth this one I think it's worth it mostly because so many people subscribed and even though they couldn't fit they learned about it and I heard from angelica how much they paid and they didn't pay that much mostly because they're an investor so it wasn't a crazy spend the only bad vibe of this is that people subscribed and they couldn't get in so maybe they hate it but at least they remember it so this one I like it and people will remember that click house is this I also have to"
+    },
+    {
+      "start": 757.16,
+      "end": 811.18,
+      "speaker": "hank-taylor",
+      "text": "Tell you I was in so when we got there I think it was at the wind the line was crazy and I had been given a fast pass but the fast pass line was massive too it did move fast and I was able to get in but it was uh it was insane okay oh that's another picture of the house party okay work os they told me they didn't know what to do with their booth until like right before and then they just set up a podcast video cast studio so they recorded these live and then I didn't take a picture but on the table in front of me are over ear headphones so if you're walking by you could put on the headphones and listen in to what was being said and so I listened for a little bit I saw some people listen and basically michael the ceo on the left there he was just interviewing ceos and people of interest all day every day and sometimes they'd be five minute interviews this one was like 40 minutes worth not worth I like this"
+    },
+    {
+      "start": 811.18,
+      "end": 838.5,
+      "speaker": "martin-gontovnikas",
+      "text": "One too I think it's worth it and i'll tell you why it's very hard to find leaders and ceos and everybody goes to reinvent so to me it doesn't matter if people are listening live doesn't matter at all it's more about when you're in reinvent it's a fantastic opportunity to get to actually talk to these people and record it and then you can use those recordings in multiple other ways either in Twitter or reposting your podcast or whatever but I think it's a great way to use the people"
+    },
+    {
+      "start": 838.5,
+      "end": 871.93,
+      "speaker": "hank-taylor",
+      "text": "That are there and also show something as well I agree like after this podcast was done I asked michael who else are you interviewing I was like oh you should interview paul from browser base because he's here too and he's like oh i'd love to i'll text him right now didn't even you know think about that's awesome so that was awesome okay this one just some random booth I came across I had to give a shout because i'll tell you it was worth it I just freaking love this little dinosaur my my daughters have been fighting over this like every day I don't really know what this does or anything they've just made a giant stuffed toy and a bunch of little stuffed toys so I just thought it was fun what do"
+    },
+    {
+      "start": 871.93,
+      "end": 893.43,
+      "speaker": "martin-gontovnikas",
+      "text": "You think not worth it not worth it this one no this one I don't like it because like people remember more of the dinosaur than whatever the fuck they do they can't use this in the future and then you have a dinosaur it probably says nothing maybe says the brand but maybe nothing so then your kids will have it but you will not remember it your kids will not remember it so this investment"
+    },
+    {
+      "start": 893.43,
+      "end": 913.09,
+      "speaker": "hank-taylor",
+      "text": "Not worth it I think that's actually fair I really did just like it for the dino exactly I think they got a lot of certain type of people oh and you have to remind me there are two side events I have to tell you about that I don't have pictures of we'll get to those at the end this one this is just like a vending machine quick take worth not worth that's what was the swag inside I don't even know"
+    },
+    {
+      "start": 913.09,
+      "end": 942.83,
+      "speaker": "martin-gontovnikas",
+      "text": "I mean can we even see it no it was something dumb I I don't think it's worth it I the thing that I like is that i've always like when I was a kid at least I went to arcades and I never played this because it was too expensive and my parents didn't want to pay for me so maybe if I went to reinvent I would now do it so that would be the good part but the other side is I don't know that people would like you can't use it afterwards the swag that you get maybe it's like mess swag so not many people participate and you get nothing out of the company so i'm against what's your take"
+    },
+    {
+      "start": 942.83,
+      "end": 961.39,
+      "speaker": "hank-taylor",
+      "text": "Yeah I don't think worth it it looks complicated like you know you're gonna lose I see these things that I think these are scams built to scam kids out of money uh every and I didn't think they were utilizing it well all right let's keep going okay this is just like a racetrack I don't know I just thought it was funny worth not worth would you set would you set one of these up at your booth"
+    },
+    {
+      "start": 961.39,
+      "end": 987.35,
+      "speaker": "martin-gontovnikas",
+      "text": "No I don't think it's worth it because people spend too much time playing a skelectric I think skelectric is fantastic but what you want in your booth is for people to cycle through and then talk a bit look at it and then go somewhere else with this I think you get a lot of people to stay here but they get nothing out of it like they don't get a swag they don't get anything specific out of it so I think you get people in the only advantage the only thing that I like is your booth might look back because people are playing the skelectric yeah what's your take I"
+    },
+    {
+      "start": 987.35,
+      "end": 1009.65,
+      "speaker": "hank-taylor",
+      "text": "Didn't see anybody playing it so and I went I went during like a packed moment of the thing yeah so maybe we we nerds don't like a skelectric this is just my buddy kelvin who's at launch darkly he told me that I asked him what his favorite piece of swag was he told me it was this uh this bag I hate bags everybody's always trying to give me bags but he's like no i'll actually use this and the brand"
+    },
+    {
+      "start": 1009.65,
+      "end": 1032.45,
+      "speaker": "martin-gontovnikas",
+      "text": "Ground cover is very like demure you want socks socks you can't see it and I do the only bags that I like there's a brand that's called pick design that has one of these but it's waterproof because if i'm taking my bag to the beach and it's waterproof and with a zipper maybe but if not fuck it but this to me worse it is the worst so far well kelvin will disagree with you get in the comments"
+    },
+    {
+      "start": 1032.45,
+      "end": 1037.43,
+      "speaker": "hank-taylor",
+      "text": "Kelvin okay first off do you know who these are from you can I guess you can see the logo on one"
+    },
+    {
+      "start": 1037.43,
+      "end": 1042.21,
+      "speaker": "martin-gontovnikas",
+      "text": "Of them the logo looks like adidas but it's not really adidas no what are they this is sentry oh okay"
+    },
+    {
+      "start": 1042.21,
+      "end": 1055.17,
+      "speaker": "hank-taylor",
+      "text": "So this is a sentry log get it um and this is their new ai thing the overseer these are little toys i'm telling you like if you can give a dad a plot like a little plush"
+    },
+    {
+      "start": 1055.17,
+      "end": 1076.41,
+      "speaker": "martin-gontovnikas",
+      "text": "Stuffed toy to bring home I agree with that I actually think that the best one that did toys was mother duck because in each conference they gave a different rubber duck that was a special one for each conference so then you have to go to all to check it out and then you saw it multiple times this one again like you have the dinosaurs this is more of the same so it's not something"
+    },
+    {
+      "start": 1076.41,
+      "end": 1113.69,
+      "speaker": "hank-taylor",
+      "text": "Unique i'm team unique so not worth it i'll tell you this I didn't want these because I don't want that creepy overseer in my house or a log like it's a log that's on fire okay now we're getting into some more generic stuff so this is just like your basic booth setup you can see they have they have like a little setup here where they gave people headphones and they have their presenter but like there's a couple booths like this we'll see another one where people will do these like scheduled demo presentations what do you think of those I don't think people watch any scheduled demo presentations well only time i've had look at this guy he's got like that's what I was gonna say"
+    },
+    {
+      "start": 1113.69,
+      "end": 1138.53,
+      "speaker": "martin-gontovnikas",
+      "text": "The only time I had success with scheduled demo presentations was when I did more scrappy instead of headphones you had like a sound system and you spoke and then people would hear it you maybe made it funny or something like that so in those cases maybe somebody would come but I think like the the headphones is the worst choice and also the colors here like I like booths that have weird colors like violets or fluorescent pink or some shit like that which calls people attention"
+    },
+    {
+      "start": 1138.53,
+      "end": 1179.23,
+      "speaker": "hank-taylor",
+      "text": "We were in a sea of violet and pink so actually everybody's violet and pink right now so to stand out I think the opposite also a difference between like this is like pretty sure this is like an engineer and here's a sales guy like of course okay another one is okay this is like ski ball or something i'll just jump to it I think not worth I don't even know what this is I saw nobody playing well I guess this lady was playing it but any other thoughts now this one sucks no sucks all right next okay this one is wild i'm walking along and I see wait this is a two-story booth and there's a woman just eating lunch in there like they built a little office on the second floor isn't that wild to me it's"
+    },
+    {
+      "start": 1179.23,
+      "end": 1194.85,
+      "speaker": "martin-gontovnikas",
+      "text": "Crazy that they use it for somebody eating lunch but I do like the idea it makes me remember of mark zuckerberg like if you go to meta office fishbowl offices exactly I fucking love it like you can see him and he can see you from everywhere so you could do if you could do something like that"
+    },
+    {
+      "start": 1194.85,
+      "end": 1199.77,
+      "speaker": "hank-taylor",
+      "text": "For the booth I think fantastic idea I mean if you're using it for meetings or something I guess"
+    },
+    {
+      "start": 1199.77,
+      "end": 1203.91,
+      "speaker": "martin-gontovnikas",
+      "text": "But like nah you have to do something more flashy like I don't know I would use it as an installation"
+    },
+    {
+      "start": 1203.91,
+      "end": 1236.77,
+      "speaker": "hank-taylor",
+      "text": "Like I don't know yeah like so like the one installation or the I like where your head goes with that because for me I was just like okay did they build that so that they had an office yeah because really there was just a lady eating lunch up there and I was like what a waste if you have something like that you have to like book it out 24 7 i'm using for something next I only got a back photo this is like an ugly mascot I hated it I should have taken a photo of the front of it but there is a human inside of this thing what do you think of mascots if they can be creepy or weird or"
+    },
+    {
+      "start": 1236.77,
+      "end": 1242.61,
+      "speaker": "martin-gontovnikas",
+      "text": "Something maybe if they are just standing there I don't think people care this one was pretty bland"
+    },
+    {
+      "start": 1242.61,
+      "end": 1247.13,
+      "speaker": "hank-taylor",
+      "text": "Have you ever been in dream force have you seen all their mascots yeah yeah yeah they actually have"
+    },
+    {
+      "start": 1247.13,
+      "end": 1259.37,
+      "speaker": "martin-gontovnikas",
+      "text": "Fun they have fun with it I went to a google io where the android was a fucking asshole like he went to people and like punch them a bit that fantastic mascot ganta just wants to see people get harassed"
+    },
+    {
+      "start": 1259.37,
+      "end": 1272.49,
+      "speaker": "hank-taylor",
+      "text": "Okay okay here is this do you see this yes this is like it's like a spaceship you could go in there and there was some sort of vr experience and it's by eon that's pretty sweet I like the vibe of this"
+    },
+    {
+      "start": 1272.49,
+      "end": 1290.03,
+      "speaker": "martin-gontovnikas",
+      "text": "Just because I think it's instagramable like people maybe want to go in to share the picture and instagram it the only problem to me is that the eon is too high I would put the eon in the spaceship so when people take a picture they would see because now you don't yeah like I took this weird"
+    },
+    {
+      "start": 1290.03,
+      "end": 1294.87,
+      "speaker": "hank-taylor",
+      "text": "Perspective photo because I wanted to capture the whole thing exactly but if you just do the spaceship"
+    },
+    {
+      "start": 1294.87,
+      "end": 1299.47,
+      "speaker": "martin-gontovnikas",
+      "text": "You don't see it so you have a fantastic place to take instagram pictures but nobody sees your brand"
+    },
+    {
+      "start": 1299.47,
+      "end": 1305.31,
+      "speaker": "hank-taylor",
+      "text": "Uh good point okay oh code rabbit I gotta tell you about code rabbit they had so first off"
+    },
+    {
+      "start": 1305.31,
+      "end": 1310.69,
+      "speaker": "martin-gontovnikas",
+      "text": "I love the vibe code cleanup specialist like the how they are dressing up and they're like that"
+    },
+    {
+      "start": 1310.69,
+      "end": 1368.71,
+      "speaker": "hank-taylor",
+      "text": "Fantastic the jumpsuit like the branding of this they're like here's our like this is what we're doing for reinvent they're not just slapping they're not just slapping their like home page on their background it's got an interesting like color and design and also they were advertising in the airport so when you got off the plane they said like you know it was something like it was like vibe code vibe code cleanup specialist at booth whatever and like they told they kind of prepared you to find them and it's really good and yeah the guy in the jumpsuit I thought code rabbit did a fantastic job okay GitLab this is another presentation there were like a lot of people sitting around for this which I think it surprises both you and me that so many people will hang out and like watch these things okay what else oh this one I took from my friends at builder I wanted to show you this one anyways excuse the selfie but they have just like the tiniest booth apparently the earlier you book these tiny booths the better location you get because I had some friends yes"
+    },
+    {
+      "start": 1368.71,
+      "end": 1382.41,
+      "speaker": "martin-gontovnikas",
+      "text": "Like in a terrible spot with the same size of booth I I would prefer not to have a booth than to have a small one because the small one signals that i'm a shitty startup and nobody knows me and I have no money so it's better not have it than having it here's what's funny about that literally"
+    },
+    {
+      "start": 1383.09,
+      "end": 1424.65,
+      "speaker": "hank-taylor",
+      "text": "Across so like right in front of me basically where my camera is was notion's tiny booth interesting I feel like notion showing up is good but them having a small booth represents like yeah you're not our icp but exactly we're gonna let you know we exist exactly and I think because people like notion do that asana was another one they had a medium-sized booth in a worse location but I think those kind of signal that like like if enough big companies do that you don't know who the small companies are unless you just don't know the brand so I don't know it's kind of interesting anyways let's keep moving oh yeah there's the notion one 180 degrees very small yeah they're not there I wouldn't even go probably if I were them resolve they're a smaller company they went all out and"
+    },
+    {
+      "start": 1424.65,
+      "end": 1429.33,
+      "speaker": "martin-gontovnikas",
+      "text": "They were like packed this looks good this was designed by our by our friends at lightbox by the"
+    },
+    {
+      "start": 1429.33,
+      "end": 1443.87,
+      "speaker": "hank-taylor",
+      "text": "Way uh oh lightbox designed this amazing you know we know liz corsi who who like ran this thing and they were man they were bumping they were busy the whole time because they had a really good activation you know is the word where you like go in and you customize something you get swag or"
+    },
+    {
+      "start": 1443.87,
+      "end": 1448.81,
+      "speaker": "martin-gontovnikas",
+      "text": "Whatever that was cool and this looks futuristic it looks cool so I thought it was good okay there"
+    },
+    {
+      "start": 1448.81,
+      "end": 1469.83,
+      "speaker": "hank-taylor",
+      "text": "Were a couple of these like coffee machine things which were always popular with people people you know wanted to get coffee can't go wrong with that and then all throughout the venue I didn't take enough photos of these but like so anthropic I was actually a little upset because this is one of my favorite restaurants at the venetian they have my favorite eggs benedicts which one is it I don't"
+    },
+    {
+      "start": 1469.83,
+      "end": 1474.63,
+      "speaker": "martin-gontovnikas",
+      "text": "Remember that it's a lux it's a lux cafe or not I don't remember the name I just know where it is"
+    },
+    {
+      "start": 1474.63,
+      "end": 1480.69,
+      "speaker": "hank-taylor",
+      "text": "It's right next to the entrance it's close it's close to the entrance but it's kind of like uh I like"
+    },
+    {
+      "start": 1480.69,
+      "end": 1496.49,
+      "speaker": "martin-gontovnikas",
+      "text": "Lux cafe I actually wanted to I talked to brain trust but we couldn't do it because it was done before but I couldn't with brain trust we wanted to buy the whole lux cafe to do an installation there for them that's what we wanted to do so I think similar vibes to this yeah so a few companies like"
+    },
+    {
+      "start": 1496.49,
+      "end": 1537.83,
+      "speaker": "hank-taylor",
+      "text": "Just booked out entire restaurants and they used them the whole time but I notably so I think I missed anthropics booth in the expo I also missed for sales booth apparently they were like right in the one spot that I walked around so I missed those which is bummer two other things to mention one was brain trust morgan this is a very if you know morgan palomera's this is a very morgan coded idea but she did an event at like a perfumery I don't even know what you call it a place where they have perfumes and everybody got a custom perfume and it was only like 30 executives very small but basically she took care of christmas for a bunch of engineering execs and it was genius a unique gift"
+    },
+    {
+      "start": 1537.83,
+      "end": 1547.29,
+      "speaker": "martin-gontovnikas",
+      "text": "That you can bring home fantastic I think people will love her because she does this perfume that people can give back and it's like oh I travel near christmas I gave this morgan has really good ideas"
+    },
+    {
+      "start": 1547.29,
+      "end": 1570.47,
+      "speaker": "hank-taylor",
+      "text": "Like this yeah brain trust and modal and browser base and llama index also teamed up for like a big party at a bar near the end that was good and well attended great crowds and so like that I also think i'm not asking you worth not worth on these anymore i'm just telling you that one was worth they had good people there it's good vibes there you go that was reinvent that's awesome I don't think"
+    },
+    {
+      "start": 1570.47,
+      "end": 1587.21,
+      "speaker": "martin-gontovnikas",
+      "text": "We have time for more topics today because we went a bit over but we hope you like this different style I actually never saw the pictures that can share before so we could make it a bit more fun for all of us as well but thank you for listening and we'll have a wrapped version of our podcast soon"
+    },
+    {
+      "start": 1587.21,
+      "end": 1588.59,
+      "speaker": "hank-taylor",
+      "text": "All right see everybody"
+    }
+  ],
+  "slug": "cursor-leerob-devrel-vs-sanity-cms-marketing",
+  "id": "43"
+}

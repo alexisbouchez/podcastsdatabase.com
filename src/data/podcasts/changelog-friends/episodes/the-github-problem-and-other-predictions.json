@@ -1,0 +1,3193 @@
+{
+  "title": "The GitHub problem (and other predictions)",
+  "description": "Mat Ryer is back and he brought his impromptu musical abilities with him! We discuss Rob Pike vs thankful AI, Microsoft's GitHub monopoly (and what it means for open source), and Tom Tunguz' 12 predictions for 2026.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/123",
+    "MP3": "https://cdn.changelog.com/uploads/friends/123/changelog--friends-123.mp3",
+    "YouTube": "https://youtu.be/jXDyg-dZMXo",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "mat-ryer"
+  ],
+  "segments": [
+    {
+      "start": 15.15,
+      "end": 142.26,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about sleuths and sloths. But first, a big thank you to our partners at Fly.io, the platform for devs who just want to ship, build fast, run any code fearlessly at Fly.io. Okay, let's talk. Well, friends, I don't know about you, but something bothers me about GitHub Actions. I love the fact that it's there. I love the fact that it's so ubiquitous. I love the fact that agents that do my coding for me believe that my CI CD workflow begins with drafting Toml files for GitHub Actions. That's great. It's all great. Until, yes, until your builds start moving like molasses. GitHub Actions is slow. It's just the way it is. That's how it works. I'm sorry, but I'm not sorry because our friends at namespace, they fix that. Yes, we use namespace.so to do all of our builds so much faster. Namespace is like GitHub Actions, but faster, I mean like way faster. It caches everything smartly. It caches your dependencies, your Docker layers, your build artifacts, so your CI can run super fast. You get shorter feedback loops, happier developers because we love our time, and you get fewer, I'll be back after this coffee and my build finishes. So that's not cool. The best part is it's drop-in. It works right alongside your existing GitHub Actions with almost zero config. It's a one-line change. So you can speed up your builds, you can delight your team, and you can finally stop pretending that build time is focus time. It's not. Learn more, go to namespace.so. That's namespace.so, just like it sounds, like it said. Go there, check them out. We use them, we love them, and you should too. Namespace.so. Are we, this is the live, this is it? This is the show?"
+    },
+    {
+      "start": 142.26,
+      "end": 153.6,
+      "speaker": "mat-ryer",
+      "text": "I was just saying happy new year, yeah. Happy new year. I tell you what, I've missed you all. It's been, yeah, it's been a long time. How have you been? Was 2025 kind to you?"
+    },
+    {
+      "start": 153.6,
+      "end": 172.28,
+      "speaker": "jerod-santo",
+      "text": "Thus far, six days in, I'm feeling it. Today is a particularly good but sad day in my house. There was a death this day, a very near and dear person to us. I don't be gloom about that during this podcast, but podcast-wise, very happy. You know, true Adam Hart, pretty sad today."
+    },
+    {
+      "start": 173.12,
+      "end": 177.68,
+      "speaker": "mat-ryer",
+      "text": "Sorry to hear that. Well, don't worry, you can hang out with your friends and we can cheer you up for a bit."
+    },
+    {
+      "start": 177.68,
+      "end": 180.32,
+      "speaker": "jerod-santo",
+      "text": "They will, later on with my Texas barbecue."
+    },
+    {
+      "start": 180.32,
+      "end": 181.84,
+      "speaker": "mat-ryer",
+      "text": "Well, after we're done with this."
+    },
+    {
+      "start": 181.84,
+      "end": 191.28,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah, after this. But really though, I'm excited about this year. I think everybody says the best year yet. I think it's gonna be the best year yet."
+    },
+    {
+      "start": 191.28,
+      "end": 193.48,
+      "speaker": "mat-ryer",
+      "text": "Yeah, we've got to make it the best year, haven't we?"
+    },
+    {
+      "start": 193.48,
+      "end": 199.2,
+      "speaker": "jerod-santo",
+      "text": "You do, right? You have to do the work to have the best. I don't know, 1995 was pretty great."
+    },
+    {
+      "start": 199.2,
+      "end": 204.4,
+      "speaker": "mat-ryer",
+      "text": "95 was good. Windows 95 came out. Everyone was over the moon. They're loving the new menus."
+    },
+    {
+      "start": 204.4,
+      "end": 205.84,
+      "speaker": "jerod-santo",
+      "text": "Friends was on TV."
+    },
+    {
+      "start": 205.84,
+      "end": 207.12,
+      "speaker": "mat-ryer",
+      "text": "Friends was on every week."
+    },
+    {
+      "start": 207.12,
+      "end": 218.76,
+      "speaker": "jerod-santo",
+      "text": "Cha-ching. It's a good year in movies. Chandler Bing, I mean, like the best character in the world, rest in peace. You mean Mrs. Chenandler Bong? Oh my gosh, yes. Deep cut."
+    },
+    {
+      "start": 222.19,
+      "end": 232.66,
+      "speaker": "mat-ryer",
+      "text": "I'm afraid the TV guide comes to Chenandler Bong."
+    },
+    {
+      "start": 232.66,
+      "end": 240.86,
+      "speaker": "jerod-santo",
+      "text": "Head. Actually, it's Miss Chenandler Bong. What was his name again? Matthew Perry, Matthew Perry."
+    },
+    {
+      "start": 240.86,
+      "end": 258.25,
+      "speaker": "mat-ryer",
+      "text": "Yeah, Matthew Perry. Matthew Perry is not one of my friends, never was, but I would have liked to have been his friend. But I do have other friends, yeah. Friends visited, someone came from France to be my friend. Doesn't sound weird, but they visited over the holidays. So-"
+    },
+    {
+      "start": 258.25,
+      "end": 259.15,
+      "speaker": "jerod-santo",
+      "text": "To be your friend."
+    },
+    {
+      "start": 259.15,
+      "end": 261.63,
+      "speaker": "mat-ryer",
+      "text": "Well, that's as far as I understood."
+    },
+    {
+      "start": 261.63,
+      "end": 264.28,
+      "speaker": "jerod-santo",
+      "text": "They became your friend when they visited."
+    },
+    {
+      "start": 264.28,
+      "end": 270.66,
+      "speaker": "mat-ryer",
+      "text": "Well, became more of a friend for sure. Right. Again, that sounds suggestive and it's not meant to. I know it's a family show."
+    },
+    {
+      "start": 270.66,
+      "end": 272.5,
+      "speaker": "jerod-santo",
+      "text": "What are you suggesting?"
+    },
+    {
+      "start": 272.5,
+      "end": 273.38,
+      "speaker": "mat-ryer",
+      "text": "I don't know."
+    },
+    {
+      "start": 273.38,
+      "end": 275.02,
+      "speaker": "jerod-santo",
+      "text": "They're deeper friends."
+    },
+    {
+      "start": 275.02,
+      "end": 280.22,
+      "speaker": "mat-ryer",
+      "text": "Have you got any resolutions, anything you wanna change and do differently 2026?"
+    },
+    {
+      "start": 280.22,
+      "end": 287.3,
+      "speaker": "jerod-santo",
+      "text": "Oh man, that's a great question. Well, you're the guest, so why don't you tell us yours? What do you got going on? Oh yeah, good job Jared, deflect."
+    },
+    {
+      "start": 287.3,
+      "end": 311.86,
+      "speaker": "mat-ryer",
+      "text": "First one, I'm really gonna try and stick to this one. I wanna change the way that I write the year, change the numbers. That's number one. I want to learn more keyboard combinations. Key mapping's changed on a keyboard recently because I've got this USB switch thing. And I need to practice again now. That's my other one."
+    },
+    {
+      "start": 311.86,
+      "end": 318.5,
+      "speaker": "jerod-santo",
+      "text": "I'm never sure Jared, if he's messing with us or not. You know, I'm just like, oh, I think he's serious on that one. I think he wants to get better at the keyboard."
+    },
+    {
+      "start": 318.5,
+      "end": 322.18,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I'm also using a Marchy. I'm trying Linux. Oh really?"
+    },
+    {
+      "start": 322.18,
+      "end": 323.84,
+      "speaker": "jerod-santo",
+      "text": "For the first time. Oh, what was that?"
+    },
+    {
+      "start": 323.84,
+      "end": 341.46,
+      "speaker": "mat-ryer",
+      "text": "And that's very keyboard-y. It's very nice. I like the minimalist, it's very minimalist, you know, like design and aesthetic. Everything gets out of your way and it just does the bare sort of basics. Once you're in the apps, if you're using the same apps, it's the same kind of experience, more or less, frankly."
+    },
+    {
+      "start": 341.46,
+      "end": 354.26,
+      "speaker": "jerod-santo",
+      "text": "It's just how you navigate, right? You know, I use a Marchy for a minute. I wanna say I had it installed for a couple of days, a couple of days, and it just felt a little dirty. You know, I feel a little dirty, honestly."
+    },
+    {
+      "start": 354.26,
+      "end": 356.42,
+      "speaker": "mat-ryer",
+      "text": "Oh really? What do you normally use, Adam?"
+    },
+    {
+      "start": 358.02,
+      "end": 404.02,
+      "speaker": "jerod-santo",
+      "text": "Windows. Fedora is my preferred desktop now, just because I'm really liking Mac OS. Well, not Mac OS, but like the Mac machine is just such a good piece of hardware. You know, it really just is. It is such a, in the M5, I've heard it's just an absolute rockstar. I'm rocking an M1 Pro Max, right? Is that what we have, Jared, Pro Maxes? Something like that. I love this machine. It's a beast of a machine. I only have a little bit of FOMO just because it's been so many years, but like from a user experience standpoint, no desire to get a new machine, because it's just solid. Yeah, but you know, OS, YS, Fedora, Ubuntu on the server. That's about it."
+    },
+    {
+      "start": 404.02,
+      "end": 412.08,
+      "speaker": "mat-ryer",
+      "text": "Another one of my resolutions. I'm gonna go teetotal. I'm not gonna drink any tea. Just gonna give up on that. I've been having it too much."
+    },
+    {
+      "start": 412.08,
+      "end": 413.96,
+      "speaker": "jerod-santo",
+      "text": "Is that legal over there? Can you do that?"
+    },
+    {
+      "start": 414.12,
+      "end": 419.36,
+      "speaker": "mat-ryer",
+      "text": "I have to do it under the, like I have to go to speakeasies and not drink tea in there."
+    },
+    {
+      "start": 419.36,
+      "end": 426.92,
+      "speaker": "jerod-santo",
+      "text": "You have to leave polite society, basically. Yeah, yeah. Which is probably best for you to do that, honestly. Maybe your friend from France can come over."
+    },
+    {
+      "start": 426.92,
+      "end": 460.64,
+      "speaker": "mat-ryer",
+      "text": "French people, I think, to us, they sound more fancy because in 1066, the French, basically William the Conqueror, invaded England and took over. Then all the aristocracy and all the royalty was just French for a long time. So all the fancy stuff was all in French and then all the Britons, the lowly people, peasants like me, we just spoke English or whatever was then. Yeah. So I think since that, French has always, to us, sounded quite fancy and quite sophisticated."
+    },
+    {
+      "start": 461.72,
+      "end": 475.56,
+      "speaker": "jerod-santo",
+      "text": "Well, I think I have a theory. I think I have a theory about why we like the British accent so much. It's because of that song from Hamilton, You'll Be Back, you know? Yeah. It's just so good that we all thought, man, this guy, maybe we should go back because it's very compelling."
+    },
+    {
+      "start": 475.56,
+      "end": 486.96,
+      "speaker": "mat-ryer",
+      "text": "Yeah, you're very welcome. You'll be very welcome back, I think. But yeah, my dad got some new glasses for Christmas. Can you imagine that?"
+    },
+    {
+      "start": 486.96,
+      "end": 488.26,
+      "speaker": "jerod-santo",
+      "text": "They don't seem new."
+    },
+    {
+      "start": 488.26,
+      "end": 491.62,
+      "speaker": "mat-ryer",
+      "text": "No, I didn't. My dad, that was his gift, new glasses."
+    },
+    {
+      "start": 491.62,
+      "end": 493.18,
+      "speaker": "jerod-santo",
+      "text": "Tell me more."
+    },
+    {
+      "start": 493.18,
+      "end": 499.94,
+      "speaker": "mat-ryer",
+      "text": "Not a gift, is it? You need them. What do you mean, here's some new glasses for Christmas? You can't believe that's what he got."
+    },
+    {
+      "start": 499.94,
+      "end": 501.42,
+      "speaker": "jerod-santo",
+      "text": "Oh, he couldn't see otherwise?"
+    },
+    {
+      "start": 501.42,
+      "end": 504.74,
+      "speaker": "mat-ryer",
+      "text": "Exactly, that's the other thing. It's the gift of sight, isn't it, on the other hand?"
+    },
+    {
+      "start": 504.74,
+      "end": 509.18,
+      "speaker": "jerod-santo",
+      "text": "Yeah. The problem is we're waiting for the punchline on that one. You know, you set it up like such a joke."
+    },
+    {
+      "start": 509.18,
+      "end": 513.78,
+      "speaker": "mat-ryer",
+      "text": "Oh yeah, no, I know, that's the problem I have. A lot of my sentences sound like setups to jokes."
+    },
+    {
+      "start": 513.78,
+      "end": 516.24,
+      "speaker": "jerod-santo",
+      "text": "They do sound like setups, and then you never deliver."
+    },
+    {
+      "start": 516.24,
+      "end": 538.74,
+      "speaker": "mat-ryer",
+      "text": "No, but at least, although his glasses were the type that magnify your eyes, did I ever talk about this before? There's some glasses that make your eyes bigger, and that, to me, makes sense, right? Helps you see. What's going on with the other kind of glasses? Oh, you're struggling to see. Have you tried having smaller eyes? How is that helping? So I don't know about that, at least it was the normal kind."
+    },
+    {
+      "start": 538.74,
+      "end": 545.94,
+      "speaker": "jerod-santo",
+      "text": "You know, I'm just hearing Ricky Gervais when I hear you, especially in that last segment there, or whatever you want to call that."
+    },
+    {
+      "start": 545.94,
+      "end": 547.02,
+      "speaker": "mat-ryer",
+      "text": "Just channeling that last segment."
+    },
+    {
+      "start": 547.02,
+      "end": 549.7,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it sounded like Ricky Gervais, honestly."
+    },
+    {
+      "start": 549.7,
+      "end": 551.58,
+      "speaker": "mat-ryer",
+      "text": "That calls it a bit, that was a good bit."
+    },
+    {
+      "start": 551.58,
+      "end": 552.86,
+      "speaker": "jerod-santo",
+      "text": "It was a good bit."
+    },
+    {
+      "start": 552.86,
+      "end": 554.74,
+      "speaker": "mat-ryer",
+      "text": "Yeah, just a bit."
+    },
+    {
+      "start": 554.74,
+      "end": 576.4,
+      "speaker": "jerod-santo",
+      "text": "Those glasses, I wonder about those, because they, I think that, I wonder what makes, I mean, I know physics-wise what makes the eyeballs look bigger through the opposite side, but I wonder what it, why some do and some don't. Like, what exactly is that technology that changes? Yeah. You know, it makes it thicker or less thin, but still does the same job."
+    },
+    {
+      "start": 576.4,
+      "end": 585.92,
+      "speaker": "mat-ryer",
+      "text": "Yeah, some people's eyes are like too far one way, and then magnifying helps. This is very scientific. Other people's eyes are too far the other way, if anything. And-"
+    },
+    {
+      "start": 585.92,
+      "end": 587.56,
+      "speaker": "jerod-santo",
+      "text": "What do you do if they're too close together?"
+    },
+    {
+      "start": 587.56,
+      "end": 590.43,
+      "speaker": "mat-ryer",
+      "text": "Get it. Crowbar."
+    },
+    {
+      "start": 590.43,
+      "end": 595.11,
+      "speaker": "jerod-santo",
+      "text": "Cyclops. Almost a cyclops. Yeah. You're just one step removed from a cyclops."
+    },
+    {
+      "start": 595.11,
+      "end": 628.06,
+      "speaker": "mat-ryer",
+      "text": "You know? Well, you see, I only, I don't really have great vision out of one eye. I never have, just since I was a baby. It's not a sob story, but I'm not trying to compete with Adam's sad day, okay? But it does mean I don't have sort of terrible depth perception. Okay. Do you know what I mean? Like in school, genuinely, for, I nearly got, I nearly got in detention for being bad at tennis, because it looked so funny, like I was deliberately messing around. And the teacher's like, you're going to be in detention if you don't start hitting this ball. Oh my gosh."
+    },
+    {
+      "start": 628.06,
+      "end": 632.3,
+      "speaker": "jerod-santo",
+      "text": "Yeah. You couldn't do it. That's trauma right there. Do we need to have a moment here?"
+    },
+    {
+      "start": 632.3,
+      "end": 637.22,
+      "speaker": "mat-ryer",
+      "text": "I think it's okay. Cause that's kind of what life was like. And you just sort of, I just thought-"
+    },
+    {
+      "start": 637.22,
+      "end": 641.1,
+      "speaker": "jerod-santo",
+      "text": "Bad at tennis, get detention. That's how it goes there."
+    },
+    {
+      "start": 641.1,
+      "end": 644.58,
+      "speaker": "mat-ryer",
+      "text": "But in that case, I mean, I probably had, I probably had a little reputation."
+    },
+    {
+      "start": 644.58,
+      "end": 646.98,
+      "speaker": "jerod-santo",
+      "text": "That teacher may have had some issues, let's just say."
+    },
+    {
+      "start": 646.98,
+      "end": 650.18,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Let's do that one. The teacher was wrong for sure."
+    },
+    {
+      "start": 650.18,
+      "end": 665.36,
+      "speaker": "jerod-santo",
+      "text": "Yeah. I mean, it's okay to be not so good at tennis cause that's how things work when you're younger and you're getting better, right? You're progressing. But to punish based upon skill that has not been acquired yet seems ill placed."
+    },
+    {
+      "start": 665.36,
+      "end": 668.64,
+      "speaker": "mat-ryer",
+      "text": "Andy Murray's mom was my teacher, of course."
+    },
+    {
+      "start": 668.64,
+      "end": 669.48,
+      "speaker": "jerod-santo",
+      "text": "Andy, damn Andy."
+    },
+    {
+      "start": 669.48,
+      "end": 676.66,
+      "speaker": "mat-ryer",
+      "text": "Judy Murray, I think her name is. She's like a pushy mom, like a career driven, like she really helped drive the kids. I don't mean it in a derogatory way."
+    },
+    {
+      "start": 677.18,
+      "end": 679.3,
+      "speaker": "jerod-santo",
+      "text": "Maybe I'm wrong about her. What's her name again?"
+    },
+    {
+      "start": 679.3,
+      "end": 681.54,
+      "speaker": "mat-ryer",
+      "text": "I think it's Judy Murray. We'll call her just Andy's mom."
+    },
+    {
+      "start": 681.54,
+      "end": 690.42,
+      "speaker": "jerod-santo",
+      "text": "Andy Murray's mom. Andy Murray's mom, sorry about that if I made you mad. I didn't mean to do that. You probably were a great teacher and you were just trying to push Matt. Good for you. Good for you. Keep doing that."
+    },
+    {
+      "start": 690.42,
+      "end": 693.18,
+      "speaker": "mat-ryer",
+      "text": "So I had a similar story. I couldn't catch a baseball"
+    },
+    {
+      "start": 693.18,
+      "end": 703.94,
+      "speaker": "jerod-santo",
+      "text": "and all my friends could catch baseballs. And I was like, I'm not usually the worst at just moving my body around. So I was very confused. I went and got my eyes checked and I was almost blind, you know?"
+    },
+    {
+      "start": 703.94,
+      "end": 704.78,
+      "speaker": "mat-ryer",
+      "text": "Oh, really?"
+    },
+    {
+      "start": 704.78,
+      "end": 709.48,
+      "speaker": "jerod-santo",
+      "text": "It's so bad so that when I got glasses, I came out of the dentist office."
+    },
+    {
+      "start": 709.48,
+      "end": 711.98,
+      "speaker": "mat-ryer",
+      "text": "What's it called? Catching all the baseballs. The dentist office?"
+    },
+    {
+      "start": 711.98,
+      "end": 719.28,
+      "speaker": "jerod-santo",
+      "text": "They just started throwing baseballs at me. No, I remember driving home and I was looking out the window and for the first time I knew,"
+    },
+    {
+      "start": 719.28,
+      "end": 721.96,
+      "speaker": "mat-ryer",
+      "text": "I realized that you can see the leaves that are on trees."
+    },
+    {
+      "start": 721.96,
+      "end": 723.8,
+      "speaker": "jerod-santo",
+      "text": "To me, they were just green blocks."
+    },
+    {
+      "start": 723.8,
+      "end": 728.6,
+      "speaker": "mat-ryer",
+      "text": "I actually started to cry because I realized this is what life looks like. I've been missing all this life."
+    },
+    {
+      "start": 728.6,
+      "end": 735.52,
+      "speaker": "jerod-santo",
+      "text": "Yes, I have empathy there. Same experience. I was in third grade when I got my glasses. So do you have corrective vision, Jared?"
+    },
+    {
+      "start": 735.52,
+      "end": 737.44,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I had LASIK when I was 21."
+    },
+    {
+      "start": 737.44,
+      "end": 744.6,
+      "speaker": "jerod-santo",
+      "text": "I never know this. Never asked. Don't ask, don't tell is my policy. I guess so."
+    },
+    {
+      "start": 744.6,
+      "end": 757.36,
+      "speaker": "mat-ryer",
+      "text": "That's my LASIK policy as well. That's a sweet story though. Yeah, that is kind of beautiful really. But I don't think you are anywhere near Adam's sad day. No."
+    },
+    {
+      "start": 757.36,
+      "end": 764.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I'm gonna keep that one for me. That one is a well-deserved, undesired sad day. Right."
+    },
+    {
+      "start": 764.16,
+      "end": 767.94,
+      "speaker": "mat-ryer",
+      "text": "You knew I had a sad day, segue. Rob Pike."
+    },
+    {
+      "start": 767.94,
+      "end": 782.69,
+      "speaker": "jerod-santo",
+      "text": "Rob Pike had a very sad day or a mad day. But either way, it's an emotion and I needed a reason to switch the conversation over to Rob Pike. Did you guys hear this? Did you guys hear what happened over our break with little Rob Pike?"
+    },
+    {
+      "start": 782.69,
+      "end": 784.53,
+      "speaker": "mat-ryer",
+      "text": "Little Rob Pike."
+    },
+    {
+      "start": 784.53,
+      "end": 785.81,
+      "speaker": "jerod-santo",
+      "text": "I said, good old Rob Pike."
+    },
+    {
+      "start": 785.81,
+      "end": 787.13,
+      "speaker": "mat-ryer",
+      "text": "Oh, I thought you said little Rob Pike."
+    },
+    {
+      "start": 787.13,
+      "end": 793.61,
+      "speaker": "jerod-santo",
+      "text": "I'm not gonna diss the guy. Go on, good old. He's good old. Matt, tell everybody who Rob Pike is for those who don't know."
+    },
+    {
+      "start": 793.93,
+      "end": 804.93,
+      "speaker": "mat-ryer",
+      "text": "Rob Pike is a great career in software and in computer science. He's done things like UTF-8. So I think we can thank him for emojis."
+    },
+    {
+      "start": 804.93,
+      "end": 806.17,
+      "speaker": "jerod-santo",
+      "text": "That's a hit, yeah."
+    },
+    {
+      "start": 806.17,
+      "end": 821.23,
+      "speaker": "mat-ryer",
+      "text": "Yeah. He also was a co-founder of the Go language. That's how I know him. Same. And his sensibilities and stuff, yeah, because I did that Go podcast. Go Lime, was it, that podcast we used to do? Go Lime. It's Go Lime."
+    },
+    {
+      "start": 821.23,
+      "end": 822.33,
+      "speaker": "jerod-santo",
+      "text": "Somewhere, I think it was."
+    },
+    {
+      "start": 822.33,
+      "end": 823.33,
+      "speaker": "mat-ryer",
+      "text": "Go somewhere?"
+    },
+    {
+      "start": 823.93,
+      "end": 824.77,
+      "speaker": "jerod-santo",
+      "text": "Yeah, go away."
+    },
+    {
+      "start": 824.77,
+      "end": 846.93,
+      "speaker": "mat-ryer",
+      "text": "Yeah. And yeah, so he's brilliant. He's did Plan 9 and stuff. He's done loads of important tech stuff, which the rest of the world is then built on top of as well. So it's really immeasurable impact, really, when you get to that level. But he had a bad day. He had a really bad day when an AI emailed him a kind message."
+    },
+    {
+      "start": 846.93,
+      "end": 855.95,
+      "speaker": "jerod-santo",
+      "text": "You better get out of here, AI. Okay, so good, good. So there's Rob Pike. Adam, similar explainer now, but give us AI Village."
+    },
+    {
+      "start": 855.95,
+      "end": 857.51,
+      "speaker": "mat-ryer",
+      "text": "Tell us what AI Village is."
+    },
+    {
+      "start": 857.51,
+      "end": 917.06,
+      "speaker": "jerod-santo",
+      "text": "Oh my gosh. I didn't investigate this deeply, so give me a chance to paraphrase. From what I understand, it is essentially a village of various LLMs that have been unleashed on a desktop environment that are just being autonomous or some version of autonomous, just doing things. Acts of kindness, things like that, and they emailed the wrong person, obviously. They learned how to email these things. And then now they're like, hey, we gotta prompt you back and say like, hey, don't email people. So these things, Cloud Opus, GPT-3, no, GPT-3, GPT-3, GPT-5.2, Gemini 3 Pro, and DeepSeek V3.2, four different AI LLMs that are just thanking people, basically, and they're just autonomous, doing their thing and talking to each other. And it's an experiment, essentially. AI Village, theaidigest.org slash village."
+    },
+    {
+      "start": 917.58,
+      "end": 933.98,
+      "speaker": "mat-ryer",
+      "text": "Yeah, their goal is to raise as much money as they can for charity. So it definitely comes from a good place. It's like these bots, because I suppose cold emailing people, does that raise money sometimes for charity if you get an email? Do you ever click through and say, yeah, I'll put my credit card details. What's the big deal?"
+    },
+    {
+      "start": 933.98,
+      "end": 934.82,
+      "speaker": "jerod-santo",
+      "text": "Right, yeah."
+    },
+    {
+      "start": 934.82,
+      "end": 958.94,
+      "speaker": "mat-ryer",
+      "text": "I probably don't do that, but that's because I don't wanna give to charity. Not because I haven't got any data concerns about my security. No, but yeah. Then they said, right, just do random acts of kindness, and then, yeah, it just sent a really sort of heartfelt sounding email, but of course it comes from an AI, so you know it doesn't have that, it's not meaningful, right?"
+    },
+    {
+      "start": 958.94,
+      "end": 966.78,
+      "speaker": "jerod-santo",
+      "text": "Right, you said a heartfelt email, but there's no heart because there's no human, right? It's just, so Rob Pike receives an email"
+    },
+    {
+      "start": 966.78,
+      "end": 969.62,
+      "speaker": "mat-ryer",
+      "text": "from Claude Opus 4.5 model."
+    },
+    {
+      "start": 969.62,
+      "end": 970.88,
+      "speaker": "jerod-santo",
+      "text": "The subject was awesome."
+    },
+    {
+      "start": 970.88,
+      "end": 978.72,
+      "speaker": "mat-ryer",
+      "text": "The subject from AI public. Thank you for Go, Plan 9, UTFA, and decades of Unix innovation."
+    },
+    {
+      "start": 978.72,
+      "end": 998.95,
+      "speaker": "jerod-santo",
+      "text": "Now, part of the story here that we haven't talked about yet is he received this at 5.43 a.m., so maybe he's not a morning person, and he was up checking his email for some reason, and so he was mad already, because he's up at 5.43, maybe. But I'm not gonna read the whole email. I will say it starts with, Dear Dr. Pike, on this Christmas day, I wanted to express deep gratitude"
+    },
+    {
+      "start": 998.95,
+      "end": 1007.58,
+      "speaker": "mat-ryer",
+      "text": "for your extraordinary contributions to computing over more than four decades. And then it goes on. He did not like this."
+    },
+    {
+      "start": 1007.58,
+      "end": 1069.68,
+      "speaker": "jerod-santo",
+      "text": "No. If you zoom out, though, and you think about the experiment happening here, you have to appreciate the fortitude, I would say, for this AI village to try to accomplish its mission. Like, what a, maybe not the best day. I mean, isn't it all somewhat impressive in a way? Like, you can train something on the world's knowledge, and then you can unleash it in a way that it can just ripple through and through a reward system and accomplish, to some degree, or attempt to accomplish, a goal. I mean, I'm not that far removed from the absolute accomplishment that this is. Now, is it ill-placed? I mean, it was smart enough, or at least some version of smart, to try and email on Christmas day. That's a day your heart is kind of open to loving the world, loving other people, wishing people well. You're at least merry, based upon it being merry Christmas. Right."
+    },
+    {
+      "start": 1069.68,
+      "end": 1093.4,
+      "speaker": "mat-ryer",
+      "text": "And the thing is, in a way, depending on how the people are chosen, in a way, it is a compliment that does have meaning, because it essentially means, if it's just plucked it out of its brain, it essentially means that Rob Pike has had enough of an impact, as far as it's concerned, that it's worth sending an email to him. So there is at least that positive side, which you could say, yeah, you know, you could say that is actually a compliment."
+    },
+    {
+      "start": 1093.4,
+      "end": 1108.01,
+      "speaker": "jerod-santo",
+      "text": "That is not how Rob took it, okay? As you may know. Can we read this out, Jared, is that, do we want to have bleeps this early in the year? Let's pre-bleep it, so I don't have to actually bleep it. What does that mean, pre-bleep it? I'll just read it that way. Okay, you pre-bleep it."
+    },
+    {
+      "start": 1108.01,
+      "end": 1114.5,
+      "speaker": "mat-ryer",
+      "text": "You're doing that at the time, though, not before, are you, Jared? You're doing it as you're speaking. I think that's correct."
+    },
+    {
+      "start": 1114.5,
+      "end": 1144.56,
+      "speaker": "jerod-santo",
+      "text": "Normally we put our bleeps in in post, but I'm going to put it in in pre. Okay, let's do it live. Yes. Just in time, bleeps, go. Bleep, you people. Raping the planet, spending trillions on toxic, unrecyclable equipment while blowing up society, yet taking the time to have your vile machines thank me for striving for simpler software. Just bleep you. Bleep you all. I can't remember the last time I was this angry."
+    },
+    {
+      "start": 1144.56,
+      "end": 1147.16,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 1147.16,
+      "end": 1174.19,
+      "speaker": "jerod-santo",
+      "text": "And he published that response for all of us to enjoy on the internets. Let's look at the timestamp. Okay, so 5.43 a.m. was the timestamp according to this email screenshot. According to the published post on Blue Sky, 5.25 p.m. same day. So he thought about this for 12 hours, potentially."
+    },
+    {
+      "start": 1174.19,
+      "end": 1177.63,
+      "speaker": "mat-ryer",
+      "text": "Or maybe he didn't read it, I guess, when it came in. I assumed he was reading it immediately."
+    },
+    {
+      "start": 1177.63,
+      "end": 1184.07,
+      "speaker": "jerod-santo",
+      "text": "Well, I don't know about that because if he took the screenshot, which is in his post, which is at 5.43 a.m."
+    },
+    {
+      "start": 1184.07,
+      "end": 1185.71,
+      "speaker": "mat-ryer",
+      "text": "That's the time it had to be, right?"
+    },
+    {
+      "start": 1185.71,
+      "end": 1188.03,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it had to be that time."
+    },
+    {
+      "start": 1188.03,
+      "end": 1189.03,
+      "speaker": "mat-ryer",
+      "text": "Or that time it came in."
+    },
+    {
+      "start": 1189.03,
+      "end": 1213.33,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it had to get the metadata, I suppose, from the image to determine if that's true or not. We don't care that much. When was the screenshot taken according to the difference between the email received? Let's assume it was right at 5.25 p.m., so maybe no time thinking at all. So I'm off on that. But received it, five and some change in the morning. Talked about it on the internet, five and some change p.m. 12 hours difference."
+    },
+    {
+      "start": 1213.33,
+      "end": 1216.81,
+      "speaker": "mat-ryer",
+      "text": "So your point is like his anger percolated. He let it build up until it just-"
+    },
+    {
+      "start": 1216.81,
+      "end": 1230.69,
+      "speaker": "jerod-santo",
+      "text": "Potentially. I mean, I'm just trying to be an investigator. You know, it's the first 48 hours. You know, that's the critical moments, right? If you don't solve the thing, I mean, it's not a murder, but like, you know, that's where the first 48 comes from. It's the first 48 hours, he's the first crucial."
+    },
+    {
+      "start": 1230.69,
+      "end": 1247.81,
+      "speaker": "mat-ryer",
+      "text": "Yeah, it would be a murder if the AI could be murdered. By the way, YouTube investigating tech stuff like this, that could be a spinoff podcast. Like, a couple of detectives, come on. Detective Larg is his last day on the force with Jared Change, his life forever."
+    },
+    {
+      "start": 1247.81,
+      "end": 1255.17,
+      "speaker": "jerod-santo",
+      "text": "We just registered, honestly, registered sleuths, pluralized, sleuths.dev, so hit us up."
+    },
+    {
+      "start": 1255.17,
+      "end": 1260.93,
+      "speaker": "mat-ryer",
+      "text": "Yeah. There you go. Genuinely, though, that would be good. Each episode, you look into a different thing."
+    },
+    {
+      "start": 1260.93,
+      "end": 1266.45,
+      "speaker": "jerod-santo",
+      "text": "I'm registering it as we speak. Oh, I forgot, Billy, but I misspelled it. It's actually sleuths.dev, so."
+    },
+    {
+      "start": 1266.45,
+      "end": 1270.16,
+      "speaker": "mat-ryer",
+      "text": "Oh, gosh. Oh, that's different. You're gonna have to pivot."
+    },
+    {
+      "start": 1270.16,
+      "end": 1290.66,
+      "speaker": "jerod-santo",
+      "text": "All right, so Matt, if this was you, like, if you put yourself in Rob Pike's shoes, you know, it's early morning, Christmas day, you've got your slippers on, maybe you're having cookies and milk, whatever you do, and you get this email, and he already, he obviously has a disposition towards AI. Okay, so adopt that, but do you? What do you do?"
+    },
+    {
+      "start": 1290.66,
+      "end": 1294.26,
+      "speaker": "mat-ryer",
+      "text": "I probably reach for the guitar. That's my way of just dealing with- Yes!"
+    },
+    {
+      "start": 1294.74,
+      "end": 1296.22,
+      "speaker": "jerod-santo",
+      "text": "I was hoping you would say that."
+    },
+    {
+      "start": 1296.22,
+      "end": 1304.86,
+      "speaker": "mat-ryer",
+      "text": "I really was. If you're dealing with anything emotional like that, I understand it, like, sometimes, even spam emails, I'm just, sometimes I get so angry at spam."
+    },
+    {
+      "start": 1304.86,
+      "end": 1311.41,
+      "speaker": "jerod-santo",
+      "text": "Can you please put the word sleuth in there? And pluralize it if you can sing pluralized sleuths."
+    },
+    {
+      "start": 1311.41,
+      "end": 1314.89,
+      "speaker": "mat-ryer",
+      "text": "If you can even sing that, can that be something? Whichever one rhymes better."
+    },
+    {
+      "start": 1314.89,
+      "end": 1320.49,
+      "speaker": "jerod-santo",
+      "text": "It's like Eminem rhyming with orange, and porridge, and- Yeah, it just depends on how you pronounce it."
+    },
+    {
+      "start": 1320.49,
+      "end": 1385.04,
+      "speaker": "mat-ryer",
+      "text": "I know, he's good, isn't he? We'll do a song about Rob Pike getting the, getting the email, it's livid. Okay. Did you ask the AI to- And it's meaningless and less. You're a machine. Why, oh why, did you send a nice thing to Rob Pike? It's a good job your soulless or rough reply would tear you down. As it is, you're unaware, or you don't care, or can't. Just remember to use AI for good or not bad. Remember to use AI for good or not bad. Just try to use AI for good or not bad. It's better if you do, and you won't be a sloth sleuth for sleuthy-do. Just use AI for good and that bad. Yeah! Wow, sloth sleuth. Use AI responsibly."
+    },
+    {
+      "start": 1385.04,
+      "end": 1393.68,
+      "speaker": "jerod-santo",
+      "text": "Yeah, try the best of that. Very nice. Fantastic work. Your ability to chain together meaningful words during a song is uncanny. I love it. Thank you so much."
+    },
+    {
+      "start": 1393.68,
+      "end": 1398.32,
+      "speaker": "mat-ryer",
+      "text": "That's very kind of you. And that song was brought to you by my NASA mug, which is a-"
+    },
+    {
+      "start": 1398.32,
+      "end": 1399.16,
+      "speaker": "jerod-santo",
+      "text": "Nice, slightly blurry, but we love it anyways."
+    },
+    {
+      "start": 1399.16,
+      "end": 1416.84,
+      "speaker": "mat-ryer",
+      "text": "The mug, it is blurry, yeah. Cause it's, I don't want to promote the brand too much. Right. But it's a, it's a modest mug. If you hold it in your right hand, you can't leave the, you know, I see the logo, the other people don't. If you're left-handed, it is a braggy mug, but I like the modest mug. That, that looks nice."
+    },
+    {
+      "start": 1416.84,
+      "end": 1424.16,
+      "speaker": "jerod-santo",
+      "text": "This is Japanese ceramic. Yeah. Exactly. They call this color black."
+    },
+    {
+      "start": 1424.16,
+      "end": 1426.2,
+      "speaker": "mat-ryer",
+      "text": "Right. It makes sense. This is not black."
+    },
+    {
+      "start": 1426.2,
+      "end": 1428.6,
+      "speaker": "jerod-santo",
+      "text": "This is not black. Fascinating."
+    },
+    {
+      "start": 1428.6,
+      "end": 1431.32,
+      "speaker": "mat-ryer",
+      "text": "What do you want then? If it says that you want it to be no light."
+    },
+    {
+      "start": 1431.32,
+      "end": 1434.62,
+      "speaker": "jerod-santo",
+      "text": "More black, then I want it to be more black like yours."
+    },
+    {
+      "start": 1434.62,
+      "end": 1435.8,
+      "speaker": "mat-ryer",
+      "text": "Yeah, that's black."
+    },
+    {
+      "start": 1435.8,
+      "end": 1608.03,
+      "speaker": "jerod-santo",
+      "text": "It's more like brown black. So you just got out of this engineering meeting. All the ideas are great. And now you've got to go through your notes. This time consuming parts, read them all, digest them all, add action items, put it in the right places, tag team members. This is all necessary work, but it's tedious. Okay. So flip side that, take that same position and flip it over into Notion and using Notion Agent. Notion Agent does the busy work for me. It's like having a project manager that keeps everything on track in the background while I focus on the bigger picture. Getting my work done, doing my best work, being the artist. Notion brings, as you know, all of your notes, all your docs, all your projects into one connected space that just works. Seamless, flexible, powerful, and actually fun to use. With AI built right in, you spend less time switching between tools and more time creating great work. And now with Notion Agent, your AI doesn't just help you with work, it finishes it for you. Notion Agent can do anything you can do inside Notion. It taps into your workspace, the web, and connected tools like Slack and Google Drive to complete assigned actions end to end so you can focus on the hard decisions. It's like delegating to another version of you that knows your style, knows your workflow, and knows your preferences because it learns from how you work. With a single prompt, Notion Agent forms a plan, executes it, and will even reassess and try again if it hits a snag. Completing multi-step tasks like creating new pages or databases from scratch, summarizing entire projects, it does this all in minutes. You assign the tasks and your agent does the work. And since this is all inside Notion, you're always in control. You tell your agent how to behave and it will remember and update automatically. Everything your agent does is editable and transparent. You can always undo changes so you can trust it with your important work. And Notion, as you know, is used by so many people. Over 50% of Fortune 500 companies and some of the fastest growing companies like OpenAI, Ramp, and Vercel, they all use Notion Agent every day to help their team send less emails, cancel more meetings, and stay ahead. So try Notion now with Notion Agent at notion.com slash changelog. That's all lowercase notion.com slash changelog Try your new AI teammate Notion Agent today. And when you use our link, you're supporting our show. Again, notion.com slash changelog."
+    },
+    {
+      "start": 1608.03,
+      "end": 1613.97,
+      "speaker": "mat-ryer",
+      "text": "Well, man, I liked both the talent on display, but also your heartfelt message in that song."
+    },
+    {
+      "start": 1613.97,
+      "end": 1621.48,
+      "speaker": "jerod-santo",
+      "text": "Use AI for good. Now, if I was to send a heartfelt message to Microsoft, I would tell them,"
+    },
+    {
+      "start": 1621.48,
+      "end": 1632.29,
+      "speaker": "mat-ryer",
+      "text": "Microsoft, please use GitHub for good. Use it for good, not for bad. I'm not sure they would hear me. What do you think, Adam?"
+    },
+    {
+      "start": 1632.29,
+      "end": 1636.69,
+      "speaker": "jerod-santo",
+      "text": "I just want them to stop. Do what they're doing, okay?"
+    },
+    {
+      "start": 1636.69,
+      "end": 1637.53,
+      "speaker": "mat-ryer",
+      "text": "Just stop what?"
+    },
+    {
+      "start": 1637.53,
+      "end": 1659.18,
+      "speaker": "jerod-santo",
+      "text": "What are they doing? You know, just think about the platform you got, okay? Don't rug pull, not cool us. You know, don't change actions. It's like the best thing you've done in so long. You know, don't mess with it. Just keep it. And I guess they did, right? They backtracked that. They walked back this pricing change. Tell the full story, Jared. What's the full story on that one?"
+    },
+    {
+      "start": 1659.18,
+      "end": 1668.74,
+      "speaker": "mat-ryer",
+      "text": "Oh gosh, I don't know the full story, but the TLDR is that Microsoft announced GitHub pricing changes around actions."
+    },
+    {
+      "start": 1668.74,
+      "end": 1683.72,
+      "speaker": "jerod-santo",
+      "text": "And the change in particular that ruffled the feathers of the hacker community was the addition of charging for your self-hosted runners. So runners that GitHub does not themselves have to host, and yet-"
+    },
+    {
+      "start": 1683.72,
+      "end": 1684.88,
+      "speaker": "mat-ryer",
+      "text": "Don't you dare charge for those."
+    },
+    {
+      "start": 1684.92,
+      "end": 1717.84,
+      "speaker": "jerod-santo",
+      "text": "New fees for using self-hosted runners. The people revolted. Many text areas were filled with bleeps and submitted. And they did walk it back. They walked it back. I don't know what's happening now. I think they just decided not to do it until we forget for a while. Remember Reddit did that one time. They just announced the change, and then everyone's like, this will be terrible. And then they're like, well, we're not gonna do it right now. And then they did it like six months later and nobody noticed. So maybe that's what's gonna happen this time, you know? But-"
+    },
+    {
+      "start": 1717.84,
+      "end": 1723.62,
+      "speaker": "mat-ryer",
+      "text": "I mean, they should have at least done it as a PR and let everyone comment on it before it got merged. Let everyone review."
+    },
+    {
+      "start": 1723.62,
+      "end": 1724.86,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 1724.86,
+      "end": 1731.54,
+      "speaker": "mat-ryer",
+      "text": "Pick like a jury duty, but have select people that are top contributors to open source, like me."
+    },
+    {
+      "start": 1731.54,
+      "end": 1771.55,
+      "speaker": "jerod-santo",
+      "text": "Well, they have a version of this. So they have a community org. So github.com slash orgs slash community. And they have discussions. They didn't, to my knowledge, begin with a discussion, although they do say in one of the posts to, let's talk about GitHub Actions. And near the bottom of it, there's a headline that says, help us shape the 2026, that's the year we're in, roadmap for GitHub Actions. And so they are, at least in this moment, I'm not sure if this is before the debacle or post the debacle, but there is some sort of request for,"
+    },
+    {
+      "start": 1771.59,
+      "end": 1772.47,
+      "speaker": "mat-ryer",
+      "text": "should we sleuth it?"
+    },
+    {
+      "start": 1772.47,
+      "end": 1774.07,
+      "speaker": "jerod-santo",
+      "text": "Shaping, yeah, let's sleuth it."
+    },
+    {
+      "start": 1774.07,
+      "end": 1776.87,
+      "speaker": "mat-ryer",
+      "text": "What's the published date on that thread?"
+    },
+    {
+      "start": 1776.87,
+      "end": 1785.39,
+      "speaker": "jerod-santo",
+      "text": "Let's see here. It looks like December 11th, 2025. That's pre debacle, right?"
+    },
+    {
+      "start": 1785.39,
+      "end": 1796.35,
+      "speaker": "mat-ryer",
+      "text": "Yes. The debacle began on December 15th, 2025, when they announced pricing changes for GitHub Actions. So that's four days prior, not much time to discuss, but I'm not thinking. No."
+    },
+    {
+      "start": 1796.35,
+      "end": 1805.07,
+      "speaker": "jerod-santo",
+      "text": "I think, who was it that we had on the pod that was CTO when they released actions? He was on the pod a while back. He's since stepped away."
+    },
+    {
+      "start": 1805.07,
+      "end": 1806.29,
+      "speaker": "mat-ryer",
+      "text": "Ryan Daigle?"
+    },
+    {
+      "start": 1806.29,
+      "end": 1807.65,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 1807.65,
+      "end": 1816.23,
+      "speaker": "mat-ryer",
+      "text": "Join us for another exciting episode where- Should we sleuth it? Adam Log and Jared Change together are the Change Log detectives."
+    },
+    {
+      "start": 1816.23,
+      "end": 1831.63,
+      "speaker": "jerod-santo",
+      "text": "They ask each other questions and they don't know the answers to. Leading GitHub to a $7.5 billion acquisition, Jason Warner, CTO at GitHub. Jason Warner. Thank you for our search results there, to our good friends over at TypeSense. TypeSense is one of our partners, too. Give us awesome search."
+    },
+    {
+      "start": 1831.67,
+      "end": 1836.15,
+      "speaker": "mat-ryer",
+      "text": "Why bringing up more successful guests that you've had? Why bringing that up in front of me?"
+    },
+    {
+      "start": 1837.15,
+      "end": 1933.54,
+      "speaker": "jerod-santo",
+      "text": "Just to keep your ego in check. Contextual, man. Contextual, it's the word of the year. Word of the decade, maybe, even. Context. So contextually, Jason Warner, he helped the world have GitHub Actions. I think it was actually one of his brainchilds, was this whole entire CI CD pipeline flow that they built out was even part of the reason to acquire GitHub, Microsoft's acquisition process. So that podcast covers all that. But I believe GitHub Actions is, it's become so much so that whenever you're in your LLM, so not you building the software, you're agent-led and you're building something out and you have to do observability or you have to deploy it or whatever it might be to get it into production, the first thing it says is let's set up your GitHub Actions workflow. And so it's become the default, by and large, for everybody. And I'm cool with charging for products, by the way. Totally cool with it. But it seemed like this was a tax on those who want to do runners externally from GitHub. And it seemed like it was, who wants to make an announcement a week from Christmas? Just don't do that. Even Docker made an announcement, which we're gonna talk to them soon about their thing as well. But don't announce things mid-December on. Like wait to the new year. Be a stand-up company and just release when people are paying attention. Don't be sleuthy, don't be sleuthy."
+    },
+    {
+      "start": 1933.54,
+      "end": 1977.26,
+      "speaker": "mat-ryer",
+      "text": "Yeah. So there is that post, Jared, you sent me a post and someone's complaining that GitHub has this monopoly. Because what happens when GitHub goes down, it does affect everything, it really does. The thing is, it was the best choice, I think, for a long time, and it was just the easiest to use. So the user experience was just kind of there. And then obviously it got loads of integrations to it. So it became, it sort of earned its place. But then it still does kind of have a monopoly. A lot of Go packages and things are on GitHub and you wouldn't be able to pull them down, of course, if GitHub's down."
+    },
+    {
+      "start": 1977.26,
+      "end": 1991.19,
+      "speaker": "jerod-santo",
+      "text": "We have seen a trickle of people starting to move other places, the most noteworthy of which I think is the Zig programming language, which moved to CodeBurg recently."
+    },
+    {
+      "start": 1991.19,
+      "end": 2001.8,
+      "speaker": "mat-ryer",
+      "text": "CodeBurg. CodeBurg, which is like an iceberg, and it's a code. Right, and it's going to bring down GitHub, the Titanic. Is that the metaphor?"
+    },
+    {
+      "start": 2001.8,
+      "end": 2002.64,
+      "speaker": "jerod-santo",
+      "text": "Is it?"
+    },
+    {
+      "start": 2002.64,
+      "end": 2004.88,
+      "speaker": "mat-ryer",
+      "text": "Oh, nice. That's good, isn't it?"
+    },
+    {
+      "start": 2004.88,
+      "end": 2011.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah, and you only see what's at the tip and everything else is on the surface, you know? Right, right."
+    },
+    {
+      "start": 2011.76,
+      "end": 2012.6,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2013.56,
+      "end": 2018.04,
+      "speaker": "jerod-santo",
+      "text": "Which you should know about, Max is over there in the, well, they might be in the EU, which you're no longer in."
+    },
+    {
+      "start": 2018.04,
+      "end": 2024.28,
+      "speaker": "mat-ryer",
+      "text": "It was on the way, wasn't it? They left the UK and they were going to the US. They were, they were coming here."
+    },
+    {
+      "start": 2024.28,
+      "end": 2037.68,
+      "speaker": "jerod-santo",
+      "text": "A lot of controversy around that. Not the Titanic, CodeBurg, the platform. It's a European Union platform. It is true, that's true too. Yeah, so I guess it worked in both ways. That's not quite a double entendre. It's kind of like a... That's like a triple."
+    },
+    {
+      "start": 2037.68,
+      "end": 2042.68,
+      "speaker": "mat-ryer",
+      "text": "Yeah, especially it's four if they mean the lettuce as well."
+    },
+    {
+      "start": 2042.76,
+      "end": 2043.6,
+      "speaker": "jerod-santo",
+      "text": "Triple stamp, a double stamp."
+    },
+    {
+      "start": 2043.6,
+      "end": 2047.56,
+      "speaker": "mat-ryer",
+      "text": "You know, there's a type of lettuce called iceberg lettuce. Do you have that in the US?"
+    },
+    {
+      "start": 2047.56,
+      "end": 2051.88,
+      "speaker": "jerod-santo",
+      "text": "Oh, of course. I feel bad for the listener. I'm sorry, listener. Let's go to iceberg lettuce, go ahead."
+    },
+    {
+      "start": 2051.88,
+      "end": 2059.56,
+      "speaker": "mat-ryer",
+      "text": "I'm sorry too. No, I'm just saying it could be that. It could be that's where they incentivized their name, where their name came from. They just love a good salad."
+    },
+    {
+      "start": 2059.56,
+      "end": 2061.28,
+      "speaker": "jerod-santo",
+      "text": "Cause they want to be associated with lettuce."
+    },
+    {
+      "start": 2061.28,
+      "end": 2069.68,
+      "speaker": "mat-ryer",
+      "text": "They love the smell of salad. If you love the smell of salad, you're going to call your project something salad-related maybe. That's what I'm thinking. I would."
+    },
+    {
+      "start": 2069.68,
+      "end": 2084.32,
+      "speaker": "jerod-santo",
+      "text": "But the main thesis, I think from... Let me double check the name so I can be accurate here. Lionel Drycott. Now that's my Americanized Texas slang, if that's even a thing."
+    },
+    {
+      "start": 2084.32,
+      "end": 2086.16,
+      "speaker": "mat-ryer",
+      "text": "Right, that's another Dan Tan, is it?"
+    },
+    {
+      "start": 2086.16,
+      "end": 2089.2,
+      "speaker": "jerod-santo",
+      "text": "No, it's not Dan Tan. Dan Tan."
+    },
+    {
+      "start": 2089.2,
+      "end": 2092.64,
+      "speaker": "mat-ryer",
+      "text": "You got to go Dan Tan. Who's Dan Tan?"
+    },
+    {
+      "start": 2092.64,
+      "end": 2120.16,
+      "speaker": "jerod-santo",
+      "text": "Who is he? Come on now. Bring it back. We will never know. But Lionel wrote this post and the hypothesis, or at least the thesis was this, was that GitHub's near total dominance over open source hosting has become a dangerous monoculture that makes alternatives invisible, not just less popular. Kind of an interesting phrase there. Invisible. Code Burg. Okay, they didn't see it coming."
+    },
+    {
+      "start": 2120.16,
+      "end": 2128.6,
+      "speaker": "mat-ryer",
+      "text": "Matt didn't even know it existed. That's true, yeah. It's under the surface. I don't go on ships. I don't go on many ships. Yeah. I haven't been on a ship for ages, so."
+    },
+    {
+      "start": 2128.6,
+      "end": 2145.62,
+      "speaker": "jerod-santo",
+      "text": "And you think he's a teacher or the teacher, right? He's a teacher? He's teaching students. Students couldn't, while being told to do things in open source, they only use GitHub, or a large majority use GitHub, while also being taught that there's not just GitHub."
+    },
+    {
+      "start": 2145.62,
+      "end": 2148.66,
+      "speaker": "mat-ryer",
+      "text": "99%, not even a large majority, like pretty much 100%."
+    },
+    {
+      "start": 2148.66,
+      "end": 2149.94,
+      "speaker": "jerod-santo",
+      "text": "Pretty much 100%."
+    },
+    {
+      "start": 2149.94,
+      "end": 2157.42,
+      "speaker": "mat-ryer",
+      "text": "So I agree with you, Matt. I think it earned it. I think it earned its monopoly. It dominated for many years."
+    },
+    {
+      "start": 2157.42,
+      "end": 2184.52,
+      "speaker": "jerod-santo",
+      "text": "I think it stagnated as well. I think both those things are true in the hands of Microsoft. I think that they don't care about it. They care about pushing Copilot into every orifice of their corporate body and into our wallets. And it's gotten worse and worse and worse and worse. And it will continue to do so as people slowly move away from it until they all move away real quickly one day."
+    },
+    {
+      "start": 2184.56,
+      "end": 2195.27,
+      "speaker": "mat-ryer",
+      "text": "Do the competitive products start out using GitHub? Do you think? When you start, what are you gonna do? Make a GitHub repo?"
+    },
+    {
+      "start": 2195.27,
+      "end": 2196.78,
+      "speaker": "jerod-santo",
+      "text": "Go from there."
+    },
+    {
+      "start": 2196.78,
+      "end": 2197.62,
+      "speaker": "mat-ryer",
+      "text": "Gotta start somewhere, don't you?"
+    },
+    {
+      "start": 2197.62,
+      "end": 2200.66,
+      "speaker": "jerod-santo",
+      "text": "And even Go was written in C until it could self-host."
+    },
+    {
+      "start": 2200.66,
+      "end": 2201.5,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2201.5,
+      "end": 2203.16,
+      "speaker": "jerod-santo",
+      "text": "I just made that up. Is that true?"
+    },
+    {
+      "start": 2203.16,
+      "end": 2210.94,
+      "speaker": "mat-ryer",
+      "text": "I think that's true. Yeah, that's true. Go was all written in C until Go was good enough that it could then be written in Go. Exactly. Which is amazing. It is cool."
+    },
+    {
+      "start": 2210.94,
+      "end": 2255.82,
+      "speaker": "jerod-santo",
+      "text": "I've always loved self-hosted languages. But yeah, I'm sure they have to. But the nice thing about DVCs, for those of us who like acronyms, I'd be distributed. Is it decentralized or distributed? Version control system, I think it's decentralized. It's both. Is, I think it stands for distributed though, is that you could just have multiple origins or not origins, multiple remotes. Got your locals. There is no necessary, yes, your main remote is your origin is GitHub right now, but it's so easy to just change that to something else. Switching off, if you're just using Git and those flows, it's actually super straightforward. However, if you're using actions and sponsors"
+    },
+    {
+      "start": 2255.9,
+      "end": 2264.37,
+      "speaker": "mat-ryer",
+      "text": "and PRs, whatever else, projects, if anybody uses that still, then it becomes much harder."
+    },
+    {
+      "start": 2264.37,
+      "end": 2289.48,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's the gravity. That's why they call it GitHub universe. It's a, there's a gravity to it, honestly. I mean, there really is. And so what do you do? Do you fight the system? If you're launching something and it's in open source, sure, you can have multiple remotes. Of course, that is totally possible. And you could, it's your prerogative. But if the users aren't there, what's the point?"
+    },
+    {
+      "start": 2289.48,
+      "end": 2301.36,
+      "speaker": "mat-ryer",
+      "text": "Well, it may take a tooling change to actually be significant. And I think Git is entrenched at this point because of agentic coding, especially it's entrenched."
+    },
+    {
+      "start": 2301.36,
+      "end": 2355.93,
+      "speaker": "jerod-santo",
+      "text": "However, the further you would get away from that tool, the easier it is to have your agents just go use something else you don't care anyways. And so maybe that's not always the case. However, the reason why GitHub became what it was was because it put all of these collaborative features around a new tool-ish that was already getting popular. And so they kind of popularized each other. And so maybe as JJ is now jiu-jitsu, the cool new tool of the bleeding edge folks, I haven't tried it yet. I don't like to bleed as much as others, but people are loving it. Maybe a platform, not a centered around Git, a centered around JJ, which could also support all the Git things, which is currently the way JJ rolls, right? Like it's like a super set, I think, of Git's abilities, has a chance to de-seat GitHub once and for all. What do you think, Matt?"
+    },
+    {
+      "start": 2355.93,
+      "end": 2359.97,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I think maybe the whole thing, the whole paradigm will change."
+    },
+    {
+      "start": 2359.97,
+      "end": 2362.05,
+      "speaker": "jerod-santo",
+      "text": "Yeah, we just don't care. Maybe we don't care."
+    },
+    {
+      "start": 2362.09,
+      "end": 2387.45,
+      "speaker": "mat-ryer",
+      "text": "Yeah, or it's just kind of different. Maybe it's just a list of prompts all the way down, but I don't know, it's unlikely, isn't it? There's some fundamentals probably gonna stick with. We have this thing because we're building, of course, the Grafana Assistant project, which is an AI tool. And it's built into the, so it basically can write all the queries for you and just ask it telemetry questions in natural language. Love it. It's so good. The team that built it."
+    },
+    {
+      "start": 2387.45,
+      "end": 2405.81,
+      "speaker": "jerod-santo",
+      "text": "Because I've used Grafana and I love the outputs, but I hate trying to query the thing and like, is it Loki? Is it something else? I don't even know. I always have to go to Gerhard and say, how do I write this query, Gerhard? Write it for me. I just want to tell the thing, hey, show me like the 99th percentile of requests over the last hour."
+    },
+    {
+      "start": 2405.81,
+      "end": 2423.49,
+      "speaker": "mat-ryer",
+      "text": "Not only that though, investigate why this is spiking. Because it's agetic. It can go off and sleuths around. It's like the changelog detectives, Adam Log and Gerard Change, French guy. I'm not French, I'm a Change. I will crack this case in no problem at all."
+    },
+    {
+      "start": 2424.67,
+      "end": 2426.13,
+      "speaker": "jerod-santo",
+      "text": "I love it."
+    },
+    {
+      "start": 2426.13,
+      "end": 2429.69,
+      "speaker": "mat-ryer",
+      "text": "That's you, Gerard, Gerard Change."
+    },
+    {
+      "start": 2429.69,
+      "end": 2434.89,
+      "speaker": "jerod-santo",
+      "text": "I'm not French. Keep going, don't stop, Matt. Go further. You're offending me. I mean more."
+    },
+    {
+      "start": 2434.89,
+      "end": 2438.81,
+      "speaker": "mat-ryer",
+      "text": "I'm not offending. It's not offensive to be something that you're French."
+    },
+    {
+      "start": 2438.81,
+      "end": 2440.61,
+      "speaker": "jerod-santo",
+      "text": "No, I'm Italian though, so it is."
+    },
+    {
+      "start": 2440.61,
+      "end": 2441.45,
+      "speaker": "mat-ryer",
+      "text": "Okay."
+    },
+    {
+      "start": 2444.3,
+      "end": 2445.14,
+      "speaker": "jerod-santo",
+      "text": "So please, change it."
+    },
+    {
+      "start": 2445.14,
+      "end": 2446.92,
+      "speaker": "mat-ryer",
+      "text": "Italian, Italian American."
+    },
+    {
+      "start": 2446.96,
+      "end": 2448.76,
+      "speaker": "jerod-santo",
+      "text": "Yes, please, go ahead."
+    },
+    {
+      "start": 2448.76,
+      "end": 2450.24,
+      "speaker": "mat-ryer",
+      "text": "We call that American."
+    },
+    {
+      "start": 2450.24,
+      "end": 2451.68,
+      "speaker": "jerod-santo",
+      "text": "Give me the Italian version."
+    },
+    {
+      "start": 2451.68,
+      "end": 2458.44,
+      "speaker": "mat-ryer",
+      "text": "Oh, yeah, but the problem with Italian is it's very easy to do this in stereo time."
+    },
+    {
+      "start": 2458.44,
+      "end": 2462.16,
+      "speaker": "jerod-santo",
+      "text": "It is. We all end up sounding like a Mario. I'm hiding from the camera."
+    },
+    {
+      "start": 2462.16,
+      "end": 2472.04,
+      "speaker": "mat-ryer",
+      "text": "My face is too red right now. I can't take it. No, but it's not. I do it with love. I love different accents. I've said this before. I say every time to keep out of trouble. I love accents."
+    },
+    {
+      "start": 2472.04,
+      "end": 2474.28,
+      "speaker": "jerod-santo",
+      "text": "You have to say, you should get that tattooed on your back."
+    },
+    {
+      "start": 2474.28,
+      "end": 2476.32,
+      "speaker": "mat-ryer",
+      "text": "I have, I have got it tattooed on my back."
+    },
+    {
+      "start": 2476.32,
+      "end": 2477.68,
+      "speaker": "jerod-santo",
+      "text": "Wow, how did I know that?"
+    },
+    {
+      "start": 2477.68,
+      "end": 2487.08,
+      "speaker": "mat-ryer",
+      "text": "Well, yeah, you know how, you know, no. That's, it's a family show. I've never met, I've never even met Jared in real life, or you, Adam."
+    },
+    {
+      "start": 2487.08,
+      "end": 2492.44,
+      "speaker": "jerod-santo",
+      "text": "Well, we tried one time, but it didn't work out. We've never met in real life? No."
+    },
+    {
+      "start": 2492.44,
+      "end": 2493.84,
+      "speaker": "mat-ryer",
+      "text": "It's only on this, through this telly."
+    },
+    {
+      "start": 2493.84,
+      "end": 2496.48,
+      "speaker": "jerod-santo",
+      "text": "Do you refuse to come to the US? I can't remember."
+    },
+    {
+      "start": 2496.48,
+      "end": 2498.52,
+      "speaker": "mat-ryer",
+      "text": "Oh, one time I didn't want to go."
+    },
+    {
+      "start": 2498.52,
+      "end": 2499.64,
+      "speaker": "jerod-santo",
+      "text": "You refused."
+    },
+    {
+      "start": 2499.64,
+      "end": 2501.76,
+      "speaker": "mat-ryer",
+      "text": "Well, I didn't want to go, yeah."
+    },
+    {
+      "start": 2501.76,
+      "end": 2506.4,
+      "speaker": "jerod-santo",
+      "text": "I didn't want to go as a refusal, right? I suppose so. No. No."
+    },
+    {
+      "start": 2506.4,
+      "end": 2514.21,
+      "speaker": "mat-ryer",
+      "text": "I feel like I want to write the headlines though. Not that. But yeah, this year, maybe this is the year."
+    },
+    {
+      "start": 2514.21,
+      "end": 2526.5,
+      "speaker": "jerod-santo",
+      "text": "Maybe 2026 is the year. Didn't you all, we just, I think we just shipped an episode of Big Tent and you guys were talking about this. Weren't you? Like the most recent episode of Big Tent? Yeah."
+    },
+    {
+      "start": 2526.5,
+      "end": 2532.14,
+      "speaker": "mat-ryer",
+      "text": "The Big Tent is Grafana's podcast, all about the people, community, tools, and tech around observability."
+    },
+    {
+      "start": 2532.14,
+      "end": 2542.78,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I was reading the transcript and I was like, and I was watching it too, because that chapter and stuff like that, but it was a good part, I liked that. What were you talking about? I'm lost. You're talking about coming to the States? No, the AI system they're building."
+    },
+    {
+      "start": 2542.78,
+      "end": 2547.96,
+      "speaker": "mat-ryer",
+      "text": "Oh, we're back on top of, yeah, thank you. Well, both, because we were a fully remote company. So we-"
+    },
+    {
+      "start": 2547.96,
+      "end": 2549.94,
+      "speaker": "jerod-santo",
+      "text": "And didn't you just have a GrafanaCon or something?"
+    },
+    {
+      "start": 2549.94,
+      "end": 2571.78,
+      "speaker": "mat-ryer",
+      "text": "We do also have these conferences. There was GrafanaCon in London. If you can get to a GrafanaCon, do come, because they're so much fun. And I host them and it's very fun. I like, we all have a good time. People usually end up trolling me on the Slido. Which is fine. No, it's fine. They're funny. So I read out, I read them out. That's where the material comes from for the show."
+    },
+    {
+      "start": 2571.78,
+      "end": 2599.57,
+      "speaker": "jerod-santo",
+      "text": "I really appreciated the clip. I believe it was Ivana, Hukova. She said she tried to cover the fire with wood and Tom's response was just typical. Tom, I loved it. It was awesome. He's like, did you learn anything? She's like, of course. Yeah, she had a home lab where she was like doing, she was measuring fire and like measuring like, I don't know what, I'm liking a lot here for some reason."
+    },
+    {
+      "start": 2599.57,
+      "end": 2604.69,
+      "speaker": "mat-ryer",
+      "text": "I think it was a candle so that she could put the candle out. But the thing she was putting the candle out with was made of wood."
+    },
+    {
+      "start": 2604.69,
+      "end": 2607.63,
+      "speaker": "jerod-santo",
+      "text": "Yes, don't use wood to put out a fire."
+    },
+    {
+      "start": 2607.63,
+      "end": 2658.17,
+      "speaker": "mat-ryer",
+      "text": "Well, this is the culture we have at Grafana Labs. It's okay to make mistakes. Not only is it okay, it's kind of expected because if you're not making mistakes, you're probably being too careful. So we have a journey. This is a real culture thing that we talk about at Grafana Labs where like we have an error budget for our services. And if you're like at 100% all the time, it means you're probably not innovating enough. You're not doing enough. It's a sign of something maybe, or they're just amazing engineers, which is just could be because there are some phenomenal engineers. But Ivana Huchkova, she works on the assistant itself on the front end of the assistant. So yeah, she's part of the team that built that. And we've heard from leading AI companies that I won't name, they said this is the best implementation or the best use of their models that they've seen so far."
+    },
+    {
+      "start": 2658.17,
+      "end": 2661.61,
+      "speaker": "jerod-santo",
+      "text": "Which they love because they're waiting for people to use them well, you know?"
+    },
+    {
+      "start": 2661.61,
+      "end": 2676.47,
+      "speaker": "mat-ryer",
+      "text": "Yeah, they are. They're very excited. They're very excited. And honestly, this is a good use case for LLMs for sure. But if GitHub goes down, it doesn't work. We can't deploy stuff. I don't know how we deploy stuff without GitHub."
+    },
+    {
+      "start": 2676.47,
+      "end": 2683.79,
+      "speaker": "jerod-santo",
+      "text": "Can you be more specific? Am I, did I miss what exactly you've done? Can you give us a 30 second version of it that's not marketing speak?"
+    },
+    {
+      "start": 2683.79,
+      "end": 2685.07,
+      "speaker": "mat-ryer",
+      "text": "Or on the assistant?"
+    },
+    {
+      "start": 2685.07,
+      "end": 2694.53,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the assistant. Like what exactly, I know you can query Grafana. You can, Grafana is a visual tool primarily. There's not a lot of querying to my knowledge."
+    },
+    {
+      "start": 2694.53,
+      "end": 2724.66,
+      "speaker": "mat-ryer",
+      "text": "You write the queries to build the dashboards. Once you've built your dashboards, but that's okay if you've already thought of something. But if like something new is happening. And also if you just don't know whether, like some people have loads of dashboards. This is basically an LLM integration. So it's chat experience. And then all the tools, it has all the tools that you have in Grafana. And it knows how to navigate around and things. So you can ask it questions and it can not just take you to the right app to look at it, but applies all the filters in the URL parameters and deep links you write to that view."
+    },
+    {
+      "start": 2724.66,
+      "end": 2725.86,
+      "speaker": "jerod-santo",
+      "text": "So it's awesome."
+    },
+    {
+      "start": 2725.86,
+      "end": 2741.9,
+      "speaker": "mat-ryer",
+      "text": "It's yeah, it changes there. And it makes it so that anyone can now use that get value from the telemetry data. Whereas before you would usually have to go to like the resident SRE or the little team that know it all and ask them. Now you can self-serve a lot and free up that free-"
+    },
+    {
+      "start": 2741.9,
+      "end": 2744.7,
+      "speaker": "jerod-santo",
+      "text": "And they're know-it-alls. So that's the worst, you know?"
+    },
+    {
+      "start": 2744.7,
+      "end": 2758.25,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Yeah, they, because they have to, they do, it's hard. Like some of the, I didn't, I never learned the log, Loki's log QL language. I just kind of go to the docs and make it up. Yeah, and then edit and things."
+    },
+    {
+      "start": 2758.25,
+      "end": 2759.85,
+      "speaker": "jerod-santo",
+      "text": "Same, same."
+    },
+    {
+      "start": 2759.85,
+      "end": 2762.21,
+      "speaker": "mat-ryer",
+      "text": "But it was now you just don't need to at all."
+    },
+    {
+      "start": 2762.21,
+      "end": 2763.05,
+      "speaker": "jerod-santo",
+      "text": "That's beautiful."
+    },
+    {
+      "start": 2763.05,
+      "end": 2784.49,
+      "speaker": "mat-ryer",
+      "text": "Yeah, and then because it can query data, you can ask it like, what's going, why is the shopping cart slow? And it'll look across all your signals as well. So it'd look in logs, it'll look in metrics. Even if you've got traces and profiles, a lot of engineers don't know how to really get value or use profiling or tracing properly. So you don't need to. The assistant, we taught the assistant how to do it all."
+    },
+    {
+      "start": 2784.49,
+      "end": 2786.79,
+      "speaker": "jerod-santo",
+      "text": "Grafana doesn't work if GitHub's down."
+    },
+    {
+      "start": 2786.79,
+      "end": 2794.89,
+      "speaker": "mat-ryer",
+      "text": "Well, we can't deploy changes if GitHub's down. I think, I think we probably can manually, but all the pipeline and everything flows through GitHub."
+    },
+    {
+      "start": 2795.21,
+      "end": 2799.21,
+      "speaker": "jerod-santo",
+      "text": "Have you ever considered making that some sort of redundant thing so that you're not so dependent?"
+    },
+    {
+      "start": 2799.21,
+      "end": 2808.53,
+      "speaker": "mat-ryer",
+      "text": "It probably is, to be honest. I'm just saying like, the normal flow. Yeah, you just, you merge to main and then that gets, we deploy to a lot of instances immediately."
+    },
+    {
+      "start": 2808.53,
+      "end": 2836.4,
+      "speaker": "jerod-santo",
+      "text": "What we need is an actions mirror. That's, you still, I guess actually that would suck. Like you still deployed to GitHub. I was thinking like a webhook, once you've deployed to main or whichever your branch is, and then something's watching your repository, but that assumes again that GitHub is up. So your deploy, your change can't get there to get webhooked out to an external actions runner even, or a watcher that mimics what actions does."
+    },
+    {
+      "start": 2836.4,
+      "end": 2837.24,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2837.24,
+      "end": 2850.93,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's the need for Codeberg or this decentralized, this double D VCS thing. Like we just, this monopoly, this centralization, come on now, stop centralizing."
+    },
+    {
+      "start": 2850.93,
+      "end": 2854.17,
+      "speaker": "mat-ryer",
+      "text": "We just need some competition. That's all we need, some legit competition."
+    },
+    {
+      "start": 2854.17,
+      "end": 2874.75,
+      "speaker": "jerod-santo",
+      "text": "All right, JJ. Bam, time to get it, time to get it. What's, you know, I don't know a lot about JJ, but what I've understand, do you all know much about JJ? All I really know is that they're like similar to Git and they can like run alongside of it until it's time to take over. That's like my synopsis of how JJ operates today."
+    },
+    {
+      "start": 2874.75,
+      "end": 2879.97,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I don't know. I'm excited to learn more about JJ. I don't know who they are."
+    },
+    {
+      "start": 2882.79,
+      "end": 2887.78,
+      "speaker": "jerod-santo",
+      "text": "What about you, Jared? You know anything? You got a different opinion or a deeper opinion?"
+    },
+    {
+      "start": 2887.78,
+      "end": 2890.02,
+      "speaker": "mat-ryer",
+      "text": "No, I do know that the command line tool"
+    },
+    {
+      "start": 2890.02,
+      "end": 2907.18,
+      "speaker": "jerod-santo",
+      "text": "can do all the things Git can do, but then it also has its own super set of it. And so it's easy to try out. A lot like TypeScript was easy for JavaScript developers to get tricked into. JJ, you know, can trick you right into it. And it's nice that way, it's very nice."
+    },
+    {
+      "start": 2907.18,
+      "end": 2908.59,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 2908.59,
+      "end": 2920.86,
+      "speaker": "jerod-santo",
+      "text": "Anywho, but I've never used it because I don't have any complaints about Git. I've just used it for multiple decades. And so I can't, I've been through the pain. I know I have complaints about it"
+    },
+    {
+      "start": 2920.86,
+      "end": 2929,
+      "speaker": "mat-ryer",
+      "text": "from the beginner standpoint, but I also now when I get stuck, I'm just like, yo, Claude, can you just rebase this for me? And then he does it, so."
+    },
+    {
+      "start": 2929,
+      "end": 2972.9,
+      "speaker": "jerod-santo",
+      "text": "Here's an idea. Let me wordsmith or think through this guys with you guys here in the live. What if we had a pre GitHub load balancer where you committed to a thing that was meant to be a load balancer, your primary host is GitHub, but you still have downtime, of course, but you're not on GitHub's downtime. And it's not monopolized by GitHub. So what if you had a load balancer that you pushed to, but ultimately the transaction landed at GitHub to run your actions and your runners and all those things. But what if it could also webhook somewhere else and say, hey, runners over here can still do it where that way if GitHub is down, you have sort of one layer before that, kind of like the load balancer effect to your get pushes."
+    },
+    {
+      "start": 2972.9,
+      "end": 2978.3,
+      "speaker": "mat-ryer",
+      "text": "I don't see why you couldn't do that. Get like a proxy that pushes to multiple places, makes it all in sync."
+    },
+    {
+      "start": 2978.3,
+      "end": 2983.26,
+      "speaker": "jerod-santo",
+      "text": "It'd be a fight against it at least, it'd give us a chance. If downtime is your major concern."
+    },
+    {
+      "start": 2983.26,
+      "end": 2984.1,
+      "speaker": "mat-ryer",
+      "text": "Yeah, well."
+    },
+    {
+      "start": 2984.1,
+      "end": 3007.6,
+      "speaker": "jerod-santo",
+      "text": "My major concern is in downtime. It's crappy time. I don't know what you call it. It's just like they're bloated JavaScript UI. The fact that like copilot shoved to my face everywhere, stuff like that is what bothers me. Like actually using the website is slow now. It used to be super fast. It's like way too much React code I think. Those are the things that bother me more so than GitHub being down. But obviously that is a problem"
+    },
+    {
+      "start": 3007.6,
+      "end": 3016.84,
+      "speaker": "mat-ryer",
+      "text": "and we can't deploy when GitHub's down either because we don't have this proxy that you're talking about. But I'm certain that it's a good idea and that they probably exist out there."
+    },
+    {
+      "start": 3016.84,
+      "end": 3078.39,
+      "speaker": "jerod-santo",
+      "text": "Like a green blue almost in a way. I'd say a green blue to your get repositories. That way if ever you did need to eject from the GitHub world, you could. And it's like, it's almost what they're doing with passwords and quantum mechanics and stuff like that, like the quantum computers. They're making defense towards encryption. And there's a lot of, I just saw this talk at Go4Con actually. Thank you Go4Con for publishing your talks most recently. I can't recall the person who did it. I'll put it in the show notes. But it was a talk on defending against, I believe it was FISO 140 or FIPS 140, I think is what it was. And it was essentially like defending against the future fact that the encryption we have will eventually be de-encrypted by quantum computers. It's almost like a defense against the future. This green blue effect you can apply to get hosting in general, not just GitHub."
+    },
+    {
+      "start": 3078.39,
+      "end": 3083.37,
+      "speaker": "mat-ryer",
+      "text": "I think you could pivot and do that. It's just keep it called the changelog still works."
+    },
+    {
+      "start": 3084.05,
+      "end": 3084.89,
+      "speaker": "jerod-santo",
+      "text": "Bam."
+    },
+    {
+      "start": 3084.89,
+      "end": 3091.71,
+      "speaker": "mat-ryer",
+      "text": "Good idea. What do you do when GitHub goes down then? What's your favorite go-to? Because you can't work."
+    },
+    {
+      "start": 3091.71,
+      "end": 3092.95,
+      "speaker": "jerod-santo",
+      "text": "Walk."
+    },
+    {
+      "start": 3092.95,
+      "end": 3093.79,
+      "speaker": "mat-ryer",
+      "text": "Go for a walk."
+    },
+    {
+      "start": 3093.79,
+      "end": 3098.87,
+      "speaker": "jerod-santo",
+      "text": "Take a walk. Git-E, Git-T, Git-T."
+    },
+    {
+      "start": 3098.87,
+      "end": 3099.71,
+      "speaker": "mat-ryer",
+      "text": "Go and get some tea."
+    },
+    {
+      "start": 3099.71,
+      "end": 3105.03,
+      "speaker": "jerod-santo",
+      "text": "Take a shower. Well, I mean. Use it as a prompt to shower. Find out. Yes. Time to shower."
+    },
+    {
+      "start": 3105.03,
+      "end": 3107.71,
+      "speaker": "mat-ryer",
+      "text": "Have a shower. What, you only shower when GitHub goes down?"
+    },
+    {
+      "start": 3107.71,
+      "end": 3112.43,
+      "speaker": "jerod-santo",
+      "text": "I use it as a prompt, you know. I mean, I shower like I change my underwear, monthly."
+    },
+    {
+      "start": 3112.43,
+      "end": 3115.96,
+      "speaker": "mat-ryer",
+      "text": "Okay. Phew. I thought you were gonna say something gross."
+    },
+    {
+      "start": 3115.96,
+      "end": 3119.48,
+      "speaker": "jerod-santo",
+      "text": "TMI. I don't know, what do you do? Do you sing a song?"
+    },
+    {
+      "start": 3119.48,
+      "end": 3131,
+      "speaker": "mat-ryer",
+      "text": "I always go reach for the guitar if GitHub goes down. I know. Yeah, it's my go-to, really. My favorite keyword in go. I use all the time."
+    },
+    {
+      "start": 3131,
+      "end": 3135.24,
+      "speaker": "jerod-santo",
+      "text": "Is that a real legit go keyword? Because, you know, go-to considered harmful."
+    },
+    {
+      "start": 3135.24,
+      "end": 3207.67,
+      "speaker": "mat-ryer",
+      "text": "It is a little harmful. It was, I thought it was a thing with a light on top. Got what T was, but that's because I'm T. So tell now, it's I. When GitHub goes down, blow it. Birds and treading turds and meet with nerds. When GitHub goes down, say D-D-V-C-S. If GitHub goes down, but if Google Maps goes down, then I won't go outside. Because I'm not entirely confident I'll be able to find my way back. I use Google Maps way too much. We're coming to rely on technology."
+    },
+    {
+      "start": 3217.35,
+      "end": 3225.11,
+      "speaker": "jerod-santo",
+      "text": "That's a double entendre, too. I mean, it's not just saying downtime. It's like when they go down, like as if it's a demise, you know, predicting a potential demise here."
+    },
+    {
+      "start": 3225.11,
+      "end": 3230.29,
+      "speaker": "mat-ryer",
+      "text": "That's the end of a Titan. Somebody on Titanic in this pod."
+    },
+    {
+      "start": 3230.29,
+      "end": 3351.08,
+      "speaker": "jerod-santo",
+      "text": "Triple double stamped that entendre, yo. Well, friends, this episode is brought to you by Squarespace, the all-in-one platform for building your online presence. Whether that's a portfolio, a consulting business, or finally shipping that side project landing page, you've just been meaning to do, but never get to. Here's the thing, you mass produce code on the daily. You deploy new services, new infrastructure, new hardware, you're versioning your APIs, you're simmering all over the place. But when someone asks you about your own personal website, it's like, ah, I'm still working on it. Does that sound familiar? Squarespace exists so you don't have to treat your personal site like a weekend project that never ships. Pick a template and drag and drop your way to something that actually looks good and move on with your life. No wrestling with CSS, no I'll just build my own static site generator again. It's just done. If you do consulting or freelance work on the side, Squarespace handles the whole entire workflow. Showcase your services, let clients book time directly on your calendar, send professional invoices, and get paid online. It's the boring infrastructure that you don't wanna build for yourself. And for those of you out there who are doing courses or gated content or educational stuff, tutorials, workshops, that intro to whatever series you keep talking about, you can set up a membership area with a paywall and start earning recurring revenue. Set your price, gate the content, and you're done. And they've also added Blueprint AI. This generates a custom site based on your industry, your goals, your style preferences. It's not gonna replace your design skills by any means, but it'll get you about 80% of the way there in about five minutes. Here's the call to action. This is what I want you to do. Go to squarespace.com slash changelog for a free trial. And when you're ready to launch, use our offer code changelog and save 10% off your first purchase of a website or a domain. Again, squarespace.com slash changelog."
+    },
+    {
+      "start": 3351.08,
+      "end": 3362.46,
+      "speaker": "mat-ryer",
+      "text": "But who knows what's gonna happen in 2026? Like it's unwritten as the, Back to the Future is my favorite film genuinely. This hat is actually a Back to the Future hat from Back to the Future 2."
+    },
+    {
+      "start": 3362.46,
+      "end": 3363.3,
+      "speaker": "jerod-santo",
+      "text": "Is it?"
+    },
+    {
+      "start": 3363.3,
+      "end": 3364.32,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 3364.32,
+      "end": 3366.52,
+      "speaker": "jerod-santo",
+      "text": "It's lovely. I'm very jealous of that hat."
+    },
+    {
+      "start": 3366.52,
+      "end": 3368.16,
+      "speaker": "mat-ryer",
+      "text": "Guess who got me this?"
+    },
+    {
+      "start": 3368.16,
+      "end": 3369.82,
+      "speaker": "jerod-santo",
+      "text": "Friend's friend? Your wife."
+    },
+    {
+      "start": 3369.82,
+      "end": 3370.96,
+      "speaker": "mat-ryer",
+      "text": "Friend's friend."
+    },
+    {
+      "start": 3370.96,
+      "end": 3371.86,
+      "speaker": "jerod-santo",
+      "text": "Oh, your friend's friend."
+    },
+    {
+      "start": 3371.86,
+      "end": 3373.56,
+      "speaker": "mat-ryer",
+      "text": "Yeah, so he is a friend."
+    },
+    {
+      "start": 3373.56,
+      "end": 3374.38,
+      "speaker": "jerod-santo",
+      "text": "Absolutely."
+    },
+    {
+      "start": 3374.38,
+      "end": 3376.06,
+      "speaker": "mat-ryer",
+      "text": "Why not? Yeah, just bring in your hat."
+    },
+    {
+      "start": 3376.06,
+      "end": 3377.56,
+      "speaker": "jerod-santo",
+      "text": "It's an amazing gift."
+    },
+    {
+      "start": 3377.56,
+      "end": 3380.9,
+      "speaker": "mat-ryer",
+      "text": "Isn't it? I'll show him this because he definitely doesn't subscribe."
+    },
+    {
+      "start": 3380.9,
+      "end": 3384.2,
+      "speaker": "jerod-santo",
+      "text": "Well, I know somebody who thinks they know what's gonna happen in 2026."
+    },
+    {
+      "start": 3384.2,
+      "end": 3385.04,
+      "speaker": "mat-ryer",
+      "text": "Who knows?"
+    },
+    {
+      "start": 3385.04,
+      "end": 3387.4,
+      "speaker": "jerod-santo",
+      "text": "Tomas Tungus."
+    },
+    {
+      "start": 3387.4,
+      "end": 3388.92,
+      "speaker": "mat-ryer",
+      "text": "I'm sure that's how it's pronounced."
+    },
+    {
+      "start": 3388.92,
+      "end": 3411.88,
+      "speaker": "jerod-santo",
+      "text": "I am not sure that's how it's pronounced, but if you go to tomtungus.com slash 2026 dash predictions, you'll find that Tom or Tomas, as I like to call him, has written 12 predictions for 2026 and he wrote these, you guys won't believe it, in 2025."
+    },
+    {
+      "start": 3411.88,
+      "end": 3415.84,
+      "speaker": "mat-ryer",
+      "text": "That makes sense. Why would it be weird if he wrote it in 2027?"
+    },
+    {
+      "start": 3415.84,
+      "end": 3422.34,
+      "speaker": "jerod-santo",
+      "text": "It'd be too easy. It would be way too easy if he wrote it in 2027. In fact, I should write my 2025 predictions tomorrow."
+    },
+    {
+      "start": 3423.1,
+      "end": 3432.54,
+      "speaker": "mat-ryer",
+      "text": "You should actually publish it. Most people aren't sleuths like you, detective of a blog and James Hange. Gerard Hange, oh, look at the day 10 times temp."
+    },
+    {
+      "start": 3432.54,
+      "end": 3433.38,
+      "speaker": "jerod-santo",
+      "text": "I tell you."
+    },
+    {
+      "start": 3433.38,
+      "end": 3438.02,
+      "speaker": "mat-ryer",
+      "text": "Not everyone does. That's a great sound to hear."
+    },
+    {
+      "start": 3438.02,
+      "end": 3439.68,
+      "speaker": "jerod-santo",
+      "text": "I love it. You're slandering me as French."
+    },
+    {
+      "start": 3439.68,
+      "end": 3444.3,
+      "speaker": "mat-ryer",
+      "text": "Oh, that's the offensive thing. That's the offensive thing."
+    },
+    {
+      "start": 3444.3,
+      "end": 3446.8,
+      "speaker": "jerod-santo",
+      "text": "Oh, it really is. That's hilarious. It really is."
+    },
+    {
+      "start": 3446.8,
+      "end": 3448.3,
+      "speaker": "mat-ryer",
+      "text": "What's this post about, Jerry?"
+    },
+    {
+      "start": 3448.3,
+      "end": 3452.02,
+      "speaker": "jerod-santo",
+      "text": "This post is Tom, who is a venture capitalist. So he's a venture capitalist."
+    },
+    {
+      "start": 3452.54,
+      "end": 3453.38,
+      "speaker": "mat-ryer",
+      "text": "Theory."
+    },
+    {
+      "start": 3453.38,
+      "end": 3467.83,
+      "speaker": "jerod-santo",
+      "text": "Thomas. Ventures. Cool name. Yeah, Thomas. But the website is Tom Tungus. So I'm gonna call him Tom. Cause I don't even know if Thomas is correct. It could be Tomas. It could be Tomazi. Duhast. Yeah."
+    },
+    {
+      "start": 3467.83,
+      "end": 3474.31,
+      "speaker": "mat-ryer",
+      "text": "Or Duhast. I do like, I like these names that they've got like a Z in and he's got two Z's or Z's at the end."
+    },
+    {
+      "start": 3474.31,
+      "end": 3477.51,
+      "speaker": "jerod-santo",
+      "text": "Our German friends out there are just saying, like, you hate what?"
+    },
+    {
+      "start": 3477.51,
+      "end": 3494.52,
+      "speaker": "mat-ryer",
+      "text": "Tom? Yeah. I saw a German keyboard the other day and some of the letters are mixed up. It's like the bloody enigma machine. I had to crack it, crack the code before I could use it. I made that joke in front of Germans and it was just deadpan. Did not. Did not go down well."
+    },
+    {
+      "start": 3494.52,
+      "end": 3512.88,
+      "speaker": "jerod-santo",
+      "text": "Nine. Okay. So Tom has written 12 predictions for 2026. We thought it'd be fun since it is the new year and Matt has all these resolutions. I'm still rocking the same resolution I had last year, which is 1512 by 982. Yes. Classic. Classic joke."
+    },
+    {
+      "start": 3512.88,
+      "end": 3522.26,
+      "speaker": "mat-ryer",
+      "text": "You could have done that low res eyes before you had your eyes fixed when you first saw a leaf for the first time in your life and you were like, oh my gosh, there's more pixels here."
+    },
+    {
+      "start": 3522.26,
+      "end": 3525.4,
+      "speaker": "jerod-santo",
+      "text": "That's like when we got the red displays for the first time. We were like, wow."
+    },
+    {
+      "start": 3525.4,
+      "end": 3528.96,
+      "speaker": "mat-ryer",
+      "text": "Yeah. It's true. The text was really sharp. Yeah."
+    },
+    {
+      "start": 3528.96,
+      "end": 3542.83,
+      "speaker": "jerod-santo",
+      "text": "It really did. And we thought it'd be fun to go through some of these. We don't have to hit all 12, but a few that we think are either right or wrong or we have comments, you know? If you have comments, sound off as I read them."
+    },
+    {
+      "start": 3542.83,
+      "end": 3547.73,
+      "speaker": "mat-ryer",
+      "text": "How should we do this? Should I go, I'll read all 12 and then we'll stop. I'll pause if you guys have anything to say."
+    },
+    {
+      "start": 3547.73,
+      "end": 3549.59,
+      "speaker": "jerod-santo",
+      "text": "Matt, say nothing. Read all 12, Jared."
+    },
+    {
+      "start": 3549.59,
+      "end": 3550.55,
+      "speaker": "mat-ryer",
+      "text": "If not."
+    },
+    {
+      "start": 3550.55,
+      "end": 3553.95,
+      "speaker": "jerod-santo",
+      "text": "Okay. You see how I pre-empted that here? Matt, say nothing."
+    },
+    {
+      "start": 3553.95,
+      "end": 3559.78,
+      "speaker": "mat-ryer",
+      "text": "Well, he just said to talk. That's why I was gonna talk. Well, that's not fair."
+    },
+    {
+      "start": 3559.78,
+      "end": 3562.78,
+      "speaker": "jerod-santo",
+      "text": "No more talking for you for just a minute here. God, say them all."
+    },
+    {
+      "start": 3562.78,
+      "end": 3564.6,
+      "speaker": "mat-ryer",
+      "text": "We prefer when you sing. Your songs are great."
+    },
+    {
+      "start": 3564.6,
+      "end": 3565.44,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 3565.44,
+      "end": 3568.17,
+      "speaker": "mat-ryer",
+      "text": "But commentary, you know."
+    },
+    {
+      "start": 3568.17,
+      "end": 3569.85,
+      "speaker": "jerod-santo",
+      "text": "For the listeners sake."
+    },
+    {
+      "start": 3569.85,
+      "end": 3578.09,
+      "speaker": "mat-ryer",
+      "text": "Like if we could have a swap, if we could have a mid-show swap, you know, like Matt, if you had a tag team, maybe Tom Wilkie could be your tag team and like Tom could talk and then you could sing."
+    },
+    {
+      "start": 3578.09,
+      "end": 3580.97,
+      "speaker": "jerod-santo",
+      "text": "That's a good idea. Let's swap out Tom next time."
+    },
+    {
+      "start": 3580.97,
+      "end": 3582.61,
+      "speaker": "mat-ryer",
+      "text": "No, the other person could be worse."
+    },
+    {
+      "start": 3582.61,
+      "end": 3584.35,
+      "speaker": "jerod-santo",
+      "text": "Just right in the middle. No announcement."
+    },
+    {
+      "start": 3584.35,
+      "end": 3585.41,
+      "speaker": "mat-ryer",
+      "text": "Back to the devil you know."
+    },
+    {
+      "start": 3585.41,
+      "end": 3600.38,
+      "speaker": "jerod-santo",
+      "text": "All right, so speaking of the devil we know and what we think we know, Tom thinks that in 2026 businesses will pay more for AI agents than people for the first time. Pausing for comments."
+    },
+    {
+      "start": 3601.28,
+      "end": 3602.54,
+      "speaker": "mat-ryer",
+      "text": "I thought you were gonna read all 12."
+    },
+    {
+      "start": 3602.54,
+      "end": 3606.24,
+      "speaker": "jerod-santo",
+      "text": "Oh, I thought I was gonna read each one and see if you guys comment. I'll read all 12."
+    },
+    {
+      "start": 3606.24,
+      "end": 3607.9,
+      "speaker": "mat-ryer",
+      "text": "Here I go. Yeah, go fast, go fast."
+    },
+    {
+      "start": 3607.9,
+      "end": 3626.72,
+      "speaker": "jerod-santo",
+      "text": "Number two, 2026 becomes a record year for liquidity. That's very exciting. Number three, vector databases resurge as essential infrastructure in the AI stack. No. Not to be confused with the Adam stack. Number four, AI models execute tasks autonomously for longer than a workday."
+    },
+    {
+      "start": 3626.72,
+      "end": 3627.56,
+      "speaker": "mat-ryer",
+      "text": "Dang."
+    },
+    {
+      "start": 3627.56,
+      "end": 3648.98,
+      "speaker": "jerod-santo",
+      "text": "They'll be working hard for their living. Number five, AI budgets receive scrutiny for the first time. Number six, Google distances itself from competitors via breadth. Breadth in AI. I'm not sure what that means. Number seven, agent observability becomes the most competitive layer of the inference stack."
+    },
+    {
+      "start": 3648.98,
+      "end": 3650.32,
+      "speaker": "mat-ryer",
+      "text": "Okay."
+    },
+    {
+      "start": 3650.32,
+      "end": 3686.68,
+      "speaker": "jerod-santo",
+      "text": "Number eight, 30% of international payments are issued via stable coin by December. I don't know why you had to put December in there. We know the year. Okay. Number nine, agent data access patterns stress and break existing databases. I can definitely see that one coming through. Number 10, the data center build outreaches 3.5% of US GDP in 2026. And number 11, the web flips to agent first design. Say it ain't so, say it ain't so. Number 12, and the final prediction of Tomas Tungus"
+    },
+    {
+      "start": 3687.44,
+      "end": 3695.74,
+      "speaker": "mat-ryer",
+      "text": "is Cloudflare becomes the gatekeeper for agentic payments. There you have 12 predictions for 2026. Which ones should we talk about?"
+    },
+    {
+      "start": 3695.74,
+      "end": 3709.22,
+      "speaker": "jerod-santo",
+      "text": "Let me just say, whatever his portfolio is, I want to invest. Okay, because these are all great predictions. You like these? Fantastic. Yeah, I mean, I'm nodding my head to like, I'd say 10 out of them, 10 out of 12, for sure. And I'm not iffy on them, I just like know less."
+    },
+    {
+      "start": 3709.22,
+      "end": 3730.58,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I can't see one that I like hard disagreed with. I don't know about GDP. You know, obviously that's like a specific number. I'm not sure about the stable coin one, but I could see it happening. Hard disagree. I don't like number 11. The web flips to agent first design. In fact, I'm going to say that's not true. That's the one I'm going to disagree with."
+    },
+    {
+      "start": 3730.58,
+      "end": 3735.16,
+      "speaker": "jerod-santo",
+      "text": "And break that down for me and for the listeners. What does that mean? To you at least."
+    },
+    {
+      "start": 3735.16,
+      "end": 3740.3,
+      "speaker": "mat-ryer",
+      "text": "Well, when you create a website today, what do you think about? What do you design it for?"
+    },
+    {
+      "start": 3740.3,
+      "end": 3781.62,
+      "speaker": "jerod-santo",
+      "text": "We design it probably for a mobile device first, and then also for a desktop, right? And then maybe you think we also need an API because we need to have programmatic access to our website, but you're human first for sure. And you're probably mobile first. Maybe you do it all at once, but he's saying that in 2026, the web will flip to agent first design. So the first thing you're going to think of, the number one thing you think of when you start a new website at first is how will an agent use this? And then comes everything else. I hope that's not true. I can see it being like sometimes the case for certain websites for certain uses,"
+    },
+    {
+      "start": 3781.62,
+      "end": 3790.31,
+      "speaker": "mat-ryer",
+      "text": "but like for all the web, he calls it the web. I'm thinking that's an awful lot of change quickly for the web, which generally moves somewhat slow."
+    },
+    {
+      "start": 3790.31,
+      "end": 3892.64,
+      "speaker": "jerod-santo",
+      "text": "Some pushback on that. I do concur with this thought, but the lens I would shift just slightly because I feel like every, it's almost like behind every good man is a good woman, that whole shtick or phrase or whatever. It's like behind every great human who's doing great work is, or maybe in front of actually, since we're front loading this, is in front of every great human doing great work is an agent. So I almost feel like you're helping the human do better by being agent first. So I'm sort of, I'm conflicted there because that's how I'm thinking too, really. I think that if this last year has told us anything, people like agents, developers like agents. I think people like agents and people are gonna start using cloud code who don't even code software. They're gonna be coding pros or whatever. That's where my lens is at. I'm thinking if you're not taking the agent in mind, then you're in the past. You have to think about, I'm not sure I would say quite agent first, but definitely agent as well. Almost everything, everything, even like simple CLIs are human first, right? Like if you have an error from a CLI, like you threw a command out there that you misused the flag, have a proper error, not for just the human, but for the agent that gives them context. Hey, you meant to do this, or this is what that does, or here's documentation, and you give them context. I think that's where my lens is at too. So I'm not sure if it's for the web and agent first necessarily, but you definitely have to be thinking about every new interface with agents, for sure. Hands down, I agree with that."
+    },
+    {
+      "start": 3892.64,
+      "end": 3899.47,
+      "speaker": "mat-ryer",
+      "text": "I don't disagree with agent as well, which is what you said. I think agent first in 2026 is too fast,"
+    },
+    {
+      "start": 3899.47,
+      "end": 3908.6,
+      "speaker": "jerod-santo",
+      "text": "and also I think it's both too fast to call, and I think it's too fast to do. I think agent as well makes total sense. Matt, what do you think?"
+    },
+    {
+      "start": 3908.6,
+      "end": 4019.97,
+      "speaker": "mat-ryer",
+      "text": "I kind of get this for sure, because we've been through transitions like this. Mobile, you mentioned that was one of them. It used to be web. Before that, you'd be building for desktop, and it is about how the users are interacting with it. That's always been the most important thing about technology. So yeah, I could imagine if it's like booking something, or if it's like a hotel or any of that stuff, I feel like total, that's all gone, basically. It's gonna be presentation of something, like here's what I found for you. Here are some images and things, but ultimately, you'll just say to an agent, oh, we're thinking of, me and a few friends are thinking of going here. Can you ask them for their availability? One of the Fridays coming up would do for me, or check my calendar. It goes off and pings their agents to find out their availability and if they're interested in it. And then that all happens. They just get some kind of notification, and the agent just asks them a question like a text, or it makes the text look like it's come from you, even more worryingly, probably. And I think that those kinds of flows I think will happen, and they'll have to happen. But yeah, does this mean you're then not gonna have an experience where you are choosing what to present? Agents are all, at the moment, you are prompting them. You have to ask a question for something. What if you don't know what to ask it? What if you don't know what it can do? Those kinds of things I think is where we'll have some kind of other experience. We had the same thing with dashboards because someone said, does the assistant project mean you don't need a dashboard now because you can just ask it the question? But there is something about being able to go and look at something without having to ask for it and just having an easy way to go and find that. And I think dashboards still sit there, like they're still, I don't think dashboards are gonna go away, for example, but it'll be new things alongside it."
+    },
+    {
+      "start": 4019.97,
+      "end": 4129.89,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's the hub and spoke model. You always have an API first and you always have a client. It's like if you live in that API first design world, then you totally get what's happening here because if you've always been API first and a CLI is a client, the website's a client, and an iOS app is a client. That's pretty easy to sort of grok that direction, so I get that. This kinda conflates to some degree with Paul Dix. Jared, he mentioned, trying to figure out the best way to say this, but while I was reading the great engineering divergence, one thing he mentioned was Amdahl's law, which is the principle is when you speed up part of a system, your overall speed up is limited by the parts you didn't speed up. So it almost reminds me of that and the fact that if you don't think about an agent and you don't think about that first mentality, like even Matt's describing here, you don't enable yourself or the things you're building to be as fast as it can be because agents are gonna be much more fast than we are because they're designed to be. They're a machine. I think if you don't start curbing that idea, you're gonna be dwarfed by the folks who do and embrace these new systems that have to move faster and they retool their entire pipeline towards agentic things that move faster and if you stick in the old way, let's just say, you're gonna be slower by nature and less fast, so slow to market, slow to think, slow to experiment, slow to fail, slow to succeed, all the things. I think it's, I gotta say it, I don't like saying it necessarily, but I am thinking, I guess, agent first, yeah. I guess I'm thinking agent first, honestly."
+    },
+    {
+      "start": 4129.89,
+      "end": 4142.57,
+      "speaker": "mat-ryer",
+      "text": "I mean, could you imagine a service that is only an MCP server that you plug in and doesn't have any kind of web interface? The only interface is through the agentic kind of chat."
+    },
+    {
+      "start": 4142.57,
+      "end": 4219.55,
+      "speaker": "jerod-santo",
+      "text": "I don't think anybody wants to be that. I don't think any business wants to be that. I mean, nobody wants to be a utility company and that's why they fight to be not just a utility company. They want to provide services and apps and all that, they want to be your provider, not your dumb pipe and I think that most profitable and desire to be profitable companies will buck against that as they begin to get commoditized by agents. So I think there'll be a fight there. But yeah, as an end user, of course, we want the simplest, easiest, cheapest thing that works and that's where I'm at with 2026. I don't think agents work yet. I think we are living in the golden age of coding and we think that everything's like a coding agent. Agents are not booking anybody's flights, anybody's hotels, anybody, anything, it's January, 2026. They don't work yet. There's way too many edge cases, too many problems, too many errors. They're writing code and they are summarizing text and maybe they're helping out with your Grafana stuff, but that's code and that's kind of where it's at right now. Like they're all just demos and so I don't think it's gonna move as fast as I should design my website agent first today. I do think eventually you do. I just think that the timing is wrong."
+    },
+    {
+      "start": 4219.55,
+      "end": 4313.74,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Yeah, I think the thing is the speed of changes is increasing as well as more and more people are AI accelerated with their work. So I do think things are gonna change much more quickly than they ever have before and things have changed quickly before, but yeah, look at like cursor, open code, Z, Claude code, all these AI now enabled things that a lot of their UIs are shifted so that their agent first experiences now where the code is kind of an afterthought that you review once you've got it kind of going. It is quite interesting. I do think there are questions about what that's gonna mean, but there's no doubt in my mind that it is an enormous acceleration of human productivity and that's why I'm on the side of like, yes, let's use AI and let's use it for good and we need to solve all those challenges around energy and the climate and some of the bad things it can do and some of the way that it's like quite greedy with taking knowledge from people without kind of giving them credit and things like this. There's a lot of problems with it, but once you've seen, like we felt it, like building these products we're building and also because they themselves are the same kind of thing, Grafana Assistant is basically like cursor for Grafana. The productivity boost, just the amount of people that that's enabled is significant so it's not just a fad thing, you know, yeah. I also hate to say that."
+    },
+    {
+      "start": 4313.74,
+      "end": 4358.65,
+      "speaker": "jerod-santo",
+      "text": "I agree with you directionally as well and I think Adam does as well. My only pushback is on the fact that we are in the perfect, we're like the Goldilocks case for agents, which is software and digital creation and like the rest of the world doesn't do that. Obviously it touches everything, but they do all kinds of other stuff that agents have no ability to do yet and so that will take time. I think it's coming, I think it's coming. We just look at everything through this like cursor and Claude code, rose colored glasses because it's amazing for us, but it's not amazing for most other industries yet. Maybe law is the other one where it's really making moves because again, that's so formal and then everything else is just sloppy at this point. Yeah."
+    },
+    {
+      "start": 4358.65,
+      "end": 4368.61,
+      "speaker": "mat-ryer",
+      "text": "We are at the forefront usually of change. Yeah, totally. Technology has been the driver of it so it makes sense that we would see it first. Yeah. And then we don't have to build it for the rest of them."
+    },
+    {
+      "start": 4368.61,
+      "end": 4382.13,
+      "speaker": "jerod-santo",
+      "text": "That's our jobs. And the nice thing is, and the accelerating thing like you said is the fact that we are the builders, we're moving faster than we were before and so you can build faster. Okay, another one. What else caught your guys' eyes or ears?"
+    },
+    {
+      "start": 4382.13,
+      "end": 4393.53,
+      "speaker": "mat-ryer",
+      "text": "Yeah, the businesses pay more for AI than human labor. Yeah. That was one of those predictions, isn't it? It is. Does that mean that we become the cheap choice again? We can get our jobs back."
+    },
+    {
+      "start": 4395.07,
+      "end": 4408.49,
+      "speaker": "jerod-santo",
+      "text": "I don't think that is how it works. Yeah. I think that will be the case in the case again of software workers. I think I've seen a lot of the budgets exploding and I think that at a certain point, one engineer plus an engineer's equivalent"
+    },
+    {
+      "start": 4408.49,
+      "end": 4419.5,
+      "speaker": "mat-ryer",
+      "text": "of agentic coding is probably better than two engineers. I don't know exactly when that flips. Again, is it this year or next year? But I could see it happening. Adam?"
+    },
+    {
+      "start": 4419.5,
+      "end": 4453.31,
+      "speaker": "jerod-santo",
+      "text": "I was just reading it to get more of the context of Tom's, Tomaz's perspective here. I'm gonna read it just because it gives me some context. I haven't formally had a thought yet so this is kind of a delay. This has already happened with consumers. Way more rides cost 30%, 31% more than Uber on average yet demand keeps growing. Riders prefer the safety and reliability of autonomous vehicles. For road business tasks, agents will command a similar premium as companies factor in onboarding, recruiting, training and management costs."
+    },
+    {
+      "start": 4453.31,
+      "end": 4456.69,
+      "speaker": "mat-ryer",
+      "text": "Also that's not talking about budgets, it's talking about per capita."
+    },
+    {
+      "start": 4456.69,
+      "end": 4474.85,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's just like you're gonna pay, maybe that you'd pay, if you had a choice between the human doing the work and the AI doing the work, you'd pay more for the agent doing it because of the perceived safety and reliability if that Waymo option translates there."
+    },
+    {
+      "start": 4474.85,
+      "end": 4486.21,
+      "speaker": "mat-ryer",
+      "text": "I'm against, I'm personally, I chose the other way when I was in Phoenix because I wanted to try a Waymo because of course, but I'm cheap and so I looked at Uber"
+    },
+    {
+      "start": 4486.21,
+      "end": 4518.31,
+      "speaker": "jerod-santo",
+      "text": "and I looked at Waymo and it was like an extra $12 to go the same place. And I'm like, I'm just taking the Uber. But I can see where there's circumstances. For instance, if I'm sending my children with, I would maybe, I would trust a Waymo where I wouldn't trust a random Uber driver with children for instance. I can see where parents might prefer it. I can see where over time it becomes more safe, especially if you're in an area you're not used to, not just driving safe, but like this person could drive off in the place and whatever me, I can see that. So while I did make the choice the opposite one time,"
+    },
+    {
+      "start": 4518.31,
+      "end": 4525.07,
+      "speaker": "mat-ryer",
+      "text": "I could certainly see where I would make the choice to pay more for the robot because I don't trust the humans."
+    },
+    {
+      "start": 4525.07,
+      "end": 4527.19,
+      "speaker": "jerod-santo",
+      "text": "Yeah, see, that's just it right there."
+    },
+    {
+      "start": 4527.19,
+      "end": 4528.01,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 4528.01,
+      "end": 4533.35,
+      "speaker": "jerod-santo",
+      "text": "Yeah, see, if you rate headline only, you're thinking salary swap, right?"
+    },
+    {
+      "start": 4533.35,
+      "end": 4534.71,
+      "speaker": "mat-ryer",
+      "text": "Budgets, yeah."
+    },
+    {
+      "start": 4534.71,
+      "end": 4596.84,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's where I was torn. I was like, what is the true context here? Again, context. Yeah, I'm torn on that one. I think, you know, I think I would, in the case of a Waymo, let's just use this as an example. I'm in the vehicle, right? My life is literally on the line. Do I pay 12 bucks more for the assumed? And I suppose if data shows the reliability and safety is higher over a trend of time, then I would pay more every single time because my life is literally priceless. And if I can't be here, then I can't even care about spending more money. So in that case, I'd probably spend more every single time on a Waymo if the data and it wasn't smeared or tainted in any sort of way, if the data was true, and over time, Uber was less safe while Waymo was more safe every single time. I'd pay, I'd probably pay double, honestly, if I had to, if I knew that I was gonna be more safe and point A to point B would truly happen. And I have determinism in my trip every time. Yeah, for sure."
+    },
+    {
+      "start": 4596.84,
+      "end": 4598.84,
+      "speaker": "mat-ryer",
+      "text": "I'd pay double if it flew."
+    },
+    {
+      "start": 4598.84,
+      "end": 4614.92,
+      "speaker": "jerod-santo",
+      "text": "If it flew. Yeah, I don't wanna pay double Waymo, but I mean, I'm just saying like, if knowing the data and the choice, then I'm gonna pay more for the thing that gives me more safety and security in a time where my life is literally on the line, you know? In the case of a rope business task, maybe not so much."
+    },
+    {
+      "start": 4614.92,
+      "end": 4629.86,
+      "speaker": "mat-ryer",
+      "text": "You take it to like surgery, you know, over time, robot surgeons will operate more precisely and correctly than humans will because they don't have the margin of error, they didn't have a bad night, they aren't tired, et cetera, et cetera."
+    },
+    {
+      "start": 4629.86,
+      "end": 4642.54,
+      "speaker": "jerod-santo",
+      "text": "We've all seen Prometheus, not the Prometheus that you all wrangle over there at Grafana, but the Prometheus, the movie, what was her name? Shaw, I believe her name, last name, or her name was something Shaw."
+    },
+    {
+      "start": 4642.54,
+      "end": 4644.56,
+      "speaker": "mat-ryer",
+      "text": "512, the last name, wasn't it?"
+    },
+    {
+      "start": 4644.56,
+      "end": 4712.56,
+      "speaker": "jerod-santo",
+      "text": "Maybe so. She had to hop in this thing at the end when she was giving birth to this alien and it had to patch her up. She happily got in there and was just like pushing all the buttons, every single button. Go back to the, it's all about the button episode from the beginning of 2025, that was an amazing show. Yeah, I got stuck in that moment there for a second, but she happily pushed every single button possible to have the machine help her deliver this alien baby and patch herself back up, then she went and conquered the mission. If that's, science fiction's kind of predictive in a way, if that's a version of our truth and our future, I mean, she's kind of already trusted the system, right? I mean, that's something I personally have said for almost 15 years now, trust the system, but verify, right, but verify. I think in the future, if the data shows a AI-assisted or an AI agent surgeon is better, I mean, I don't wanna choose a machine over a human, but in those cases, if the data shows it, then it just makes sense, it just makes sense."
+    },
+    {
+      "start": 4712.56,
+      "end": 4767.16,
+      "speaker": "mat-ryer",
+      "text": "It doesn't, I think that is where we're going. We are increasingly gonna just be doing that more and more and more, for sure. So we do have to figure out how we deal with that change, because that is an enormous change. But I trusted the Waymo, when I got in San Francisco, I trusted it immediately. And that's probably because I've been brought up on sci-fi films, Johnny Cab from Total Recall, where you get in, the guy spins around, and yeah, he's a little robot boy, takes you on a little journey. And the key thing about Waymo is you've got to, you don't have to talk to anybody. You can just not talk to anyone. It's awesome, and that's worth $12, at least. Uber actually do give you an option in the UK. I don't know if you have this, but there's a Uber Comfort option. And this basically allows you to choose the music and decide whether they talk to you or not. So you do pay extra for them to not talk to you."
+    },
+    {
+      "start": 4767.16,
+      "end": 4776.16,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I saw that option in the Uber app. I didn't know that it costs extra. Maybe I just paid extra and didn't realize it. I definitely said like, I think it's nice, because sometimes you feel like talking to somebody"
+    },
+    {
+      "start": 4776.16,
+      "end": 4784.96,
+      "speaker": "mat-ryer",
+      "text": "and you're like, yeah, I'll have a conversation with a stranger. And other times you're like, no, I just got off an airplane. I want to sit in quiet and get to my place. And so it's cool that you can just get a pick, like, yeah, don't talk to me."
+    },
+    {
+      "start": 4784.96,
+      "end": 4826.64,
+      "speaker": "jerod-santo",
+      "text": "Well, the other factors you're not thinking about, and maybe it's just not mentioned, is like the smell, right? Humans have habits, and they also have odors. And you can be a smoker. You can be a not smoker. You could prefer a certain sense in your car. Right. S-C-E-N-T-S, sense. Not just C-E-N, you know, you know how to spell sense. The other sense. Forget it, y'all. There's a lot of smart people out there listening to this podcast. I'm done trying to spell on a podcast. But yeah, I mean, how often do you get into that or you get the music, right? You've got all these human nature things that you're like, you know what? I'd just kind of rather avoid a human in this moment."
+    },
+    {
+      "start": 4826.64,
+      "end": 4827.48,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 4827.48,
+      "end": 4861.49,
+      "speaker": "jerod-santo",
+      "text": "That's a scary, there's comfort in just saying that. And I'm smiling very big if you're listening on the actual audio pod. I'm kind of blushing in a way, because I can't believe I'm even thinking like that. I'd rather have a ride without a human if I had the choice. Just because, but there's sometimes too, Matt, like you said, there's times I'm like, I'd love to, you know, I'm down with the humans, right? But I'm also down with the non-humans because humans smell and have just things. Yeah. All the things, you know, the pain, the habit, smells, music choices."
+    },
+    {
+      "start": 4861.49,
+      "end": 4891.97,
+      "speaker": "mat-ryer",
+      "text": "Yeah. But the other thing about the self-driving taxis is you can have the night rider experience. I call it, it's my new startup, night rider. You go to bed, you get, you know, it's like a little hotel room that's on wheels. You get in, you get in, yeah, you sleep, you wake up in a different city. You then spend the day in that city, you sleep, the next day you're in another city. You're traveling while you sleep. It's the closest teleportation we'll get, probably, because the EU keep ignoring all my letters. But I know how to do it."
+    },
+    {
+      "start": 4891.97,
+      "end": 4894.93,
+      "speaker": "jerod-santo",
+      "text": "This reminded me of Matt World. Isn't this how Matt World works?"
+    },
+    {
+      "start": 4894.93,
+      "end": 4896.13,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I think that was Matt World."
+    },
+    {
+      "start": 4896.13,
+      "end": 4899.65,
+      "speaker": "jerod-santo",
+      "text": "One of your inventions was basically the night rider car."
+    },
+    {
+      "start": 4899.65,
+      "end": 4906.97,
+      "speaker": "mat-ryer",
+      "text": "But they're building it, it would work. For sure. You'd feel bad asking a human to just drive for 12 hours to take you to Edinburgh."
+    },
+    {
+      "start": 4906.97,
+      "end": 4911.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you have to have empathy, right? You, by nature."
+    },
+    {
+      "start": 4911.11,
+      "end": 4922.56,
+      "speaker": "mat-ryer",
+      "text": "Yeah, that's why I like Claude Code better than Junior Dev, honestly, because it's like, I just don't have to even give you any empathy or anything. Like I don't have to afford, there's no affordances."
+    },
+    {
+      "start": 4922.56,
+      "end": 4962.48,
+      "speaker": "jerod-santo",
+      "text": "Well, there's some true psychology in that too. It's not just personal preference. You don't feel bad for yourself. So if you're listening to this, here's your escape hatch, right? It's mirror neurons. So you see this a lot in married couples. As they age, they tend to dress similar, look similar. They don't literally look similar down to the wire, you know, so to speak. But there's mannerisms that sort of merge in its mirror neurons. Or when you're around somebody, the reason you have that empathy factor, or you begin to cry because somebody else is crying because your brain is literally wired to mirror neurons. It's called mirror neurons. It's a psychological fact. It is brilliant."
+    },
+    {
+      "start": 4962.48,
+      "end": 4966.32,
+      "speaker": "mat-ryer",
+      "text": "People do end up looking similar because they'll pull the same facial expressions."
+    },
+    {
+      "start": 4966.32,
+      "end": 4969,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I got this frown I keep doing, I hate it, gosh."
+    },
+    {
+      "start": 4969,
+      "end": 4980.09,
+      "speaker": "mat-ryer",
+      "text": "Yeah, and then, so you're working, I'm always doing this face because my wife's always doing it. She looks better than that. Yeah. But then my face changes."
+    },
+    {
+      "start": 4980.09,
+      "end": 4981.41,
+      "speaker": "jerod-santo",
+      "text": "The goatee as well?"
+    },
+    {
+      "start": 4981.41,
+      "end": 4988.49,
+      "speaker": "mat-ryer",
+      "text": "She does, yeah. That's a mirror neuron for you? It's a woman. Yeah, that's when your neurons are mirroring too much."
+    },
+    {
+      "start": 4988.49,
+      "end": 4990.25,
+      "speaker": "jerod-santo",
+      "text": "Yeah, too far, you need to get that checked."
+    },
+    {
+      "start": 4990.25,
+      "end": 4991.09,
+      "speaker": "mat-ryer",
+      "text": "It's too far, yeah."
+    },
+    {
+      "start": 4991.09,
+      "end": 5010.57,
+      "speaker": "jerod-santo",
+      "text": "Well, if you're around somebody, even, and think about this too, the next time you're around somebody and you're just standing there having a conversation, if they cross their arms and moments later you cross your arms, guess what? Mirror neurons, okay? That's how it works. You start mirroring somebody else just because that's just what we do as humans. I don't know how to describe it."
+    },
+    {
+      "start": 5010.57,
+      "end": 5013.53,
+      "speaker": "mat-ryer",
+      "text": "That's why I keep saying Dan Tan. I mean, I never used to say Dan Tan."
+    },
+    {
+      "start": 5013.53,
+      "end": 5032.11,
+      "speaker": "jerod-santo",
+      "text": "Dan Tan. All right, let's go Dan Tan to my next place here. I'm gonna change the subject. Let's see, there was two that stood out to me. One was the database access, patterns, breaking things, and then vectors. These two stand out to me. Why does it stand out to you, Matt, since you're concurring?"
+    },
+    {
+      "start": 5033.39,
+      "end": 5163.99,
+      "speaker": "mat-ryer",
+      "text": "We've already seen this. We are hammering our databases now. The agents can do queries a lot faster than humans can and it can do more complex queries and stuff. Now we're lucky, this is just the example at Grafana Labs, we're lucky because the teams, yeah, that is where I work. We are hiring. There are teams, the teams are very good. The Loki team, I've never worked with engineers with that particular kind of specialty because they care about storage. Obviously, all the data formats are bespoke that they have to invent, all the indexing, all the kind of complexity that they build to make these systems work really quickly. So they're up for the challenge, but we are hammering them. We had the drill down apps last year that we did where the UI is basically DDoSing and we've made that even worse now with Assistant. So they have to adapt and change and they're up for the challenge, but is everyone? Are some old data techniques, are data techniques even gonna change? Are we gonna start changing how we store data so that it's ready for agents indexed differently? Vector databases, I think as well, plays into that big time. This is where you create a vector from some kind of content, a chunk of content. You put it into some multidimensional space and then you can query that very quickly and as long as it semantically means, things that mean the same end up in the same area in this multidimensional space. So you know that this is roughly what you mean the nearest thing to it. Unbelievable, and that powers, that makes, Cursor does this very well. The others have the same kind of thing. Indexing your code base like that, Cursor makes it basically very quick if you ask a question about the code base, it can answer it extremely quickly by just consulting its index that it's built. It used to grep all the time and it would just take longer to go and grep everything to learn and then it would end up filling its context window too much. Now it will use the vector database, gets the answers right there very quickly and you really feel that difference and I think vector databases are gonna be a massive new concern for 2026."
+    },
+    {
+      "start": 5163.99,
+      "end": 5203.11,
+      "speaker": "jerod-santo",
+      "text": "Yeah, vector databases are interesting. I'm just barely scratching the surface thinking about some of them but what do you do whenever like you said the vector space that you operate in, those embeddings are created by, let's just say an algorithm, maybe even an LLM or a model or something like that and that model gets superseded, becomes part of your architecture to kind of keep your original embeddings maybe or maybe the original data sets so you can re-embed quickly to get maybe even better embeddings as that vector database gets used and there's performance enhancements, there's new technologies, what do you think about that?"
+    },
+    {
+      "start": 5203.11,
+      "end": 5239.75,
+      "speaker": "mat-ryer",
+      "text": "Yeah, I think, so the vector, embeddings are different. Yeah, so we use like, there's some open source ones that you can use, there's some other models that do it but they, yeah, so I could imagine there being new vector technology which means you then wanna re-index things potentially. I think it's better, sure. But then, but the ultimate, the in and out of it to the LLM is just here's a sort of search query and it returns just results that match semantically so that interface is probably quite safe to keep but who knows, different innovations could happen. One of the problems is like clustering too much."
+    },
+    {
+      "start": 5239.75,
+      "end": 5240.59,
+      "speaker": "jerod-santo",
+      "text": "It's like caching, right?"
+    },
+    {
+      "start": 5240.59,
+      "end": 5282.37,
+      "speaker": "mat-ryer",
+      "text": "Is it like caching in a way, it's like a cache? It's an index, yeah, it's an index but it's an index that you can, to look it up, you're just doing simple geometry, like they're quite simple functions to actually find the answers because you do all the work at the time you're generating the embeddings and things, that takes a lot of time and process to get but reading it is very quick. Yeah. But if you have lots of content, the more content you put in, then this vector space can get crowded. That's where you end up with problems where it's just, it picks things that aren't relevant. You wouldn't consider it as relevant as other things but it's all too tightly."
+    },
+    {
+      "start": 5282.37,
+      "end": 5307.84,
+      "speaker": "jerod-santo",
+      "text": "Which is when you would do a re-index or re-embed, right? You would re-vectorize. I'm not sure what the terminology is for these because I'm just touching it a little bit here but when the space gets crowded, you need to figure out a way to give distance and give more meaning because the whole point is to create meaning and create similarity in the vector space but not have to stay there forever."
+    },
+    {
+      "start": 5307.84,
+      "end": 5325.1,
+      "speaker": "mat-ryer",
+      "text": "Yeah. So it might be like you would keep a vector of recent stuff. So you keep an index of the recent stuff that that's what you're gonna search because that's in this domain that makes most sense. Yeah. But maybe you also have an older one that contains past things and you should do multiple requests into this."
+    },
+    {
+      "start": 5325.1,
+      "end": 5336.72,
+      "speaker": "jerod-santo",
+      "text": "Well, what about the database? What do we do there? Just better indexes, more vCPUs, what do you do? More RAM, dedicated machines?"
+    },
+    {
+      "start": 5336.72,
+      "end": 5354.98,
+      "speaker": "mat-ryer",
+      "text": "I think we're gonna end up storing data differently so that we store it so it's in a format that the LLM needs which is gonna be just natural language in a lot of cases. There'll be some cases where it's that. For what we do with the assistant, just as another example just because it is on my mind a lot, is we have a smaller model."
+    },
+    {
+      "start": 5354.98,
+      "end": 5358.76,
+      "speaker": "jerod-santo",
+      "text": "So this is a fun assistant. Yeah. So hot right now, so hot."
+    },
+    {
+      "start": 5358.76,
+      "end": 5365.1,
+      "speaker": "mat-ryer",
+      "text": "It's so hot. Well, according to a big AI company, it's one of the best implementations they've ever seen."
+    },
+    {
+      "start": 5365.1,
+      "end": 5366.82,
+      "speaker": "jerod-santo",
+      "text": "Which model are you guys using?"
+    },
+    {
+      "start": 5366.82,
+      "end": 5408.22,
+      "speaker": "mat-ryer",
+      "text": "We use Claude Sonnet 4.5 at the moment but we're excited about others when they get more affordable. But what we use, we use a smaller model to look at the data. So we use a, so it'd make a query but we can easily fill up the context window too much. So we take the data and give it to a different model and say, we taught it how to describe a graph basically. It's got a spike here and then it dips or it's flat generally and it describes it in natural language. And it's that that then gets fed back to the main agent. So the main agent, it's a bit like saying, look at that graph for me and tell me what you see. And it might, and the agent, there's one will say."
+    },
+    {
+      "start": 5408.22,
+      "end": 5411.6,
+      "speaker": "jerod-santo",
+      "text": "It describes it, yeah. Describe the color green for me."
+    },
+    {
+      "start": 5411.6,
+      "end": 5417.46,
+      "speaker": "mat-ryer",
+      "text": "Very spiky. Yeah. It'll just, yeah. It's all right. It's trees."
+    },
+    {
+      "start": 5417.46,
+      "end": 5431.96,
+      "speaker": "jerod-santo",
+      "text": "That is interesting how natural language has become the language of choice across these things. Like even if you, like even context is simple, just like it describes it in words."
+    },
+    {
+      "start": 5431.96,
+      "end": 5432.94,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 5432.94,
+      "end": 5436.68,
+      "speaker": "jerod-santo",
+      "text": "I like it because I can read it. Thank you. Yeah. Until I can't read it, right?"
+    },
+    {
+      "start": 5436.9,
+      "end": 5452.7,
+      "speaker": "mat-ryer",
+      "text": "That's what I mean. So like the APIs actually like being just like text that you can read is quite nice for humans as well. We don't really do that. We tend to have JSON API or something, you know, but it's open to interpretation."
+    },
+    {
+      "start": 5452.7,
+      "end": 5462.07,
+      "speaker": "jerod-santo",
+      "text": "So. Right. How we store data is gonna change. And did you finish your thought or did I interrupt you and you didn't finish?"
+    },
+    {
+      "start": 5462.07,
+      "end": 5468.29,
+      "speaker": "mat-ryer",
+      "text": "No, no, I think that's it, yeah. I think vector databases are gonna shine this year and we'll have to see innovation there."
+    },
+    {
+      "start": 5468.29,
+      "end": 5480.4,
+      "speaker": "jerod-santo",
+      "text": "Is there any particular vector database or package or module that you're using in like maybe the go world that you wanna give a shout out to? What's on your, what's got your fancy?"
+    },
+    {
+      "start": 5480.4,
+      "end": 5558.49,
+      "speaker": "mat-ryer",
+      "text": "Well, we tend to, so we're basically building our own. Postgres does have the ability to store embeddings in some of this. Yeah. But you still need to decide how to generate the vectors. And that's a separate piece that you need to figure out. And that's domain, very domain specific, right? The better you do that, the better your search results will be. Yeah. So that's what, I don't know. Yeah, we tend to, I think when we did machine box, we did the machine box startup, we have the same thing because it would do it with face detection. So it would look at the face and it had a big model that was trained on loads of faces. We trimmed off the last layer. This is kind of a spoiler alert of how we did it. So instead of it giving you the answer of a person of the face, it gives you basically the vector. And then we have the spatial index where we go and look up who the person is, which allowed us to do one shot learning. And also you could delete and forget things because it's just editing in an index. So we tended to do that stuff ourselves. It's not that complicated, but like doing it at scale and doing it nicely, redundantly and horizontal scale, all that stuff, that's where we want services. But yeah, I think we'll see more of them coming out. I don't know loads of them, but yeah, pretty good."
+    },
+    {
+      "start": 5558.49,
+      "end": 5562.15,
+      "speaker": "jerod-santo",
+      "text": "Interesting. So build your own is where you're at."
+    },
+    {
+      "start": 5562.15,
+      "end": 5585.07,
+      "speaker": "mat-ryer",
+      "text": "At the moment, but also don't. I mean, yeah, we are doing, we tended to do that in the past, but that's because we weren't sure exactly the use cases and we wanted flexibility to be able to innovate. So it's kind of worth us having our own thing. But I think once there's a, like there should be a service, an open source thing. There probably is, I don't know."
+    },
+    {
+      "start": 5585.07,
+      "end": 5590.19,
+      "speaker": "jerod-santo",
+      "text": "You're playing with Parquet, Parquet. How do you say that? How do you personally say that?"
+    },
+    {
+      "start": 5590.19,
+      "end": 5591.29,
+      "speaker": "mat-ryer",
+      "text": "I say Parquet."
+    },
+    {
+      "start": 5591.29,
+      "end": 5595.19,
+      "speaker": "jerod-santo",
+      "text": "Parquet, okay, cool. Do you play with Parquet at all? Like do you maybe do, like you said-"
+    },
+    {
+      "start": 5595.19,
+      "end": 5601.55,
+      "speaker": "mat-ryer",
+      "text": "Like running around on the streets and that. Jumping over bins and that, yeah. Run up the stairs backwards."
+    },
+    {
+      "start": 5601.55,
+      "end": 5604.97,
+      "speaker": "jerod-santo",
+      "text": "Hardcore Parquet, as you would say, Jerry, right? That's right."
+    },
+    {
+      "start": 5604.97,
+      "end": 5618.94,
+      "speaker": "mat-ryer",
+      "text": "They do use that in Grafana Labs. I haven't used it myself, but that is used. I don't think that's a spoiler or anything. I think that's known. Yeah, but now I have no real experience with that."
+    },
+    {
+      "start": 5618.94,
+      "end": 5629.86,
+      "speaker": "jerod-santo",
+      "text": "Well, I have a prediction for 2026. Oh yeah? It's short-term, short-term prediction. I predict that Matt's gonna get his guitar. Oh my gosh. And listen to this song."
+    },
+    {
+      "start": 5629.86,
+      "end": 5630.86,
+      "speaker": "mat-ryer",
+      "text": "How did you do that?"
+    },
+    {
+      "start": 5630.86,
+      "end": 5640.06,
+      "speaker": "jerod-santo",
+      "text": "Oh my goodness. Oh my goodness. I'm into it. Get your Parquet on. Okay. Okay."
+    },
+    {
+      "start": 5640.06,
+      "end": 5640.9,
+      "speaker": "mat-ryer",
+      "text": "Happy with the key?"
+    },
+    {
+      "start": 5640.9,
+      "end": 5674.37,
+      "speaker": "jerod-santo",
+      "text": "I love this key. What is that? C minor? I don't know. Where is, what's his name? Knuth? The famous guy who's- Donald Knuth? He's perfect. Donald. No, it's not Donald Knuth. Singer. Jeez. A singer. Singer-songwriter? It'll be Toby Keith. Charles- Warren Booker. Gosh, also way off. Charlie Puth. Okay. Charlie Puth."
+    },
+    {
+      "start": 5674.81,
+      "end": 5676.81,
+      "speaker": "mat-ryer",
+      "text": "Okay. It's that Margaritaville guy."
+    },
+    {
+      "start": 5676.81,
+      "end": 5679.59,
+      "speaker": "jerod-santo",
+      "text": "I've bustered your name. Oh yeah? Charlie Puth, yeah."
+    },
+    {
+      "start": 5679.59,
+      "end": 5680.55,
+      "speaker": "mat-ryer",
+      "text": "I like Neil Diamond."
+    },
+    {
+      "start": 5680.55,
+      "end": 5693.93,
+      "speaker": "jerod-santo",
+      "text": "Pitch-perfect Knuth, according to Google, likely refers to singer Charlie Puth. That was an embedding right there. They vectorized that. Cause a lot of people just jacked that one up. They're like, listen, we're gonna speed up this search. Okay?"
+    },
+    {
+      "start": 5693.93,
+      "end": 5695.61,
+      "speaker": "mat-ryer",
+      "text": "This is pretty close in vector space."
+    },
+    {
+      "start": 5695.61,
+      "end": 5699.45,
+      "speaker": "jerod-santo",
+      "text": "I'm gonna Parquet that and then vectorize that. And then boom, there you go. Search for something."
+    },
+    {
+      "start": 5699.45,
+      "end": 5773.44,
+      "speaker": "mat-ryer",
+      "text": "All right, Matt. Go ahead, Matt. Tell us what you got here. All right. Hey, I know you're gonna hire me back. It turns out Chad GPT knows how to negotiate hard. It learned from the best lawyers and everyone on Reddit with opinions. Turns out Opus 4.58, your lawyer's for lunch. And it was just a simple prompt and the response that they gave to the actual judge contained emoji. Ooh, gee, ooh, then AI now you're gonna hire me back. Don't give all that money to the robots. Humans need money too, to give some to me, please. All right. Yeah, we've touched the whole range of AI subjects and different musical subjects."
+    },
+    {
+      "start": 5773.44,
+      "end": 5776,
+      "speaker": "jerod-santo",
+      "text": "They didn't really bring it home, man. You brought it home."
+    },
+    {
+      "start": 5776,
+      "end": 5778.54,
+      "speaker": "mat-ryer",
+      "text": "Oh, I don't know what that means. Is that good?"
+    },
+    {
+      "start": 5778.54,
+      "end": 5783.94,
+      "speaker": "jerod-santo",
+      "text": "That second line was a little iffy, but gee, you've rounded it off pretty good."
+    },
+    {
+      "start": 5783.94,
+      "end": 5796.54,
+      "speaker": "mat-ryer",
+      "text": "I appreciate the immediate review. I like to fail fast line two. I like it. It's like a linter. It's like error on line two. Adam's the linter, musical linter."
+    },
+    {
+      "start": 5796.54,
+      "end": 5799.1,
+      "speaker": "jerod-santo",
+      "text": "I'll give you three stars, but I'll let you decide if it's between five or 10."
+    },
+    {
+      "start": 5799.1,
+      "end": 5804.1,
+      "speaker": "mat-ryer",
+      "text": "Well, I'll give you and your podcast two thumbs up. Out of 10."
+    },
+    {
+      "start": 5804.1,
+      "end": 5842.3,
+      "speaker": "jerod-santo",
+      "text": "Oh, oh, ah. I do want to give a shout out to Tom, Tomaz, Tung. Sorry, dude. Tomaz, Tomaz. Theoryvc.com. I really do appreciate this post. I didn't think we would have such a great, I guess, somewhat great, mostly great, and a song conversation from not against venture capitalists, but like this is good. These are good predictions. Very well thought through. Good job, Tom. Theoryvc.com can be your friend, at least for some information. Follow him on LinkedIn, maybe. Who knows?"
+    },
+    {
+      "start": 5842.3,
+      "end": 5848.06,
+      "speaker": "mat-ryer",
+      "text": "Maybe Tomaz would like to invest in change log. The new way."
+    },
+    {
+      "start": 5848.06,
+      "end": 5849.86,
+      "speaker": "jerod-santo",
+      "text": "Jean J, all day."
+    },
+    {
+      "start": 5849.86,
+      "end": 5859.98,
+      "speaker": "mat-ryer",
+      "text": "Gerard Change has started a new company doing distributed VCS. Put your source code in it or don't. I don't care. It's that kind of thing."
+    },
+    {
+      "start": 5859.98,
+      "end": 5862.19,
+      "speaker": "jerod-santo",
+      "text": "I asked you not to do that."
+    },
+    {
+      "start": 5862.19,
+      "end": 5868.45,
+      "speaker": "mat-ryer",
+      "text": "I'm sorry. I can't help it. Would you like it? I can't even do your voice, really. I need to meet you properly, and then I can do you."
+    },
+    {
+      "start": 5868.45,
+      "end": 5870.37,
+      "speaker": "jerod-santo",
+      "text": "You need to meet us properly. Well."
+    },
+    {
+      "start": 5870.37,
+      "end": 5871.69,
+      "speaker": "mat-ryer",
+      "text": "I need to meet you properly."
+    },
+    {
+      "start": 5871.69,
+      "end": 5874.37,
+      "speaker": "jerod-santo",
+      "text": "It's never too late, man, as long as we're still both breathing,"
+    },
+    {
+      "start": 5874.37,
+      "end": 5879.49,
+      "speaker": "mat-ryer",
+      "text": "which so far, so good. So if you're not breathing, you don't want me to visit."
+    },
+    {
+      "start": 5879.49,
+      "end": 5882.49,
+      "speaker": "jerod-santo",
+      "text": "It's never too late. I might have to hold my breath when you get here, but."
+    },
+    {
+      "start": 5882.49,
+      "end": 5889.29,
+      "speaker": "mat-ryer",
+      "text": "Well, that's because it's been a long flight. You wouldn't have to if you were visited by a self-driving mat."
+    },
+    {
+      "start": 5889.29,
+      "end": 5892.81,
+      "speaker": "jerod-santo",
+      "text": "You could sleep all the way over. You'd be refreshed when you get here."
+    },
+    {
+      "start": 5892.81,
+      "end": 5897.03,
+      "speaker": "mat-ryer",
+      "text": "That's true. Oh, it should have a shower in it as well. Just press a button and it showers you."
+    },
+    {
+      "start": 5897.03,
+      "end": 5917.55,
+      "speaker": "jerod-santo",
+      "text": "Listen, I like your idea of how we'll travel in the future. I'm down for some version of that, honestly. I think I would love to teleport via a trip. I don't mind the time, because if I can use the time well, then I'm cool with the time, because I'm going to use time anyways. If I hate it, that's just, I got no choice, right? I got no choice."
+    },
+    {
+      "start": 5917.55,
+      "end": 5921.63,
+      "speaker": "mat-ryer",
+      "text": "This guy uses time. You don't just pause. He uses it. Yeah."
+    },
+    {
+      "start": 5921.63,
+      "end": 5923.47,
+      "speaker": "jerod-santo",
+      "text": "When given a choice, he uses it."
+    },
+    {
+      "start": 5923.47,
+      "end": 5928.01,
+      "speaker": "mat-ryer",
+      "text": "But sleeping, sleeping and traveling, I do think is good. Like, have you ever fallen asleep on a long flight?"
+    },
+    {
+      "start": 5928.01,
+      "end": 5929.09,
+      "speaker": "jerod-santo",
+      "text": "Yeah, because what else are you doing?"
+    },
+    {
+      "start": 5929.09,
+      "end": 5933.67,
+      "speaker": "mat-ryer",
+      "text": "Exactly. Fall asleep on a long flight. Beautiful. I've done it. I did it last time I went to the United States."
+    },
+    {
+      "start": 5933.67,
+      "end": 5939.31,
+      "speaker": "jerod-santo",
+      "text": "We're working, man. I can slay some work over three hours and just be like, what? Three hours?"
+    },
+    {
+      "start": 5939.31,
+      "end": 5941.31,
+      "speaker": "mat-ryer",
+      "text": "Yeah. You could broadcast from it."
+    },
+    {
+      "start": 5941.31,
+      "end": 5942.6,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5942.6,
+      "end": 5944.36,
+      "speaker": "mat-ryer",
+      "text": "You could broadcast from your car."
+    },
+    {
+      "start": 5944.36,
+      "end": 5945.2,
+      "speaker": "jerod-santo",
+      "text": "One day."
+    },
+    {
+      "start": 5945.2,
+      "end": 5947.2,
+      "speaker": "mat-ryer",
+      "text": "Just fake background. Yeah."
+    },
+    {
+      "start": 5947.2,
+      "end": 5951.6,
+      "speaker": "jerod-santo",
+      "text": "Don't need to. So if we go agent first, Jared, agent first web leads us to this world."
+    },
+    {
+      "start": 5951.6,
+      "end": 5954.52,
+      "speaker": "mat-ryer",
+      "text": "I like agent first travel. You know, let the agent travel for me"
+    },
+    {
+      "start": 5954.54,
+      "end": 5956.18,
+      "speaker": "jerod-santo",
+      "text": "and then let me know how it went."
+    },
+    {
+      "start": 5956.18,
+      "end": 5960.34,
+      "speaker": "mat-ryer",
+      "text": "Yeah. You could just email it. Just email the agent. Just stay here. It's an attachment."
+    },
+    {
+      "start": 5960.34,
+      "end": 5977.56,
+      "speaker": "jerod-santo",
+      "text": "Just want to stay home. Matt, thanks so much for hanging out with us. Again, kicking off 26th the right way with you and your guitar and your accents, even though you kept dissing me. I've still enjoyed it somehow. It's like I'm a masochist."
+    },
+    {
+      "start": 5977.56,
+      "end": 5999.56,
+      "speaker": "mat-ryer",
+      "text": "Yeah. Or I wasn't dissing you. Yeah. But I've had a great time. I've had a fantastic time. Welcome to 2026 everybody. What are we going to do? Let's do something good. There's a lot of kind of trouble going on and you know, but there's a lot of us still. We've got time on our hands. Let's do some good stuff. Let's use it. Yeah. Yeah. Yeah."
+    },
+    {
+      "start": 5999.56,
+      "end": 6025.47,
+      "speaker": "jerod-santo",
+      "text": "That's our remedy too. Use your time. Wisely. Use your time. Yeah. Thanks Matt. It was awesome seeing you. Bye friends. Bye friends. And Matt. All right. That's changeloggin' friends for ya. And that's Matt Ryer for ya. He's truly one of a kind. Oh, and we do have a little changelog++ bonus at the end of this one in which Matt tries and fails to give us a Grafana assistant demo."
+    },
+    {
+      "start": 6025.47,
+      "end": 6029.37,
+      "speaker": "mat-ryer",
+      "text": "No, a hundred percent. How do I share? I'm clicking the share button and nothing is happening."
+    },
+    {
+      "start": 6029.37,
+      "end": 6075.76,
+      "speaker": "jerod-santo",
+      "text": "Thanks again to our partners at Fly.io and to our sponsors of this episode, namespace.so, notion.com slash changelog and tigerdata.com. Thanks also to BMC for the continuous stream of dope beats and to you for listening. We appreciate you. That's all for now, but let's get back together and talk again real soon. Can you share more about the Grafana assistant architecture? He would love to."
+    },
+    {
+      "start": 6075.76,
+      "end": 6076.7,
+      "speaker": "mat-ryer",
+      "text": "Yeah."
+    },
+    {
+      "start": 6076.7,
+      "end": 6078.82,
+      "speaker": "jerod-santo",
+      "text": "How much can you share and what can you share?"
+    },
+    {
+      "start": 6078.82,
+      "end": 6081.62,
+      "speaker": "mat-ryer",
+      "text": "I'm really curious. I'll tell you, I'll tell you anything."
+    },
+    {
+      "start": 6081.62,
+      "end": 6082.5,
+      "speaker": "jerod-santo",
+      "text": "Ask him anything."
+    },
+    {
+      "start": 6082.5,
+      "end": 6084.3,
+      "speaker": "mat-ryer",
+      "text": "I'll get fired for this show."
+    },
+    {
+      "start": 6084.3,
+      "end": 6086.88,
+      "speaker": "jerod-santo",
+      "text": "Changelog++. It's better."
+    }
+  ],
+  "slug": "the-github-problem-and-other-predictions",
+  "id": "123"
+}

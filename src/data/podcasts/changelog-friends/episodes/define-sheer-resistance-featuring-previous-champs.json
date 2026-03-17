@@ -1,0 +1,5120 @@
+{
+  "title": "#define: sheer resistance featuring previous champs",
+  "description": "The seventh iteration of the #define game show brings together past winners to compete as champions.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/116",
+    "MP3": "https://cdn.changelog.com/uploads/friends/116/changelog--friends-116.mp3",
+    "YouTube": "https://youtu.be/gm_aHaCs-Xo",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak",
+    "unknown"
+  ],
+  "segments": [
+    {
+      "start": 15.06,
+      "end": 38.55,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and friends, a weekly talk show about listening to your grandma. Thanks as always to our partners at fly.io, the public cloud built for developers who ship. We love fly, you might too. Check them out at fly.io. Okay, let's play."
+    },
+    {
+      "start": 38.55,
+      "end": 153.08,
+      "speaker": "adam-stacoviak",
+      "text": "Well friends, Agentic Postgres is here. And it's from our friends over at Tiger Data. This is the very first database built for agents that's built to let you build faster. You know, a fun side note is 80% of Claude was built with AI. Over a year ago, 25% of Google's code was AI generated. It's safe to say that now it's probably close to 100%. Most people I talk to, most developers I talk to right now, almost all their code is being generated. That's a different world. Here's the deal. Agents are the new developers. They don't click, they don't scroll. They call, they retrieve, they parallelize. They plug in your infrastructure to places you need it to perform, but your database is probably still thinking about humans only, because that's kind of where Postgres is at. Tiger Data's philosophy is that when your agents need to spin up sandboxes, run migrations, query huge volumes, a vector and text data, well, normal Postgres, it might choke. And so they fix that. Here's where we're at right now. Agentic Postgres delivers these three big leaps, native search and retrieval, instant zero copy forks, and MCP server, plus your CLI, plus a cool free tier. Now, if this is intriguing at all, head over to tigerdata.com. Install the CLI, just three commands, spin up an Agentic Postgres service, and let your agents work at the speed they expect, not the speed of the old way. The new way, Agentic Postgres, it's built for agents, is designed to elevate your developer experience and build the next big thing. Again, go to tigerdata.com to learn more. Welcome once again to Pound, define our game show,"
+    },
+    {
+      "start": 154.08,
+      "end": 165.86,
+      "speaker": "jerod-santo",
+      "text": "all about fake, obscure jargon, definitions, tomfoolery, and people who generally know way too much about words. Also, Adam and I are here."
+    },
+    {
+      "start": 165.86,
+      "end": 167.5,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm here today, again."
+    },
+    {
+      "start": 167.5,
+      "end": 204.3,
+      "speaker": "jerod-santo",
+      "text": "We are joined by our champions. This is gonna be, I was gonna say a Duke Nukem, cause that's on my mind, but what's the name of that game where they all punch each other? Oh, Rock'em Sock'em Robots of Pound Define, because everybody here, except for Adam and myself, have actually won the game. We try to get all of our Pound Define champs, but of course, scheduling is hard. And so, Losh and Carol couldn't make it, but we are joined today by our previous winners, starting with the person who won most recent, no, not first, cause that was Losh, but first right after him, it's Taylor Troj. What's up, Taylor?"
+    },
+    {
+      "start": 204.3,
+      "end": 206.46,
+      "speaker": "adam-stacoviak",
+      "text": "First right after him, second. Second."
+    },
+    {
+      "start": 207.36,
+      "end": 209.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you're right, second would work there."
+    },
+    {
+      "start": 209.2,
+      "end": 211.96,
+      "speaker": "adam-stacoviak",
+      "text": "I lost in the first round. Yeah, how's it going?"
+    },
+    {
+      "start": 211.96,
+      "end": 218.48,
+      "speaker": "jerod-santo",
+      "text": "You did, but you came back and you were victorious after that. And then did you lose to Carol after that? Or did we boot you?"
+    },
+    {
+      "start": 218.48,
+      "end": 220.68,
+      "speaker": "adam-stacoviak",
+      "text": "I think I lost to Carol and then you got tired of me."
+    },
+    {
+      "start": 220.68,
+      "end": 234.96,
+      "speaker": "jerod-santo",
+      "text": "Okay, so we're not tired of you, we're back. You're back. We've invited you back. And I'm sure you're gonna give it a go. After Taylor is Thomas. Ooh, Jonathan Taylor Thomas. We should get a Jonathan here."
+    },
+    {
+      "start": 234.96,
+      "end": 235.8,
+      "speaker": "adam-stacoviak",
+      "text": "Ooh, yeah."
+    },
+    {
+      "start": 235.8,
+      "end": 239.32,
+      "speaker": "jerod-santo",
+      "text": "And have a JTT shout out from the nineties. What's up, Thomas?"
+    },
+    {
+      "start": 239.32,
+      "end": 252.41,
+      "speaker": "adam-stacoviak",
+      "text": "How you doing, man? I'm doing well. It's good to catch up with everyone. And yeah, happy to be back here. I think it's good for all of us that Carol did not join because she destroyed me last time I played."
+    },
+    {
+      "start": 252.41,
+      "end": 262.64,
+      "speaker": "jerod-santo",
+      "text": "That's right. So you are a, you're one for two in winning, which is slightly better than Taylor, but not quite as good as Matthew. Who's one for one, aren't you, Matthew?"
+    },
+    {
+      "start": 262.64,
+      "end": 265.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I was gonna decline this to keep my record, but you're right."
+    },
+    {
+      "start": 265.64,
+      "end": 269.64,
+      "speaker": "jerod-santo",
+      "text": "I'm busy. Oh yeah."
+    },
+    {
+      "start": 269.64,
+      "end": 272.96,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna keep my belts, okay?"
+    },
+    {
+      "start": 272.96,
+      "end": 292.16,
+      "speaker": "jerod-santo",
+      "text": "You can't keep the belt if you don't fight for the belt. You can't take away what I can't lose. That's right. Well, if you don't show up, then you actually lose by default. And so I'm glad that you're here to defend your title and to potentially take these guys' title. And lastly is our most recent winner. It's David Aja. David, welcome back."
+    },
+    {
+      "start": 292.56,
+      "end": 293.4,
+      "speaker": "adam-stacoviak",
+      "text": "Glad to be back."
+    },
+    {
+      "start": 293.4,
+      "end": 294.22,
+      "speaker": "jerod-santo",
+      "text": "What's up, David?"
+    },
+    {
+      "start": 294.22,
+      "end": 300.96,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I'm chilling. I'm excited. I'm ready to earn the masters in BS. I feel like I got the BS in BS. Let's take it to the next level."
+    },
+    {
+      "start": 300.96,
+      "end": 312.08,
+      "speaker": "jerod-santo",
+      "text": "Nice. Okay. Always BSing. You win a third time, we get you the PhD, the BS HD. That didn't make any sense. Adam, why are you here? No, just kidding."
+    },
+    {
+      "start": 312.08,
+      "end": 315.16,
+      "speaker": "adam-stacoviak",
+      "text": "So. Solidarity, my friend, solidarity."
+    },
+    {
+      "start": 315.16,
+      "end": 320.9,
+      "speaker": "jerod-santo",
+      "text": "You're here because it's Changelog and Friends with Earl and Jared. That's right. And so of course you are here."
+    },
+    {
+      "start": 320.9,
+      "end": 321.84,
+      "speaker": "adam-stacoviak",
+      "text": "I gotta be."
+    },
+    {
+      "start": 322.36,
+      "end": 329.72,
+      "speaker": "jerod-santo",
+      "text": "And should we reveal the secret from the Changelog++ segment last time around? Do you want to get your comeuppance?"
+    },
+    {
+      "start": 329.72,
+      "end": 331.4,
+      "speaker": "adam-stacoviak",
+      "text": "What was it? What am I revealing?"
+    },
+    {
+      "start": 331.4,
+      "end": 341.72,
+      "speaker": "jerod-santo",
+      "text": "What did I miss? You won a round. You won, remember? After we quit playing, we had a Changelog++ special. And I won that one. You beat David and everybody else."
+    },
+    {
+      "start": 341.72,
+      "end": 349.32,
+      "speaker": "adam-stacoviak",
+      "text": "You gotta win in post-shows, you know. If I'm gonna win, might as well do it when no one's listening. I would describe that win as a hallucination, so."
+    },
+    {
+      "start": 349.32,
+      "end": 396.68,
+      "speaker": "jerod-santo",
+      "text": "As a hallucination. Well, it's funny you say that because we are gonna put a slight twist on this round in order to level the playing field. You know, Adam's a big fan of golf. Oh yeah. Golf, there's handicaps and there's also mulligans. And since you all are previous winners and Adam hasn't quite achieved that level yet, we're gonna give him a slight handicap, which is that during this game, he can pick one round. He does not have to disclose, but for one round he can actually use an LLM to generate his answer. Hahaha. And that's it. So he gets that trick up his sleeve. He can deploy it whenever he wants. He doesn't have to. And he does not have to disclose it. That way maybe, who knows? Maybe he'll be the champion of champions."
+    },
+    {
+      "start": 396.68,
+      "end": 402,
+      "speaker": "adam-stacoviak",
+      "text": "Should I not disclose it at all? Or just not until I win the round?"
+    },
+    {
+      "start": 402,
+      "end": 405.64,
+      "speaker": "jerod-santo",
+      "text": "Well, that card is in, you know, your hand. You can play it however you want. Until you win the round."
+    },
+    {
+      "start": 405.64,
+      "end": 408.84,
+      "speaker": "adam-stacoviak",
+      "text": "Well, if I'm leveraging an agent, there's no way I can lose."
+    },
+    {
+      "start": 408.84,
+      "end": 413.68,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you might still lose the round. Yeah, what are you talking about? It's not a guaranteed win."
+    },
+    {
+      "start": 413.68,
+      "end": 416.28,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it's gonna, I mean, have you seen my agents?"
+    },
+    {
+      "start": 417.51,
+      "end": 419.11,
+      "speaker": "jerod-santo",
+      "text": "Well, then why don't you have wins already?"
+    },
+    {
+      "start": 419.11,
+      "end": 427.71,
+      "speaker": "adam-stacoviak",
+      "text": "Well, cause I don't use the agents there, buddy. That's why. I'm using my own brain, which is stupid. I use their brain, which is very smart. All the smarts there, all the stupid here."
+    },
+    {
+      "start": 427.71,
+      "end": 541.71,
+      "speaker": "jerod-santo",
+      "text": "We have a no Google policy. We have a no agent policy. Of course, don't look up the definitions because that wouldn't be very fun at all. The way this game works is that we have 10 rounds of play. We're playing to 12 points, whichever one comes first. And each round presents a word, which is obscure, hopefully. Hopefully nobody knows it. Maybe you know it. That is in the world of STEMI things. So it could be science, medicine. It could be math. It could be music. It could be science fiction. It could be computer science, et cetera. They're just in that wheelhouse of sciencey things. And a definition of the obscure word. Now, after I name the word, everybody submits to me their definitions of what they think the word means, or if they don't know what it means, they make one up in order to fool their enemies into selecting it. After the definitions are submitted, I will read them all, hopefully without laughing. And then you all go around and try to guess which one is the correct definition. Now, if you get to the right definition initially, right away, you get three points and you set the round out. If you have the wrong definition, but other people pick yours, you get one point for each person who picks your definition. And then at the end of the round, if you happened upon the correct definition during the selection process, you get two points. So three, two, and one. If nobody selects the correct definition in a round, I, your humble host, get four points. And the first one to 12 wins or the person with the most points after all 10 rounds, I doubt we're gonna have to do all 10 to get to 12 because David scored 12 in like 37 seconds last time. So, any questions before we get into round one?"
+    },
+    {
+      "start": 541.71,
+      "end": 544.27,
+      "speaker": "adam-stacoviak",
+      "text": "No, let's get it. Excited to get started."
+    },
+    {
+      "start": 544.27,
+      "end": 580.25,
+      "speaker": "jerod-santo",
+      "text": "All right, here we go. Your word for round one is iatrogenic, iatrogenic. Iatrogenic, I-A-T-R-A-G-E-N-I-C. Iatrogenic, please submit to me your definitions for iatrogenic now. Is there a problem, Taylor?"
+    },
+    {
+      "start": 580.25,
+      "end": 599.89,
+      "speaker": "adam-stacoviak",
+      "text": "I know this one. I'm just trying to, it's so close. Now, Jared, have you considered using a text-to-speech solution for reading these definitions out loud to avoid the laughter problem, the meta game?"
+    },
+    {
+      "start": 599.89,
+      "end": 606.88,
+      "speaker": "jerod-santo",
+      "text": "That's a really good idea. I just feel like I would be really bored. Yeah. I don't know what to do. I feel value-free. Yeah."
+    },
+    {
+      "start": 606.88,
+      "end": 608.88,
+      "speaker": "adam-stacoviak",
+      "text": "You don't want AI taking your job."
+    },
+    {
+      "start": 608.88,
+      "end": 687.75,
+      "speaker": "jerod-santo",
+      "text": "That's right. Fight for it. I'm gonna keep fighting. All right, all definitions are in for iatrogenic and I will say right up front that Taylor has the correct definition. So, three points for Taylor. And you can just relax, my friend. Good job. He did know it. He really knew it. So, there are one, two, three, four, five possible definitions for iatrogenic. Number one, iatrogenic describes natural springs which produce water with high concentrations of ionic water. Number two, iatrogenic caused inadvertently by medical treatment or diagnosis. Number three, an object solely composed of distinct dissimilar parts. Number four, describing cells in the endocrine system responsible for producing hormones. And number five, the process of swapping out one gene pool for another. There you have it, five potential definitions for iatrogenic. We start, since Taylor is resting, we start with Thomas."
+    },
+    {
+      "start": 687.75,
+      "end": 723.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. So, looking at this list, we have the water ones, natural springs with ionic water, okay. So, like genic, I think about iatrogenic, genic being like to generate, I know that much. Caused inadvertently by a medical operation was number two, a combination of distinct dissimilar parts, cells in the endocrine system and then gene pool swapping. Well, yeah, thank you."
+    },
+    {
+      "start": 723.26,
+      "end": 725.94,
+      "speaker": "jerod-santo",
+      "text": "Thank you, because normally people are like, what's number three again?"
+    },
+    {
+      "start": 727.26,
+      "end": 736.86,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, what really sticks out to me is the caused inadvertently. So, number two is what I'm gonna go with."
+    },
+    {
+      "start": 736.86,
+      "end": 741.98,
+      "speaker": "jerod-santo",
+      "text": "All right, Thomas goes with number two. How about Matthew?"
+    },
+    {
+      "start": 741.98,
+      "end": 745.42,
+      "speaker": "adam-stacoviak",
+      "text": "Because you said something, I want you to repeat number three actually."
+    },
+    {
+      "start": 745.42,
+      "end": 759.64,
+      "speaker": "jerod-santo",
+      "text": "Okay, number three is an object solely composed of distinct dissimilar parts, you jerk. Is that in the definition? That was for him. He's just trolling me. That was a troll."
+    },
+    {
+      "start": 759.64,
+      "end": 769.01,
+      "speaker": "adam-stacoviak",
+      "text": "We all know what it was. The similar parts, water repeated water twice actually. So, that was interesting. The gene pool one."
+    },
+    {
+      "start": 769.01,
+      "end": 770.81,
+      "speaker": "jerod-santo",
+      "text": "Number one, yeah."
+    },
+    {
+      "start": 770.81,
+      "end": 775.29,
+      "speaker": "adam-stacoviak",
+      "text": "There was one that's not the gene pool, not the water, not the dissimilar parts. There were two other definitions that I can't remember."
+    },
+    {
+      "start": 775.29,
+      "end": 780.61,
+      "speaker": "jerod-santo",
+      "text": "Yeah, gosh. Number four was describing cells in the endocrine system responsible for producing hormones."
+    },
+    {
+      "start": 780.61,
+      "end": 781.63,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 781.63,
+      "end": 784.01,
+      "speaker": "jerod-santo",
+      "text": "That's not gene pool, that's not?"
+    },
+    {
+      "start": 784.01,
+      "end": 789.84,
+      "speaker": "adam-stacoviak",
+      "text": "Not gene pool, not dissimilar, not water, and not cells. There's that one other one."
+    },
+    {
+      "start": 789.84,
+      "end": 791.92,
+      "speaker": "jerod-santo",
+      "text": "Cells, this is like a test for me."
+    },
+    {
+      "start": 791.92,
+      "end": 793.64,
+      "speaker": "adam-stacoviak",
+      "text": "There's that one, this one right here."
+    },
+    {
+      "start": 793.64,
+      "end": 797.28,
+      "speaker": "jerod-santo",
+      "text": "Gotcha, the process of swapping out one gene pool over another?"
+    },
+    {
+      "start": 797.28,
+      "end": 798.2,
+      "speaker": "adam-stacoviak",
+      "text": "No, you said that one."
+    },
+    {
+      "start": 798.2,
+      "end": 801.1,
+      "speaker": "jerod-santo",
+      "text": "Okay, caused inadvertently by medical treatment or diagnosis?"
+    },
+    {
+      "start": 801.1,
+      "end": 802.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm gonna lock that one in."
+    },
+    {
+      "start": 802.56,
+      "end": 805.9,
+      "speaker": "jerod-santo",
+      "text": "That's the one? Yep. So, you're gonna pile on. What time is it?"
+    },
+    {
+      "start": 805.9,
+      "end": 814.1,
+      "speaker": "adam-stacoviak",
+      "text": "Pile on. Admittedly, I didn't catch which one Thomas picked, so yeah, it's a pile on."
+    },
+    {
+      "start": 814.1,
+      "end": 817.72,
+      "speaker": "jerod-santo",
+      "text": "So, it's an accidental pile on, fair. All right, we go to David."
+    },
+    {
+      "start": 817.72,
+      "end": 820.3,
+      "speaker": "adam-stacoviak",
+      "text": "I'm going to construct an additional pile on."
+    },
+    {
+      "start": 821.54,
+      "end": 834.5,
+      "speaker": "jerod-santo",
+      "text": "This guy doesn't just pile on, he constructs pile ons. All right. We got three people on number two, and we go to Adam, who's the last one to actually guess."
+    },
+    {
+      "start": 834.5,
+      "end": 836.34,
+      "speaker": "adam-stacoviak",
+      "text": "What's the second to last one, Jared?"
+    },
+    {
+      "start": 837.64,
+      "end": 839.1,
+      "speaker": "jerod-santo",
+      "text": "That would be the fourth."
+    },
+    {
+      "start": 839.1,
+      "end": 840.56,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, can you read that one, please?"
+    },
+    {
+      "start": 840.56,
+      "end": 846.16,
+      "speaker": "jerod-santo",
+      "text": "Describing cells in the endocrine system responsible for producing hormones."
+    },
+    {
+      "start": 846.16,
+      "end": 851.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's the one. That's the one right there. Let's dial that one in. Yeah, lock it. Let's dial that one in."
+    },
+    {
+      "start": 851.36,
+      "end": 852.92,
+      "speaker": "jerod-santo",
+      "text": "Let's lock that one."
+    },
+    {
+      "start": 852.92,
+      "end": 855.16,
+      "speaker": "adam-stacoviak",
+      "text": "No breakfast bowl required, fellas."
+    },
+    {
+      "start": 855.16,
+      "end": 860.4,
+      "speaker": "jerod-santo",
+      "text": "All right, well, after round one, of course, Taylor gets the default three."
+    },
+    {
+      "start": 860.4,
+      "end": 875.64,
+      "speaker": "adam-stacoviak",
+      "text": "So, Taylor, what's the correct answer, Taylor? The correct answer is the medical one. And the only reason I know it is from a Nassim Taleb book. I can't remember which one, but he loves that word."
+    },
+    {
+      "start": 876.89,
+      "end": 878.01,
+      "speaker": "jerod-santo",
+      "text": "Really?"
+    },
+    {
+      "start": 878.01,
+      "end": 884.31,
+      "speaker": "adam-stacoviak",
+      "text": "Fooled by randomness, or, I mean, I don't remember. I haven't read one of his books in 10 years or something."
+    },
+    {
+      "start": 884.31,
+      "end": 886.25,
+      "speaker": "jerod-santo",
+      "text": "Anti-fragile, is that him?"
+    },
+    {
+      "start": 886.25,
+      "end": 887.25,
+      "speaker": "adam-stacoviak",
+      "text": "That's definitely him."
+    },
+    {
+      "start": 887.25,
+      "end": 929.64,
+      "speaker": "jerod-santo",
+      "text": "That sounds like something that would happen in there, because maybe you go in for an appointment, and then you get misdiagnosed, and then you're stronger afterwards. No, that doesn't make sense. I don't know. Yes, that is correct definition for iatrogenic. It's when something's caused inadvertently by medical treatment or diagnosis. Taylor's definition was has the opposite intended effect, as in hospitals killing healthy patients. Very good. So, Thomas, Matthew, and David each correctly got that, so they each get two points. Thomas, Matthew, and David. And then Adam, he did not pile on. He went four. Describing cells in the endocrine system responsible for producing hormones, that was David's. So, an additional point."
+    },
+    {
+      "start": 929.64,
+      "end": 931.72,
+      "speaker": "adam-stacoviak",
+      "text": "Good job, David. Good job, David."
+    },
+    {
+      "start": 931.72,
+      "end": 987.86,
+      "speaker": "jerod-santo",
+      "text": "Come out the gate with 12 right away. He's coming out, he's on pace. He's on pace once again, and successful round one, we have Taylor and David with three, Thomas and Matthew with two, and your humble hosts with zero. Moving to round two. In round two, your word is heteroscedasticity. It's spelled H-E-T-E-R-O-S-C-E-D-A-S-T-I-C-I-T-Y. I will put that in chat. Yeah, you need to put that in chat. I'll say it one more time. It's heteroscedasticity. There we go. Heteroscedasticity. That's tough."
+    },
+    {
+      "start": 987.86,
+      "end": 992.88,
+      "speaker": "adam-stacoviak",
+      "text": "Matthew, is the Oxide t-shirt embroidered?"
+    },
+    {
+      "start": 992.88,
+      "end": 994.04,
+      "speaker": "jerod-santo",
+      "text": "Yeah, this one is."
+    },
+    {
+      "start": 994.04,
+      "end": 995.56,
+      "speaker": "adam-stacoviak",
+      "text": "Ooh."
+    },
+    {
+      "start": 995.56,
+      "end": 996.4,
+      "speaker": "jerod-santo",
+      "text": "Yeah, this one is."
+    },
+    {
+      "start": 996.4,
+      "end": 1004.72,
+      "speaker": "adam-stacoviak",
+      "text": "Quality, quality from end to end. That's not iron-on, it's embroidered. Wow."
+    },
+    {
+      "start": 1004.72,
+      "end": 1022.72,
+      "speaker": "jerod-santo",
+      "text": "I grabbed a couple of t-shirts while I was there, and they were, I grabbed XLs, went back to the hotel and like, ah, these are too big. I went and swapped them for larges. Got home and I'm like, ah, these are too small. I don't know what to do. I wear them when I work out, makes me look buff, you know. I love the zero-ax engineer one. So cool."
+    },
+    {
+      "start": 1022.72,
+      "end": 1025.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I want to go in so we're in the closet somewhere."
+    },
+    {
+      "start": 1025.36,
+      "end": 1032.64,
+      "speaker": "jerod-santo",
+      "text": "Just me and Matthew have that problem with our arms. We just can't fit everything in, you know, our guns. The pipes. Can't you tell? They're pretty much the same size."
+    },
+    {
+      "start": 1032.64,
+      "end": 1035.88,
+      "speaker": "adam-stacoviak",
+      "text": "Have you considered working on anything other than the biceps?"
+    },
+    {
+      "start": 1035.88,
+      "end": 1038.04,
+      "speaker": "jerod-santo",
+      "text": "I hear that helps."
+    },
+    {
+      "start": 1038.04,
+      "end": 1039.16,
+      "speaker": "adam-stacoviak",
+      "text": "I considered it."
+    },
+    {
+      "start": 1039.16,
+      "end": 1047.2,
+      "speaker": "jerod-santo",
+      "text": "He'll keep it under advisement. So Adam, when you do decide to deploy your LLM-based answer, which language model are you going to use?"
+    },
+    {
+      "start": 1051.92,
+      "end": 1058.84,
+      "speaker": "adam-stacoviak",
+      "text": "Great question. I don't know, honestly. I don't know. Okay."
+    },
+    {
+      "start": 1058.84,
+      "end": 1062.44,
+      "speaker": "jerod-santo",
+      "text": "I just don't know. There's a Mac app called like chorus"
+    },
+    {
+      "start": 1062.44,
+      "end": 1066.72,
+      "speaker": "adam-stacoviak",
+      "text": "that like makes it easy for you to just fire the same question to a bunch of them at once."
+    },
+    {
+      "start": 1066.72,
+      "end": 1067.76,
+      "speaker": "jerod-santo",
+      "text": "Oh, really?"
+    },
+    {
+      "start": 1067.76,
+      "end": 1076.68,
+      "speaker": "adam-stacoviak",
+      "text": "Which when I have things where it's like, I don't actually care which model, I just want to try several at once. That's often kind of helpful."
+    },
+    {
+      "start": 1077.8,
+      "end": 1090.3,
+      "speaker": "jerod-santo",
+      "text": "That's pretty much what I do manually. I just like copy paste it into like three different prompts. So that was really something I might give a shot, you know, for really like to go scorched earth and just, you know, maximize my compute on this particular."
+    },
+    {
+      "start": 1090.3,
+      "end": 1096.67,
+      "speaker": "adam-stacoviak",
+      "text": "Literally scorched the earth. How could I maximize my carbon footprint?"
+    },
+    {
+      "start": 1096.67,
+      "end": 1106.91,
+      "speaker": "jerod-santo",
+      "text": "I was looking away. Was that you, David? Was that your voice I heard saying that? Who was that that said this tool? Was it David? Chorus? That was David, yeah. It's called chorus. Like you're a chorus of people."
+    },
+    {
+      "start": 1106.91,
+      "end": 1108.95,
+      "speaker": "adam-stacoviak",
+      "text": "Is that right? Like a collection of people singing."
+    },
+    {
+      "start": 1109.27,
+      "end": 1110.71,
+      "speaker": "jerod-santo",
+      "text": "Is that chorus.ai?"
+    },
+    {
+      "start": 1110.71,
+      "end": 1114.88,
+      "speaker": "adam-stacoviak",
+      "text": "I do not remember the domain. I think if you just,"
+    },
+    {
+      "start": 1114.88,
+      "end": 1117.28,
+      "speaker": "jerod-santo",
+      "text": "if you just ask all your LMS one point to the right."
+    },
+    {
+      "start": 1117.28,
+      "end": 1124.28,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I found a couple of courses that are not that. I'm trying to find that. Chorus.sh."
+    },
+    {
+      "start": 1124.28,
+      "end": 1127.52,
+      "speaker": "jerod-santo",
+      "text": "Oh, they don't want you talking about it. Chorus.sh."
+    },
+    {
+      "start": 1127.52,
+      "end": 1129.04,
+      "speaker": "adam-stacoviak",
+      "text": "That's not what that means, Jared."
+    },
+    {
+      "start": 1129.04,
+      "end": 1131.36,
+      "speaker": "jerod-santo",
+      "text": "Chorus.sh, what does it mean? Shell?"
+    },
+    {
+      "start": 1131.36,
+      "end": 1134.4,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it's like a .sh file script."
+    },
+    {
+      "start": 1134.4,
+      "end": 1137,
+      "speaker": "jerod-santo",
+      "text": "That's why they made the TLD was for shell scripts."
+    },
+    {
+      "start": 1137.96,
+      "end": 1141.58,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know, but that's how they're, I don't think it's being used."
+    },
+    {
+      "start": 1141.58,
+      "end": 1142.9,
+      "speaker": "jerod-santo",
+      "text": "Well, sure."
+    },
+    {
+      "start": 1142.9,
+      "end": 1144.98,
+      "speaker": "adam-stacoviak",
+      "text": "It's probably for Shazakistan."
+    },
+    {
+      "start": 1144.98,
+      "end": 1157.09,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Shazakistan. Or it could be Shazam, it could be Shaq's favorite movie about himself. He can afford TLD, I think, anybody can."
+    },
+    {
+      "start": 1157.09,
+      "end": 1175.62,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, whoever did this website for Chorus is just, I like it, did a great job. Adam, if you're looking for advice on LLMs, you should pick up a vintage. Go for like GPT 2.5. It's a nice vintage. It's kind of good. Good taste."
+    },
+    {
+      "start": 1175.62,
+      "end": 1176.82,
+      "speaker": "jerod-santo",
+      "text": "What year is that?"
+    },
+    {
+      "start": 1176.82,
+      "end": 1180.62,
+      "speaker": "adam-stacoviak",
+      "text": "It's like a 2021 vintage."
+    },
+    {
+      "start": 1183.62,
+      "end": 1197.88,
+      "speaker": "jerod-santo",
+      "text": "You might be correct. All right, I have five definitions for heteroscedasticity, or however you say it."
+    },
+    {
+      "start": 1197.88,
+      "end": 1199.44,
+      "speaker": "adam-stacoviak",
+      "text": "You're getting better at it though."
+    },
+    {
+      "start": 1199.44,
+      "end": 1202.12,
+      "speaker": "jerod-santo",
+      "text": "The practice is paying off. I feel like it."
+    },
+    {
+      "start": 1202.12,
+      "end": 1202.96,
+      "speaker": "adam-stacoviak",
+      "text": "Good."
+    },
+    {
+      "start": 1202.96,
+      "end": 1212.96,
+      "speaker": "jerod-santo",
+      "text": "And by five, I mean five, not six, because one of us got it 100% correct. And that person is Mr. David Aja. Three points to David."
+    },
+    {
+      "start": 1212.96,
+      "end": 1216.36,
+      "speaker": "adam-stacoviak",
+      "text": "I have to try really hard not to help you with the pronunciation."
+    },
+    {
+      "start": 1216.36,
+      "end": 1221.74,
+      "speaker": "jerod-santo",
+      "text": "Oh, and he knows how to pronounce it too. How am I doing?"
+    },
+    {
+      "start": 1221.74,
+      "end": 1223.58,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you got there."
+    },
+    {
+      "start": 1223.58,
+      "end": 1288.74,
+      "speaker": "jerod-santo",
+      "text": "Eventually, I have this pronunciation guide. And as I try to read the actual like syllables, I can't, it's just a lot of syllables. I couldn't quite put them together. When you just look at the words, it's not so bad. Anyways, neither here nor there. Up first this round. Well, let me read them. Gosh, you guys just guessed the numbers. Might as well. Okay, five definitions for heteroscedasticity. Shoot, I'm back. A material that has differing shear resistance across its various dimensions. That's number one. Number two, when molecules have multiple stable configurations. Number three, the process of fine tuning multidimensional data structures into a single data store. Number four, a collection of disjoint operators which make up the order one manifold. And number five, a statistical property in which some subpopulations in a collection of random variables have different variabilities from others. There you go, five definitions, heteroscedasticity. Let's start with Thomas."
+    },
+    {
+      "start": 1288.74,
+      "end": 1293.78,
+      "speaker": "adam-stacoviak",
+      "text": "So the first one we have is this material with different shear."
+    },
+    {
+      "start": 1293.78,
+      "end": 1297.18,
+      "speaker": "jerod-santo",
+      "text": "Yes, shear resistance across its various dimensions."
+    },
+    {
+      "start": 1297.18,
+      "end": 1310.1,
+      "speaker": "adam-stacoviak",
+      "text": "Across various dimensions, okay. So it makes sense that all of these do play into the prefix of the word, the hetero, right? Of mixing up different things together, right?"
+    },
+    {
+      "start": 1310.1,
+      "end": 1310.94,
+      "speaker": "jerod-santo",
+      "text": "Right, right."
+    },
+    {
+      "start": 1310.94,
+      "end": 1316.06,
+      "speaker": "adam-stacoviak",
+      "text": "Number two, you have molecules with different, what were the?"
+    },
+    {
+      "start": 1316.06,
+      "end": 1318.7,
+      "speaker": "jerod-santo",
+      "text": "Multiple stable configurations, yeah."
+    },
+    {
+      "start": 1318.7,
+      "end": 1332.76,
+      "speaker": "adam-stacoviak",
+      "text": "Multiple stable configurations, okay. Okay, that makes sense. For three, fine tuning for multidimensional LLMs or AI models."
+    },
+    {
+      "start": 1332.76,
+      "end": 1334.56,
+      "speaker": "jerod-santo",
+      "text": "Multidimensional data structures."
+    },
+    {
+      "start": 1334.56,
+      "end": 1337.24,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, data structures. I'm just throwing-"
+    },
+    {
+      "start": 1337.24,
+      "end": 1342.64,
+      "speaker": "jerod-santo",
+      "text": "Process of fine tuning multidimensional data structure into a single data store."
+    },
+    {
+      "start": 1342.64,
+      "end": 1354.24,
+      "speaker": "adam-stacoviak",
+      "text": "You see, but I feel like this C-I-T-Y at the end is not necessarily like a process. So it's describing a state of something."
+    },
+    {
+      "start": 1354.24,
+      "end": 1360.12,
+      "speaker": "jerod-santo",
+      "text": "It's a city. Yeah, but it's a city, not a state. I beat you to that one, Taylor."
+    },
+    {
+      "start": 1360.12,
+      "end": 1365.12,
+      "speaker": "adam-stacoviak",
+      "text": "And then what was the collection, the operators?"
+    },
+    {
+      "start": 1365.42,
+      "end": 1369.76,
+      "speaker": "jerod-santo",
+      "text": "Yeah, a collection of disjoint operators, which make up the order one manifold."
+    },
+    {
+      "start": 1369.76,
+      "end": 1371.52,
+      "speaker": "adam-stacoviak",
+      "text": "What is the order one manifold?"
+    },
+    {
+      "start": 1372.36,
+      "end": 1377.08,
+      "speaker": "jerod-santo",
+      "text": "That's the question. Order dash one, order minus one? I don't know, order one?"
+    },
+    {
+      "start": 1377.8,
+      "end": 1402.48,
+      "speaker": "adam-stacoviak",
+      "text": "I just haven't heard of that before. It's interesting. Could be that one. I do think it's the statistical variabilities within multiple data sets that just kind of feels right to me. Hetero, different mixing together and then the city describing the state. So I'll go with number five."
+    },
+    {
+      "start": 1402.48,
+      "end": 1405.86,
+      "speaker": "jerod-santo",
+      "text": "All right, Thomas gets five, we go to Matthew."
+    },
+    {
+      "start": 1405.86,
+      "end": 1417.82,
+      "speaker": "adam-stacoviak",
+      "text": "I'm also leaning five. I think that makes sense. I don't think the stable state one makes sense. I don't think the order one makes sense. What else was there? Sheer resistance was one."
+    },
+    {
+      "start": 1417.82,
+      "end": 1418.82,
+      "speaker": "jerod-santo",
+      "text": "Fine tuning."
+    },
+    {
+      "start": 1418.82,
+      "end": 1423.02,
+      "speaker": "adam-stacoviak",
+      "text": "Fine tuning of some data structure. And then what was that one I'm missing?"
+    },
+    {
+      "start": 1423.02,
+      "end": 1426.5,
+      "speaker": "jerod-santo",
+      "text": "It was a material having different shear resistances."
+    },
+    {
+      "start": 1426.5,
+      "end": 1431.08,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, so I have shear data structure, order manifold."
+    },
+    {
+      "start": 1431.08,
+      "end": 1432.78,
+      "speaker": "jerod-santo",
+      "text": "And stable configurations."
+    },
+    {
+      "start": 1432.78,
+      "end": 1433.78,
+      "speaker": "adam-stacoviak",
+      "text": "That's it?"
+    },
+    {
+      "start": 1433.78,
+      "end": 1435.5,
+      "speaker": "jerod-santo",
+      "text": "And statistical property."
+    },
+    {
+      "start": 1436.02,
+      "end": 1448.18,
+      "speaker": "adam-stacoviak",
+      "text": "Damn, I think I'm with you on this one, Thomas. Another pile on. I'm pile on. It worked out last time. Please pile me on. Let's stack up around the normal distribution."
+    },
+    {
+      "start": 1448.18,
+      "end": 1457.09,
+      "speaker": "jerod-santo",
+      "text": "This is feeling like a repeat. Okay, David's out. Adam. I'm gonna pile on. I don't know what I'm piling on to,"
+    },
+    {
+      "start": 1457.09,
+      "end": 1461.93,
+      "speaker": "adam-stacoviak",
+      "text": "but whatever they chose, I'm choosing. That's it. Blind faith."
+    },
+    {
+      "start": 1461.93,
+      "end": 1465.73,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Adam gets it. He's just following along like a Lemmy."
+    },
+    {
+      "start": 1465.97,
+      "end": 1466.81,
+      "speaker": "adam-stacoviak",
+      "text": "I've learned."
+    },
+    {
+      "start": 1466.81,
+      "end": 1468.47,
+      "speaker": "jerod-santo",
+      "text": "Okay. Yeah, well."
+    },
+    {
+      "start": 1468.47,
+      "end": 1471.37,
+      "speaker": "adam-stacoviak",
+      "text": "Follow or lead. And if you can't lead, you follow. I'm following."
+    },
+    {
+      "start": 1471.37,
+      "end": 1474.69,
+      "speaker": "jerod-santo",
+      "text": "Okay. All right, fair. Taylor, are you leading? Are you following?"
+    },
+    {
+      "start": 1474.69,
+      "end": 1495.4,
+      "speaker": "adam-stacoviak",
+      "text": "What are you doing? I'm leading. It's a warm pile, Taylor. My grandma always used to say, Taylor, homoscedasticity is a shear resistance in a single direction. So it must be the opposite, you know? Like this is a family secret. And I just realized that this must be the truth."
+    },
+    {
+      "start": 1495.84,
+      "end": 1504.22,
+      "speaker": "jerod-santo",
+      "text": "Taylor, this was your grandmother who worked in the bomb factory. And she used to tell you stories about her time in the bomb factory to put you to sleep."
+    },
+    {
+      "start": 1504.22,
+      "end": 1514.6,
+      "speaker": "adam-stacoviak",
+      "text": "And you can ask. Exactly, that same grandma. Yeah, that same grandma. You'd snore just heteroscedasticity. When he goes to sleep."
+    },
+    {
+      "start": 1515.8,
+      "end": 1538.24,
+      "speaker": "jerod-santo",
+      "text": "You almost can snore that. That's what you always say. All right, so you're going with the material, huh? The differing shear resistances because your grandma told you so. Okay, just making sure. All right, so we find ourselves in similar grounds as last round, except for David has the correct answer. And so David, why don't you tell everybody what the right answer is?"
+    },
+    {
+      "start": 1538.24,
+      "end": 1556.02,
+      "speaker": "adam-stacoviak",
+      "text": "I drew a little diagram because I used to love trying to draw this when I wanted to be an economics professor. This is a homoscedastic distribution, right? Where the normals are basically kind of the same. And then this is a heteroscedastic distribution"
+    },
+    {
+      "start": 1556.02,
+      "end": 1559.86,
+      "speaker": "jerod-santo",
+      "text": "where the variance for one subgroup is smaller than the other."
+    },
+    {
+      "start": 1559.86,
+      "end": 1562.98,
+      "speaker": "adam-stacoviak",
+      "text": "But they're both in danger from that T-Rex."
+    },
+    {
+      "start": 1562.98,
+      "end": 1570.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, the T-Rex is definitely after both distributions. So either way, you're going down. You're getting eaten no matter what, but that's-"
+    },
+    {
+      "start": 1570.46,
+      "end": 1578.14,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Was that a drawing of a metal pipe? Because it's materials, right? Was my grandma lying to me? Your grandmother-"
+    },
+    {
+      "start": 1578.14,
+      "end": 1613.78,
+      "speaker": "jerod-santo",
+      "text": "I can't see the different shears. I can't see the, come on. That's not a really good drawing of the sheer difference, sheer resistance. All right, so Taylor's grandma, I'll let him write into Matthew's lap. Matthew wrote that one. So one point for Matthew. And the three of you all got it correct. The statistical property in which some subpopulations in a collection of random variables have different variabilities from the others. Of course, hetero, everybody knows what that means. The last part, the schidasticity, comes from the ancient Greek word schidaniemi, which means to scatter. So there you have it."
+    },
+    {
+      "start": 1613.78,
+      "end": 1615.9,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it also comes from skedaddle."
+    },
+    {
+      "start": 1615.9,
+      "end": 1618.22,
+      "speaker": "jerod-santo",
+      "text": "Yeah, which is when you got to run, like everyone scatter."
+    },
+    {
+      "start": 1618.22,
+      "end": 1621.98,
+      "speaker": "adam-stacoviak",
+      "text": "That's all right. They actually, that's how they got there. They mispronounced schidasticity."
+    },
+    {
+      "start": 1621.98,
+      "end": 1625.5,
+      "speaker": "jerod-santo",
+      "text": "That's right. And if you want everybody to run in different directions, you say let's heteroscedaddle."
+    },
+    {
+      "start": 1625.5,
+      "end": 1630.42,
+      "speaker": "adam-stacoviak",
+      "text": "That's right, all day."
+    },
+    {
+      "start": 1630.42,
+      "end": 1675.64,
+      "speaker": "jerod-santo",
+      "text": "Like cockroaches, heteroscedaddle. Okay, so three points for David. Matthew gets two plus one, he gets three. Thomas gets two, Adam gets two. Taylor locked out of this round. After two rounds, we have David in first with six, Matthew with five, Thomas with four, Taylor with three, Adam on the board with two, and I'm still sitting at zero. However, I'm very excited for round three because the word for round three is a chakatura. Okay, friends, augment code. I love it. This is one of my daily driver AI agents to use. Super awesome, CLI, VS code, JetBrains,"
+    },
+    {
+      "start": 1675.64,
+      "end": 1758.46,
+      "speaker": "adam-stacoviak",
+      "text": "anywhere you wanna be. Augment code can bring better context, better agent, and of course, better code. To me, augment code is by far one of the most powerful AI software development platforms to use out there. It's backed by the industry-leading context engines. The way they do things is so cool. You get your agent, you get your chat, you get your next edit, you get completions. It's in Slack, it's in your CLI. They literally have everything you want to drive the agent, to drive better context, to drive better code for your next big thing, for your big thing you're already working on, or whatever you have in your brain you wanna dream up. So here's a prescription. This is what I want you to do. I want you to go to augmentcode.com. Right in the center, you'll see install now, and just go right to the command line. There is a terminal CLI icon there. Click that, and it's gonna take you to this page. It says install via NPM. Copy that, pop into your terminal, install augment code. It's called Augie. Instantiate it wherever you want to. Type in A-U-G-G-I-E, and let loose. You now have all the power of augment in your terminal. Deep context, custom slash commands, MCP servers, multi-modals, prompt enhancers, user and repo rules, task lists, native tools, everything you want. Right at your fingertips. Again, augmentcode.com's one of my favorites. You should check it out."
+    },
+    {
+      "start": 1758.46,
+      "end": 1794.98,
+      "speaker": "jerod-santo",
+      "text": "Achakatura. Ooh, I like that one. Yes, you heard that right. Achakatura. A-C-C-I-A-C-C-A-T-U-R-A. Please submit your definitions for Achakatura now."
+    },
+    {
+      "start": 1795.34,
+      "end": 1797.46,
+      "speaker": "adam-stacoviak",
+      "text": "Do we know if you're pronouncing that correctly?"
+    },
+    {
+      "start": 1797.46,
+      "end": 1805.42,
+      "speaker": "jerod-santo",
+      "text": "That's the way the person on YouTube said it when I looked up how to pronounce that word. Now, they could have been wrong, because I did not go for multiple sources."
+    },
+    {
+      "start": 1805.42,
+      "end": 1819.5,
+      "speaker": "adam-stacoviak",
+      "text": "This is like a play on Acai. That's what this is. This is like Acai. This is just a little, yeah, just a few more letters on that one, right? Just a few. The double CCs, that's a very rare thing."
+    },
+    {
+      "start": 1819.5,
+      "end": 1826.54,
+      "speaker": "jerod-santo",
+      "text": "Isn't it? Very rare. And what's weird is the first CCs are the ch, and the second CCs are the k, Achaka."
+    },
+    {
+      "start": 1826.54,
+      "end": 1828.14,
+      "speaker": "adam-stacoviak",
+      "text": "But there's no ss."
+    },
+    {
+      "start": 1828.14,
+      "end": 1836.9,
+      "speaker": "jerod-santo",
+      "text": "It sounds so weird that now I'm gonna go, you guys keep typing, I'm gonna go double check YouTube. Yeah, check it. Maybe get a second source. Maybe I'm saying it wrong. No, yeah, I'm saying it right."
+    },
+    {
+      "start": 1836.9,
+      "end": 1838.58,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, I'll stop pressuring you."
+    },
+    {
+      "start": 1838.58,
+      "end": 1842.68,
+      "speaker": "jerod-santo",
+      "text": "Thank you. Yeah. This is questioning a lot of things in my life, so."
+    },
+    {
+      "start": 1842.68,
+      "end": 1844.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 1844.16,
+      "end": 1846.44,
+      "speaker": "jerod-santo",
+      "text": "I'm happily, I'm back on firm ground here."
+    },
+    {
+      "start": 1846.44,
+      "end": 1850.28,
+      "speaker": "adam-stacoviak",
+      "text": "Country of origin. Use it in a sentence."
+    },
+    {
+      "start": 1850.28,
+      "end": 1860.7,
+      "speaker": "jerod-santo",
+      "text": "Yes. The sentence is, the word for round three is Achaka. Yeah. It's not my first pound to find, Thomas."
+    },
+    {
+      "start": 1860.7,
+      "end": 1877.22,
+      "speaker": "adam-stacoviak",
+      "text": "I'd like to buy a vowel hint thing, whatever, and get Adam's L-M. There's a lot of vowels in this word. I would like L-M from Adam to be used. How do we do that? Here, I have dollar. How do I pay for that? I have dollar? I have dollar?"
+    },
+    {
+      "start": 1877.22,
+      "end": 1878.7,
+      "speaker": "jerod-santo",
+      "text": "I think bribes might work."
+    },
+    {
+      "start": 1878.7,
+      "end": 1881.06,
+      "speaker": "adam-stacoviak",
+      "text": "Only one? Only one?"
+    },
+    {
+      "start": 1881.06,
+      "end": 1885.36,
+      "speaker": "jerod-santo",
+      "text": "How many tokens can I get with this rock?"
+    },
+    {
+      "start": 1885.36,
+      "end": 1888.12,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. It might cost a bit more than that."
+    },
+    {
+      "start": 1888.12,
+      "end": 1890.88,
+      "speaker": "jerod-santo",
+      "text": "Taylor, did your grandma tell you anything about this word?"
+    },
+    {
+      "start": 1890.88,
+      "end": 1894.4,
+      "speaker": "adam-stacoviak",
+      "text": "Actually, yes. I'm very excited right now."
+    },
+    {
+      "start": 1894.4,
+      "end": 1901.98,
+      "speaker": "jerod-santo",
+      "text": "I'm very excited. Well, she led you astray with the previous word, which I will not pronounce again."
+    },
+    {
+      "start": 1901.98,
+      "end": 1904.24,
+      "speaker": "adam-stacoviak",
+      "text": "She's not perfect, and that's okay."
+    },
+    {
+      "start": 1904.24,
+      "end": 1917.11,
+      "speaker": "jerod-santo",
+      "text": "To her credit, she was not talking about hetero. She was talking about homo, so it's an entirely different thing. Don't let me distract you guys. I know you're all working hard. Taylor's done, though."
+    },
+    {
+      "start": 1917.11,
+      "end": 1923.45,
+      "speaker": "adam-stacoviak",
+      "text": "It's really easy when you cheat and just look up the definition, you know? It makes things go a lot faster."
+    },
+    {
+      "start": 1923.45,
+      "end": 1925.37,
+      "speaker": "jerod-santo",
+      "text": "That's what my grandma always said."
+    },
+    {
+      "start": 1925.37,
+      "end": 1928.25,
+      "speaker": "adam-stacoviak",
+      "text": "Are there any words with the mythical triple C?"
+    },
+    {
+      "start": 1928.25,
+      "end": 1929.77,
+      "speaker": "jerod-santo",
+      "text": "Like, in existence?"
+    },
+    {
+      "start": 1931.76,
+      "end": 1932.6,
+      "speaker": "adam-stacoviak",
+      "text": "Three Cs?"
+    },
+    {
+      "start": 1936.76,
+      "end": 1940.32,
+      "speaker": "jerod-santo",
+      "text": "That's a great question. I don't know the answer to that."
+    },
+    {
+      "start": 1940.32,
+      "end": 1941.88,
+      "speaker": "adam-stacoviak",
+      "text": "You find anything?"
+    },
+    {
+      "start": 1941.88,
+      "end": 1942.72,
+      "speaker": "jerod-santo",
+      "text": "Not yet."
+    },
+    {
+      "start": 1942.72,
+      "end": 1944.64,
+      "speaker": "adam-stacoviak",
+      "text": "No, I don't think it exists."
+    },
+    {
+      "start": 1944.64,
+      "end": 1946.32,
+      "speaker": "jerod-santo",
+      "text": "Initial searches are not good."
+    },
+    {
+      "start": 1946.32,
+      "end": 1947.69,
+      "speaker": "adam-stacoviak",
+      "text": "No."
+    },
+    {
+      "start": 1947.69,
+      "end": 1949.77,
+      "speaker": "jerod-santo",
+      "text": "Now I'm going to my second round of searching."
+    },
+    {
+      "start": 1949.77,
+      "end": 1953.98,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm. CC is a cubic centimeter. That's from my medical school."
+    },
+    {
+      "start": 1953.98,
+      "end": 1959.82,
+      "speaker": "jerod-santo",
+      "text": "Did you learn that in Canada? 20 CCs of this stat. Oh, yeah."
+    },
+    {
+      "start": 1959.82,
+      "end": 1962.86,
+      "speaker": "adam-stacoviak",
+      "text": "But cubic centimeter's the same as a milliliter."
+    },
+    {
+      "start": 1962.86,
+      "end": 1964.38,
+      "speaker": "jerod-santo",
+      "text": "What is that in American?"
+    },
+    {
+      "start": 1964.38,
+      "end": 1965.74,
+      "speaker": "adam-stacoviak",
+      "text": "An American?"
+    },
+    {
+      "start": 1965.74,
+      "end": 1976.26,
+      "speaker": "jerod-santo",
+      "text": "I was at a distillery once, and there's the equivalence between a gram of water"
+    },
+    {
+      "start": 1976.26,
+      "end": 1989.35,
+      "speaker": "adam-stacoviak",
+      "text": "and a cubic gram and a milliliter are the same amount of water. Yeah, that's, yeah. And then they said they'd measured their water in pounds, and I was just like, I don't trust whatever's going on back there."
+    },
+    {
+      "start": 1990.68,
+      "end": 1992.36,
+      "speaker": "jerod-santo",
+      "text": "That British pounds, or?"
+    },
+    {
+      "start": 1992.36,
+      "end": 1996.44,
+      "speaker": "adam-stacoviak",
+      "text": "I think, they are imperial pounds. Yes."
+    },
+    {
+      "start": 1996.44,
+      "end": 2003.76,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm. It's looking like there aren't any CCCs. You mean the Cs have to be next to each other, right?"
+    },
+    {
+      "start": 2003.76,
+      "end": 2011.47,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm. Yeah. Yeah. You're talking about a word that has CC next to each other three times."
+    },
+    {
+      "start": 2011.47,
+      "end": 2025.18,
+      "speaker": "jerod-santo",
+      "text": "Oh, is that what you want? I thought you wanted three Cs in a row. No, no, I wanted three Cs in a row. Oh, you did, so I'm giving you what you want, and you can't have any. Thomas was trying to give you something different, which is two Cs three times."
+    },
+    {
+      "start": 2025.18,
+      "end": 2033.04,
+      "speaker": "adam-stacoviak",
+      "text": "Is there any word in the English language that has three of the same letter next to each other? Do you have any letter?"
+    },
+    {
+      "start": 2033.04,
+      "end": 2035.08,
+      "speaker": "jerod-santo",
+      "text": "I think like Giggity, probably."
+    },
+    {
+      "start": 2035.08,
+      "end": 2047.05,
+      "speaker": "adam-stacoviak",
+      "text": "Ooh, that's a good one. When we were expecting our child, I wanted to name a, if we had a boy, I wanted to name him Aaron with three As. He'd be first in everything."
+    },
+    {
+      "start": 2047.05,
+      "end": 2051.82,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm. Mm-hmm."
+    },
+    {
+      "start": 2051.82,
+      "end": 2053.42,
+      "speaker": "adam-stacoviak",
+      "text": "Elon Musk kid challenges that."
+    },
+    {
+      "start": 2053.42,
+      "end": 2057.66,
+      "speaker": "jerod-santo",
+      "text": "Reminds me of the A-ron. The A-A-ron, yeah, that reminds me of that sketch."
+    },
+    {
+      "start": 2057.66,
+      "end": 2066.86,
+      "speaker": "adam-stacoviak",
+      "text": "That's a good sketch. Can you start their name with a null terminator, like just terminate any string."
+    },
+    {
+      "start": 2066.86,
+      "end": 2068.14,
+      "speaker": "jerod-santo",
+      "text": "Or a semicolon."
+    },
+    {
+      "start": 2068.14,
+      "end": 2076.87,
+      "speaker": "adam-stacoviak",
+      "text": "No, the, what's the Greek question mark? Oh, awful. That looks like a semicolon. Yeah. Yeah."
+    },
+    {
+      "start": 2076.87,
+      "end": 2080.55,
+      "speaker": "jerod-santo",
+      "text": "That's called an awful. No, it's called the Akashiriya, or whatever it is."
+    },
+    {
+      "start": 2080.55,
+      "end": 2081.75,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's the Greek question."
+    },
+    {
+      "start": 2081.75,
+      "end": 2082.87,
+      "speaker": "jerod-santo",
+      "text": "That's the Akashatura."
+    },
+    {
+      "start": 2082.87,
+      "end": 2085.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly. Acacia cat, you're a."
+    },
+    {
+      "start": 2085.99,
+      "end": 2087.71,
+      "speaker": "jerod-santo",
+      "text": "Acacia, that's a bush."
+    },
+    {
+      "start": 2087.71,
+      "end": 2101.87,
+      "speaker": "adam-stacoviak",
+      "text": "Acacia cat, you're a."
+    },
+    {
+      "start": 2101.87,
+      "end": 2108.83,
+      "speaker": "jerod-santo",
+      "text": "All right, we have everybody's except, who are we missing here? Oh, we got them all. We got them all. It was Adams. He's in."
+    },
+    {
+      "start": 2108.83,
+      "end": 2114.55,
+      "speaker": "adam-stacoviak",
+      "text": "I finally, my LLM finally got back to me. It's like, come on, man. Like you're taking way too long. Oh my God. Oh God."
+    },
+    {
+      "start": 2114.55,
+      "end": 2115.71,
+      "speaker": "jerod-santo",
+      "text": "You just flashed or something, dude."
+    },
+    {
+      "start": 2115.71,
+      "end": 2116.71,
+      "speaker": "adam-stacoviak",
+      "text": "What are you doing?"
+    },
+    {
+      "start": 2116.71,
+      "end": 2120.07,
+      "speaker": "jerod-santo",
+      "text": "Hey, nobody knows what this word means. That's a relief."
+    },
+    {
+      "start": 2120.07,
+      "end": 2129.34,
+      "speaker": "adam-stacoviak",
+      "text": "I went to this website called tooadvanced.com and it was just, they have a brand new LLM there. It was just too advanced."
+    },
+    {
+      "start": 2129.34,
+      "end": 2152.62,
+      "speaker": "jerod-santo",
+      "text": "I appreciated how ChatGBT5 tried to answer the three C's in a row because it would like come up with words with two C's and then it would throw a third C in there and be like, nope, that doesn't work. No, no. Like stucco. It's like stucco has two C's. Let me add a third C. And it's like, nope, that's not the word stucco. Stucco, stucco. Oh, I was enjoying that back here."
+    },
+    {
+      "start": 2152.62,
+      "end": 2155.98,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Old smartest five-year-old, really. Yeah."
+    },
+    {
+      "start": 2155.98,
+      "end": 2204.73,
+      "speaker": "jerod-santo",
+      "text": "That's why it's GPD5 is for five years old. Okay. Six definitions of a chakatura. Number one, a brief grace note played before a principal note, then immediately released. Number two, the order of operations for actions that must first proceed other actions before being executed. Number three, a partial eclipse of a planet formed by multiple moons. Number four, a fungal infection affecting the forearms. Number five, a genus of fungi native to South American rainforests. And number six, when a material has a single plane of sheer resistance. I tried. I tried really hard."
+    },
+    {
+      "start": 2204.73,
+      "end": 2205.57,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 2208.56,
+      "end": 2210.66,
+      "speaker": "jerod-santo",
+      "text": "Matthew, you are up first this round."
+    },
+    {
+      "start": 2210.66,
+      "end": 2215.96,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Okay. So a single plane of sheer resistance."
+    },
+    {
+      "start": 2215.96,
+      "end": 2216.8,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 2216.8,
+      "end": 2217.92,
+      "speaker": "adam-stacoviak",
+      "text": "Fungal arm."
+    },
+    {
+      "start": 2217.92,
+      "end": 2220.18,
+      "speaker": "jerod-santo",
+      "text": "Fungal infection affecting the forearms."
+    },
+    {
+      "start": 2220.18,
+      "end": 2221.68,
+      "speaker": "adam-stacoviak",
+      "text": "Something else about a fungus?"
+    },
+    {
+      "start": 2221.68,
+      "end": 2224.96,
+      "speaker": "jerod-santo",
+      "text": "A genus of fungi native to South American rainforests."
+    },
+    {
+      "start": 2224.96,
+      "end": 2225.8,
+      "speaker": "adam-stacoviak",
+      "text": "Aha."
+    },
+    {
+      "start": 2225.8,
+      "end": 2227,
+      "speaker": "jerod-santo",
+      "text": "A partial eclipse."
+    },
+    {
+      "start": 2227,
+      "end": 2230.52,
+      "speaker": "adam-stacoviak",
+      "text": "Partial eclipse, pre-note, and pre-order of operations sort of thing."
+    },
+    {
+      "start": 2230.52,
+      "end": 2231.36,
+      "speaker": "jerod-santo",
+      "text": "Order of operations, yes."
+    },
+    {
+      "start": 2231.36,
+      "end": 2241.8,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. I am in between, I'm honestly between two here. Can you repeat the definitions for the pre-note one and for the arm fungus?"
+    },
+    {
+      "start": 2241.8,
+      "end": 2258.24,
+      "speaker": "jerod-santo",
+      "text": "Yeah, a brief grace note played before a principal note, then immediately released was the musical one. And then the fungus one was a fungal infection affecting the forearms. Forearms, one word, forearm. Not forearm, like you have four of them."
+    },
+    {
+      "start": 2258.24,
+      "end": 2260.06,
+      "speaker": "adam-stacoviak",
+      "text": "What if you have two arms? Yeah."
+    },
+    {
+      "start": 2260.06,
+      "end": 2264.94,
+      "speaker": "jerod-santo",
+      "text": "You don't have to worry about the other one. That's a chukatara. No, I can't even come up with anything."
+    },
+    {
+      "start": 2264.94,
+      "end": 2270.7,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think what's throwing me off about the fungus one is that it's specific to the forearm."
+    },
+    {
+      "start": 2270.7,
+      "end": 2271.78,
+      "speaker": "unknown",
+      "text": "Mm."
+    },
+    {
+      "start": 2271.78,
+      "end": 2275.45,
+      "speaker": "jerod-santo",
+      "text": "That's what's throwing you off about it?"
+    },
+    {
+      "start": 2275.45,
+      "end": 2283.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's like, why would that classify different? You know what I mean? Like, what if it was like on my bicep or something? Why would that be different?"
+    },
+    {
+      "start": 2283.89,
+      "end": 2286.41,
+      "speaker": "jerod-santo",
+      "text": "Are there fungi that only affect the forearms?"
+    },
+    {
+      "start": 2286.93,
+      "end": 2287.77,
+      "speaker": "adam-stacoviak",
+      "text": "Different fibers, man."
+    },
+    {
+      "start": 2287.77,
+      "end": 2288.59,
+      "speaker": "jerod-santo",
+      "text": "That's right, man."
+    },
+    {
+      "start": 2288.59,
+      "end": 2289.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 2289.43,
+      "end": 2291.33,
+      "speaker": "jerod-santo",
+      "text": "It's different parts of the arm. Get it right."
+    },
+    {
+      "start": 2291.33,
+      "end": 2293.37,
+      "speaker": "adam-stacoviak",
+      "text": "How much you sweat, different parts of your body, yeah."
+    },
+    {
+      "start": 2293.37,
+      "end": 2298.13,
+      "speaker": "jerod-santo",
+      "text": "I was like, when you do a lift and you're like, this is only working my bicep, and it's like, oh, you want to do it. That's on my Torah."
+    },
+    {
+      "start": 2299.29,
+      "end": 2306.65,
+      "speaker": "adam-stacoviak",
+      "text": "I think I like the musical note one, personally, so I think I'm gonna lock in the musical note."
+    },
+    {
+      "start": 2306.65,
+      "end": 2311.6,
+      "speaker": "jerod-santo",
+      "text": "All right, Matthew is on the music note. We go to David."
+    },
+    {
+      "start": 2311.6,
+      "end": 2313.2,
+      "speaker": "adam-stacoviak",
+      "text": "What was the other fungus?"
+    },
+    {
+      "start": 2313.2,
+      "end": 2322.93,
+      "speaker": "jerod-santo",
+      "text": "Yes, there was the fungal infection, which we've talked about extensively. And then there's the, a genus of fungi native to South American rainforests."
+    },
+    {
+      "start": 2322.93,
+      "end": 2325.48,
+      "speaker": "adam-stacoviak",
+      "text": "And one of these is the correct answer."
+    },
+    {
+      "start": 2325.48,
+      "end": 2334.66,
+      "speaker": "jerod-santo",
+      "text": "No. That's, that's right. Unless Jared is playing, like. Unless he's just playing a joke around us. This entire round, just a big troll. Like, surprise. It's not a real word."
+    },
+    {
+      "start": 2334.66,
+      "end": 2342.92,
+      "speaker": "adam-stacoviak",
+      "text": "So we got two funguses. Fake word. Sorry, I'm gonna do it. Can I have the final three one more time?"
+    },
+    {
+      "start": 2342.92,
+      "end": 2354.72,
+      "speaker": "jerod-santo",
+      "text": "The final three, wow. This guy's gonna do it. Okay, so number four was the fungal infection affecting the forearms. Number five is the genus of fungi native to South American rainforests. And number six is when a material has a single plane of sheer resistance."
+    },
+    {
+      "start": 2354.72,
+      "end": 2357.4,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, right, right, that, that."
+    },
+    {
+      "start": 2357.4,
+      "end": 2359.06,
+      "speaker": "jerod-santo",
+      "text": "That's the one you forgot about?"
+    },
+    {
+      "start": 2359.06,
+      "end": 2368.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I just like, it just, it flew through me. It was so perceptive. I'm gonna go for the musical term as well."
+    },
+    {
+      "start": 2368.84,
+      "end": 2370.56,
+      "speaker": "jerod-santo",
+      "text": "David's going for music."
+    },
+    {
+      "start": 2370.56,
+      "end": 2386.44,
+      "speaker": "adam-stacoviak",
+      "text": "And he has the, I see a bass in the background. He's a musician, so that's very suspicious that the musician might pick the musical. I mean, I'm not a musician. I just own several instruments that hang behind me."
+    },
+    {
+      "start": 2386.44,
+      "end": 2387.44,
+      "speaker": "jerod-santo",
+      "text": "He likes guitars."
+    },
+    {
+      "start": 2387.44,
+      "end": 2389.92,
+      "speaker": "adam-stacoviak",
+      "text": "As he showcases more instruments."
+    },
+    {
+      "start": 2391.36,
+      "end": 2397.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah, he moves so you can see the rest of his guitars. Yeah. How many forearms do you have?"
+    },
+    {
+      "start": 2397.74,
+      "end": 2400.66,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. I play all of them simultaneously."
+    },
+    {
+      "start": 2401.1,
+      "end": 2409.02,
+      "speaker": "jerod-santo",
+      "text": "Taylor, what are you thinking? You gonna pile on with these guys? Are you gonna go fungal? Are you gonna go somewhere else altogether? Sheer resistance?"
+    },
+    {
+      "start": 2409.02,
+      "end": 2416.14,
+      "speaker": "adam-stacoviak",
+      "text": "No, I don't, my grandma led me astray. I'm not falling prey to the sheer resistance once again."
+    },
+    {
+      "start": 2416.14,
+      "end": 2418.34,
+      "speaker": "jerod-santo",
+      "text": "He's resisting sheer resistance."
+    },
+    {
+      "start": 2419.18,
+      "end": 2430.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, she actually, my grandma told me that a Chucatura is an eclipse, but I'm not trusting her. So I'm gonna go for the grace note and pile on."
+    },
+    {
+      "start": 2431.5,
+      "end": 2436.45,
+      "speaker": "jerod-santo",
+      "text": "All right, he's pile on on the grace note. Oh boy. We go now to Thomas."
+    },
+    {
+      "start": 2436.45,
+      "end": 2459.71,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so grace note has a pile on and the order of operation for actions doesn't have any love. Partial eclipse with multiple moons. That looks like, I'm trying to imagine what that would look like. That would be pretty cool to see, but I don't see how that's a Chucatura. Have you seen Star Wars? Have I seen Star Wars?"
+    },
+    {
+      "start": 2459.71,
+      "end": 2464.51,
+      "speaker": "jerod-santo",
+      "text": "Yes. Yeah, it's like that. That's multiple suns?"
+    },
+    {
+      "start": 2464.51,
+      "end": 2474.35,
+      "speaker": "adam-stacoviak",
+      "text": "Dude, you didn't watch the end credits scene. The end credits is all about multiple moons. Yeah, moon fest."
+    },
+    {
+      "start": 2474.35,
+      "end": 2476.99,
+      "speaker": "jerod-santo",
+      "text": "It's not just multiple moons, it's partial eclipse of multiple moons."
+    },
+    {
+      "start": 2476.99,
+      "end": 2480.11,
+      "speaker": "adam-stacoviak",
+      "text": "It's a partial eclipse of multiple moons."
+    },
+    {
+      "start": 2480.11,
+      "end": 2481.11,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 2481.11,
+      "end": 2491.01,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, a rare occurrence. We have fungal in the forearms, so I could be like ringworm different places. Rumble in the jungle, fungal in the forearms."
+    },
+    {
+      "start": 2491.01,
+      "end": 2493.45,
+      "speaker": "jerod-santo",
+      "text": "Yeah, fungal in the forearm."
+    },
+    {
+      "start": 2493.45,
+      "end": 2503.49,
+      "speaker": "adam-stacoviak",
+      "text": "But there's some fungus feeling thing about a Chucatura and I'm gonna go with number five, the genus of fungi native to South America."
+    },
+    {
+      "start": 2503.49,
+      "end": 2510.04,
+      "speaker": "jerod-santo",
+      "text": "All right, so we have Thomas on the South American rainforest fungi."
+    },
+    {
+      "start": 2510.04,
+      "end": 2516.91,
+      "speaker": "adam-stacoviak",
+      "text": "All alone on my little island. No man is an island. I don't remember the rest of the poem, but I don't know."
+    },
+    {
+      "start": 2516.95,
+      "end": 2517.91,
+      "speaker": "jerod-santo",
+      "text": "It's a poem?"
+    },
+    {
+      "start": 2517.91,
+      "end": 2523.11,
+      "speaker": "adam-stacoviak",
+      "text": "It's a book. No, well, it's a poem and it's a book."
+    },
+    {
+      "start": 2523.11,
+      "end": 2528.39,
+      "speaker": "jerod-santo",
+      "text": "Whoa! It's a book by Thomas. It's a crazy book. This guy's pulling out books, man. That's what they are."
+    },
+    {
+      "start": 2528.39,
+      "end": 2532.91,
+      "speaker": "adam-stacoviak",
+      "text": "Dude, Thomas reads, dude. I read these. He's a book that says no man is an island."
+    },
+    {
+      "start": 2532.91,
+      "end": 2536.99,
+      "speaker": "jerod-santo",
+      "text": "He just book checked you. You should read some Thomas Merton. That would be the plug."
+    },
+    {
+      "start": 2536.99,
+      "end": 2539.03,
+      "speaker": "adam-stacoviak",
+      "text": "That's awesome. I love that."
+    },
+    {
+      "start": 2539.03,
+      "end": 2540.87,
+      "speaker": "jerod-santo",
+      "text": "Adam, what you thinking, man?"
+    },
+    {
+      "start": 2540.87,
+      "end": 2551.55,
+      "speaker": "adam-stacoviak",
+      "text": "Mama always told me if I get a chance to pile on, to pile on, so I'm gonna pile on. We're listening to grandparents and mamas, okay?"
+    },
+    {
+      "start": 2551.55,
+      "end": 2552.83,
+      "speaker": "jerod-santo",
+      "text": "He's just following the crowd here."
+    },
+    {
+      "start": 2552.83,
+      "end": 2555.75,
+      "speaker": "adam-stacoviak",
+      "text": "Mama always said if it's a good pile on, pile on."
+    },
+    {
+      "start": 2555.75,
+      "end": 2580.06,
+      "speaker": "jerod-santo",
+      "text": "The crowds. All right, let's start right there. A chakatura is a brief grace note played before a principal note, then immediately released. I think it's an Italian word. So Matthew, David, Taylor, and Adam each get two points. Matthew, David, Taylor, Adam. And Thomas guessed a genus of fungi in the native South American rainforest. That was Matthew. So he gets a bonus point."
+    },
+    {
+      "start": 2580.06,
+      "end": 2586.94,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, good job, Matthew. We both had fungus on the mind. Oh, perfect. I was wondering who else did the fungus one."
+    },
+    {
+      "start": 2586.94,
+      "end": 2602.5,
+      "speaker": "jerod-santo",
+      "text": "I really liked a fungal infection affecting the forearms. However, it had this certain like role to the sentence where I thought that can't be a real thing. Cause it just sounds so a fungal affection affecting the forearms. Like it's almost, it's almost alliterative. Like it's poetic."
+    },
+    {
+      "start": 2602.5,
+      "end": 2605.76,
+      "speaker": "adam-stacoviak",
+      "text": "That's what got me with the water one last time. I was like, they said water twice."
+    },
+    {
+      "start": 2606.64,
+      "end": 2607.6,
+      "speaker": "jerod-santo",
+      "text": "That was also Thomas."
+    },
+    {
+      "start": 2607.6,
+      "end": 2608.44,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2608.44,
+      "end": 2609.8,
+      "speaker": "jerod-santo",
+      "text": "So he's on to you, dude."
+    },
+    {
+      "start": 2609.8,
+      "end": 2614.52,
+      "speaker": "adam-stacoviak",
+      "text": "I'm on to you, Thomas. Honestly, I've been reading too much. That's my favorite."
+    },
+    {
+      "start": 2614.52,
+      "end": 2620.32,
+      "speaker": "jerod-santo",
+      "text": "You read too much. He just takes a bookshelf and tears it down. Come down here with us plebs, you know."
+    },
+    {
+      "start": 2620.32,
+      "end": 2627,
+      "speaker": "adam-stacoviak",
+      "text": "I did just see Hamlet. I saw Hamlet last week and maybe that's all getting in my head."
+    },
+    {
+      "start": 2627,
+      "end": 2629.94,
+      "speaker": "jerod-santo",
+      "text": "Maybe it is. Did he have a forearm infection?"
+    },
+    {
+      "start": 2629.94,
+      "end": 2631.6,
+      "speaker": "adam-stacoviak",
+      "text": "No, but it's Shakespeare."
+    },
+    {
+      "start": 2634.22,
+      "end": 2641.1,
+      "speaker": "jerod-santo",
+      "text": "Thanks. Now he's educating us plebs. He's like, that's Shakespeare. He didn't know. That's the only author that I know."
+    },
+    {
+      "start": 2641.1,
+      "end": 2642.76,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. That's the only author you know."
+    },
+    {
+      "start": 2642.76,
+      "end": 2647.14,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Shakespeare and I don't know. Yep. That's it. I can't think of another one."
+    },
+    {
+      "start": 2647.14,
+      "end": 2647.98,
+      "speaker": "adam-stacoviak",
+      "text": "Here we go."
+    },
+    {
+      "start": 2647.98,
+      "end": 2659.42,
+      "speaker": "jerod-santo",
+      "text": "All right. Round four. Well, let's, let's total up the points here. After three rounds, David and Matthew tied with eight. It's a battle guys. Taylor with five, Thomas and Adam tied at four."
+    },
+    {
+      "start": 2659.42,
+      "end": 2660.3,
+      "speaker": "adam-stacoviak",
+      "text": "And Jared with."
+    },
+    {
+      "start": 2660.3,
+      "end": 2669.1,
+      "speaker": "jerod-santo",
+      "text": "And I'm still shut out. We guys keep piling on, which usually helps me because if you pile on to the wrong answer, I win, but you're piling on to the right answer. I lose."
+    },
+    {
+      "start": 2669.1,
+      "end": 2671.64,
+      "speaker": "adam-stacoviak",
+      "text": "You invited us champions here. What did you expect?"
+    },
+    {
+      "start": 2671.64,
+      "end": 2724.09,
+      "speaker": "jerod-santo",
+      "text": "It's true. I should expect the best and you guys are giving it to me. Okay. Round four. Give it a goog. Oh yes. This is our give it a goog round in which I open up an incognito tab and I don't change my IP address. So yes, you can go ahead and judge us Nebraskans. As I start to type a phrase into Google and then I stop and let it auto complete. I then write down the top auto complete answer from google.com. When an incognito tab in Nebraska types, Steve jobs space, Steve jobs. Then I stopped. Then I got some suggestions. Your chore is to write down what you think a believable suggestion would be the top one and send it to me whenever you're ready."
+    },
+    {
+      "start": 2724.09,
+      "end": 2726.35,
+      "speaker": "adam-stacoviak",
+      "text": "So just his name and then space."
+    },
+    {
+      "start": 2726.93,
+      "end": 2756.19,
+      "speaker": "jerod-santo",
+      "text": "That's right. His name, Steve space jobs space. What do you think Google would expect me to type next? Well, these are coming in hot and heavy. These are good. These are good."
+    },
+    {
+      "start": 2756.19,
+      "end": 2763.27,
+      "speaker": "adam-stacoviak",
+      "text": "Just to clarify, would Steve jobs space needle be a good answer?"
+    },
+    {
+      "start": 2763.27,
+      "end": 2764.11,
+      "speaker": "jerod-santo",
+      "text": "You could try it."
+    },
+    {
+      "start": 2764.11,
+      "end": 2765.51,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2765.51,
+      "end": 2766.73,
+      "speaker": "jerod-santo",
+      "text": "I wouldn't stop you."
+    },
+    {
+      "start": 2766.73,
+      "end": 2768.11,
+      "speaker": "adam-stacoviak",
+      "text": "Is that a clarification?"
+    },
+    {
+      "start": 2769.12,
+      "end": 2786.81,
+      "speaker": "jerod-santo",
+      "text": "I'm leaving the space up to interpretation. So I said, this is Steve jobs. Look, I want you to your mission. Should you choose to accept it is every round. You have to somehow relates."
+    },
+    {
+      "start": 2786.81,
+      "end": 2789.27,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Okay."
+    },
+    {
+      "start": 2789.27,
+      "end": 2790.29,
+      "speaker": "jerod-santo",
+      "text": "Somehow relates."
+    },
+    {
+      "start": 2790.29,
+      "end": 2795.64,
+      "speaker": "adam-stacoviak",
+      "text": "That sounds exhausting. It's a challenge."
+    },
+    {
+      "start": 2795.64,
+      "end": 2810.2,
+      "speaker": "jerod-santo",
+      "text": "That's gonna be tough. If we get to round six, especially what's round six. I'll tell you when we get there. Come on. No, no hints. No teasers. I guess that kind of was a teaser."
+    },
+    {
+      "start": 2810.2,
+      "end": 2811.22,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 2811.22,
+      "end": 2814.13,
+      "speaker": "jerod-santo",
+      "text": "We're waiting for Adam and Taylor."
+    },
+    {
+      "start": 2815.39,
+      "end": 2822.33,
+      "speaker": "adam-stacoviak",
+      "text": "I got to say make files are very annoying. Sometimes just letting y'all know. There's a heteroscedastic book. There you go."
+    },
+    {
+      "start": 2822.33,
+      "end": 2827.39,
+      "speaker": "jerod-santo",
+      "text": "Hey, there you go. A little bit of tuft. A little bit of tuft. Is that it?"
+    },
+    {
+      "start": 2827.39,
+      "end": 2828.61,
+      "speaker": "adam-stacoviak",
+      "text": "Is that not tuft?"
+    },
+    {
+      "start": 2828.61,
+      "end": 2830.67,
+      "speaker": "jerod-santo",
+      "text": "No, that was my nickname back in college."
+    },
+    {
+      "start": 2830.67,
+      "end": 2838.29,
+      "speaker": "adam-stacoviak",
+      "text": "So that book. I didn't know it's yeah. I think the visual display quantitative."
+    },
+    {
+      "start": 2840.77,
+      "end": 2888.62,
+      "speaker": "jerod-santo",
+      "text": "I sure pitched that. I pitched that round in your wheelhouse. Didn't I, David? He's like, this word exists on the front page of a book that I've read. And I keep close. I keep nearby. They say to reference it or just show off to my friends. It's working. I think you're pretty cool at this point. Okay. Everyone's in. All right. So six potential auto-completes for the search Steve Jobs blank. Steve Jobs what? Google auto-completes the top auto-complete. Here's your six potential answers. Steve Jobs net worth. Steve Jobs biography. Steve Jobs feet pics."
+    },
+    {
+      "start": 2888.62,
+      "end": 2890.38,
+      "speaker": "adam-stacoviak",
+      "text": "That tells us all we need to know about it."
+    },
+    {
+      "start": 2890.38,
+      "end": 2903.96,
+      "speaker": "jerod-santo",
+      "text": "Steve Jobs daughter. Steve Jobs wife. Steve Jobs death. That's six. This round, the person who gets to go first is David."
+    },
+    {
+      "start": 2903.98,
+      "end": 2907.38,
+      "speaker": "adam-stacoviak",
+      "text": "These are largely depressingly plausible."
+    },
+    {
+      "start": 2907.38,
+      "end": 2909.37,
+      "speaker": "jerod-santo",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 2909.37,
+      "end": 2911.17,
+      "speaker": "adam-stacoviak",
+      "text": "I want to go net worth."
+    },
+    {
+      "start": 2911.17,
+      "end": 2921.82,
+      "speaker": "jerod-santo",
+      "text": "David goes net worth. Adam. I've been curious by his feet honestly. I've been thinking like, what does this feel like, you know?"
+    },
+    {
+      "start": 2923.18,
+      "end": 2925.86,
+      "speaker": "adam-stacoviak",
+      "text": "I've seen him. Show me your feet, dude."
+    },
+    {
+      "start": 2925.86,
+      "end": 2928.12,
+      "speaker": "jerod-santo",
+      "text": "Okay. Steve jobs feet."
+    },
+    {
+      "start": 2930.81,
+      "end": 2935.18,
+      "speaker": "adam-stacoviak",
+      "text": "He did famously walk around barefoot a lot."
+    },
+    {
+      "start": 2935.64,
+      "end": 2938.3,
+      "speaker": "jerod-santo",
+      "text": "Maybe he's got some ganglies, you know?"
+    },
+    {
+      "start": 2938.3,
+      "end": 2942.82,
+      "speaker": "adam-stacoviak",
+      "text": "Maybe it's well-manicured or a little bit of tuft."
+    },
+    {
+      "start": 2942.82,
+      "end": 2945.7,
+      "speaker": "jerod-santo",
+      "text": "A little bit of tuft. A little bit of tuft. A little bit of fungus."
+    },
+    {
+      "start": 2945.7,
+      "end": 2950.02,
+      "speaker": "adam-stacoviak",
+      "text": "A little bit of acacia turo. Yeah, I wasn't trying to say that word."
+    },
+    {
+      "start": 2950.02,
+      "end": 2951.38,
+      "speaker": "jerod-santo",
+      "text": "Some tough act interactive."
+    },
+    {
+      "start": 2951.38,
+      "end": 2956.9,
+      "speaker": "adam-stacoviak",
+      "text": "Achaca turo. Achaca turo on them feets, man. You need some achaca turo."
+    },
+    {
+      "start": 2956.9,
+      "end": 2974.87,
+      "speaker": "jerod-santo",
+      "text": "So you're going to go with feet pics or? Heck no, man. I'm going to make Chris not make these feet. They want to know how much money he's got. Show me the money. Show me the money. All right, Steve jobs net worth. Next up is Taylor."
+    },
+    {
+      "start": 2974.87,
+      "end": 2976.97,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, it's for sure the Space Needle."
+    },
+    {
+      "start": 2979.74,
+      "end": 2980.58,
+      "speaker": "jerod-santo",
+      "text": "Wasn't any of them."
+    },
+    {
+      "start": 2980.58,
+      "end": 2982.42,
+      "speaker": "adam-stacoviak",
+      "text": "Steve jobs Space Needle."
+    },
+    {
+      "start": 2982.42,
+      "end": 2983.98,
+      "speaker": "jerod-santo",
+      "text": "It was definitely Space Needle."
+    },
+    {
+      "start": 2984.98,
+      "end": 2985.82,
+      "speaker": "adam-stacoviak",
+      "text": "I'll go with daughter."
+    },
+    {
+      "start": 2985.82,
+      "end": 2988.3,
+      "speaker": "jerod-santo",
+      "text": "I appreciate you doubling down on that joke."
+    },
+    {
+      "start": 2988.3,
+      "end": 2991.9,
+      "speaker": "adam-stacoviak",
+      "text": "Daughter? It was a good bit. I had to, yeah, daughter."
+    },
+    {
+      "start": 2991.9,
+      "end": 2996.9,
+      "speaker": "jerod-santo",
+      "text": "It was a good one. Taylor's going for Steve jobs daughter. Okay, Thomas."
+    },
+    {
+      "start": 2996.9,
+      "end": 3004.57,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, net worth, biography, feet pics, daughter, wife and death."
+    },
+    {
+      "start": 3004.57,
+      "end": 3005.41,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 3005.41,
+      "end": 3014.76,
+      "speaker": "adam-stacoviak",
+      "text": "Got to end with death as always. So daughter, she came up with a book, Small Fry a couple of years ago."
+    },
+    {
+      "start": 3015.98,
+      "end": 3016.82,
+      "speaker": "jerod-santo",
+      "text": "Really?"
+    },
+    {
+      "start": 3016.82,
+      "end": 3018.42,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 3018.42,
+      "end": 3020.25,
+      "speaker": "jerod-santo",
+      "text": "About fast food or?"
+    },
+    {
+      "start": 3020.25,
+      "end": 3021.43,
+      "speaker": "adam-stacoviak",
+      "text": "No."
+    },
+    {
+      "start": 3021.43,
+      "end": 3022.43,
+      "speaker": "jerod-santo",
+      "text": "McDonald's?"
+    },
+    {
+      "start": 3022.43,
+      "end": 3023.27,
+      "speaker": "adam-stacoviak",
+      "text": "No."
+    },
+    {
+      "start": 3023.27,
+      "end": 3026.21,
+      "speaker": "jerod-santo",
+      "text": "Is she a small human? I don't understand Small Fry. What's the context?"
+    },
+    {
+      "start": 3026.21,
+      "end": 3028.77,
+      "speaker": "adam-stacoviak",
+      "text": "I don't actually know what the context is of the title."
+    },
+    {
+      "start": 3028.77,
+      "end": 3031.27,
+      "speaker": "jerod-santo",
+      "text": "It was his pinky toe, dad's pinky toe."
+    },
+    {
+      "start": 3032.33,
+      "end": 3038.64,
+      "speaker": "adam-stacoviak",
+      "text": "Is that, that's what it was. And you would only know that if you looked up the feet pic says everyone else in Nebraska has."
+    },
+    {
+      "start": 3038.64,
+      "end": 3039.94,
+      "speaker": "jerod-santo",
+      "text": "Was it a picture book?"
+    },
+    {
+      "start": 3039.94,
+      "end": 3042.44,
+      "speaker": "adam-stacoviak",
+      "text": "It's not a picture book. It's a very serious book."
+    },
+    {
+      "start": 3042.44,
+      "end": 3045.76,
+      "speaker": "jerod-santo",
+      "text": "It was actually the invention dad never did. That's what it was."
+    },
+    {
+      "start": 3045.76,
+      "end": 3047.98,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, he never invented the small fry."
+    },
+    {
+      "start": 3047.98,
+      "end": 3049.56,
+      "speaker": "jerod-santo",
+      "text": "Do you have it on your shelf behind you?"
+    },
+    {
+      "start": 3049.56,
+      "end": 3083.77,
+      "speaker": "adam-stacoviak",
+      "text": "No, I don't actually, but I do want to read it. It's on my list of books I want to read. I got too much stuff going on. All right. We got daughter or wife. You know, I'm going to go with daughter because she wrote the book. I wonder if people are like Steve Jobs' daughter who wrote the book, but they won't remember her name because she didn't. She, she was, one is Lisa Brennan for a while before. Now she goes by Lisa Brennan Jobs. So, okay."
+    },
+    {
+      "start": 3083.77,
+      "end": 3084.87,
+      "speaker": "jerod-santo",
+      "text": "So you're going with daughter."
+    },
+    {
+      "start": 3084.87,
+      "end": 3086.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yup."
+    },
+    {
+      "start": 3086.26,
+      "end": 3096.48,
+      "speaker": "jerod-santo",
+      "text": "All right. Thomas has daughter along with Taylor, David and Adam are on net worth and Matthew is the only one who hasn't picked yet. What do you think of them?"
+    },
+    {
+      "start": 3096.48,
+      "end": 3103.41,
+      "speaker": "adam-stacoviak",
+      "text": "Um, what is it? Net worth, daughter, life, wife, wife, or life?"
+    },
+    {
+      "start": 3103.41,
+      "end": 3104.25,
+      "speaker": "jerod-santo",
+      "text": "Wife."
+    },
+    {
+      "start": 3104.25,
+      "end": 3105.21,
+      "speaker": "adam-stacoviak",
+      "text": "Wife."
+    },
+    {
+      "start": 3105.21,
+      "end": 3106.13,
+      "speaker": "jerod-santo",
+      "text": "Biography."
+    },
+    {
+      "start": 3106.13,
+      "end": 3106.97,
+      "speaker": "adam-stacoviak",
+      "text": "Biography."
+    },
+    {
+      "start": 3106.97,
+      "end": 3108.11,
+      "speaker": "jerod-santo",
+      "text": "Life."
+    },
+    {
+      "start": 3108.11,
+      "end": 3109.11,
+      "speaker": "adam-stacoviak",
+      "text": "Is it life?"
+    },
+    {
+      "start": 3109.11,
+      "end": 3110.53,
+      "speaker": "jerod-santo",
+      "text": "That was wife."
+    },
+    {
+      "start": 3110.53,
+      "end": 3111.79,
+      "speaker": "adam-stacoviak",
+      "text": "Net worth for sure."
+    },
+    {
+      "start": 3111.79,
+      "end": 3112.63,
+      "speaker": "jerod-santo",
+      "text": "You're going net worth?"
+    },
+    {
+      "start": 3112.63,
+      "end": 3114.25,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm piling."
+    },
+    {
+      "start": 3114.25,
+      "end": 3132.96,
+      "speaker": "jerod-santo",
+      "text": "He's piling. We have two piles here. We have two piles, but which one is right? David, Adam, and Matthew chose net worth. Steve Jobs' net worth. Are people Google searching that? I don't know, but Adam created it, so he should know."
+    },
+    {
+      "start": 3132.96,
+      "end": 3133.84,
+      "speaker": "adam-stacoviak",
+      "text": "Nice."
+    },
+    {
+      "start": 3133.84,
+      "end": 3134.68,
+      "speaker": "jerod-santo",
+      "text": "Good job, Adam."
+    },
+    {
+      "start": 3134.68,
+      "end": 3136,
+      "speaker": "adam-stacoviak",
+      "text": "Good job, Adam."
+    },
+    {
+      "start": 3136,
+      "end": 3141.88,
+      "speaker": "jerod-santo",
+      "text": "One point for David and Matthew. You don't score any points for guessing your own, but you did convince people, which is nice."
+    },
+    {
+      "start": 3141.94,
+      "end": 3143.68,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I forgot, I guess, my own."
+    },
+    {
+      "start": 3143.68,
+      "end": 3144.52,
+      "speaker": "unknown",
+      "text": "Whoops."
+    },
+    {
+      "start": 3145.7,
+      "end": 3155.02,
+      "speaker": "adam-stacoviak",
+      "text": "No, you have to pretend like that's a strategy. I really just did forget. I was like, it's not net worth. Play it off, play it off. It's gotta be net worth."
+    },
+    {
+      "start": 3155.02,
+      "end": 3175.9,
+      "speaker": "jerod-santo",
+      "text": "Well, fun fact. Net worth was actually the third auto-complete for me, so it was right up there at the top. The second auto-complete for me was death, so that was right up there at the top. Matthew actually said death, but the number one auto-complete for Steve Jobs is Steve Jobs' daughter, so Taylor and Thomas landed on it."
+    },
+    {
+      "start": 3175.9,
+      "end": 3177.94,
+      "speaker": "adam-stacoviak",
+      "text": "Taylor Thomas, Jonathan Taylor Thomas."
+    },
+    {
+      "start": 3177.94,
+      "end": 3225.32,
+      "speaker": "jerod-santo",
+      "text": "Two points each for JTT, and I get zero, so I guess Jay doesn't get any, but TT gets two. Other auto-completes there in that list, death, net worth, children, cause of death, wife, and finally Steve Jobs quotes. Ah, no feet pics, no feet pics whatsoever. That was Thomas's. He threw a wrench, and it was a good one. All right, so after round four, we still have Matthew and David tied with eight. That makes sense that you guys scored that round. No, you did not. Just making sure my calculator's working. Matthew and David have eight. Taylor has seven. Thomas has six. Adam has six. This is a very tight game of pound-defying. We move down to round five."
+    },
+    {
+      "start": 3225.32,
+      "end": 3383.83,
+      "speaker": "adam-stacoviak",
+      "text": "What if AI agents could work together just like developers do? That's exactly what agency is making possible. Spelled A-G-N-T-C-Y, agency is now an open source collective under the Linux Foundation, building the Internet of Agents. This is a global collaboration layer where the AI agents can discover each other, connect, and execute multi-agent workflows across any framework. Everything engineers need to build and deploy multi-agent software is now available to anyone building on agency, including trusted identity and access management, open standards for agent discovery, agent-to-agent communication protocols, and modular pieces you can remix for scalable systems. This is a true collaboration from Cisco, Dell, Google Cloud, Red Hat, Oracle, and more than 75 other companies all contributing to the next-gen AI stack. The code, the specs, the services, they're dropping, no strings attached. Visit agency.org, that's A-G-N-T-C-Y, dot org to learn more and get involved. Again, that's agency, A-G-N-T-C-Y, dot org. So your team has amazing ideas flying around. You know the feeling, but turning them into something real feels like wading through peanut butter. Super thick, right? Peanut butter's tough to walk through. We've all been there. The gap between idea and impact, it is brutal. And just throwing AI at the problem without clarity, that only makes things worse. We all know that. That's why I checked out Miro, investigated it, love it, and that's why I recommend it. Miro is the innovation workspace that helps teams get the right things done faster. Powered by AI, teamwork that used to take weeks now takes days. You could use Miro to plan product launches, map complex workflows. You can even generate fresh ideas from interviews all in one place. And the Miro AI sidekicks, it's like having your own product leader, agile coach, and even a product marketer ready, right there, to review, clarify, and give feedback right inside your workspace. It's cool. You can even build custom sidekicks tailored to your workflow. Plus, Miro Insights pulls together sticky notes, research, and docs into clean summaries so you spend time building, not digging. Help teams get great done with Miro. Check out Miro.com. That is M-I-R-O.com. Once again, Miro.com."
+    },
+    {
+      "start": 3383.83,
+      "end": 3397.51,
+      "speaker": "jerod-santo",
+      "text": "Moving on to round five, where we play a round of weird flicks, but okay. In this round, I have gone out to the interwebs and I have found an obscure old movie."
+    },
+    {
+      "start": 3397.51,
+      "end": 3398.55,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yes."
+    },
+    {
+      "start": 3398.55,
+      "end": 3452.38,
+      "speaker": "jerod-santo",
+      "text": "In fact, I found a movie from 1928. I then took the synopsis of that movie, you know, like the one-liner description of like what the movie's about. You can read it on IMDb, et cetera. And I jotted that down. Your job is to write a synopsis, given the name and the year that it was made and convince all of us that you actually wrote the real synopsis of the movie I wrote down. It's called The Man Who Laughs. The Man Who Laughs, it's from 1928. Please submit to me your synopses for The Man Who Laughs whenever you have them ready. And we're confident on that year this time. The year is correct. The year is correct. I gotta go over to my DVD shelf to grab it."
+    },
+    {
+      "start": 3452.38,
+      "end": 3459.06,
+      "speaker": "adam-stacoviak",
+      "text": "Just for Thomas, a movie is like a book, but a fun book. It's like a fun version of a book."
+    },
+    {
+      "start": 3459.06,
+      "end": 3461.02,
+      "speaker": "jerod-santo",
+      "text": "A fun book."
+    },
+    {
+      "start": 3461.02,
+      "end": 3486.88,
+      "speaker": "adam-stacoviak",
+      "text": "A fun book, okay. And it takes like several hours to days to finish. Oh, if you're doing a one-speed dude, if you're a rookie. You gotta watch all my movies at 2x speed. Just as Scorsese intended, you gotta watch it on your iPod Nano at double speed."
+    },
+    {
+      "start": 3488.34,
+      "end": 3490.7,
+      "speaker": "jerod-santo",
+      "text": "Have you seen Star Wars?"
+    },
+    {
+      "start": 3490.7,
+      "end": 3493.62,
+      "speaker": "adam-stacoviak",
+      "text": "That should be the legal question. I mean."
+    },
+    {
+      "start": 3493.62,
+      "end": 3510.82,
+      "speaker": "jerod-santo",
+      "text": "That reminds me, did you guys hear Ira Glass came out of NPR fame of This American Life came out and said all podcasts should be listened to at 2x? Surprised me. He did not say that. He was serious too. Ira Glass says podcasts should be listened to, including his own. All podcasts, 2x."
+    },
+    {
+      "start": 3510.82,
+      "end": 3515.44,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna start speaking really slow then."
+    },
+    {
+      "start": 3515.44,
+      "end": 3522.5,
+      "speaker": "jerod-santo",
+      "text": "And all my jokes are gonna take way too long. Speed that up. Two extras, tell me how that sounds."
+    },
+    {
+      "start": 3522.5,
+      "end": 3528.74,
+      "speaker": "adam-stacoviak",
+      "text": "Adam, all your jokes already take too long? I normally speak fast, so people generally slow me down."
+    },
+    {
+      "start": 3528.74,
+      "end": 3537.54,
+      "speaker": "jerod-santo",
+      "text": "Yeah, I got too much excitement and I'm Texan, so when I speak, it's just Texan. I don't know how to say it, okay? I don't know what that means."
+    },
+    {
+      "start": 3537.54,
+      "end": 3541.3,
+      "speaker": "adam-stacoviak",
+      "text": "Is it big words? Did you learn your first big word, Adam?"
+    },
+    {
+      "start": 3541.3,
+      "end": 3550.62,
+      "speaker": "jerod-santo",
+      "text": "Chacatore. Star. That's all we know how to say here in Texas. Star. Matthew, just in case you didn't know, you just gave me the title."
+    },
+    {
+      "start": 3550.62,
+      "end": 3555.82,
+      "speaker": "adam-stacoviak",
+      "text": "I know, I know. I sent you the title back. I like to give you the word and the thing that we're doing."
+    },
+    {
+      "start": 3555.82,
+      "end": 3558.42,
+      "speaker": "jerod-santo",
+      "text": "I forgot I'm supposed to be describing a movie here. I'm talking."
+    },
+    {
+      "start": 3558.42,
+      "end": 3561.06,
+      "speaker": "adam-stacoviak",
+      "text": "And I hit enter to do a new line."
+    },
+    {
+      "start": 3561.48,
+      "end": 3568.96,
+      "speaker": "jerod-santo",
+      "text": "The Man Who Laughs, is that what this is? The Man Who Laughs, 1928. The Man Who Laughs, okay."
+    },
+    {
+      "start": 3568.96,
+      "end": 3576.21,
+      "speaker": "adam-stacoviak",
+      "text": "I can do this. Jared, when do you get the first snow in Nebraska?"
+    },
+    {
+      "start": 3576.21,
+      "end": 3595.39,
+      "speaker": "jerod-santo",
+      "text": "Well, we have very unpredictable weather, so it can be as early as Halloween, and we have actually one year of a humongous snowstorm on Halloween. Closed it down. But more realistically, it's like late December, January, but it's cold far before it snows."
+    },
+    {
+      "start": 3595.39,
+      "end": 3597.09,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, yeah."
+    },
+    {
+      "start": 3597.09,
+      "end": 3607.06,
+      "speaker": "jerod-santo",
+      "text": "It'll be getting cold here soon. Right now, it's perfect weather. We're in like 60s, 50s, sunny. I like when the sun is hot, but the air is cold."
+    },
+    {
+      "start": 3607.06,
+      "end": 3630.33,
+      "speaker": "adam-stacoviak",
+      "text": "That's good weather. Well, then you're in the right place. Yeah. I will say, Adam, I take your criticism of the Canadian-American experience, but one of the big benefits is two Thanksgivings. I've already had a Thanksgiving, it was great. Got another Thanksgiving coming up in a few weeks."
+    },
+    {
+      "start": 3630.33,
+      "end": 3631.51,
+      "speaker": "jerod-santo",
+      "text": "It's gonna be great."
+    },
+    {
+      "start": 3631.51,
+      "end": 3634.43,
+      "speaker": "adam-stacoviak",
+      "text": "Thanksgiving really should happen twice a year."
+    },
+    {
+      "start": 3634.43,
+      "end": 3637.97,
+      "speaker": "jerod-santo",
+      "text": "Totally agree, 10 out of 10. It's actually like my favorite thing."
+    },
+    {
+      "start": 3637.97,
+      "end": 3653.15,
+      "speaker": "adam-stacoviak",
+      "text": "And they're spaced out enough, right? They're about a month and change apart so that that second one really comes in, you're like, oh, yeah, I love Thanksgiving, it's great. It's coming around again."
+    },
+    {
+      "start": 3653.17,
+      "end": 3655.25,
+      "speaker": "jerod-santo",
+      "text": "Is it similar fare or is there other?"
+    },
+    {
+      "start": 3655.25,
+      "end": 3658.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, similar fare, same stuff, just different day."
+    },
+    {
+      "start": 3658.64,
+      "end": 3659.48,
+      "speaker": "jerod-santo",
+      "text": "Cool."
+    },
+    {
+      "start": 3659.48,
+      "end": 3665.1,
+      "speaker": "adam-stacoviak",
+      "text": "I did the turkey this year. So I got too big of a turkey for the number of people we had."
+    },
+    {
+      "start": 3665.1,
+      "end": 3667.24,
+      "speaker": "jerod-santo",
+      "text": "Well, that just means you got turkey sandwiches."
+    },
+    {
+      "start": 3667.24,
+      "end": 3670.87,
+      "speaker": "adam-stacoviak",
+      "text": "Turkey sandwiches, I made some stock."
+    },
+    {
+      "start": 3672.95,
+      "end": 3675.99,
+      "speaker": "jerod-santo",
+      "text": "What's your preferred preparation for the turkey?"
+    },
+    {
+      "start": 3675.99,
+      "end": 3710.15,
+      "speaker": "adam-stacoviak",
+      "text": "I do a salt rub the night before and let it air dry in the refrigerator. So I leave it uncovered, gets the skin nice and crispy and then day of melt butter over it, chop up a lot of veggies, put them in the bottom of the pan and roast it. I don't do anything too crazy fancy and it just comes out perfectly."
+    },
+    {
+      "start": 3710.17,
+      "end": 3718.47,
+      "speaker": "jerod-santo",
+      "text": "Sounds alarmingly like some sort of treatment for a fungus, foreign fungus. What is this you're making here? These are potatoes. Oh, turkey."
+    },
+    {
+      "start": 3720.22,
+      "end": 3740.24,
+      "speaker": "adam-stacoviak",
+      "text": "So have you ever deep fried turkey? I don't have a house to sell on fire. Totally did. So the only time I've ever done it was with my uncle who is a career firefighter. And that was the only person with whom I felt safe enough to deep fry a turkey."
+    },
+    {
+      "start": 3741.7,
+      "end": 3751.62,
+      "speaker": "jerod-santo",
+      "text": "I appreciate all the local fire departments doing the video where they drop a turkey that's not quite frozen and you just watch it or not quite thought and you just watch it."
+    },
+    {
+      "start": 3751.62,
+      "end": 3754.3,
+      "speaker": "adam-stacoviak",
+      "text": "Not quite thought, yeah. Any of that water, it just goes."
+    },
+    {
+      "start": 3756.41,
+      "end": 3760.26,
+      "speaker": "jerod-santo",
+      "text": "Matthew, how's your wife's chocolate business?"
+    },
+    {
+      "start": 3760.26,
+      "end": 3767.34,
+      "speaker": "adam-stacoviak",
+      "text": "Great, I actually have to take pictures for the next Thanksgiving, Christmas collection tomorrow, I think."
+    },
+    {
+      "start": 3767.34,
+      "end": 3769.49,
+      "speaker": "jerod-santo",
+      "text": "Does she ship to Canada?"
+    },
+    {
+      "start": 3769.49,
+      "end": 3775.87,
+      "speaker": "adam-stacoviak",
+      "text": "Not to Canada, yeah, that border crossing. No, it's so expensive. Ah. I know, it's fine, it's fine, it's fine."
+    },
+    {
+      "start": 3775.87,
+      "end": 3778.43,
+      "speaker": "jerod-santo",
+      "text": "But if you can meet us at Niagara Falls."
+    },
+    {
+      "start": 3778.43,
+      "end": 3787.95,
+      "speaker": "adam-stacoviak",
+      "text": "Then we can meet. Yeah, I just meet you at the border, coming back. Yeah, there you go. Yeah, why are you coming down today? Oh, yeah, it's some chocolate. A little chocolate swap, just toss it across the border."
+    },
+    {
+      "start": 3789.39,
+      "end": 3791.35,
+      "speaker": "jerod-santo",
+      "text": "Ooh, that's called smuggling."
+    },
+    {
+      "start": 3791.35,
+      "end": 3793.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, there's nothing wrong with that."
+    },
+    {
+      "start": 3793.99,
+      "end": 3794.99,
+      "speaker": "jerod-santo",
+      "text": "I prefer snuggling."
+    },
+    {
+      "start": 3796.11,
+      "end": 3800.28,
+      "speaker": "adam-stacoviak",
+      "text": "Chocolate jokes, what's the difference? Come on."
+    },
+    {
+      "start": 3800.3,
+      "end": 3945.41,
+      "speaker": "jerod-santo",
+      "text": "I was watching a video about the engineering of Niagara Falls the other day, really interesting stuff. And what I learned was that pretty much the exact same setup is replicated on both sides. And it was kind of like a peeing contest to a certain degree. It's like, you're gonna do that, we're gonna do it. Like they couldn't share, they couldn't work together. It was like, no, we're both gonna have the exact same deal. We're just gonna do everything twice. Oh, that was kind of funny. I think they work together in a certain sense of like the design, because everything's designed like mirrored to a certain degree, which is kind of cool. But I didn't know there was like six pretty well-written synopses for 1928's Man Who Laughs, but which one is the actual movie plot? Here we go, number one, The Man Who Laughs recounts the story of Dr. Dennis Rockwell, who struggles with his grip on reality as he treats his patients at Mount Basker Mental Asylum. Number two, a disgruntled railroad worker catches the next train out of town to find beauty in life. Number three, a veteran of the Great War cheerfully tries to save his farm. Number four, a disfigured nobleman with a permanent grin is forced into circus life and separated from his true identity. Number five, darkly romantic, a comedian is heartbroken when his lover leaves him for a member of his audience, The Man Who Laughs. And number six, thrust into the starlight, two laugh-filled men adventure together to seek the love of the same woman. As stage performers who travel, they find it hard to see her in the crowd, so they developed a laugh from bellows down below to win her love, to win her love. All right, six different potential synopses of 1928's The Man Who Laughs. Adam, you can't pile on this round, because you are first. Gosh, is there any way to go last? Is that possible?"
+    },
+    {
+      "start": 3945.41,
+      "end": 3956.92,
+      "speaker": "adam-stacoviak",
+      "text": "The Man Who Laughs. You can't pile on, because you're first. Can I just not do that? Oh, man. I do think that would be an interesting mechanic to introduce in the future version of this game."
+    },
+    {
+      "start": 3956.92,
+      "end": 3958.42,
+      "speaker": "jerod-santo",
+      "text": "Adam always goes last?"
+    },
+    {
+      "start": 3958.42,
+      "end": 3961.54,
+      "speaker": "adam-stacoviak",
+      "text": "Or just like you, someone gets the ability to..."
+    },
+    {
+      "start": 3961.54,
+      "end": 3966.2,
+      "speaker": "jerod-santo",
+      "text": "Oh, to like play that card every once in a while or something? Yeah. Yeah, that's a good idea. Interesting."
+    },
+    {
+      "start": 3966.2,
+      "end": 3981.72,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I wasn't listening, so. The Man Who Laughs. I'm used to going last. And I get to pile on, push my button. It's just the easy button, you know? Could I ask you to describe them to me again?"
+    },
+    {
+      "start": 3981.72,
+      "end": 3984.72,
+      "speaker": "jerod-santo",
+      "text": "Can I give you a brief, because this is a lot of reading."
+    },
+    {
+      "start": 3984.72,
+      "end": 3987.16,
+      "speaker": "adam-stacoviak",
+      "text": "No, you can just give me the summary."
+    },
+    {
+      "start": 3987.16,
+      "end": 3990.48,
+      "speaker": "jerod-santo",
+      "text": "All right, so number one was the story of Dr. Dennis Rockwell."
+    },
+    {
+      "start": 3990.48,
+      "end": 3992.72,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, yeah, I remember that. I was listening to that when I was a kid."
+    },
+    {
+      "start": 3992.72,
+      "end": 3994.56,
+      "speaker": "jerod-santo",
+      "text": "At the Mount Basker Mental Asylum."
+    },
+    {
+      "start": 3994.56,
+      "end": 3996.8,
+      "speaker": "adam-stacoviak",
+      "text": "Number two- That's a pretty good one. Who wrote that?"
+    },
+    {
+      "start": 3996.8,
+      "end": 4000.78,
+      "speaker": "jerod-santo",
+      "text": "Number two was the disgruntled railroad worker who catches the next train out of town."
+    },
+    {
+      "start": 4000.78,
+      "end": 4002.02,
+      "speaker": "adam-stacoviak",
+      "text": "Oh yeah, also pretty good."
+    },
+    {
+      "start": 4002.02,
+      "end": 4008.54,
+      "speaker": "jerod-santo",
+      "text": "Finds beauty in life, yeah. Number three was the veteran of the Great War who cheerfully tries to save his farm."
+    },
+    {
+      "start": 4008.54,
+      "end": 4010.45,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's a good one too."
+    },
+    {
+      "start": 4010.45,
+      "end": 4017.21,
+      "speaker": "jerod-santo",
+      "text": "Number four, a disfigured nobleman with a permanent grin who's forced into circus life."
+    },
+    {
+      "start": 4017.21,
+      "end": 4019.69,
+      "speaker": "adam-stacoviak",
+      "text": "That does have smile feels."
+    },
+    {
+      "start": 4019.69,
+      "end": 4020.51,
+      "speaker": "jerod-santo",
+      "text": "What?"
+    },
+    {
+      "start": 4020.51,
+      "end": 4023.89,
+      "speaker": "adam-stacoviak",
+      "text": "Well, it's a decent laugh. So I guess laugh, smile, it's all the same, right?"
+    },
+    {
+      "start": 4023.89,
+      "end": 4028.97,
+      "speaker": "jerod-santo",
+      "text": "Number five was a comedian who's as heartbroken when his lover leaves him for a member of his audience."
+    },
+    {
+      "start": 4029.79,
+      "end": 4033.13,
+      "speaker": "adam-stacoviak",
+      "text": "The man who laughs. Taylor wrote that."
+    },
+    {
+      "start": 4033.13,
+      "end": 4045.14,
+      "speaker": "jerod-santo",
+      "text": "Wow, call out. Number six was the two laugh-filled men who are seeking the same, the woman's love. So there's your synopsis of the synopsis. What are you thinking? What are you convinced by? What do you-"
+    },
+    {
+      "start": 4045.14,
+      "end": 4063.04,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I just want to ask if I can go last. You can't, you can't go last. All right, fine. I will go with the disgruntled railroad worker who found a way to go down the mountain."
+    },
+    {
+      "start": 4063.8,
+      "end": 4064.64,
+      "speaker": "jerod-santo",
+      "text": "All right."
+    },
+    {
+      "start": 4064.64,
+      "end": 4067.6,
+      "speaker": "adam-stacoviak",
+      "text": "Who's that guy? Is that, is that mixing them? Did I mix them?"
+    },
+    {
+      "start": 4068.72,
+      "end": 4073.4,
+      "speaker": "jerod-santo",
+      "text": "A disgruntled railroad worker catches the next train out of town. That's one you want. Yeah."
+    },
+    {
+      "start": 4073.4,
+      "end": 4074.22,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, yeah."
+    },
+    {
+      "start": 4074.22,
+      "end": 4078.52,
+      "speaker": "jerod-santo",
+      "text": "I don't know if I like that one. All right. Well, we'll see if you like it or not. Taylor, you're next."
+    },
+    {
+      "start": 4078.52,
+      "end": 4081.36,
+      "speaker": "adam-stacoviak",
+      "text": "Can we go last? What was the one before that?"
+    },
+    {
+      "start": 4081.36,
+      "end": 4083.86,
+      "speaker": "jerod-santo",
+      "text": "The man who goes last. Are you not locked in?"
+    },
+    {
+      "start": 4083.86,
+      "end": 4087.14,
+      "speaker": "adam-stacoviak",
+      "text": "No, I'm still thinking about him."
+    },
+    {
+      "start": 4087.16,
+      "end": 4098.61,
+      "speaker": "jerod-santo",
+      "text": "I thought we were moving on. Before that was the Dr. Dennis Rockwell at the mental asylum. He treats his patients, but he struggles when he loses a grip on reality."
+    },
+    {
+      "start": 4098.61,
+      "end": 4100.25,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that's plausible for sure."
+    },
+    {
+      "start": 4100.25,
+      "end": 4106.77,
+      "speaker": "jerod-santo",
+      "text": "You want that one? Nah. Jared's like, can you just go railroad all day? All right, you're staying with the railroad. Taylor, what do you want?"
+    },
+    {
+      "start": 4106.77,
+      "end": 4112.89,
+      "speaker": "adam-stacoviak",
+      "text": "Let's see. My grandma actually saw this one at theaters. She said it, she said it-"
+    },
+    {
+      "start": 4112.89,
+      "end": 4114.17,
+      "speaker": "jerod-santo",
+      "text": "Did you say theaters?"
+    },
+    {
+      "start": 4114.17,
+      "end": 4117.13,
+      "speaker": "adam-stacoviak",
+      "text": "1928, right? Yeah. 1928, yeah."
+    },
+    {
+      "start": 4117.67,
+      "end": 4118.51,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 4118.51,
+      "end": 4132.75,
+      "speaker": "adam-stacoviak",
+      "text": "At the cinema? She told me, though, it was the one about the old guy with the house with the balloons. So that one's not an option. I'll go with the nobleman, the disfigured face."
+    },
+    {
+      "start": 4132.75,
+      "end": 4134.75,
+      "speaker": "jerod-santo",
+      "text": "The disfigured nobleman, all right."
+    },
+    {
+      "start": 4134.75,
+      "end": 4136.99,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, wait, what was the first one again?"
+    },
+    {
+      "start": 4136.99,
+      "end": 4139.99,
+      "speaker": "jerod-santo",
+      "text": "The Mount Baskerville Mental Asylum?"
+    },
+    {
+      "start": 4139.99,
+      "end": 4141.16,
+      "speaker": "adam-stacoviak",
+      "text": "Ooh."
+    },
+    {
+      "start": 4141.16,
+      "end": 4142.24,
+      "speaker": "jerod-santo",
+      "text": "You want that one instead?"
+    },
+    {
+      "start": 4142.24,
+      "end": 4143.79,
+      "speaker": "adam-stacoviak",
+      "text": "No, let's do noblemen."
+    },
+    {
+      "start": 4143.79,
+      "end": 4144.63,
+      "speaker": "jerod-santo",
+      "text": "Thomas."
+    },
+    {
+      "start": 4144.85,
+      "end": 4167.09,
+      "speaker": "adam-stacoviak",
+      "text": "I, let's see, so we have the Mental Asylum, we have Beauty, let's see. Man, after the Great War, Circus Life, the Comedian, and then the Two Laugh-Filled Men. I feel like we have Two Laugh-Filled Men. You call it the Men Who Laugh, or maybe that's the sequel. I'm gonna go with the Mental Asylum one, the number one."
+    },
+    {
+      "start": 4167.09,
+      "end": 4169.85,
+      "speaker": "jerod-santo",
+      "text": "Number one, that's a good choice. That's a good choice."
+    },
+    {
+      "start": 4169.85,
+      "end": 4170.91,
+      "speaker": "adam-stacoviak",
+      "text": "Is it yours?"
+    },
+    {
+      "start": 4170.91,
+      "end": 4173.81,
+      "speaker": "jerod-santo",
+      "text": "No, it's just a good choice, man. We'll go to Matthew."
+    },
+    {
+      "start": 4173.83,
+      "end": 4189.91,
+      "speaker": "adam-stacoviak",
+      "text": "Mental Asylum one, Railroad something, nobleman something. You should go with the one with the Great War in it. Something about a great war. Yeah, because I don't think it happened yet. Like, don't you? Can you read the, can you read the-"
+    },
+    {
+      "start": 4189.91,
+      "end": 4192.07,
+      "speaker": "jerod-santo",
+      "text": "That's always what you like, you know?"
+    },
+    {
+      "start": 4192.07,
+      "end": 4194.67,
+      "speaker": "adam-stacoviak",
+      "text": "Can you read the Asylum one and the nobleman one?"
+    },
+    {
+      "start": 4194.67,
+      "end": 4207.13,
+      "speaker": "jerod-santo",
+      "text": "Sure, so. They're not the same, right? No, they're not the same. The Asylum one is the story of Dr. Dennis Rockwell, who struggles with his grip on reality as he treats his patients at Mount Basker Mental Asylum."
+    },
+    {
+      "start": 4207.13,
+      "end": 4212.15,
+      "speaker": "adam-stacoviak",
+      "text": "Got it, okay. Are you saying the Great War wouldn't have happened by 28?"
+    },
+    {
+      "start": 4212.15,
+      "end": 4213.83,
+      "speaker": "jerod-santo",
+      "text": "What's the Great War? Is that-"
+    },
+    {
+      "start": 4213.83,
+      "end": 4231.9,
+      "speaker": "adam-stacoviak",
+      "text": "1928, no, yeah, you're right. But 1928, see, he just said doctors. They didn't have doctors in 1928. That one's false too, dude. Also synopses, synopses, whatever. Yes. Like a lot of, you introduced me with too many characters in that synopsis."
+    },
+    {
+      "start": 4231.9,
+      "end": 4232.74,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 4233.28,
+      "end": 4234.92,
+      "speaker": "adam-stacoviak",
+      "text": "And the other one was a noble something?"
+    },
+    {
+      "start": 4234.92,
+      "end": 4236.56,
+      "speaker": "jerod-santo",
+      "text": "Yeah, disfigured nobleman."
+    },
+    {
+      "start": 4236.56,
+      "end": 4237.4,
+      "speaker": "adam-stacoviak",
+      "text": "Disfigured nobleman."
+    },
+    {
+      "start": 4237.4,
+      "end": 4239.6,
+      "speaker": "jerod-santo",
+      "text": "He's got a permanent grin."
+    },
+    {
+      "start": 4239.6,
+      "end": 4241.08,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, like the Joker."
+    },
+    {
+      "start": 4241.08,
+      "end": 4246.96,
+      "speaker": "jerod-santo",
+      "text": "Always smiling. He's forced into circus life. Separated from his true identity."
+    },
+    {
+      "start": 4246.96,
+      "end": 4254.57,
+      "speaker": "adam-stacoviak",
+      "text": "That sounds fun. So he's first forced into, okay. I think I'm leaning to that one. Someone already picked that one though, right?"
+    },
+    {
+      "start": 4254.57,
+      "end": 4259.93,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Taylor picked that one and Thomas picked the Mental Asylum one. So they both have one person on them."
+    },
+    {
+      "start": 4259.93,
+      "end": 4265.15,
+      "speaker": "adam-stacoviak",
+      "text": "I think I'm leaning towards the nobleman, the Joker story, the Joker origin story."
+    },
+    {
+      "start": 4265.15,
+      "end": 4267.67,
+      "speaker": "jerod-santo",
+      "text": "Okay, you're gonna lock that in?"
+    },
+    {
+      "start": 4267.67,
+      "end": 4271.98,
+      "speaker": "adam-stacoviak",
+      "text": "Railroad is another one. Lovers, something."
+    },
+    {
+      "start": 4271.98,
+      "end": 4273.47,
+      "speaker": "jerod-santo",
+      "text": "Yes."
+    },
+    {
+      "start": 4273.47,
+      "end": 4280.43,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think the nobleman sounds the best here. It feels, I don't think anyone here is gonna use the word disfigured."
+    },
+    {
+      "start": 4280.43,
+      "end": 4282.41,
+      "speaker": "jerod-santo",
+      "text": "Wow, that's a dis."
+    },
+    {
+      "start": 4282.41,
+      "end": 4284.05,
+      "speaker": "adam-stacoviak",
+      "text": "It, yeah."
+    },
+    {
+      "start": 4284.05,
+      "end": 4290.27,
+      "speaker": "jerod-santo",
+      "text": "All right, I'm gonna lock you in then. Lock me in, please. Locked you in on the pile on. We go to David."
+    },
+    {
+      "start": 4290.27,
+      "end": 4305.17,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think my intuition last time was sort of prudish about what would be acceptable movie like contents. And so the disfigured nobleman kind of sounds right to me as well. So it's a pile on again."
+    },
+    {
+      "start": 4305.17,
+      "end": 4306.41,
+      "speaker": "jerod-santo",
+      "text": "Oh, all right."
+    },
+    {
+      "start": 4306.41,
+      "end": 4313.89,
+      "speaker": "adam-stacoviak",
+      "text": "We're very conservative bunch here. We're all, there's a lot of hurting. I am in pain, so yeah, the hurting is real. No, just kidding."
+    },
+    {
+      "start": 4313.89,
+      "end": 4358.47,
+      "speaker": "jerod-santo",
+      "text": "Well, it's keeping the game closed because every time someone scores, everybody else scores also. All right, well, we've heard these synopses over and over and over again. Let's go to the guesses. Adam thought maybe it was a disgruntled railroad worker. That was written by Matthew. So one point to Matthew. Thomas was convinced by the Mount Basker mental asylum. I thought that one was amazing. Taylor wrote that. Good job, Taylor. Point to Taylor. And then the pile on. They're piling onto a disfigured nobleman with a permanent grin who's forced into circus life and separated from his true identity. In 1928's The Man Who Laughs, that is the actual synopsis of a movie. It doesn't sound half bad, does it?"
+    },
+    {
+      "start": 4358.47,
+      "end": 4359.43,
+      "speaker": "adam-stacoviak",
+      "text": "It actually doesn't."
+    },
+    {
+      "start": 4360.44,
+      "end": 4366.48,
+      "speaker": "jerod-santo",
+      "text": "Might have to go watch that later, Thomas. Yeah, or if you could get it converted into a book, then you could read it."
+    },
+    {
+      "start": 4366.48,
+      "end": 4369.4,
+      "speaker": "adam-stacoviak",
+      "text": "I don't have to read everything as a book."
+    },
+    {
+      "start": 4369.4,
+      "end": 4373.6,
+      "speaker": "jerod-santo",
+      "text": "I also watch movies. Well, you could pull the book out when we talk about it."
+    },
+    {
+      "start": 4373.6,
+      "end": 4377.78,
+      "speaker": "adam-stacoviak",
+      "text": "Fun fact, Man Who Laughs was the very first Pixar film."
+    },
+    {
+      "start": 4379.16,
+      "end": 4387.12,
+      "speaker": "jerod-santo",
+      "text": "It's coming from the guy who's calling into question the years of the Great War. That was David's. That's why he was defending that one."
+    },
+    {
+      "start": 4387.12,
+      "end": 4390.2,
+      "speaker": "adam-stacoviak",
+      "text": "I tried to let it breathe for an appropriate amount."
+    },
+    {
+      "start": 4390.2,
+      "end": 4404.24,
+      "speaker": "jerod-santo",
+      "text": "You don't want to jump to this defense too harshly. Yeah, I knew what you were doing there, David. I could see it. Well played. All right, so Taylor, Matthew, and David all get two points for getting that right. So three total points for Taylor, two for David, three for..."
+    },
+    {
+      "start": 4404.24,
+      "end": 4405.9,
+      "speaker": "adam-stacoviak",
+      "text": "Where's my points? Is that getting points?"
+    },
+    {
+      "start": 4405.9,
+      "end": 4410.4,
+      "speaker": "jerod-santo",
+      "text": "Matthew, no, not this round. Unfortunately, you didn't get to go last."
+    },
+    {
+      "start": 4410.4,
+      "end": 4411.34,
+      "speaker": "adam-stacoviak",
+      "text": "Oh man."
+    },
+    {
+      "start": 4411.34,
+      "end": 4426.16,
+      "speaker": "jerod-santo",
+      "text": "And that brings us to the end of round five. And Matthew is in striking distance. He has 11. Of course, Taylor and David are also in striking distance with 10. Thomas and Adam have six. And we don't have to talk about it."
+    },
+    {
+      "start": 4426.16,
+      "end": 4439.08,
+      "speaker": "adam-stacoviak",
+      "text": "I'm going to call a two point win, play ground rules. Hmm. I don't know, man. I'm trying to... I see the time. I've got an E bro, I don't know. I'm not winning, so."
+    },
+    {
+      "start": 4439.08,
+      "end": 4444.92,
+      "speaker": "jerod-santo",
+      "text": "So your entire... Not with that attitude. Idea should switch to subterfuge, don't you think? That's your strategy?"
+    },
+    {
+      "start": 4444.92,
+      "end": 4445.84,
+      "speaker": "adam-stacoviak",
+      "text": "Let's go start reading."
+    },
+    {
+      "start": 4445.84,
+      "end": 4477.32,
+      "speaker": "jerod-santo",
+      "text": "Just start reading. All right, that brings us to round six. And that brings us to a very long word. Pronounced Brobdingneggian. Brobdingneggian. The word for round six is Brobdingneggian. And it's spelled B-R-O-B-D-I-N-G-N-E-S. N-A-G-I-A-N. Brobdingneggian. Ooh, that's my best pronunciation yet."
+    },
+    {
+      "start": 4477.32,
+      "end": 4479.16,
+      "speaker": "adam-stacoviak",
+      "text": "Brobdingen?"
+    },
+    {
+      "start": 4479.16,
+      "end": 4481.16,
+      "speaker": "jerod-santo",
+      "text": "Brobdingneggian."
+    },
+    {
+      "start": 4481.16,
+      "end": 4484.84,
+      "speaker": "adam-stacoviak",
+      "text": "That is definitely not how it's pronounced. But I see why you're doing it that way."
+    },
+    {
+      "start": 4484.84,
+      "end": 4499.81,
+      "speaker": "jerod-santo",
+      "text": "This is the second time you've done this to me. And I'm telling you, I looked it up on YouTube. It's pronounced Brobdingneggian. So take that, Matthew. Take that, Matthew. Yeah. Check out your own YouTube videos for pronunciation and somebody's rocking my world again."
+    },
+    {
+      "start": 4499.81,
+      "end": 4507.97,
+      "speaker": "adam-stacoviak",
+      "text": "Brobdingneggian. If it ends in I-A-N, it's an Armenian. So, fun fact."
+    },
+    {
+      "start": 4507.97,
+      "end": 4518.33,
+      "speaker": "jerod-santo",
+      "text": "The slight alteration that could also be pronounced Brobdingneggian. So it could be Neggian or Nagian. I've heard them both now. But Brobding is correct."
+    },
+    {
+      "start": 4518.33,
+      "end": 4519.29,
+      "speaker": "adam-stacoviak",
+      "text": "Brobding."
+    },
+    {
+      "start": 4519.29,
+      "end": 4538.97,
+      "speaker": "jerod-santo",
+      "text": "Please submit to me your definitions of Brobdingneggian or Nagian if you prefer now."
+    },
+    {
+      "start": 4538.97,
+      "end": 4544.65,
+      "speaker": "adam-stacoviak",
+      "text": "You know what? It's been real. I'll get some dinner. Because Jared can't pronounce the words anymore."
+    },
+    {
+      "start": 4544.65,
+      "end": 4546.01,
+      "speaker": "jerod-santo",
+      "text": "Hey, I'm two for two, man."
+    },
+    {
+      "start": 4546.01,
+      "end": 4548.51,
+      "speaker": "adam-stacoviak",
+      "text": "I'm two for two. You're good. This?"
+    },
+    {
+      "start": 4548.51,
+      "end": 4551.15,
+      "speaker": "jerod-santo",
+      "text": "This word is interesting."
+    },
+    {
+      "start": 4551.15,
+      "end": 4552.63,
+      "speaker": "adam-stacoviak",
+      "text": "I have words about this word."
+    },
+    {
+      "start": 4553.55,
+      "end": 4554.95,
+      "speaker": "jerod-santo",
+      "text": "Write them down and submit them to me."
+    },
+    {
+      "start": 4554.95,
+      "end": 4556.83,
+      "speaker": "adam-stacoviak",
+      "text": "I can't say it until our definitions are out there."
+    },
+    {
+      "start": 4556.83,
+      "end": 4563.76,
+      "speaker": "jerod-santo",
+      "text": "Okay. Oh, by the way, Adam, did you LLM that last one? I haven't LLM'd anything, man. Okay."
+    },
+    {
+      "start": 4564,
+      "end": 4565.84,
+      "speaker": "adam-stacoviak",
+      "text": "You better start LLMing, buddy."
+    },
+    {
+      "start": 4565.84,
+      "end": 4567.88,
+      "speaker": "jerod-santo",
+      "text": "You're running out of time, dude. Am I allowed to do that?"
+    },
+    {
+      "start": 4567.88,
+      "end": 4568.84,
+      "speaker": "adam-stacoviak",
+      "text": "You get one."
+    },
+    {
+      "start": 4568.84,
+      "end": 4572.08,
+      "speaker": "jerod-santo",
+      "text": "You get one pass. Oh my gosh. I should do this soon."
+    },
+    {
+      "start": 4572.08,
+      "end": 4592.62,
+      "speaker": "adam-stacoviak",
+      "text": "So I mute myself when I'm typing because I have this gnarly clickety clacker. And when I do type, I get the little notification. Hey, are you trying to speak? If you're trying to speak, you're muted right now. I'm typing."
+    },
+    {
+      "start": 4592.62,
+      "end": 4595.2,
+      "speaker": "jerod-santo",
+      "text": "I prefer just to hear the clickety clacks, man."
+    },
+    {
+      "start": 4595.68,
+      "end": 4596.52,
+      "speaker": "adam-stacoviak",
+      "text": "All right."
+    },
+    {
+      "start": 4596.52,
+      "end": 4597.36,
+      "speaker": "jerod-santo",
+      "text": "Let's get them."
+    },
+    {
+      "start": 4599.51,
+      "end": 4601.11,
+      "speaker": "adam-stacoviak",
+      "text": "But now I have to do some thinking before."
+    },
+    {
+      "start": 4601.11,
+      "end": 4606.37,
+      "speaker": "jerod-santo",
+      "text": "Now we know when you're not typing too. We silently judge you."
+    },
+    {
+      "start": 4606.37,
+      "end": 4612.57,
+      "speaker": "adam-stacoviak",
+      "text": "I think if you were really paying attention, you can notice like how long was I typing. You could guess which."
+    },
+    {
+      "start": 4612.57,
+      "end": 4618.05,
+      "speaker": "jerod-santo",
+      "text": "I wouldn't put it past David. I think he's playing to win here. He's probably gonna listen to your typing, figure out your definition."
+    },
+    {
+      "start": 4618.05,
+      "end": 4622.57,
+      "speaker": "adam-stacoviak",
+      "text": "He has those big over-ear headphones on to really get."
+    },
+    {
+      "start": 4622.57,
+      "end": 4627.01,
+      "speaker": "jerod-santo",
+      "text": "Matthew also has the headphones. Literally, literally."
+    },
+    {
+      "start": 4627.01,
+      "end": 4632.85,
+      "speaker": "adam-stacoviak",
+      "text": "The majority of people in this chat. Over here. I know, I know, I know, I know, I know."
+    },
+    {
+      "start": 4632.85,
+      "end": 4633.93,
+      "speaker": "jerod-santo",
+      "text": "It's not lost on me."
+    },
+    {
+      "start": 4633.93,
+      "end": 4637.37,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, mine are open back, so I still let you hear. Oh, okay, yes."
+    },
+    {
+      "start": 4637.37,
+      "end": 4639.17,
+      "speaker": "jerod-santo",
+      "text": "Oh, wow."
+    },
+    {
+      "start": 4639.17,
+      "end": 4642.01,
+      "speaker": "adam-stacoviak",
+      "text": "You know, I gotta hear my dog's barking or my wife is calling me."
+    },
+    {
+      "start": 4642.01,
+      "end": 4645.41,
+      "speaker": "jerod-santo",
+      "text": "Yep, I hear my dog barking. I'm gonna take her for a walk."
+    },
+    {
+      "start": 4645.41,
+      "end": 4647.81,
+      "speaker": "adam-stacoviak",
+      "text": "Can I change my answer for the Steve Jobs one?"
+    },
+    {
+      "start": 4651.63,
+      "end": 4656.15,
+      "speaker": "jerod-santo",
+      "text": "What do you want?"
+    },
+    {
+      "start": 4656.15,
+      "end": 4659.62,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know, just wondering if I could. It's a lot."
+    },
+    {
+      "start": 4659.62,
+      "end": 4664.24,
+      "speaker": "jerod-santo",
+      "text": "Yeah, go for it."
+    },
+    {
+      "start": 4664.76,
+      "end": 4670.42,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, geez. Steve, Steve Jobs net worth. Nah."
+    },
+    {
+      "start": 4670.42,
+      "end": 4672.53,
+      "speaker": "jerod-santo",
+      "text": "Gives Adam another point."
+    },
+    {
+      "start": 4672.53,
+      "end": 4684.86,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, no, right. Here we go. I did get, this is relevant to a changelog. I did get this book before it came out. Wow. I got the not for resale."
+    },
+    {
+      "start": 4684.86,
+      "end": 4686.06,
+      "speaker": "jerod-santo",
+      "text": "Before it came out?"
+    },
+    {
+      "start": 4686.06,
+      "end": 4687.9,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, not for resale."
+    },
+    {
+      "start": 4687.9,
+      "end": 4690.86,
+      "speaker": "jerod-santo",
+      "text": "That's a contradiction, dude. You can't get something before it comes out."
+    },
+    {
+      "start": 4690.86,
+      "end": 4696.42,
+      "speaker": "adam-stacoviak",
+      "text": "That's not true if you know the right people."
+    },
+    {
+      "start": 4696.46,
+      "end": 4698.98,
+      "speaker": "jerod-santo",
+      "text": "Did you, I had it before he wrote it, so."
+    },
+    {
+      "start": 4698.98,
+      "end": 4700.58,
+      "speaker": "adam-stacoviak",
+      "text": "You've had it before he wrote it?"
+    },
+    {
+      "start": 4700.58,
+      "end": 4702.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah, well you gotta know the right people."
+    },
+    {
+      "start": 4702.62,
+      "end": 4712.7,
+      "speaker": "adam-stacoviak",
+      "text": "No, this is, it says, these proofs are not to be quoted for publication. You just published it, dude. You're on a podcast. The book's out, the book came out."
+    },
+    {
+      "start": 4712.7,
+      "end": 4719.02,
+      "speaker": "jerod-santo",
+      "text": "It says on the back when the book actually comes out, that already came out. Everyone can buy it now."
+    },
+    {
+      "start": 4719.02,
+      "end": 4726.34,
+      "speaker": "adam-stacoviak",
+      "text": "Did you hear about the sequel to that book called Constipation? No, you haven't. It hasn't come out yet."
+    },
+    {
+      "start": 4729.46,
+      "end": 4730.54,
+      "speaker": "jerod-santo",
+      "text": "That's a good one."
+    },
+    {
+      "start": 4730.54,
+      "end": 4734.38,
+      "speaker": "adam-stacoviak",
+      "text": "Bravo, that's, I hate that I love that, but that's for you."
+    },
+    {
+      "start": 4734.38,
+      "end": 4736.46,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that's a good one."
+    },
+    {
+      "start": 4736.46,
+      "end": 4737.3,
+      "speaker": "adam-stacoviak",
+      "text": "That's a good one."
+    },
+    {
+      "start": 4737.3,
+      "end": 4760.38,
+      "speaker": "jerod-santo",
+      "text": "Such is life, okay. Six definitions for brobding Nagian. Number one, purposefully accelerating civilization collapse. Number two, having to do with the sport of brob sledding."
+    },
+    {
+      "start": 4763.85,
+      "end": 4769.01,
+      "speaker": "adam-stacoviak",
+      "text": "Number three, a fictional area in the Golden Sun video game"
+    },
+    {
+      "start": 4775.73,
+      "end": 4791.64,
+      "speaker": "jerod-santo",
+      "text": "where the characters face the toughest enemies. Number four, a matrix of fourth derivatives. Number five, cousin to the backyardigans. Malik, Zara, Benji, and the other love to play in the front yard."
+    },
+    {
+      "start": 4794.9,
+      "end": 4797.02,
+      "speaker": "adam-stacoviak",
+      "text": "You're not helping anything with that reading."
+    },
+    {
+      "start": 4797.02,
+      "end": 4829.04,
+      "speaker": "jerod-santo",
+      "text": "Imagine themselves on Fantastic Adventures. That's awesome. That's amazing. And number five, or sorry, number six, marked by tremendous size. Marked by tremendous size. Okay, six definitions. Good news for you, Adam. You get to go last, so you're safe. Taylor has to go first this round. Taylor, what do you think is brobding Nagian?"
+    },
+    {
+      "start": 4829.04,
+      "end": 4835.56,
+      "speaker": "adam-stacoviak",
+      "text": "I do just want to give a shout out real quick to the backyardigans. I've been watching that show with my daughter and it's like on some fire tracks."
+    },
+    {
+      "start": 4835.56,
+      "end": 4841.42,
+      "speaker": "jerod-santo",
+      "text": "Like, oh yeah, man. Oh yeah. K-brob demon hunters."
+    },
+    {
+      "start": 4841.42,
+      "end": 4857.07,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, that's a good one. So it's between, so it's between brob sledding. That was a very good one. Whoever did that's very clever. Brob sledding. It could be the real answer. You don't know."
+    },
+    {
+      "start": 4858.78,
+      "end": 4862.74,
+      "speaker": "jerod-santo",
+      "text": "You act like brob sledding's not real or something."
+    },
+    {
+      "start": 4862.74,
+      "end": 4866.63,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think I liked the first one. The last one, it sounded the most legit."
+    },
+    {
+      "start": 4866.63,
+      "end": 4868.63,
+      "speaker": "jerod-santo",
+      "text": "Yeah, they did. Okay."
+    },
+    {
+      "start": 4868.63,
+      "end": 4871.91,
+      "speaker": "adam-stacoviak",
+      "text": "The last one was size."
+    },
+    {
+      "start": 4871.91,
+      "end": 4873.75,
+      "speaker": "jerod-santo",
+      "text": "Yeah, tremendous size."
+    },
+    {
+      "start": 4873.75,
+      "end": 4878.2,
+      "speaker": "adam-stacoviak",
+      "text": "Tremendous size. No, that's too on the nose. What was the first one?"
+    },
+    {
+      "start": 4878.2,
+      "end": 4884.54,
+      "speaker": "jerod-santo",
+      "text": "The first one was purposefully accelerating civilizational collapse."
+    },
+    {
+      "start": 4884.54,
+      "end": 4895.08,
+      "speaker": "adam-stacoviak",
+      "text": "Nah, that's too smart for me. What about, let's pick the last one. Size."
+    },
+    {
+      "start": 4895.08,
+      "end": 4901.39,
+      "speaker": "jerod-santo",
+      "text": "Size. He's going for size. Size does matter for Taylor Thomas."
+    },
+    {
+      "start": 4901.39,
+      "end": 4910.54,
+      "speaker": "adam-stacoviak",
+      "text": "Size, size, big or size? Which size? Marked by tremendous size."
+    },
+    {
+      "start": 4910.54,
+      "end": 4918.6,
+      "speaker": "jerod-santo",
+      "text": "He's asking about a homonym. What'd you call me? So we got S-I-Z-E."
+    },
+    {
+      "start": 4918.6,
+      "end": 4926.34,
+      "speaker": "adam-stacoviak",
+      "text": "It's spelled S-I-Z-E. Yeah. So accelerating civilization collapse. Correct. Brob sledding."
+    },
+    {
+      "start": 4926.34,
+      "end": 4927.44,
+      "speaker": "jerod-santo",
+      "text": "Brob sledding."
+    },
+    {
+      "start": 4927.44,
+      "end": 4935.55,
+      "speaker": "adam-stacoviak",
+      "text": "Is, I mean, it sounds really good. And you have the Golden Sun video game. The Golden Sun video game, a matrix of fourth derivatives."
+    },
+    {
+      "start": 4935.55,
+      "end": 4936.99,
+      "speaker": "jerod-santo",
+      "text": "Derivatives, yes."
+    },
+    {
+      "start": 4936.99,
+      "end": 4938.47,
+      "speaker": "adam-stacoviak",
+      "text": "The backyardigans."
+    },
+    {
+      "start": 4938.47,
+      "end": 4939.75,
+      "speaker": "jerod-santo",
+      "text": "Cousin to the backyardigans."
+    },
+    {
+      "start": 4939.75,
+      "end": 4953.21,
+      "speaker": "adam-stacoviak",
+      "text": "Cousin to the backyardigans, yeah. Tignikian. Marked by tremendous size. It's dark, but I'll do the acceleration of civilization collapse."
+    },
+    {
+      "start": 4953.21,
+      "end": 4956.71,
+      "speaker": "jerod-santo",
+      "text": "Okay, we go to Matthew."
+    },
+    {
+      "start": 4956.71,
+      "end": 4966.25,
+      "speaker": "adam-stacoviak",
+      "text": "The summary of each of them was, let me think if I remember this. Marked by tremendous size, one. Thomas, the collapse of civilization that he just picked."
+    },
+    {
+      "start": 4966.25,
+      "end": 4968.09,
+      "speaker": "jerod-santo",
+      "text": "Right. Brob sledding."
+    },
+    {
+      "start": 4968.09,
+      "end": 4971.29,
+      "speaker": "adam-stacoviak",
+      "text": "Brob sledding backyardigans or something?"
+    },
+    {
+      "start": 4971.29,
+      "end": 4972.13,
+      "speaker": "jerod-santo",
+      "text": "Correct."
+    },
+    {
+      "start": 4973.63,
+      "end": 4975.23,
+      "speaker": "adam-stacoviak",
+      "text": "Golden Sun something?"
+    },
+    {
+      "start": 4975.23,
+      "end": 4978.37,
+      "speaker": "jerod-santo",
+      "text": "Yes. And a matrix of fourth derivatives."
+    },
+    {
+      "start": 4978.37,
+      "end": 4982.01,
+      "speaker": "adam-stacoviak",
+      "text": "A matrix of fourth derivatives."
+    },
+    {
+      "start": 4982.01,
+      "end": 4983.25,
+      "speaker": "jerod-santo",
+      "text": "Correct."
+    },
+    {
+      "start": 4983.25,
+      "end": 4989.15,
+      "speaker": "adam-stacoviak",
+      "text": "As in math, I guess. No, these are programming languages that derive from fourth."
+    },
+    {
+      "start": 4989.15,
+      "end": 4991.63,
+      "speaker": "jerod-santo",
+      "text": "Boo. That's a homonym."
+    },
+    {
+      "start": 4991.63,
+      "end": 4999,
+      "speaker": "adam-stacoviak",
+      "text": "That is a homonym. Wow, I'm actually not sure. Brob, brob, ding, brob."
+    },
+    {
+      "start": 4999,
+      "end": 5000.68,
+      "speaker": "jerod-santo",
+      "text": "Brob, ding, negian."
+    },
+    {
+      "start": 5000.68,
+      "end": 5001.84,
+      "speaker": "adam-stacoviak",
+      "text": "Brob, ding, negian."
+    },
+    {
+      "start": 5001.84,
+      "end": 5003.4,
+      "speaker": "jerod-santo",
+      "text": "Brob, ding, negian."
+    },
+    {
+      "start": 5003.4,
+      "end": 5011.36,
+      "speaker": "adam-stacoviak",
+      "text": "Sounds like a thing rather than like a status or like a description or something. Sounds like an actual thing."
+    },
+    {
+      "start": 5011.36,
+      "end": 5012.5,
+      "speaker": "jerod-santo",
+      "text": "Like a noun."
+    },
+    {
+      "start": 5012.5,
+      "end": 5014.02,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, exactly."
+    },
+    {
+      "start": 5014.02,
+      "end": 5017.06,
+      "speaker": "jerod-santo",
+      "text": "Like it's a name. That's somebody hanging out."
+    },
+    {
+      "start": 5017.06,
+      "end": 5026.59,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it's like the name of a location or something or it's a name of something. Like you call someone this, you know what I mean? Right. You are such a thing."
+    },
+    {
+      "start": 5026.59,
+      "end": 5027.43,
+      "speaker": "jerod-santo",
+      "text": "Like a slur."
+    },
+    {
+      "start": 5027.43,
+      "end": 5039.28,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, so I have to eliminate. Not the backyardigan thing. Not the other rob sledding one. Collapsing of society, I don't think so. And then there's three more."
+    },
+    {
+      "start": 5039.28,
+      "end": 5045.29,
+      "speaker": "jerod-santo",
+      "text": "Marked by tremendous size, that's an adjective. And then you have the matrix of four derivatives, which would be a noun."
+    },
+    {
+      "start": 5045.29,
+      "end": 5048.77,
+      "speaker": "adam-stacoviak",
+      "text": "So I've narrowed down to what? Golden sun and size?"
+    },
+    {
+      "start": 5048.77,
+      "end": 5057.37,
+      "speaker": "jerod-santo",
+      "text": "Golden sun and size. Well, size is not, I'm not gonna help you. That's fine. I'm just saying, it's not a noun."
+    },
+    {
+      "start": 5057.37,
+      "end": 5061.77,
+      "speaker": "adam-stacoviak",
+      "text": "No, I agreed. But like every other ones, I don't like the other nouns."
+    },
+    {
+      "start": 5061.77,
+      "end": 5064.13,
+      "speaker": "jerod-santo",
+      "text": "Okay, fine. Whatever one you want."
+    },
+    {
+      "start": 5064.13,
+      "end": 5066.57,
+      "speaker": "adam-stacoviak",
+      "text": "Can you read the golden sun one, please? Can you read both of them?"
+    },
+    {
+      "start": 5066.57,
+      "end": 5074.25,
+      "speaker": "jerod-santo",
+      "text": "A fictional area in the golden sun video game where the characters face the toughest enemies. And then marked by tremendous size."
+    },
+    {
+      "start": 5074.25,
+      "end": 5083.1,
+      "speaker": "adam-stacoviak",
+      "text": "Fictional area in the golden sun. I like that it clarifies that it is a fictional area in the video game."
+    },
+    {
+      "start": 5083.1,
+      "end": 5087.18,
+      "speaker": "jerod-santo",
+      "text": "Mm-hmm. Yeah. Like there's real areas and then there's fictional areas."
+    },
+    {
+      "start": 5087.18,
+      "end": 5091.34,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Grand Theft Auto is like real areas in a fictional game, you know?"
+    },
+    {
+      "start": 5091.34,
+      "end": 5096.7,
+      "speaker": "jerod-santo",
+      "text": "Right. Or Tony Hawk's Pro Skater, like you're on Burnside, but you're not actually there."
+    },
+    {
+      "start": 5096.7,
+      "end": 5101.78,
+      "speaker": "adam-stacoviak",
+      "text": "By the way, Thomas, Thomas, a video game is just a really fun movie."
+    },
+    {
+      "start": 5101.78,
+      "end": 5110.46,
+      "speaker": "jerod-santo",
+      "text": "Really fun movie. So choose your own adventure book. I feel like there's an escalation of fun that I'm just missing out on."
+    },
+    {
+      "start": 5110.46,
+      "end": 5123.44,
+      "speaker": "adam-stacoviak",
+      "text": "I think I kind of have to pile on here because yeah, I don't, nothing really names, nothing really names the video game. Like why would a definition name something? I don't know."
+    },
+    {
+      "start": 5123.44,
+      "end": 5125.12,
+      "speaker": "jerod-santo",
+      "text": "I mean like metaverse."
+    },
+    {
+      "start": 5125.12,
+      "end": 5131.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I guess. All right, I'll pile on to the size one because I don't believe it's a society collapse."
+    },
+    {
+      "start": 5131.16,
+      "end": 5135.44,
+      "speaker": "jerod-santo",
+      "text": "All right. Matthew is with Taylor on size. David."
+    },
+    {
+      "start": 5135.44,
+      "end": 5140.4,
+      "speaker": "adam-stacoviak",
+      "text": "You are a Brob-Dignigan. You are so Brob-Dignigan. I don't know."
+    },
+    {
+      "start": 5140.4,
+      "end": 5143.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah, so Brob-Dignigan."
+    },
+    {
+      "start": 5143.62,
+      "end": 5178.42,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know if there's like a word like Manichaean, which is like a way that people construct a world view that's kind of binary between good and evil. And so that's one way in which that could be related. There are my different, like my linear algebra is very rusty. So I feel like there are some named matrices but I don't remember if that's one of them. We have a couple of obviously ridiculous ones. Sorry, did it specify what video game?"
+    },
+    {
+      "start": 5178.42,
+      "end": 5180.06,
+      "speaker": "jerod-santo",
+      "text": "Yeah, Golden Sun."
+    },
+    {
+      "start": 5180.06,
+      "end": 5186.52,
+      "speaker": "adam-stacoviak",
+      "text": "Golden Sun. Is that a game, like, is that a popular game?"
+    },
+    {
+      "start": 5188.11,
+      "end": 5189.63,
+      "speaker": "jerod-santo",
+      "text": "I haven't heard of it myself."
+    },
+    {
+      "start": 5189.63,
+      "end": 5191.32,
+      "speaker": "adam-stacoviak",
+      "text": "Okay."
+    },
+    {
+      "start": 5191.32,
+      "end": 5195.6,
+      "speaker": "jerod-santo",
+      "text": "But I'm not a gamer very much. I just play Rocket League."
+    },
+    {
+      "start": 5195.6,
+      "end": 5203.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Enormous size. It is kind of a like big feeling word, you know?"
+    },
+    {
+      "start": 5203.16,
+      "end": 5203.98,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 5203.98,
+      "end": 5215.2,
+      "speaker": "adam-stacoviak",
+      "text": "And thus regrettably. He's piling on. It's happening. I'm not quite convinced by any of the others."
+    },
+    {
+      "start": 5215.2,
+      "end": 5225.6,
+      "speaker": "jerod-santo",
+      "text": "So Matthew and Taylor are tied with 11 and you have, Matthew has 11, you and Taylor are tied with 10. And so all you are picking the same one."
+    },
+    {
+      "start": 5225.6,
+      "end": 5239.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. No, I mean, there's no, there's not a, I don't think there's a strategically better move to make than attempting to pick the correct thing. It's basically like going to, yeah, well, let's see what happens."
+    },
+    {
+      "start": 5239.78,
+      "end": 5245.46,
+      "speaker": "jerod-santo",
+      "text": "All right, let's see what happens. So Adam, you're up, man."
+    },
+    {
+      "start": 5245.46,
+      "end": 5251.4,
+      "speaker": "adam-stacoviak",
+      "text": "Oh my gosh. I'm going to have to have you read them all again for me."
+    },
+    {
+      "start": 5251.4,
+      "end": 5254.18,
+      "speaker": "jerod-santo",
+      "text": "You can just file on, dude. You're on last."
+    },
+    {
+      "start": 5254.18,
+      "end": 5259.68,
+      "speaker": "adam-stacoviak",
+      "text": "I don't want to go last though this time. I want to go. Wait, I do want to go last. Everybody else is already gone."
+    },
+    {
+      "start": 5259.68,
+      "end": 5266.03,
+      "speaker": "jerod-santo",
+      "text": "It's all gone. How could you not go last? You're first and then you're last. I can't take you anywhere."
+    },
+    {
+      "start": 5266.03,
+      "end": 5276.31,
+      "speaker": "adam-stacoviak",
+      "text": "What is it? There was a, there was a, there was a, there was a book, a little blue truck. Move a bud, I'm first, you're last. That's what it says."
+    },
+    {
+      "start": 5276.31,
+      "end": 5277.15,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 5277.15,
+      "end": 5283.66,
+      "speaker": "adam-stacoviak",
+      "text": "Okay, fine. I'll, you know, default answer. I guess, I guess I'll pile on."
+    },
+    {
+      "start": 5283.66,
+      "end": 5285.86,
+      "speaker": "jerod-santo",
+      "text": "Okay, he's pile on. I'll pile on."
+    },
+    {
+      "start": 5285.86,
+      "end": 5289.78,
+      "speaker": "adam-stacoviak",
+      "text": "I was thinking about, you know, having you read one of them at least, but I'm not going to do that."
+    },
+    {
+      "start": 5289.78,
+      "end": 5293.94,
+      "speaker": "jerod-santo",
+      "text": "Well, let's start with the only guy who went his own way."
+    },
+    {
+      "start": 5293.94,
+      "end": 5294.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 5294.76,
+      "end": 5309.56,
+      "speaker": "jerod-santo",
+      "text": "It's just like the old song. You can go your own way, but it's going to be a lonely day, Thomas. It's a lonely day. Sitting over there on Taylor's purposefully accelerating civilizational collapse. One point for Taylor."
+    },
+    {
+      "start": 5309.56,
+      "end": 5317.68,
+      "speaker": "adam-stacoviak",
+      "text": "It was just, like it had, you already said accelerating. Like that's acceleration. You did it. You fully did it. You did it. Accelerationism."
+    },
+    {
+      "start": 5317.68,
+      "end": 5350.49,
+      "speaker": "jerod-santo",
+      "text": "Accelerationism. And then everybody else just piled on the marked by a tremendous size, which is an adjective, even though Matthew was looking for nouns, he couldn't find one. It feels like a place. And that's because Brobdingnag is a place. It's a fictional place in Gulliver's travels where Gulliver goes. And the people in Brogdingnag are marked by tremendous size. And so they are Brobdingnagians. And so everybody who picked that gets two."
+    },
+    {
+      "start": 5350.49,
+      "end": 5363.74,
+      "speaker": "adam-stacoviak",
+      "text": "I just think of like the Spiderman movie when he lands in like the Netherlands or something. Where are you? And he like says the name of the town. And it's like some, I don't know what language they really speak there, but it reminds me of that word."
+    },
+    {
+      "start": 5363.74,
+      "end": 5365.1,
+      "speaker": "jerod-santo",
+      "text": "What language do they speak there?"
+    },
+    {
+      "start": 5365.1,
+      "end": 5367.32,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know. What is the town name?"
+    },
+    {
+      "start": 5367.32,
+      "end": 5369.82,
+      "speaker": "jerod-santo",
+      "text": "Couple of shout outs. I have no idea what you're referring to."
+    },
+    {
+      "start": 5369.82,
+      "end": 5370.66,
+      "speaker": "adam-stacoviak",
+      "text": "I'm gonna get it."
+    },
+    {
+      "start": 5370.66,
+      "end": 5380.29,
+      "speaker": "jerod-santo",
+      "text": "I'm gonna get it. All right, you think. Couple of shout outs. Macyardigans, that was Adam. Golden Sun was Matthew. Is anybody know Golden Sun beside yourself, Matthew?"
+    },
+    {
+      "start": 5380.29,
+      "end": 5382.57,
+      "speaker": "adam-stacoviak",
+      "text": "I know, I played it. It was a good game."
+    },
+    {
+      "start": 5382.57,
+      "end": 5393.96,
+      "speaker": "jerod-santo",
+      "text": "Okay. And then of course the Brob sledding was Thomas, which was funny because somebody immediately thought Taylor wrote that one. But Taylor said it was too smart for him or something."
+    },
+    {
+      "start": 5393.96,
+      "end": 5401.78,
+      "speaker": "adam-stacoviak",
+      "text": "I'm surprised no one chose the Brobbardigans. Whatever they're called."
+    },
+    {
+      "start": 5401.78,
+      "end": 5403,
+      "speaker": "jerod-santo",
+      "text": "Brobdingnagians."
+    },
+    {
+      "start": 5403,
+      "end": 5404.4,
+      "speaker": "adam-stacoviak",
+      "text": "Brobdingnagians, yeah."
+    },
+    {
+      "start": 5404.4,
+      "end": 5413.78,
+      "speaker": "jerod-santo",
+      "text": "So after six rounds of play, we do have winners. We also have hard stops. So we'll have to decide what we're gonna do here"
+    },
+    {
+      "start": 5413.78,
+      "end": 5415.26,
+      "speaker": "adam-stacoviak",
+      "text": "because people have won."
+    },
+    {
+      "start": 5415.26,
+      "end": 5437.46,
+      "speaker": "jerod-santo",
+      "text": "Taylor and Matthew both have 13 points, putting them over the 12 point threshold. David has 12, putting them at the 12 point threshold. So we can end the game with a two way tie for first. I know that Thomas has to wrap. I think everybody has dinner to have at a certain point. We can call it. We can continue. We can go without Thomas. We can just."
+    },
+    {
+      "start": 5437.46,
+      "end": 5441.94,
+      "speaker": "adam-stacoviak",
+      "text": "I'm not gonna win this one. So I can back out. Go walk my dog."
+    },
+    {
+      "start": 5442.9,
+      "end": 5446.86,
+      "speaker": "jerod-santo",
+      "text": "Let's talk to our two guys tied for first place. Taylor and Matthew, how would you like to proceed?"
+    },
+    {
+      "start": 5446.86,
+      "end": 5453.61,
+      "speaker": "adam-stacoviak",
+      "text": "I don't have a preference. We can tie it. We can tie break it. We can whatever."
+    },
+    {
+      "start": 5453.61,
+      "end": 5456.81,
+      "speaker": "jerod-santo",
+      "text": "I have more rounds in my back pocket. So that's not a problem."
+    },
+    {
+      "start": 5456.81,
+      "end": 5463.91,
+      "speaker": "adam-stacoviak",
+      "text": "Let me think. I am super hungry. Let's just call it a two way tie for first."
+    },
+    {
+      "start": 5467.17,
+      "end": 5473.17,
+      "speaker": "jerod-santo",
+      "text": "Oh boy. We've been playing a long time. So let's just congratulate our two winners."
+    },
+    {
+      "start": 5473.17,
+      "end": 5482.29,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, all right. Oh yeah. Sorry. I think I lagged. I was gonna say already flip a coin, right?"
+    },
+    {
+      "start": 5482.29,
+      "end": 5485.25,
+      "speaker": "jerod-santo",
+      "text": "Like flip a coin."
+    },
+    {
+      "start": 5485.25,
+      "end": 5492.79,
+      "speaker": "adam-stacoviak",
+      "text": "I have an idea. You both see go back and forth. Who can name more words and whoever runs out of words first loses."
+    },
+    {
+      "start": 5493.81,
+      "end": 5498.73,
+      "speaker": "jerod-santo",
+      "text": "I would definitely lose that one easily. Sounds like counting from one to a million."
+    },
+    {
+      "start": 5498.73,
+      "end": 5504.89,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. One, two, three. You don't have another tie breaker thing that we can do, Jared?"
+    },
+    {
+      "start": 5504.89,
+      "end": 5506.13,
+      "speaker": "jerod-santo",
+      "text": "I'm thinking."
+    },
+    {
+      "start": 5506.13,
+      "end": 5508.49,
+      "speaker": "adam-stacoviak",
+      "text": "You can do a live Google thing."
+    },
+    {
+      "start": 5508.49,
+      "end": 5511.21,
+      "speaker": "jerod-santo",
+      "text": "I do have another good round. We could just have the two of you."
+    },
+    {
+      "start": 5511.21,
+      "end": 5520.59,
+      "speaker": "adam-stacoviak",
+      "text": "Where we just guess. We both just like guess on three or something and whoever's guess is higher in the Google rank wins or something."
+    },
+    {
+      "start": 5520.59,
+      "end": 5526.1,
+      "speaker": "jerod-santo",
+      "text": "On the fly. Oh my goodness. Ask Google to generate a number between zero and one."
+    },
+    {
+      "start": 5527.1,
+      "end": 5530.1,
+      "speaker": "adam-stacoviak",
+      "text": "We could also do that."
+    },
+    {
+      "start": 5530.1,
+      "end": 5531.98,
+      "speaker": "jerod-santo",
+      "text": "All right. I'm pulling up Google right now."
+    },
+    {
+      "start": 5531.98,
+      "end": 5534.62,
+      "speaker": "adam-stacoviak",
+      "text": "Who's a change log plus plus subscriber. No, just kidding."
+    },
+    {
+      "start": 5536.78,
+      "end": 5538.02,
+      "speaker": "jerod-santo",
+      "text": "Oh yeah."
+    },
+    {
+      "start": 5538.02,
+      "end": 5539.42,
+      "speaker": "adam-stacoviak",
+      "text": "No, just kidding."
+    },
+    {
+      "start": 5539.42,
+      "end": 5568.57,
+      "speaker": "jerod-santo",
+      "text": "Okay. So I'm gonna pull up Google. I'm gonna start typing an auto-complete. I'm gonna stop. And then you guys will guess until somebody hits the top auto-complete and the person who hits it wins. You guys cool with that? Sure. All right. I have typed Bill Gates space. Space needle, but a literal blank character. Bill Gates space. And the first one to hit it wins."
+    },
+    {
+      "start": 5568.57,
+      "end": 5570.77,
+      "speaker": "adam-stacoviak",
+      "text": "So how do we, how should we start with a change"
+    },
+    {
+      "start": 5570.77,
+      "end": 5573.19,
+      "speaker": "jerod-santo",
+      "text": "like plus plus member? It was Matthew."
+    },
+    {
+      "start": 5574.34,
+      "end": 5576.82,
+      "speaker": "adam-stacoviak",
+      "text": "But I'm not a change like plus plus member. Oh shoot."
+    },
+    {
+      "start": 5577.82,
+      "end": 5578.94,
+      "speaker": "jerod-santo",
+      "text": "I thought you were."
+    },
+    {
+      "start": 5578.94,
+      "end": 5582.46,
+      "speaker": "adam-stacoviak",
+      "text": "I thought I was too, but I, you know. I just listen so much."
+    },
+    {
+      "start": 5582.46,
+      "end": 5598.66,
+      "speaker": "jerod-santo",
+      "text": "We start with Taylor. I'm now offended by Matthew. I'll start with Taylor. Yeah. David is one, but he's also missing a point. Yeah. We'll start with Matthew. I'm not, I'm not easily offended. Go ahead, man. It's better though."
+    },
+    {
+      "start": 5598.66,
+      "end": 5600.64,
+      "speaker": "adam-stacoviak",
+      "text": "All right. So just say one."
+    },
+    {
+      "start": 5600.64,
+      "end": 5602.98,
+      "speaker": "jerod-santo",
+      "text": "Yeah. What do you think Bill Gates auto-completes to?"
+    },
+    {
+      "start": 5602.98,
+      "end": 5604.16,
+      "speaker": "adam-stacoviak",
+      "text": "Net worth."
+    },
+    {
+      "start": 5604.16,
+      "end": 5607.87,
+      "speaker": "jerod-santo",
+      "text": "It's on there, but it's not number one. Okay. Taylor."
+    },
+    {
+      "start": 5607.87,
+      "end": 5619.03,
+      "speaker": "adam-stacoviak",
+      "text": "Feet. Is it Bill Gates versus Godzilla? That should probably be up in the top five. No, let's go with Bill Gates. It's feet, man."
+    },
+    {
+      "start": 5620.03,
+      "end": 5622.2,
+      "speaker": "jerod-santo",
+      "text": "The blanks already in there."
+    },
+    {
+      "start": 5622.2,
+      "end": 5629.08,
+      "speaker": "adam-stacoviak",
+      "text": "What keeps on coming up to me is like the, the Bill Gates Epstein situation. Cause there was a tie there or something and Bill Gates Epstein to be real topical maybe."
+    },
+    {
+      "start": 5629.08,
+      "end": 5634.22,
+      "speaker": "jerod-santo",
+      "text": "Okay. Okay. Nope. Matthew, good try."
+    },
+    {
+      "start": 5634.22,
+      "end": 5639.58,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, what is Bill Gates even? What is he known for now anymore? Who cares to Google him?"
+    },
+    {
+      "start": 5641.28,
+      "end": 5643.12,
+      "speaker": "jerod-santo",
+      "text": "He was in the news recently."
+    },
+    {
+      "start": 5643.12,
+      "end": 5646.16,
+      "speaker": "adam-stacoviak",
+      "text": "Was he in the news recently? Yeah. I don't care about Bill Gates."
+    },
+    {
+      "start": 5646.16,
+      "end": 5647.84,
+      "speaker": "jerod-santo",
+      "text": "I don't either. I just know he's in the news."
+    },
+    {
+      "start": 5647.84,
+      "end": 5652.68,
+      "speaker": "adam-stacoviak",
+      "text": "What does he do? Isn't he like involved in like farm stuff now?"
+    },
+    {
+      "start": 5652.68,
+      "end": 5654.44,
+      "speaker": "jerod-santo",
+      "text": "He's bought a bunch of farmland."
+    },
+    {
+      "start": 5654.44,
+      "end": 5657.65,
+      "speaker": "adam-stacoviak",
+      "text": "That's what I thought."
+    },
+    {
+      "start": 5657.65,
+      "end": 5666.11,
+      "speaker": "jerod-santo",
+      "text": "David's chomping at the bit because he knows, he knows what this is about. And he's like, I was one point away. I could be in this. The answer is feet. Yeah. Okay. You're missing out."
+    },
+    {
+      "start": 5666.11,
+      "end": 5679.76,
+      "speaker": "adam-stacoviak",
+      "text": "Bill Gates feet. I feel like if it's not worth, I'd laugh if it was like the other one. What was the other Google one? I would laugh if it was the same thing, the same Google things. You put two names, right?"
+    },
+    {
+      "start": 5679.76,
+      "end": 5680.84,
+      "speaker": "jerod-santo",
+      "text": "Steve Jobs daughter."
+    },
+    {
+      "start": 5683.08,
+      "end": 5695.56,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. I think I would guess. Isn't he a big proponent of like, I don't even know. Okay. Give me a timer. Count down something. It'll force something out of me."
+    },
+    {
+      "start": 5695.56,
+      "end": 5698.76,
+      "speaker": "jerod-santo",
+      "text": "Three, two, one."
+    },
+    {
+      "start": 5698.76,
+      "end": 5702.98,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Climate change. Doesn't need to do something with farms and climate change."
+    },
+    {
+      "start": 5702.98,
+      "end": 5704.42,
+      "speaker": "jerod-santo",
+      "text": "Bill Gates climate change."
+    },
+    {
+      "start": 5704.42,
+      "end": 5705.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 5705.26,
+      "end": 5715.64,
+      "speaker": "jerod-santo",
+      "text": "Ding, ding, ding, ding, ding, ding, ding. Is it really? You got it, man. Bill Gates climate change. Matthew, pull it out of nowhere. Is our winner."
+    },
+    {
+      "start": 5715.64,
+      "end": 5722.12,
+      "speaker": "adam-stacoviak",
+      "text": "David knew that one. My wife told me a bunch that he like bought up a lot of farmland and I was like trying to do these things."
+    },
+    {
+      "start": 5722.12,
+      "end": 5729.76,
+      "speaker": "jerod-santo",
+      "text": "He was in the news recently because he commented on climate change. I can't remember what he said, but it seems like he had softened his position or he said, it's not going to kill everybody or something."
+    },
+    {
+      "start": 5729.76,
+      "end": 5736.4,
+      "speaker": "adam-stacoviak",
+      "text": "We're just going to have to learn to live with it. Yeah. Really? Yeah. Oh my God."
+    },
+    {
+      "start": 5736.4,
+      "end": 5738.08,
+      "speaker": "jerod-santo",
+      "text": "Yeah. So people are googling it up."
+    },
+    {
+      "start": 5738.08,
+      "end": 5739.32,
+      "speaker": "adam-stacoviak",
+      "text": "That's wild."
+    },
+    {
+      "start": 5739.32,
+      "end": 5750.62,
+      "speaker": "jerod-santo",
+      "text": "All right. Well, it was a weird tie breaker, but it was a tie breaker nonetheless. And Taylor, I'm sorry, but Matthew just eked you out. David, was that what you were going to guess was climate change or did you have something else up your sleeve?"
+    },
+    {
+      "start": 5750.62,
+      "end": 5770.16,
+      "speaker": "adam-stacoviak",
+      "text": "I was, the other thing that was like relatively newsy about him recently would have been something about like, I think the last thing he said was something about how he, people can't expect his donations to step in for all the work the federal government isn't doing anymore. So it would have been something about that or his foundation."
+    },
+    {
+      "start": 5770.16,
+      "end": 5775.38,
+      "speaker": "jerod-santo",
+      "text": "I wanted to say foundation, but like if net worth wasn't there, I figured foundation wasn't going to be any higher."
+    },
+    {
+      "start": 5775.38,
+      "end": 5779.82,
+      "speaker": "adam-stacoviak",
+      "text": "Can I change my answer to Bill Gates net worth? Can I tell you that?"
+    },
+    {
+      "start": 5779.82,
+      "end": 5784.61,
+      "speaker": "jerod-santo",
+      "text": "Sure. On the Steve Jobs question or are you on this one now?"
+    },
+    {
+      "start": 5784.61,
+      "end": 5786.01,
+      "speaker": "adam-stacoviak",
+      "text": "Can you read the ones that were there?"
+    },
+    {
+      "start": 5786.01,
+      "end": 5795.23,
+      "speaker": "jerod-santo",
+      "text": "Bill Gates climate change, number one, Bill Gates net worth, Bill Gates climate change pivot, number three, Bill Gates daughter. I don't even know. Does he have a daughter? No."
+    },
+    {
+      "start": 5795.23,
+      "end": 5796.07,
+      "speaker": "adam-stacoviak",
+      "text": "Bill Gates daughter is number four."
+    },
+    {
+      "start": 5796.07,
+      "end": 5804.95,
+      "speaker": "jerod-santo",
+      "text": "That's hilarious. Yeah. And then you get into Bill Gates age, Bill Gates memo climate change, Bill Gates wife, and then you get down to Bill Gates quotes. So."
+    },
+    {
+      "start": 5804.95,
+      "end": 5807.23,
+      "speaker": "adam-stacoviak",
+      "text": "I feel like daughter and wife are always, no matter what like."
+    },
+    {
+      "start": 5807.23,
+      "end": 5811.39,
+      "speaker": "jerod-santo",
+      "text": "I think people are just curious, like does this person have a daughter? Does this person have a wife? Yeah."
+    },
+    {
+      "start": 5811.39,
+      "end": 5821.2,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Dude, now I just need to grow my blog big enough where people are searching Taylor Troche daughter, wife, you know, that's when you know you make it, you know?"
+    },
+    {
+      "start": 5821.2,
+      "end": 5835.27,
+      "speaker": "jerod-santo",
+      "text": "Yeah, yeah, yeah. Let me pull up my Google thing now. Oh gosh. What do people say? This is funny. The number one is Taylor Troche, which I already typed then Taylor Troche LinkedIn. And then did Taylor and Taylor date?"
+    },
+    {
+      "start": 5835.27,
+      "end": 5836.75,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, that's a good one."
+    },
+    {
+      "start": 5836.75,
+      "end": 5840.15,
+      "speaker": "jerod-santo",
+      "text": "And then Taylor Smith, Taylor history. So it's just moving. Yeah."
+    },
+    {
+      "start": 5840.15,
+      "end": 5841.81,
+      "speaker": "adam-stacoviak",
+      "text": "It's just. How far is Taylor town?"
+    },
+    {
+      "start": 5841.81,
+      "end": 5847.46,
+      "speaker": "jerod-santo",
+      "text": "I think it's a good question. Where's Taylor town? Is it in brobding name?"
+    },
+    {
+      "start": 5847.46,
+      "end": 5853.73,
+      "speaker": "adam-stacoviak",
+      "text": "Dude, I don't get, I don't get any auto completes. I'm not famous."
+    },
+    {
+      "start": 5853.73,
+      "end": 5855.69,
+      "speaker": "jerod-santo",
+      "text": "Yeah, me either. Taylor's the coolest one."
+    },
+    {
+      "start": 5855.69,
+      "end": 5857.33,
+      "speaker": "adam-stacoviak",
+      "text": "So I have a confession to make."
+    },
+    {
+      "start": 5857.33,
+      "end": 5858.17,
+      "speaker": "jerod-santo",
+      "text": "What's that?"
+    },
+    {
+      "start": 5858.17,
+      "end": 5872.88,
+      "speaker": "adam-stacoviak",
+      "text": "And I'm super sad about it. I was, you know, like when you, when you play spades or you got really good cards at the wild card when you're playing Uno, you know, and you wait and you're like, oh, this is, is this a good time to use my, my good thing?"
+    },
+    {
+      "start": 5872.88,
+      "end": 5873.7,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 5873.7,
+      "end": 5889,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I just waited too long. I never used the LLM. So sad about that. I was going to use it when I thought I had, you know, a good score to get right at the very end, like a Trump card kind of thing. Yeah, sadly I failed."
+    },
+    {
+      "start": 5889,
+      "end": 5892.72,
+      "speaker": "jerod-santo",
+      "text": "Well, we'll let you hold onto that for the next time you play. So I can get two next time."
+    },
+    {
+      "start": 5892.72,
+      "end": 5893.56,
+      "speaker": "adam-stacoviak",
+      "text": "How about that?"
+    },
+    {
+      "start": 5893.56,
+      "end": 5897.72,
+      "speaker": "jerod-santo",
+      "text": "Two LLMs? Sure. Sure. I'll give you two. I like it."
+    },
+    {
+      "start": 5897.72,
+      "end": 5904.52,
+      "speaker": "adam-stacoviak",
+      "text": "I can use them anyways. Does, does Matt get a free changelog plus plus subscription for winning?"
+    },
+    {
+      "start": 5904.52,
+      "end": 5935.44,
+      "speaker": "jerod-santo",
+      "text": "That's right. Yep. Well tell him where it's at. And then it's that's free information. changelog.com slash plus plus. They say it's better. All right, y'all thanks for playing. This has been too much fun. So much fun. I feel like it was too competitive, almost too conservative because of the competition level. We got to bring in some more loosey goosey folks who are willing to guess the funny ones, but you all are invited back as well. And Matthew, the champion of champions. I mean, how's it feel?"
+    },
+    {
+      "start": 5935.44,
+      "end": 5948.18,
+      "speaker": "adam-stacoviak",
+      "text": "I feel with my hands, thanks. No, it feels good. We should, we should definitely change the rules of pile-ons though. It's easy to pile on to like you're hedging your bet really, really well. It is the smart choice. Right. So we should, we should think about that."
+    },
+    {
+      "start": 5948.62,
+      "end": 5955.26,
+      "speaker": "jerod-santo",
+      "text": "We should think about fixing that. The problem is, yeah, there needs to be more better answers because then you'll pile on the wrong one and I'll get some points."
+    },
+    {
+      "start": 5955.26,
+      "end": 5967.58,
+      "speaker": "adam-stacoviak",
+      "text": "Well, yeah, like the broadening in something, like every, it's not that I think it was the size, but like every other answer was wrong. And then I was left between my answer and the right answer."
+    },
+    {
+      "start": 5967.58,
+      "end": 5969.7,
+      "speaker": "jerod-santo",
+      "text": "It's really your guys' fault is my point, you know?"
+    },
+    {
+      "start": 5969.7,
+      "end": 5970.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it is our fault."
+    },
+    {
+      "start": 5970.66,
+      "end": 5974.86,
+      "speaker": "jerod-santo",
+      "text": "We're insufficiently creative, so. This one was actually tough to be more funny too."
+    },
+    {
+      "start": 5974.86,
+      "end": 5982.36,
+      "speaker": "adam-stacoviak",
+      "text": "Like I usually come up with more funny stuff. So listeners, I could probably disappoint them a little bit. Yeah. Yeah. Except for the Backyardigans cousin version."
+    },
+    {
+      "start": 5982.36,
+      "end": 5983.2,
+      "speaker": "jerod-santo",
+      "text": "Yeah, that was fun."
+    },
+    {
+      "start": 5983.2,
+      "end": 5987.01,
+      "speaker": "adam-stacoviak",
+      "text": "I like that one. Yeah. I was waiting for you to read it, Jared. I wanted to see your face."
+    },
+    {
+      "start": 5987.01,
+      "end": 5997.15,
+      "speaker": "jerod-santo",
+      "text": "Taylor played it way straighter than he normally does. You know, I think he was really trying to win. Normally his answers are just preposterous, but a lot of, a lot of good answers coming out of Taylor."
+    },
+    {
+      "start": 5997.15,
+      "end": 6013.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think, I mean, the other, the other way to sort of rebalance the game is to, because is to, if everyone has to choose simultaneously, like the results, so, you know, you kind of submit them essentially like, yeah, so."
+    },
+    {
+      "start": 6013.52,
+      "end": 6015.92,
+      "speaker": "jerod-santo",
+      "text": "Right, so you don't actually hear their logic."
+    },
+    {
+      "start": 6015.92,
+      "end": 6016.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah."
+    },
+    {
+      "start": 6016.76,
+      "end": 6038.62,
+      "speaker": "jerod-santo",
+      "text": "Yeah, because Thomas was really picking it apart and giving all of his logic out early and he actually did logic his way to the right answer, but then everyone's just like, yeah, I'm gonna go with that one. So, yeah. Most people hold those thoughts inside and just guess, I think, but he was really explaining his thought, which I appreciate as a guy just listening, you know, but you guys apparently appreciate it as well."
+    },
+    {
+      "start": 6038.62,
+      "end": 6044.58,
+      "speaker": "adam-stacoviak",
+      "text": "He had some good definitions too. He just like repeated the words like water, water, accelerate, accelerated, yeah."
+    },
+    {
+      "start": 6044.58,
+      "end": 6062.72,
+      "speaker": "jerod-santo",
+      "text": "By the way, to our listeners, Thomas had a balance. That's why we're talking about him and not talking to him. It'd be weird if he was still here and we're just talking about him. It's kind of weird talking about him with a knot here, but shout out to Thomas. Excellent, excellently played round of Pound of Fine. And I thought everybody played well. Thanks for joining us guys."
+    },
+    {
+      "start": 6063.91,
+      "end": 6065.23,
+      "speaker": "adam-stacoviak",
+      "text": "Bye friends."
+    },
+    {
+      "start": 6065.23,
+      "end": 6072.07,
+      "speaker": "jerod-santo",
+      "text": "Bye Taylor. Bye Matthew. Bye David. Bye Thomas. Bye me. We'll see if we can get Carol to come up and kick all your guys' butts next time around."
+    },
+    {
+      "start": 6072.07,
+      "end": 6073.07,
+      "speaker": "adam-stacoviak",
+      "text": "Come on, Carol."
+    },
+    {
+      "start": 6073.07,
+      "end": 6077.18,
+      "speaker": "jerod-santo",
+      "text": "Get back over here, Carol. Carol Lee, PhD. Bye y'all."
+    },
+    {
+      "start": 6077.18,
+      "end": 6079.66,
+      "speaker": "adam-stacoviak",
+      "text": "Bye."
+    },
+    {
+      "start": 6079.66,
+      "end": 6139.14,
+      "speaker": "jerod-santo",
+      "text": "There you have it. Our seventh iteration of Pound of Fine. If you like these game show style episodes that we sprinkle in from time to time, you can find them all at changelog.com slash topic slash games. There's also a Spotify playlist. If that's your bag, it's called Dev Game Shows. Oh, and if you do enjoy these and want to hear more, let us know in the comments. We just kind of assume that since we're nerds and you're nerds, you probably like what we like, but a little validation goes a long way. So please do hit us up. We love to hear from you. Thanks again to our partners at Fly.io and to our beat freak, the mysterious, the groovy, the beepiest, boppityist, beat master in the entire verse. You know who I'm talking about, Breakmaster Cylinder. Next week on the pod, news on Monday, Hacker News' favorite blogger, Sean Gedicke, on Wednesday. And on Friday, well, our San Francisco trip fell by the wayside, so we're still working on that. We are open to suggestions. Have yourself a great weekend. There's safety in a multitude of counselors. And let's talk again real soon."
+    }
+  ],
+  "slug": "define-sheer-resistance-featuring-previous-champs",
+  "id": "116"
+}

@@ -1,0 +1,2125 @@
+{
+  "title": "Kaizen! Mop-up job",
+  "description": "Following the successful on-stage launch of Pipely in Denver, the team addresses critical infrastructure issues that emerged post-deployment.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/114",
+    "MP3": "https://cdn.changelog.com/uploads/friends/114/changelog--friends-114.mp3",
+    "YouTube": "https://youtu.be/hYahjUGoy5Y",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "jerod-santo",
+    "adam-stacoviak"
+  ],
+  "segments": [
+    {
+      "start": 15.02,
+      "end": 83.75,
+      "speaker": "jerod-santo",
+      "text": "Welcome to Changelog and Friends, a weekly talk show about rattlesnake encounters. Thanks as always to our partners at Fly.io. That's the public cloud built for developers who ship. We love Fly. You might too. Learn all about it at Fly.io. Okay, let's Kaizen. Well friends, I am here with a new friend of mine, Scott Deaton, CEO of Augment Code. I'm excited about this. Augment taps into your team's collective knowledge, your code base, your documentation, your dependencies. It is the most context aware developer AI, so you won't just code faster, you also build smarter. It's an ask me anything for your code. It's your deep thinking buddy. It's your stand flow antidote. Okay, Scott, so for the foreseeable future, AI assisted is here to stay. It's just a matter of getting the AI to be a better assistant. And in particular, I want help on the thinking part, not necessarily the coding part. Can you speak to the thinking problem versus the coding problem and the potential false dichotomy there?"
+    },
+    {
+      "start": 83.75,
+      "end": 91.87,
+      "speaker": "adam-stacoviak",
+      "text": "Couple of different points to make. You know, AIs have gotten good at making incremental changes, at least when they understand customer software."
+    },
+    {
+      "start": 91.87,
+      "end": 127.63,
+      "speaker": "jerod-santo",
+      "text": "So first and the biggest limitation that these AIs have today, they really don't understand anything about your code base. If you take GitHub copilot, for example, it's like a fresh college graduate, understands some programming languages and algorithms, but doesn't understand what you're trying to do. And as a result of that, something like two thirds of the community on average drops off of the product, especially the expert developers. Augment is different. We use retrieval augmented generation to deeply mine the knowledge that's inherent inside your code base. So we are a copilot that is an expert and that can help you navigate the code base,"
+    },
+    {
+      "start": 127.63,
+      "end": 136.27,
+      "speaker": "adam-stacoviak",
+      "text": "help you find issues and fix them and resolve them over time much more quickly than you can trying to tutor up a novice on your software."
+    },
+    {
+      "start": 136.27,
+      "end": 143.71,
+      "speaker": "jerod-santo",
+      "text": "So you're often compared to GitHub copilot. I gotta imagine that you have a hot take. What's your hot take on GitHub copilot?"
+    },
+    {
+      "start": 143.71,
+      "end": 155.87,
+      "speaker": "adam-stacoviak",
+      "text": "I think it was a great 1.0 product. And I think they've done a huge service in promoting AI, but I think the game has changed. We have moved from AIs that are new college graduates"
+    },
+    {
+      "start": 155.87,
+      "end": 193.19,
+      "speaker": "jerod-santo",
+      "text": "to in effect AIs that are now among the best developers in your code base. And that difference is a profound one for software engineering in particular. If you're writing a new application from scratch, you want a webpage that'll play tic-tac-toe, piece of cake to crank that out. But if you're looking at tens of millions of line code base, like many of our customers, Lemonade is one of them. I mean, 10 million line monorepo. As they move engineers inside and around that code base and hire new engineers, just the workload on senior developers to mentor people into areas of the code base they're not familiar with is hugely painful."
+    },
+    {
+      "start": 193.23,
+      "end": 206.51,
+      "speaker": "adam-stacoviak",
+      "text": "An AI that knows the answer and is available seven by 24, you don't have to interrupt anybody and can help coach you through whatever you're trying to work on is hugely empowering to an engineer working an unfamiliar code."
+    },
+    {
+      "start": 206.51,
+      "end": 269.19,
+      "speaker": "jerod-santo",
+      "text": "Very cool. Well friends, Augment Code is developer AI that uses deep understanding of your large code base and how you build software to deliver personalized code suggestions and insights. A good next step is to go to augmentcode.com. That's A-U-G-M-E-N-T-C-O-D-E.com. Request a free trial, contact sales, or if you're an open source project, Augment is free to you to use. Learn more at augmentcode.com. That's A-U-G-M-E-N-T-C-O-D-E.com, augmentcode.com. All right, Kaizen Gerhard, we are here to Kaizen. The first Kaizen after our on-stage Kaizen."
+    },
+    {
+      "start": 269.19,
+      "end": 270.03,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah."
+    },
+    {
+      "start": 270.03,
+      "end": 272.53,
+      "speaker": "jerod-santo",
+      "text": "How's it going? How's your life? Your life has changed since then."
+    },
+    {
+      "start": 272.53,
+      "end": 329.59,
+      "speaker": "adam-stacoviak",
+      "text": "It has, yes. Yes, a new job that started in early September actually. September brought in that change. It was a good change. So that's, as you know, new jobs are always exciting. There's always so many things to do and we have to meet everyone on board, do things properly. So that was really the whirlwind. I really enjoy that very much. Well, obviously before that even, we had our family holiday, which was amazing. I always love going outdoors and spending the proper outdoors, like not the, well, the mountains. Is that what the proper outdoors is? The proper outdoors for me, it's mountains and lakes and stuff like that. It just goes together. Yeah, which is why Denver was really, really nice. I really enjoyed that. It was close to what I enjoy. But otherwise, I mean, how is it October already? That's what I don't know. It was July and then now it's October. How did that happen?"
+    },
+    {
+      "start": 329.59,
+      "end": 342.75,
+      "speaker": "jerod-santo",
+      "text": "Well, there's this thing called time. Every 24 hours. It just keeps going. Yeah, I'm with you on that. I don't know how it's October. I feel like it was just January."
+    },
+    {
+      "start": 342.75,
+      "end": 345.99,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I don't know. I feel like it was a very fast year."
+    },
+    {
+      "start": 345.99,
+      "end": 346.83,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 346.83,
+      "end": 351.43,
+      "speaker": "adam-stacoviak",
+      "text": "This year for some reason. It was going slow and then it got really, really fast."
+    },
+    {
+      "start": 351.43,
+      "end": 379.9,
+      "speaker": "jerod-santo",
+      "text": "That's kind of how life goes, right? It starts off slow and you're like 10 years old and you're in college and you're an adult and you're like, what am I going to be able to drive? What am I going to be able to drink legally? I don't know what the 10 year olds want to do anymore, but back when we were kids. And then you get there and you're like, slow down life. And then now you're all of a sudden you're in your forties and you're like, holy cow. My name is Daisy, man. A vapor, totally. Tell us about the new job. What are you doing now? You spent years at Dagger."
+    },
+    {
+      "start": 379.9,
+      "end": 414.68,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, it was almost four years. It was time for change. The new company is called Lupal Labs. They're focusing on infrastructure primitives, some really interesting things that revolve around live migration. That is definitely the central piece. And when I say live migration, I mean the memory, the disk, the connections. How do you migrate connections from one host to another? I find that really interesting. What's most interesting is the size. So if you have 64 gigabytes to migrate, how do you do that in milliseconds? I mean, what does your connection even need to look like?"
+    },
+    {
+      "start": 414.72,
+      "end": 416.92,
+      "speaker": "jerod-santo",
+      "text": "Migrating between physical hosts?"
+    },
+    {
+      "start": 416.92,
+      "end": 418.04,
+      "speaker": "adam-stacoviak",
+      "text": "Between physical hosts."
+    },
+    {
+      "start": 418.04,
+      "end": 418.96,
+      "speaker": "jerod-santo",
+      "text": "Really?"
+    },
+    {
+      "start": 418.96,
+      "end": 419.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yep."
+    },
+    {
+      "start": 419.78,
+      "end": 425.12,
+      "speaker": "jerod-santo",
+      "text": "64 gigs. You might need like a hundred gigabit home lab to do that."
+    },
+    {
+      "start": 425.12,
+      "end": 439.96,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly, that's coming up, yes. That is coming up indeed. So that just sent me down that rabbit hole. Like, okay, so I need a new home lab basically because 10 gigabits is just not enough. So what would a hundred gigabit look like? Yeah, yeah, yeah. I know what it looks like."
+    },
+    {
+      "start": 439.96,
+      "end": 442.78,
+      "speaker": "jerod-santo",
+      "text": "I looked at 400. I've been watching your channel, dude."
+    },
+    {
+      "start": 442.78,
+      "end": 444.42,
+      "speaker": "adam-stacoviak",
+      "text": "All right, what did you think?"
+    },
+    {
+      "start": 445.02,
+      "end": 463.02,
+      "speaker": "jerod-santo",
+      "text": "I'm loving it. I love seeing the, you got lots of engagement, you know. That video blew up, the hundred gigabit home lab. I love the production quality. I know all the, I know you sweat the details. It's fun to watch and the narrative is cool and yeah, I'm just happy for you. It's going well."
+    },
+    {
+      "start": 463.02,
+      "end": 468.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I'm just so pleased and it's part of today's Kaizen as well."
+    },
+    {
+      "start": 468.26,
+      "end": 469.1,
+      "speaker": "jerod-santo",
+      "text": "Oh, it is."
+    },
+    {
+      "start": 469.1,
+      "end": 471.1,
+      "speaker": "adam-stacoviak",
+      "text": "Everything connects. Everything connects, seriously."
+    },
+    {
+      "start": 471.1,
+      "end": 476.46,
+      "speaker": "jerod-santo",
+      "text": "It's all one continuous connection. Adam, have you seen any of Gerhard's recent videos?"
+    },
+    {
+      "start": 476.46,
+      "end": 480.9,
+      "speaker": "adam-stacoviak",
+      "text": "Not as recent, but I've seen them before, not this hundred gigabit. So I'm a little jealous."
+    },
+    {
+      "start": 480.9,
+      "end": 489.9,
+      "speaker": "jerod-santo",
+      "text": "You'll like this one because it's kind of up your wheelhouse. Although, you know, his home lab is better than yours. I mean, that's the sad part. I mean, happy for him, but sad for you."
+    },
+    {
+      "start": 489.9,
+      "end": 566.84,
+      "speaker": "adam-stacoviak",
+      "text": "So I think this is going to be almost like a challenge. Like how can we improve the home labs too? Linux, Ubuntu, Arch, a couple of things are going to come up. Networks, because they're really interesting. GPUs, like how do you run all this stuff in a way that does not break the bank? Because that's the other consideration. I'm not a data center, which I was, but I'm not. I'm very sensitive to noise. So I can't have like fans blaring and like, you know, one U2U servers, the really shrill ones. So I'm just Noctua, the Noctua person that goes for whisper quiet everything, even fanless if it's possible. I tried to fan this for a hundred gigabit and it runs really hot. That's the one thing which I was not expecting, just how hot these things run. 400 gigabit is even more crazy and 800, wow. So that's really like the next frontier. That's what I'm looking at. 400, 800 and beyond. And all this to service some workloads that have very sensitive latencies in terms of throughput latency. I mean, how do you run a remote GPU? I mean, that's crazy. And what I mean by that, the GPU's in a rack, you're on your laptop and you're running against the GPU. So you have an Nvidia GPU on your laptop. How does that even work?"
+    },
+    {
+      "start": 566.84,
+      "end": 573.06,
+      "speaker": "jerod-santo",
+      "text": "So like the software on your laptop is, believes there's a GPU available to it, but it's over the network."
+    },
+    {
+      "start": 573.06,
+      "end": 592.52,
+      "speaker": "adam-stacoviak",
+      "text": "The kernel. Oh, the kernel. It's a kernel extension. And it presents it as a local device, but it's actually a remote device. So it intercepts all the calls and it has to have very low latency and very fast network to carry all this stuff around. And it makes it appear as if it was local. Nvidia GPU's in MacBook Pros. I never thought I would see the day."
+    },
+    {
+      "start": 592.52,
+      "end": 594.16,
+      "speaker": "jerod-santo",
+      "text": "That's crazy."
+    },
+    {
+      "start": 594.16,
+      "end": 612.64,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I know. So that just, that's like a preview into the new job and what's coming. It's only been like a month. I can't believe it's already been a month, but it all connects. Really all connects. And that's really the important part. So all roads lead to changelog. Isn't that what Adam keeps saying? That's right. All road leads to changelog."
+    },
+    {
+      "start": 612.64,
+      "end": 621.98,
+      "speaker": "jerod-santo",
+      "text": "Yes, sir. There are many ways to get to changelog. Indeed. Do you have a visual aid for us, this Kaizen? Do you have a deck? Oh yes."
+    },
+    {
+      "start": 621.98,
+      "end": 636.6,
+      "speaker": "adam-stacoviak",
+      "text": "You bring your deck? Oh yes. Always. Okay. Always. So you can just trust screen sharing. October 16th, I'm going to try an intro. See if you like it. Okay. I'm trying to, I'm going to try and do the job easier. Or like the intro."
+    },
+    {
+      "start": 636.6,
+      "end": 637.56,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 637.56,
+      "end": 652.16,
+      "speaker": "adam-stacoviak",
+      "text": "It's October 16th, 2025, and you're listening and watching Kaizen 21, where Adam, Jared, and Gerhard do some mopping. Not moping, mopping. Double P, mopping."
+    },
+    {
+      "start": 652.16,
+      "end": 653.98,
+      "speaker": "jerod-santo",
+      "text": "Mopping, not mopping."
+    },
+    {
+      "start": 653.98,
+      "end": 662.56,
+      "speaker": "adam-stacoviak",
+      "text": "So, yeah. So stick with us to the end so that you can rate our mopping performance. That's the plan."
+    },
+    {
+      "start": 662.56,
+      "end": 667.06,
+      "speaker": "jerod-santo",
+      "text": "That's the plan. I'm so good at mopping. I'm going to find out how good I am."
+    },
+    {
+      "start": 667.06,
+      "end": 676.14,
+      "speaker": "adam-stacoviak",
+      "text": "Let's do that. Well, the audience gets to rate us. So at the end of this, this is all again, leading to some performance rating. Some mopping performance rating."
+    },
+    {
+      "start": 676.14,
+      "end": 678.02,
+      "speaker": "jerod-santo",
+      "text": "Getting nervous already. Here we go."
+    },
+    {
+      "start": 678.95,
+      "end": 717.27,
+      "speaker": "adam-stacoviak",
+      "text": "Launching Pipely together was one of my 2025 highlights. I mean, seriously, it was just so amazing. After 18 months of building Pipely in the open with friends, we shipped it on stage in Denver and it was so awesome. Seriously, such a great feeling. The audience was clapping. Jared and Adam were smiling. I was so proud of what we have achieved. Really, really, really, really proud. But do you remember what happened a few hours right after we did the stage bit?"
+    },
+    {
+      "start": 719.37,
+      "end": 722.29,
+      "speaker": "jerod-santo",
+      "text": "Hiking. Yes."
+    },
+    {
+      "start": 722.29,
+      "end": 724.53,
+      "speaker": "adam-stacoviak",
+      "text": "And between that, before that, or something else?"
+    },
+    {
+      "start": 724.53,
+      "end": 726.17,
+      "speaker": "jerod-santo",
+      "text": "Lunch."
+    },
+    {
+      "start": 726.17,
+      "end": 728.09,
+      "speaker": "adam-stacoviak",
+      "text": "Lunch, yes. Yes, that's right."
+    },
+    {
+      "start": 728.09,
+      "end": 730.57,
+      "speaker": "jerod-santo",
+      "text": "Adam, help me out here. The selfie."
+    },
+    {
+      "start": 730.57,
+      "end": 731.39,
+      "speaker": "adam-stacoviak",
+      "text": "Adam, what do you remember?"
+    },
+    {
+      "start": 731.39,
+      "end": 738.17,
+      "speaker": "jerod-santo",
+      "text": "A selfie. Well, this is not a selfie. Technically, this is more of a... Take us where you... This is a gangster selfie right there."
+    },
+    {
+      "start": 738.17,
+      "end": 742.33,
+      "speaker": "adam-stacoviak",
+      "text": "This is like a gangster selfie. I really like it. I think it's one of my favorite pictures."
+    },
+    {
+      "start": 742.33,
+      "end": 745.57,
+      "speaker": "jerod-santo",
+      "text": "Technically not a selfie, but that's a great picture right there."
+    },
+    {
+      "start": 745.57,
+      "end": 753.55,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. A Kaizen for next time, an improvement suggestion for next time. Emo Night, Emo Night, Brooklyn. I think we have to just..."
+    },
+    {
+      "start": 753.55,
+      "end": 768.83,
+      "speaker": "jerod-santo",
+      "text": "Oh, that's the other, for those who are not watching or listening, underneath the marquee, which we made sure that they put the change on podcast on their marquee. And underneath there, apparently that night is going to be Emo Night, Brooklyn, which is a weird thing to have in Denver, but..."
+    },
+    {
+      "start": 768.83,
+      "end": 791.78,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, and it reads as if the change log postcards, that's what's happening. It's our Emo Night, Brooklyn. There should be like a... Yeah. There should be like a line between the two. All right, so we wrapped it up at the venue. We went to lunch and after we went to a hike. That's right. But right after lunch, as I was getting ready for the hike, I thought to myself, let me check the Fly.io metrics."
+    },
+    {
+      "start": 792.98,
+      "end": 795.06,
+      "speaker": "jerod-santo",
+      "text": "Now I know where you're going with this."
+    },
+    {
+      "start": 795.06,
+      "end": 818.41,
+      "speaker": "adam-stacoviak",
+      "text": "All right. So for those who are listening, we are looking at a point in time snapshot of the Fly.io app Grafana dashboard for Pipetream. So for the CDN that we just launched, we're just looking at that screenshot. So I think I was mentioning Pipetream and Pipelay. Do you still remember, Jerry, the difference between the two?"
+    },
+    {
+      "start": 818.41,
+      "end": 834.19,
+      "speaker": "jerod-santo",
+      "text": "I do. So Pipelay is the software. It's the open source project that allows us to run Pipetream, which is our instance of Pipelay's running on Fly's network that actually serves as our CDN. Correct?"
+    },
+    {
+      "start": 834.19,
+      "end": 836.69,
+      "speaker": "adam-stacoviak",
+      "text": "That's right. Yeah. Yes, that is correct, yes."
+    },
+    {
+      "start": 836.69,
+      "end": 839.37,
+      "speaker": "jerod-santo",
+      "text": "And Pipetream? Pipetream is, I think I just told you the Pipetream was."
+    },
+    {
+      "start": 839.37,
+      "end": 841.05,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, okay. Sorry, yes, you did."
+    },
+    {
+      "start": 841.05,
+      "end": 854.65,
+      "speaker": "jerod-santo",
+      "text": "There's another trick question at the end. Let me bump it up for you here. You just want me to say it cleaner? Yeah, Pipetream is our Pipelay instances as a distributed network around the world on Fly's network. That's it, yes."
+    },
+    {
+      "start": 854.65,
+      "end": 860.57,
+      "speaker": "adam-stacoviak",
+      "text": "Pipelay, the generic one, Pipetream, the specific one just for us. So it was our Pipetream? It was, yes, exactly."
+    },
+    {
+      "start": 860.57,
+      "end": 862.83,
+      "speaker": "jerod-santo",
+      "text": "But Pipelay's for everybody, it's not just for us."
+    },
+    {
+      "start": 862.83,
+      "end": 881.69,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly, yes, that's where we're going with this. That's right. So we're looking at this Grafana dashboard, and clockwise, we see POPS by traffic in North America, that is the top left, network IO in the top right, and CPU and memory utilization at the bottom. What stands out to you?"
+    },
+    {
+      "start": 881.69,
+      "end": 889.23,
+      "speaker": "jerod-santo",
+      "text": "The CPU utilization stands out to me because at about 1437, it went nuts."
+    },
+    {
+      "start": 889.87,
+      "end": 892.71,
+      "speaker": "adam-stacoviak",
+      "text": "That's it, yeah, yeah, yeah. So that's exactly what happened, so."
+    },
+    {
+      "start": 892.71,
+      "end": 894.91,
+      "speaker": "jerod-santo",
+      "text": "100% nuts. Yeah."
+    },
+    {
+      "start": 894.91,
+      "end": 897.66,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, yeah, yeah. It was crazy. There's a title."
+    },
+    {
+      "start": 897.66,
+      "end": 898.5,
+      "speaker": "jerod-santo",
+      "text": "It was crazy."
+    },
+    {
+      "start": 898.5,
+      "end": 930.57,
+      "speaker": "adam-stacoviak",
+      "text": "100% nuts. 100% nuts, like CPU just freaked out. So after we updated DNS on stage, once DNS propagated and more traffic started reaching our shiny new CDN, some instances were just getting overwhelmed. And users hitting those POPS, they started experiencing a slow and unresponsive changelog.com. We're going to pretend that there's a bad boys, bad boys meme here. We bad boysed it. So basically."
+    },
+    {
+      "start": 930.57,
+      "end": 933.29,
+      "speaker": "jerod-santo",
+      "text": "What's the bad boys meme? I don't even know why I know this meme."
+    },
+    {
+      "start": 933.29,
+      "end": 944.77,
+      "speaker": "adam-stacoviak",
+      "text": "You know, like when stuff blows up and they just walk away. Oh, they're walking in front of the explosion. Exactly, stuff blows up behind them. Okay. So that's exactly what I did. I have to take responsibility for this."
+    },
+    {
+      "start": 944.77,
+      "end": 946.61,
+      "speaker": "jerod-santo",
+      "text": "You exploded everything."
+    },
+    {
+      "start": 946.61,
+      "end": 953.89,
+      "speaker": "adam-stacoviak",
+      "text": "Pretty much. Pretty much. And the CPUs, they were on fire. You went to launch. Yeah, yeah, yeah. So honestly, I under-provisioned."
+    },
+    {
+      "start": 953.89,
+      "end": 954.73,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 954.73,
+      "end": 965.69,
+      "speaker": "adam-stacoviak",
+      "text": "So our CDN was running on these tiny instances and just didn't get very far. So we're looking at an impossibly tiny bike that someone is actually riding. Yes. That's what we're seeing right now."
+    },
+    {
+      "start": 965.69,
+      "end": 973.87,
+      "speaker": "jerod-santo",
+      "text": "I can't even believe they can ride that bike, by the way. We're watching a video. Is this on? Okay. It doesn't matter. There's a video with a bike and a dude and a very, very small bike."
+    },
+    {
+      "start": 973.87,
+      "end": 985.31,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. It's impossible. Well, if you're watching this, if you're watching this, maybe this will make it part of the B-roll. Who knows? We'll see. We'll see what the edits will decide. But I under-provisioned. I mean, that's really what happened."
+    },
+    {
+      "start": 985.31,
+      "end": 986.19,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 986.19,
+      "end": 1035.86,
+      "speaker": "adam-stacoviak",
+      "text": "And I know that you've heard me say this many times over the years in the Kaizen. I'll say it again. Always blue-green. Always. And in this case, it means that, in this case, it meant that all previous infrastructure remained in place. We just deleted some DNS entries on stage in Denver. And because we took that approach, really all I had to do was to add the DNS records back and confirm that the traffic was coming back to life. Everything was healthy again. So it just took minutes. It took maybe 10, 15 minutes for everything to propagate, up to 30, but that was just like the edges. And everything was back to normal. And because we blue-greened, there was nothing that could not be undone rather quickly."
+    },
+    {
+      "start": 1035.86,
+      "end": 1039.58,
+      "speaker": "jerod-santo",
+      "text": "Explain the concept of blue-green for those of us who aren't SREs."
+    },
+    {
+      "start": 1039.58,
+      "end": 1125.81,
+      "speaker": "adam-stacoviak",
+      "text": "So blue-green in this context means whenever you introduce a change, try to introduce it alongside what you already have, what you're already running. Because if you run the new system in parallel, it means that it's very easy to go back to the previous system. In this case, one is blue and one is green. So rather than doing an in-place replace, replacing in place whatever you're running, doing an in-place upgrade or taking things down and putting the new things up, you don't want to do that. You want to run two of the same setup and then either gradually, which is what we did, we were gradually migrating traffic. That's why we knew that 20% was good, 30% was good. So again, we're not noobs. We've done this before, but in this case, I just could not estimate how much traffic it will hit the new instances and especially bots traffic. I mean, it was like a lot of bot traffic. I don't know whether it was LLM scraping. I don't know what exactly it was, but there was a lot of traffic hitting specific instances and they were just like falling over. They didn't have enough memory. They didn't have enough CPU. So in this case, because all of the previous infrastructure was in place, updating the DNS record and in this case, adding some DNS records was enough for the previous IPs to start propagating and then everything continued working as before."
+    },
+    {
+      "start": 1125.81,
+      "end": 1144.12,
+      "speaker": "jerod-santo",
+      "text": "So the actual mechanism that you used in order to do a blue-green with a CDN was running both CDNs concurrently and using DNS to just point different directions. And so your rollback was literally just to go delete the new DNS entries or a few of them. We had options."
+    },
+    {
+      "start": 1144.12,
+      "end": 1176.28,
+      "speaker": "adam-stacoviak",
+      "text": "So what we, so when we were on stage, we had, we were serving, I think, five IPs. One IP was a new CDN and the four IPs was a previous CDN, which meant that 20% of the requests based on how DNS would resolve would hit the new CDN. And then everything else would go to the existing CDN. Now, I think when we were on stage, I think we were maybe one in three, so we were about 33%. It was more than one because that's how we started, like 20%."
+    },
+    {
+      "start": 1176.28,
+      "end": 1177.76,
+      "speaker": "jerod-santo",
+      "text": "Well, we took it to 100%."
+    },
+    {
+      "start": 1177.76,
+      "end": 1192.24,
+      "speaker": "adam-stacoviak",
+      "text": "We took it, exactly. So on stage, we took it to 100%. We went to lunch. I checked the numbers, like, crap, this thing is on fire. So like, it's literally like blowing up. So all I had to do is add back the previous IPs so that when DNS queries would hit-"
+    },
+    {
+      "start": 1192.24,
+      "end": 1197,
+      "speaker": "jerod-santo",
+      "text": "So that Fastly would serve some of our requests and Pipely would serve others."
+    },
+    {
+      "start": 1197,
+      "end": 1200.04,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly, exactly. So we went back to about 33%."
+    },
+    {
+      "start": 1200.04,
+      "end": 1206.46,
+      "speaker": "jerod-santo",
+      "text": "So they couldn't handle 100% with the under provisioning that you had done with our fly VMs."
+    },
+    {
+      "start": 1206.46,
+      "end": 1215.88,
+      "speaker": "adam-stacoviak",
+      "text": "That's correct, yes. They were too small, they didn't have enough memory, not enough CPU, and there were too few of them. There were certain hotspots that needed more than one instance, and that's what we did."
+    },
+    {
+      "start": 1215.88,
+      "end": 1218,
+      "speaker": "jerod-santo",
+      "text": "Okay, mop it up, Gerhard, mop it up."
+    },
+    {
+      "start": 1218,
+      "end": 1226.6,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly, I was mopping in that case. Well, instead of dealing with a change.com incident, we went hiking."
+    },
+    {
+      "start": 1226.6,
+      "end": 1227.56,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 1227.56,
+      "end": 1243.24,
+      "speaker": "adam-stacoviak",
+      "text": "Like, nobody knew that this thing had happened, right? And this is video, so it's actually a plague. So we were relaxed, we enjoyed great conversations. Gerhard was looking for great drone footage to shoot for news."
+    },
+    {
+      "start": 1243.24,
+      "end": 1244.08,
+      "speaker": "jerod-santo",
+      "text": "That's right."
+    },
+    {
+      "start": 1244.08,
+      "end": 1253.48,
+      "speaker": "adam-stacoviak",
+      "text": "We were in the amazing Red Rocks area, which is just where Gerhard is pointing very soon. He's coming up to pointing it, he was like, see, looking around, where can I fly this thing?"
+    },
+    {
+      "start": 1253.48,
+      "end": 1254.32,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 1254.32,
+      "end": 1260.36,
+      "speaker": "adam-stacoviak",
+      "text": "And look at that, there, let's go there. Let's go there. That's where the Red Rocks area. Did you use any of the footage that you shot, Gerhard?"
+    },
+    {
+      "start": 1261.62,
+      "end": 1323.27,
+      "speaker": "jerod-santo",
+      "text": "I did create one episode that featured B-roll from Denver. I'm not sure how much or if any of that was actual drone footage. I had to fly the drone all the way across the valley to get it over to Red Rocks, which was really kind of boring, even if you speed it up, it's kind of just like, yeah, there's a highway and I'm not, I can't remember. It's been a few months. I know we made a Denver version of Changelog News with the B-roll from Denver, but I combined a bunch of stuff and I probably slipped a little bit in, but I also have not the best, I'm getting better at driving the drone. In fact, I have a show coming up next week. By the time this publishes, it'll be this week's Changelog News where I'm falling around the tractors as they harvest. I did the soybean harvest and now I got the corn harvest and I'm getting good, like I'm flying it like 10 feet above the tractor and keeping it center frame and stuff. So I wasn't very good at flying it then because it was pretty new, but a little bit probably snuck in, but not enough to be exciting."
+    },
+    {
+      "start": 1323.27,
+      "end": 1356.52,
+      "speaker": "adam-stacoviak",
+      "text": "I mean, it was great to know that, to basically see how news is being put together, where you just like literally take this drone out, fly it around and then you decide whether it was something worth using or not. So basically seeing that production. So I think we had like two in one in that point. That was really cool. On this hike, I would have missed this rattlesnake. Was it not for Matt? Matt Johnston that almost walked into it."
+    },
+    {
+      "start": 1356.52,
+      "end": 1359.48,
+      "speaker": "jerod-santo",
+      "text": "You don't want to walk into a rattlesnake by the way. No, you don't."
+    },
+    {
+      "start": 1361.44,
+      "end": 1399.08,
+      "speaker": "adam-stacoviak",
+      "text": "So yeah, but it was my first time seeing a rattlesnake up close and it made it a happy memory because Matt was quick to react, but things could have turned out very, very differently. Now you have to imagine this is summer. We were in shorts. We were engrossed in our nerdy talk and nearly walked into this rattlesnake. So it was very, very, it was very close calls. It's the exact same thing as shipping an under-provision system into production. Almost the same, almost the same shorts even probably. Yeah, yeah, yeah, yeah, exactly, exactly. Same shorts."
+    },
+    {
+      "start": 1399.08,
+      "end": 1401.28,
+      "speaker": "jerod-santo",
+      "text": "Yeah, you're short, short ones again."
+    },
+    {
+      "start": 1401.28,
+      "end": 1409.16,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, that was a close one. So this is the analogy to what we avoided, both in real life, but also on stage."
+    },
+    {
+      "start": 1409.16,
+      "end": 1435.08,
+      "speaker": "jerod-santo",
+      "text": "Now the nice thing about a rattlesnake is, God gave him those rattles and those rattles are very useful because a rattlesnake doesn't want to be messed with. And so when you get close to a rattlesnake and don't know it, they'll let you know that you're close. And that rattle, that shake is saying, get away from me. However, I don't think we got any notifications, you know, to draw the analogy. Our fly machines didn't say anything, did they? Like, I didn't know. There's no rattle on that side of the equation, was there?"
+    },
+    {
+      "start": 1435.08,
+      "end": 1448.84,
+      "speaker": "adam-stacoviak",
+      "text": "Well, I did receive some emails that instances were running out of memory and crashing, but it was happening after a while. So that was maybe the equivalent of that. But in this case, because we were so engrossed in the conversations, we never heard the rattles."
+    },
+    {
+      "start": 1448.84,
+      "end": 1451.66,
+      "speaker": "jerod-santo",
+      "text": "There you go. Okay, fair. We weren't checking our emails."
+    },
+    {
+      "start": 1451.66,
+      "end": 1470.04,
+      "speaker": "adam-stacoviak",
+      "text": "There were drones buzzing around. You know, it was a bit crazy. So yeah, we did not pay attention to that. All right. So if you're watching this next piece and if you don't like meat, look away. Oh boy."
+    },
+    {
+      "start": 1470.04,
+      "end": 1471.52,
+      "speaker": "jerod-santo",
+      "text": "Oh, I know what this is gonna be."
+    },
+    {
+      "start": 1471.52,
+      "end": 1476.16,
+      "speaker": "adam-stacoviak",
+      "text": "Just listen. I'm going to play it for you."
+    },
+    {
+      "start": 1476.16,
+      "end": 1477.83,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 1477.83,
+      "end": 1481.03,
+      "speaker": "adam-stacoviak",
+      "text": "Adam, would you like to describe what is happening?"
+    },
+    {
+      "start": 1481.07,
+      "end": 1511.28,
+      "speaker": "jerod-santo",
+      "text": "Well, we asked very politely, can you show us the kitchen and how things are done? And they said, yes. And then they took about 20 minutes to prepare a tour and they allowed us to come in there and hold exactly how the chefs prepare and prep the meat to come out to the very awesome pho go de chow patrons, which is kind of cool. And so there's Jared holding it like a beast, about to eat it, but not because that's somebody else's. Yeah, that's not my food. That's not your food."
+    },
+    {
+      "start": 1512.28,
+      "end": 1516.68,
+      "speaker": "adam-stacoviak",
+      "text": "It's not the snake. No, it's not the snake."
+    },
+    {
+      "start": 1516.68,
+      "end": 1520.24,
+      "speaker": "jerod-santo",
+      "text": "That would have been apropos, wouldn't it? Yeah, this is not the snake."
+    },
+    {
+      "start": 1520.24,
+      "end": 1525.76,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Oh man, that was really good. Really, really good. So yeah. That was a good thing."
+    },
+    {
+      "start": 1525.76,
+      "end": 1530.64,
+      "speaker": "jerod-santo",
+      "text": "The funny thing about that one too, though, is that you never get what you don't ask for."
+    },
+    {
+      "start": 1530.64,
+      "end": 1540.05,
+      "speaker": "adam-stacoviak",
+      "text": "That's my, if it's one advice I give anybody in the whole entire world, it's like, you don't get what you don't ask for. So ask and you might get it."
+    },
+    {
+      "start": 1540.05,
+      "end": 1562.61,
+      "speaker": "jerod-santo",
+      "text": "And what Adam's referring to is the tour of the kitchen at pho go de chow. Exactly. I wasn't going to ask. I was ready to pay our check and go home. And Adam's like, we had very kind wait staff and they were discussing with us, talking about, did you know the actual chefs are the ones that deliver the food? I was like, I had no idea about that. So they're giving us an insider look and Adam just said, can we see the kitchen?"
+    },
+    {
+      "start": 1562.61,
+      "end": 1563.65,
+      "speaker": "adam-stacoviak",
+      "text": "Could you give us a tour?"
+    },
+    {
+      "start": 1563.65,
+      "end": 1583.13,
+      "speaker": "jerod-santo",
+      "text": "And then he's like, yes, I can. And we're all kind of awestruck because normally we're used to hearing no, but yeah, if you don't ask, you don't receive. So thank you, Adam, for getting us this sweet shot of the changelog t-shirt on me while I eat that rattlesnake or no, that's a pork chop, I think."
+    },
+    {
+      "start": 1583.13,
+      "end": 1589.25,
+      "speaker": "adam-stacoviak",
+      "text": "I don't know what that is. That's a joke. Looks like maybe I'm going to guess, who can guess this? I'm thinking ribeye."
+    },
+    {
+      "start": 1589.25,
+      "end": 1599.1,
+      "speaker": "jerod-santo",
+      "text": "Is that ribeye? Sirloin. It looks like maybe sirloin. That's a little too- That's what I would have picked if they gave me the choice to be the sirloin because that was to die for."
+    },
+    {
+      "start": 1599.1,
+      "end": 1601.26,
+      "speaker": "adam-stacoviak",
+      "text": "Potentially pecan. Is that pecan?"
+    },
+    {
+      "start": 1602.62,
+      "end": 1609.32,
+      "speaker": "jerod-santo",
+      "text": "I don't know. I need a connoisseur. Looks like pecan. I can see the fat cap there on the left-hand side."
+    },
+    {
+      "start": 1609.32,
+      "end": 1659.46,
+      "speaker": "adam-stacoviak",
+      "text": "I remember that. That's pecan. And with fruits, I mean, that's how I like my meat with fruit and it was just amazing. It was like one of the amazing meals I had in the US ever. Like seriously, it's just like above them all. Just so, so good. The thing which I wanted to convey is that even though we had a short trip, it was only two days. It was a very rich trip. Many things happened. It wasn't just about tech. It was literally friends coming together and spending a bit of time and it just felt so good, so natural. It flew by. I mean, we were joking about how fast time flies by, but those two days were like, I remember when the border agent was asking me, so how long are we staying for? And I said, two days. And he was, really? Two days? Where are you coming from? I said, the UK. Really? Can I see? He just would not believe me flying in for two days. It was so worth it."
+    },
+    {
+      "start": 1659.46,
+      "end": 1662.12,
+      "speaker": "jerod-santo",
+      "text": "I'm happy to hear that because that's a long trip for you."
+    },
+    {
+      "start": 1662.12,
+      "end": 1683.14,
+      "speaker": "adam-stacoviak",
+      "text": "It was really good. It was really, really good. So this was the end of my Denver trip and it is the favorite thing that we did together ever. So it was really good. And this is obviously leading to something. What are your thoughts on doing this again next year? 2026."
+    },
+    {
+      "start": 1683.14,
+      "end": 1683.98,
+      "speaker": "jerod-santo",
+      "text": "100%."
+    },
+    {
+      "start": 1684.48,
+      "end": 1693.8,
+      "speaker": "adam-stacoviak",
+      "text": "I'll give you a couple of moments to think about that. I didn't give you a moment. I'm sorry. There is a reason for that. 100%. Jared. Jared."
+    },
+    {
+      "start": 1693.8,
+      "end": 1719.44,
+      "speaker": "jerod-santo",
+      "text": "Sorry, Jared, you answer. Oh, I'm for it. I'm already, I'm for it. I mean, Adam was like, let's do it four times a year or something. So we're talking about how many times, not- I'd say two to three. Two to three, four is too much. Two is for sure. Three might be pushing it, but I'd love to do more live shows like this. And twice a year is enough, in my opinion. Three, four, maybe. Two for sure."
+    },
+    {
+      "start": 1719.44,
+      "end": 1746.2,
+      "speaker": "adam-stacoviak",
+      "text": "Honestly, I'd be very happy if we do this again. Like at least like a repeat, that would be very nice. It doesn't have to be the same place, but at least once a year would be a good habit, I think, to start having. Because so many things happen around and it's not just a show, it's everything else. And I don't know how many people want to join us now. Here's an opportunity to comment. Here's an opportunity to comment, yeah."
+    },
+    {
+      "start": 1746.2,
+      "end": 1751.56,
+      "speaker": "jerod-santo",
+      "text": "You do have to be close to Denver or willing to travel. And we had many people travel, which is kind of cool."
+    },
+    {
+      "start": 1751.56,
+      "end": 1765.49,
+      "speaker": "adam-stacoviak",
+      "text": "Now, you know that I like to do things well in advance. For example, most of my next year's holidays are already booked. The only one which I couldn't book is actually end of October, because flights only become available like a year before. So I need to wait a few more weeks."
+    },
+    {
+      "start": 1765.49,
+      "end": 1767.33,
+      "speaker": "jerod-santo",
+      "text": "You're such a planner, holy cow."
+    },
+    {
+      "start": 1767.33,
+      "end": 1768.65,
+      "speaker": "adam-stacoviak",
+      "text": "I am, that's why I'm asking."
+    },
+    {
+      "start": 1768.65,
+      "end": 1771.41,
+      "speaker": "jerod-santo",
+      "text": "That's why he's asking, Adam. He wants to get something on the calendar."
+    },
+    {
+      "start": 1771.45,
+      "end": 1775.61,
+      "speaker": "adam-stacoviak",
+      "text": "Right, so I think it would be a good time like in the next few months."
+    },
+    {
+      "start": 1775.61,
+      "end": 1803.85,
+      "speaker": "jerod-santo",
+      "text": "What's your opinion on Denver, Gearhart? Is that our place now, or is it more like, that was fun. Let's go somewhere else and let a different subset of our audience and friends have an easier time getting there. And we know Denver's not accessible for everybody. Austin, obviously, would be another good choice because it's close to Adam and it's close to lots of people that we know. I'm not sure if you got directs to Austin, Gearhart, but. I do, yeah. You do. So thoughts on a new location versus right back to the mountains."
+    },
+    {
+      "start": 1803.85,
+      "end": 1853.92,
+      "speaker": "adam-stacoviak",
+      "text": "I'm all up for it. I've been to Austin. It's a really nice place. I had a good time there. The Colorado River, which is a different Colorado River, was very nice to kayak on. That was like a good experience, for example. And yeah, I mean, there's so many things that we could do. The more interesting question would be, who would like to join to see where is like, where do we have like the most loyal fans so that we're there for them as well and they can join us and we can do something together. And do you want to do any interviews? What does that look like? Will there be a conference before or after? So how do we structure it so that it makes sense on all accounts? What about holidays? Because all of us have holidays and other conferences. So what would make sense?"
+    },
+    {
+      "start": 1853.92,
+      "end": 1911.46,
+      "speaker": "jerod-santo",
+      "text": "Well, I think, thank you for getting the conversation started. We're definitely in to do it again. And I think it's time now in October to start discussing the details of what that might look like. I don't think we have to wait until next summer, but I haven't seen your calendar, Gerhard, to know. As you know, I'm going to be crossing the pond in May with my family, taking my daughter and wife over to France and Italy and to celebrate her graduation. So that's going to be a big trip for my family. But I don't know what yours looks like. I don't know what Adam's looks like. So let's get talking and get some stuff figured out to our listeners. Comment, let us know where should we go? When should we do it? And what should it look like? What would you like to be a part of? Should it be just like this last one, an interview episode, a Kaizen episode, and then festivities around that? Should it be more? Should it be less? Please let us know in the comments."
+    },
+    {
+      "start": 1911.46,
+      "end": 1920.32,
+      "speaker": "adam-stacoviak",
+      "text": "I think if you ask Adam, he'll say change lock con. The first change lock conference ever. Go, go, go."
+    },
+    {
+      "start": 1920.32,
+      "end": 1982.21,
+      "speaker": "jerod-santo",
+      "text": "Maybe. I kind of like this as it was, though, honestly. I wouldn't mind having some trusted demos, but some show and tell. I think there's a lot of pontification from the stage. I'd love to have some show and tell type stuff if that was a thing. And maybe that's demos. I'm thinking like Oxide with their racks and stuff like that. That's kind of show and tell. But I don't know, I don't know. I really just enjoyed exactly as it was, honestly. I think a lot of it was really good. I think it was just short enough and just sweet enough that it was doable and repeatable. And it was just an interview and just Kaizen on stage and just hanging out with friends. And it was more community than it was like brands or what's new in tech kind of thing. I think it was just the right kind of feels, honestly. So I'm not sure. I haven't thought a lot about the design of it enough to want to change it much."
+    },
+    {
+      "start": 1982.21,
+      "end": 1997.13,
+      "speaker": "adam-stacoviak",
+      "text": "Okay. Well, we got the conversation started. We got some thoughts. We can put it on the back burner and come back to it, maybe between now and the next Kaizen, see if we've reached any conclusions or any suggestions which are firming up. But this was good."
+    },
+    {
+      "start": 1997.13,
+      "end": 2021.93,
+      "speaker": "jerod-santo",
+      "text": "I think we just set a goal and say by the next Kaizen, we will have a date and a city. And that way we can at least save the date, start booking flights or whatever we have to do. And then the details of what we're gonna do while we're there, we can figure those out from there. But at least in the next quarter, we should know for sure by the end of the year, what we're doing, where and when."
+    },
+    {
+      "start": 2021.93,
+      "end": 2024.11,
+      "speaker": "adam-stacoviak",
+      "text": "I like that. I like that very much actually."
+    },
+    {
+      "start": 2024.11,
+      "end": 2067.37,
+      "speaker": "jerod-santo",
+      "text": "While we're on that subject, I did have my friend here that could tell me a couple of details about Austin at least which is Claude, the latest model. They're actually suggesting Sun at four five right now over Opus four one. They're calling it Legacy. They're calling Opus four one Legacy. That's kind of funny. It was like brand new a month ago and now it's Legacy all of a sudden. Anyways, it's hot here in Austin. So the best month they say to come here is March through May or October through November. And we're obviously in October now so we can't do it next month. So I think if it was Austin, I would agree with this, that it's before summer, not during summer. So March through May, somewhere in there, if it's Austin."
+    },
+    {
+      "start": 2067.37,
+      "end": 2082.52,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I think that's a good time."
+    },
+    {
+      "start": 2082.52,
+      "end": 2153.92,
+      "speaker": "jerod-santo",
+      "text": "What if AI agents could work together just like developers do? That's exactly what Agency is making possible. Spelled A-G-N-T-C-Y, Agency is now an open source collective under the Linux Foundation building the internet of agents. This is a global collaboration layer where the AI agents can discover each other, connect and execute multi-agent workflows across any framework. Everything engineers need to build and deploy multi-agent software is now available to anyone building on Agency, including trusted identity and access management, open standards for agent discovery, agent to agent communication protocols and modular pieces you can remix for scalable systems. This is a true collaboration from Cisco, Dell, Google Cloud, Red Hat, Oracle, and more than 75 other companies, all contributing to the next gen AI stack. The code, the specs, the services, their drop and no strings attached. Visit agency.org, that's A-G-N-T-C-Y.org to learn more and get involved. Again, that's agency, A-G-N-T-C-Y.org."
+    },
+    {
+      "start": 2158.61,
+      "end": 2244.46,
+      "speaker": "adam-stacoviak",
+      "text": "We're looking at all the different steps that we had to take between being on stage at Denver. Do you know which RC we were there? Just looking at this list. It's a list on the pipeline repo by the way we're looking at the read me. All the various release candidates of 1.0 before going to 1.0, I thought it would happen on stage. It didn't, or soon after it didn't, but it did happen now. So we are beyond and we are running on 1.0. If you look at 1.0 RC4, limit varnish memory to 66%. And that's the one commit which I pushed that was on stage. It was next one, RC5, handle varnish JSON response failing on startup and bump the instance size to performance. That was the scale up that needed to happen. So really we didn't need much in terms of resources, one CPU, a performance CPU, and eight gigabytes of RAM. That was enough. And then we could send 50% of the traffic. And we were on that 50% for quite some time. So RC7, there was like the RC6, more locations back in timeout. Now the one thing which was failing and this was discovered after I think we were routing more and more traffic is that uploads were failing, MP3 uploads were failing. And that was pull request 39. Do they work now, Adam?"
+    },
+    {
+      "start": 2244.5,
+      "end": 2247.9,
+      "speaker": "jerod-santo",
+      "text": "I think so, yeah. I mean, I've been uploading. The answer is yes."
+    },
+    {
+      "start": 2247.9,
+      "end": 2249.06,
+      "speaker": "adam-stacoviak",
+      "text": "Nice, great."
+    },
+    {
+      "start": 2249.06,
+      "end": 2253.26,
+      "speaker": "jerod-santo",
+      "text": "I can't say no. I can't say, I guess I can say yes. Yes, it does."
+    },
+    {
+      "start": 2253.26,
+      "end": 2255.26,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, they work, yes."
+    },
+    {
+      "start": 2255.26,
+      "end": 2256.58,
+      "speaker": "jerod-santo",
+      "text": "They work, yes."
+    },
+    {
+      "start": 2256.58,
+      "end": 2258.74,
+      "speaker": "adam-stacoviak",
+      "text": "Great, so that was like the one thing which-"
+    },
+    {
+      "start": 2258.74,
+      "end": 2276.32,
+      "speaker": "jerod-santo",
+      "text": "I had Fastly hard coded for a while because it wasn't working and we needed to keep uploading MP3s. And then when you asked us to test it, I removed that from my Etsy hosts. That's right. And I have had no issue that didn't report back because I was saving it for Kaizen to tell you, yes, you fixed it, thank you."
+    },
+    {
+      "start": 2276.32,
+      "end": 2278.48,
+      "speaker": "adam-stacoviak",
+      "text": "Nice, great. That's what I wanted to hear, so-"
+    },
+    {
+      "start": 2278.48,
+      "end": 2282.32,
+      "speaker": "jerod-santo",
+      "text": "You probably were hoping I'd report back, but I didn't say anything at all. I did test it though."
+    },
+    {
+      "start": 2282.32,
+      "end": 2309.36,
+      "speaker": "adam-stacoviak",
+      "text": "Well, as long as you don't have the hard coded IPs that I was trying to- Yeah, I took those out. Now it's a good time to remove them from everywhere. And because everyone else is going to Pipedream, so everyone's using the new CDN and uploads are also working, so there should be no more issues. And 100% of the traffic is being served with 1.0. So 1.0 was tagged on yesterday. This is only yesterday."
+    },
+    {
+      "start": 2309.36,
+      "end": 2310.56,
+      "speaker": "jerod-santo",
+      "text": "Okay."
+    },
+    {
+      "start": 2310.56,
+      "end": 2396.71,
+      "speaker": "adam-stacoviak",
+      "text": "However, however, the traffic has been served through the new instance on, I think it was on the 5th. Yes, on the 5th of October, everything switched across. All the traffic we're looking now at the screenshot from Honeycomb, which is showing the requests going too fastly. And we can see that after October 5th, they dropped and there's a few, there will always be a few hard coded IPs, whatever the case may be. It's not human traffic that for sure. It's just, that sounds wrong. It's not people hitting the website. It's most likely bots. Yeah, exactly. It's bots. So we have been running 100% on the new system for more than 10 days now. And I wanted to be like, why did it take so long? Because it was like, that was July. I wanted to be certain that everything worked fine. Like after the last time I went extra, extra, extra cautious. I needed all the metrics. There were the summer holidays. I joined the new startup. I was a bit busy. And I had to build the most insane home lab ever, which took me a while, but that's going to come a bit later. So this is what it looked like. Now, do we remember, now that everything is said and done, why did we need to build our own CDN? What's the reason behind it? Frustration. Frustration. Okay. That's a good one."
+    },
+    {
+      "start": 2396.71,
+      "end": 2403.63,
+      "speaker": "jerod-santo",
+      "text": "Plus the hacker spirit. Plus our cash hit ratio was out of our own hands. We wanted it in our own hands."
+    },
+    {
+      "start": 2403.63,
+      "end": 2490.73,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Yeah. It was like the previous screenshot. So this is the moment I turned off all traffic from like forever, in this case, from Fastly. It was only a few days, but you can see that in those few days, we had 155,000 cash hits, sorry, cash misses. 155,000 cash misses. And we had 370,000 cash hits. So the ratio does not look right. That green line, the cash hits, there were days when there were more, or like periods, not dates, there were periods up to maybe half an hour, an hour, when there were more misses than hits. And you do not expect a CDN to behave that way. And by the way, this is across both changelog.com and cdnchangelog.com. So it includes both the static assets, everything. Just a small window, but it just shows the problem. Now, as a percentage, that translates to 70.5%. So 70.5% cash hits, and that is really not great. I know you've been expecting this. So let's see. What do you think is our current cash hit versus miss ratio? This is across all requests. So now that we switched across, we had 10 days to measure this. On the new system, what do you think is the cash hit versus miss ratio?"
+    },
+    {
+      "start": 2490.73,
+      "end": 2494.56,
+      "speaker": "jerod-santo",
+      "text": "Now you're giving us four choices. This is a multiple choice question."
+    },
+    {
+      "start": 2494.56,
+      "end": 2495.4,
+      "speaker": "adam-stacoviak",
+      "text": "Only one."
+    },
+    {
+      "start": 2495.4,
+      "end": 2502.4,
+      "speaker": "jerod-santo",
+      "text": "Only one is correct. 85% is A, B is 89%, C is 95%, and D is 99%. Adam, what are you thinking?"
+    },
+    {
+      "start": 2502.4,
+      "end": 2505.88,
+      "speaker": "adam-stacoviak",
+      "text": "I'm walking in C. 95%, okay."
+    },
+    {
+      "start": 2505.88,
+      "end": 2517.44,
+      "speaker": "jerod-santo",
+      "text": "I'm going for the gusto. I'm going 99%. Whoa. Straight to D. I love to be wrong, but if I'm right, I'm gonna be, ah, I'm so wrong."
+    },
+    {
+      "start": 2517.44,
+      "end": 2521.88,
+      "speaker": "adam-stacoviak",
+      "text": "89.5%. So close, both of us were wrong. That's the answer, yeah."
+    },
+    {
+      "start": 2521.88,
+      "end": 2524.04,
+      "speaker": "jerod-santo",
+      "text": "How good would that have been though?"
+    },
+    {
+      "start": 2524.04,
+      "end": 2524.88,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, well."
+    },
+    {
+      "start": 2524.88,
+      "end": 2528.36,
+      "speaker": "jerod-santo",
+      "text": "Well, you know, some stuff is fresh. It just is."
+    },
+    {
+      "start": 2528.36,
+      "end": 2540.36,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I mean, we can improve on this. I mean, it's not. Now, the important thing is it went from 70% to 90%. Okay, that was a big jump. Now, 100%."
+    },
+    {
+      "start": 2540.36,
+      "end": 2548.92,
+      "speaker": "jerod-santo",
+      "text": "And it's in our hands now. We can actually affect it. Which is the last one. Before, it was just like, we could only complain. Now we can actually do stuff."
+    },
+    {
+      "start": 2548.92,
+      "end": 2553.44,
+      "speaker": "adam-stacoviak",
+      "text": "And even that, after a few years of complaining, we just become tired of complaining."
+    },
+    {
+      "start": 2553.44,
+      "end": 2555.8,
+      "speaker": "jerod-santo",
+      "text": "Yeah. Yeah, we grew weary."
+    },
+    {
+      "start": 2555.8,
+      "end": 2592.22,
+      "speaker": "adam-stacoviak",
+      "text": "We just build our own. Okay, so can we do better? Can we do better than 89.5%? But so, I think everyone is thinking this. But really, what I think we should be thinking is, do we need to do better? Do we need to do better than 89%? Okay, so let's have a look. Feeds, if you look at all the feeds, we are at 99.5% cash hit ratio. Before, they were at 96.8%. So what are feeds for our listeners and watchers that know, don't know? Who wants to answer that?"
+    },
+    {
+      "start": 2592.22,
+      "end": 2593.5,
+      "speaker": "jerod-santo",
+      "text": "What are they?"
+    },
+    {
+      "start": 2593.5,
+      "end": 2594.34,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, what are they?"
+    },
+    {
+      "start": 2594.34,
+      "end": 2632.43,
+      "speaker": "jerod-santo",
+      "text": "These are XML files that represent the current state of our podcast syndication, our episodes that we're shipping and have shipped. So they're hit often by robots who are scraping feeds in order to update their podcast indexes and let people know which episodes are available. And they should be at 99.5% because they only change when we publish a new episode, which is at this point in our lives, three times a week, on a Monday, on a Wednesday, and on a Friday. And every other request, every other day and time is the same exact content."
+    },
+    {
+      "start": 2632.43,
+      "end": 2654.24,
+      "speaker": "adam-stacoviak",
+      "text": "That's it. So I would say that this is possibly the most important, or yeah, I would say the most important thing to serve. Because if we don't serve feeds correctly, how do you know what content Changelog has? How do you know when content updates? And this is like worldwide. So I think this is pretty good. And improving on 99.5%, I don't think we should do it."
+    },
+    {
+      "start": 2654.24,
+      "end": 2655.82,
+      "speaker": "jerod-santo",
+      "text": "No."
+    },
+    {
+      "start": 2655.82,
+      "end": 2661.89,
+      "speaker": "adam-stacoviak",
+      "text": "The homepage before, the hit ratio was 18.8%. Oh my gosh."
+    },
+    {
+      "start": 2661.89,
+      "end": 2663.25,
+      "speaker": "jerod-santo",
+      "text": "I understand that."
+    },
+    {
+      "start": 2664.81,
+      "end": 2672.97,
+      "speaker": "adam-stacoviak",
+      "text": "This was my biggest issue for as long as I can remember. Today, it's 98.5%."
+    },
+    {
+      "start": 2672.97,
+      "end": 2692.63,
+      "speaker": "jerod-santo",
+      "text": "And to our listeners who's probably out there thinking, you guys were certainly doing it wrong. We spent years trying to do it differently. Like go back and listen to all the kaisens of us trying to change the way that we actually configure and respond and our headers and our, I mean, we tried. And we ended up with 18.8%."
+    },
+    {
+      "start": 2692.63,
+      "end": 2693.47,
+      "speaker": "adam-stacoviak",
+      "text": "That's it."
+    },
+    {
+      "start": 2693.47,
+      "end": 2696.07,
+      "speaker": "jerod-santo",
+      "text": "That's the best we could do. And so here we are."
+    },
+    {
+      "start": 2696.07,
+      "end": 2780.88,
+      "speaker": "adam-stacoviak",
+      "text": "Oh, so bad. So bad. Now, MP3s, I would say the second most important thing was 86%, now it's 87.5%. Maybe this can be better. Maybe this can be improved. We just need basically more memory or store them on disk, do a bunch of things. Because by the way, caching is in memory. And I still need to understand why memory, once it gets filled, it doesn't remain filled. So I've seen this weird behavior where after a few hours, memory starts dropping. But why? Because there's no pressure on memory. Why are objects getting evicted? My assumption is that we're storing some large objects and if there are smaller objects that need to be stored in memory, the larger objects get evicted, which means that the cache drops. But I would need to understand that a little bit better. Still, MP3s aren't worse than they were before. News, I know this is something that's very important to Jared, it was 52.6% cached before, now it's 83%. So improvements across the board. Now, we could improve it and I think we, especially news and MP3s, I would like to look into that, but I think news is like top of my list. But is there anything else that you think that we should pay attention to or in terms of the cache hit ratio? Any other resources?"
+    },
+    {
+      "start": 2780.88,
+      "end": 2808.32,
+      "speaker": "jerod-santo",
+      "text": "No, I mean, MP3s are static assets. You could go look at other static assets, images, et cetera. But I just don't think we wanna squeeze this radish too hard. I agree that news and probably taking a low-hanging fruit pass on the MP3 endpoints and seeing what we could do there would probably be bear, would bear some good fruit, but even those, I wouldn't like spend hours and hours trying to make them much better."
+    },
+    {
+      "start": 2808.32,
+      "end": 2821.49,
+      "speaker": "adam-stacoviak",
+      "text": "What I'm thinking, I would just basically double up the memory and see how that changes things, which is just the config setting is take me maybe a minute. That will be my first action item. Okay. Okay, we'll try."
+    },
+    {
+      "start": 2821.57,
+      "end": 2831.13,
+      "speaker": "jerod-santo",
+      "text": "I imagine news could be very similar to feeds because once news is published, it's similar to the feed. It's not really, it's changing once a week."
+    },
+    {
+      "start": 2831.13,
+      "end": 2837.87,
+      "speaker": "adam-stacoviak",
+      "text": "And once it's published, it likely never changes again. It never has changed, right?"
+    },
+    {
+      "start": 2837.87,
+      "end": 2851.13,
+      "speaker": "jerod-santo",
+      "text": "Now that we've moved all of our comments and everything exist elsewhere. I mean, they're in Zulip, they're on YouTube. So there's no comment feed there. There's no reason for anything to really be new except on publish."
+    },
+    {
+      "start": 2851.89,
+      "end": 2854.53,
+      "speaker": "adam-stacoviak",
+      "text": "So I'd say the news could be one of the feed,"
+    },
+    {
+      "start": 2854.53,
+      "end": 2873.65,
+      "speaker": "jerod-santo",
+      "text": "pushing that to the boundary because it doesn't change much. I'd love to explore that when you do the MP3 exploration of large objects getting pushed out, I'd love to just sit on your shoulder, I suppose, or as a fly on the wall kind of thing, just explore that with you. Cause I'm super curious about what makes that cache get purged out of the memory myself."
+    },
+    {
+      "start": 2873.65,
+      "end": 2892.09,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, well, pairing up is something that I'm getting better and better every day. Recorded and published pairing sessions. Jared has the experience, not Adam. I'm sorry. Yeah, that sounds great. Now, it gets better. Oh my God. Okay. It gets better."
+    },
+    {
+      "start": 2892.09,
+      "end": 2892.93,
+      "speaker": "jerod-santo",
+      "text": "What does?"
+    },
+    {
+      "start": 2894.33,
+      "end": 2897.49,
+      "speaker": "adam-stacoviak",
+      "text": "All of it. Do you recognize this seed?"
+    },
+    {
+      "start": 2898.97,
+      "end": 2921.48,
+      "speaker": "jerod-santo",
+      "text": "Okay, so that looks like- This is Johnny Mnemonic, right? No. Say again? Johnny Mnemonic, is this a... Nope. No, is that Hugh Jackman? Yes. Oh yeah, this is Snot Wolverine. Swordfish. This is Swordfish. Oh no, I'm not sure. I'm very nervous right now, Gerhard."
+    },
+    {
+      "start": 2921.48,
+      "end": 2924.1,
+      "speaker": "adam-stacoviak",
+      "text": "That's okay, it's fine. It's recorded."
+    },
+    {
+      "start": 2924.1,
+      "end": 2927.44,
+      "speaker": "jerod-santo",
+      "text": "Swordfish broke the show previously. Okay."
+    },
+    {
+      "start": 2927.44,
+      "end": 2929.76,
+      "speaker": "adam-stacoviak",
+      "text": "I'm ready for it this time."
+    },
+    {
+      "start": 2929.76,
+      "end": 2935.28,
+      "speaker": "jerod-santo",
+      "text": "That doesn't mean that I'm ready for it. You're going to play this live for me right now on camera? Okay."
+    },
+    {
+      "start": 2935.28,
+      "end": 2940.6,
+      "speaker": "adam-stacoviak",
+      "text": "I will, yes. So this clip is going to blow you away, okay? I'm going to watch it."
+    },
+    {
+      "start": 2941.6,
+      "end": 2956.88,
+      "speaker": "jerod-santo",
+      "text": "I'm hoping this is Sora. Okay, Halle Berry, John Travolta. Hugh Jackman has a gun to his head. He's typing. He has to hack something in a certain amount of time. Was it 30 seconds?"
+    },
+    {
+      "start": 2956.88,
+      "end": 2958.38,
+      "speaker": "adam-stacoviak",
+      "text": "45 seconds, 45 seconds."
+    },
+    {
+      "start": 2958.38,
+      "end": 2960.34,
+      "speaker": "jerod-santo",
+      "text": "45. Look at his fingers."
+    },
+    {
+      "start": 2960.34,
+      "end": 2962.3,
+      "speaker": "adam-stacoviak",
+      "text": "Types very, very furiously."
+    },
+    {
+      "start": 2962.3,
+      "end": 2965.08,
+      "speaker": "jerod-santo",
+      "text": "He's typing furiously. Oh, Axis denied."
+    },
+    {
+      "start": 2965.08,
+      "end": 2976.82,
+      "speaker": "adam-stacoviak",
+      "text": "He gets very disappointed when that happens. He gets very disappointed. When Axis gets, he died. All right. So that was a moment of fun."
+    },
+    {
+      "start": 2976.82,
+      "end": 2980.26,
+      "speaker": "jerod-santo",
+      "text": "I wonder what the hell it's for."
+    },
+    {
+      "start": 2980.26,
+      "end": 2983.82,
+      "speaker": "adam-stacoviak",
+      "text": "It was, things get better, okay? Things get better."
+    },
+    {
+      "start": 2983.82,
+      "end": 2985.76,
+      "speaker": "jerod-santo",
+      "text": "So that's a moment of disappointment."
+    },
+    {
+      "start": 2985.76,
+      "end": 3095.16,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly. Even if you're under pressure and you have to deliver, things will be better. Okay. So hype dream gets better. Okay. Now, we looked at the cash hit ratio. What I would like to look at next is the response time in seconds. Okay. All the feed requests before and after. So the P50 for all the feed requests used to be two milliseconds. And you would think, wow, that's pretty good. Well, the new system is like half a millisecond. So it's a four time improvement. The P75 is 13 times better. So for 75 of users, 75% of the users, the feed responses get served 13 times as quickly as they were before. The P90, 95, 99, like it gets progressively better, which means that the requests are served much quicker, at least four times as quick as they were before. And you might be thinking, hey, that's bots. What about humans? So what about the homepage? For 50% of the users, the homepage is 860 times quicker. That's nearly three orders of magnitude quicker. That's a crazy amount quicker. Now, obviously it is a fact that it was not cached. Like only 18% of the requests were cached, but the page is instant. Like now it's instant. It's 0.000, like three zeros, three seconds. That's like a third of a millisecond."
+    },
+    {
+      "start": 3095.16,
+      "end": 3099.56,
+      "speaker": "jerod-santo",
+      "text": "That's nice. You're welcome, humans."
+    },
+    {
+      "start": 3099.56,
+      "end": 3178.1,
+      "speaker": "adam-stacoviak",
+      "text": "You're welcome, humans. Now, what does that look like? I think 863 times is really difficult to imagine. So I'm going to play something for you to see what it means. So what we have here is one second at the top. That's how long it takes. No, hang on, I'm not playing it. I should be playing it. There you go, now I'm playing it, okay? While 833 seconds at the bottom is still loading and it will continue loading for so long that we're not going to wait 15 minutes for this thing to load, okay? We're not going to wait that. So that's the difference between how fast the homepage loads now versus how it used to load before. This is for the majority of the users. So the cache hit ratio, the connection there was that everything was slow and there's nothing we could do about it. And I think slow is relative, right? Because when you think, when you're talking about milliseconds, I think there's about 50 or maybe 100 milliseconds when things are nearly instant. But in our case, the homepage was taking 150 milliseconds to get served. And the more like the tail latency is really crazy. Like the tail latency was over a second for the homepage to serve. That was a long time. By the way, this thing is still going and it's not even like 10% there."
+    },
+    {
+      "start": 3178.1,
+      "end": 3185.6,
+      "speaker": "jerod-santo",
+      "text": "What's the rationale behind this video? Explain to me how this is supposed to explain things."
+    },
+    {
+      "start": 3185.6,
+      "end": 3221.94,
+      "speaker": "adam-stacoviak",
+      "text": "So the top one shows you how quickly it takes for one second to finish, right? So the response, the one second response, it just visualizes it how quickly that gets served. The bottom one shows you how long the previous CDN, how long in comparison 863 seconds is. So we had, we have now like things are loading in a second or the equivalent of a second. And before things were taking 863 seconds to go. They were? The same request."
+    },
+    {
+      "start": 3221.94,
+      "end": 3225.07,
+      "speaker": "jerod-santo",
+      "text": "They were, yes. Longer, relative, not absolute."
+    },
+    {
+      "start": 3225.07,
+      "end": 3227.11,
+      "speaker": "adam-stacoviak",
+      "text": "Relative, okay, exactly."
+    },
+    {
+      "start": 3227.11,
+      "end": 3241.5,
+      "speaker": "jerod-santo",
+      "text": "So the one second it represents like our current loading speed. Like one millisecond. Which is like a millisecond. But we can't visualize that cause it's too fast. Exactly. And 863 seconds, that's how much slower it used to be. So it's a relative example."
+    },
+    {
+      "start": 3241.5,
+      "end": 3244.46,
+      "speaker": "adam-stacoviak",
+      "text": "Relative to one second versus relative to milliseconds."
+    },
+    {
+      "start": 3244.46,
+      "end": 3251.1,
+      "speaker": "jerod-santo",
+      "text": "Right. That way we can actually visualize it. And now it's at two point, oh, he reset it. Okay, I was gonna say it's going backwards."
+    },
+    {
+      "start": 3251.1,
+      "end": 3253.86,
+      "speaker": "adam-stacoviak",
+      "text": "It's like loading again because it finished."
+    },
+    {
+      "start": 3253.86,
+      "end": 3261.26,
+      "speaker": "jerod-santo",
+      "text": "So it's like 15 minutes versus one second and then reduce that down to milliseconds. And we're basically that much faster."
+    },
+    {
+      "start": 3261.26,
+      "end": 3268.7,
+      "speaker": "adam-stacoviak",
+      "text": "Exactly. 15, yeah, waiting 15 minutes versus waiting a second. That's exactly the speed difference between what we used to have and what we have now."
+    },
+    {
+      "start": 3268.7,
+      "end": 3270.17,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 3270.17,
+      "end": 3272.05,
+      "speaker": "adam-stacoviak",
+      "text": "It's just really fast."
+    },
+    {
+      "start": 3272.05,
+      "end": 3287.69,
+      "speaker": "jerod-santo",
+      "text": "And that was, that was. Really, really fast. That was the CDN thing. That was not, that was traversing DNS into CDN, getting a cache hit or miss, serving, you know, rehydrating, getting new from cache. That's where all the time was spent."
+    },
+    {
+      "start": 3287.69,
+      "end": 3320.12,
+      "speaker": "adam-stacoviak",
+      "text": "So in this case, these were the responses from the Varnish perspective. So if I go back here and we're looking at this table. So this is the homepage, the response time. How long does it take to serve the homepage from Varnish's perspective? Whether it's in the cache, whether it needs to go to the application and request it and then eventually finish serving the actual response. So before P50, 259 milliseconds. That's how long it used to take."
+    },
+    {
+      "start": 3320.12,
+      "end": 3321.08,
+      "speaker": "jerod-santo",
+      "text": "Yeah."
+    },
+    {
+      "start": 3321.08,
+      "end": 3324.56,
+      "speaker": "adam-stacoviak",
+      "text": "And now it takes a third of a millisecond."
+    },
+    {
+      "start": 3324.56,
+      "end": 3328.19,
+      "speaker": "jerod-santo",
+      "text": "What changed specifically with Varnish then?"
+    },
+    {
+      "start": 3328.19,
+      "end": 3361.87,
+      "speaker": "adam-stacoviak",
+      "text": "Well, caching. Most of the, like, if we go back to the table, if you go back here, now 98.5% of the requests are served from cache. We don't need to go back. I mean, the homepage is almost always in cache. We very rarely have to go back to the application to fulfill a request. Before, only 18% or 19% of the requests could be served from cache. Yeah. So Varnish had to go to the application. The application had to serve the response so that Varnish could serve the response back to the user, to the end user."
+    },
+    {
+      "start": 3362.11,
+      "end": 3364.8,
+      "speaker": "jerod-santo",
+      "text": "You keep saying Varnish, don't you mean vinyl?"
+    },
+    {
+      "start": 3364.8,
+      "end": 3375.88,
+      "speaker": "adam-stacoviak",
+      "text": "Yes, I do. I do. Well, not yet. There's a vinyl, yeah, vinyl is coming up in January. So it's not here yet."
+    },
+    {
+      "start": 3375.88,
+      "end": 3386.58,
+      "speaker": "jerod-santo",
+      "text": "For those not in the know, they're renaming the Varnish software because of legal disputes to vinyl cache. So Varnish cache, the open source project will be renamed to vinyl cache."
+    },
+    {
+      "start": 3386.58,
+      "end": 3387.42,
+      "speaker": "adam-stacoviak",
+      "text": "That's correct."
+    },
+    {
+      "start": 3387.42,
+      "end": 3391.02,
+      "speaker": "jerod-santo",
+      "text": "Whereas Varnish software, the company will continue as Varnish software, the company."
+    },
+    {
+      "start": 3391.02,
+      "end": 3441.92,
+      "speaker": "adam-stacoviak",
+      "text": "I'm going to jump ahead. I mean, this is like, yeah, Jared is coming from the future now. So PHK, Poul Henningkamp, he posted on September 15th. This is on varnishcache.org. It was just about a month ago. He wrote that 20 years old, and it is time to get serious, sir. That is the title of the blog post. And he talks about the open source, yeah, the open source Varnish cache rename. Some legal disputes indeed. You can go and read it out, but basically Varnish and 8.0, the open source Varnish, 8.0 will be the last one that will be called Varnish cache. So from March next year, and I think this is very interesting, it will be vinyl. Name of Varnish, the open source Varnish will get renamed to vinyl."
+    },
+    {
+      "start": 3441.92,
+      "end": 3459.53,
+      "speaker": "jerod-santo",
+      "text": "Okay, now I know we have to have, as a guest on our interview in Austin, PHK, launching the vinyl cache live on stage. He, I think he lives over on your side of the ocean. Or Berlin, yeah, because he is. Yeah, he probably wouldn't come to Austin, but we can try."
+    },
+    {
+      "start": 3459.53,
+      "end": 3513.56,
+      "speaker": "adam-stacoviak",
+      "text": "So that's, yeah. All right, so speaking of speed, this one's for Adam. Love speed. You know that I joined Leupold Labs, that's it. So what we do, it requires a really fast low latency network. And by that, I mean at least 100 gigabits. Okay, it needs to have sub one millisecond latency. So about two months ago, I started building a new 100 gigabit home lab. And I know that Adam has been asking me for a really long time to do a video on my home lab. So Jared already watched it a few weeks ago. This is live. And the easiest way is to go to yt.makeitwork.tv. That will take you to YouTube, and there you can go and watch it. And I take you through the entire journey, why I had to build it, a couple of interesting things. Yeah, it's, how did you, how, I mean, what did you think about it, Jared? The portions that you managed to watch?"
+    },
+    {
+      "start": 3513.56,
+      "end": 3517.9,
+      "speaker": "jerod-santo",
+      "text": "Yeah, like I said earlier, I thought it was really good. I, it's cool."
+    },
+    {
+      "start": 3517.9,
+      "end": 3524.84,
+      "speaker": "adam-stacoviak",
+      "text": "You get a whole- What did it miss? What did it miss? How would I improve it? Maybe that's a better question. What would have made the video better?"
+    },
+    {
+      "start": 3524.84,
+      "end": 3610.92,
+      "speaker": "jerod-santo",
+      "text": "What would have made the video better? I don't know in terms of like content that was missing. I feel like the way that you do your summarized, intro is compelling, but sometimes it like jump cuts so fast, or it's sometimes hard for me to track exactly. So that's like a hard thing to give feedback on. I'd have to give you specifics for you to be actually know what you're, but you do, even though I'm like compelled to continue watching and I do enjoy it, there are times where I'm confused. And so I think as you continue to refine that, cause I know it's a style that you're doing and you've gotten better at it since, I've seen some of your videos from a year ago ish and it's definitely getting there where I'm like, I look forward to it, but I also sometimes am not sure what's going on. I'm not sure if that's on purpose. Maybe it is to keep me intrigued as there are all kinds of techniques that keep people watching on social media. But I think you can continue to refine the narrative that kicks off from the beginning in making it more cohesive or just, laying more breadcrumbs perhaps for the person who's not initiated. Cause you're so deep into what happened and you know the whole story from front to back and you're telling it and that's great. But I think that's one thing that could be improved. And further, I don't know about stuff that's missing, but cause I wasn't there for what that dropped."
+    },
+    {
+      "start": 3610.92,
+      "end": 3833.18,
+      "speaker": "adam-stacoviak",
+      "text": "That's great, that's great. So yeah, okay, that's excellent feedback, all right. Well, Adam, when you get the chance to watch it, if you get a chance to watch it, I would love to get some feedback from you too, in terms of what would make it better for you. For sure. As you watch it, anything that could be improved because the next one is coming up. So how fast is the pipe dream? That's what we're going to answer now. How fast is the pipe dream on this 100 gigabit home lab? Because you remember we talked before, we were looking at how much, like when we benchmark these things, Fly.io itself is limiting us to how much bandwidth we can push, right? We wouldn't want to be pushing tens of gigabytes or hundreds of gigabytes, that would be crazy. Because that's cost someone money. So running benchmarks like that is not great. But also the WAN, there's like a limit there. But in this case, the limit is 100 gigabits, we know that. So this is a new home lab, this is what it looks like. It's running Ubuntu 24.04. I think the most interesting thing is the CPUs about it. So it has Threadripper 9970X. And the reason for the Threadripper is because I need a lot of PCIe lanes. So I couldn't use like a regular consumer grade CPU. I needed 16 lanes for the GPU, the RTX 4080, which is there at the bottom. And I need another 16 lanes for the network card. Even though it's a PCI 3.0, if you give it, for example, eight lanes of, in this case, PCIe 5, it can only use eight lanes of PCIe 3. So you would like basically half its speed. And eight lanes of PCIe 3.0 means 64 gigabits. So really I need a full 16 lanes, doesn't matter. I mean, it needs to be at least PCIe 3 to achieve its full speed. And the card is like the thing that you see, there's like some green LED lights. It's right below the fan for the CPU. All right. So that's one. This is the server. We're going to be running a pipe stream on this host. And this is the other part of the home lab. And this is my older machine that's about three years now. It's a Ryzen 7 5800X. It has 16 threads, not 16 core, 16 threads, a small GPU, a GeForce GT 730, it's a fanless one, it's the one at the bottom. And again, the reason why I had to do this is because I needed the 16 lanes, which are right under, again, that CPU cooler for the network card. If I was, for example, to put an NVMe in a specific slot, or if I was going to fill any other PCIe slots, the first slot, because it shares bandwidth, the first PCIe slot would be limited to 8X, which again, would create that 16, sorry, that 64 gigabits limit. So I needed to give this full 16 lanes. And that's where this limitation came from. Now, this is the star of the show. This is what that card looked like, those cards look like. You can see, I mean, there's like a DAC cable. Obviously you need two. Now they have two modules, which is interesting because the card itself, in terms of the PCIe bandwidth, will max out at 128 gigabits. So it can't go beyond that from a PCIe slot perspective. Even though each module could do 100 gigabits, really in combination, you can only push 128 theoretical maximum. And these are older cards. It's an Nvidia Mellanox Connect X5. So they've been around for many years now. I think 2020 at this point. So they're like about five-year-old cards."
+    },
+    {
+      "start": 3833.18,
+      "end": 3834.38,
+      "speaker": "jerod-santo",
+      "text": "What's the price range on these?"
+    },
+    {
+      "start": 3834.38,
+      "end": 4002.9,
+      "speaker": "adam-stacoviak",
+      "text": "Are they expensive? They can be, yes. These specific ones, I got them off eBay and I paid for both of them, 500 pounds, which I think it's about $800, I think. Seven, $800, roughly. Now in the US, I think you can get them for even cheaper because you get more hardware, data center hardware, that just gets sold for a good price. So refurbished stuff, or in this case it's just used, it's not refurbished, and a DAC cable. The cable can be a bit expensive. You can pay anywhere between close to $100. I think this one was about 60 pounds. And then you need two. And the reason why you need two is here because I'm configuring the two modules in a bond, in a network bond. It's an LACP bond. And in this case, what it means is that I'm basically having two cables and I'm creating a single virtual connection that uses both modules. So again, the theoretical maximum is 128 gigabits, but in reality, it's more like 112. I was not able to push it beyond that. So HTTP stat, what I'm showing here is that if I do an HTTP stat from the client, H22, by the way, H22 is the client, that's the year home lab 2022, and W25, the workstation 25, but it's also home lab, but it's also workstation, so it's a combined thing because of the many cores that it has, and it has a multi role, that host. All right, so from the client from H22, I'm basically going to that private IP, 10.25.10.141, and on port 9,000, the pipe dream is running. And you can see here, the response is going to the app. There's just basically a pipe dream running in a container locally as it would run on fly. All right, so let's see what this baby can do. I'm using OHA, I'm running 64 clients, and I'm sending a million requests to the homepage. Let's see what it will do. That was it. That was one million requests sent to the homepage. Oh my gosh. So it took less than five seconds to complete. We pushed 225,000 requests per second. In terms of data, we transferred 12.5 gigabytes in five seconds. We reached 2.8 gigabytes per second, and that's just over 22 gigabits per second. So if you were to guess, what would you say the bottleneck is in this case? You just had to guess. It's not the network. We know it's not the network. Yeah, it's not the network."
+    },
+    {
+      "start": 4002.9,
+      "end": 4005.74,
+      "speaker": "jerod-santo",
+      "text": "I mean, it has to be... Docker, maybe? Container?"
+    },
+    {
+      "start": 4005.74,
+      "end": 4055.87,
+      "speaker": "adam-stacoviak",
+      "text": "The CPU, yeah. It's actually, yeah, so the container, I mean, it doesn't have any overhead. It uses, it binds to the local network. So there's like no netting, no bridging, nothing happening from a networking perspective. It binds to a port on the local network. So when you go to 9,000, it's the port local 9,000 on the host. Now I'm wondering what happens if you fetch the master feed? Because the master feed is really big. It's 13 megabytes in size. So it's about a hundred times the size of the homepage. So we're going to do something very similar. The difference is we're only going to run a hundred thousand requests, not a million requests. And this is what that looks like."
+    },
+    {
+      "start": 4056.19,
+      "end": 4058.88,
+      "speaker": "jerod-santo",
+      "text": "Okay, it's taking a little bit longer."
+    },
+    {
+      "start": 4060.99,
+      "end": 4110.58,
+      "speaker": "adam-stacoviak",
+      "text": "What do we see? What do we see here? So here we see the CPU and the network for the client, H22. And what stands out is that many of the cores are 90, 80, close to 90% usage. We can see the network throughput, it's 4.59 gigabytes per second, which in this case is 36 gigabits. So we're getting close to 40 gigabits per second. But in this case, we can definitely see that it is the CPU that seems to be the bottleneck. But the CPU on the client, so this is where we're running the benchmark from. So I'm wondering what does the CPU look like on the host on the big one?"
+    },
+    {
+      "start": 4110.58,
+      "end": 4111.78,
+      "speaker": "jerod-santo",
+      "text": "The Threadripper."
+    },
+    {
+      "start": 4111.78,
+      "end": 4112.62,
+      "speaker": "adam-stacoviak",
+      "text": "The Threadripper."
+    },
+    {
+      "start": 4112.62,
+      "end": 4114.38,
+      "speaker": "jerod-santo",
+      "text": "It looks pretty quiet from this."
+    },
+    {
+      "start": 4114.38,
+      "end": 4220.06,
+      "speaker": "adam-stacoviak",
+      "text": "Pretty quiet. Yeah, I think the peak, that there's one core which is 11%, but otherwise everything is less than even 5%. So most of the cores are chilling. So this confirms that we have the bandwidth, I mean we went from 20 to about 40 gigabits per second, from 20 gigabits to 40 gigabits per second. And we can see the CPU is fine, so PyDream could serve more from the instance perspective. But the client, where OHA runs the one that benchmarks, seems to be approaching a limit. Even so, we are able to send 100,000 requests, and I think it takes, I don't know, about 40 seconds, something like that, roughly. We can see again the host, the client, which is running really, really hot, 36, instant, so that's nice and constant. And we'll see it now at the end finish, 100,000 requests. It transferred about 40-something gigabytes. This is where like this, in terms of traffic, it would cost a few dollars, just this benchmark. We transferred 200 gigabytes of data for this one, and the peak, the request per second was 2,200. That's pretty good, that's pretty good. So I'm wondering what would happen, there's like one more thing which I would like to do. What would happen if we move the client from the host with the slower CPUs to the host with the faster CPUs? Perhaps we do like a swap around. We run Pipedream on the slower host, but we run the client that benchmarks things on the faster host, so what would that look like? All right, so same 100,000 requests, but now we've reversed where we run these things, and this is what it looks like."
+    },
+    {
+      "start": 4220.06,
+      "end": 4221.8,
+      "speaker": "jerod-santo",
+      "text": "It's looking faster."
+    },
+    {
+      "start": 4221.8,
+      "end": 4239.67,
+      "speaker": "adam-stacoviak",
+      "text": "Mm-hmm, this is the client. This is where Varnish runs, sorry, this is where Pipedream runs. The CPUs are 100% basically, and this is where a benchmark runs. We see some, yeah, this is really, so let me just go a little bit back. There we go."
+    },
+    {
+      "start": 4239.67,
+      "end": 4242.31,
+      "speaker": "jerod-santo",
+      "text": "So we see- Again, up to 80 gigabits per second now."
+    },
+    {
+      "start": 4242.31,
+      "end": 4261.07,
+      "speaker": "adam-stacoviak",
+      "text": "80 gigabits per second, yes. So we're able to nearly achieve the performance, like saturate the network, and we can see the CPUs. We still have plenty of CPU room on the New York station, the Threadripper, which has 64 threads, so plenty of CPUs there."
+    },
+    {
+      "start": 4261.07,
+      "end": 4263.47,
+      "speaker": "jerod-santo",
+      "text": "Which is now running in OHA, it's not running Pipedream."
+    },
+    {
+      "start": 4263.47,
+      "end": 4264.99,
+      "speaker": "adam-stacoviak",
+      "text": "Correct, not Pipedream."
+    },
+    {
+      "start": 4264.99,
+      "end": 4268.95,
+      "speaker": "jerod-santo",
+      "text": "But now if I go- We haven't maxed the client out. Now we're actually maxing the server out."
+    },
+    {
+      "start": 4268.95,
+      "end": 4278.46,
+      "speaker": "adam-stacoviak",
+      "text": "That's it. So in this case, if this host had faster CPUs, it could go faster. But now we're just basically bottlenecked on the CPU."
+    },
+    {
+      "start": 4278.46,
+      "end": 4280.92,
+      "speaker": "jerod-santo",
+      "text": "Well, you're gonna have to upgrade your host to care hard."
+    },
+    {
+      "start": 4280.92,
+      "end": 4378.35,
+      "speaker": "adam-stacoviak",
+      "text": "I think I will. We need answers. We need answers. I think we will, but this just goes to show that the setup scales really, really nicely. And this is what we've been all working towards. Fly.io and vital, and changelog.com. So it's a good combo. In this case, honestly, Fly is sometimes throttling us on the bandwidth. That makes sense. I don't think they were expecting a CDN to run on Fly, honestly. I mean, some of the peaks we can be pushing up to 10 gigabits, I've seen in the metrics so far. They are only the peaks. I don't know what the limit is on Fly, but I think talking to them about this would be a good idea. I've been mentioning this, but I think that's following up on this. Because I mean, what happens if there is, I mean, maybe throttling is what we want, but it will affect other users. So are they OK with us running a CDN? What can we expect from the setup? So yeah. So vinyl, we already know. We've been here. The vinyl is the rename. Varnish will become the open source varnish. Cache will become vinyl from March next year. So by the time we meet next, Pipely and Pipe Dream will be vinyl. All right. We're closely approaching the wrap up. What's next? Let's talk about what's next. The first thing on my list is I want my BAM. What does BAM mean?"
+    },
+    {
+      "start": 4378.35,
+      "end": 4379.95,
+      "speaker": "jerod-santo",
+      "text": "Oh, your Big Ass Monitor."
+    },
+    {
+      "start": 4379.95,
+      "end": 4554.51,
+      "speaker": "adam-stacoviak",
+      "text": "That's it. The Big Ass Monitor. So now when I switch my Big Ass Monitor behind me, what I see is all of Pipe Dream. All of it. I see all the traffic going through changelog. It's beautiful. Look at it. I see all the areas which are like the hot. It's just so nice. Seriously, this is the best painting I could hang in my study. And I have it on all the time. So I just see it refreshes periodically. This is the flat.io dashboard. On the left, I have the edge. How does the edge behave? This is the fly proxy for our CDN. And on the right, depending on how you're looking at it, on the right, I see the fly app, which is in this case a Pipe Dream itself in terms of memory usage, CPU usage, all those things. And it's a thing of beauty. Now I understand when there's a problem. I see the memory when it drops. All the things are just there. And it works well. So the BAM is done. That was a quick one. And thank you, fly, for a great dashboard. That was really good. But the one thing that keeps coming up is out-of-memory crashes. They happen rarely, but they still happen. And even though we have the limit set up, I need to understand what exactly triggers those crashes, how to prevent them from happening. So sometimes, I think the last time it happened maybe a week ago, two weeks ago, it hasn't been this week. So an instance, when it gets overloaded, it runs out of memory, it crashes. All it means is that the requests, they get routed to a different instance. And when the instance restarts, it starts with an empty cache. It takes a while for the cache to fill in memory. So I'd like to dig into that. Remember the logs, our events, our metrics, Jared, that we've been talking about, where currently they're being stored in S3. And then you have the job, a cron job, which processes them and really likes to sort out that pipeline because part of Pipetream, part of rolling this out, I just realized how everything is put together, basically. And I think we can improve on that. So what I'm thinking is, if we were able to ship all the logs in a column-like format, so like a wide format, in something like Clickhouse, and I'm thinking Clickhouse specifically, this would just make everything so much easier, like the whole metrics analytics pipeline that we have. Not to mention that, in a way, that would be two of everything and Honeycomb could be one of them. But Clickhouse, if it stores all these requests, it could be our other event store. And we could visualize all those events, so that would be good. Now, do we know anyone at Clickhouse, at Clickhouse Cloud specifically? Do we have any Clickhouse Cloud friends?"
+    },
+    {
+      "start": 4554.51,
+      "end": 4574.23,
+      "speaker": "jerod-santo",
+      "text": "To any. We talked to Danny a couple years ago. At Open Source Summit in Vancouver. I don't remember that, but that's why there's two of us. I'm pretty sure we know some folks, if not through acquisition, directly. So we'll hunt our contacts and come back to you."
+    },
+    {
+      "start": 4574.23,
+      "end": 4605.81,
+      "speaker": "adam-stacoviak",
+      "text": "So Clickhouse would be really interesting, or anything that can store lots of events, because every single request, in our case, would be stored there. We would batch them and do all of that, but we would write quite a few events. I mean, basically every single request would end up in that data store. And then we'd need to be able to aggregate them and read them back really, really quickly, which I think would do away with any of the analytics eventually. But we're currently doing Postgres with the background jobs."
+    },
+    {
+      "start": 4605.81,
+      "end": 4608.67,
+      "speaker": "jerod-santo",
+      "text": "All of that can just come from that."
+    },
+    {
+      "start": 4608.67,
+      "end": 4610.49,
+      "speaker": "adam-stacoviak",
+      "text": "Go. Exactly."
+    },
+    {
+      "start": 4610.49,
+      "end": 4641.34,
+      "speaker": "jerod-santo",
+      "text": "The challenge there is that what stack on Clickhouse in particular, because that's tying us to yet another behemoth that might make us hold it wrong, potentially, and be forced to build something else. Clickhouse spelled H-A-U-S instead of H-O-U-S, the German version of it. What exactly do you like about that flow? So what makes that be the first class citizen for you for data transporting?"
+    },
+    {
+      "start": 4641.34,
+      "end": 4785.66,
+      "speaker": "adam-stacoviak",
+      "text": "So I've used it for a couple of years. We've been using it a dagger and continue doing so. And it works really well at a large scale. So it processes not billions, like trillions of events. It scales really nicely. And it's really fast. And the Clickhouse Cloud team specifically, they've been very supportive. And they seem to be innovating and doing things in a very thorough way. So it's something that has always been dependable. Now, we currently use Honeycomb for the whole UI thing. But we also store a subset of the requests in S3. And then we process them. And I think we store them in Postgres. So we duplicate these things in a couple of places. If we had a single place where we store them, and this could be Clickhouse. That would be the primary store. We could read any metrics. Whenever we need, we can create materialized views. It's just so flexible in terms of how we can slice it and dice it. It would be our alternative to Honeycomb. And we still love them. And I definitely see us continuing using them. But it wouldn't be the only one. And we would have the same view in terms for alerting or monitoring or anything like that. We would need to do something separate. So it just centralizes every single request coming from every single instance, in this case. Yeah, and obviously we still store them in S3. Clickhouse can read from S3, which is really nice. It has support like a special Parquet format, which means that you can have data stored in long-term storage in an S3-like system. And then if whatever was to happen with Clickhouse, it's down or there's a problem with it, it hardly ever happens. I think I've seen it only happen once in almost four years. So it's been very reliable in that way. But it means that we can revamp how we do analytics. I'm not sure how you think about that, Jared, because I mean, you've been mostly using that, like the analytics that you get in the app. How does it, I mean, do you need to upgrade it? Do you need to work with it? Do you just forget about it mostly? You set it up and you forgot about it?"
+    },
+    {
+      "start": 4785.66,
+      "end": 4840.41,
+      "speaker": "jerod-santo",
+      "text": "Mostly forgot about it. I think the biggest drawback is how infrequently it updates at this point. And so we don't, I mean, maybe that's a feature because we don't like check our analytics obsessively, like maybe we could. That being said, if we can get that information faster and learn something along the way, I think it's worth it. And I'm certain that this would change the way that we do things enough that we could get that information much faster than via a cron job. So I'm interested in it. Would it bring huge value to us to be able to see the downloads faster? Probably not, because we've habitually not done that. We just check in on it every once in a while. But I'm up for learning and trying and improving. So I definitely think it's worth the R&D budget."
+    },
+    {
+      "start": 4840.41,
+      "end": 4870.98,
+      "speaker": "adam-stacoviak",
+      "text": "OK. I mean, again, it comes as a suggestion. I think we've been doing this for such a long time in terms of discussing these things in public, in that I think this keeps coming up. We can defer it. It doesn't need to happen. It's just something that I had to touch in the context of the pipe dream as I was looking at where the metrics are going, the feed requests, how is that put together, what do we write in S3, all those things, like the different buckets, all that stuff I had to go through, basically, part of this."
+    },
+    {
+      "start": 4870.98,
+      "end": 4879.82,
+      "speaker": "jerod-santo",
+      "text": "I would love to remove, just to chop that part off. It's just there as a thing that we do. But it doesn't have to be that way."
+    },
+    {
+      "start": 4880.58,
+      "end": 4896.42,
+      "speaker": "adam-stacoviak",
+      "text": "So do you have a thing that you would like to improve between now and the next Kaizen, either of you? Because I can keep going through this list, but I'm wondering if there's something that you're thinking about or something that's bugging you that you would like to see improved?"
+    },
+    {
+      "start": 4896.42,
+      "end": 4901.02,
+      "speaker": "jerod-santo",
+      "text": "I've kind of just become content of late with the way things are. Adam?"
+    },
+    {
+      "start": 4901.02,
+      "end": 4901.74,
+      "speaker": "adam-stacoviak",
+      "text": "OK."
+    },
+    {
+      "start": 4901.74,
+      "end": 4968.02,
+      "speaker": "jerod-santo",
+      "text": "Hmm. I think the only thing I think about really is, when I think about this system, it's kind of sad in a way, is that if eventually, and it's not the case currently, but if eventually the case is that our true traffic comes from one of the spokes versus the hub, like how important does the hub remain? And the one thing we're not tracking really is the MP4 file that we upload to YouTube in terms of the system, right? So we don't have a store. So we have the MP3 for the++ version and the public version side by side in perpetuity for all of time, back to episode one of all podcasts. What we don't have is that corresponding video file because it's not part of this pipeline. It's not part of the serving pipeline. And that's what I think about. And I think about the analytics and the effort there. How does the change to watching, viewing, listening patterns"
+    },
+    {
+      "start": 4968.02,
+      "end": 4974.75,
+      "speaker": "adam-stacoviak",
+      "text": "change the show over time, change the system? That's what I think about, so I'm not really sure."
+    },
+    {
+      "start": 4974.75,
+      "end": 4991.55,
+      "speaker": "jerod-santo",
+      "text": "I've certainly considered a modification where we upload the MP4 to our system and let it redistribute to the various places that we want it to live. That's a much heavier lift than I think there's benefit at the moment, at least."
+    },
+    {
+      "start": 4991.55,
+      "end": 4992.87,
+      "speaker": "adam-stacoviak",
+      "text": "I agree, yeah."
+    },
+    {
+      "start": 4992.87,
+      "end": 5001.03,
+      "speaker": "jerod-santo",
+      "text": "We still have the MP4, so it's not like we don't own that content. We just don't own it on R2 alongside our MP3s."
+    },
+    {
+      "start": 5001.03,
+      "end": 5008.03,
+      "speaker": "adam-stacoviak",
+      "text": "And it's kind of a sad spend of money to store a file you never really, you send to YouTube one time."
+    },
+    {
+      "start": 5008.03,
+      "end": 5008.87,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 5008.87,
+      "end": 5009.71,
+      "speaker": "adam-stacoviak",
+      "text": "So I get that."
+    },
+    {
+      "start": 5009.71,
+      "end": 5081.54,
+      "speaker": "jerod-santo",
+      "text": "And we can also start to get diverse with it and say, well, we're also gonna be on PeerTube and we're gonna upload to Rumble or I don't know what all these places are now because people kind of scatter from YouTube and then they gather again and they scatter. But so far, the point of our video is to be on YouTube at the moment. And so we haven't thought beyond that. But if YouTube changes in some sort of dramatic way we've seen changes over the time where it's like, let's be in more places, similar to how we're not just on Twitter slash X anymore, we're on more social networks. There may be a day where that happens with YouTube and we'd be happy to have the pipeline set up to where we can just add another connector to it and say, we're also on this video watching platform or we can view our stuff directly, watch it directly on our website and we'll let Cloudflare bear that burden. Although if it's passing through pipe dream we're gonna have some serious bandwidth going through fly.io. So those are things I've thought of but I've never been even, at this point I'm not even close to pulling that trigger. Gerhard, you're on YouTube now but you also have makeitwork.tv. So you're actually tackling this to a certain extent. How do you do it?"
+    },
+    {
+      "start": 5081.54,
+      "end": 5251.02,
+      "speaker": "adam-stacoviak",
+      "text": "Jellyfin, right? That's one, yes. Jellyfin is if you have a client, that's right. You connect to the server and you can download things. You can store them like offline on your device. So it's like a media library, proper media library in a media server. I find that works, that works really well. I mean, I always prefer watching it that way but I also store it on a CD, in this case, Bunny. So Bunny has a stream, I think it's called and I think Cloudflare has stream as well where you would just basically upload media content, in this case, MP4 files. So the CDN part works well. I would love to replace that, to be honest because I'm not entirely happy with how the system works. The chapters are a bit clunky. There's quite a few things which are clunky. The trick plays in great. Again, lots and lots of things. Just the way you upload things, it's just too much work. So I'd love to automate that. But YouTube really is like the main distribution mechanism not just because of how easy it makes it to just upload the file and then gets redistributed everywhere but also it's almost like you have something to sell. Do you go on eBay or do you go to a flea market or elsewhere? Do you build your own shop to sell that thing? And eBay, a lot of the time, is easy because that's where a lot of the buyers are. That's where people are looking and searching or Craigslist, whether they created Gumtree, we had it in the UK, I think it's still a thing. So YouTube is a place where lots and lots of people already are so in terms of distribution, it just makes it so easy. Now, I like to give the option of, hey, if you don't want YouTube, that's okay. You can also download it from a CD and that I pay for that I set up. And in this case, I haven't built, but that's coming. So, or Jellyfin. Now, I don't know how many users would set up a Jellyfin, to be honest, for Changelog. But I like the idea of basically having that one-to-one relationship between the creator and the watcher, the listener, the viewer. There's like nothing in between. So YouTube can't push its ads. YouTube can't ban certain content in certain places if it happens, however it happens. Again, it's very difficult to know that because you need to be in those places, know how that works. And also like the idea of people being able to download the content. And again, the podcast players makes it easy. For YouTube, you have to pay that premium. You have to go to YouTube Premium, which I do and I have for many years and I think it works great. But again, my experience, my YouTube experience is very different to most people because I don't think many people pay for YouTube. It's just like an extra expense. So that's my take."
+    },
+    {
+      "start": 5251.02,
+      "end": 5322.49,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it'd be cool if there was a vibrant community of people that consumed video via open standards like they do with podcasts. I mean, the coolest thing about podcasting is that phrase, get this wherever you get your podcasts. And it's like, that's because it's an open standard that you can just directly subscribe to a feed and people can build apps for those. And that's amazing. That doesn't exist for video, will it someday? Maybe there are nerds out there and we get the emails about open standards for video podcasts. And actually Apple launched the iTunes podcast section with video podcasts as like a first-class citizen. It's just that nobody, the bandwidth was so expensive back then, this is like either pre-YouTube or like right around the time that YouTube started. And like people were just weren't watching. They didn't have the, we just didn't have the technology to actually make that a thing that you just watch. You didn't have the phone. You had to like move the files around. They were large. I think MacBreak Weekly was like one of the only ones we ever saw. They were like shipping 4K video podcasts like in 2007 or something and it was crazy."
+    },
+    {
+      "start": 5322.49,
+      "end": 5323.77,
+      "speaker": "adam-stacoviak",
+      "text": "Wow, that's hardcore."
+    },
+    {
+      "start": 5323.77,
+      "end": 5388.84,
+      "speaker": "jerod-santo",
+      "text": "Cause they come from the TV side, you know, where they're used to putting out video and where most of us are just coming from the audio side. Anyways, those things existed. Apple obviously just kind of like, it's still actually as part of their RSS spec, but no one uses it. Even Apple podcasts, I'm not sure if it even uses it. Spotify has their own deal for video. It's not using the open way. It's using their own proprietary way. There's weirdness there where if your video file duration or details differ from your audio file, you may end up serving one or the other, even to audio listeners, which you don't want to. And so it's just kind of murky right now. And I think it would take some sort of a black Swan event and maybe a sea change in opinion and some sort of new tech that makes it feasible at which point I'd be all about it. I just think right now it's like a lot of effort and there's a lot of effort to like re-encode your video into all these different formats, depending on it, blah, blah, blah. And then serve that, a lot of cash misses if you got six versions of your video, depending on the client. And so it's like money."
+    },
+    {
+      "start": 5388.84,
+      "end": 5389.68,
+      "speaker": "adam-stacoviak",
+      "text": "The storage too."
+    },
+    {
+      "start": 5389.68,
+      "end": 5395.74,
+      "speaker": "jerod-santo",
+      "text": "Yeah, it's like money, time and effort for right now, like a very minuscule advantage."
+    },
+    {
+      "start": 5395.74,
+      "end": 5400.02,
+      "speaker": "adam-stacoviak",
+      "text": "Let YouTube pay that price and their tech and their tech stack and their developers"
+    },
+    {
+      "start": 5400.02,
+      "end": 5453.51,
+      "speaker": "jerod-santo",
+      "text": "and their bandwidth and their servers, et cetera. Yeah, that's my only concern is that really is like where do we begin? Where do we reach diminishing returns in innovation? With the CDN beyond MP3 and smaller file, it doesn't seem to naturally scale to the video because the incumbents have that solved in ways we just don't see that we need to solve those problems. The only problem I guess that I see is the fact that we don't have this video file artifact alongside the MP3 artifact that is the same thing but a different flavor of it. It's elsewhere in our archiving stack and I would say largely inaccessible and certainly not via an API potentially, but it's not. Right."
+    },
+    {
+      "start": 5453.51,
+      "end": 5601.39,
+      "speaker": "adam-stacoviak",
+      "text": "I think building a standard or contributing towards the standards takes a really long time and lots of effort. And that's why no one wants to do it and they're waiting for someone else to do it because they know how much investment that takes. No one's in the mood for that type of investment. I think it's going to be very interesting what happens with AI because there's a lot of money right now in AI and I think it will change, not be for long. So where will that money go next? We'll see. I'm definitely curious for the next big thing which is coming. But one thing that may work well is if Changelog had an app, had a native app, whether it's an Android or iOS app and then you control how you display the video and the MP3. And if you had something like that then you'd be in full control how you would expose your MP4 files and how you would integrate them in the player. And that's like a more holistic experience where you can do like transcripts really well. You can do comments really well, maybe integrated with some sort of Zulip or something like that. Where it feels like a system and it's more like a community of people that are interested in this type of things rather than just some content that gets distributed on different platforms. Again, the problem in that case is that most people are already on those platforms. So it's easy for them to consume things. But there will come a point where they just get, I mean, they just want something different. The flow plane, I mean, that's a new thing. That's been around for a few years. So that's one example. There's another one. I forget what it's called. I know that you can pay for, man, I wish I knew, I remember the name. I was doing a research maybe like six months ago, more like nine months ago, actually it was more than six months ago. And I was looking at YouTube alternatives and there's like this other platform for media which stores and distributes higher end, like 4K videos, 8K videos. But for that you end up paying, so it's not free. And then you get creators that publish only on that platform. I forget its name. I can look it up. Maybe we can add it in the show notes because I have it somewhere. But that is another interesting thing. I remember when Vimeo was a thing, but I know it's around, but I don't think many still use it in terms of like people going and browsing Vimeo. I don't think it's even a thing anymore."
+    },
+    {
+      "start": 5601.39,
+      "end": 5616.23,
+      "speaker": "jerod-santo",
+      "text": "Yeah, they pivoted quite a bit. It's a very successful business to this day, but it's like serving enterprise and more professionals who are using videos for various purposes, not as a general consumer product at all."
+    },
+    {
+      "start": 5616.23,
+      "end": 5658.93,
+      "speaker": "adam-stacoviak",
+      "text": "And video is hard because the transcoding part is really hard. And yeah, I mean, you always have like the trade-off. Do you pay storage or do you pay for compute? As in, do you transcode on the fly, like Jellyfin and Plex does, and then you need like GPUs? Or do you pre-transcode and you save multiple versions, you store multiple versions, and then you serve those. And then you have so many codecs. I mean, it's just not even funny. Like AV1, H.265, like what do you pick? Different phones, different devices. It's not an easy, like MP3 at this point is almost like a universal format. There isn't a video equivalent. That's a hard problem."
+    },
+    {
+      "start": 5658.93,
+      "end": 5723.02,
+      "speaker": "jerod-santo",
+      "text": "Yeah, anyway. That is what makes video dramatically harder. And that's I think where the divide is at. And that's why I brought that up is because you got this divide of the potential of, you know, the precursors that almost everyone that I'm aware of at least is still paying attention to podcasts via not really a podcast client anymore. They're usually on some sort of platform. And they're usually, they're like, they ask me what show do I produce? And I tell them and they immediately open up YouTube and they start searching for it. And I was at this one, it's like, yes. Okay, so that's where folks are tending to go. And here we are optimizing for this and the migration maybe that, do the worlds eventually collide? How do they work long-term, et cetera? Still no. And I think, yeah, exactly. Do you transcode it on the fly or do you make multi versions of it? I think you just don't do that unless you know for sure you should. Just transcode if you can."
+    },
+    {
+      "start": 5723.02,
+      "end": 5749.38,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, I know the jelly thing. That's exactly what it does. I really like it for that because it's very good on storage. But the CDN, the one that I use, it does transcoding. So they store multiple versions. Now, luckily I capped the maximum and I think I only published 1080p on the CDN because of the multiple versions, which they transcode and they make available. But on Jellyfin, it's just like the 4K one. So that's my approach to it."
+    },
+    {
+      "start": 5749.38,
+      "end": 5753.66,
+      "speaker": "jerod-santo",
+      "text": "What are your thoughts on number four here, four or five and the question mark here?"
+    },
+    {
+      "start": 5753.66,
+      "end": 5856.5,
+      "speaker": "adam-stacoviak",
+      "text": "Well, changelog.com new wiring, what I was thinking is there's a few utilities that we're using that need an upgrade. For example, Dagger needs an upgrade really badly. It's like such an old version on the changelog. Upgrade or replace, still undecided. We'll see how that goes. The deploys, I wanted to improve them for a while. There was always something else. So improving the time to deploy, I think it was like four minutes last or three minutes. There was two minutes at some point and went back to three minutes again. And I know that at least a minute and a half of that is flat at IO. So what do we need to optimize there so the deploys are a little bit quicker? Postgres, I mean, it's been stuck on, I think 16 at this point, I think 16 point something. So maybe we want to upgrade something there so we don't fall behind too much. And replacing Overmind with Runit. So Overmind is a supervisor that runs, for example, the log manager, it runs varnish, vinyl, that runs the proxies, it runs multiple things in the context of the pipe treatment, pipely really. But Overmind, sometimes some things can get stuck because of just how it's configured. There's like some duct taping there, especially when the logs, how the logs are streamed. So that's something that I'd like to improve. And I know that Runit, I've used it in the past, is very reliable, it's a very old supervisor, very Unix-y supervisor. So I'd like to replace Overmind, which is Go-based, with Runit, which is much more old school and it does everything we need. So that's like an improvement, that's a pipely, pipe trim improvement. And the question mark was like, what else? I think we tackle the question mark in the conversation."
+    },
+    {
+      "start": 5856.5,
+      "end": 5857.46,
+      "speaker": "jerod-santo",
+      "text": "Gotcha."
+    },
+    {
+      "start": 5857.46,
+      "end": 5895.56,
+      "speaker": "adam-stacoviak",
+      "text": "All right, so we're almost at the end. If you like this, as a listener, as a viewer, you can like, subscribe, you know the drill, and comment. That's something that is also an option. I mean, we touched on many things, maybe you have a few ideas of how to do things better, or maybe there's a few suggestions that listeners and watchers have. I'll be more than happy to answer any follow-up questions, as we will all. Suggestions, maybe, for the next get-together, for the next changelog get-together. You can do it on the YouTube video. I think you, do people, by the way, comment on YouTube videos?"
+    },
+    {
+      "start": 5895.56,
+      "end": 5897.52,
+      "speaker": "jerod-santo",
+      "text": "Yeah, a little bit. The ones that you post?"
+    },
+    {
+      "start": 5897.52,
+      "end": 5899.84,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah. Okay. And do you reply to those comments?"
+    },
+    {
+      "start": 5899.84,
+      "end": 5901.28,
+      "speaker": "jerod-santo",
+      "text": "Oh yes."
+    },
+    {
+      "start": 5901.28,
+      "end": 5927.48,
+      "speaker": "adam-stacoviak",
+      "text": "That's a lot of work. I just discovered that recently, last week. Oh man, like when you get like 100 comments, it takes a while to go through them, but it's a good problem to have, for sure. Zulip also works, I think all of us are there. Or even GitHub, that's also, we have the discussion for this Kaizen. Right. Just remember to tag me, because otherwise I will miss your message. So, I have many things on mute, and unless you CC, I'll miss it."
+    },
+    {
+      "start": 5927.48,
+      "end": 5933.79,
+      "speaker": "jerod-santo",
+      "text": "Absolutely. Same. Too many inbounds must get tagged or CC'd."
+    },
+    {
+      "start": 5933.79,
+      "end": 6051.64,
+      "speaker": "adam-stacoviak",
+      "text": "One more thing. Last thing. Last thing, and then we're done, okay? Last thing. So, you know about Make It Work TV? Make It Work.Club is something new. So, the 100 gigabit home lab comes from Make It Work.Club. It's on school. It's a community of the most loyal Make It Work.TV members, but also those that want to go beyond just watching. So, the ones that want to interact. We meet every two weeks. Both Adam and Jared have an invite. While you were talking, I sent you an invite, so you can join. So, you can see the various conversations which are happening there. And the next one is tomorrow, and it's usually every other Friday. It's usually 9 a.m. Pacific time. Yesterday's, tomorrow's one is going to be 7 a.m., because some of us have kids and meetings and other commitments, so it's going to be before work for some people. Or we'll be talking about a smart garage door opener. Talk home labs. We talk Talos Linux that comes up quite a lot. Quite a few things. Kubernetes, it's all there. You can go log in and check it out. Adam and Jared, you are part of it. I just wanted to get it, I just wanted to get it into a point where there's like enough to show and enough for you to see. So, it's been going on for about a month now, a month and a half. There's plenty of threads. There's only, I think, 17 members, so it's not that many. It still feels like a small community, has a small vibe to it. But it's a bit like this, with more people, so it can be a bit more chaotic. I think the 100 gigabit, I think we're maybe nine or 10 people, so it was quite the group discuss, but still with a presentation and focusing on, I mean, you've seen the video, Jared, so you know what that was like. Cool. But did you get your invites? Just double checking that in your email. I just want to make sure that that worked."
+    },
+    {
+      "start": 6051.64,
+      "end": 6053.24,
+      "speaker": "jerod-santo",
+      "text": "I got mine right here."
+    },
+    {
+      "start": 6053.24,
+      "end": 6055.12,
+      "speaker": "adam-stacoviak",
+      "text": "You got yours. Adam, did you get yours?"
+    },
+    {
+      "start": 6055.12,
+      "end": 6056.62,
+      "speaker": "jerod-santo",
+      "text": "Let me see if I got mine."
+    },
+    {
+      "start": 6056.62,
+      "end": 6061.92,
+      "speaker": "adam-stacoviak",
+      "text": "And then you can decide whether you want to accept it or not, but I just wanted that to be out there."
+    },
+    {
+      "start": 6061.92,
+      "end": 6064.86,
+      "speaker": "jerod-santo",
+      "text": "I do have my invite. I do see it."
+    },
+    {
+      "start": 6064.86,
+      "end": 6073.62,
+      "speaker": "adam-stacoviak",
+      "text": "Yes. Thank you. I have my invite. So this is the changelog++ equivalent. You can think of it like the changelog++ equivalent."
+    },
+    {
+      "start": 6073.62,
+      "end": 6075.18,
+      "speaker": "jerod-santo",
+      "text": "Gerhard++."
+    },
+    {
+      "start": 6075.18,
+      "end": 6108.14,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, you can drop any time when we meet every two weeks, and you're more than welcome to look at the threads, comments, ask for, like someone, for example, Misha, he was asking, he wants to build his own router, like a router, how the Americans pronounce it. So, a router, there you go. Yeah, so he wants to build that. And Nabil built, for example, he's like a smart garage door opener. He just didn't want to get out of the car for the door to open. So now he has like all that like program, so he's going to talk about it tomorrow."
+    },
+    {
+      "start": 6108.14,
+      "end": 6109.66,
+      "speaker": "jerod-santo",
+      "text": "Interesting."
+    },
+    {
+      "start": 6109.66,
+      "end": 6121.25,
+      "speaker": "adam-stacoviak",
+      "text": "Yeah, there's quite a few things. So check it out. Yeah. All right. That was me. How do we want to wrap it up?"
+    },
+    {
+      "start": 6121.25,
+      "end": 6178.52,
+      "speaker": "jerod-santo",
+      "text": "You put a bow in that present there, that was cool. Talking about a garage door open would be kind of cool. I just talked to my phone. I just tell Siri, open the main garage and she makes it happen. And it's just part of Apple HomeKit. And the fact that my garage door opener is on the network and it has those kinds of, I really didn't do anything to make that happen besides just flip a switch and talk to it. And that was kind of cool. Now, sometimes she's like, you don't have a main garage door. And I'm like, nah, nah, let's try this again. Hey, Siri, do this. And she's like, okay, gosh, don't, shush. Don't be open to my garage, girl. I had to stop her running right now. Yeah, she was hearing me say her name. She's excited. She's always like, can we open the garage please? Or maybe not. Or maybe not."
+    },
+    {
+      "start": 6178.84,
+      "end": 6198.8,
+      "speaker": "adam-stacoviak",
+      "text": "What are you keeping there? What are you keeping there? Like Breaking Bad sort of situation going on. No, no, no. It's not that yet. So, but someone had to set up the smart garage door for you, right? I mean, did you set it up? Because you need to have the whole, it needs to be hooked up right to your home network."
+    },
+    {
+      "start": 6198.8,
+      "end": 6260.06,
+      "speaker": "jerod-santo",
+      "text": "All I did was enable the wifi access to my network and the garage door opener is on the network. It has an app that runs it and the app allows me to install, I guess. It's been so long, so I touched it. So I don't remember how I did it, but it was like shortcuts, I guess, essentially. You can create shortcuts on your iPhone. And so that's all I did was just leverage the shortcuts that talk to the app that has the authentication to the thing via the network. And that's whether I'm at home or not at home. So it's not even land bound, it's land bound. So it's really awesome. I can be literally in the mountains with very little service and I can tell my garage door to open or close. And I can even tell if it's open or closed because if I say, hey, close it, she's like, I'm closing your main garage. She's like, oops, already done. It's like, she reminds me that it's already closed. So I didn't really have to do much to do that, thankfully."
+    },
+    {
+      "start": 6261.06,
+      "end": 6265.06,
+      "speaker": "adam-stacoviak",
+      "text": "But to set it up, so for it to take a regular garage door."
+    },
+    {
+      "start": 6265.06,
+      "end": 6266.38,
+      "speaker": "jerod-santo",
+      "text": "Right."
+    },
+    {
+      "start": 6266.38,
+      "end": 6269.9,
+      "speaker": "adam-stacoviak",
+      "text": "A normal one. That part, a normal one. That's what Nabil did."
+    },
+    {
+      "start": 6269.9,
+      "end": 6274.14,
+      "speaker": "jerod-santo",
+      "text": "A non-networked one, yes, that would be dope, honestly."
+    },
+    {
+      "start": 6274.14,
+      "end": 6286.02,
+      "speaker": "adam-stacoviak",
+      "text": "That's what he's going to talk about, how he set up the whole thing, like all the devices, what did he pick? How did he connect everything? And it was just like a regular garage door. It had nothing. And then he made it smart."
+    },
+    {
+      "start": 6286.02,
+      "end": 6307.38,
+      "speaker": "jerod-santo",
+      "text": "Well, the good thing about those garage doors, they tend to have an outlet which has two plugs, one being used by the garage door opener and then one that's used for nothing, basically. So thankfully, if you needed an outlet for your device to pair it to, I'm assuming the answer is maybe yeah, right? We'll find out. Make it work."
+    },
+    {
+      "start": 6307.38,
+      "end": 6317.06,
+      "speaker": "adam-stacoviak",
+      "text": "Mine is just a regular one, exactly. So that's what I want to do. Like if I wanted to set this up, what would I need to do to make it work in the garage door as a smart one?"
+    },
+    {
+      "start": 6317.58,
+      "end": 6333.58,
+      "speaker": "jerod-santo",
+      "text": "I think the thought pattern around how to tackle that, I simplified it by just having one that was already networked. But if you have one that is not networked, then there you go, you've got to create the network. I know how we can end this show. I can just ask Gerhard to review my new hat."
+    },
+    {
+      "start": 6333.58,
+      "end": 6341.58,
+      "speaker": "adam-stacoviak",
+      "text": "Your new hat? Yes, I thought it was there. Yes, oh, I'm so happy. What do you think? I'm so happy that it was, I think it looks amazing on you."
+    },
+    {
+      "start": 6341.58,
+      "end": 6343.26,
+      "speaker": "jerod-santo",
+      "text": "Do you like this hat? I know you like blue."
+    },
+    {
+      "start": 6343.26,
+      "end": 6352.82,
+      "speaker": "adam-stacoviak",
+      "text": "I love it, I love it. This hat's blue, it's blue underarm. I was looking for it everywhere. I thought, I think I left it in Jared's truck. You did. It makes me so happy to know that you have it all mine."
+    },
+    {
+      "start": 6352.82,
+      "end": 6357.18,
+      "speaker": "jerod-santo",
+      "text": "I've got it here for you. When we get together again, I will bring it to you. There you go."
+    },
+    {
+      "start": 6357.18,
+      "end": 6370.7,
+      "speaker": "adam-stacoviak",
+      "text": "It's yours. It's yours. I'll bring you a gift. You give it to me? It suits you so well. I know that you look like hats. It does look good on me, you're right. It does. Thank you. It's yours, Jared. It makes me so happy. It's your hat now, Jared. Hats on to you, Jared. Hats on."
+    },
+    {
+      "start": 6370.7,
+      "end": 6372.38,
+      "speaker": "jerod-santo",
+      "text": "Hats off to Gerhard. Hats on."
+    },
+    {
+      "start": 6372.38,
+      "end": 6374.78,
+      "speaker": "adam-stacoviak",
+      "text": "Hats on to me. I think we may have a title there."
+    },
+    {
+      "start": 6374.78,
+      "end": 6378.26,
+      "speaker": "jerod-santo",
+      "text": "I think we might. All right, Kaizen. Good stuff, y'all."
+    },
+    {
+      "start": 6378.26,
+      "end": 6382.31,
+      "speaker": "adam-stacoviak",
+      "text": "Kaizen. It was awesome. Bye, friends."
+    },
+    {
+      "start": 6382.31,
+      "end": 6433.59,
+      "speaker": "jerod-santo",
+      "text": "Oh man, our Kaizen episodes are always so much fun. You just never know what Gerhard might have up his sleeve. If you enjoy these, let us hear it in the comments. And tell your friends too. Even after 16 years of doing this, word of mouth is still the number one way people find out about the changelog. Thanks again to our partners at Fly.io and to our sponsors of this episode, augmentcode.com and agency.org. That's A-G-N-T-C-Y dot org. And thanks to Breakmaster Cylinder, we have the best beats in the biz. Next week on the pod, news on Monday, Adam Jacob from System Initiative. On Wednesday and on Friday, Adam and I hit you with something spooky. Have yourself a great weekend. Lips of knowledge are a precious jewel. And let's talk again real soon."
+    }
+  ],
+  "slug": "kaizen-mop-up-job",
+  "id": "114"
+}

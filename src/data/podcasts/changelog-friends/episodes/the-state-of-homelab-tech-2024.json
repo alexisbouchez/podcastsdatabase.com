@@ -1,0 +1,870 @@
+{
+  "title": "The state of homelab tech (2024)",
+  "description": "Techno Tim explores 2024 homelab trends including network speed upgrades, power efficiency, CPU capabilities for transcoding, ZFS and TrueNAS storage solutions, UniFi vs. pfSense networking, home automation, and cameras.",
+  "links": {
+    "Changelog": "https://changelog.com/friends/27",
+    "MP3": "https://cdn.changelog.com/uploads/friends/27/changelog--friends-27.mp3",
+    "Spotify": "https://changelog.am/spotify",
+    "Apple Podcasts": "https://changelog.am/apple"
+  },
+  "speakers": [
+    "SPEAKER_00",
+    "SPEAKER_01"
+  ],
+  "segments": [
+    {
+      "start": 14.74,
+      "end": 69.59,
+      "speaker": "SPEAKER_00",
+      "text": "Welcome to Changelog and Friends, our weekly talk show about Homelab tech. Big thank you to our partners at Fly .io, the home of Changelog .com. Launch your app, close your users, learn how at Fly .io. Okay, let's talk Homelab. So Tim, we're back. Techno Tim, we're back, I guess. Not just Tim, Techno Tim. That's right. The state of Homelab. You know, my idea for this show is really just to have a reason to talk to you again, really. And then also to inform the community because that's half the battle with podcasting is you get a chance to talk to some of your favorite people out there doing some cool stuff that inspire things you do. Now, I'm by no means watching every single video these days. I feel like you're just moving at such a pace and I have less time for Homelab stuff. So I feel like the tables have turned a little bit, but it's great to have you back. And talking about the state of Homelab, man, what are you thinking?"
+    },
+    {
+      "start": 70.15,
+      "end": 83.41,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, great to be back and great to have you. Yeah, it's been wild. I've seen, you know, a lot of trends over the last year, especially a lot of changes, but a lot of trends. I'm picking up on the trends and I've even implemented some of them myself for sure."
+    },
+    {
+      "start": 83.87,
+      "end": 95.55,
+      "speaker": "SPEAKER_00",
+      "text": "What do you call a trend in Homelab? Is it like network speed, like 1 gig to 2 .5 gig? That's obviously a trend I'm seeing with, I want everything to be 2 .5 at least as a minimum, I think that's a standard for me, but what else is a trend for you?"
+    },
+    {
+      "start": 96.05,
+      "end": 336.97,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, that one's kind of touchy because I feel like most Homelab enthusiasts go from one to 10. So 2 .5, I feel like is a road bump. It's like this consumer road bump, right? Where they're pushing it out to consumers. But Homelab enthusiasts have always thought, well, I need more than one. The next logical step is 10. So I've seen a lot of people do 10. 2 .5 gives you a lot of interesting stuff with, you know, native ethernet and stuff like that. So, you know, you can plug in an ethernet cable versus using a transceiver to change it and all of that. So, but yeah, I have seen that one for sure. And a lot of people are going to 2 .5. I think what's driving that, not only consumers, but consumer internet, right? Consumer internet is getting faster. You're paying for internet that's now faster than one gigabit. Well, now you're the bottleneck. And so I see that trend continuing as we get fast, as consumers get faster internet home network speeds will get faster, not necessarily for local file transfer speeds, but because they want to get the internet that they're paying for. So yeah, that that's definitely one that's going to continue. And I feel like 2 .5 is a speed bump because even Google fiber, you know, offering five now, what do you do with 2 .5? I have another 2 .5 on the table. So, so I feel like it's moving at a very fast rate now. And I think consumer internet is driving that. Another big trend I've seen and I've even adopted myself is just efficiency and power usage. You know, the easy and simple thing used to be go to eBay, find a used enterprise server, run that at home. And then we have a power crisis and then people realize, Hey, I'm paying a lot of money to run this server. And at the same time, then we're getting these low power devices that are 10 X more efficient and 10 X more powerful at a fraction of the cost of even some of this used enterprise stuff. So I think a lot of people are realizing too, Hey, you know, all of that compute, I thought I needed, I don't really need. And my power bill is kind of high. So at the same time, you know, I, I do see people, I don't want to say downsizing. I want to say, I don't know, upgrading. I don't know if that's an upgrade, depends on what it is on how you look at it. Right. Cause they're, they're totally different classes of gear. Enterprise gear has, you know, it has a dual mix. It has ECC Ram. It has multiple slots for, for hard drives to get redundancy. Not to mention lots of PCI lane, so different class of gear. But I think a lot of people are starting to realize, Hey, this, this Intel NUC or this minis forum, or this tiny little, you know, PC that uses 40 Watts of power is giving me the same thing that I got in this other thing. So that's a huge trend. I see power and efficiency, you know, and, and that's something I did. I did a long time ago. I've three 1U servers. I still haven't, they're back there. But I realized, you know, each one of these is using, you know, anywhere from a hundred and 110 Watts a piece. And that's actually pretty low. That's low for an enterprise server. But I realized, Hey, I have this Intel NUC that uses about 30 and I can do the same thing on it. You know, I can run Proxmox. I can run a hypervisor. I can run six virtual machines. I have enough Ram, has an NVME slot for fast storage, and it has an SSD slot for the OS and some more fast storage. So I quickly realized, Hey, maybe I can run my three 1U cluster on these three Intel NUCs. And that's exactly what it did. And you know, now I'm kind of reaping the savings now, but it's it's interesting. It's interesting for sure. I think the, you know, the, the power crisis and the cost of energy has definitely made people think about it again, especially, especially in Europe, especially not in the United States, I guess I should say, because even though ours has gone up, you know, marginally, a fraction, it's gone up in a lot of other places. So I think that's where people started realizing, Hey, maybe I don't need to run all of this."
+    },
+    {
+      "start": 338.13,
+      "end": 410.43,
+      "speaker": "SPEAKER_00",
+      "text": "Well, it's fun to tinker. And the tinkerer's heart, like any given hacker, developer, person that decides to jump into the end quotes, and we'll have to define it too, Tim, again, because I'm sure you have to keep redefining what home lab is. You know, these folks that want to get into this home lab writ for the, just, just for a hobby or for a reason, like I find, I find them for me, it's more hobby than reason. Like I don't really need the things I have. It's fun. Right. And they're at expenses, et cetera. But I think the efficiency part of it that you're mentioning, the power efficiency, the Intel NUC fashion, I followed your lead on one of those things. I bought an Intel NUC 12, a bare bones system, tricked it out a little bit. And it's my Proxmox server for the home. You know, I've got a few things on there. It's, even that is overkill. I mean, it's even overkill for the things I have for it, but I also didn't want to buy something that I utilized to full efficiency right away because that left no room for growth in the future. And I can have other plans and stuff like that, but I haven't done it yet. Okay. So one gig to 2 .5 gig is kind of trending. You're saying 10 gig is really the jump. It's just a 2 .5, just a hurdle. What else is trending?"
+    },
+    {
+      "start": 411.05,
+      "end": 517.05,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, storage. So storage is another one that's always trending. I think a lot of people in the home lab community are just waiting for, you know, disks, spinning drives, the capacity of spinning drives to be available on SSDs. And it's not happening anytime soon for the price that we see. But I, you know, storage is always going to go up. You know, like people are increasing their storage. That's a big one. When I got into this game, I don't know, four or five years ago, at least on YouTube. Well, YouTube was probably three years ago when I got into the home lab game on YouTube, but I've been doing it for a long time. You know, people thought three terabyte drives were big. They were like, yeah, that's plenty. You know, I'll buy four like I did for three terabytes. Yeah, it's going to last me a long time. You know, now people don't even flinch when you say 14 terabyte drive or 20 terabyte drive. So I see a lot of people increasing their storage in a large capacity to hopefully prepare, you know, for the future. So, yes, storage is always going up. The one thing I think everyone wants, though, is solid state drives. They want solid state drives. They want faster drives rather than than spinning drives. But the challenge there is that, you know, one, we can't get those drives in those capacities. Two, not even near the cost we would for spinning drives. And then three, a lot of people don't realize that some SSDs, especially NVMEs, use more power than a spinning drive. It seems seems counterintuitive, but it's it's actually more efficient to spin that drive and let that drive spin than it is to, you know, use an NVME drive. I mean, this is all you know, I don't think people take that into consideration. That's just a little known fact. I actually learned it from a storage vendor and then tested it myself. And it's true, you know, NVME drives actually do use more power"
+    },
+    {
+      "start": 517.05,
+      "end": 517.99,
+      "speaker": "SPEAKER_00",
+      "text": "than"
+    },
+    {
+      "start": 517.99,
+      "end": 590.33,
+      "speaker": "SPEAKER_01",
+      "text": "hard drives. And they have a limited life than spinning drives. But storage, I think storage is exploding lately. It's exploding. It is exploding. People want to keep their videos. People want to keep everything now themselves. They want to they want to keep everything forever. And I think that's a lot of that's related to to, you know, cloud costs going up, getting these tiny, you know, cloud drives from you name it, OneDrive or Google. I think OneDrive is a little bit more lenient on how much space they give you. But people are saying, hey, I'm not going to put my stuff there. Why would I put a fraction of my stuff there when I could put all of it at home? And so they do the math on the drives. They do the math on, you know, they do the back of napkin math and they say this is what I pay in the cloud and and this is what I would pay at home. And I get, you know, 10x more value out of doing it at home because I can do all these other things, you know, like block storage, you know, you know, those drives, you know, web web storage just gives you one type of file storage. You know, it's it's usually just object storage, you know, store file. But people are doing block storage. People want to do iSCSI. People, you know, want to have SMB shares. They want to they want to host all different kinds of stuff on that storage for sure."
+    },
+    {
+      "start": 590.89,
+      "end": 596.97,
+      "speaker": "SPEAKER_00",
+      "text": "OK, storage is obviously exploding. I'm a fan of storage. We can we can dig into that for sure. What else?"
+    },
+    {
+      "start": 597.45,
+      "end": 712.33,
+      "speaker": "SPEAKER_01",
+      "text": "You know, it's it's a tough one. I mean, we we kind of talk about efficiency. You know, CPU, I think is another one. CPU and GPU is one that I see kind of changing. I guess I will say, you know, the the biggest use case typically for people in home lab for a GPU is is usually to transcode something, right? I have a collection of media on Plex or Jellyfin or whatever. And I, you know, I ripped it at, you know, 1080p and my TV downstairs or wherever is only 720p. So something needs to convert that or transcode it on the fly. And typically people would buy a GPU for that. They would they would get a GPU. They would put it in. They would say, sweet. Now I can transcode my media. I can watch it on any resolution and transcode it on the fly. But, you know, traditionally servers don't have a GPU on their chip. So you buy a GPU. And now with people going to lower models, they're finding that, hey, this this Intel CPU that I have also has this thing called Quick Sync, which can transcode or encode videos at this bit rate and this codec much more efficiently and at a better capacity and more efficiently than this GPU. So I've seen a lot of people saying, you know what? I don't need a GPU. I'll just get a desktop class processor that has Quick Sync in it, which can do my transcoding for Plex and Jellyfin. And then I think a light bulb goes on there like, whoa, you know, where's this been all this time? And it's been something that's been there for a long time. I think I think Quick Sync on Intel is probably one of the best kept secrets from Intel, at least for transcoding. I don't know why it's a secret, but it is. And if you look at any of the any of the stats for it, it's incredible how efficient it is and how many how many simultaneous streams it can also do. You know, we're talking like you could on an older ones, two, three, 4K streams down to 1080p and it's, you know, not breaking a sweat. So"
+    },
+    {
+      "start": 712.33,
+      "end": 886.16,
+      "speaker": "SPEAKER_00",
+      "text": "I can attest to that because I actually was watching something bite my bites or something like that on YouTube. What's his name? I know it's like my bits. Jason, he had this and he's actually who inspired me to like, oh, my gosh, I should build my own thing. I think he had one where he was like, you know what? Can I actually transcode 4K Plex videos in Unraid, you know, reliably? Does it make sense to just rip 4K and just transcode as you want? And he said, well, if I get this beefy 13 Gen 1300K CPU with iGPU in it, of course, you've got Quick Sync, as you mentioned, which is what Plex actually builds towards. Like that's part of their spec as they rely upon, in a lot of cases, Quick Sync being available to do transcoding very well, hardware transcoding. And I'm like, OK, so I can get this. I can get a motherboard that is workstation ready that can allow ECC RAM because I want it to be a storage server as well as a Plex server. And so I wanted an Intel GPU in there with iGPU, Quick Sync, all that good stuff. And I wanted enough threads so that if I really wanted to push it, I could. And I wanted the option to have ECC RAM because probably like you, I'm a ZFS fan and ZFS really thrives when it stores its cache in RAM. That makes it super fast. And so it's not RAM hungry, it's RAM efficient. It uses your RAM. So if you have 128 gigabytes of RAM like I do, it's ECC in this workstation. Well, I have a Plex server, I have a storage server, and I have a Samba server all in one beefy box. And if I spun it up right now and I checked on HTOP what my CPU's doing right now, it's basically doing nothing, right? Because I'm not watching anything on Plex. But as soon as I do, it can spin up to maybe like 3 % or 4 % of usage. It's still super efficient. But yeah, Jason influenced me to sort of like build my first thing. I was like, you know what? I had always been intimidated by this idea of home lab and this idea of building my own thing and like, can I actually build a computer? Can I actually buy a motherboard and piece this together? Yes. And I did. And it took me a little bit to learn everything and what components I would want. But I was influenced by, I would like to rip my 4K discs onto my storage server and not worry where I'm at in the world, whether I'm downstairs with a 720p or 1080p TV, and still be able to play my 4K movies anywhere in the house. Because I have kids and they've got Super Mario Brothers. That thing is, I bought the 4K disc, right? I'm not going to squelch on my resolution. So I pulled the 4K and no matter if they're on my phone at a restaurant or wherever, and they want to pull that movie up, we can't. Now we're not watching that movie every single day, but it's an example of what you had just said, which is like, I want to rip the 4K and I want to transcode anywhere. And I want to do that with a efficient consumer grade desktop CPU, which is what that CPU is I mentioned."
+    },
+    {
+      "start": 886.56,
+      "end": 903.8,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, it's nice. It's nice. So that's one trend I see is people are just saying, you know what? Instead of doing the Xeon processor with then buying an Nvidia GPU, they're just saying, hey, Intel desktop, i7, i9, i3, i5, as long as it has Quick Sync is good enough."
+    },
+    {
+      "start": 904.24,
+      "end": 959.93,
+      "speaker": "SPEAKER_00",
+      "text": "Right. And I think you would only go to like I did to the i9 -13900K because you're crazy and you just don't care because I don't need that much. I mean, realistically, I could have gone with an i7 or even an i5 and got the, I assume, a pretty similar experience, you know, in terms of performance. But Jason's influential and I was like, you know what? I'm going all out. I don't want to mess around. I don't want to have one chance of this 4K transcode not going as I want or being able to do like four simultaneously. I think he did, his test was like 18 before it began to frame drop. So it was intense. I'm like, I want that capacity. So I went there with Jason on that front. Okay. I think all the trends you're talking about, that lays the groundwork for where we can go. I kind of feel like when we talk about Home Lab, it's like, what exactly is Home Lab? Are you are you tired of answering this question? Do you get this question on the daily? What's your perspective on what is Home Lab?"
+    },
+    {
+      "start": 960.39,
+      "end": 1108.97,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, I don't get that question as much anymore. I think it's become a more popular term, at least in tech circles that I'm in. But I always say this, and I think I said this last time, it means a lot of different things to a lot of different people. And so, you know, it's like, you know, I don't know what I could compare it to. But if you had just a general term for all things tech, like developer, hey, I'm a developer. What do you do? You know, it's like, how do you explain, you know, what you do as a developer? Well, is it front end? Is it back end? Is it mid tier? You know, what type of developer are you? And I think that's where Home Lab is too. If you say I'm a Home Labber, the first thing I think is, okay, great. Do you like the networking side? Do you like the storage side? Do you like compute? Are you doing virtual machines? Have you done containers? Are you running Kubernetes? You know, do you self -host stuff in your home? Do you self -host stuff publicly? You know, and I immediately start asking those questions, more clarifying questions that I think you would ask to anyone, even if they said they're a developer. So that's kind of where I go. It means a lot of different things to a lot of different people, you know, and I gravitate towards kind of it all. I gravitate towards it all because I like it all. But at the end of the day, I think it's just an environment where you can play and experiment and break things if you want. Most people don't have this playground anywhere. They don't have a playground at work. They don't have a playground in the cloud. They don't have a playground anywhere. And on top of that, most of the architecture is already decided when you start a job. I mean, unless you're one of the lucky few that gets to help start a job where you get to decide the architecture and you get to play an experiment and figure out what works best or you're someone who's also lucky, maybe, maybe not, who gets to redo the architecture at your job. Most people, the architecture is predetermined. So you go to a job. Here's what we use. Here's how you use it. And so what Home Lab lets you do is say, here's what I want to use or here's what I'm thinking about using. And here's how I want to use it. It might be totally crazy. No one would ever do this, but that's part of Home Lab is being able to, I think, be the network administrator, be the architect, be the developer, be the DevOps person to do all of this in your own environment without the fear of destroying your works environment and still keeping your job. For sure."
+    },
+    {
+      "start": 1109.41,
+      "end": 1325.42,
+      "speaker": "SPEAKER_00",
+      "text": "I agree with that because as odd as it is, I'm not as developer as I want to be because I podcast more than I develop. And I think Home Labbing gave me a reason to get back and to be curious about particular tech. You know, I'm not hosting web stacks and I'm not building websites, but I'm also doing a lot of interesting things around networking and VLANs and in particular, like batch scripting. There's a lot of stuff I've, along with my good friend, AI, ChatGPT, has helped me to script some various things, everything from, here's an example. So all of our production, so this podcast eventually become a 7z compressed single artifact, right? It takes a directory down to a single 7z, which is a, I guess you'd probably call it similar to like a zip file. It's a compression algorithm down to a single file. And I save about half storage. So if a directory is 5 gigs, it's probably gonna be around 3 gigs once I've run it through this and I put it on our storage server. It's long -term storage. The cool thing about 7z is you can actually inspect the files within it without having to uncompress it. So there's a lot of cool things you could do with it. And so great, 7z is available. It's open source. You can install it on any Linux box. Too easy, right? Accessible. What's not there is batching. Like I want to take a list of all the things in our archive directory and one by one, turn those out to a secondary directory of this finalized directory to 7z file to go into our storage server. Those things weren't there. So I had to learn how to do a lot more with batch scripting, right? I was, I knew enough to be dangerous, but then I didn't know enough to really write all these things. And now I kind of have these ZFS utilities and 7z toolkits that I've built for myself that are still not open -sourceable in my opinion because they're just sort of like, they're yucky right now. They could use some work. But at some point I want to put this 7z toolkit out there because it's what I use to create, confirm, verify all these things that I do for our stuff on our storage server. But again, I don't get to develop as often because I'm mostly podcasting and mostly looking at the lens of the world versus actually being in the world of software. And this gave me a chance and a reason realistically to be, like you said, the infrastructure person. What am I going to put it on? The ops person to how do we get it there to the dev person to write the script. It gave me a chance to sort of put those hats on in an environment where I fully controlled and I can fully just sort of have fun and tinker. And it kind of brought some joy back to these things for me because like you said again, you can be lucky and go to a job and you get a chance to sort of design what happens there. And that could be the unlucky side too because you could be like, ah, I totally screwed up, right? But here's me, you know, inch by inch, little by little making progress on this. And now our entire changelog archive of like the last 14 years is now 7Z compressed. And while I do have tons of storage because I am a storage nut and I don't mind buying 20 terabyte drives like I had mentioned before, it doesn't mean I want to use them all. But I'm saving half, Tim, half. If it's 10 gigs, it's about five or six gigs compressed down to 7Z, which is just phenomenal. And I can easily just unzip that thing in about a minute. It does take a little bit of in and out because it's an algorithm compressing that. And it does take some compute power. So when you do the compression, it spikes my M1 Pro Max CPU to the full tilt, to the full tilt. For that two or three minutes, it's compressing it. So like it does take compute power, but I have it, so why not use it?"
+    },
+    {
+      "start": 1325.88,
+      "end": 1456.26,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, yeah, that is awesome. That is awesome. I love to hear it. I always love to hear, you know, when people can work in a home lab and then apply that to work and then vice versa, you learn things at work and then you bring that home. And I just love that that cycle, you know, it's like home lab life cycle between your home and job. I love it because there are so many things and I don't want to discredit any company out there, but there are so many things I learn at home that I've applied at work. But it also goes both ways. There are so many things I learned at work that I get to bring home. You know, would I would I be able to learn about Redis and how to, you know, have a terabyte of RAM and Redis with all these key value pairs at home? No, no. But do I work? Yeah, it's it's pretty awesome. And so I get to apply some of those things I learned about Redis at home. And it's I feel like it's it's just this awesome middle ground where you're in the middle and you get to choose, you know, hey, I use this at work. I like it. Let's apply it up. I learned this at home. Let's apply it at work if they'll let me or they won't let me. So I'm just going to run it at home and learn all about it. It's yeah, it's fantastic. And on top of that, I think, too, that Homelab provides a nice way for people to get a safe introduction to Linux to, you know, most most people grew up on on Windows, just kind of how it is. The world runs on Windows and no people have Macs and whatever. But at the end of the day, most companies are running Windows as their desktop. And that's their first intro to most things, because the Windows laptops are super cheap and available. So I think Homelabs also give people, you know, a safe place to experiment with Linux, too. The world really runs on Linux behind the scenes. That's true. But what people see is Windows. I mean, everything runs on Linux. And so, you know, that's another thing that you wouldn't necessarily get to do or play with unless you had an environment to do that. And so I think having even if you just had I mean, you could do that in Raspberry Pi. I also consider Raspberry Pis being, you know, part of Homelab as well as even virtual machines like VirtualBox or something like that. It doesn't have to be physical, but just having that environment to be able to play around and learn is, I think, vital to growing as a person in tech."
+    },
+    {
+      "start": 1457.12,
+      "end": 1544.82,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, I feel like the intimidating factor, though, for a Homelab might be and maybe I'm wrong, is the network. I feel like for me, it kind of begins there. It's the gateway to the in quotes Homelab drug, if that's even a fun thing or proper thing to say. I feel like that's what it is for me, because I can recall in 2017, we moved into our new house and we had the default ISP Wi -Fi upstairs in the furthest corner in a closet. And my wife saying the Wi -Fi is just terrible. IT slash husband. So it's my fault, right? Whatever the situation is, it's my fault. You know about software. You know how things work. It's your job to fix it. That's not exactly what she said, but it was definitely on my responsibility table to deal with. And so I was like, okay, I have no idea besides maybe a new Wi -Fi thing and maybe that thing is not as powerful as the ISPs. And well, now I might need to have, I don't know, repeaters or whatever. And that started going down that rabbit hole. And I learned about Unifi and Ubiquiti. And I learned about, wow, I have Ethernet all over my house. I could put wired access points back to a place. I can replace the routing I was doing in my ISP's Wi -Fi slash modem. I can just simply use that as an access pipe. And now I could put in this thing called, I think at the time was the,"
+    },
+    {
+      "start": 1544.82,
+      "end": 1545.78,
+      "speaker": "SPEAKER_01",
+      "text": "the"
+    },
+    {
+      "start": 1545.78,
+      "end": 1581.26,
+      "speaker": "SPEAKER_00",
+      "text": "unified gateway was the security gateway, the USD. And they had the small one, but I'm like, I'm going to rack mount this thing because I'm a home labber here or whatever. It's even before home lab. I'm a man. I'm going to put this thing in a rack. Racks are cool. I want to put in a rack. I want to go all the way. I'm a maximizer, Tim. When I do things, I do them to the max. So I'm like, I want to rack mount this thing. And I put it in a, I got the USG. I got a 24 port PoE switch, a few access points. And I was off to the races. Now I learned, which was very hard, thanks to the other fellow who's is not ShopTalk. Help me out. You know his name. He's very famous with the Unifi, not NetworkTalk."
+    },
+    {
+      "start": 1581.4,
+      "end": 1584.76,
+      "speaker": "SPEAKER_01",
+      "text": "Oh, Crosstalk Networks? Crosstalk. Yeah, Crosstalk Solutions. It's Chris."
+    },
+    {
+      "start": 1585.18,
+      "end": 1587.14,
+      "speaker": "SPEAKER_00",
+      "text": "You know these people. These are all your friends."
+    },
+    {
+      "start": 1587.6,
+      "end": 1589.84,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, that's right. I'm in a discord with a lot of these people."
+    },
+    {
+      "start": 1590.74,
+      "end": 1645.26,
+      "speaker": "SPEAKER_00",
+      "text": "They're your buddies now. So I learned about all these things from him. And I'm like, wow, if he can do it, he's got the tutorial. I can learn how to do it. And that was the beginning for me was like, I feel like HomeLab begins to some degree with this itch to make your network better, more performant, usually Wi -Fi. And it's usually somebody else nagging you. Like we've got more users. Netflix doesn't work. This or that. And that was really it for me. And once I learned about that, I'm like, wow, there's a whole world here. Now I want to move this loud, because I'm a podcaster, this loud storage server, you know, which was a Mac and six drives over here. It's really loud. That's actually in my audio. I want to move it upstairs and network access it versus I don't need it to be right there. And so I just started to open up more and more things. I need faster network. I need faster Wi -Fi. I need, you know, distance from my storage server because it's loud. I need this or I need that. What are your thoughts? Do you feel like it begins with the network? Yeah,"
+    },
+    {
+      "start": 1645.26,
+      "end": 1674.56,
+      "speaker": "SPEAKER_01",
+      "text": "that's that's a good question. I have always said that, you know, one of the gateways I know about is Plex. I mean, Plex is always the gateway. I feel like into into home labbing because, you know, it's like I have this machine. I want to stream stuff to it. I need bigger hard drives. Oh, I need to transcode. And so it just leads to everything exploding exponentially. But yeah, network is a great one, too, because you're exactly right. Someday someone may come up to you and you being the nerd that you are. They'll say,"
+    },
+    {
+      "start": 1675.08,
+      "end": 1675.78,
+      "speaker": "SPEAKER_00",
+      "text": "why"
+    },
+    {
+      "start": 1675.78,
+      "end": 1723.04,
+      "speaker": "SPEAKER_01",
+      "text": "is the network slow or can you get to this website or why is it always buffering or is Plex down? You know, those types of things happen quite often. And so, yeah, I think for me personally, my wife is actually faster at telling me something's down than uptime Kuma and uptime robot. I have my personal uptime checker because we depend on a lot of things in our house. But yeah, network is definitely one. And it does start with wireless. You're absolutely right, because people are like, you depend on it. I mean, tablets, phones, everything, TVs, you name it. Consoles all depend on it. And whether it's your significant other saying, hey, something's down or not working or it's too slow or your kids saying, hey, my ping time is ridiculously high. I cannot play these games with a ping time this high, you know, because so and so has the advantage."
+    },
+    {
+      "start": 1723.72,
+      "end": 1724.92,
+      "speaker": "SPEAKER_00",
+      "text": "My kids aren't doing that to me yet."
+    },
+    {
+      "start": 1725.16,
+      "end": 1763.08,
+      "speaker": "SPEAKER_01",
+      "text": "So I don't have kids, but I've heard I could only imagine, you know, with kids trying to, you know, get their their ping times down to the server. I mean, if you ask a kid, you know, five years ago about ping times, they'd be like, what? You know, but after four and nine and everything else, they know all about ping times. And so, you know, and response times on monitors, all that's coming. Right. But, you know, it's those types of questions that come up that then lead you to be curious about, hey, why is this happening? And then, you know, the wheels start turning and all of a sudden you're like, yeah, I'm going to upgrade. Well, first you watch a lot of YouTube videos like you mentioned across networks. You watch Chris's videos and Chris is amazing. Oh, yeah. Oh, yeah."
+    },
+    {
+      "start": 1763.12,
+      "end": 1763.52,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah."
+    },
+    {
+      "start": 1763.52,
+      "end": 1765.08,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. It's so good, too. He really is. He's"
+    },
+    {
+      "start": 1765.08,
+      "end": 1783.46,
+      "speaker": "SPEAKER_00",
+      "text": "so he makes it look easy. He really does. Like he can rattle off version numbers of which, you know, unify software's on there. He can rattle off the exact, you know, not only the name, but the model number for different devices, versions when they I mean, he's just so good at it. Yeah. Yeah. He's amazing."
+    },
+    {
+      "start": 1783.54,
+      "end": 1856.04,
+      "speaker": "SPEAKER_01",
+      "text": "He's good. He's a he's a good showman, too. You know, I've seen him do live stuff and I talk to him in Discord every now and he's just all around. Seems like all around. Good guy. Very knowledgeable. Very level headed. Very smart. And yeah. And Tom Lawrence is another good one. If you need. Yeah, Tom. Tom's another guy. He's he's my go to for true NAS and PF sense. Those are my go tos. You know, he knows obviously a lot more XC, PNG and he knows a ton about networking and even business stuff. He's he's my go to for a lot of stuff. Chris absolutely my go to for unify stuff, too. And Tom does a lot of unify. But yeah. But yeah, it's you know, then you start like you said, you start saying, hey, this person has a pretty good tutorial. Like I could follow it. Seems logical. And then you start buying stuff. And then all of a sudden you're just like, I have 10 gig network in my home. Everything's hard wired because I hate wireless. And now everything's wired now because I realize that wireless, you know, is like a pipe dream and there's nothing better than actually plugging a wire into something. And you go from there. I joke I joke about wireless. I mean, mine's super reliable here. But at the end of the day, if I have a choice between ethernet and wireless, I'm plugging that ethernet in. You better believe it. You better consoles, TVs, everything."
+    },
+    {
+      "start": 1877.49,
+      "end": 1906.25,
+      "speaker": "SPEAKER_00",
+      "text": "What's up, friends? This episode of change talking friends is brought to you by our friends at Vercel. And I'm here with Lee Robinson, a .k .a. Lee Rob, VP product over at Vercel. So let's talk about Vercel's front end cloud. I know Vercel supports over 35 frameworks. But the question I often hear is, is the happy path on Vercel next? Yes. Are you optimizing the best experience? The the sugar on top, so to speak, for those using next? Yes."
+    },
+    {
+      "start": 1906.71,
+      "end": 1970.43,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, that's a great question, because, of course, we're biased because we make next yes, that we really like next. Yes. But the idea behind the front end cloud and the idea behind a concept we call framework defined infrastructure is that we want to make it as easy as possible for you to write code in the frameworks that you prefer and still get to take advantage of all of the cloud infrastructure primitives and the developer experience platform that Vercel provides in that same model. So tangibly, this framework defined infrastructure concept means that I write code in my framework native way, and Vercel is going to do the heavy lifting of transforming that into managed infrastructure. So in next, yes, or in Nuxt or in spelt kit or remix or all of these frameworks that we support through framework defined infrastructure, I'll write my code in their framework API. So I want to do server side rendering. Great. I'll do it through their conventions. When I deploy to Vercel, our platform is going to transform that code to work with our managed infrastructure that's very scalable and also flexible for what developers need."
+    },
+    {
+      "start": 1970.97,
+      "end": 1980.37,
+      "speaker": "SPEAKER_00",
+      "text": "OK, so help me break down what you mean when you say the front end cloud. I get Vercel front end, front end frameworks, all that good stuff. But break that down for me. What exactly is the front end cloud?"
+    },
+    {
+      "start": 1980.77,
+      "end": 2047.77,
+      "speaker": "SPEAKER_01",
+      "text": "We believe that there should be tools designed and built by and for front end developers. We want to have tools that help enable you not only from the framework and the code that you're writing with react or view or spelt all the way up to the platform that allows you to deploy your code, not only in US East, but around the world as well, too. And I think historically, a lot of tools for developers have been built back in first, have been built for the back end developer. If you think about AWS, it's a great back end cloud. It has a suite of tools that you can pull from and really craft and build anything that you want. But when you're building the front end of your application, there's a lot of things that are undifferentiated. I don't really want to have to stitch together all of these different pieces and set up my pipelines and set up all of this front end infrastructure. I just want to build a really good product. And really what the front end cloud means to me is focusing more on the product experience and focusing more on the user experience and just letting a platform like Vercel's front end cloud take care of all of that infrastructure and tooling for you."
+    },
+    {
+      "start": 2048.17,
+      "end": 2149.04,
+      "speaker": "SPEAKER_00",
+      "text": "Very cool. I love it. With zero configuration for over 35 frameworks, Vercel's front end cloud makes it easy for any team to deploy their apps. Today, you can get started with a 14 -day free trial of Vercel Pro or get a customized enterprise demo from their team. Visit Vercel .com slash changelogpod to get started. That's Vercel .com slash changelogpod. Well, here's the question I think that I come to for networking. And while I am a unify, I won't say fanboy, really. I like it a lot. And I've chosen it because it's an easy default and it doesn't let me, it doesn't require me to spend so much time consuming, configuring it and, you know, VLANs and access points. There's a lot of fun things that come from the system they built out. But for those who are like, I don't want to buy unify, I have other preferences. What do you say to folks who are like, eh? Like Jeff Geerling, for example, he's like anti -unify, I've learned. And he's, you know, I would say he's a pretty, you know, pretty smart nerd, you know, when it comes to what to choose for your home or to choose for your tinker hobby, fun stuff. And I feel like if he's anti -unify and you and I obviously are, cause you've got, I know what you've got. I pay attention to you. What do you think about, you know, unify, not unify, other brands that are interesting to you when you should choose non -unified as something else?"
+    },
+    {
+      "start": 2149.58,
+      "end": 2156.18,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. So yeah, great question. Jeff, he has, I think he has a couple of unify things in there. He says no."
+    },
+    {
+      "start": 2156.66,
+      "end": 2164.88,
+      "speaker": "SPEAKER_00",
+      "text": "Last time I talked to him, it could be, I could be wrong, but he said no, nothing, Adam, nothing, no unify. Like, I think we even have it in the transcript. All"
+    },
+    {
+      "start": 2164.88,
+      "end": 2169.74,
+      "speaker": "SPEAKER_01",
+      "text": "right. All right. We do. We might need to get a litmus test on Jeff lately."
+    },
+    {
+      "start": 2173.38,
+      "end": 2210.9,
+      "speaker": "SPEAKER_00",
+      "text": "I think at this point I don't have anything proprietary running in my rack right now. I still have a bunch of stuff on my computer, but at this point it's all open source on the rack. Is Unify's OS proprietary? Nope. I do not use Unify. So that is... I thought you had like something in there. No, all these YouTubers use Unify. Well, I do. So I have Netgear. Techno Tim does, where I guess just him. Yeah. I mean, Unify, they make, Ubiquiti makes great stuff. Yeah. That's for sure. But it's A, expensive, and I try to go cheap. And B, I feel like I learn more when I don't have my hand held as much. Like when you, when you have to get into the weeds on things, I like that."
+    },
+    {
+      "start": 2214.62,
+      "end": 2484.98,
+      "speaker": "SPEAKER_01",
+      "text": "But anyways, I'm teasing Jeff because, yeah, again, he's in Discord. I met Jeff. I got to hang out with him for a couple of days. Great guy. But anyways, like a lot of people have, you know, opinions and preferences. It's like, you know, what kind of shoes do you buy? You know, and maybe that's not a good one, but you know, what kind of, what kind of TVs do you buy? I buy Samsungs. I'm brand loyal to Samsung. I will not buy anything other than Samsung. Yeah. Yeah. You're probably an LG guy. You seem like an LG guy to me. Oh, oh, yeah. I wouldn't have thought that. Anyway. Yeah. You see, you see how it strikes that kind of emotion and that kind of opinion and automatically you make assumptions about that person. I feel like networking gear is kind of there, too. And so there are there are gripes with Unifi, you know, they claim to be this huge, you know, the enterprise ready. Right. And so people have been doing, you know, Cisco forever or now Meraki stuff maybe or any HP or any other, you know, enterprise solution that's been out there for, you know, 20 years will start to pick apart some of the features and services and things that, you know, Unifi might be missing. Now, I don't know if they're missing or if that's a choice, you know, it's a bug or is it a feature or have they not had time to develop that? Not defending them. I'm just saying, you know, there are a lot of people who have a lot of networking experience that have their their choice and their brand that they stick with. And maybe it's because the CLI is familiar. Maybe it's because you can do stuff in the CLI, you know. And so there are so many reasons. It would be like, you know, you asking somebody about their IDE and this IDE that just came out yesterday, you know, is missing a ton of features, but is really great for people who are new to developing. But at the same time, someone who's been using, I don't know, Eclipse, you know, is saying like, you know, VSCode doesn't have these 30 features I've been using in Eclipse forever. You know, VSCode is just a code editor. You know, it's not an IDE. It's a code editor. You know, it's a text editor. You know, it's kind of that same thing. I think with networking, a lot of people say like you're buying ubiquity gear for the software. And, you know, I'll kind of agree with that. Yeah, I am getting, you know, a single pane of glass to do a lot of very complex things that I'm not a network administrator either. So it's super nice. I get lots of apps that work really good. And so, yeah, maybe I am. Anyways, all of that aside, you asked about, hey, what are my preferences? Well, I ran, if you want to run an open source network firewall that you can build yourself, I've done this for years. PFSense is a great choice. Now I'm not going to go into like PFSense versus OpenSense and license changes and all that because that's probably another conversation. But if you want to run something open source that you don't, you know, have to worry about, is it going to go away? Are they going to change the UI on me? You know, OpenSense is a great place to start. It is pretty complex, but it's so popular. Like there are bounds and bounds of tutorials that you could use to follow. So, I mean, if you're looking for nice edge firewall, you have an old PC or you have a good PC, you know, that you want to use even old one or a mini PC that has a couple of nicks on it. You could build your own firewall today and start, you know, protecting your home network with that. Get rid of your ISPs router, use that instead. When you start to get into switches and stuff like that, everybody again has their own preferences. A lot of people still, I've noticed that people like PFSense as their firewall and are okay with Ubiquiti UniFi switches. And so they'll say like, hey, you know, I'm not going to run UDM Pro. My edge is going to be PFSense, but I do like their switches. They're pretty affordable for what you get and I'll configure them that way. So it's tough. I mean, what I see most of the time in the Hoblamp community is people are just buying used enterprise stuff. You know, as long as it can do layer two, layer three switching, so it has VLANs, they'll configure them themselves and they don't care about a single pane of glass as long as it's, performant and it's relatively cheap. Noise is a big one though, too. Once you start to get into older enterprise switches, a lot of them could be really loud, but that's kind of where I see people. It's either you love it, UniFi, you either love it and then you go all in with their ecosystem, I should say Ubiquiti, but their UniFi line of gears, or you don't like it and you want to run open source stuff and then you choose used enterprise switches or you still buy Ubiquiti switches because they're pretty good for what you get. So it's tough. I mean, I don't see a lot of people running their own switch, although possible."
+    },
+    {
+      "start": 2485.72,
+      "end": 2507.84,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, for sure. I do like the idea of PFSense and, you know, doing your own home router slash edge. And I don't understand, I guess, when you choose to use Ubiquiti's UniFi switches in that environment, what you gain, like, do you still use, I guess, their dashboard and adoption process? Do you still do? I mean, I don't know how it works at all."
+    },
+    {
+      "start": 2508.04,
+      "end": 2530,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, yeah, yeah. You still get their network controller, right? So their network application, it's hard to separate those two if you only have a UDM, you know, because it's like, wait, it runs on my UDM. But they have a whole line of products. That thing actually runs on a cloud key. But you're like, I don't have a cloud key. I have a UDM. Well, UDM is all of that in one. You know, it's a switch. I used to have"
+    },
+    {
+      "start": 2530,
+      "end": 2544.26,
+      "speaker": "SPEAKER_00",
+      "text": "the one that dongled in. It was P -O -E -D -N, that thing that hung out of it from back in the day. Yeah, that's how I had to do it. It was a cloud key. And I guess they now have a true cloud key, which is actually in the UniFi cloud. That's right."
+    },
+    {
+      "start": 2544.52,
+      "end": 2574.76,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. And so a lot of people will just still use that network application to configure their switch to keep it up to date, basically manage it without their firewall. But then that means they're doing double administration. You know, I have to add VLANs into PFSense. And then I have to make sure that these VLANs exist or are acknowledged, I guess, or configured in UniFi as well. So, yeah, it's pretty interesting. A lot of people still do it because they like the switch hardware. They just don't want their edge firewall to be a UDM, possibly."
+    },
+    {
+      "start": 2575.4,
+      "end": 2657.62,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, personally, I don't mind the firewall in it, although my reasons of why it can't be quantified because I don't really have a lot of true, I guess, configuration and concern to be like, oh, this is exactly why. I just I don't mind out of the box what they give me. But I do really appreciate the access point adoption. I appreciate the camera adoption. I use the I have the NVR, the separate four drive because the single disk in the UDM Pro was just too slow for our family. Again, my wife is the telltale. She would always say, why do we have this really awesome in quotes, awesome stuff, Adam? And yet when I tried to scan the timeline of of our cameras, the front of the house or whatever, look at the thing, I can't it stops. It gets stuck. And I'm like, well, because unifies a black box in that case, maybe I can dig into the logs and figure it out. But I don't know how I don't know why. The only best thing I could do is is rate it, make it rate. And so that's what the the UN NVR does is it gives you four different drives. It puts them in a raid and you can configure in the configuration, I suppose, inside the network controller what kind of rate you want to use, whether it's mirrored or whatnot. And so far since I moved to that, like it's so fast to access all of our stuff. And we have probably six or seven cameras. Plus we have the the G4 doorbell, the POE version,"
+    },
+    {
+      "start": 2657.98,
+      "end": 2662.24,
+      "speaker": "SPEAKER_01",
+      "text": "Tim. Oh, yeah, you're you're upping me in a couple of ways."
+    },
+    {
+      "start": 2662.54,
+      "end": 2674.66,
+      "speaker": "SPEAKER_00",
+      "text": "Well, I was like, at some point they're going to come out with the POE version of this doorbell. And so when I built my house last year, I wired it with, you know, the typical doorbell and then also ethernet there, because I'm like,"
+    },
+    {
+      "start": 2674.66,
+      "end": 2675.08,
+      "speaker": "SPEAKER_01",
+      "text": "yeah,"
+    },
+    {
+      "start": 2675.12,
+      "end": 2740.6,
+      "speaker": "SPEAKER_00",
+      "text": "I'm going to want to POE this thing. And so the real issue was it got so hot. I had to replace three of them via Wi -Fi. This thing would get so hot and it would die. And I'm in Texas. And so we have 100 degree temperatures here all the time. So I had to and thankfully their RMA process is so easy and I've never been turned down RMA wise from Ubiquiti. Every time they've done it, they've replaced it. And even this last time they swapped out my white non -pro version with a black pro version of it just because they were out of the out of the the older version of it. The G2, I believe it was. And I was like, well, that's really awesome because you didn't have it in stock. You didn't make me wait. You still RMA'd it and you gave me the upgrade at no additional cost. But anyways, that aside, I just want to give them some praise because their RMA process is pretty awesome. But I planned ahead and I thought they're going to have ethernet there. So I'm eventually going to buy the POE version of this to just power my doorbell. So anyways, six cameras, maybe seven plus the doorbell and it runs like lightning. It's so, so fast, you know? I have visibility around the entire circumference of my house. So if you come to my house, you're going to be seen. Yeah, yeah, yeah."
+    },
+    {
+      "start": 2741.48,
+      "end": 2760.06,
+      "speaker": "SPEAKER_01",
+      "text": "Same here. Yeah, I think I'm at 10, 10 cameras, which includes the doorbell. I'm still on the UDM Pro or UDM SE. The scrubbing of the timeline is pretty OK. I haven't noticed, you know, if I scrubbed too fast, maybe it was a version number. I don't know. But here's the"
+    },
+    {
+      "start": 2760.06,
+      "end": 2784.22,
+      "speaker": "SPEAKER_00",
+      "text": "thing, though, Tim. It was her, not me. So when I'd probably go to the same camera and scrub the timeline, it was fast. And then I would go to her and she has the same phone as me. Like, there's nothing different, really, about our experiences, except for it literally is a different user slash different computer slash different phone. And I can't reproduce this on your side or on my side. So I don't know. Let's just upgrade, right? Let's just upgrade. Yeah,"
+    },
+    {
+      "start": 2784.22,
+      "end": 2791.18,
+      "speaker": "SPEAKER_01",
+      "text": "yeah, yeah. I like it. That's right. Easiest way to get the agreement on upgrading is something she wants. OK,"
+    },
+    {
+      "start": 2791.48,
+      "end": 2880.08,
+      "speaker": "SPEAKER_00",
+      "text": "let's go then from if we both agree that network is definitely part of the gateway to home labbing. You mentioned Plex and storage. Let's talk storage. I'm a diehard. I think maybe our listenership might be tired of hearing me say ZFS. And I definitely think our Slack folks are like, Adam, just shut up already with the ZFS stuff. Why? And so we have a couple of questions behind the scenes around ZFS. But let's just talk about storage in general and then specifically the file system, because I'm a ZFS guy. I think you are, too. I could be wrong. Maybe butter, butterfess if the use case permits. But how do you then think about storage? OK, SSDs. We talked about that. NVMEs being potentially more power hungry in cases than a hard drive. I don't personally mind hard drives. I think six gigabits per second is fast enough for me and most things I need to do. It's definitely fast enough for Plex. So why would I need to abandon the massive storage opportunity and the literally dead of usability experience that hard drives provide? And I get to keep a bunch of money in my pocket because SSDs and NVMEs can't compare size wise, but they do compare dollars wise. And they're very expensive at four terabytes. They're extremely expensive per drive. And if you want a rating thing or have anything that's substantial, you're talking like 16 terabytes, maybe eight terabytes to 16 terabytes. That's thousands of dollars on a low end for SSD or NVME. Yeah,"
+    },
+    {
+      "start": 2880.92,
+      "end": 3032.82,
+      "speaker": "SPEAKER_01",
+      "text": "yeah. So, yeah, good question. I just went through this whole exercise of moving my NAS to NAS from virtual to physical and moving it around. And that's not important. But I do use ZFS quite a bit. I've learned a lot about ZFS. And I think, at least in Homeland, the reason why most people are wanting to use SSDs or something faster, I should say, than spinning hard drives is because of network. Because of network. If you put in a 10 gig line, if you have a 10 gig connection, your hard drives aren't fast enough to push 10 gig. So, again, you're leaving some performance on the table. Each hard drive is roughly 150 megabytes per second. Each hard drive, right? And so how many do you need to saturate a 10 gig line? Well, about 10. You'd have to put 10 in a RAID to get the throughput that 10 gigabit would get you, roughly. And so that's where I think like... That's RAID 0, right? Yeah, RAID 0. Yeah. Yeah, you need 10 spindles. 10 individual spindles. I think my back end math is right. To a saturated 10 gig line. And so that's where I think like, you know, it's this push and pull, right? You get faster storage in your NAS, but then all of that speed is locked up inside of there. So then you get faster network so you can unlock that speed. But then you need to do it on the other end, too. Now your hard drive, probably in your workstation, is probably an SSD and it could probably handle it. But I think it's somewhere in there. It's somewhere between my network is faster than my drive speed or faster than my drives can push it or vice versa. Hey, I have this speed locked up inside of my drives and I can't take advantage of that speed with gigabit or 2 .5 gigabit. And so that's what I found. Like, you know, I recently got an HL 15 from 45 drives. I redid all of my storage. I went with true NAS bare metal this time. And then I went down this path of I want the fastest thing possible. I want to saturate 10 gig. And so I started to realize, like, oh, six drives can't saturate 10 gig. Oh, really? Like, you know, I never thought about it. I never thought like my spinning hard drive now is going to be the bottleneck for this, even with six, with seven, you know? And so that's where I had to bring in some stuff for caching and stuff like that. So I've done a lot of tuning lately to make sure that I get 10 gig all the time. Why? Who knows why? Because I'm paying for it. Because you can. That's right. That is exactly right."
+    },
+    {
+      "start": 3032.96,
+      "end": 3037.08,
+      "speaker": "SPEAKER_00",
+      "text": "Back to your question on LinkedIn. You said it's an obsession or a quest for optimal performance. I said both."
+    },
+    {
+      "start": 3037.38,
+      "end": 3065.58,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, man. It's an obsession and a quest. That's right. I saw it on LinkedIn. And yeah. And so I that's that's where I was. It was like I had this this thing inside of me that said, like, I'm not going to stop until I get the 10 gig that I'm promised by my network. You know, it's that kind of thing. You know, it's like if you're paying for gigabit Internet and your provider is only giving you half that, are you going to stop and say, hey, good enough? No, you're not. You're going to chase it down. Well,"
+    },
+    {
+      "start": 3065.62,
+      "end": 3074.76,
+      "speaker": "SPEAKER_00",
+      "text": "let me ask you a question on that front, if that logic is true, because if it's ZFS, that means it's it's cached in RAM. That means that it's likely doesn't ZFS serve from RAM?"
+    },
+    {
+      "start": 3075.12,
+      "end": 3087.92,
+      "speaker": "SPEAKER_01",
+      "text": "Maybe. Yes. So so it depends. So so there's a lot of caching involved with ZFS on reads. Yes. If it's still there. So on reads. Yes. If it's still there. Yes, it will. It depends on how much RAM you have. But it can"
+    },
+    {
+      "start": 3087.92,
+      "end": 3103.84,
+      "speaker": "SPEAKER_00",
+      "text": "even load to RAM so much faster than the disks. I suppose you could probably stream from RAM faster than it can put it. Yeah. Either way, I just wonder if that logic is true, because RAM is obviously way faster than disk. And it's faster than NVME as well. Let's take RAM. Let's take cache off the table."
+    },
+    {
+      "start": 3104.1,
+      "end": 3113.98,
+      "speaker": "SPEAKER_01",
+      "text": "Let's just say like, hey, you just rebooted it. There's nothing in the cache, right? Cold cache, yeah. Or it's a it's a file you haven't accessed since the last time you reboot. Tim, I don't reboot, man. I don't reboot. Sorry. No way,"
+    },
+    {
+      "start": 3114.3,
+      "end": 3120.34,
+      "speaker": "SPEAKER_00",
+      "text": "man. Yeah, yeah, I hear you. I hear you. Yeah, that's right. Cash money. Continue on your example. Go ahead. I'm listening."
+    },
+    {
+      "start": 3120.44,
+      "end": 3168.84,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, yeah. So if you yeah, you reboot, you have no cache. All of a sudden or you have little cache. Let's say you have 32 gigs of RAM. The file you want to pull is a 50 gig file like I do. All my video files are, I swear, minimum 28 gigs for sure for YouTube. So that's not going to be in there. Want to pull a read? I want to copy it local for whatever reason. I'm going to be limited to the read speed of those drives and how your raid is configured. I do mind mirrored V devs now. Kind of complicated, but it's basically think of an old school rate 10. Not really, but two drives that are mirrored that then span the total volume. Right. So I have 10 drives in there. So that's five pairs of two. And then it's striped across there. I mean, that is a lot more technical than that, but that's how I like to wrap my head around it."
+    },
+    {
+      "start": 3169.12,
+      "end": 3187.58,
+      "speaker": "SPEAKER_00",
+      "text": "It gets more technical to maintain that too over time, doesn't it? Like if you had a failure or you think about what's that term? Business continuity, I suppose, home lab continuity. Okay. Isn't that scenario like more challenging to deal with than say like a raid Z2, which is what I chose?"
+    },
+    {
+      "start": 3188.12,
+      "end": 3216.1,
+      "speaker": "SPEAKER_01",
+      "text": "Maybe. So you get more continuity out of raid Z2. I think you can have two drives fail, right? I can have, depending on how many pairs I have, but I can have one drive within those pairs die. If two drives in a pair die, it's gone. Right. Highly unlikely. Well, I mean, that's a 50 50 chance, right? Well, it depends on how many spindles you have. Right. So, so I have 10. Okay. You know, I have, I have 10 spindles, five pair, right? So as you grow pairs, I think you're"
+    },
+    {
+      "start": 3216.1,
+      "end": 3221.29,
+      "speaker": "SPEAKER_00",
+      "text": "at risk, Tim. I think your twist is wrong. I'm just kidding. No, no, no. I'm just kidding with you. I was, I"
+    },
+    {
+      "start": 3221.29,
+      "end": 3224.75,
+      "speaker": "SPEAKER_01",
+      "text": "was about to dig into your choice, but please do. Yeah, no, that's why"
+    },
+    {
+      "start": 3224.75,
+      "end": 3248.77,
+      "speaker": "SPEAKER_00",
+      "text": "I'm, I'm only just being funny when I say that. No, no. Cause that's what I thought about was maintainability and continuity. If you know, cause if you have mirrored pairs and both in that single VDEV failed, then you've got a catastrophe. Yeah, that's flip of coin. Yeah. Yeah. Whereas me, I've got raid Z2 and I've got six disks. I've got two out of six that can fail."
+    },
+    {
+      "start": 3248.77,
+      "end": 3300.33,
+      "speaker": "SPEAKER_01",
+      "text": "I also have two out of six, but at the same time, it would have to be the same two. And that's where it's the same, right? Like I would, I have the same probability except for, you know, if you have two drives, it can be any two. If I have two drives die, it can't be the same two that are on the same pair. So I, you know, I don't know the probability of that, but I still have, you know, I can lose if I have six drives, I can lose one still be fine. I can lose a second as long as it's not the pair of the first. Yes. So I, you know, I still have roughly the same probability except for there's that other piece on top of it that says like, Hey, you better not be, you know, the pair of the one that died. But that's true among all your pairs, but the more pairs you get, the less probable, you know, the less likely it is to happen."
+    },
+    {
+      "start": 3301.29,
+      "end": 3310.39,
+      "speaker": "SPEAKER_00",
+      "text": "Performance is better though. So I agree with your choice on performance. That's right. And that's probably where you hinged on was the performance of mirrored pairs. Cause that's so much faster than my RAID -Z2."
+    },
+    {
+      "start": 3310.53,
+      "end": 3414.33,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. There's, there's two reasons why I chose this. One was absolutely the performance. You get both the read and write performance, right? You get two spindles to write to or two drives to read from. Maybe if, you know, the ZFS is aligned properly, the ZFS gods are aligned properly. And then two on top of that, it's easier to expand your storage in the future. I used to be a RAID -Z2. I had done it twice and I kicked myself twice because yeah, here's the gotcha. Yeah, it's exactly. You can only grow by the same number of drives. So let's say you have six drives right now. They're all 20 terabytes. The only way you're going to be able to grow that, unless you, you can hold out on the time that they release this feature, that feature doesn't exist. So that aside, but the only way you can grow those six drives is by replacing or creating new one with six drives. So you have to, the next time you upgrade, you got to buy six 40 terabyte drives. The next time I upgrade, I only need to buy two. And so I can add mirrors in pairs over time. So as I grow another mirror pair, another mirror pair. Now I am, and the other downside of what I'm doing is I lose 50%. That's a sunk costs, you know, cause they're mirrors. So I lose 50%. I buy two 14 terabyte drives. I can only use 14 terabytes. That's right. So yours is a little more cost -effective, harder to grow further down the road. Mine is expensive, you know, cause I lose 50%, but easier to grow. And so now I just decided, well, when I need to grow, I'm buying two drives. That's it. I don't need to buy six or eight or whatever. I set my raid Z2 up as two drives at a time and you pop those in, you add them to the pool and boom, it's, it's like magic extend your pool."
+    },
+    {
+      "start": 3415.53,
+      "end": 3464.67,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. So I talked to Matt Ahrens, I think about two years back. And I think he alluded to the feature you're talking about, which I think is expanding. That's right. Which traditionally it's just been challenging to expand as ZFS store. And I don't know all the details and I'm going to pretend I'll just link up that episode. And I think even when he described it to me, he said it wouldn't be a perfect world. It would still leave data not perfectly parodied across all the disks. It could only do certain things. There was only so much logic you do. And while it could grow by less than the disks of the original set. So in my case, six, raid Z2, four of those are used for storage, two are used for parity to grow that by two, if I wanted to in the future with this new feature, just by a couple of disks versus all six that they call that expanding. Yep. It's not perfect. That's right. Yeah."
+    },
+    {
+      "start": 3466.41,
+      "end": 3474.17,
+      "speaker": "SPEAKER_01",
+      "text": "Cause there's not going to go through and defrag the drive and, you know, allocate all of those blocks. It's just impossible to"
+    },
+    {
+      "start": 3474.17,
+      "end": 3477.03,
+      "speaker": "SPEAKER_00",
+      "text": "like, the logic is impossible to really it's infinite."
+    },
+    {
+      "start": 3477.21,
+      "end": 3491.69,
+      "speaker": "SPEAKER_01",
+      "text": "And that's why sometimes say, you know, they, they defrag, you'll get a, you'll get a free defrag when you do that. Maybe not, but people like to every now and then take all their data off those drives and put it right back on. Cause then it distributes it evenly."
+    },
+    {
+      "start": 3492.03,
+      "end": 3534.35,
+      "speaker": "SPEAKER_00",
+      "text": "So, right. Which is totally, you could totally do that. I mean, you could do that with a, a temporary pair of disks, you know, but you gotta, you gotta have your pool down in sort of maintenance for probably, if you're doing it right, you should do a burn -in test too, right? You should do a burn -in test, which is basically a week for large drives like you and I are working with. Like, I think I did a burn -in test and I was like, is this thing gonna be done? It's like 10 days later. Yeah. And I was like, to be really pedantic about the process of burn -in test, then move data off, then move data on, you know, all that good stuff. That's going to take, it could take weeks, but in a home lab scenario, sure you can do that. Right. But my kids, they want their plugs, they want it now."
+    },
+    {
+      "start": 3534.79,
+      "end": 3545.11,
+      "speaker": "SPEAKER_01",
+      "text": "So I, I did this, I just went through all this, you know, I just went through exactly this. I, I, but I had the luxury of having a second server. If you don't have a second server, you just plug in more drives."
+    },
+    {
+      "start": 3545.59,
+      "end": 3545.99,
+      "speaker": "SPEAKER_00",
+      "text": "But"
+    },
+    {
+      "start": 3545.99,
+      "end": 3631.99,
+      "speaker": "SPEAKER_01",
+      "text": "I did exactly that. I tested all my drives. I did a, I didn't do a true burn -in test, but I ran a super long smart test that, you know, it's going to say like, Hey, if it's going to die in the first, like eight hours, like this will catch it. It's going to die outside of there. That's everything else. Just like anything else. Yeah. And so what I did was I, you know, I did a copy onto that drive. I still kept everything live, didn't cut over, copied everything to the drive. That copy took forever. Did another copy to do a catch up. You know, it's like database, you know, if you ever migrate database, then I had to do a catch up copy again. That was really quick. Then I flip -flopped them. Then I copied one more time back to them. And then I left that pool alone. I just left it alone. And cause they were new drives too. And I said, Hey, if anything goes wrong in the next, whatever a week, I got this set of data. And then after a week I just destroyed it, but it's kind of complicated stuff. But you know, I will say though that like, just because I, I chose, you know, mirrored pairs doesn't mean that's the best solution out there. Like we didn't even talk about access patterns at all. And I think a big driving force of why you choose, you know, one Raid Z over another should be access patterns too. And so is mine the best for large files? No, I think yours is. I think Raid Z 2 outperforms for large contiguous files versus, you know, tons of individual files. So I don't want to like just blanket statement like, Hey, mine is the best, but in my head it's a good choice"
+    },
+    {
+      "start": 3631.99,
+      "end": 3666.69,
+      "speaker": "SPEAKER_00",
+      "text": "for you. Yeah, I know. I think it was the wrong choice, but it's a good choice for you. I'm just throwing stones. Okay, so the better question to answer, I'm just kidding around. Because I mean, isn't that the, if you're a ZFS nerd, you can argue about configuration all day long and every, every way possible. And I'm just being funny with that when I say that. So the real question I think is why, why do you choose ZFS over BTRFS or ButterFS as it's known, or I think Unraid gets lumped into, even though it's not, it's using like, I think BTRFS inside the system. What makes you personally choose ZFS?"
+    },
+    {
+      "start": 3667.31,
+      "end": 3934.71,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, good question. One, I think because it's popular in home lab, I mean, it's easy to kind of get started. I think the number one reason why I choose it or chose it in the beginning is because of TrueNAS, right? TrueNAS came along and was FreeNAS at the time. It was this NAS system that had ZFS that I had no idea what it was that could give me a lot of storage services in a good UI, right? I could put drives in it. It was open source. I knew it was going to work and I didn't need a RAID controller. I didn't need a hardware RAID controller, huge selling points for me. What I get, I could spin up a NAS. I don't need this RAID controller that I used to buy all the time. It's portable. If that machine dies, I can bring that, that array with me and put it in another machine and just import the array. And it works like it was all magic to me. And so those are things I liked in the beginning. And then, you know, FreeNAS put a nice UI on top of it, did a ton of work to develop ZFS too. And then on top of that, they had apps and everything else. And then I could do NFS, SMB, object storage, you know, all of these other things that I wanted to do all in one NAS. And I thought, this is exactly what I need. I need, you know, some people running NAS to run apps. I run a NAS to get, you know, SMB, NFS, iSCSI, and object storage. Basically all of the types of storage you could want. Yeah. And that did it for me. And so it wasn't until later that I learned about all of the cool things about ZFS, like snapshots. Snapshots are, are awesome. And in my TrueNAS system, I take snapshots every hour of every item in my pool. And you know, that's, it's basically the diff, but really quickly I can go back and revert to a snapshot if something goes wrong. And so ZFS snapshots are like lightning quick. I do them every hour on everything and throw out the ones that are empty because why not? And you know, again, it's only the diff. And so that's, that's awesome. You know, I get quick snapshots, easy ways to revert. The integrity check, like the scrubbing of the pools, like the integrity check where, you know, once, however often it's going to go through and, you know, I don't know if it's a SHA or hash everything, but it's going to do an algorithm to figure out, hey, are the things I have on disk, do they match the things in RAM? You know, which is pretty awesome. And then all the other things you could do, like if you have two systems, you could move those snapshots really easily to another system. So you're, you're, if you do three, two, one back up at home, three copies to two mediums, one offsite, I always forget, you know, spin up another true NAS server and there's your second local copy and the snapshots outside of the first one is just going to be the diff. So it's really quick. You could do that offsite if you wanted to really fast. And so for me, it was just like, okay, like butter FS, I typically see being used and I think it's unread, like you mentioned, but also in Synology and, you know, Synologies aren't devices that I've have, you know, I've, I've had options to use them, but at the end of the day, like, Hey, true NAS. I honestly think a lot of it has to do with just true NAS being a great product by Ix systems. Like if you know, and on top of that Proxmox runs on ZFS too. So it's like two of my favorite things are using ZFS. So kind of came with the territory and they made good, I think good technical decisions when they were building those two products. And for me, it's, you know, I'm still uncovering all of the things that make ZFS a good file system, but I will say it's snapshots, it's scrubbing, it's integrity checks and yeah. And then, you know, storing everything in Ram and having it lightning fast. I mean, that's, that's kind of Linux's way. That's what Linux does really good is for sure. Store everything in Ram. Well, why not? If you, if you have unused Ram, that's, that's a waste. And so Linux does that really good to just say, Hey, I'm going to use all my Ram. Sometimes you look at machines, you're like, why is all my Ram use? I think the question to ask is why isn't my, all my Ram used, you know, on Windows too, a Mac, use it all, use it all. I don't, I don't want you to go to disk for anything. So it's there for. Yeah, exactly, exactly. But yeah, I think it's you know, there's, there's so many, I'm sure there's a lot smarter people out there that know so many things that are probably yelling right now. What about this? And what about this? And I think all of those are right. But my experience has been those kinds of, you know, those handful of things and, and TrueNAS and Proxmox were my gateway into it. I didn't even know that I wanted ZFS on Proxmox when I got Proxmox. So,"
+    },
+    {
+      "start": 3934.71,
+      "end": 3935.69,
+      "speaker": "SPEAKER_00",
+      "text": "you"
+    },
+    {
+      "start": 3935.69,
+      "end": 3937.83,
+      "speaker": "SPEAKER_01",
+      "text": "know, it just kind of came along with the ride."
+    },
+    {
+      "start": 3938.35,
+      "end": 4007.35,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah, I like how it's a, it's a forethought with them. It's definitely a first -class citizen in the Proxmox world. And I like, yeah, all the reasons you said that you like the, the use of ZFS. I agree. I don't exactly operate on three, two, one. However, I do have at least two medias in most cases, sometimes both on site. Sometimes I'll, you know, rotate some disks. So in my case, I recently backed up a mirror pair to a Zima board. So I had spun up two disks on a Zima board. I didn't even have an external disk to install Ubuntu 2. I just installed to the thing that's like ECC or whatever the onboard storage is for them. The EMC. Yeah, I always forget what that's called, which has been just fine. And so ZFS sends, ZFS receive pretty easy. Like you said, that first, that first one's gonna be, you know, as long as it takes to move all the data, but the disk between then is, is really easy. And so it's pretty easy to keep one, you know, kind of primary and one secondary as a backup. And you can script that if you want to, obviously, and make it automated and do all the things. So I agree with that."
+    },
+    {
+      "start": 4007.65,
+      "end": 4020.37,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. I don't, I don't have three, two, one here either. I think I'm at a two, two, one right now, just because I don't, I don't have another, you know, a hundred terabytes of disks laying around. So, so yeah, two copies. Yeah. When you"
+    },
+    {
+      "start": 4020.37,
+      "end": 4055.05,
+      "speaker": "SPEAKER_00",
+      "text": "mentioned earlier in the show, you know, this idea, why storage? I want to store all the things. I just think, okay, now you have to back up all the things. I mean, as soon as I think about storing, you got to think about like continuity of some sort. So you have to have some version of a plan and then you can do B2, you can do R2, you can do S3, you can do a lot of different twos or threes out there. We actually did a show B2, R2, S3, I believe. Anyways, I won't bore you with the show name, but we had fun naming that show because we talked about, you know, all the different options for object storage or external cloud storage for backups and whatnot. Just kind of fun."
+    },
+    {
+      "start": 4055.05,
+      "end": 4108.39,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. When you start thinking about it, you know, not only do you get high capacity drives, then like you mentioned, you need continuity, business continuity. So you put those in a raid. Now you're losing, you know, 30 to 50 % of that. And then on top of that, you know, best practice is to back that thing up again, local and have another local copy of it. It's like, oh my gosh, how many, how many, how many drives do I need? But I'm guilty of my second local copy being on a raid zero on another server. Cause I'm like, I don't care. Like it's my backup local. Like, you know, if that drive, if that dies, you know, I'll scramble, get another drive, do another raid zero. Who cares? Like, and I'll be backing up again. If that drives plus my main NAS drives, I'll get it from the cloud. So it's like, you know, my second local copy is like usually jank. It's, it's, it's a jank server. It was an old PC conversion board. Yeah."
+    },
+    {
+      "start": 4108.85,
+      "end": 4110.41,
+      "speaker": "SPEAKER_00",
+      "text": "Well, yeah, it's kind of like modern jank."
+    },
+    {
+      "start": 4110.71,
+      "end": 4129.79,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, that's right. That's right. But it's like every hard drive it can find, put it in a raid. I don't even care. Like, and if I see a success in the report, it's good. And on top of that, yeah. And then on top of that, I only turn that machine on at night during that hour to only do that backup during that time. Cause it uses power. So, but yeah."
+    },
+    {
+      "start": 4154.34,
+      "end": 4268.5,
+      "speaker": "SPEAKER_00",
+      "text": "If you're listening, you may remember the early days of the internet where open networks like HTTP and SMTP led to an explosion of websites in online communities, building a fan site and connecting over share passions led so many of us to careers in software. And I'm one of them. Back then it seemed like anything was possible because the internet of the nineties was built to democratize information, not consolidate it with a handful of big tech companies. Read, write, own, building the next era of the internet is a new book from startup investor Chris Dixon that explores how network architecture plays out in our online lives and the decision that took us from open networks governed by communities of developers to massive social networks run by internet giants. Read, write, own is a playbook for reclaiming control and for re -imagining applications so users can own, co -create and even profit from the platforms they use every day. From AI that compensates creators to protocols that reward open source contributions. This is our chance to build the internet we want, not the one we inherited. Order your copy of read, write, own today or go to readwriteown .com to learn more. Okay, so we've talked about networking, deep storage, deep, we can go on. And the next question I get asked all the time is connectivity. How do I home lab, but then also access home lab stuff externally? Now my easy button answer is Tailscale because Tailscale is just amazing, but that's really wire guard underneath and you can get more nerdier and more configurable than that. What do you do? What's what's next on your list? Is connectivity pretty important to you? What do you do?"
+    },
+    {
+      "start": 4269.22,
+      "end": 4275.88,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, yeah. How much time you got? Because this gets into self -hosting where it's like that's that's awesome."
+    },
+    {
+      "start": 4276.08,
+      "end": 4284.38,
+      "speaker": "SPEAKER_00",
+      "text": "This dovetails into the self -cloud too, I think so. I mean, we can blend these topics because that's what you're trying to do. You're trying to create a cloud that you can connect to, period."
+    },
+    {
+      "start": 4284.74,
+      "end": 4354.98,
+      "speaker": "SPEAKER_01",
+      "text": "That's right. So I just I just did a kind of a walkthrough of my home lab services or my self -hosted services for 2024, just really said a couple of weeks ago. It's kind of a walkthrough of my network, how traffic comes in, what it's running on. And I have both logical and physical diagrams and then everything I use. So thinking through that, what I typically use now, I know you can use tunnels like you mentioned, Tailscale or Cloudflare tunnels or whatever you want, where you expose something externally by creating a secure tunnel from home to your proxy in the cloud and having that proxy be your where it's exposed versus exposing it at home. I don't do that. I guess I do it the hard way. I've been doing it before. Tunnels were kind of a thing. These reverse tunnels. I actually use a reverse proxy to do that in port forwarding. So what I typically do and I use I use I do two layers of it versus Cloudflare. They're reverse proxy. So I point all my DNS to Cloudflare's reverse proxy, which does a couple of things. One, it gives me some anonymity. They, whoa, peace sign. Oh, that was Apple. All right. Yeah."
+    },
+    {
+      "start": 4355.2,
+      "end": 4355.78,
+      "speaker": "SPEAKER_00",
+      "text": "I like that."
+    },
+    {
+      "start": 4355.88,
+      "end": 4360.86,
+      "speaker": "SPEAKER_00",
+      "text": "Tim said, well, because he did a peace sign and the and the bubbles came up or the balloons came up and so it startled him."
+    },
+    {
+      "start": 4361.08,
+      "end": 4501.12,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. So yeah. Sorry. It's like, yeah, you're going to tell me you're on a Mac without telling me you're on your Mac. So anyways, it gives me some M and that word so hard for me to say, but it keeps my IP address hidden, keeps me anonymous, right? Where I use their proxy. But on top of that, it filters out all the bad stuff and all their known bad stuff so that only the good things are coming through. And then on top of that, you know, I port forward port 443. So SSL or TLS to a reverse proxy that I host locally too. And so that can be nginx proxy manager, super easy to use a good UI. You can automate your own certificates. But I use traffic, which is spelled a little bit odd. T -R -A -E -F -I -K, which is more of a, they do Docker and Kubernetes, but more of a cloud native type reverse proxy, which kind of does the same thing. So long story short, I forward traffic from the public internet into my home. I host stuff here. A lot of my techno tim .live, there's a lot of things that I have hosted here, and that's why I have to ensure that my network rules are set up properly. I kind of walk through that and how I do that. But at the end of the day, that's what I do. And I use Let's Encrypt to get certificates. I have my own certificates. I don't pay a hosting provider or anyone to get my certificates. It happens automatically. It's always secure. Every three months I get brand new ones. They're automatically put into the load balancer and traffic. And then behind there, I have Kubernetes. So I do self -host Kubernetes at home. Used to be Docker stuff for a long time, but all of my self -hosted services that I have that are public facing are then in VLAN. That is my public VLAN where those things live. And so anyone coming in for the public internet comes in through all of those things, comes in through Unifi and is terminated to a load balancer that has my own certificates, the provision publicly from Let's Encrypt, but they're trusted publicly and they get to my services securely. And so that's kind of how I have things set up. You could do a tunnel. No, I know tunnels are awesome. I play with them. I think they're awesome. I just have a hard time with opening up a tunnel on a node directly and just saying, do whatever you want to do and bypassing"
+    },
+    {
+      "start": 4501.12,
+      "end": 4502,
+      "speaker": "SPEAKER_00",
+      "text": "all"
+    },
+    {
+      "start": 4502,
+      "end": 4539.02,
+      "speaker": "SPEAKER_01",
+      "text": "of those layers of protection that I have in between. And I know there's secure ways to do it. I'm not saying they're insecure, but having an agent running on a node that then just is like, I have to trust that they had the right rules in place to only do 443 or whatever port you say, it's kind of, I don't know. I'm not there yet. So I know that I know they're awesome. And then don't get me wrong. There's plenty of use cases. Like if you have double NAT or you're on a carrier grade network where, hey, you can't do port forwarding, definitely some use cases there. But I don't know. I mean, I don't know. Maybe I'm old school. I don't know. I don't know if that's old"
+    },
+    {
+      "start": 4539.02,
+      "end": 4564.62,
+      "speaker": "SPEAKER_00",
+      "text": "school or what. I think you probably do it because you can and because you obviously you create content around the things you do in terms of exploration. So to me, it totally makes sense. Me, I don't make money doing what you do, or maybe you don't. I don't know. At least you put a lot of time into it. And so I felt like, well, the thing I'm optimizing for is not what you were optimizing for in that scenario. I was like, yeah, Tailscale works for me."
+    },
+    {
+      "start": 4564.82,
+      "end": 4597.74,
+      "speaker": "SPEAKER_01",
+      "text": "So I totally get that, right? No, no, I love Tailscale. Don't get me wrong. I'm probably going to be bringing in Tailscale here soon. I'm doing a colo project. You can maybe see my servers back there. I got three servers back there in my workbench. Going to be moving those to my own. I don't know. It's going to be my private cloud. But I'm going to be self -hosting stuff in the cloud along with here. And so I'll need something to build secure tunnels. Tailscale, great solution for that, right? To build tunnels securely between home and my colocation where I'm putting these servers. So"
+    },
+    {
+      "start": 4597.74,
+      "end": 4611.7,
+      "speaker": "SPEAKER_00",
+      "text": "it's pretty intense to, you know, I can see why people can be, what is home lab? And then intimidated by home lab because they probably hear folks like you and I geek out and you're way more geekier than I am because you go so deep."
+    },
+    {
+      "start": 4611.7,
+      "end": 4612.32,
+      "speaker": "SPEAKER_01",
+      "text": "Well,"
+    },
+    {
+      "start": 4612.52,
+      "end": 4669.82,
+      "speaker": "SPEAKER_00",
+      "text": "thank you. Thank you. Yeah, I'm just a tinkerer, you know? We haven't even talked about you. You did drop the spade Proxmox. So you did break spades, but we didn't go deeply into it, which is a whole different thing where you can sort of do private cloud stuff. You've got like, I've got the Intel NUC. This low powered that runs Proxmox and I've got several things on there. Home automation stuff on there and long -term plans on there. I could have Plex on there, but I don't because I have a different machine like we talked about before that was dedicated. Like why would I undo that to put it on a NUC? I mean, I sure I could, but that's, that's ruining all the fun of why I built that machine and why I'm going to keep it for life, even though it costs me $10 ,000 a month to power that thing. Just kidding. I mean, sure. It's quite expensive, but yeah. Okay. So accessing things, do you get it all into home automation, i .e. NFC tags, any automation whatsoever? I haven't heard you talk about it too much, but what do you do automation wise?"
+    },
+    {
+      "start": 4669.82,
+      "end": 4679.98,
+      "speaker": "SPEAKER_01",
+      "text": "I got lots of home automation here. So I, last I checked, I kind of walked through it on my home lab services tour. I don't know. I think I have 50 or 60 IOT devices here,"
+    },
+    {
+      "start": 4679.98,
+      "end": 4689.72,
+      "speaker": "SPEAKER_00",
+      "text": "if not more. How in the world do you manage all this stuff? I guess you do so much. How in the world do you even have time to keep it in your brain space to like consider the managing of it?"
+    },
+    {
+      "start": 4689.84,
+      "end": 4812.76,
+      "speaker": "SPEAKER_01",
+      "text": "I don't know. Well, I don't know. I don't, it's poorly managed at best. Well, I, you know, I, so I, I have a lot of smart devices in my home and I have all of them in home assistance. Super nice. If you don't know or someone doesn't know it's open source kind of hub for a lot of your smart stuff. If that smart device doesn't connect to your home hub of choice, either an app or Google home or Apple's home kit, you know, most likely people at the smart, smart people with home assistant have figured it out and got it connected there. On top of that, it's just, it's not collecting data, you know, your actions, I will say, stay within your home. So a huge, huge, huge privacy boost if you switch to something like that. So I do use home assistant. I use it kind of in a, in a weird way, but I have everything in home assistant. I then kind of use it as an interface to get some of my non home kit devices into home kit. For example, I, Wemo switches everywhere. It's a decision I made 10 years ago. They're not compatible with home kit. It's like, great. I'm not going to go replace 10 Wemo switches. Well, I found that home assistant can see those and then present those to home kit. And so I can, yeah. And so that's what I've been doing for a long time. I used to use this thing called home bridge and it was totally dedicated to being that interface, right? That interface between the device and home kit. And then I decided, well, home assistant could do the same thing. Plus I get all this other stuff. So long story short, I have a lot of different devices, which I like a lot of different manufacturers. I get them all into home assistant and then I can present all of them to home kit and people are probably like, why the heck are you using home kit? Well, because I can use voice commands on my phones. I get dashboards on my phone. I get all this stuff. Yeah. I get all this stuff in my Mac book. Like, like, don't get me wrong. Like home assistant is great, but what it would take me to move to home assistant was, would be, you know, replacing the voice assistant in my phone. So then I can just press a button and bark out commands for it to work."
+    },
+    {
+      "start": 4813.16,
+      "end": 4834.88,
+      "speaker": "SPEAKER_00",
+      "text": "Or your watch. Do you have a watch too? I used to use my watch too. I'm known for like being like James Bond, living room off. Oh yeah. That's what I'll say to kids. Like they just, my kids hear me say that and just know, okay, we're moving along to like go upstairs and play or whatever. Like whatever we're doing here is over now. Dad's home. Living room's off. Let's go upstairs. And that's just telling my TV to turn off, you know?"
+    },
+    {
+      "start": 4834.9,
+      "end": 4847.62,
+      "speaker": "SPEAKER_01",
+      "text": "Oh yeah. I do it all the time when I'm carrying out the recyclables and saying, open the garage door in my thing. You know, my neighbors probably think I'm, I'm crazy. Well, they know I'm crazy. They're confirming it. Uh, but you know, cause I have my garage door. Yeah, that's right. So,"
+    },
+    {
+      "start": 4847.64,
+      "end": 4848.52,
+      "speaker": "SPEAKER_00",
+      "text": "so"
+    },
+    {
+      "start": 4848.52,
+      "end": 4909,
+      "speaker": "SPEAKER_01",
+      "text": "yeah. So I do that. And then on top of that, then you might like this. Um, you know, I, I have. Unified cameras. They're not compatible with home kit, but there's an open source solution called scripted that allows you to connect all of your unified cameras securely to home kit. And so now it's so it's called scripted. I have a video on it. I haven't seen that one yet. So that's on my list now. Yeah. So anyways, like, you know, anytime I can check, you know, within the app to see what's going on to any camera, I could, I could, you know, do whatever. If I'm watching something on my Apple TV and someone comes by and delivers a package, it'll show a pop up, say someone's at your door with a package and it's, it's fantastic. So, you know, those types of integrations are, are, are nice. And so that's why I lean into home assistant, even though I don't use it full on, I'm still a huge fan of it. And I still use it every day. It's in my home lab and it takes very little care and feeding. And it's, it's, it's so awesome. Like I can't, can't sing its praises enough. Do you run it as a"
+    },
+    {
+      "start": 4909,
+      "end": 4915.12,
+      "speaker": "SPEAKER_00",
+      "text": "Docker image or you, is that like a Proxmox machine of obviously, right? Yes. All the above. So yes,"
+    },
+    {
+      "start": 4915.2,
+      "end": 4963.04,
+      "speaker": "SPEAKER_01",
+      "text": "it's it's ready for this. Good. It's a container inside of my Kubernetes cluster. That's inside a, of a Proxmox virtual machine. So I run it in Kubernetes. Yeah. Yeah. Come on, Sam. I know, I know. At the end of the day though, you can run it as a container or you can use the Haas IO, the, the, the full installation of home assistant, which, which is great. Like if you're a beginner to it, do that because you're going to get plugins, you're going to get all this additional stuff. To me, I say, I don't need your plugins for like Nginx, Proxmox. I don't need all those plugins cause I can install those myself. So I do run it in a container. But I would, I would advise if you're going to do it just run it on a virtual machine, a dedicated virtual machine, a small form factor device that you don't mind being on that sips 10 Watts of power all day long, you know?"
+    },
+    {
+      "start": 4964.06,
+      "end": 5037.38,
+      "speaker": "SPEAKER_00",
+      "text": "Let's approach that then because I feel like there's a divide there where you can go Proxmox VM dedicated to Docker virtual machines, or you can go the crazy route like you did cause you don't mind managing Kubernetes. So there's some that will say, you know, should I run Kubernetes in my home lab? Obviously your answer is yes, but I think it comes with the caveats because you don't mind what's required to do so. Me personally, I'm cool with like just simply spinning up a machine for a few, maybe even like one dedicated cause I have capacity and I don't care. I'm not trying to cram it all in. I might just run one single VM just to run Docker on it for one single application like home assistant, for example. Or I might run a more beefier VM with more cores attached to it and more RAM available to it. And I might run Portainer or something like it to have multiple Docker instances on a single machine and then do internetworking, et cetera. Like at what point do you say, okay, this makes sense for Kubernetes in home lab, or this makes sense for a Portainer beefy machine, beefy VM with multiple Dockers or just a single Ubuntu instance with one Docker. How do you, how do you feel about, I guess, all those scenarios? Not really a question, but more like there's a hodgepodge, Tim. No, I like"
+    },
+    {
+      "start": 5037.38,
+      "end": 5258.7,
+      "speaker": "SPEAKER_01",
+      "text": "it. No, I like it. Should you run Kubernetes at home? No. I'll answer the first question. Yeah, there are some caveats. I get to ask that, I just asked that question yesterday on a live stream. And you know, a lot of folks think that there's this natural linear progression to Kubernetes, right? As we had from virtual machines, right? Physical machines turn to virtual machines and then people realize, hey, with containers, I don't need all of that excess OS stuff. So I'll just run containers. And it's this linear progression. The next linear progression isn't always Kubernetes, right? Kubernetes provides a lot of things and does a lot of things different than just Docker itself. And so that might be a side quest or a dotted line to somewhere else to basically ask yourself, do I need things to be highly available? Do I need, you know, health checks? Do I need unified storage and unified networking? Do I need load balances? Do I need all of these things? Really, because Kubernetes was made to run things at scale. And so what can you run at scale at home? Almost nothing, almost nothing. There are caveats, but almost every single Docker container for home and home lab is built as a monolith. So what does that mean? It means, hey, I have my API in there. I have my database in there. I have all of my code to run and I have all the dependencies I need. And when I hit start on that thing, I say, Docker, you know, start, compose up, whatever. It has everything it needs. And so most are built that way in a monolith. Can you scale monoliths? No, no, because then you start to get in split brain scenario. You know, you spin up one Plex server. You know, he thinks he's, hey, I'm in charge. You know, I got everything. I know what your movies are and I know who's watching what. Spin up another one. You know, he thinks he's in charge and they don't know about each other, right? So you end up in the split brain scenario. So most of the time for 99 % of the things that people do in home lab, you know, Kubernetes is not going to be a good fit for scaling. Now, is it a good fit for if you want something highly available? I'm not saying totally fault tolerant, but highly available. Maybe, you know, you're running this Plex. This Plex dies or this node goes away. You know, right now the Docker way is to, oh, hurry up and spin up a new machine and get Docker on there and back up that data and bring that data over and start Plex again. And you're back in business. The Kubernetes way is to say this one died. Okay, well, you have a couple of nodes over here that this could run on. I'm going to spin you up over here and things continue to run. Obviously there's going to be a blip and all this stuff and timeouts that need to happen. But at the end of the day, that's one thing that Kubernetes is going to get you, even if you are running it at home. Anyways, but a lot of people think, you know, it's this progression. I did Docker, I mastered Docker and I'm running everything here. Now I get to go to Kubernetes. I would just caveat it with, don't think of it as I'm going to migrate all of my services to Kubernetes. Think about it like I'm going to spin up Kubernetes in my home lab, in this environment that I have, this playground, and I'm going to play with it and I'm going to see if it applies. And if it's too complicated, if it's too much overhead, if I get frustrated and I'm not having fun anymore, don't do it. And so, so that one's out of the way. So that one's, you know, I would say like, it's, it's a great skill to learn. If you can learn it on your own, awesome. If you can learn it on work time, even better. But if you can't learn it on work time and they need someone who knows Kubernetes, you know, it might be a good fit for you to learn at home or it might be a good fit for you to, you know, level up so that maybe you can go manage Kubernetes somewhere else. So,"
+    },
+    {
+      "start": 5258.73,
+      "end": 5259.65,
+      "speaker": "SPEAKER_00",
+      "text": "but"
+    },
+    {
+      "start": 5259.65,
+      "end": 5477.39,
+      "speaker": "SPEAKER_01",
+      "text": "then that aside, so then we get into, you know, where should I put my Docker containers? I think that's kind of like the question. And what do I do if I have multiple and all of this? So I, I've been through this a lot. I used to run multiple Docker hosts, you know, I put some here and some here and I'd have to figure out that I'd have to do the math in my head to say, this one uses a lot of Ram. This one doesn't, this one uses a lot of disc IO. This one doesn't. I had, I had to separate them before things that Kubernetes will help with. But anyways, I got into the point where I started running just a single Docker host and I didn't think about it anymore. Like I didn't think about it in terms of what the resource constraints were. Cause I had a server that could do anything that I wanted and give it 24 cores and give it 256 gigs of Ram if it needed. And then it has, you know, disks that are, you know, multiple SSD drives that are backed by ZFS. So once I got out of like the hardware requirements, I decided I'm going to put them all on one. And I think, I honestly think that's the way to go until you need to start separating stuff out based on the network requirements. So I would highly recommend like, Hey, if, if you're running one Docker container in one Docker container, another VM, I would just put them all on one and I would stack it. I would go vertical. Cause that's the benefit of Docker and running things that is a single host scale vertically as far as you can until you can't anymore. And then, you know, if you have something like, Hey, let's say you want to host something publicly, you have a website, right? And you don't want to forward all your traffic to all of your, your private stuff. That's where I would say, okay, move this one workload off onto another VM and have that be where your public workloads run. Not so easy to figure out. Like it's not so easy in your head to figure out like just have public incoming stuff, but basically wherever you're going to port forward those ports or open up a tunnel, I'd say that's probably a good candidate to put somewhere else. And so I started, I started dividing mine up logically and not by resources because I knew that my ProxBox host could handle anything that I would throw at it. And by dividing them up, I was actually causing more points of failure. It's something that I just even recently did with my Plex migration recently. You know, I was giving myself more, more latency and more points of failure by separating stuff out. And so now, you know, with my Plex server, you know, I used to run it on a machine and then it would connect to my NAS to get data. And then now if I reboot my NAS, Plex is down. If I reboot my host, my Docker host that's running, Plex is down. So I just doubled, you know, my downtime or probability of something being down just because I wanted to separate them out. So I think for me, it's always, you know, it's always expand and consolidate, expand, consolidate. But the more I do it, I think the better reasons I have to do it. In the beginning, I didn't have a lot of reasons other than I just think it should be this way. But now as I start to do it a lot, I have some experience to back it. But yeah, that's kind of my thing. I'm at the point now where it's like consolidate as much as you can on the same machine, means less machines on. If it's a virtualization host, put them all on one VM. It's only one thing to back up, less points of failure. It's only one thing to triage, only one thing to patch. But if you get to a point where you're going to start hosting things publicly, you might want to move that off that stack, put it on its own stack, and that becomes your public facing stuff, which may or may not be hard to do because you might, you know, it might be Plex where, where does that fall? Because, you know, I'm kind of, you know, hosting things publicly, but at the same time, it's not a public website, you know? Yeah."
+    },
+    {
+      "start": 5477.61,
+      "end": 5492.99,
+      "speaker": "SPEAKER_00",
+      "text": "Anyways, that's kind of how I do it. It's a good synopsis of how you work out. I mean, especially with Plex, it sounds like you have Plex on its own machine and the storage is somewhere else external to Plex. Is that right? It used to be that way."
+    },
+    {
+      "start": 5492.99,
+      "end": 5543.81,
+      "speaker": "SPEAKER_01",
+      "text": "It's been that way for years. Just recently I moved it on to TrueNAS because I thought like, why have two points of failure and why, like, like, why did I separate it for a long time? Cause I needed the video card. Well, I got to a point, I just did it last weekend. Oh, not last. Yeah. Last weekend. I just moved the video card inside of TrueNAS, spun up the TrueNAS Plex app and said, there goes my latency. There goes my two points of failure. Like Plex always needs access to my media. Like why put it on anything else? And so that, I mean, there's one use case where it's like, Plex can't run too well without media. I mean, it can, but at the same time, like that's what it's really exactly. So I ended up putting it on my TrueNAS, put the video card in there and now I'm just like, this is awesome. Now I don't have that virtual machine to even worry about. It's in Plex, less latency, less points of failure. So,"
+    },
+    {
+      "start": 5543.89,
+      "end": 5552.01,
+      "speaker": "SPEAKER_00",
+      "text": "and so in your case, you're using a video card, not the iGPU and Quick Sync, or you're probably still using Quick Sync, but is it external to that? What video card are you using? So"
+    },
+    {
+      "start": 5552.01,
+      "end": 5589.87,
+      "speaker": "SPEAKER_01",
+      "text": "I'm using a, I bought it a while ago and it's still great. It's an NVIDIA P2200. So it's one of their, it's not the NVIDIA, I forget, it's a Quadro series card. So more geared towards vector, but also has a really good NVENC encoder inside of it. I would use Quick Sync, but the CPU that's running inside of my NAS isn't, it's not a core processor. It's a Xeon actually, a low core count, low wattage Xeon. So I don't have video cards. So is that on your AV15 then, is your TrueNAS server? HL15."
+    },
+    {
+      "start": 5590.23,
+      "end": 5603.71,
+      "speaker": "SPEAKER_00",
+      "text": "So HL15. Yeah, yeah, yeah. That's new to you. Well, didn't you have an AV15 as well? That's right. Yeah. So you have both? I have both. Yep. So you have 30 disks available of hard drive storage, Tim? And two machines, of course, but that's still a lot of capacity."
+    },
+    {
+      "start": 5604.78,
+      "end": 5612.08,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. Yeah, I do. Yeah, yeah, yeah. So yes, I have more. I have more slots to fill everywhere. But yeah,"
+    },
+    {
+      "start": 5612.08,
+      "end": 5613.2,
+      "speaker": "SPEAKER_00",
+      "text": "so"
+    },
+    {
+      "start": 5613.2,
+      "end": 5659.6,
+      "speaker": "SPEAKER_01",
+      "text": "I had an AV15 earlier from 45 drives. They sent it to me. And then as part of going out and working with them with the HL15, they sent me one too, which was super nice of them to do. And it helped me give it a review and go through all the parts and pieces. And at the same time, I realized that's about all the Xeon I need. It's a great server because at first I kind of balked at the six cores and 1 .9 gigahertz processor speed. But then I realized this thing's running at 80 watts less all day long. And that's real money savings. And I don't use CPU on it anyway. So it actually turned out to be like the perfect... Smarter. The perfect CPU, I think, for that box."
+    },
+    {
+      "start": 5660.34,
+      "end": 5671.39,
+      "speaker": "SPEAKER_00",
+      "text": "So... Well, we barely touched on Proxmox, which is fine with me. Let's look at the future. What do you think's coming this year? What's coming this year that's got you excited at least?"
+    },
+    {
+      "start": 5671.87,
+      "end": 5850.5,
+      "speaker": "SPEAKER_01",
+      "text": "Well, that's tough because I feel like with a lot of the home lab stuff I do, I feel like I'm really on the cutting edge or on at least some edge, at least for me. I tend to keep my network stuff on the edge, my server stuff pretty much on the edge, my desktop stuff on the edge. So it's tough. It's like, what's coming that is interesting? I will say that one thing I played with over the last week or so is Oculink, which is pretty cool. I don't know if people have even heard of Oculink, but it's this interface on a motherboard where you can get more PCI Express devices or PCI slots or lanes so that you can run more devices. Basically is what it boils down to. And so it's this weird port on some motherboards where if you plug it in, you can plug in a PCI Express device and give you four more lanes. So why is that interesting? Well, some people don't have enough lanes or slots to run more NVMe drives. And so I found that, hey, this is pretty cool. If you wanted to run a video card or an NVMe drive over Oculink, you totally could. I mean, I would say that the cable's the most expensive thing, but at the same time, pretty cool. Pretty cool. So I'd love to see that taken advantage of some more. It's pretty interesting because if you start to think about mini PCs, if you buy a mini PC, you're kind of locked into your video card. Something with Oculink could unlock that to where it's like, oh, OK, now I can do some kind of compute outside of there. It's pretty interesting. Local AI stuff is pretty cool and pretty interesting. I will say, though, it takes a ton of compute to actually do anything local AI. That's worth it. You realize how much GPU or how much compute clouds are using to do this stuff all day every day. You know, if you're using even the most aggressive GPU to do any kind of AI stuff, it's still pretty slow compared to clouds. That's definitely interesting to me. Yeah, it's a tough call. I feel like in my daily, weekly type stuff, I'm usually working on a lot of the stuff that hasn't yet fell into most total members hands yet, not because they don't want it. It's just because I kind of got to stay a little bit ahead just because the industry I'm in because, you know, making content for folks. But I would love to see. So this is not on radar, but I would love to see Intel actually or even AMD, for that matter, unlock some more CPU lanes for PCI Express in there on their processors. That's something that it's like driving me crazy and preventing me from upgrading to a new Intel machine is, you know, the whole 20 lane limit on their PCI Express slot. But that, again, is kind of goes into home lab because a lot of people are starting to use desktop processors for the home lab stuff and having 20 lanes is almost kind of pointless for home lab stuff, depending on what you're doing. Yeah, 20 lanes is, you know, 20 lanes as you put in a GPU, that's 16. So you get four, you know, after that. So, yeah,"
+    },
+    {
+      "start": 5850.7,
+      "end": 5950.02,
+      "speaker": "SPEAKER_00",
+      "text": "similar to that, I think I have an EV15 as well and there is a 10 gigabit fiber card, dual fiber card. So I've got two 10 gigabit connections. It's just basically just bigger pipe, not 20 at that point. Yeah. And that thing I think uses 16 lanes. And at that point, you really don't have anything else you can add to the machine after that. Now it's also got the HSB card in there as well, which is a lot of lanes for all those disks, you know, between the network card and that, like all the PCI lanes are consumed to their fullest potential, really. Yeah. I agree with you on that. I wish there was a bit more flexibility there. And I think on my other machine, I have an IPMI card I could put in it, but I didn't put it in it because I have chosen to put a four lane NVMe card in instead, which I'm going to choose NVMe over IPMI. I could just figure it out. I'll go over and touch it and reboot it. So I'm not worried about IPMI. It's right here. I don't really need to have that remote accessibility to its, you know, rebooting features and whatnot. So I chose that, which that in particular is a Proxmox machine and all of the things run on those four NVMe's. So that essentially is the ZFS storage that Proxmox sits on, all of its backup, all of its speed, et cetera. So that's how that works for me. And I think there might be one NVMe onboard, which is where the operating system is installed. So one NVMe on the motherboard and a carrier card with four NVMe's. I think it's like four terabyte total in RAID 0. It might be RAID 2 or mirrored. I don't know what it did. I forget. It's saying it might be zero. It might"
+    },
+    {
+      "start": 5950.02,
+      "end": 6044.68,
+      "speaker": "SPEAKER_01",
+      "text": "be because why not? Yeah, it's tough because, you know, people in home lab like their slots. They like, you know, they like their slots. They like their PCI express lanes. It gets tough. Like when now you have, you know, motherboard manufacturers building motherboards that only have a couple of slots. They're doing that because the CPU itself can only address so many lanes. You know, I think you got a lot of people in home. I'm saying, well, there aren't many choices. You know, if I want to run three devices, you know, that take up three slots, you know, I got to go to this old enterprise thing. And so, yeah, I would love, I would love to see board and CPU manufacturers, you know, just put more slots on it. I know it's a technical thing and I know you can get around it using server class processors and, you know, maybe that's what you have to do. But at the same time, like everyone, you know, loves to tinker. Until everything starts coming on your board that you would slot in, we still need more slots. Always, yeah, for sure. Yeah, it's tough. But I think we're going to continue to see people, I don't want to say downsizing, but I will say maybe physical downsizing. But I think we'll continue to see people getting smaller form factor stuff using that as home lab type stuff. I think we're going to continue to see people using, you know, quick sync for a GPU to do transcoding and maybe stuff in the future. You know, I would love, I think people are going to buy more hard drives. There's no doubt about that. People are going to buy more hard drives. And then, you know, on top of that, people still want SSDs that are gigantic, but I don't think we're going to see them anytime soon. Yeah."
+    },
+    {
+      "start": 6045.1,
+      "end": 6052.38,
+      "speaker": "SPEAKER_00",
+      "text": "Or the price tag. I think every time I've like considered buying any more than two terabytes, I'm like, that just, I can't do that. It just hurts too bad."
+    },
+    {
+      "start": 6052.62,
+      "end": 6056.7,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. That's where the jump is. I think right now, going two to four, you know? Yes."
+    },
+    {
+      "start": 6057.12,
+      "end": 6074.87,
+      "speaker": "SPEAKER_00",
+      "text": "It's like a more than double jump in most cases. Yeah. I mean, obviously it's storage double as well, but it's just, you know, 800 bucks for one drive. I think it's the last time I checked it. I could be wrong. Yeah. It was more, I was like, yeah, I can't buy four of those, so I'm not going to buy one of those. That's right. That's right."
+    },
+    {
+      "start": 6075.09,
+      "end": 6090.59,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah. We got to buy stuff in twos and fours and threes. You know, home lab is always that way. Buy my servers and threes, my RAM and twos, my drives and twos. There's no one of anything. That's right. You know, unless it's a PCI express device, you know, it's, it's tough. It's tough."
+    },
+    {
+      "start": 6091.63,
+      "end": 6104.81,
+      "speaker": "SPEAKER_00",
+      "text": "Well, good, Tim. I think we covered most of what I wanted to cover. Some direct and indirect questions from our audience. Appreciate those folks in Slack saying hello. So I appreciate that. Anything, anything left on set? What's left?"
+    },
+    {
+      "start": 6105.49,
+      "end": 6118.33,
+      "speaker": "SPEAKER_01",
+      "text": "Yeah, I don't know. I'm in. It depends on the day and what I'm doing now. I don't know. But I really appreciate coming on and I'm, I'm happy to, to answer any questions anyone has, or you can, you, you know where to find me, but you can ping me at any time. But"
+    },
+    {
+      "start": 6118.33,
+      "end": 6118.95,
+      "speaker": "SPEAKER_00",
+      "text": "I"
+    },
+    {
+      "start": 6118.95,
+      "end": 6166.69,
+      "speaker": "SPEAKER_01",
+      "text": "love talking home lab. It's, you know, it's this thing in my, it's like this itch that I need to scratch. And, you know, I say, I say this a lot, even to my audience, you know, it's, it's the one time a week. Now I got two times a week with you. Thank you. But my streams and talking, you know, with people about home lab, I get usually one time a week to totally geek out for an hour. And, you know, because a lot of the people I'm surrounded by don't do what I do or have any idea what I'm talking about. Yeah. So I really appreciate, you know, being on here and, and getting to geek out for a second time this week on, on home lab stuff. Cause it's pretty awesome. It is, it is. And it's, uh, you know, you start talking to, you know, people in different circles and you start mentioning, you know, PCI express or ZFS. They're just like, what are you even talking about?"
+    },
+    {
+      "start": 6166.91,
+      "end": 6168.09,
+      "speaker": "SPEAKER_00",
+      "text": "Yeah. What is"
+    },
+    {
+      "start": 6168.09,
+      "end": 6170.03,
+      "speaker": "SPEAKER_01",
+      "text": "ZFS and why are you so excited about it?"
+    },
+    {
+      "start": 6170.53,
+      "end": 6176.75,
+      "speaker": "SPEAKER_00",
+      "text": "Listen, I can't even tell you. Okay. I'm sorry. How much time you got? That's right. That's right. Do you know about Plex? What's Plex? Oh, forget"
+    },
+    {
+      "start": 6176.75,
+      "end": 6190.33,
+      "speaker": "SPEAKER_01",
+      "text": "it. Oh, but yeah, I really appreciate coming on and thanks for, you know, sharing me with your community. And if I didn't answer anything, you can ping me anywhere and I'll, I'll try to get an answer for you. Cool. All right. Bye friends."
+    },
+    {
+      "start": 6194.99,
+      "end": 6302.13,
+      "speaker": "SPEAKER_00",
+      "text": "Okay. That's the state of home lab as we know it right now. This is January, 2024. Looking forward to some cool stuff happening this year and in the future. And it's always fun catching up with Tim. Honestly, I love just some of the riffs we get to go into. It was a lot of fun. So if you want to hear Tim more frequently on this podcast or any of our podcasts, then I would say share this show with every single home labber, home lab curious, or should be home lab curious folks, you know, out there and get them in home lab tech is where it's at. And by the way, the home lab channel in our Slack, which is free by the way, is quite active. A lot of signal, not much noise. You should check it out. Go to changelog .com slash community and get into Slack, get into the community, get into the home lab channel and say hello. Share what you're working on. Love to hear it. Okay. Big thank you to our friends and partners at fly .io. Put your app closer users. So awesome. Check them out at fly .io. Also big thanks to our friends at century. Use our code changelog to get $100 off the team plan for free for three months. They just launched Chrome monitoring. So check that out. Learn more at century .io. And a big thank you to the beat freak in residence break master cylinder. Did you know we're coming out with another album soon? Check out our Spotify. The links are in our footer on the website, change all .com. And of course, if you're in Slack, we'll tell you there too, but we're excited. We're excited. Okay. That's it for this episode on home lab tech with my good friend, techno Tim. Thanks for tuning in. We'll see you next week."
+    }
+  ],
+  "slug": "the-state-of-homelab-tech-2024",
+  "id": "27"
+}
