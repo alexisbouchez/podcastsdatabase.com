@@ -109,7 +109,7 @@ export function Search() {
         onClick={() => setOpen(true)}
         className="text-sm text-foreground/40 hover:text-foreground/60 no-underline"
       >
-        [search: /]
+        [{content.searchButton}]
       </button>
     );
   }

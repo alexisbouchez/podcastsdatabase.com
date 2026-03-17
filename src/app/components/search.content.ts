@@ -44,6 +44,12 @@ const searchContent = {
       fr: "Chargement...",
       es: "Cargando...",
     }),
+
+    searchButton: t({
+      en: "search: /",
+      fr: "recherche : /",
+      es: "buscar: /",
+    }),
   },
 } satisfies Dictionary;
 
