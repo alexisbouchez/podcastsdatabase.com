@@ -1,18 +1,13 @@
 "use client";
 
+import { useIntlayer } from 'next-intlayer';
 import { useSyncExternalStore } from "react";
 
 type Theme = "system" | "light" | "dark";
 
-const LABELS: Record<Theme, string> = {
-  system: "system",
-  light: "light",
-  dark: "dark",
-};
-
 function getTheme(): Theme {
   const stored = localStorage.getItem("theme") as Theme | null;
-  return stored && LABELS[stored] ? stored : "system";
+  return stored && ["system", "light", "dark"].includes(stored) ? stored : "system";
 }
 
 function subscribe(cb: () => void) {
@@ -21,7 +16,14 @@ function subscribe(cb: () => void) {
 }
 
 export function ThemeToggle() {
+  const content = useIntlayer('theme-toggle');
   const theme = useSyncExternalStore(subscribe, getTheme, () => "system" as Theme);
+
+  const labels: Record<Theme, string> = {
+    system: content.system.value,
+    light: content.light.value,
+    dark: content.dark.value,
+  };
 
   function cycle() {
     const order: Theme[] = ["system", "light", "dark"];
@@ -35,9 +37,9 @@ export function ThemeToggle() {
     <button
       onClick={cycle}
       className="text-sm text-foreground/40 hover:text-foreground/60"
-      aria-label={`Theme: ${LABELS[theme]}. Click to change.`}
+      aria-label={`Theme: ${labels[theme]}`}
     >
-      [{LABELS[theme]}]
+      [{labels[theme]}]
     </button>
   );
 }
