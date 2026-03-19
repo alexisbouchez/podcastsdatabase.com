@@ -30,18 +30,6 @@ export function GET() {
         context: `${p.title}${ep.date ? ` — ${ep.date}` : ""}`,
       });
 
-      if (ep.segments) {
-        // Index transcript segments grouped per speaker turn
-        for (let i = 0; i < ep.segments.length; i++) {
-          const seg = ep.segments[i];
-          entries.push({
-            type: "transcript",
-            title: seg.text,
-            url: `/podcasts/${p.slug}/episodes/${ep.slug}#seg-${i}`,
-            context: `${p.title} #${ep.number}`,
-          });
-        }
-      }
     }
   }
 
