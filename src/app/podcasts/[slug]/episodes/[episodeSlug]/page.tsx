@@ -176,7 +176,7 @@ export default async function EpisodePage({
         const videoId = new URL(youtubeUrl).searchParams.get("v");
         if (!videoId) return null;
         return (
-          <div className="mt-6 aspect-video w-full">
+          <div className="mt-6 aspect-video max-w-sm">
             <iframe
               src={`https://www.youtube.com/embed/${videoId}`}
               title={episode.title}
