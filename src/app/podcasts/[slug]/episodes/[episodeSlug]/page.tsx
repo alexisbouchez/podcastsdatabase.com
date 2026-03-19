@@ -172,6 +172,24 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
         </nav>
       )}
 
+      {(() => {
+        const youtubeUrl = episode.links["youtube"];
+        if (!youtubeUrl) return null;
+        const videoId = new URL(youtubeUrl).searchParams.get("v");
+        if (!videoId) return null;
+        return (
+          <div className="mt-6 aspect-video w-full">
+            <iframe
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={episode.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          </div>
+        );
+      })()}
+
       {episode.segments && episode.segments.length > 0 && (
         <section className="mt-10">
           <Transcript segments={episode.segments} speakerMap={speakerMap} />
