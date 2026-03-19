@@ -58,7 +58,7 @@ function PersonContent({ slug }: { slug: string }) {
     podcast: string;
     slug: string;
     episodeSlug: string;
-    episodeId: string;
+    episodeId: number;
     title: string;
   }[] = [];
 
@@ -69,7 +69,7 @@ function PersonContent({ slug }: { slug: string }) {
           podcast: podcast.title,
           slug: podcast.slug,
           episodeSlug: ep.slug,
-          episodeId: ep.id,
+          episodeId: ep.number,
           title: ep.title,
         });
       }
@@ -80,7 +80,7 @@ function PersonContent({ slug }: { slug: string }) {
             podcast: podcast.title,
             slug: podcast.slug,
             episodeSlug: ep.slug,
-            episodeId: ep.id,
+            episodeId: ep.number,
             title: ep.title,
           });
         }

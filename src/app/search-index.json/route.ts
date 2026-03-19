@@ -25,7 +25,7 @@ export function GET() {
     for (const ep of episodes) {
       entries.push({
         type: "episode",
-        title: `#${ep.id} ${ep.title}`,
+        title: `#${ep.number} ${ep.title}`,
         url: `/podcasts/${p.slug}/episodes/${ep.slug}`,
         context: `${p.title}${ep.date ? ` — ${ep.date}` : ""}`,
       });
@@ -37,8 +37,8 @@ export function GET() {
           entries.push({
             type: "transcript",
             title: seg.text,
-            url: `/podcasts/${p.slug}/episodes/${ep.id}#seg-${i}`,
-            context: `${p.title} #${ep.id}`,
+            url: `/podcasts/${p.slug}/episodes/${ep.slug}#seg-${i}`,
+            context: `${p.title} #${ep.number}`,
           });
         }
       }

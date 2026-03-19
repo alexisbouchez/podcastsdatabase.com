@@ -19,6 +19,7 @@ export interface EpisodeSegment {
 export interface Episode {
   id: string;
   slug: string;
+  number: number;
   title: string;
   date?: string;
   description?: string;
@@ -98,15 +99,19 @@ export function getPodcastLogo(slug: string): string | null {
 export function getEpisodes(podcastSlug: string): Episode[] {
   const dir = path.join(DATA_DIR, "podcasts", podcastSlug, "episodes");
   if (!fs.existsSync(dir)) return [];
-  return fs
+  const episodes = fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".json"))
     .map((f) => {
       const slug = f.replace(".json", "");
       const data = JSON.parse(fs.readFileSync(path.join(dir, f), "utf-8"));
-      return { slug, id: data.id ?? slug, ...data };
+      return { slug, id: data.id ?? slug, number: 0, ...data };
     })
-    .sort((a, b) => Number(b.id) - Number(a.id));
+    .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? "") || a.slug.localeCompare(b.slug));
+  // Assign episode numbers by release order (oldest = #1)
+  episodes.forEach((ep, i) => { ep.number = i + 1; });
+  // Return newest first for display
+  return episodes.reverse();
 }
 
 export function getEpisode(
@@ -122,7 +127,9 @@ export function getEpisode(
   );
   if (!fs.existsSync(file)) return null;
   const data = JSON.parse(fs.readFileSync(file, "utf-8"));
-  return { slug: episodeSlug, id: data.id ?? episodeSlug, ...data };
+  const episodes = getEpisodes(podcastSlug);
+  const number = episodes.find((ep) => ep.slug === episodeSlug)?.number ?? 0;
+  return { slug: episodeSlug, id: data.id ?? episodeSlug, number, ...data };
 }
 
 export function getPersonLanguages(slug: string): string[] {

@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!podcast || !episode) return {};
   const logo = getPodcastLogo(slug);
   const epPath = `/podcasts/${slug}/episodes/${episodeSlug}`;
-  const title = `#${episode.id} ${episode.title} — ${podcast.title}`;
+  const title = `#${episode.number} ${episode.title} — ${podcast.title}`;
   return {
     title,
     description: episode.description,
@@ -88,7 +88,7 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
     name: episode.title,
     description: episode.description,
     url: `https://www.podcastsdatabase.com${epPath}`,
-    episodeNumber: Number(episode.id),
+    episodeNumber: episode.number,
     ...(episode.date && { datePublished: episode.date }),
     ...(totalDuration > 0 && {
       duration: `PT${Math.floor(totalDuration / 60)}M${Math.floor(totalDuration % 60)}S`,
@@ -117,13 +117,13 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
           { label: "Podcasts", href: "/podcasts" },
           { label: podcast.title, href: `/podcasts/${slug}` },
           { label: content.episodes.value },
-          { label: `#${episode.id}` },
+          { label: `#${episode.number}` },
         ]}
       />
 
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
-          {podcast.title} — {content.episode} {episode.id}
+          {podcast.title} — {content.episode} {episode.number}
           {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
