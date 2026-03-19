@@ -1,6 +1,5 @@
 "use client";
 
-import { useIntlayer } from 'next-intlayer';
 import { useSyncExternalStore } from "react";
 
 type Theme = "system" | "light" | "dark";
@@ -16,13 +15,12 @@ function subscribe(cb: () => void) {
 }
 
 export function ThemeToggle() {
-  const content = useIntlayer('theme-toggle');
   const theme = useSyncExternalStore(subscribe, getTheme, () => "system" as Theme);
 
   const labels: Record<Theme, string> = {
-    system: content.system.value,
-    light: content.light.value,
-    dark: content.dark.value,
+    system: "system",
+    light: "light",
+    dark: "dark",
   };
 
   function cycle() {

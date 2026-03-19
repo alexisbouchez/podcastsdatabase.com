@@ -1,6 +1,5 @@
 "use client";
 
-import { useIntlayer } from 'next-intlayer';
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 
@@ -11,16 +10,14 @@ interface SearchEntry {
   context?: string;
 }
 
+const TYPE_LABELS: Record<string, string> = {
+  podcast: "podcast",
+  person: "person",
+  episode: "episode",
+  transcript: "transcript",
+};
+
 export function Search() {
-  const content = useIntlayer('search');
-
-  const TYPE_LABELS: Record<string, string> = {
-    podcast: content.typePodcast.value,
-    person: content.typePerson.value,
-    episode: content.typeEpisode.value,
-    transcript: content.typeTranscript.value,
-  };
-
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
@@ -28,7 +25,6 @@ export function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
-  // Load index on first open
   useEffect(() => {
     if (open && !index) {
       fetch("/search-index.json")
@@ -40,7 +36,6 @@ export function Search() {
     }
   }, [open, index]);
 
-  // Search via useMemo
   const results = useMemo(() => {
     if (!index || !query.trim()) return [];
     const lower = query.toLowerCase();
@@ -65,7 +60,6 @@ export function Search() {
     return scored.slice(0, 50).map((s) => s.entry);
   }, [query, index]);
 
-  // Keyboard shortcut to open
   useEffect(() => {
     function handleKey(e: KeyboardEvent) {
       if (e.key === "/" && !open && !(e.target instanceof HTMLInputElement)) {
@@ -97,7 +91,6 @@ export function Search() {
     [results, selected],
   );
 
-  // Scroll selected into view
   useEffect(() => {
     const el = resultsRef.current?.children[selected] as HTMLElement;
     el?.scrollIntoView({ block: "nearest" });
@@ -109,7 +102,7 @@ export function Search() {
         onClick={() => setOpen(true)}
         className="text-sm text-foreground/40 hover:text-foreground/60 no-underline"
       >
-        [{content.searchButton}]
+        [search: /]
       </button>
     );
   }
@@ -131,7 +124,7 @@ export function Search() {
           <input
             ref={inputRef}
             type="text"
-            placeholder={content.searchPodcastsPeopleEpisodesTranscripts.value}
+            placeholder="Search podcasts, people, episodes, transcripts..."
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelected(0); }}
             onKeyDown={handleKeyDown}
@@ -145,12 +138,10 @@ export function Search() {
         {query.trim() && (
           <div ref={resultsRef} className="overflow-y-auto">
             {results.length === 0 && index && (
-              <p className="px-4 py-3 text-sm text-foreground/40">{content.noResults}</p>
+              <p className="px-4 py-3 text-sm text-foreground/40">No results</p>
             )}
             {!index && (
-              <p className="px-4 py-3 text-sm text-foreground/40">
-                {content.loading}
-              </p>
+              <p className="px-4 py-3 text-sm text-foreground/40">Loading...</p>
             )}
             {results.map((r, i) => (
               <Link

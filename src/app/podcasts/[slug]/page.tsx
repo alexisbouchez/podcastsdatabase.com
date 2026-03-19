@@ -1,6 +1,3 @@
-import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
-import { getLocale } from 'next-intlayer/server';
-import { getMultilingualUrls } from 'intlayer';
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -29,10 +26,7 @@ export async function generateMetadata({
   return {
     title: `${podcast.title} — Podcasts Database`,
     description: podcast.description,
-    alternates: {
-      canonical: `/podcasts/${slug}`,
-      languages: { ...getMultilingualUrls(`/podcasts/${slug}`), "x-default": `/podcasts/${slug}` },
-    },
+    alternates: { canonical: `/podcasts/${slug}` },
     openGraph: {
       title: podcast.title,
       description: podcast.description,
@@ -52,8 +46,12 @@ export async function generateMetadata({
   };
 }
 
-function PodcastContent({ slug }: { slug: string }) {
-  const content = useIntlayer('podcast-detail');
+export default async function PodcastPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
 
@@ -114,11 +112,11 @@ function PodcastContent({ slug }: { slug: string }) {
       </header>
 
       <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-        <dt className="text-foreground/60">{content.language}</dt>
+        <dt className="text-foreground/60">Language</dt>
         <dd>
           <code>{podcast.language}</code>
         </dd>
-        <dt className="text-foreground/60">{content.hosts}</dt>
+        <dt className="text-foreground/60">Hosts</dt>
         <dd>
           {hosts.map((h, i) => (
             <span key={h!.slug}>
@@ -151,13 +149,13 @@ function PodcastContent({ slug }: { slug: string }) {
 
       <section className="mt-6">
         <h2 className="text-lg font-semibold">
-          {content.episodes}
+          Episodes
           <span className="text-foreground font-normal ml-2">
             ({episodes.length})
           </span>
         </h2>
         {episodes.length === 0 ? (
-          <p className="mt-2 text-foreground/60 text-sm">{content.noEpisodesYet}</p>
+          <p className="mt-2 text-foreground/60 text-sm">No episodes yet.</p>
         ) : (
           <ol className="mt-3 space-y-3">
             {episodes.map((ep) => (
@@ -177,20 +175,5 @@ function PodcastContent({ slug }: { slug: string }) {
         )}
       </section>
     </>
-  );
-}
-
-export default async function PodcastPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const locale = await getLocale();
-
-  return (
-    <IntlayerServerProvider locale={locale}>
-      <PodcastContent slug={slug} />
-    </IntlayerServerProvider>
   );
 }

@@ -1,6 +1,3 @@
-import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
-import { getLocale } from 'next-intlayer/server';
-import { getMultilingualUrls } from 'intlayer';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -37,10 +34,7 @@ export async function generateMetadata({
   return {
     title,
     description: episode.description,
-    alternates: {
-      canonical: epPath,
-      languages: { ...getMultilingualUrls(epPath), "x-default": epPath },
-    },
+    alternates: { canonical: epPath },
     openGraph: {
       title,
       description: episode.description,
@@ -60,8 +54,12 @@ export async function generateMetadata({
   };
 }
 
-function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: string }) {
-  const content = useIntlayer('episode-detail');
+export default async function EpisodePage({
+  params,
+}: {
+  params: Promise<{ slug: string; episodeSlug: string }>;
+}) {
+  const { slug, episodeSlug } = await params;
   const podcast = getPodcast(slug);
   if (!podcast) notFound();
   const episode = getEpisode(slug, episodeSlug);
@@ -116,14 +114,14 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
         segments={[
           { label: "Podcasts", href: "/podcasts" },
           { label: podcast.title, href: `/podcasts/${slug}` },
-          { label: content.episodes.value },
+          { label: "Episodes" },
           { label: `#${episode.number}` },
         ]}
       />
 
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
-          {podcast.title} — {content.episode} {episode.number}
+          {podcast.title} — Episode {episode.number}
           {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
@@ -136,7 +134,7 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
 
       {speakers.length > 0 && (
         <dl className="mt-4 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-          <dt className="text-foreground/60">{content.speakers}</dt>
+          <dt className="text-foreground/60">Speakers</dt>
           <dd>
             {speakers.map((s, i) => (
               <span key={s!.slug}>
@@ -147,7 +145,7 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
           </dd>
           {totalDuration > 0 && (
             <>
-              <dt className="text-foreground/60">{content.duration}</dt>
+              <dt className="text-foreground/60">Duration</dt>
               <dd>
                 <time>{formatTime(totalDuration)}</time>
               </dd>
@@ -196,20 +194,5 @@ function EpisodeContent({ slug, episodeSlug }: { slug: string; episodeSlug: stri
         </section>
       )}
     </article>
-  );
-}
-
-export default async function EpisodePage({
-  params,
-}: {
-  params: Promise<{ slug: string; episodeSlug: string }>;
-}) {
-  const { slug, episodeSlug } = await params;
-  const locale = await getLocale();
-
-  return (
-    <IntlayerServerProvider locale={locale}>
-      <EpisodeContent slug={slug} episodeSlug={episodeSlug} />
-    </IntlayerServerProvider>
   );
 }

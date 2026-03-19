@@ -1,6 +1,3 @@
-import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
-import { getLocale } from 'next-intlayer/server';
-import { getIntlayer, getMultilingualUrls } from 'intlayer';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -12,35 +9,23 @@ import {
   getPerson,
 } from "@/src/lib/data";
 
-export async function generateMetadata() {
-  const locale = await getLocale();
-  const content = getIntlayer("podcasts-page", locale);
-  const title = content.podcastsPodcastsDatabase;
-  const description = content.browseAllPodcastsWithFull;
+export const metadata = {
+  title: "Podcasts — Podcasts Database",
+  description: "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+  alternates: { canonical: "/podcasts" },
+  openGraph: {
+    title: "Podcasts — Podcasts Database",
+    description: "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+    url: "https://www.podcastsdatabase.com/podcasts",
+  },
+  twitter: {
+    card: "summary" as const,
+    title: "Podcasts — Podcasts Database",
+    description: "Browse all podcasts with full searchable transcripts on Podcasts Database.",
+  },
+};
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: "/podcasts",
-      languages: { ...getMultilingualUrls("/podcasts"), "x-default": "/podcasts" },
-    },
-    openGraph: {
-      title,
-      description,
-      url: "https://www.podcastsdatabase.com/podcasts",
-    },
-    twitter: {
-      card: "summary" as const,
-      title,
-      description,
-    },
-  };
-}
-
-function PodcastsPageContent() {
-  const content = useIntlayer('podcasts-page');
-
+export default function PodcastsPage() {
   const podcasts = getPodcasts();
 
   const items = podcasts.map((p) => {
@@ -73,8 +58,8 @@ function PodcastsPageContent() {
               {p.description}
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-foreground/50">
-              <span>{episodes.length} {content.episodes}</span>
-              {hosts.length > 0 && <span>{content.hostedByHostnames({ hostNames: hostNames })}</span>}
+              <span>{episodes.length} episodes</span>
+              {hosts.length > 0 && <span>Hosted by {hostNames}</span>}
               <span>{p.language}</span>
             </div>
           </div>
@@ -85,19 +70,9 @@ function PodcastsPageContent() {
 
   return (
     <>
-      <Breadcrumbs segments={[{ label: content.podcasts.value }]} />
-      <h1 className="text-2xl font-semibold mt-6">{content.podcasts}</h1>
-      <ListFilter placeholder={content.searchPodcasts.value} items={items} />
+      <Breadcrumbs segments={[{ label: "Podcasts" }]} />
+      <h1 className="text-2xl font-semibold mt-6">Podcasts</h1>
+      <ListFilter placeholder="Search podcasts..." items={items} />
     </>
-  );
-}
-
-export default async function PodcastsPage() {
-  const locale = await getLocale();
-
-  return (
-    <IntlayerServerProvider locale={locale}>
-      <PodcastsPageContent />
-    </IntlayerServerProvider>
   );
 }

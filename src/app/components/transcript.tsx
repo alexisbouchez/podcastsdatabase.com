@@ -1,8 +1,8 @@
 "use client";
 
-import { useIntlayer } from 'next-intlayer';
 import { useState, useEffect } from "react";
 import { flushSync } from "react-dom";
+
 interface EpisodeSegment {
   start: number;
   end: number;
@@ -27,8 +27,6 @@ export function Transcript({
   segments: EpisodeSegment[];
   speakerMap: Record<string, string>;
 }) {
-  const content = useIntlayer('transcript');
-
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState<number | null>(() => {
     if (typeof window !== "undefined") {
@@ -59,16 +57,16 @@ export function Transcript({
   return (
     <details open>
       <summary className="text-lg font-semibold cursor-pointer">
-        {content.transcript}
+        Transcript
         <span className="text-foreground font-normal ml-2">
-          ({segments.length} {content.segmentsCount})
+          ({segments.length} segments)
         </span>
       </summary>
 
       <search className="mt-4">
         <input
           type="search"
-          placeholder={content.searchTranscript.value}
+          placeholder="Search transcript..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -92,7 +90,7 @@ export function Transcript({
 
       {lower && (
         <p className="mt-2 text-xs text-foreground/40">
-          {filtered.length} {content.filteredOf} {segments.length} {content.segmentsCount}
+          {filtered.length} of {segments.length} segments
         </p>
       )}
 

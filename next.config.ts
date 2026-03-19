@@ -1,8 +1,5 @@
-import { withIntlayer } from "next-intlayer/server";
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig: NextConfig = {};
 
-export default withIntlayer(nextConfig);
+export default nextConfig;

@@ -1,5 +1,3 @@
-import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
-import { getLocale } from 'next-intlayer/server';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "./components/breadcrumbs";
@@ -11,19 +9,16 @@ import {
   getPersonImage,
 } from "@/src/lib/data";
 
-function HomeContent() {
-  const content = useIntlayer('home');
-
+export default function Home() {
   const podcasts = getPodcasts();
   const people = getPeople();
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: content.podcastsDatabase.value,
+    name: "Podcasts Database",
     url: "https://www.podcastsdatabase.com",
-    description:
-      content.everyEpisodeEveryWordSearchable.value,
+    description: "Every episode. Every word. Searchable transcripts from the best podcasts in software, devtools, and startups.",
   };
 
   return (
@@ -33,13 +28,15 @@ function HomeContent() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <Breadcrumbs />
-      <h1 className="text-2xl font-semibold mt-6">{content.podcastsDatabase}</h1>
-      <p className="mt-3 text-sm text-foreground/60 text-pretty leading-relaxed">{content.conversationsDisappearTheGoodOnes}</p>
+      <h1 className="text-2xl font-semibold mt-6">Podcasts Database</h1>
+      <p className="mt-3 text-sm text-foreground/60 text-pretty leading-relaxed">
+        Conversations disappear. The good ones shouldn&apos;t. We transcribe every episode, diarize every speaker, and make every word searchable. No summaries. No AI slop. The actual transcript — who said what, when. Built for the people who&apos;d rather search than scroll.
+      </p>
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold">{content.podcasts}</h2>
-          <Link href="/podcasts" className="text-sm">{content.viewAll}</Link>
+          <h2 className="text-lg font-semibold">Podcasts</h2>
+          <Link href="/podcasts" className="text-sm">View all</Link>
         </div>
         <div className="mt-3 grid gap-3">
           {podcasts.map((p) => {
@@ -69,7 +66,7 @@ function HomeContent() {
                   </p>
                 </div>
                 <span className="ml-auto text-xs text-foreground/40 shrink-0">
-                  {episodeCount} {content.episodeCount}
+                  {episodeCount} ep.
                 </span>
               </Link>
             );
@@ -79,8 +76,8 @@ function HomeContent() {
 
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold">{content.people}</h2>
-          <Link href="/people" className="text-sm">{content.viewAll}</Link>
+          <h2 className="text-lg font-semibold">People</h2>
+          <Link href="/people" className="text-sm">View all</Link>
         </div>
         <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
           {people.map((p) => {
@@ -115,15 +112,5 @@ function HomeContent() {
         </div>
       </section>
     </>
-  );
-}
-
-export default async function Home() {
-  const locale = await getLocale();
-
-  return (
-    <IntlayerServerProvider locale={locale}>
-      <HomeContent />
-    </IntlayerServerProvider>
   );
 }

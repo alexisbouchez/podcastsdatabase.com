@@ -1,6 +1,3 @@
-import { IntlayerServerProvider, useIntlayer } from 'next-intlayer/server';
-import { getLocale } from 'next-intlayer/server';
-import { getIntlayer, getMultilingualUrls } from 'intlayer';
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
@@ -12,39 +9,26 @@ import {
   getEpisodes,
 } from "@/src/lib/data";
 
-export async function generateMetadata() {
-  const locale = await getLocale();
-  const content = getIntlayer("people-page", locale);
-  const title = content.peoplePodcastsDatabase;
-  const description = content.browseAllPodcastHostsAnd;
+export const metadata = {
+  title: "People — Podcasts Database",
+  description: "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+  alternates: { canonical: "/people" },
+  openGraph: {
+    title: "People — Podcasts Database",
+    description: "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+    url: "https://www.podcastsdatabase.com/people",
+  },
+  twitter: {
+    card: "summary" as const,
+    title: "People — Podcasts Database",
+    description: "Browse all podcast hosts and guests on Podcasts Database — episode appearances and full searchable transcripts.",
+  },
+};
 
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: "/people",
-      languages: { ...getMultilingualUrls("/people"), "x-default": "/people" },
-    },
-    openGraph: {
-      title,
-      description,
-      url: "https://www.podcastsdatabase.com/people",
-    },
-    twitter: {
-      card: "summary" as const,
-      title,
-      description,
-    },
-  };
-}
-
-function PeoplePageContent() {
-  const content = useIntlayer('people-page');
-
+export default function PeoplePage() {
   const people = getPeople();
   const podcasts = getPodcasts();
 
-  // Pre-compute episode counts, hosted podcasts, and languages per person
   const episodeCounts = new Map<string, number>();
   const hostOf = new Map<string, string[]>();
   const personLanguages = new Map<string, Set<string>>();
@@ -103,8 +87,8 @@ function PeoplePageContent() {
           <div className="min-w-0">
             <h3 className="font-semibold text-sm">{p.name}</h3>
             <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-foreground/50">
-              {hosted && <span>{content.hostOf}{hosted.join(", ")}</span>}
-              {count > 0 && <span>{count} {content.episodes}</span>}
+              {hosted && <span>Host of {hosted.join(", ")}</span>}
+              {count > 0 && <span>{count} episodes</span>}
               {languages && languages.size > 0 && (
                 <span>{[...languages].sort().join(", ")}</span>
               )}
@@ -117,19 +101,9 @@ function PeoplePageContent() {
 
   return (
     <>
-      <Breadcrumbs segments={[{ label: content.people.value }]} />
-      <h1 className="text-2xl font-semibold mt-6">{content.people}</h1>
-      <ListFilter placeholder={content.searchPeople.value} items={items} />
+      <Breadcrumbs segments={[{ label: "People" }]} />
+      <h1 className="text-2xl font-semibold mt-6">People</h1>
+      <ListFilter placeholder="Search people..." items={items} />
     </>
-  );
-}
-
-export default async function PeoplePage() {
-  const locale = await getLocale();
-
-  return (
-    <IntlayerServerProvider locale={locale}>
-      <PeoplePageContent />
-    </IntlayerServerProvider>
   );
 }
