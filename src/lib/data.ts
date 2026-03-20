@@ -160,6 +160,7 @@ export interface Video {
   youtubeId?: string;
   speaker?: string;
   segments?: EpisodeSegment[];
+  hidden?: boolean;
 }
 
 export function getVideo(channel: string, id: string): Video | null {
