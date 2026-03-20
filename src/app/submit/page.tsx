@@ -166,7 +166,6 @@ function TurnList({
 
 export default function SubmitPage() {
   const [url, setUrl] = useState("");
-  const [numSpeakers, setNumSpeakers] = useState(2);
   const [status, setStatus] = useState<JobStatus>({ kind: "idle" });
 
   // Active job ID to drive polling effect
@@ -233,7 +232,7 @@ export default function SubmitPage() {
       const res = await fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim(), numSpeakers }),
+        body: JSON.stringify({ url: url.trim() }),
       });
 
       const data = await res.json();
@@ -285,29 +284,10 @@ export default function SubmitPage() {
         </div>
 
         <div className="flex items-center gap-4">
-          <div>
-            <label
-              htmlFor="num-speakers"
-              className="block text-xs font-semibold text-foreground/60 mb-1.5"
-            >
-              Speakers
-            </label>
-            <input
-              id="num-speakers"
-              type="number"
-              min={1}
-              max={20}
-              value={numSpeakers}
-              onChange={(e) => setNumSpeakers(Number(e.target.value))}
-              disabled={isRunning}
-              className="w-20 bg-background border border-foreground/20 px-3 py-2 text-sm focus:outline-none focus:border-foreground/60 disabled:opacity-50"
-            />
-          </div>
-
           <button
             type="submit"
             disabled={isRunning || !url.trim()}
-            className="mt-5 px-5 py-2 text-sm font-semibold bg-foreground text-background disabled:opacity-40 hover:opacity-80 transition-opacity"
+            className="px-5 py-2 text-sm font-semibold bg-foreground text-background disabled:opacity-40 hover:opacity-80 transition-opacity"
           >
             {isRunning ? "Running…" : "Diarize"}
           </button>
@@ -316,7 +296,7 @@ export default function SubmitPage() {
             <button
               type="button"
               onClick={() => setStatus({ kind: "idle" })}
-              className="mt-5 px-3 py-2 text-sm text-foreground/50 hover:text-foreground transition-colors"
+              className="px-3 py-2 text-sm text-foreground/50 hover:text-foreground transition-colors"
             >
               Reset
             </button>
