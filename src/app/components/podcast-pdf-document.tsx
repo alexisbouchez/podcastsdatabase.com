@@ -162,24 +162,6 @@ const s = StyleSheet.create({
     lineHeight: 1.5,
     textAlign: "justify",
   },
-  footerRule: {
-    borderTopWidth: 0.5,
-    borderTopColor: "#cccccc",
-    paddingTop: 5,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 8,
-  },
-  footerLeft: {
-    fontFamily: SERIF_ITALIC,
-    fontSize: 8,
-    color: "#999999",
-  },
-  footerRight: {
-    fontFamily: SERIF,
-    fontSize: 8,
-    color: "#999999",
-  },
 });
 
 export function PodcastPdfDocument({ podcast, episode, speakers, segments }: EpisodePdfData) {
@@ -266,15 +248,6 @@ export function PodcastPdfDocument({ podcast, episode, speakers, segments }: Epi
             ))}
           </View>
         ) : null}
-
-        {/* ── Footer (fixed, no absolute positioning) ── */}
-        <View style={s.footerRule} fixed>
-          <Text style={s.footerLeft}>{podcast.title} — {episode.title}</Text>
-          <Text
-            style={s.footerRight}
-            render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`}
-          />
-        </View>
       </Page>
     </Document>
   );
