@@ -56,7 +56,7 @@ export default async function PodcastPage({
   if (!podcast) notFound();
 
   const logo = getPodcastLogo(slug);
-  const episodes = getEpisodes(slug);
+  const episodes = getEpisodes(slug).filter((ep) => !ep.hidden);
   const hosts = podcast.hosts.map((h) => getPerson(h)).filter(Boolean);
 
   const jsonLd = {

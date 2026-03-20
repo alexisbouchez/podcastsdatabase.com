@@ -26,6 +26,7 @@ export interface Episode {
   links: Record<string, string>;
   speakers?: string[];
   segments?: EpisodeSegment[];
+  hidden?: boolean;
 }
 
 export interface Podcast {
