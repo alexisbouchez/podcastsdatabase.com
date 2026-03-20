@@ -57,6 +57,7 @@ export default async function PersonPage({
     slug: string;
     episodeSlug: string;
     episodeId: number;
+    partial: boolean;
     title: string;
   }[] = [];
 
@@ -68,6 +69,7 @@ export default async function PersonPage({
           slug: podcast.slug,
           episodeSlug: ep.slug,
           episodeId: ep.number,
+          partial: podcast.partial ?? false,
           title: ep.title,
         });
       }
@@ -79,6 +81,7 @@ export default async function PersonPage({
             slug: podcast.slug,
             episodeSlug: ep.slug,
             episodeId: ep.number,
+            partial: podcast.partial ?? false,
             title: ep.title,
           });
         }
@@ -174,9 +177,7 @@ export default async function PersonPage({
           <ol className="mt-3 space-y-3">
             {appearances.map((a) => (
               <li key={`${a.slug}-${a.episodeSlug}`}>
-                <span className="text-foreground/60 select-none">
-                  #{a.episodeId}
-                </span>{" "}
+                {!a.partial && <><span className="text-foreground/60 select-none">#{a.episodeId}</span>{" "}</>}
                 <Link href={`/podcasts/${a.slug}/episodes/${a.episodeSlug}`}>
                   {a.title}
                 </Link>

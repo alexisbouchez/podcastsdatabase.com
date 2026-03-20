@@ -30,7 +30,9 @@ export async function generateMetadata({
   if (!podcast || !episode) return {};
   const logo = getPodcastLogo(slug);
   const epPath = `/podcasts/${slug}/episodes/${episodeSlug}`;
-  const title = `#${episode.number} ${episode.title} — ${podcast.title}`;
+  const title = podcast.partial
+    ? `${episode.title} — ${podcast.title}`
+    : `#${episode.number} ${episode.title} — ${podcast.title}`;
   return {
     title,
     description: episode.description,
@@ -86,7 +88,7 @@ export default async function EpisodePage({
     name: episode.title,
     description: episode.description,
     url: `https://www.podcastsdatabase.com${epPath}`,
-    episodeNumber: episode.number,
+    ...(!podcast.partial && { episodeNumber: episode.number }),
     ...(episode.date && { datePublished: episode.date }),
     ...(totalDuration > 0 && {
       duration: `PT${Math.floor(totalDuration / 60)}M${Math.floor(totalDuration % 60)}S`,
@@ -115,13 +117,13 @@ export default async function EpisodePage({
           { label: "Podcasts", href: "/podcasts" },
           { label: podcast.title, href: `/podcasts/${slug}` },
           { label: "Episodes" },
-          { label: `#${episode.number}` },
+          { label: podcast.partial ? episode.title : `#${episode.number}` },
         ]}
       />
 
       <header className="mt-6">
         <p className="text-sm text-foreground/60">
-          {podcast.title} — Episode {episode.number}
+          {podcast.title}{!podcast.partial && <> — Episode {episode.number}</>}
           {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
         <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
