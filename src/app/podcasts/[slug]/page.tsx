@@ -160,7 +160,7 @@ export default async function PodcastPage({
           <ol className="mt-3 space-y-3">
             {episodes.map((ep) => (
               <li key={ep.id}>
-                <span className="text-foreground/60 select-none">#{ep.number}</span>{" "}
+                {!podcast.partial && <span className="text-foreground/60 select-none">#{ep.number}</span>}{" "}
                 <Link href={`/podcasts/${slug}/episodes/${ep.slug}`}>
                   {ep.title}
                 </Link>

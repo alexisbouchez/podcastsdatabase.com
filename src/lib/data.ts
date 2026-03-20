@@ -36,6 +36,7 @@ export interface Podcast {
   language: string;
   hosts: string[];
   links: Record<string, string>;
+  partial?: boolean;
 }
 
 export function getPeople(): Person[] {

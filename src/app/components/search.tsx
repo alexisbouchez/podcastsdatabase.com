@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface SearchEntry {
   type: "podcast" | "person" | "episode" | "transcript";
@@ -18,6 +19,7 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 export function Search() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [index, setIndex] = useState<SearchEntry[] | null>(null);
@@ -86,6 +88,7 @@ export function Search() {
       } else if (e.key === "Enter" && results[selected]) {
         setOpen(false);
         setQuery("");
+        router.push(results[selected].url);
       }
     },
     [results, selected],
