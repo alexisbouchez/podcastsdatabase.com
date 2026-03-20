@@ -127,32 +127,7 @@ export default async function EpisodePage({
           {podcast.title}{!podcast.partial && <> — Episode {episode.number}</>}
           {episode.date && <> — <time dateTime={episode.date}>{episode.date}</time></>}
         </p>
-        <div className="flex items-start justify-between gap-4 mt-1">
-          <h1 className="text-2xl font-semibold">{episode.title}</h1>
-          {episode.segments && episode.segments.length > 0 && (
-            <PodcastPdfButton
-              data={{
-                podcast: {
-                  title: podcast.title,
-                  slug: slug,
-                  partial: podcast.partial,
-                },
-                episode: {
-                  number: episode.number,
-                  title: episode.title,
-                  date: episode.date,
-                  description: episode.description,
-                  links: episode.links,
-                },
-                speakers: speakers.filter(Boolean).map((s) => ({
-                  slug: s!.slug,
-                  name: s!.name,
-                })),
-                segments: episode.segments,
-              }}
-            />
-          )}
-        </div>
+        <h1 className="text-2xl font-semibold mt-1">{episode.title}</h1>
         {episode.description && (
           <p className="mt-2 text-sm text-foreground/60 whitespace-pre-line text-pretty">
             {episode.description}
@@ -218,7 +193,33 @@ export default async function EpisodePage({
 
       {episode.segments && episode.segments.length > 0 && (
         <section className="mt-10">
-          <Transcript segments={episode.segments} speakerMap={speakerMap} />
+          <Transcript
+            segments={episode.segments}
+            speakerMap={speakerMap}
+            exportButton={
+              <PodcastPdfButton
+                data={{
+                  podcast: {
+                    title: podcast.title,
+                    slug: slug,
+                    partial: podcast.partial,
+                  },
+                  episode: {
+                    number: episode.number,
+                    title: episode.title,
+                    date: episode.date,
+                    description: episode.description,
+                    links: episode.links,
+                  },
+                  speakers: speakers.filter(Boolean).map((s) => ({
+                    slug: s!.slug,
+                    name: s!.name,
+                  })),
+                  segments: episode.segments,
+                }}
+              />
+            }
+          />
         </section>
       )}
     </article>

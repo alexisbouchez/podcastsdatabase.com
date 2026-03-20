@@ -23,9 +23,11 @@ function segmentId(index: number): string {
 export function Transcript({
   segments,
   speakerMap,
+  exportButton,
 }: {
   segments: EpisodeSegment[];
   speakerMap: Record<string, string>;
+  exportButton?: React.ReactNode;
 }) {
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState<number | null>(() => {
@@ -56,11 +58,17 @@ export function Transcript({
 
   return (
     <details open>
-      <summary className="text-lg font-semibold cursor-pointer">
-        Transcript
-        <span className="text-foreground font-normal ml-2">
-          ({segments.length} segments)
+      <summary className="flex items-center justify-between cursor-pointer">
+        <span className="text-lg font-semibold">
+          Transcript
+          <span className="text-foreground font-normal ml-2">
+            ({segments.length} segments)
+          </span>
         </span>
+        {exportButton && (
+          // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+          <span onClick={(e) => e.stopPropagation()}>{exportButton}</span>
+        )}
       </summary>
 
       <search className="mt-4">
