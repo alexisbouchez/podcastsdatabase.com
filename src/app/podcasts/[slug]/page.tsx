@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/src/app/components/breadcrumbs";
+import { PodcastPdfButton } from "@/src/app/components/podcast-pdf-button";
 import {
   getPodcasts,
   getPodcast,
@@ -103,8 +104,32 @@ export default async function PodcastPage({
             className="rounded shrink-0"
           />
         )}
-        <div>
-          <h1 className="text-2xl font-semibold">{podcast.title}</h1>
+        <div className="flex-1">
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-2xl font-semibold">{podcast.title}</h1>
+            <PodcastPdfButton
+              data={{
+                podcast: {
+                  title: podcast.title,
+                  description: podcast.description,
+                  language: podcast.language,
+                  links: podcast.links,
+                  partial: podcast.partial,
+                },
+                hosts: hosts.filter(Boolean).map((h) => ({
+                  name: h!.name,
+                  slug: h!.slug,
+                })),
+                episodes: episodes.map((ep) => ({
+                  id: ep.id,
+                  number: ep.number,
+                  title: ep.title,
+                  date: ep.date,
+                  description: ep.description,
+                })),
+              }}
+            />
+          </div>
           <p className="mt-2 text-foreground/60 text-pretty">
             {podcast.description}
           </p>
