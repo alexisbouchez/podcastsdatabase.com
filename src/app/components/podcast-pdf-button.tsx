@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Loader2 } from "lucide-react";
+import { FileText, Loader2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { EpisodePdfData } from "./podcast-pdf-document";
 
+type State = "idle" | "loading" | "error";
+
 export function PodcastPdfButton({ data }: { data: EpisodePdfData }) {
-  const [loading, setLoading] = useState(false);
+  const [state, setState] = useState<State>("idle");
 
   const handleExport = async () => {
-    setLoading(true);
+    setState("loading");
     try {
       const [{ pdf }, { PodcastPdfDocument }] = await Promise.all([
         import("@react-pdf/renderer"),
@@ -31,21 +33,26 @@ export function PodcastPdfButton({ data }: { data: EpisodePdfData }) {
       a.download = `${data.episode.title}.pdf`;
       a.click();
       URL.revokeObjectURL(url);
-    } finally {
-      setLoading(false);
+      setState("idle");
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+      setState("error");
+      setTimeout(() => setState("idle"), 3000);
     }
   };
 
   return (
     <Button
-      variant="outline"
+      variant={state === "error" ? "destructive" : "outline"}
       size="sm"
-      onClick={handleExport}
-      disabled={loading}
+      onClick={state === "loading" ? undefined : handleExport}
+      disabled={state === "loading"}
       className="cursor-pointer shrink-0"
     >
-      {loading ? <Loader2 className="animate-spin" /> : <FileText />}
-      {loading ? "Generating…" : "Export transcript to PDF"}
+      {state === "loading" && <Loader2 className="animate-spin" />}
+      {state === "error" && <AlertCircle />}
+      {state === "idle" && <FileText />}
+      {state === "loading" ? "Generating…" : state === "error" ? "Failed — retry?" : "Export transcript to PDF"}
     </Button>
   );
 }
