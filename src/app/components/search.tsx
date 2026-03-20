@@ -91,7 +91,7 @@ export function Search() {
         router.push(results[selected].url);
       }
     },
-    [results, selected],
+    [results, selected, router],
   );
 
   useEffect(() => {

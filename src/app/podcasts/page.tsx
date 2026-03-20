@@ -26,7 +26,7 @@ export const metadata = {
 };
 
 export default function PodcastsPage() {
-  const podcasts = getPodcasts();
+  const podcasts = getPodcasts().filter((p) => !p.hidden);
 
   const items = podcasts.map((p) => {
     const logo = getPodcastLogo(p.slug);

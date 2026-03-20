@@ -10,7 +10,7 @@ import {
 } from "@/src/lib/data";
 
 export default function Home() {
-  const podcasts = getPodcasts();
+  const podcasts = getPodcasts().filter((p) => !p.hidden);
   const people = getPeople();
 
   const websiteJsonLd = {
