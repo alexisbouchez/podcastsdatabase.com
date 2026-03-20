@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { PodcastPdfData } from "./podcast-pdf-document";
+import type { EpisodePdfData } from "./podcast-pdf-document";
 
-export function PodcastPdfButton({ data }: { data: PodcastPdfData }) {
+export function PodcastPdfButton({ data }: { data: EpisodePdfData }) {
   const [loading, setLoading] = useState(false);
 
   const handleExport = async () => {
@@ -19,15 +19,16 @@ export function PodcastPdfButton({ data }: { data: PodcastPdfData }) {
       const blob = await pdf(
         <PodcastPdfDocument
           podcast={data.podcast}
-          hosts={data.hosts}
-          episodes={data.episodes}
+          episode={data.episode}
+          speakers={data.speakers}
+          segments={data.segments}
         />
       ).toBlob();
 
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${data.podcast.title}.pdf`;
+      a.download = `${data.episode.title}.pdf`;
       a.click();
       URL.revokeObjectURL(url);
     } finally {
