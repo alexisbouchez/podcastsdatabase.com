@@ -236,7 +236,7 @@ export function PodcastPdfDocument({ podcast, episode, speakers, segments }: Epi
           <View style={s.sectionWrapper}>
             <Text style={s.sectionHeading}>Transcript</Text>
             {segments.map((seg, i) => (
-              <View key={i} style={s.segment} wrap={false}>
+              <View key={i} style={s.segment}>
                 <Text style={s.segmentTimestamp}>{fmtTime(seg.start)}</Text>
                 <View style={s.segmentBody}>
                   <Text style={s.segmentSpeaker}>
