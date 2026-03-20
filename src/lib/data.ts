@@ -152,6 +152,44 @@ export function getPersonLanguages(slug: string): string[] {
   return [...languages].sort();
 }
 
+export interface Video {
+  id: string;
+  title: string;
+  date?: string;
+  description?: string;
+  youtubeId?: string;
+  speaker?: string;
+  segments?: EpisodeSegment[];
+}
+
+export function getVideo(channel: string, id: string): Video | null {
+  const file = path.join(DATA_DIR, "videos", "youtube", channel, `${id}.json`);
+  if (!fs.existsSync(file)) return null;
+  const data = JSON.parse(fs.readFileSync(file, "utf-8"));
+  return { id, ...data };
+}
+
+export function getYoutubeChannels(): string[] {
+  const dir = path.join(DATA_DIR, "videos", "youtube");
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir).filter((f) =>
+    fs.statSync(path.join(dir, f)).isDirectory(),
+  );
+}
+
+export function getChannelVideos(channel: string): Video[] {
+  const dir = path.join(DATA_DIR, "videos", "youtube", channel);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .map((f) => {
+      const id = f.replace(".json", "");
+      const data = JSON.parse(fs.readFileSync(path.join(dir, f), "utf-8"));
+      return { id, ...data };
+    });
+}
+
 export function formatTime(seconds: number): string {
   const m = Math.floor(seconds / 60);
   const s = Math.floor(seconds % 60);
