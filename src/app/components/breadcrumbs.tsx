@@ -32,7 +32,7 @@ export function Breadcrumbs({ segments }: { segments?: BreadcrumbSegment[] }) {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="text-sm">
+    <nav aria-label="Breadcrumb" className="text-sm mt-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
