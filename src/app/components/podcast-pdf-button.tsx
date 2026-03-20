@@ -45,7 +45,7 @@ export function PodcastPdfButton({ data }: { data: EpisodePdfData }) {
       className="cursor-pointer shrink-0"
     >
       {loading ? <Loader2 className="animate-spin" /> : <FileText />}
-      {loading ? "Generating…" : "Export to PDF"}
+      {loading ? "Generating…" : "Export transcript to PDF"}
     </Button>
   );
 }

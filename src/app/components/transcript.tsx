@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 import { flushSync } from "react-dom";
 
 interface EpisodeSegment {
@@ -58,10 +59,11 @@ export function Transcript({
 
   return (
     <details open>
-      <summary className="flex items-center justify-between cursor-pointer">
-        <span className="text-lg font-semibold">
+      <summary className="flex items-center justify-between cursor-pointer [&::-webkit-details-marker]:hidden list-none">
+        <span className="flex items-center gap-2 text-lg font-semibold">
+          <ChevronDown className="size-5 transition-transform [[open]_&]:-rotate-180 shrink-0" />
           Transcript
-          <span className="text-foreground font-normal ml-2">
+          <span className="text-foreground font-normal">
             ({segments.length} segments)
           </span>
         </span>
