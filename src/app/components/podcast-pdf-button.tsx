@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText } from "lucide-react";
+import { FileText, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { EpisodePdfData } from "./podcast-pdf-document";
 
@@ -37,8 +37,14 @@ export function PodcastPdfButton({ data }: { data: EpisodePdfData }) {
   };
 
   return (
-    <Button variant="outline" size="sm" onClick={handleExport} disabled={loading}>
-      <FileText />
+    <Button
+      variant="outline"
+      size="sm"
+      onClick={handleExport}
+      disabled={loading}
+      className="cursor-pointer shrink-0"
+    >
+      {loading ? <Loader2 className="animate-spin" /> : <FileText />}
       {loading ? "Generating…" : "Export to PDF"}
     </Button>
   );

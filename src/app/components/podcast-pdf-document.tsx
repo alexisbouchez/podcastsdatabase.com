@@ -41,7 +41,7 @@ const s = StyleSheet.create({
     lineHeight: 1.45,
     color: "#111111",
     paddingTop: 72,
-    paddingBottom: 80,
+    paddingBottom: 72,
     paddingHorizontal: 72,
   },
   siteHeader: {
@@ -56,6 +56,12 @@ const s = StyleSheet.create({
   ruleHeavy: {
     borderBottomWidth: 1.5,
     borderBottomColor: "#111111",
+    marginBottom: 20,
+  },
+  ruleHeavyTopSpaced: {
+    borderBottomWidth: 1.5,
+    borderBottomColor: "#111111",
+    marginTop: 16,
     marginBottom: 20,
   },
   ruleThin: {
@@ -126,7 +132,6 @@ const s = StyleSheet.create({
     letterSpacing: 0.2,
     marginBottom: 10,
   },
-  // ── Transcript segments ───────────────────────────────────────────────────
   segment: {
     flexDirection: "row",
     marginBottom: 9,
@@ -157,16 +162,13 @@ const s = StyleSheet.create({
     lineHeight: 1.5,
     textAlign: "justify",
   },
-  footer: {
-    position: "absolute",
-    bottom: 36,
-    left: 72,
-    right: 72,
-    flexDirection: "row",
-    justifyContent: "space-between",
+  footerRule: {
     borderTopWidth: 0.5,
     borderTopColor: "#cccccc",
     paddingTop: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 8,
   },
   footerLeft: {
     fontFamily: SERIF_ITALIC,
@@ -184,15 +186,12 @@ export function PodcastPdfDocument({ podcast, episode, speakers, segments }: Epi
   const speakerMap = Object.fromEntries(speakers.map((sp) => [sp.slug, sp.name]));
   const speakerNames = speakers.map((sp) => sp.name).join(", ");
   const linkEntries = Object.entries(episode.links);
-  const episodeLabel = podcast.partial
-    ? episode.title
-    : `Episode ${episode.number} — ${episode.title}`;
 
   return (
     <Document
       title={episode.title}
       author="podcastsdatabase.com"
-      subject={`Transcript — ${episodeLabel}`}
+      subject={`Transcript — ${episode.title}`}
       creator="podcastsdatabase.com"
     >
       <Page size="LETTER" style={s.page}>
@@ -248,14 +247,14 @@ export function PodcastPdfDocument({ podcast, episode, speakers, segments }: Epi
           </View>
         )}
 
-        <View style={{ ...s.ruleHeavy, marginTop: 16 }} />
+        <View style={s.ruleHeavyTopSpaced} />
 
         {/* ── Transcript ── */}
         {segments.length > 0 ? (
           <View style={s.sectionWrapper}>
             <Text style={s.sectionHeading}>Transcript</Text>
             {segments.map((seg, i) => (
-              <View key={i} style={s.segment}>
+              <View key={i} style={s.segment} wrap={false}>
                 <Text style={s.segmentTimestamp}>{fmtTime(seg.start)}</Text>
                 <View style={s.segmentBody}>
                   <Text style={s.segmentSpeaker}>
@@ -266,16 +265,10 @@ export function PodcastPdfDocument({ podcast, episode, speakers, segments }: Epi
               </View>
             ))}
           </View>
-        ) : (
-          <View style={s.sectionWrapper}>
-            <Text style={{ ...s.abstract, textAlign: "center" }}>
-              No transcript available for this episode.
-            </Text>
-          </View>
-        )}
+        ) : null}
 
-        {/* ── Fixed footer ── */}
-        <View style={s.footer} fixed>
+        {/* ── Footer (fixed, no absolute positioning) ── */}
+        <View style={s.footerRule} fixed>
           <Text style={s.footerLeft}>{podcast.title} — {episode.title}</Text>
           <Text
             style={s.footerRight}
