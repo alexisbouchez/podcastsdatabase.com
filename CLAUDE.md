@@ -41,6 +41,11 @@ Hosts and speakers reference people by slug. Episodes reference speakers by slug
 - `scripts/download-logo.ts` — run with `bun run scripts/download-logo.ts <apple-podcasts-url> <podcast-slug>`. Downloads the podcast artwork from Apple Podcasts to `public/podcasts/<slug>/logo.jpg`.
 - `scripts/transcribe-remote.ts` — run with `bun run scripts/transcribe-remote.ts <audio_file> [-m model] [-l language] [-n num_speakers] [-o output_dir]`. Uploads audio to the VPS pipeline (`internal.podcastsdatabase.com`), polls until transcription + diarization completes, downloads the result. Requires `PIPELINE_URL` and `PIPELINE_PASSWORD` in `.env.local`.
 - `scripts/transcribe-fly.ts` — run with `bun run scripts/transcribe-fly.ts <url> [url2 ...] [-n num_speakers] [-o output_dir] [--max-concurrent 3]`. Spins up ephemeral Fly.io machines that download audio via yt-dlp, transcribe with faster-whisper, diarize with pyannote, and return merged results. Supports parallel processing. Requires `FLY_API_TOKEN` and `PYANNOTE_API_KEY` in `.env.local`. Docker image in `fly/`.
+- `scripts/find-podcast.ts` — run with `bun run scripts/find-podcast.ts <query> [-l language] [-n limit] [--apple <itunesId>] [--init <slug>]`. Searches the local Podcast Index database (`.cache/podcastindex.db`, ~4.6M podcasts) to find a podcast's RSS feed URL, Apple ID, episode count, and metadata. `--init <slug>` scaffolds a `src/data/podcasts/<slug>/info.json`. Requires the DB to be downloaded first (see below).
+
+### Podcast Index database
+
+`.cache/podcastindex.db` — local copy of the Podcast Index database (~4.6GB SQLite, gitignored). Contains ~4.6M podcast feeds with RSS URLs, Apple IDs, languages, categories, episode counts. Used by `scripts/find-podcast.ts`. To refresh: download from `https://public.podcastindex.org/podcastindex_feeds.db.tgz` and extract to `.cache/podcastindex.db`.
 
 ### Utilities
 
