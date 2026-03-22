@@ -1,6 +1,11 @@
 /**
- * Full transcription + diarization using pyannote.ai's /v1/transcribe endpoint.
- * Usage: bun run scripts/transcribe-pyannote.ts <audio_url_or_file> [-n num_speakers] [-l language] [-o output_dir]
+ * Full transcription + diarization using pyannote.ai's /v1/diarize endpoint
+ * with transcription: true (STT Orchestration).
+ * Usage: bun run scripts/transcribe-pyannote.ts <audio_url_or_file> [-n num_speakers] [-m model] [-o output_dir]
+ *
+ * Transcription models:
+ *   parakeet-tdt-0.6b-v3          — default, English only
+ *   faster-whisper-large-v3-turbo  — 99+ languages, use for non-English
  */
 import { parseArgs } from "util";
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
@@ -30,7 +35,7 @@ const { values, positionals } = parseArgs({
   args: process.argv.slice(2),
   options: {
     "num-speakers": { type: "string", short: "n" },
-    language: { type: "string", short: "l" },
+    model: { type: "string", short: "m", default: "parakeet-tdt-0.6b-v3" },
     "output-dir": { type: "string", short: "o" },
     "poll-interval": { type: "string", default: "10" },
   },
@@ -39,14 +44,14 @@ const { values, positionals } = parseArgs({
 
 if (positionals.length < 1) {
   console.error(
-    "Usage: bun run scripts/transcribe-pyannote.ts <audio_url_or_file> [-n num_speakers] [-l language] [-o output_dir]",
+    "Usage: bun run scripts/transcribe-pyannote.ts <audio_url_or_file> [-n num_speakers] [-m transcription_model] [-o output_dir]",
   );
   process.exit(1);
 }
 
 const audioInput = positionals[0];
 const numSpeakers = values["num-speakers"] ? parseInt(values["num-speakers"]) : undefined;
-const language = values["language"];
+const transcriptionModel = values["model"]!;
 const pollInterval = parseInt(values["poll-interval"]!) * 1000;
 const outputDir = values["output-dir"] ? resolve(values["output-dir"]) : process.cwd();
 mkdirSync(outputDir, { recursive: true });
@@ -90,20 +95,24 @@ async function resolveAudioUrl(input: string): Promise<string> {
 }
 
 // ---------------------------------------------------------------------------
-// Submit transcription job
+// Submit diarization + transcription job
 // ---------------------------------------------------------------------------
 
-async function submitTranscription(audioUrl: string): Promise<string> {
-  const payload: Record<string, unknown> = { url: audioUrl };
+async function submitJob(audioUrl: string): Promise<string> {
+  const payload: Record<string, unknown> = {
+    url: audioUrl,
+    model: "precision-2",
+    transcription: true,
+    transcriptionConfig: { model: transcriptionModel },
+  };
   if (numSpeakers) payload.numSpeakers = numSpeakers;
-  if (language) payload.language = language;
 
-  console.log(`Submitting transcription job to pyannote.ai...`);
+  console.log(`Submitting diarization + transcription job to pyannote.ai...`);
   console.log(`  URL: ${audioUrl}`);
+  console.log(`  Transcription model: ${transcriptionModel}`);
   if (numSpeakers) console.log(`  Speakers: ${numSpeakers}`);
-  if (language) console.log(`  Language: ${language}`);
 
-  const resp = await fetch(`${API_BASE}/transcribe`, {
+  const resp = await fetch(`${API_BASE}/diarize`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
@@ -162,26 +171,11 @@ async function pollJob(jobId: string): Promise<Record<string, unknown>> {
 // ---------------------------------------------------------------------------
 
 const audioUrl = await resolveAudioUrl(audioInput);
-const jobId = await submitTranscription(audioUrl);
+const jobId = await submitJob(audioUrl);
 const result = await pollJob(jobId);
 
 console.log("\nJob succeeded. Processing output...");
 
-// pyannote's /v1/transcribe returns output with `transcription` array
-// Each item: { start, end, speaker, text }
-const output = result.output as Record<string, unknown>;
-console.log("Output keys:", Object.keys(output));
-
-// The transcription field contains speaker-attributed segments
-const transcription = (output.transcription ?? output.segments ?? []) as Array<{
-  start: number;
-  end: number;
-  speaker?: string;
-  text?: string;
-  words?: Array<{ start: number; end: number; text: string; speaker?: string }>;
-}>;
-
-// Normalize to our segment format
 interface DiarizedSegment {
   start: number;
   end: number;
@@ -189,26 +183,33 @@ interface DiarizedSegment {
   text: string;
 }
 
-let segments: DiarizedSegment[];
+const output = result.output as Record<string, unknown>;
+console.log("Output keys:", Object.keys(output));
 
-if (transcription.length > 0 && "text" in transcription[0]) {
-  // Already has text per segment
-  segments = transcription.map((s) => ({
-    start: s.start,
-    end: s.end,
-    speaker: s.speaker ?? "UNKNOWN",
-    text: (s.text ?? "").trim(),
-  }));
-} else {
-  // May need to reconstruct from words
-  console.log("Unexpected output format, saving raw output for inspection.");
+// Use turnLevelTranscription — one entry per speaker turn with full text
+const turns = (output.turnLevelTranscription ?? []) as Array<{
+  start: number;
+  end: number;
+  speaker: string;
+  text: string;
+}>;
+
+if (turns.length === 0) {
+  console.log("No turnLevelTranscription found. Saving raw output for inspection.");
   const rawPath = resolve(outputDir, "pyannote_raw_output.json");
   writeFileSync(rawPath, JSON.stringify(result, null, 2));
   console.log(`Raw output saved to: ${rawPath}`);
   process.exit(0);
 }
 
-// Merge consecutive same-speaker segments
+const segments: DiarizedSegment[] = turns.map((t) => ({
+  start: t.start,
+  end: t.end,
+  speaker: t.speaker ?? "UNKNOWN",
+  text: (t.text ?? "").trim(),
+}));
+
+// Merge consecutive same-speaker segments (gap < 1s)
 const merged: DiarizedSegment[] = [];
 for (const seg of segments) {
   const prev = merged[merged.length - 1];
@@ -232,7 +233,7 @@ const txt = merged
 writeFileSync(txtPath, txt + "\n");
 console.log(`Readable text: ${txtPath}`);
 
-// Also save the raw result for reference
+// Save raw result for reference
 const rawPath = resolve(outputDir, `${stem}_pyannote_raw.json`);
 writeFileSync(rawPath, JSON.stringify(result, null, 2));
 console.log(`Raw pyannote output: ${rawPath}`);
